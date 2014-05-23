@@ -1,0 +1,1310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
+		9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
+		9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
+		9A6F53F21910069F00F35FED /* DebugInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */; };
+		9A6F53F31910069F00F35FED /* DebugInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */; };
+		9A6F53F41910069F00F35FED /* DebugInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */; };
+		9A6F53F51910069F00F35FED /* DebugInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */; };
+		9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
+		9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
+		9A6F53FA1910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
+		9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
+		9A9701CB19083B10007C3C19 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
+		9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
+		9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
+		9A9701CE19083B10007C3C19 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
+		9A9701CF19083B19007C3C19 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
+		9A9701D019083B19007C3C19 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
+		9A9701D119083B19007C3C19 /* jsonReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580818D9EC440028B80C /* jsonReader.mm */; };
+		9A9701D219083B19007C3C19 /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
+		9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
+		9A9701D519083B19007C3C19 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
+		9A9701D619083B26007C3C19 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
+		9A9701D719083B26007C3C19 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
+		9A9701D819083B26007C3C19 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
+		9A9701D919083B26007C3C19 /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
+		9A9701DA19083B26007C3C19 /* DesktopViewController+CompassAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */; };
+		9A9701DB19083B26007C3C19 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
+		9A9701DC19083BCF007C3C19 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
+		9A9701DD19083C9B007C3C19 /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
+		9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A9701E119083E8C007C3C19 /* smartWatch.xib */; };
+		9A9701E319083EB9007C3C19 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E518D9EBB20028B80C /* MainMenu.xib */; };
+		9A9701E619085002007C3C19 /* watchNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9701E519085002007C3C19 /* watchNSView.m */; };
+		9A9701E8190851A3007C3C19 /* smartWatch.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A9701E7190851A3007C3C19 /* smartWatch.tif */; };
+		9AA7890A1909FE3000A26C66 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
+		9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
+		9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
+		9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
+		9AA7890E1909FE3000A26C66 /* jsonReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580818D9EC440028B80C /* jsonReader.mm */; };
+		9AA7890F1909FE3000A26C66 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
+		9AA789101909FE3000A26C66 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
+		9AA789111909FE3000A26C66 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
+		9AA789121909FE3000A26C66 /* DesktopViewController+CompassAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */; };
+		9AA789131909FE3000A26C66 /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
+		9AA789141909FE3000A26C66 /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
+		9AA789151909FE3000A26C66 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
+		9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
+		9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
+		9AA789191909FE3000A26C66 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
+		9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
+		9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
+		9AA7891D1909FE3000A26C66 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582518D9EC9F0028B80C /* GLUT.framework */; };
+		9AA7891E1909FE3000A26C66 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
+		9AA7891F1909FE3000A26C66 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582118D9EC8F0028B80C /* CoreLocation.framework */; };
+		9AA789201909FE3000A26C66 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA581F18D9EC890028B80C /* OpenGL.framework */; };
+		9AA789211909FE3000A26C66 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */; };
+		9AA789221909FE3000A26C66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
+		9AA789251909FE3000A26C66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
+		9AA789261909FE3000A26C66 /* moto360_bikemap.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */; };
+		9AA789271909FE3000A26C66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E818D9EBB20028B80C /* Images.xcassets */; };
+		9AA789281909FE3000A26C66 /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
+		9AA789291909FE3000A26C66 /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
+		9AA7892A1909FE3000A26C66 /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B818DC8E95005823A2 /* montreal.kml */; };
+		9AA7892D1909FE3000A26C66 /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
+		9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AF29F2818F4C90000A28AC3 /* moto360_wrist.jpg */; };
+		9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57DF18D9EBB20028B80C /* Credits.rtf */; };
+		9AA789301909FE3000A26C66 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA581C18D9EC680028B80C /* README.txt */; };
+		9AA789371909FE5A00A26C66 /* browser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA789361909FE5A00A26C66 /* browser.xib */; };
+		9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
+		9AB6E8DB1906C9B000E28DE9 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
+		9ACCED0018EF5425006E9CA4 /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
+		9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
+		9AE093D118ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
+		9AEA57D118D9EBB20028B80C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
+		9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
+		9AEA57DD18D9EBB20028B80C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
+		9AEA57E118D9EBB20028B80C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57DF18D9EBB20028B80C /* Credits.rtf */; };
+		9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
+		9AEA57E918D9EBB20028B80C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E818D9EBB20028B80C /* Images.xcassets */; };
+		9AEA57F018D9EBB20028B80C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57EF18D9EBB20028B80C /* XCTest.framework */; };
+		9AEA57F118D9EBB20028B80C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
+		9AEA57F918D9EBB20028B80C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57F718D9EBB20028B80C /* InfoPlist.strings */; };
+		9AEA57FB18D9EBB20028B80C /* Compass_transparent_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57FA18D9EBB20028B80C /* Compass_transparent_Tests.m */; };
+		9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
+		9AEA580D18D9EC440028B80C /* jsonReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580818D9EC440028B80C /* jsonReader.mm */; };
+		9AEA581D18D9EC680028B80C /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA581C18D9EC680028B80C /* README.txt */; };
+		9AEA581E18D9EC7E0028B80C /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */; };
+		9AEA582018D9EC890028B80C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA581F18D9EC890028B80C /* OpenGL.framework */; };
+		9AEA582218D9EC8F0028B80C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582118D9EC8F0028B80C /* CoreLocation.framework */; };
+		9AEA582418D9EC940028B80C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
+		9AEA582618D9EC9F0028B80C /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582518D9EC9F0028B80C /* GLUT.framework */; };
+		9AEA582918D9ED350028B80C /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
+		9AEA582C18D9ED600028B80C /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
+		9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
+		9AEC5CE518F3956F00A29F75 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582518D9EC9F0028B80C /* GLUT.framework */; };
+		9AEC5CE618F3956F00A29F75 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
+		9AEC5CE718F3956F00A29F75 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582118D9EC8F0028B80C /* CoreLocation.framework */; };
+		9AEC5CE818F3956F00A29F75 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA581F18D9EC890028B80C /* OpenGL.framework */; };
+		9AEC5CE918F3956F00A29F75 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */; };
+		9AEC5CEA18F3956F00A29F75 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
+		9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
+		9AEC5CED18F3956F00A29F75 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E818D9EBB20028B80C /* Images.xcassets */; };
+		9AEC5CEE18F3956F00A29F75 /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
+		9AEC5CEF18F3956F00A29F75 /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B818DC8E95005823A2 /* montreal.kml */; };
+		9AEC5CF218F3956F00A29F75 /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
+		9AEC5CF318F3956F00A29F75 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57DF18D9EBB20028B80C /* Credits.rtf */; };
+		9AEC5CF418F3956F00A29F75 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA581C18D9EC680028B80C /* README.txt */; };
+		9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */; };
+		9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
+		9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
+		9AEECFF81910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
+		9AEECFF91910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
+		9AF01B7318ECE5FC0029A860 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
+		9AF089FD1921390700E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
+		9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
+		9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
+		9AF29F2918F4C90000A28AC3 /* moto360_bikemap.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */; };
+		9AF29F2A18F4C90000A28AC3 /* moto360_wrist.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AF29F2818F4C90000A28AC3 /* moto360_wrist.jpg */; };
+		9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
+		9AF523BB18DC8E95005823A2 /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
+		9AF523BC18DC8E95005823A2 /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B818DC8E95005823A2 /* montreal.kml */; };
+		9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */; };
+		9AF7EB2E190175F900983C2F /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
+		9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
+		9AFB149D18EE639A00063632 /* jsonReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580818D9EC440028B80C /* jsonReader.mm */; };
+		9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
+		9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
+		9AFB14A018EE639A00063632 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
+		9AFB14A118EE639A00063632 /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
+		9AFB14A218EE639A00063632 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
+		9AFB14A318EE639A00063632 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
+		9AFB14A418EE639A00063632 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
+		9AFB14A518EE639A00063632 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
+		9AFB14A618EE639A00063632 /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
+		9AFB14A718EE639A00063632 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
+		9AFB14A918EE639A00063632 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582518D9EC9F0028B80C /* GLUT.framework */; };
+		9AFB14AA18EE639A00063632 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
+		9AFB14AB18EE639A00063632 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582118D9EC8F0028B80C /* CoreLocation.framework */; };
+		9AFB14AC18EE639A00063632 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA581F18D9EC890028B80C /* OpenGL.framework */; };
+		9AFB14AD18EE639A00063632 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */; };
+		9AFB14AE18EE639A00063632 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
+		9AFB14B018EE639A00063632 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
+		9AFB14B118EE639A00063632 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E818D9EBB20028B80C /* Images.xcassets */; };
+		9AFB14B218EE639A00063632 /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B818DC8E95005823A2 /* montreal.kml */; };
+		9AFB14B518EE639A00063632 /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
+		9AFB14B618EE639A00063632 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57DF18D9EBB20028B80C /* Credits.rtf */; };
+		9AFB14B718EE639A00063632 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA581C18D9EC680028B80C /* README.txt */; };
+		9AFB14BF18EE655F00063632 /* tabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5F3FC518EE606200953336 /* tabView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9AEA57F218D9EBB20028B80C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AEA57C518D9EBB20028B80C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AEA57CC18D9EBB20028B80C;
+			remoteInfo = "Compass[transparent]";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
+		9A28368A1900C0850041D22E /* readConfiguration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = readConfiguration.mm; sourceTree = "<group>"; };
+		9A5F3FBF18EE5A5000953336 /* Compass[transparent] copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compass[transparent] copy.entitlements"; sourceTree = "<group>"; };
+		9A5F3FC518EE606200953336 /* tabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = tabView.xib; path = "Compass[transparent]/tabView.xib"; sourceTree = "<group>"; };
+		9A6A74A218E4A45D00C7A9D5 /* LocationCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCellView.h; sourceTree = "<group>"; };
+		9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCellView.m; sourceTree = "<group>"; };
+		9A6EC77E19004BCB00C3815F /* locationFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = locationFilter.mm; sourceTree = "<group>"; };
+		9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugInfoWindow.xib; sourceTree = "<group>"; };
+		9A6F53F61910073F00F35FED /* DebugWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugWindowController.h; sourceTree = "<group>"; };
+		9A6F53F71910073F00F35FED /* DebugWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DebugWindowController.mm; sourceTree = "<group>"; };
+		9A9701E119083E8C007C3C19 /* smartWatch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = smartWatch.xib; path = "Compass[transparent]/smartWatch.xib"; sourceTree = "<group>"; };
+		9A9701E419085002007C3C19 /* watchNSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = watchNSView.h; path = "Compass[transparent]/watchNSView.h"; sourceTree = "<group>"; };
+		9A9701E519085002007C3C19 /* watchNSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = watchNSView.m; path = "Compass[transparent]/watchNSView.m"; sourceTree = "<group>"; };
+		9A9701E7190851A3007C3C19 /* smartWatch.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = smartWatch.tif; sourceTree = "<group>"; };
+		9AA789341909FE3000A26C66 /* webBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AA789351909FE3100A26C66 /* Compass[transparent] copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Compass[transparent] copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/Compass[transparent] copy-Info.plist"; sourceTree = "<absolute>"; };
+		9AA789361909FE5A00A26C66 /* browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = browser.xib; path = "Compass[transparent]/browser.xib"; sourceTree = "<group>"; };
+		9AAE13D819046975003BF9B7 /* renderStyles.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = renderStyles.mm; sourceTree = "<group>"; };
+		9AB6E8D91906C9B000E28DE9 /* commonTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = commonTools.mm; sourceTree = "<group>"; };
+		9ACCECFF18EF5425006E9CA4 /* london.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = london.kml; sourceTree = "<group>"; };
+		9ACF5D8618EB572100F03872 /* DesktopViewController+TableAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+TableAddition.h"; sourceTree = "<group>"; };
+		9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+TableAddition.mm"; sourceTree = "<group>"; };
+		9AE093CF18ECA56400DFC16F /* DesktopViewController+MapViewAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+MapViewAddition.h"; sourceTree = "<group>"; };
+		9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+MapViewAddition.mm"; sourceTree = "<group>"; };
+		9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compass[transparent].app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AEA57D018D9EBB20028B80C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		9AEA57D318D9EBB20028B80C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		9AEA57D418D9EBB20028B80C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9AEA57D518D9EBB20028B80C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9AEA57D818D9EBB20028B80C /* Compass[transparent]-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Compass[transparent]-Info.plist"; sourceTree = "<group>"; };
+		9AEA57DA18D9EBB20028B80C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9AEA57DC18D9EBB20028B80C /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		9AEA57DE18D9EBB20028B80C /* Compass[transparent]-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Compass[transparent]-Prefix.pch"; sourceTree = "<group>"; };
+		9AEA57E018D9EBB20028B80C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		9AEA57E218D9EBB20028B80C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9AEA57E318D9EBB20028B80C /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		9AEA57E618D9EBB20028B80C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9AEA57E818D9EBB20028B80C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9AEA57EE18D9EBB20028B80C /* Compass[transparent]Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Compass[transparent]Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AEA57EF18D9EBB20028B80C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9AEA57F618D9EBB20028B80C /* Compass[transparent]Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Compass[transparent]Tests-Info.plist"; sourceTree = "<group>"; };
+		9AEA57F818D9EBB20028B80C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9AEA57FA18D9EBB20028B80C /* Compass_transparent_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Compass_transparent_Tests.m; sourceTree = "<group>"; };
+		9AEA580418D9EC440028B80C /* commonInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commonInclude.h; sourceTree = "<group>"; };
+		9AEA580518D9EC440028B80C /* compassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compassModel.h; sourceTree = "<group>"; };
+		9AEA580618D9EC440028B80C /* compassModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = compassModel.mm; sourceTree = "<group>"; };
+		9AEA580818D9EC440028B80C /* jsonReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = jsonReader.mm; sourceTree = "<group>"; };
+		9AEA580918D9EC440028B80C /* jsonReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsonReader.h; sourceTree = "<group>"; };
+		9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libjson_linux-gcc-4.2.1_libmt.a"; sourceTree = "<group>"; };
+		9AEA581018D9EC540028B80C /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
+		9AEA581118D9EC540028B80C /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		9AEA581218D9EC540028B80C /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
+		9AEA581318D9EC540028B80C /* forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forwards.h; sourceTree = "<group>"; };
+		9AEA581418D9EC540028B80C /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
+		9AEA581518D9EC540028B80C /* libjson_linux-gcc-4.2.1_libmt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libjson_linux-gcc-4.2.1_libmt.a"; sourceTree = "<group>"; };
+		9AEA581618D9EC540028B80C /* libjson_linux-gcc-4.2.1_libmt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libjson_linux-gcc-4.2.1_libmt.dylib"; sourceTree = "<group>"; };
+		9AEA581718D9EC540028B80C /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		9AEA581818D9EC540028B80C /* value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
+		9AEA581918D9EC540028B80C /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
+		9AEA581C18D9EC680028B80C /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		9AEA581F18D9EC890028B80C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		9AEA582118D9EC8F0028B80C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9AEA582318D9EC940028B80C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9AEA582518D9EC9F0028B80C /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		9AEA582718D9ED350028B80C /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		9AEA582818D9ED350028B80C /* OpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenGLView.mm; sourceTree = "<group>"; };
+		9AEA582A18D9ED600028B80C /* compassRender.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = compassRender.mm; sourceTree = "<group>"; };
+		9AEA582B18D9ED600028B80C /* compassRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compassRender.h; sourceTree = "<group>"; };
+		9AEA582F18D9F5690028B80C /* Compass[transparent].entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compass[transparent].entitlements"; sourceTree = "<group>"; };
+		9AEA583318DA35E50028B80C /* DesktopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopViewController.h; sourceTree = "<group>"; };
+		9AEA583418DA35E50028B80C /* DesktopViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DesktopViewController.mm; sourceTree = "<group>"; };
+		9AEC5CF918F3956F00A29F75 /* smartWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AEC5CFA18F3957000A29F75 /* smartWatch.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = smartWatch.plist; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/smartWatch.plist"; sourceTree = "<absolute>"; };
+		9AEC5CFC18F3960500A29F75 /* smartWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = smartWatch.entitlements; sourceTree = "<group>"; };
+		9AEECFAC190A0B6B0031BAAE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = "Compass[transparent]/WebViewController.h"; sourceTree = "<group>"; };
+		9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = WebViewController.mm; path = "Compass[transparent]/WebViewController.mm"; sourceTree = "<group>"; };
+		9AEECFF51910599B0031BAAE /* StyleWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StyleWindow.xib; sourceTree = "<group>"; };
+		9AF01B7118ECE5FC0029A860 /* GLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLString.h; sourceTree = "<group>"; };
+		9AF01B7218ECE5FC0029A860 /* GLString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLString.mm; sourceTree = "<group>"; };
+		9AF089FC1921390700E118D5 /* New York City [many].kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "New York City [many].kml"; sourceTree = "<group>"; };
+		9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moto360_bikemap.png; sourceTree = "<group>"; };
+		9AF29F2818F4C90000A28AC3 /* moto360_wrist.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moto360_wrist.jpg; sourceTree = "<group>"; };
+		9AF523B118DC83BF005823A2 /* xmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlParser.h; sourceTree = "<group>"; };
+		9AF523B218DC83BF005823A2 /* xmlParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = xmlParser.mm; sourceTree = "<group>"; };
+		9AF523B718DC8E95005823A2 /* newyork.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = newyork.kml; sourceTree = "<group>"; };
+		9AF523B818DC8E95005823A2 /* montreal.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = montreal.kml; sourceTree = "<group>"; };
+		9AF5D20318EF2E8B00AC671E /* DesktopViewController+CompassAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+CompassAddition.h"; sourceTree = "<group>"; };
+		9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+CompassAddition.mm"; sourceTree = "<group>"; };
+		9AF7EB2D190175F900983C2F /* configurations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configurations.json; sourceTree = "<group>"; };
+		9AFB14BC18EE639A00063632 /* tabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AFB14BD18EE639A00063632 /* tabView.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = tabView.plist; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/tabView.plist"; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9AA7891C1909FE3000A26C66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AA7891D1909FE3000A26C66 /* GLUT.framework in Frameworks */,
+				9AA7891E1909FE3000A26C66 /* MapKit.framework in Frameworks */,
+				9AA7891F1909FE3000A26C66 /* CoreLocation.framework in Frameworks */,
+				9AA789201909FE3000A26C66 /* OpenGL.framework in Frameworks */,
+				9AA789211909FE3000A26C66 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */,
+				9AA789221909FE3000A26C66 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEA57CA18D9EBB20028B80C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AEA582618D9EC9F0028B80C /* GLUT.framework in Frameworks */,
+				9AEA582418D9EC940028B80C /* MapKit.framework in Frameworks */,
+				9AEA582218D9EC8F0028B80C /* CoreLocation.framework in Frameworks */,
+				9AEA582018D9EC890028B80C /* OpenGL.framework in Frameworks */,
+				9AEA581E18D9EC7E0028B80C /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */,
+				9AEA57D118D9EBB20028B80C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEA57EB18D9EBB20028B80C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AEA57F118D9EBB20028B80C /* Cocoa.framework in Frameworks */,
+				9AEA57F018D9EBB20028B80C /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEC5CE418F3956F00A29F75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AEC5CE518F3956F00A29F75 /* GLUT.framework in Frameworks */,
+				9AEC5CE618F3956F00A29F75 /* MapKit.framework in Frameworks */,
+				9AEC5CE718F3956F00A29F75 /* CoreLocation.framework in Frameworks */,
+				9AEC5CE818F3956F00A29F75 /* OpenGL.framework in Frameworks */,
+				9AEC5CE918F3956F00A29F75 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */,
+				9AEC5CEA18F3956F00A29F75 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AFB14A818EE639A00063632 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AFB14A918EE639A00063632 /* GLUT.framework in Frameworks */,
+				9AFB14AA18EE639A00063632 /* MapKit.framework in Frameworks */,
+				9AFB14AB18EE639A00063632 /* CoreLocation.framework in Frameworks */,
+				9AFB14AC18EE639A00063632 /* OpenGL.framework in Frameworks */,
+				9AFB14AD18EE639A00063632 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */,
+				9AFB14AE18EE639A00063632 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A0A14E91907581300C89634 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				9A0A14EA1907584600C89634 /* styleOtsu.bk */,
+			);
+			name = Archive;
+			sourceTree = "<group>";
+		};
+		9A8E9B2E18DE4C0200C53010 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9AF523B118DC83BF005823A2 /* xmlParser.h */,
+				9AF523B218DC83BF005823A2 /* xmlParser.mm */,
+				9AEA580518D9EC440028B80C /* compassModel.h */,
+				9AEA580618D9EC440028B80C /* compassModel.mm */,
+				9AEA580818D9EC440028B80C /* jsonReader.mm */,
+				9AEA580418D9EC440028B80C /* commonInclude.h */,
+				9AEA580918D9EC440028B80C /* jsonReader.h */,
+				9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */,
+				9A6EC77E19004BCB00C3815F /* locationFilter.mm */,
+				9A28368A1900C0850041D22E /* readConfiguration.mm */,
+				9AB6E8D91906C9B000E28DE9 /* commonTools.mm */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9A8E9B2F18DE4C2C00C53010 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9AF01B7118ECE5FC0029A860 /* GLString.h */,
+				9AF01B7218ECE5FC0029A860 /* GLString.mm */,
+				9AEA582A18D9ED600028B80C /* compassRender.mm */,
+				9AEA582B18D9ED600028B80C /* compassRender.h */,
+				9AEA582718D9ED350028B80C /* OpenGLView.h */,
+				9AEA582818D9ED350028B80C /* OpenGLView.mm */,
+				9AEA57E518D9EBB20028B80C /* MainMenu.xib */,
+				9A6A74A218E4A45D00C7A9D5 /* LocationCellView.h */,
+				9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */,
+				9AAE13D819046975003BF9B7 /* renderStyles.mm */,
+				9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */,
+				9AEECFF51910599B0031BAAE /* StyleWindow.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9A8E9B3018DE4C4800C53010 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9AEA57E218D9EBB20028B80C /* AppDelegate.h */,
+				9AEA57E318D9EBB20028B80C /* AppDelegate.mm */,
+				9AEA583318DA35E50028B80C /* DesktopViewController.h */,
+				9AEA583418DA35E50028B80C /* DesktopViewController.mm */,
+				9ACF5D8618EB572100F03872 /* DesktopViewController+TableAddition.h */,
+				9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */,
+				9AE093CF18ECA56400DFC16F /* DesktopViewController+MapViewAddition.h */,
+				9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */,
+				9AF5D20318EF2E8B00AC671E /* DesktopViewController+CompassAddition.h */,
+				9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */,
+				9A6F53F61910073F00F35FED /* DebugWindowController.h */,
+				9A6F53F71910073F00F35FED /* DebugWindowController.mm */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9AA789041909BB1200A26C66 /* WebBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				9AEECFAC190A0B6B0031BAAE /* WebViewController.h */,
+				9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */,
+				9AA789361909FE5A00A26C66 /* browser.xib */,
+			);
+			name = WebBrowser;
+			sourceTree = "<group>";
+		};
+		9AEA57C418D9EBB20028B80C = {
+			isa = PBXGroup;
+			children = (
+				9AA789041909BB1200A26C66 /* WebBrowser */,
+				9AEC5CFB18F3958200A29F75 /* smartWatch */,
+				9AFB14C018EE658800063632 /* tabView */,
+				9AEA580F18D9EC540028B80C /* jsoncpp */,
+				9AEA57D618D9EBB20028B80C /* Compass[transparent] */,
+				9AEA57F418D9EBB20028B80C /* Compass[transparent]Tests */,
+				9AEA57CF18D9EBB20028B80C /* Frameworks */,
+				9AEA57CE18D9EBB20028B80C /* Products */,
+				9AA789351909FE3100A26C66 /* Compass[transparent] copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		9AEA57CE18D9EBB20028B80C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */,
+				9AEA57EE18D9EBB20028B80C /* Compass[transparent]Tests.xctest */,
+				9AFB14BC18EE639A00063632 /* tabView.app */,
+				9AEC5CF918F3956F00A29F75 /* smartWatch.app */,
+				9AA789341909FE3000A26C66 /* webBrowser.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9AEA57CF18D9EBB20028B80C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AEA582518D9EC9F0028B80C /* GLUT.framework */,
+				9AEA582318D9EC940028B80C /* MapKit.framework */,
+				9AEA582118D9EC8F0028B80C /* CoreLocation.framework */,
+				9AEA581F18D9EC890028B80C /* OpenGL.framework */,
+				9AEA57D018D9EBB20028B80C /* Cocoa.framework */,
+				9AEA57EF18D9EBB20028B80C /* XCTest.framework */,
+				9AEA57D218D9EBB20028B80C /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AEA57D218D9EBB20028B80C /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AEA57D318D9EBB20028B80C /* AppKit.framework */,
+				9AEA57D418D9EBB20028B80C /* CoreData.framework */,
+				9AEA57D518D9EBB20028B80C /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		9AEA57D618D9EBB20028B80C /* Compass[transparent] */ = {
+			isa = PBXGroup;
+			children = (
+				9A0A14E91907581300C89634 /* Archive */,
+				9A8E9B2E18DE4C0200C53010 /* Model */,
+				9A8E9B2F18DE4C2C00C53010 /* View */,
+				9A8E9B3018DE4C4800C53010 /* Controller */,
+				9AF523B418DC8E95005823A2 /* data */,
+				9AEA582F18D9F5690028B80C /* Compass[transparent].entitlements */,
+				9AEA581C18D9EC680028B80C /* README.txt */,
+				9AEA57E818D9EBB20028B80C /* Images.xcassets */,
+				9AEA57D718D9EBB20028B80C /* Supporting Files */,
+			);
+			path = "Compass[transparent]";
+			sourceTree = "<group>";
+		};
+		9AEA57D718D9EBB20028B80C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9AEA57D818D9EBB20028B80C /* Compass[transparent]-Info.plist */,
+				9AEA57D918D9EBB20028B80C /* InfoPlist.strings */,
+				9AEA57DC18D9EBB20028B80C /* main.mm */,
+				9AEA57DE18D9EBB20028B80C /* Compass[transparent]-Prefix.pch */,
+				9AEA57DF18D9EBB20028B80C /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9AEA57F418D9EBB20028B80C /* Compass[transparent]Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9AEA57FA18D9EBB20028B80C /* Compass_transparent_Tests.m */,
+				9AEA57F518D9EBB20028B80C /* Supporting Files */,
+			);
+			path = "Compass[transparent]Tests";
+			sourceTree = "<group>";
+		};
+		9AEA57F518D9EBB20028B80C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9AEA57F618D9EBB20028B80C /* Compass[transparent]Tests-Info.plist */,
+				9AEA57F718D9EBB20028B80C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9AEA580F18D9EC540028B80C /* jsoncpp */ = {
+			isa = PBXGroup;
+			children = (
+				9AEA581018D9EC540028B80C /* autolink.h */,
+				9AEA581118D9EC540028B80C /* config.h */,
+				9AEA581218D9EC540028B80C /* features.h */,
+				9AEA581318D9EC540028B80C /* forwards.h */,
+				9AEA581418D9EC540028B80C /* json.h */,
+				9AEA581518D9EC540028B80C /* libjson_linux-gcc-4.2.1_libmt.a */,
+				9AEA581618D9EC540028B80C /* libjson_linux-gcc-4.2.1_libmt.dylib */,
+				9AEA581718D9EC540028B80C /* reader.h */,
+				9AEA581818D9EC540028B80C /* value.h */,
+				9AEA581918D9EC540028B80C /* writer.h */,
+			);
+			name = jsoncpp;
+			path = "Compass[transparent]/jsoncpp";
+			sourceTree = "<group>";
+		};
+		9AEC5CFB18F3958200A29F75 /* smartWatch */ = {
+			isa = PBXGroup;
+			children = (
+				9A9701E419085002007C3C19 /* watchNSView.h */,
+				9A9701E519085002007C3C19 /* watchNSView.m */,
+				9AEC5CFC18F3960500A29F75 /* smartWatch.entitlements */,
+				9A9701E119083E8C007C3C19 /* smartWatch.xib */,
+				9AEC5CFA18F3957000A29F75 /* smartWatch.plist */,
+			);
+			name = smartWatch;
+			sourceTree = "<group>";
+		};
+		9AF523B418DC8E95005823A2 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				9AF089FC1921390700E118D5 /* New York City [many].kml */,
+				9A9701E7190851A3007C3C19 /* smartWatch.tif */,
+				9AF7EB2D190175F900983C2F /* configurations.json */,
+				9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */,
+				9AF29F2818F4C90000A28AC3 /* moto360_wrist.jpg */,
+				9ACCECFF18EF5425006E9CA4 /* london.kml */,
+				9AF523B718DC8E95005823A2 /* newyork.kml */,
+				9AF523B818DC8E95005823A2 /* montreal.kml */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		9AFB14C018EE658800063632 /* tabView */ = {
+			isa = PBXGroup;
+			children = (
+				9A5F3FBF18EE5A5000953336 /* Compass[transparent] copy.entitlements */,
+				9AFB14BD18EE639A00063632 /* tabView.plist */,
+				9A5F3FC518EE606200953336 /* tabView.xib */,
+			);
+			name = tabView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9AA789081909FE3000A26C66 /* webBrowser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AA789311909FE3000A26C66 /* Build configuration list for PBXNativeTarget "webBrowser" */;
+			buildPhases = (
+				9AA789091909FE3000A26C66 /* Sources */,
+				9AA7891C1909FE3000A26C66 /* Frameworks */,
+				9AA789231909FE3000A26C66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = webBrowser;
+			productName = "Compass[transparent]";
+			productReference = 9AA789341909FE3000A26C66 /* webBrowser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9AEA57CC18D9EBB20028B80C /* Compass[transparent] */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AEA57FE18D9EBB20028B80C /* Build configuration list for PBXNativeTarget "Compass[transparent]" */;
+			buildPhases = (
+				9AEA57C918D9EBB20028B80C /* Sources */,
+				9AEA57CA18D9EBB20028B80C /* Frameworks */,
+				9AEA57CB18D9EBB20028B80C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Compass[transparent]";
+			productName = "Compass[transparent]";
+			productReference = 9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */;
+			productType = "com.apple.product-type.application";
+		};
+		9AEA57ED18D9EBB20028B80C /* Compass[transparent]Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AEA580118D9EBB20028B80C /* Build configuration list for PBXNativeTarget "Compass[transparent]Tests" */;
+			buildPhases = (
+				9AEA57EA18D9EBB20028B80C /* Sources */,
+				9AEA57EB18D9EBB20028B80C /* Frameworks */,
+				9AEA57EC18D9EBB20028B80C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9AEA57F318D9EBB20028B80C /* PBXTargetDependency */,
+			);
+			name = "Compass[transparent]Tests";
+			productName = "Compass[transparent]Tests";
+			productReference = 9AEA57EE18D9EBB20028B80C /* Compass[transparent]Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9AEC5CD518F3956F00A29F75 /* smartWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AEC5CF618F3956F00A29F75 /* Build configuration list for PBXNativeTarget "smartWatch" */;
+			buildPhases = (
+				9AEC5CD618F3956F00A29F75 /* Sources */,
+				9AEC5CE418F3956F00A29F75 /* Frameworks */,
+				9AEC5CEB18F3956F00A29F75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = smartWatch;
+			productName = "Compass[transparent]";
+			productReference = 9AEC5CF918F3956F00A29F75 /* smartWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9AFB149A18EE639A00063632 /* tabView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AFB14B918EE639A00063632 /* Build configuration list for PBXNativeTarget "tabView" */;
+			buildPhases = (
+				9AFB149B18EE639A00063632 /* Sources */,
+				9AFB14A818EE639A00063632 /* Frameworks */,
+				9AFB14AF18EE639A00063632 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tabView;
+			productName = "Compass[transparent]";
+			productReference = 9AFB14BC18EE639A00063632 /* tabView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9AEA57C518D9EBB20028B80C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = dmiau;
+				TargetAttributes = {
+					9AA789081909FE3000A26C66 = {
+						DevelopmentTeam = ZW2ULQ7FDF;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					9AEA57CC18D9EBB20028B80C = {
+						DevelopmentTeam = ZW2ULQ7FDF;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					9AEA57ED18D9EBB20028B80C = {
+						TestTargetID = 9AEA57CC18D9EBB20028B80C;
+					};
+					9AEC5CD518F3956F00A29F75 = {
+						DevelopmentTeam = ZW2ULQ7FDF;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					9AFB149A18EE639A00063632 = {
+						DevelopmentTeam = ZW2ULQ7FDF;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 9AEA57C818D9EBB20028B80C /* Build configuration list for PBXProject "Compass[transparent]" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9AEA57C418D9EBB20028B80C;
+			productRefGroup = 9AEA57CE18D9EBB20028B80C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9AEA57CC18D9EBB20028B80C /* Compass[transparent] */,
+				9AEA57ED18D9EBB20028B80C /* Compass[transparent]Tests */,
+				9AFB149A18EE639A00063632 /* tabView */,
+				9AEC5CD518F3956F00A29F75 /* smartWatch */,
+				9AA789081909FE3000A26C66 /* webBrowser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9AA789231909FE3000A26C66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */,
+				9AA789251909FE3000A26C66 /* InfoPlist.strings in Resources */,
+				9AA789261909FE3000A26C66 /* moto360_bikemap.png in Resources */,
+				9AA789271909FE3000A26C66 /* Images.xcassets in Resources */,
+				9AA789281909FE3000A26C66 /* configurations.json in Resources */,
+				9AA789291909FE3000A26C66 /* london.kml in Resources */,
+				9AA7892A1909FE3000A26C66 /* montreal.kml in Resources */,
+				9AA7892D1909FE3000A26C66 /* newyork.kml in Resources */,
+				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
+				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
+				9AA789371909FE5A00A26C66 /* browser.xib in Resources */,
+				9AA789301909FE3000A26C66 /* README.txt in Resources */,
+				9AEECFF91910599B0031BAAE /* StyleWindow.xib in Resources */,
+				9A6F53F51910069F00F35FED /* DebugInfoWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEA57CB18D9EBB20028B80C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A9701E319083EB9007C3C19 /* MainMenu.xib in Resources */,
+				9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */,
+				9AF29F2918F4C90000A28AC3 /* moto360_bikemap.png in Resources */,
+				9AEA57E918D9EBB20028B80C /* Images.xcassets in Resources */,
+				9AF7EB2E190175F900983C2F /* configurations.json in Resources */,
+				9AF089FD1921390700E118D5 /* New York City [many].kml in Resources */,
+				9ACCED0018EF5425006E9CA4 /* london.kml in Resources */,
+				9AF523BC18DC8E95005823A2 /* montreal.kml in Resources */,
+				9AF523BB18DC8E95005823A2 /* newyork.kml in Resources */,
+				9AF29F2A18F4C90000A28AC3 /* moto360_wrist.jpg in Resources */,
+				9AEA57E118D9EBB20028B80C /* Credits.rtf in Resources */,
+				9AEA581D18D9EC680028B80C /* README.txt in Resources */,
+				9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */,
+				9A6F53F21910069F00F35FED /* DebugInfoWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEA57EC18D9EBB20028B80C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AEA57F918D9EBB20028B80C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEC5CEB18F3956F00A29F75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */,
+				9A9701DD19083C9B007C3C19 /* configurations.json in Resources */,
+				9AEECFF81910599B0031BAAE /* StyleWindow.xib in Resources */,
+				9A9701E8190851A3007C3C19 /* smartWatch.tif in Resources */,
+				9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */,
+				9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */,
+				9AEC5CED18F3956F00A29F75 /* Images.xcassets in Resources */,
+				9AEC5CEE18F3956F00A29F75 /* london.kml in Resources */,
+				9AEC5CEF18F3956F00A29F75 /* montreal.kml in Resources */,
+				9A6F53F41910069F00F35FED /* DebugInfoWindow.xib in Resources */,
+				9AEC5CF218F3956F00A29F75 /* newyork.kml in Resources */,
+				9AEC5CF318F3956F00A29F75 /* Credits.rtf in Resources */,
+				9AEC5CF418F3956F00A29F75 /* README.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AFB14AF18EE639A00063632 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AFB14BF18EE655F00063632 /* tabView.xib in Resources */,
+				9AFB14B018EE639A00063632 /* InfoPlist.strings in Resources */,
+				9AFB14B118EE639A00063632 /* Images.xcassets in Resources */,
+				9AFB14B218EE639A00063632 /* montreal.kml in Resources */,
+				9A6F53F31910069F00F35FED /* DebugInfoWindow.xib in Resources */,
+				9AFB14B518EE639A00063632 /* newyork.kml in Resources */,
+				9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */,
+				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,
+				9AFB14B718EE639A00063632 /* README.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9AA789091909FE3000A26C66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AA7890A1909FE3000A26C66 /* commonTools.mm in Sources */,
+				9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */,
+				9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */,
+				9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */,
+				9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */,
+				9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */,
+				9AA7890E1909FE3000A26C66 /* jsonReader.mm in Sources */,
+				9AA7890F1909FE3000A26C66 /* DesktopViewController+TableAddition.mm in Sources */,
+				9AA789101909FE3000A26C66 /* xmlParser.mm in Sources */,
+				9AA789111909FE3000A26C66 /* compassModel.mm in Sources */,
+				9AA789121909FE3000A26C66 /* DesktopViewController+CompassAddition.mm in Sources */,
+				9AA789131909FE3000A26C66 /* locationFilter.mm in Sources */,
+				9AA789141909FE3000A26C66 /* compassRender.mm in Sources */,
+				9AA789151909FE3000A26C66 /* LocationCellView.m in Sources */,
+				9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */,
+				9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */,
+				9AA789191909FE3000A26C66 /* main.mm in Sources */,
+				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEA57C918D9EBB20028B80C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AB6E8DB1906C9B000E28DE9 /* commonTools.mm in Sources */,
+				9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */,
+				9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */,
+				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
+				9AEA580D18D9EC440028B80C /* jsonReader.mm in Sources */,
+				9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */,
+				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
+				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
+				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
+				9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */,
+				9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */,
+				9AEA582C18D9ED600028B80C /* compassRender.mm in Sources */,
+				9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */,
+				9AEA582918D9ED350028B80C /* OpenGLView.mm in Sources */,
+				9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */,
+				9AEA57DD18D9EBB20028B80C /* main.mm in Sources */,
+				9AE093D118ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9AF01B7318ECE5FC0029A860 /* GLString.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEA57EA18D9EBB20028B80C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AEA57FB18D9EBB20028B80C /* Compass_transparent_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEC5CD618F3956F00A29F75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A9701DC19083BCF007C3C19 /* LocationCellView.m in Sources */,
+				9A6F53FA1910073F00F35FED /* DebugWindowController.mm in Sources */,
+				9A9701D619083B26007C3C19 /* AppDelegate.mm in Sources */,
+				9A9701D719083B26007C3C19 /* DesktopViewController.mm in Sources */,
+				9A9701E619085002007C3C19 /* watchNSView.m in Sources */,
+				9A9701D819083B26007C3C19 /* DesktopViewController+TableAddition.mm in Sources */,
+				9A9701D919083B26007C3C19 /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9A9701DA19083B26007C3C19 /* DesktopViewController+CompassAddition.mm in Sources */,
+				9A9701DB19083B26007C3C19 /* main.mm in Sources */,
+				9A9701CF19083B19007C3C19 /* xmlParser.mm in Sources */,
+				9A9701D019083B19007C3C19 /* compassModel.mm in Sources */,
+				9A9701D119083B19007C3C19 /* jsonReader.mm in Sources */,
+				9A9701D219083B19007C3C19 /* locationFilter.mm in Sources */,
+				9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */,
+				9A9701D519083B19007C3C19 /* commonTools.mm in Sources */,
+				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
+				9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */,
+				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
+				9A9701CE19083B10007C3C19 /* renderStyles.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AFB149B18EE639A00063632 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */,
+				9AFB149D18EE639A00063632 /* jsonReader.mm in Sources */,
+				9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */,
+				9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */,
+				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,
+				9AFB14A118EE639A00063632 /* compassRender.mm in Sources */,
+				9AFB14A218EE639A00063632 /* LocationCellView.m in Sources */,
+				9AFB14A318EE639A00063632 /* OpenGLView.mm in Sources */,
+				9AFB14A418EE639A00063632 /* AppDelegate.mm in Sources */,
+				9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */,
+				9AFB14A518EE639A00063632 /* main.mm in Sources */,
+				9AFB14A618EE639A00063632 /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9AFB14A718EE639A00063632 /* GLString.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9AEA57F318D9EBB20028B80C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9AEA57CC18D9EBB20028B80C /* Compass[transparent] */;
+			targetProxy = 9AEA57F218D9EBB20028B80C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9AEA57D918D9EBB20028B80C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9AEA57DA18D9EBB20028B80C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9AEA57DF18D9EBB20028B80C /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9AEA57E018D9EBB20028B80C /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		9AEA57E518D9EBB20028B80C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9AEA57E618D9EBB20028B80C /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		9AEA57F718D9EBB20028B80C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9AEA57F818D9EBB20028B80C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9AA789321909FE3000A26C66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Compass[transparent]/Compass[transparent].entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				INFOPLIST_FILE = "Compass[transparent] copy-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Compass[transparent]",
+					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
+				);
+				PRODUCT_NAME = webBrowser;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9AA789331909FE3000A26C66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Compass[transparent]/Compass[transparent].entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				INFOPLIST_FILE = "Compass[transparent] copy-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Compass[transparent]",
+					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
+				);
+				PRODUCT_NAME = webBrowser;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9AEA57FC18D9EBB20028B80C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LLVM_LTO = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9AEA57FD18D9EBB20028B80C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LLVM_LTO = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9AEA57FF18D9EBB20028B80C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Compass[transparent]/Compass[transparent].entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				INFOPLIST_FILE = "Compass[transparent]/Compass[transparent]-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Compass[transparent]",
+					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9AEA580018D9EBB20028B80C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Compass[transparent]/Compass[transparent].entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				INFOPLIST_FILE = "Compass[transparent]/Compass[transparent]-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Compass[transparent]",
+					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9AEA580218D9EBB20028B80C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Compass[transparent].app/Contents/MacOS/Compass[transparent]";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Compass[transparent]Tests/Compass[transparent]Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9AEA580318D9EBB20028B80C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Compass[transparent].app/Contents/MacOS/Compass[transparent]";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				INFOPLIST_FILE = "Compass[transparent]Tests/Compass[transparent]Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		9AEC5CF718F3956F00A29F75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = smartWatch.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"WATCH=1",
+					"DEBUG=1",
+				);
+				INFOPLIST_FILE = smartWatch.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Compass[transparent]",
+					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
+				);
+				PRODUCT_NAME = smartWatch;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9AEC5CF818F3956F00A29F75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = smartWatch.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"WATCH=1",
+					"DEBUG=1",
+				);
+				INFOPLIST_FILE = smartWatch.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Compass[transparent]",
+					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
+				);
+				PRODUCT_NAME = smartWatch;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9AFB14BA18EE639A00063632 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Compass[transparent]/Compass[transparent].entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				INFOPLIST_FILE = tabView.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Compass[transparent]",
+					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
+				);
+				PRODUCT_NAME = tabView;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9AFB14BB18EE639A00063632 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Compass[transparent]/Compass[transparent].entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
+				INFOPLIST_FILE = tabView.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Compass[transparent]",
+					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
+				);
+				PRODUCT_NAME = tabView;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9AA789311909FE3000A26C66 /* Build configuration list for PBXNativeTarget "webBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AA789321909FE3000A26C66 /* Debug */,
+				9AA789331909FE3000A26C66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AEA57C818D9EBB20028B80C /* Build configuration list for PBXProject "Compass[transparent]" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AEA57FC18D9EBB20028B80C /* Debug */,
+				9AEA57FD18D9EBB20028B80C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AEA57FE18D9EBB20028B80C /* Build configuration list for PBXNativeTarget "Compass[transparent]" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AEA57FF18D9EBB20028B80C /* Debug */,
+				9AEA580018D9EBB20028B80C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AEA580118D9EBB20028B80C /* Build configuration list for PBXNativeTarget "Compass[transparent]Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AEA580218D9EBB20028B80C /* Debug */,
+				9AEA580318D9EBB20028B80C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AEC5CF618F3956F00A29F75 /* Build configuration list for PBXNativeTarget "smartWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AEC5CF718F3956F00A29F75 /* Debug */,
+				9AEC5CF818F3956F00A29F75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AFB14B918EE639A00063632 /* Build configuration list for PBXNativeTarget "tabView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AFB14BA18EE639A00063632 /* Debug */,
+				9AFB14BB18EE639A00063632 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9AEA57C518D9EBB20028B80C /* Project object */;
+}

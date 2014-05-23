@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>New York City [many]</name>
+		<description><![CDATA[]]></description>
+		<Folder>
+			<name>Untitled layer</name>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>World Trade Center</name>
+				<Point>
+					<coordinates>-74.01348689999998,40.7115441,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>American Museum of Natural History</name>
+				<Point>
+					<coordinates>-73.97398800000002,40.781324,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>The Museum of Modern Art</name>
+				<Point>
+					<coordinates>-73.97774300000003,40.761456,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Union Square</name>
+				<Point>
+					<coordinates>-73.9910835,40.7358633,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Washington Square E</name>
+				<Point>
+					<coordinates>-73.99608360000002,40.7301432,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>United Nations</name>
+				<Point>
+					<coordinates>-73.96772900000002,40.748961,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>IAC</name>
+				<Point>
+					<coordinates>-74.00779599999998,40.745538,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Weill Cornell Medical College</name>
+				<Point>
+					<coordinates>-73.95548400000001,40.765652,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Columbia University</name>
+				<Point>
+					<coordinates>-73.96257300000002,40.807536,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>New York City Hall</name>
+				<Point>
+					<coordinates>-74.006059,40.712774,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>USTA Billie Jean King National Tennis Center</name>
+				<Point>
+					<coordinates>-73.84567900000002,40.7504,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>John F. Kennedy International Airport</name>
+				<Point>
+					<coordinates>-73.77813900000001,40.641311,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>LaGuardia Airport</name>
+				<Point>
+					<coordinates>-73.873966,40.776927,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Newark Liberty International Airport</name>
+				<Point>
+					<coordinates>-74.174462,40.689531,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>MoMA PS1</name>
+				<Point>
+					<coordinates>-73.94736999999998,40.74556,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Columbus Cir</name>
+				<Point>
+					<coordinates>-73.98236989999998,40.7681121,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>The Metropolitan Museum of Art</name>
+				<Point>
+					<coordinates>-73.963346,40.779532,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>The Loeb Central Park Boathouse</name>
+				<Point>
+					<coordinates>-73.96877899999998,40.775343,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Apollo Theater</name>
+				<Point>
+					<coordinates>-73.95005600000002,40.810018,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>New York Times</name>
+				<Point>
+					<coordinates>-73.98995300000001,40.75614,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Theater District - Times Square</name>
+				<Point>
+					<coordinates>-73.98447220000003,40.759011,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Yankee Stadium</name>
+				<Point>
+					<coordinates>-73.92771299999998,40.829316,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Bronx Zoo</name>
+				<Point>
+					<coordinates>-73.87699800000001,40.850595,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Governors Island</name>
+				<Point>
+					<coordinates>-74.01679200000001,40.68945009999999,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Washington</name>
+				<Point>
+					<coordinates>-77.03646409999999,38.90723089999999,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Boston</name>
+				<Point>
+					<coordinates>-71.0597732,42.3584308,0.0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Style id='icon-503-DB4436'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+			</IconStyle>
+		</Style>
+	</Document>
+</kml>

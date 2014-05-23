@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Montreal, Canada</name>
+		<description><![CDATA[]]></description>
+		<Folder>
+			<name>Untitled layer</name>
+			<Placemark>
+				<styleUrl>#icon-503-FF8277</styleUrl>
+				<name>W Hotel</name>
+				<description><![CDATA[Montréal, QC H2Z 1R1, Canada]]></description>
+				<Point>
+					<coordinates>-73.561672,45.50176,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Redpath Museum</name>
+				<Point>
+					<coordinates>-73.575303,45.503152,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Bonsecours Market</name>
+				<description><![CDATA[350 St Paul E, Montréal, QC H2Y 1H2, Canada
+ (http://maps.google.com/maps/place?ftid=0x4cc91a55ce14f3dd:0xa4eb808f6073d778&amp;q=Bonsecours+Market&amp;hl=en&amp;cad=src:ppiwlink&amp;ei=esxQTNekApu0zQTx2bnwBA&amp;dtab=5)]]></description>
+				<Point>
+					<coordinates>-73.551622,45.509297,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Bonsecours Market</name>
+				<description><![CDATA[350 St Paul E, Montréal, QC H2Y 1H2, Canada
+ (http://maps.google.com/maps/place?ftid=0x4cc91a55ce14f3dd:0xa4eb808f6073d778&amp;q=Bonsecours+Market&amp;hl=en&amp;cad=src:ppiwlink&amp;ei=esxQTNekApu0zQTx2bnwBA&amp;dtab=5)]]></description>
+				<Point>
+					<coordinates>-73.551622,45.509297,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Rue Saint-Denis</name>
+				<description><![CDATA[Montréal, QC, Canada]]></description>
+				<Point>
+					<coordinates>-73.61194,45.537143,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Boulevard Saint Laurent</name>
+				<description><![CDATA[Montréal, QC, Canada]]></description>
+				<Point>
+					<coordinates>-73.612027,45.531788,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Rue Saint Amable</name>
+				<description><![CDATA[Montréal, QC H2Y 1E8, Canada]]></description>
+				<Point>
+					<coordinates>-73.552987,45.50744,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Saint-Catherine Street</name>
+				<Point>
+					<coordinates>-73.563273,45.510557,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>SHERBROOKE ST W</name>
+				<description><![CDATA[Montréal, QC H3G 1J1, Canada]]></description>
+				<Point>
+					<coordinates>-73.579144,45.49907,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Montreal City Hall</name>
+				<Point>
+					<coordinates>-73.553966,45.50838,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Château Ramezay Museum</name>
+				<Point>
+					<coordinates>-73.553765,45.508413,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-FF8277</styleUrl>
+				<name>McGill University</name>
+				<Point>
+					<coordinates>-73.574483,45.503994,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>World Trade Centre Montreal</name>
+				<Point>
+					<coordinates>-73.560711,45.502305,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>de la Commune / Place Jacques-Cartier</name>
+				<Point>
+					<coordinates>-73.551956,45.507408,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Chinatown Montreal</name>
+				<Point>
+					<coordinates>-73.561023,45.506688,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Souvenirs Place du Canada</name>
+				<Point>
+					<coordinates>-73.567481,45.497737,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Suite 88 Chocolatier</name>
+				<Point>
+					<coordinates>-73.574854,45.52031,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-FF8277</styleUrl>
+				<name>Joe Beef</name>
+				<Point>
+					<coordinates>-73.575169,45.482968,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Restaurant Garde-Manger Inc</name>
+				<Point>
+					<coordinates>-73.555439,45.50282,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Habitat '67</name>
+				<Point>
+					<coordinates>-73.542328,45.50489,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-FF8277</styleUrl>
+				<name>Rue Riverview</name>
+				<description><![CDATA[Verdun, QC H4H, Canada]]></description>
+				<Point>
+					<coordinates>-73.577158,45.446927,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Maison Du Bedouin (la)</name>
+				<Point>
+					<coordinates>-73.579222,45.493841,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-FF8277</styleUrl>
+				<name>263 Rue Saint Viateur Ouest</name>
+				<description><![CDATA[Montréal, QC H2V 1X9, Canada]]></description>
+				<Point>
+					<coordinates>-73.601894,45.522567,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Van Houtte Cafe</name>
+				<Point>
+					<coordinates>-73.61564,45.519732,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>1127 Avenue du Mont Royal Est</name>
+				<description><![CDATA[Montréal, QC H2J 1X9, Canada]]></description>
+				<Point>
+					<coordinates>-73.57892,45.528374,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Crepe Cafe</name>
+				<Point>
+					<coordinates>-73.55259,45.510019,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Gail's Apartment</name>
+				<description><![CDATA[Montréal, QC H3S 1J9, Canada]]></description>
+				<Point>
+					<coordinates>-73.62994,45.508771,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-FF8277</styleUrl>
+				<name>Notre-Dame Basilica</name>
+				<Point>
+					<coordinates>-73.555723,45.504587,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Place-d'Armes / Notre-Dame</name>
+				<Point>
+					<coordinates>-73.556645,45.505173,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Dorchester Square</name>
+				<description><![CDATA[Montreal, QC H3B, Canada
+ (http://maps.google.com/maps/place?ftid=0x4cc91a43076265eb:0x628a2cf78c41926c&amp;q=Dorchester+Square&amp;hl=en&amp;cad=src:ppiwlink&amp;ei=88pQTKe5L6T-zQSWgZnyBA&amp;dtab=5)]]></description>
+				<Point>
+					<coordinates>-73.570892,45.4994,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>De la Commune Street</name>
+				<Point>
+					<coordinates>-73.55337,45.504821,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-22</styleUrl>
+				<name>Parc La Fontaine</name>
+				<description><![CDATA[Montreal, QC H2L 3A8, Canada
+ (http://maps.google.com/maps/place?ftid=0x4cc91bc631b89b09:0x43910e010cff606b&amp;q=La+fontaine+Park&amp;hl=en&amp;cad=src:ppiwlink&amp;ei=cctQTJeMJ46izQTV-bC_Ag&amp;dtab=5)]]></description>
+				<Point>
+					<coordinates>-73.569886,45.526676,0.0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Style id='icon-22'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+			</IconStyle>
+		</Style>
+		<Style id='icon-503-FF8277'>
+			<IconStyle>
+				<color>ff7782FF</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+			</IconStyle>
+		</Style>
+	</Document>
+</kml>

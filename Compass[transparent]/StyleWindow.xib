@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSWindowController">
+            <connections>
+                <outlet property="window" destination="QvC-M9-y7g" id="zzq-AQ-0mM"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="Style Selector" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="486" height="358"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <view key="contentView" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="486" height="358"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <openGLView misplaced="YES" depthSize="16bit" antiAliasingType="multisample" samplingRate="8" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lbg-u0-aW2" customClass="OpenGLView">
+                        <rect key="frame" x="20" y="15" width="440" height="332"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </openGLView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Lbg-u0-aW2" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="10" id="AwJ-CR-P4e"/>
+                    <constraint firstAttribute="bottom" secondItem="Lbg-u0-aW2" secondAttribute="bottom" constant="10" id="afZ-au-bKo"/>
+                    <constraint firstItem="Lbg-u0-aW2" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="10" id="ceu-bK-0qL"/>
+                    <constraint firstAttribute="trailing" secondItem="Lbg-u0-aW2" secondAttribute="trailing" constant="10" id="ocR-hM-pCN"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="8XO-Ic-fAy"/>
+            </connections>
+        </window>
+    </objects>
+</document>

@@ -1,0 +1,235 @@
+//
+//  renderStyles.cpp
+//  Compass[transparent]
+//
+//  Created by Daniel Miau on 4/20/14.
+//  Copyright (c) 2014 dmiau. All rights reserved.
+//
+#include "commonInclude.h"
+#include "compassRender.h"
+#include <vector>
+#include <numeric>
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+#pragma mark ------------ styles
+
+void compassRender::renderStyleBimodal(){
+    
+    ostringstream db_stream;
+    
+    // ---------------
+    // Modified Otsu threshold
+    // ---------------
+    // This part is a bit messy, but I don't have an elegent way to do so...
+    // In the future, perhaps I can use the eigen library
+    
+    // Two goals here:
+    // 1) decide whether it is unimodal or bimodal
+    // 2) decide the best threshodl if it is bimodal
+    
+    // Assume the distribution is bimodal
+    vector <double> filtered_dist_list, threshold_list;
+    
+    vector<pair<double, int>>  modified_Otsu_list;
+    vector <double> cum_dist_list;
+    vector <double> cum_square_dist_list;
+    
+    // Assume model->indices_for_rendering stores sorted distances
+    
+    // Generate cumulative sum
+    for (int i = 0; i < model->indices_for_rendering.size(); ++i){
+        int j = model->indices_for_rendering[i];
+        filtered_dist_list.push_back(model->data_array[j].distance);
+    }
+    
+//    // Debug
+//    filtered_dist_list.clear();
+//    filtered_dist_list.push_back(100);
+//    filtered_dist_list.push_back(200);
+//    filtered_dist_list.push_back(300);
+//    filtered_dist_list.push_back(400);
+//    filtered_dist_list.push_back(1000);
+
+    double cum_dist = 0.0;
+    double cum_square_dist = 0.0;
+    for (int i = 0; i<filtered_dist_list.size(); ++i){
+        cum_dist += filtered_dist_list[i];
+        cum_dist_list.push_back(cum_dist);
+        cum_square_dist +=
+        filtered_dist_list[i]*filtered_dist_list[i];
+        
+        cum_square_dist_list.push_back(cum_square_dist);
+    }
+    
+    int landmark_n = filtered_dist_list.size();
+    
+        
+    if (landmark_n <= 1){
+        // In rare cases we may ended up with a single landmark?
+        throw(runtime_error("Only single landmark!!"));
+    }
+    
+    for (int i = 1; i < landmark_n; ++i){
+        // For each threshold, need to calculate a modified Otsu score
+        // i denotes the landmark index
+        // i also denotes the number of element
+        // in front of the current threshold
+        
+        // C++ uses 0-based index so the sum of the first i element
+        // should be cum_dist_list[i-1]
+        double mu_small = cum_dist_list[i-1]/i;
+        double var_small = (cum_square_dist_list[i-1]/i
+                            - pow(mu_small, 2))/
+                            pow(filtered_dist_list[i-1], 2)
+                            * i / max(1, i-1);
+        
+        
+        double mu_big = (cum_dist_list[landmark_n-1]
+                         -cum_dist_list[i-1])
+                        /(landmark_n - i);
+        
+        double var_big = (
+                          (cum_square_dist_list[landmark_n-1]
+                          - cum_square_dist_list[i-1])/(landmark_n - i)
+                          - pow(mu_big, 2))
+        
+                        /pow(filtered_dist_list[landmark_n-1], 2)
+                        * (landmark_n - i) / max(1, (landmark_n - i-1));
+        
+        double modified_Otsu = i * var_small +
+        (landmark_n - i) * var_big;
+        // need to store the index too
+        modified_Otsu_list.push_back(make_pair(modified_Otsu, i-1));
+    }
+    
+    // Figure out the data is unimodal or bimodal?
+
+    std::vector<pair<double, int>>::iterator result =
+    std::min_element(modified_Otsu_list.begin(),
+                     modified_Otsu_list.end(), compareAscending);
+    int thres_id = result->second;
+    double mu_small = cum_dist_list[thres_id]/ (thres_id +1);
+    double mu_big = (cum_dist_list[landmark_n-1]
+                     -cum_dist_list[thres_id])
+    / (landmark_n - thres_id - 1);
+    
+    double ratio = mu_big / mu_small;
+
+    // Parameters
+    float bimodal_threshold = 3;
+    
+    
+    struct mode_info{
+        float base_radius;
+        double max_dist;
+    };
+    
+    vector<mode_info> mode_info_list;
+    
+    // Debug
+    if (ratio > bimodal_threshold){
+        // Slightly more complex case
+        
+        // small mode
+        mode_info t_mode_info_small = {central_disk_radius,
+            filtered_dist_list[thres_id]};
+        mode_info_list.push_back(t_mode_info_small);
+        
+
+        // big mode
+        mode_info t_mode_info_big = { central_disk_radius /2,
+            filtered_dist_list[landmark_n-1]};
+        mode_info_list.push_back(t_mode_info_big);
+        
+        cout << "Bimodal" <<endl;
+    }else{
+        // Easy case
+        mode_info t_mode_info = {central_disk_radius,
+            filtered_dist_list[landmark_n-1]};
+        mode_info_list.push_back(t_mode_info);
+        cout << "Unimodal" <<endl;
+    }
+
+    
+    // ---------------
+    // Debug info
+    // ---------------
+    db_stream << "filtered_dist_list: " << endl;
+    for (int i = 0; i< filtered_dist_list.size(); ++i){
+        db_stream << filtered_dist_list[i] << ", ";
+        
+        if ((mode_info_list.size() == 2) && (thres_id == i)){
+            db_stream << " |  ";
+        }
+    }
+    db_stream << endl << "modified_Otsu_list" << endl;
+    
+    for (int i = 0; i< modified_Otsu_list.size(); ++i){
+        db_stream << modified_Otsu_list[i].first;
+        
+        if ((mode_info_list.size() == 2) && (thres_id == i)){
+            db_stream << "* ";
+        }
+        db_stream << ", ";
+    }
+    cout << db_stream.str() << endl;
+    
+    // ---------------
+    // draw the triangle
+    // ---------------
+    
+
+    for (int i = 0; i < model->indices_for_rendering.size(); ++i){
+        int j = model->indices_for_rendering[i];
+        
+        //[todo] fix color map (increase the size?)
+        glColor3f((float)model->color_map[j][0]/256,
+                  (float)model->color_map[j][1]/256,
+                  (float)model->color_map[j][2]/256);
+        
+        data data_ = model->data_array[j];
+        
+        
+        // **Select appropriate radius and distance based on mode
+        
+        float disk_radius = 0.0;
+        double k = 0, distance;
+        
+        if (data_.distance <= mode_info_list[0].max_dist){
+            disk_radius = mode_info_list[0].base_radius;
+            if (mode_info_list.size() == 1){
+                k = data_.distance /
+                mode_info_list[0].max_dist;
+            }else{
+                k = data_.distance /
+                mode_info_list[0].max_dist * 0.6;
+            }
+            if (k > 1)
+                cout << "bug!" << endl;
+        }else{
+            disk_radius = mode_info_list[1].base_radius;
+            
+            k = (0.8 + 0.2 *
+                        (data_.distance - filtered_dist_list[thres_id + 1])
+                        / (mode_info_list[1].max_dist -
+                           filtered_dist_list[thres_id + 1]));
+            
+            if (k > 1)
+                cout << "bug!" << endl;
+        }
+        distance = k * half_canvas_size * 0.9;
+        drawTriangle(disk_radius, data_.orientation, distance);
+    }    
+}
+
+
+void compassRender::renderStyleRealRatio(){
+    
+}
+
+
+void compassRender::renderStyleThresholdSticks(){
+    
+}
