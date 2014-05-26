@@ -114,6 +114,9 @@
                         change:(NSDictionary *)change
                        context:(void *)context
 {
+    
+    // [todo] In the browser mode,
+    // updates should not come from map! Need to fix this
     if ([keyPath isEqual:@"mapUpdateFlag"]) {
         
         [self feedModelLatitude: [_mapView centerCoordinate].latitude
@@ -124,6 +127,10 @@
 }
 
 
+//---------------
+// This function is called when user actions changes
+// the location, heading and tilt.
+//---------------
 - (void) feedModelLatitude: (float) lat_float
                  longitude: (float) lon_float
                    heading: (float) heading_deg

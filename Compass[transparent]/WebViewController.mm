@@ -87,6 +87,15 @@
     }
 }
 
+//http://stackoverflow.com/questions/4003232/how-to-code-a-modulo-operator-in-c-c-obj-c-that-handles-negative-numbers
+float mod (float a, float b)
+{
+    float ret = fmod(a, b);
+    if(ret < 0)
+        ret+=b;
+    return ret;
+}
+
 - (void) updateCompassModel
 {
     NSURL* url = [NSURL URLWithString:self.URL];
@@ -161,7 +170,8 @@
                         lon_float = t_value;
                         break;
                     case 3:
-                        head_deg = t_value;
+                        head_deg = mod(t_value, 360);
+                        cout << "head_deg: " << head_deg << endl;
                         break;
                     case 4:
                         tilt_deg = t_value;
@@ -172,11 +182,14 @@
             }
         }
         
+        
+        // The heading and tilt are extremely confusing.
+        // I need to fix that
         [self.desktopViewController
          feedModelLatitude: lat_float
          longitude: lon_float
-         heading: head_deg
-         tilt: tilt_deg];
+         heading: -head_deg
+         tilt: -tilt_deg];
     }
 }
 

@@ -651,16 +651,32 @@ Need to do something about the drawLabel method
 // - (NSSize) frameSize; // returns either dynamc frame (text size + margins) or static frame size (switch with staticFrame)
 I can take advantage of frameSize to fix the orientation and line break issues
 
+- fixed text orientation issue
 
+-------------------------------------------------------------------
+5.23.2014
+-------------------------------------------------------------------
+todo:
+- implement hysteresis, deal with flip flop
+- interaction - min/max text
+- articulate the problem, by thinking deeply, rigorously, and reading LOTS OF papers
+- fixed the tilt issue in the browser mode
 
+Something new that I learned today: If I want to see the message printed out 
+from NSLog, I need to run the applicaiton as a child of the console.
+http://stackoverflow.com/questions/364564/how-to-get-the-output-of-an-os-x-application-on-the-console-or-to-a-file
 
+Look into how to get a Bitmap texture map
+NSBitmapImageRep
 
+I think it may be easier if I use icons (or letter abbreveation) as opposed to
+full name for user study.
 
-
-
-
-
-
+-------------------------------------------------------------------
+5.26.2014
+-------------------------------------------------------------------
+- heading and tilt are extremely confusing
+- need to decouple MKMapKit from the web browser
 
 
 

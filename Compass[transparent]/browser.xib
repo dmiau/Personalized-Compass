@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
         <plugIn identifier="com.apple.MapKitIBPlugin" version="5056"/>
@@ -662,7 +662,7 @@
                                     <action selector="toggleMap:" target="3Bp-Mg-e5g" id="EYB-oK-49J"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Hide Compass" keyEquivalent="c" id="jJZ-6m-BSm">
+                            <menuItem title="Show Compass" keyEquivalent="c" id="jJZ-6m-BSm">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
                                     <action selector="toggleCompass:" target="3Bp-Mg-e5g" id="TLb-XR-5sp"/>
@@ -837,7 +837,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView identifier="LocationTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="60" rowSizeStyle="automatic" headerView="01t-qL-llK" viewBased="YES" id="sA2-ri-dei">
-                                    <rect key="frame" x="0.0" y="0.0" width="175" height="315"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="175" height="456"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
