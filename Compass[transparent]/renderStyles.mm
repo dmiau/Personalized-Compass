@@ -169,9 +169,9 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         int j = indices_for_rendering[i];
         
         //[todo] fix color map (increase the size?)
-        glColor3f((float)model->color_map[j][0]/256,
+        glColor4f((float)model->color_map[j][0]/256,
                   (float)model->color_map[j][1]/256,
-                  (float)model->color_map[j][2]/256);
+                  (float)model->color_map[j][2]/256, 1);
         
         data data_ = model->data_array[j];
         
@@ -252,9 +252,9 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
         int j = indices_for_rendering[i];
 
         //[todo] fix color map (increase the size?)
-        glColor3f((float)model->color_map[j][0]/256,
+        glColor4f((float)model->color_map[j][0]/256,
                   (float)model->color_map[j][1]/256,
-                  (float)model->color_map[j][2]/256);
+                  (float)model->color_map[j][2]/256, 1);
 
         data data_ = model->data_array[j];
 

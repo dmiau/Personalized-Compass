@@ -677,6 +677,7 @@ full name for user study.
 -------------------------------------------------------------------
 - heading and tilt are extremely confusing
 - need to decouple MKMapKit from the web browser
+- next focus: hysteresis 
 
 
 

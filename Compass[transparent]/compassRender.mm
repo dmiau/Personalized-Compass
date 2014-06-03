@@ -10,6 +10,35 @@
 #include <algorithm>
 #include "compassRender.h"
 
+struct Vertex3D{
+    GLfloat x;
+    GLfloat y;
+    GLfloat z;
+    
+};
+
+struct Triangle3D{
+    Vertex3D v1;
+    Vertex3D v2;
+    Vertex3D v3;
+    
+};
+
+static inline Triangle3D Triangle3DMake(Vertex3D vertex1, Vertex3D vertex2, Vertex3D vertex3){
+    Triangle3D triangle;
+    triangle.v1 = vertex1;
+    triangle.v2 = vertex2;
+    triangle.v3 = vertex3;
+    return triangle;
+};
+
+static inline Vertex3D Vertex3DMake(GLfloat x, GLfloat y, GLfloat z){
+    Vertex3D vertex;
+    vertex.x = x;
+    vertex.y = y;
+    vertex.z = z;
+    return vertex;
+}
 
 recVec glOrigin = {0.0, 0.0, 0.0};
 
@@ -161,7 +190,7 @@ void compassRender::render(){
 }
 
 void compassRender::render(RenderParamStruct renderParamStruct) {
-        
+    glEnableClientState(GL_VERTEX_ARRAY);
     //    glEnable(GL_BLEND);
     //    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //
@@ -191,6 +220,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     drawCompass(renderParamStruct);
     
     glPopMatrix();
+    glDisableClientState(GL_VERTEX_ARRAY);
 //    glFlush();
 //    glutSwapBuffers();
 }
@@ -227,9 +257,10 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     // ---------------
     // Draw the center circle
     // ---------------
-    glColor3f([model->configurations[@"circle_color"][0] floatValue]/255,
+    glColor4f([model->configurations[@"circle_color"][0] floatValue]/255,
               [model->configurations[@"circle_color"][1] floatValue]/255,
-              [model->configurations[@"circle_color"][2] floatValue]/255);
+              [model->configurations[@"circle_color"][2] floatValue]/255,
+              1);
     
     // draw the center circle
     drawCircle(0, 0, central_disk_radius, 50);
@@ -266,13 +297,15 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
 void compassRender::drawTriangle(int central_disk_radius, float rotation, float height)
 {
     glPushMatrix();
-    glRotated(rotation, 0, 0, -1);
+    glRotatef(rotation, 0, 0, -1);
     //    cout << "rotation: " << rotation << endl;
-    glBegin(GL_TRIANGLES);
-    glVertex3f(0, height, 0);
-    glVertex3f(-central_disk_radius, 0, 0);
-    glVertex3f(central_disk_radius, 0, 0);
-    glEnd();
+    Vertex3D    vertex1 = Vertex3DMake(0, height, 0);
+    Vertex3D    vertex2 = Vertex3DMake(-central_disk_radius, 0, 0);
+    Vertex3D    vertex3 = Vertex3DMake(central_disk_radius, 0, 0);
+    Triangle3D  triangle = Triangle3DMake(vertex1, vertex2, vertex3);
+    glVertexPointer(3, GL_FLOAT, 0, &triangle);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    
     glPopMatrix();
 }
 
@@ -306,7 +339,6 @@ void compassRender::drawLabel(float rotation, float height, string name)
 //    float scale = (0.04 + delta) * 1/ (glDrawingCorrectionRatio * compass_scale);
     float scale = 1/ ( compass_scale); // glDrawingCorrectionRatio *
     glScaled(scale, scale, scale);
-    glColor3f(0, 0, 0);
     
     glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
     
@@ -332,9 +364,9 @@ void compassRender::drawLabel(float rotation, float height, string name)
 //-------------
 void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
 {
+    float* p_vertex_array = new float[num_segments * 2];
     
     // draw a filled circle
-    glBegin(GL_TRIANGLE_FAN);  //GL_LINE_LOOP
     for(int ii = 0; ii < num_segments; ii++)
     {
         float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);//get the current angle
@@ -342,9 +374,12 @@ void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
         float x = r * cosf(theta);//calculate the x component
         float y = r * sinf(theta);//calculate the y component
         
-        glVertex2f(x + cx, y + cy);//output vertex
-        
+        p_vertex_array[ii*2] = x + cx;
+        p_vertex_array[ii*2 + 1] = y + cy;
     }
-    glEnd();
+    
+    glVertexPointer(2, GL_FLOAT, 0, p_vertex_array);
+    glDrawArrays(GL_TRIANGLE_FAN, 0, num_segments);
+    delete[] p_vertex_array;
 }
 

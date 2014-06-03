@@ -806,7 +806,7 @@
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" autoresizesSubviews="NO" id="EiT-Mj-1SZ" customClass="WatchNSView">
                 <rect key="frame" x="0.0" y="0.0" width="697" height="384"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <openGLView hidden="YES" autoresizesSubviews="NO" misplaced="YES" placeholderIntrinsicWidth="261" placeholderIntrinsicHeight="221" depthSize="16bit" samplingRate="8" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UCa-0f-w4g" customClass="OpenGLView">
                         <rect key="frame" x="146" y="52" width="261" height="221"/>
@@ -837,7 +837,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView identifier="LocationTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="60" rowSizeStyle="automatic" headerView="01t-qL-llK" viewBased="YES" id="sA2-ri-dei">
-                                    <rect key="frame" x="0.0" y="0.0" width="175" height="456"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="175" height="315"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
