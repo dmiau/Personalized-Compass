@@ -10,35 +10,11 @@
 #include <algorithm>
 #include "compassRender.h"
 
-struct Vertex3D{
-    GLfloat x;
-    GLfloat y;
-    GLfloat z;
-    
-};
-
-struct Triangle3D{
-    Vertex3D v1;
-    Vertex3D v2;
-    Vertex3D v3;
-    
-};
-
-static inline Triangle3D Triangle3DMake(Vertex3D vertex1, Vertex3D vertex2, Vertex3D vertex3){
-    Triangle3D triangle;
-    triangle.v1 = vertex1;
-    triangle.v2 = vertex2;
-    triangle.v3 = vertex3;
-    return triangle;
-};
-
-static inline Vertex3D Vertex3DMake(GLfloat x, GLfloat y, GLfloat z){
-    Vertex3D vertex;
-    vertex.x = x;
-    vertex.y = y;
-    vertex.z = z;
-    return vertex;
-}
+#ifdef __IPHONE__
+typedef UIFont NSFont;
+typedef UIColor NSColor;
+#import <GLKit/GLKit.h>
+#endif
 
 recVec glOrigin = {0.0, 0.0, 0.0};
 
@@ -95,17 +71,20 @@ int compassRender::initRenderMdl(){
     
     // init fonts for use with strings
 	NSFont * font =[NSFont fontWithName:@"Helvetica" size:18.0];
+    
 	stringAttrib = [NSMutableDictionary dictionary];
 	[stringAttrib setObject:font forKey:NSFontAttributeName];
     //	[stringAttrib setObject:[NSColor blackColor] forKey:NSForegroundColorAttributeName];
 	[stringAttrib setObject:
-     [NSColor colorWithDeviceRed:0.0f green:0.0f blue:0.0f alpha:1.0f]
+     [NSColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]
                      forKey:NSForegroundColorAttributeName];
     
+#ifndef __IPHONE__
     label_string = [[GLString alloc] initWithString:@"" withAttributes:stringAttrib
                                       withTextColor:[NSColor colorWithDeviceRed:1.0f green:0.0f blue:0.0f alpha:1.0f]
                                        withBoxColor:[NSColor colorWithDeviceRed:0.5f green:0.5f blue:0.5f alpha:0.0f]
                                     withBorderColor:[NSColor colorWithDeviceRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
+#endif
     
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
@@ -119,17 +98,26 @@ int compassRender::initRenderView(float win_width, float win_height){
     // Transformations for the projection
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    // left, right, bottom, top, z_near, z_far
-    //    glOrtho(-half_canvas_size, half_canvas_size, -half_canvas_size, half_canvas_size, 0, 150);
     
+    
+#ifdef __IPHONE__
+    // left, right, bottom, top, z_near, z_far
+    glOrthof(-half_canvas_size, half_canvas_size, -half_canvas_size, half_canvas_size,
+             -150, 150);
+#else
     //fovy, asepect, zNear, zFar
     gluPerspective(camera.fov, 1, 1, 3 * camera.viewPos.z );
-    // Transformations for models
+#endif
+    
     glMatrixMode(GL_MODELVIEW);
+    
+#ifndef __IPHONE__
     glLoadIdentity();
     gluLookAt(camera.viewPos.x, camera.viewPos.y, camera.viewPos.z,
               0, 0, 0,
               camera.viewUp.x, camera.viewUp.y, camera.viewUp.z);
+#endif
+    
     return EXIT_SUCCESS;
 }
 
@@ -144,16 +132,15 @@ void compassRender::updateViewport
     updateProjection((float)width/(float)height);  // update projection matrix
 }
 
-void compassRender::updateProjection(GLdouble aspect_ratio){
+void compassRender::updateProjection(GLfloat aspect_ratio){
     
+#ifndef __IPHONE__
 	// set projection
-	glMatrixMode (GL_PROJECTION);
-	glLoadIdentity ();
-    
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     //fovy, asepect, zNear, zFar
     gluPerspective(camera.fov, aspect_ratio, 1, 3 * camera.viewPos.z);
+#endif
 }
 
 #pragma mark ---------core rendering routine---------
@@ -207,9 +194,9 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
 
     // [todo] Careful! Potential bug here...
     // tilt
-    glRotated(model->tilt, 1, 0, 0);
+    glRotatef(model->tilt, 1, 0, 0);
     
-    glRotated(model->current_pos.orientation, 0, 0, -1);
+    glRotatef(model->current_pos.orientation, 0, 0, -1);
 
     float scale = glDrawingCorrectionRatio * compass_scale;
     glScalef(scale, scale, 1);
@@ -314,7 +301,7 @@ void compassRender::drawTriangle(int central_disk_radius, float rotation, float 
 //-------------
 void compassRender::drawLabel(float rotation, float height, string name)
 {
-    
+#ifndef __IPHONE__
 	NSString * string = [NSString stringWithFormat:@"%@\n",
                          [NSString stringWithUTF8String:name.c_str()]];
     
@@ -328,26 +315,26 @@ void compassRender::drawLabel(float rotation, float height, string name)
     [label_string setString:string withAttributes:stringAttrib];
     
     glPushMatrix();
-    glRotated(rotation, 0, 0, -1);
+    glRotatef(rotation, 0, 0, -1);
     
     glTranslatef(0, half_canvas_size * 0.9, 0); //central_disk_radius
-    glRotated(-90, 0, 0, -1);
+    glRotatef(-90, 0, 0, -1);
     // Fix text size
     
 //    font_size
 //    float delta = [model->configurations[@"font_size"] floatValue]/ 100;
 //    float scale = (0.04 + delta) * 1/ (glDrawingCorrectionRatio * compass_scale);
     float scale = 1/ ( compass_scale); // glDrawingCorrectionRatio *
-    glScaled(scale, scale, scale);
+    glScalef(scale, scale, scale);
     
     glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
     
     glPushMatrix();
-    glRotated(180, 0, 1, 0);
+    glRotatef(180, 0, 1, 0);
 
     // Handle the orientaion of the string
     if ((rotation >= 0) && (rotation <= 180)) {
-        glRotated(180, 0, 0, 1);
+        glRotatef(180, 0, 0, 1);
         glTranslatef(-[label_string frameSize].width, 0, 0);
     }
     [label_string drawAtPoint:NSMakePoint (0, 0)];
@@ -355,7 +342,7 @@ void compassRender::drawLabel(float rotation, float height, string name)
     glPopMatrix();
     
     glPopMatrix();
-    
+#endif
 }
 
 //-------------

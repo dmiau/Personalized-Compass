@@ -11,7 +11,13 @@
 
 #include <iostream>
 #include <vector>
+
+#ifndef __IPHONE__
 #import <Cocoa/Cocoa.h>
+#else
+#import <UIKit/UIKit.h>
+#endif
+
 using namespace std;
 
 class data {

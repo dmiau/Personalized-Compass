@@ -11,11 +11,17 @@
 
 #include "compassModel.h"
 #import <Foundation/Foundation.h>
+
+#ifdef __IPHONE__
+#import <GLKit/GLKit.h>
+#else
 #import "GLString.h"
+#endif
+
 // http://stackoverflow.com/questions/4714698/mixing-objective-c-m-mm-c-cpp-files
 
 typedef struct {
-    GLdouble x,y,z;
+    GLfloat x,y,z;
 } recVec;
 
 
@@ -73,7 +79,9 @@ public:
     float label_size;
 	NSMutableDictionary *stringAttrib; // Text attributes
 	
+#ifndef __IPHONE__
 	GLString *label_string;
+#endif
     
     // Camera handling
     recCamera camera;
@@ -95,7 +103,7 @@ public:
     
     void resetCamera();
     void updateViewport(GLint x, GLint y, GLsizei width, GLsizei height);
-    void updateProjection(GLdouble aspect_ratio);
+    void updateProjection(GLfloat aspect_ratio);
 private:
     // Drawing routines
     void drawCompass(RenderParamStruct renderParamStruct);

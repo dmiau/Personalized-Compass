@@ -679,9 +679,13 @@ full name for user study.
 - need to decouple MKMapKit from the web browser
 - next focus: hysteresis 
 
-
-
-
+-------------------------------------------------------------------
+6.3.2014
+-------------------------------------------------------------------
+- adding an iphone target
+- hooking up all the components
+- need to fix json parser
+- I may need to use NSJSONSerialization
 
 
 

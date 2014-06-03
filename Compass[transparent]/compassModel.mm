@@ -11,7 +11,6 @@
 #include "jsonReader.h"
 #include <unistd.h>
 #import <CoreLocation/CoreLocation.h>
-#import "AppDelegate.h"
 #include "xmlParser.h"
 
 // http://stackoverflow.com/questions/3277121/include-objective-c-header-in-c-file

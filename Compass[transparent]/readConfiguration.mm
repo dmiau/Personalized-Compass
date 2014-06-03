@@ -1,5 +1,5 @@
 //
-//  readConfiguration.cpp
+//  readConfiguration.mm
 //  Compass[transparent]
 //
 //  Created by dmiau on 4/17/14.
