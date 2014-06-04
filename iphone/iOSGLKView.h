@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
+#include "compassRender.h"
 
-@interface iOSGLKView : GLKView
+@interface iOSGLKView : GLKView{
+    NSTimer* renderTimer;
+}
+
+@property compassRender* renderer;
+
+- (void) drawRect:(CGRect) bounds;
 
 @end

@@ -6,67 +6,57 @@
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
 
-#include "jsonReader.h"
+#include "compassModel.h"
 #include <string>
 
 using namespace std;
 
 int readConfigurations(compassMdl* mdl_instance){
-    Json::Value root;
-    string filename;
-    filename = mdl_instance->configuration_filename;
-    if (readFile(filename, root) != EXIT_SUCCESS)
-        return EXIT_FAILURE;
-
-    cout << root.toStyledString() << endl;
     
-    for (int i = 0; i < root.size(); ++i){
-        NSString *key = [NSString
-                          stringWithUTF8String:root[i]["property"].asString().c_str()];
+    
+    NSString *jsonPath = [NSString stringWithUTF8String:mdl_instance->configuration_filename.c_str()];
+    NSData *data = [NSData dataWithContentsOfFile:jsonPath];
+    NSError *error = nil;
+    NSArray *jsonData= [NSJSONSerialization JSONObjectWithData:data
+                                                       options:kNilOptions
+                                                         error:&error];
+//    NSLog(@"JSON: %@", jsonData[0]);
+    if (error)
+        return EXIT_FAILURE;
+    
+    for (int i = 0; i < [jsonData count]; ++i){
+        NSString *key = jsonData[i][@"property"];
         
-        if (root[i]["property"].asString().compare("color_map") == 0 ){
+        if ([key isEqualToString:@"color_map"] ){
             // Need to handle color_map as a special case
-            Json::Value color_list_root = root[i]["value"];
-            
+            NSArray *color_list_root = jsonData[i][@"value"];
             
             // Allocate memory to hold color_map
             // http://stackoverflow.com/questions/936687/how-do-i-declare-a-2d-array-in-c-using-new
             // http://www.cplusplus.com/forum/beginner/51598/
-            int color_n = color_list_root.size();
             
-            for (int j = 0; j<color_n; ++j){
+            for (int j = 0; j< [jsonData[i][@"value"] count]; ++j){
                 mdl_instance->color_map.push_back(new int[3]);
-                mdl_instance->color_map[j][0] = color_list_root[j][0].asInt();
-                mdl_instance->color_map[j][1] = color_list_root[j][1].asInt();
-                mdl_instance->color_map[j][2] = color_list_root[j][2].asInt();
+                mdl_instance->color_map[j][0] = [color_list_root[j][0] intValue];
+                mdl_instance->color_map[j][1] = [color_list_root[j][1] intValue];
+                mdl_instance->color_map[j][2] = [color_list_root[j][2] intValue];
             }
-        }else if(root[i]["value"].isArray()){
+        }else if([jsonData[i][@"value"] isKindOfClass:[NSArray class]]){
 //            NSLog(@"An array found!");
             NSMutableArray *mutableArray =
-            [[NSMutableArray alloc] initWithCapacity:root[i]["value"].size()];
+            [[NSMutableArray alloc] initWithCapacity:[jsonData[i][@"value"] count]];
 
             NSNumber *number;
-            for (int j = 0; j < root[i]["value"].size(); ++j){
-//                cout <<root[i]["value"][j].toStyledString() << endl;
-                    number = [NSNumber numberWithInt:root[i]["value"][j].asInt()];
+            for (int j = 0; j < [jsonData[i][@"value"] count]; ++j){
+
+                    number = jsonData[i][@"value"][j];
                 [mutableArray addObject:number];
             }
             [mdl_instance->configurations setObject:mutableArray forKey:key];
         }else{
             // Handle the value differently depending on the type of object
-            if (root[i]["value"].isInt()){
-                NSNumber *value = [NSNumber
-                                   numberWithInt:root[i]["value"].asInt()];
-                [mdl_instance->configurations setObject:value forKey:key];
-            }else if (root[i]["value"].isDouble()){
-                NSNumber *value = [NSNumber
-                                   numberWithFloat:root[i]["value"].asFloat()];
-                [mdl_instance->configurations setObject:value forKey:key];
-            }else if (root[i]["value"].isString()){
-                NSString *value = [NSString
-                         stringWithUTF8String:root[i]["value"].asString().c_str()];
-                [mdl_instance->configurations setObject:value forKey:key];
-            }
+            [mdl_instance->configurations setObject:jsonData[i][@"value"]
+                                             forKey:key];
         }
     }
     

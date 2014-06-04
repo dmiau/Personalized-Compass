@@ -7,11 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import <GLKit/GLKit.h>
+#include "compassModel.h"
+#include "compassRender.h"
+#include <iostream>
+#import "iOSGLKView.h"
 
 @interface iOSViewController : UIViewController{
-    NSTimer* renderTimer;
+    BOOL pinVisible;
+    NSArray *kml_files;
 }
 
+@property (weak) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet GLKView *glkView;
+
+
+@property compassMdl* model;
+@property compassRender* renderer;
+
+
+- (void) updateMapDisplayRegion;
+
 @end

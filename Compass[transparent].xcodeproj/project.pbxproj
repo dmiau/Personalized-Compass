@@ -18,16 +18,21 @@
 		9A4F0F75193E2AF500CF32DE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */; };
 		9A4F0F77193E2B7100CF32DE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F76193E2B7100CF32DE /* MapKit.framework */; };
 		9A4F0F79193E2B7800CF32DE /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F78193E2B7800CF32DE /* GLKit.framework */; };
-		9A4F0F7C193E306A00CF32DE /* iOSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7B193E306A00CF32DE /* iOSViewController.m */; };
-		9A4F0F7F193E308400CF32DE /* iOSGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7E193E308400CF32DE /* iOSGLKView.m */; };
+		9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */; };
+		9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */; };
 		9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
 		9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9A4F0F83193E331E00CF32DE /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
-		9A4F0F84193E331E00CF32DE /* jsonReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580818D9EC440028B80C /* jsonReader.mm */; };
 		9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
 		9A4F0F86193E331E00CF32DE /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
 		9A4F0F87193E331E00CF32DE /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
 		9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
+		9A4F0FAD193E70EA00CF32DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0FAC193E70EA00CF32DE /* CoreLocation.framework */; };
+		9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
+		9A4F0FAF193E745900CF32DE /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
+		9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
+		9A4F0FB1193E745900CF32DE /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B818DC8E95005823A2 /* montreal.kml */; };
+		9A4F0FB2193E746200CF32DE /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
 		9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
 		9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
 		9A6F53F21910069F00F35FED /* DebugInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */; };
@@ -44,7 +49,6 @@
 		9A9701CE19083B10007C3C19 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
 		9A9701CF19083B19007C3C19 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9A9701D019083B19007C3C19 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
-		9A9701D119083B19007C3C19 /* jsonReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580818D9EC440028B80C /* jsonReader.mm */; };
 		9A9701D219083B19007C3C19 /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
 		9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
 		9A9701D519083B19007C3C19 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
@@ -64,7 +68,6 @@
 		9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
 		9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
 		9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
-		9AA7890E1909FE3000A26C66 /* jsonReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580818D9EC440028B80C /* jsonReader.mm */; };
 		9AA7890F1909FE3000A26C66 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
 		9AA789101909FE3000A26C66 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9AA789111909FE3000A26C66 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
@@ -81,7 +84,6 @@
 		9AA7891E1909FE3000A26C66 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
 		9AA7891F1909FE3000A26C66 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582118D9EC8F0028B80C /* CoreLocation.framework */; };
 		9AA789201909FE3000A26C66 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA581F18D9EC890028B80C /* OpenGL.framework */; };
-		9AA789211909FE3000A26C66 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */; };
 		9AA789221909FE3000A26C66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
 		9AA789251909FE3000A26C66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
 		9AA789261909FE3000A26C66 /* moto360_bikemap.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */; };
@@ -106,9 +108,7 @@
 		9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
 		9AEA57E918D9EBB20028B80C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E818D9EBB20028B80C /* Images.xcassets */; };
 		9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
-		9AEA580D18D9EC440028B80C /* jsonReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580818D9EC440028B80C /* jsonReader.mm */; };
 		9AEA581D18D9EC680028B80C /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA581C18D9EC680028B80C /* README.txt */; };
-		9AEA581E18D9EC7E0028B80C /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */; };
 		9AEA582018D9EC890028B80C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA581F18D9EC890028B80C /* OpenGL.framework */; };
 		9AEA582218D9EC8F0028B80C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582118D9EC8F0028B80C /* CoreLocation.framework */; };
 		9AEA582418D9EC940028B80C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
@@ -120,7 +120,6 @@
 		9AEC5CE618F3956F00A29F75 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
 		9AEC5CE718F3956F00A29F75 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582118D9EC8F0028B80C /* CoreLocation.framework */; };
 		9AEC5CE818F3956F00A29F75 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA581F18D9EC890028B80C /* OpenGL.framework */; };
-		9AEC5CE918F3956F00A29F75 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */; };
 		9AEC5CEA18F3956F00A29F75 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
 		9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
 		9AEC5CED18F3956F00A29F75 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E818D9EBB20028B80C /* Images.xcassets */; };
@@ -146,7 +145,6 @@
 		9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */; };
 		9AF7EB2E190175F900983C2F /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
 		9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
-		9AFB149D18EE639A00063632 /* jsonReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580818D9EC440028B80C /* jsonReader.mm */; };
 		9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
 		9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9AFB14A018EE639A00063632 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
@@ -161,7 +159,6 @@
 		9AFB14AA18EE639A00063632 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
 		9AFB14AB18EE639A00063632 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582118D9EC8F0028B80C /* CoreLocation.framework */; };
 		9AFB14AC18EE639A00063632 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA581F18D9EC890028B80C /* OpenGL.framework */; };
-		9AFB14AD18EE639A00063632 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */; };
 		9AFB14AE18EE639A00063632 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
 		9AFB14B018EE639A00063632 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
 		9AFB14B118EE639A00063632 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E818D9EBB20028B80C /* Images.xcassets */; };
@@ -191,9 +188,10 @@
 		9A4F0F76193E2B7100CF32DE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		9A4F0F78193E2B7800CF32DE /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
 		9A4F0F7A193E306A00CF32DE /* iOSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSViewController.h; sourceTree = "<group>"; };
-		9A4F0F7B193E306A00CF32DE /* iOSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSViewController.m; sourceTree = "<group>"; };
+		9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSViewController.mm; sourceTree = "<group>"; };
 		9A4F0F7D193E308400CF32DE /* iOSGLKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSGLKView.h; sourceTree = "<group>"; };
-		9A4F0F7E193E308400CF32DE /* iOSGLKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSGLKView.m; sourceTree = "<group>"; };
+		9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSGLKView.mm; sourceTree = "<group>"; };
+		9A4F0FAC193E70EA00CF32DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		9A5F3FBF18EE5A5000953336 /* Compass[transparent] copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compass[transparent] copy.entitlements"; sourceTree = "<group>"; };
 		9A5F3FC518EE606200953336 /* tabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = tabView.xib; path = "Compass[transparent]/tabView.xib"; sourceTree = "<group>"; };
 		9A6A74A218E4A45D00C7A9D5 /* LocationCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCellView.h; sourceTree = "<group>"; };
@@ -234,19 +232,6 @@
 		9AEA580418D9EC440028B80C /* commonInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commonInclude.h; sourceTree = "<group>"; };
 		9AEA580518D9EC440028B80C /* compassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compassModel.h; sourceTree = "<group>"; };
 		9AEA580618D9EC440028B80C /* compassModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = compassModel.mm; sourceTree = "<group>"; };
-		9AEA580818D9EC440028B80C /* jsonReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = jsonReader.mm; sourceTree = "<group>"; };
-		9AEA580918D9EC440028B80C /* jsonReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsonReader.h; sourceTree = "<group>"; };
-		9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libjson_linux-gcc-4.2.1_libmt.a"; sourceTree = "<group>"; };
-		9AEA581018D9EC540028B80C /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
-		9AEA581118D9EC540028B80C /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		9AEA581218D9EC540028B80C /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
-		9AEA581318D9EC540028B80C /* forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forwards.h; sourceTree = "<group>"; };
-		9AEA581418D9EC540028B80C /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
-		9AEA581518D9EC540028B80C /* libjson_linux-gcc-4.2.1_libmt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libjson_linux-gcc-4.2.1_libmt.a"; sourceTree = "<group>"; };
-		9AEA581618D9EC540028B80C /* libjson_linux-gcc-4.2.1_libmt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libjson_linux-gcc-4.2.1_libmt.dylib"; sourceTree = "<group>"; };
-		9AEA581718D9EC540028B80C /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
-		9AEA581818D9EC540028B80C /* value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
-		9AEA581918D9EC540028B80C /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
 		9AEA581C18D9EC680028B80C /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		9AEA581F18D9EC890028B80C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		9AEA582118D9EC8F0028B80C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -286,6 +271,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A4F0FAD193E70EA00CF32DE /* CoreLocation.framework in Frameworks */,
 				9A4F0F79193E2B7800CF32DE /* GLKit.framework in Frameworks */,
 				9A4F0F77193E2B7100CF32DE /* MapKit.framework in Frameworks */,
 				9A4F0F73193E2ABE00CF32DE /* UIKit.framework in Frameworks */,
@@ -302,7 +288,6 @@
 				9AA7891E1909FE3000A26C66 /* MapKit.framework in Frameworks */,
 				9AA7891F1909FE3000A26C66 /* CoreLocation.framework in Frameworks */,
 				9AA789201909FE3000A26C66 /* OpenGL.framework in Frameworks */,
-				9AA789211909FE3000A26C66 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */,
 				9AA789221909FE3000A26C66 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,7 +300,6 @@
 				9AEA582418D9EC940028B80C /* MapKit.framework in Frameworks */,
 				9AEA582218D9EC8F0028B80C /* CoreLocation.framework in Frameworks */,
 				9AEA582018D9EC890028B80C /* OpenGL.framework in Frameworks */,
-				9AEA581E18D9EC7E0028B80C /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */,
 				9AEA57D118D9EBB20028B80C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +312,6 @@
 				9AEC5CE618F3956F00A29F75 /* MapKit.framework in Frameworks */,
 				9AEC5CE718F3956F00A29F75 /* CoreLocation.framework in Frameworks */,
 				9AEC5CE818F3956F00A29F75 /* OpenGL.framework in Frameworks */,
-				9AEC5CE918F3956F00A29F75 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */,
 				9AEC5CEA18F3956F00A29F75 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +324,6 @@
 				9AFB14AA18EE639A00063632 /* MapKit.framework in Frameworks */,
 				9AFB14AB18EE639A00063632 /* CoreLocation.framework in Frameworks */,
 				9AFB14AC18EE639A00063632 /* OpenGL.framework in Frameworks */,
-				9AFB14AD18EE639A00063632 /* libjson_linux-gcc-4.2.1_libmt.a in Frameworks */,
 				9AFB14AE18EE639A00063632 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,9 +348,9 @@
 				9A4F0F4D193E2A8900CF32DE /* Supporting Files */,
 				9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */,
 				9A4F0F7A193E306A00CF32DE /* iOSViewController.h */,
-				9A4F0F7B193E306A00CF32DE /* iOSViewController.m */,
+				9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */,
 				9A4F0F7D193E308400CF32DE /* iOSGLKView.h */,
-				9A4F0F7E193E308400CF32DE /* iOSGLKView.m */,
+				9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */,
 			);
 			path = iphone;
 			sourceTree = "<group>";
@@ -391,10 +373,7 @@
 				9AF523B218DC83BF005823A2 /* xmlParser.mm */,
 				9AEA580518D9EC440028B80C /* compassModel.h */,
 				9AEA580618D9EC440028B80C /* compassModel.mm */,
-				9AEA580818D9EC440028B80C /* jsonReader.mm */,
 				9AEA580418D9EC440028B80C /* commonInclude.h */,
-				9AEA580918D9EC440028B80C /* jsonReader.h */,
-				9AEA580A18D9EC440028B80C /* libjson_linux-gcc-4.2.1_libmt.a */,
 				9A6EC77E19004BCB00C3815F /* locationFilter.mm */,
 				9A28368A1900C0850041D22E /* readConfiguration.mm */,
 				9AB6E8D91906C9B000E28DE9 /* commonTools.mm */,
@@ -456,7 +435,6 @@
 				9AA789041909BB1200A26C66 /* WebBrowser */,
 				9AEC5CFB18F3958200A29F75 /* smartWatch */,
 				9AFB14C018EE658800063632 /* tabView */,
-				9AEA580F18D9EC540028B80C /* jsoncpp */,
 				9AEA57D618D9EBB20028B80C /* Compass[transparent] */,
 				9A4F0F4C193E2A8900CF32DE /* iphone */,
 				9AEA57CF18D9EBB20028B80C /* Frameworks */,
@@ -480,6 +458,7 @@
 		9AEA57CF18D9EBB20028B80C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A4F0FAC193E70EA00CF32DE /* CoreLocation.framework */,
 				9A4F0F78193E2B7800CF32DE /* GLKit.framework */,
 				9A4F0F76193E2B7100CF32DE /* MapKit.framework */,
 				9A4F0F72193E2ABE00CF32DE /* UIKit.framework */,
@@ -533,24 +512,6 @@
 				9AEA57DF18D9EBB20028B80C /* Credits.rtf */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9AEA580F18D9EC540028B80C /* jsoncpp */ = {
-			isa = PBXGroup;
-			children = (
-				9AEA581018D9EC540028B80C /* autolink.h */,
-				9AEA581118D9EC540028B80C /* config.h */,
-				9AEA581218D9EC540028B80C /* features.h */,
-				9AEA581318D9EC540028B80C /* forwards.h */,
-				9AEA581418D9EC540028B80C /* json.h */,
-				9AEA581518D9EC540028B80C /* libjson_linux-gcc-4.2.1_libmt.a */,
-				9AEA581618D9EC540028B80C /* libjson_linux-gcc-4.2.1_libmt.dylib */,
-				9AEA581718D9EC540028B80C /* reader.h */,
-				9AEA581818D9EC540028B80C /* value.h */,
-				9AEA581918D9EC540028B80C /* writer.h */,
-			);
-			name = jsoncpp;
-			path = "Compass[transparent]/jsoncpp";
 			sourceTree = "<group>";
 		};
 		9AEC5CFB18F3958200A29F75 /* smartWatch */ = {
@@ -748,6 +709,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
+				9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */,
+				9A4F0FAF193E745900CF32DE /* london.kml in Resources */,
+				9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */,
+				9A4F0FB1193E745900CF32DE /* montreal.kml in Resources */,
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
 				9A4F0F59193E2A8900CF32DE /* Images.xcassets in Resources */,
 				9A4F0F75193E2AF500CF32DE /* Storyboard.storyboard in Resources */,
@@ -841,7 +807,6 @@
 			files = (
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
 				9A4F0F83193E331E00CF32DE /* compassModel.mm in Sources */,
-				9A4F0F84193E331E00CF32DE /* jsonReader.mm in Sources */,
 				9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */,
 				9A4F0F86193E331E00CF32DE /* readConfiguration.mm in Sources */,
 				9A4F0F87193E331E00CF32DE /* compassRender.mm in Sources */,
@@ -849,8 +814,8 @@
 				9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */,
 				9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */,
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
-				9A4F0F7C193E306A00CF32DE /* iOSViewController.m in Sources */,
-				9A4F0F7F193E308400CF32DE /* iOSGLKView.m in Sources */,
+				9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */,
+				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,7 +829,6 @@
 				9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */,
 				9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */,
 				9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */,
-				9AA7890E1909FE3000A26C66 /* jsonReader.mm in Sources */,
 				9AA7890F1909FE3000A26C66 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AA789101909FE3000A26C66 /* xmlParser.mm in Sources */,
 				9AA789111909FE3000A26C66 /* compassModel.mm in Sources */,
@@ -888,7 +852,6 @@
 				9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */,
 				9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */,
 				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
-				9AEA580D18D9EC440028B80C /* jsonReader.mm in Sources */,
 				9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
@@ -920,7 +883,6 @@
 				9A9701DB19083B26007C3C19 /* main.mm in Sources */,
 				9A9701CF19083B19007C3C19 /* xmlParser.mm in Sources */,
 				9A9701D019083B19007C3C19 /* compassModel.mm in Sources */,
-				9A9701D119083B19007C3C19 /* jsonReader.mm in Sources */,
 				9A9701D219083B19007C3C19 /* locationFilter.mm in Sources */,
 				9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */,
 				9A9701D519083B19007C3C19 /* commonTools.mm in Sources */,
@@ -936,7 +898,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */,
-				9AFB149D18EE639A00063632 /* jsonReader.mm in Sources */,
 				9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */,
 				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,

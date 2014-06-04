@@ -8,7 +8,7 @@
 
 #include "compassModel.h"
 #include "commonInclude.h"
-#include "jsonReader.h"
+//#include "jsonReader.h"
 #include <unistd.h>
 #import <CoreLocation/CoreLocation.h>
 #include "xmlParser.h"

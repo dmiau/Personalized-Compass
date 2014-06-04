@@ -42,7 +42,6 @@ enum filter_enum{
     FORCE_EQUILIBRIUM = 4
 };
 
-
 //--------------
 // compassModel class
 //--------------
@@ -91,5 +90,10 @@ public:
 private:
     compassMdl(){}; // Private so that it can not be called
 };
+
+//--------------
+// tools
+//--------------
+int readConfigurations(compassMdl* mdl_instance);
 
 #endif /* defined(__Exploration__model__) */

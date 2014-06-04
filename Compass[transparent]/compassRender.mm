@@ -57,7 +57,7 @@ int compassRender::initRenderMdl(){
     //--------------------
     resetCamera();     // Initialize the camera
     
-    compass_scale = 1.0;
+    compass_scale = 1;
     label_flag = true;
     glDrawingCorrectionRatio = 1;
     half_canvas_size = camera.viewPos.z * tan(camera.fov/360*3.14);

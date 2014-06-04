@@ -686,10 +686,12 @@ full name for user study.
 - hooking up all the components
 - need to fix json parser
 - I may need to use NSJSONSerialization
+- produced an error free build
 
-
-
-
+-------------------------------------------------------------------
+6.4.2014
+-------------------------------------------------------------------
+- have more knowledge about how iOS is initialized
 
 
 
