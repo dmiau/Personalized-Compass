@@ -97,12 +97,11 @@ int compassRender::initRenderView(float win_width, float win_height){
     
     // Transformations for the projection
     glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    
+    glLoadIdentity();    
     
 #ifdef __IPHONE__
     // left, right, bottom, top, z_near, z_far
-    glOrthof(-half_canvas_size, half_canvas_size, -half_canvas_size, half_canvas_size,
+    glOrthof(-half_canvas_size*200, half_canvas_size*200, -half_canvas_size*200, half_canvas_size*200,
              -150, 150);
 #else
     //fovy, asepect, zNear, zFar
@@ -133,8 +132,14 @@ void compassRender::updateViewport
 }
 
 void compassRender::updateProjection(GLfloat aspect_ratio){
+#ifdef __IPHONE__
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
     
-#ifndef __IPHONE__
+    // left, right, bottom, top, z_near, z_far
+    glOrthof(-half_canvas_size, half_canvas_size, -half_canvas_size, half_canvas_size,
+             -150, 150);
+#else
 	// set projection
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -184,6 +189,21 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //    glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
     //    glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST);
     //    glEnable(GL_MULTISAMPLE);
+    
+    
+#ifdef __IPHONE__
+    //--------------
+    // This is something strnage. On iPhone I have to keep
+    // resetting the projection matrix...
+    //--------------
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+
+    // left, right, bottom, top, z_near, z_far
+    glOrthof(-half_canvas_size, half_canvas_size, -half_canvas_size, half_canvas_size,
+             -150, 150);
+#endif
+    
     glMatrixMode(GL_MODELVIEW);
     
     glPushMatrix();

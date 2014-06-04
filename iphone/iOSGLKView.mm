@@ -62,7 +62,8 @@
     [[NSRunLoop currentRunLoop]
      addTimer:renderTimer
      forMode:UITrackingRunLoopMode];
-    
+
+        
     return self;
 }
 
@@ -85,20 +86,19 @@
 //=====================
 -(void) drawRect:(CGRect)bounds
 {
-    renderer->updateViewport(bounds.origin.x, bounds.origin.y,
-                             bounds.size.width, bounds.size.height);
+
     //-----------------
     // Clear background and call render
     //-----------------
     [self setOpaque:NO];
     
-    glClearColor(0.0, 0.0, 0.0, 0.5);
-    /*
+//    glClearColor(0.0, 0.0, 0.0, 0.5);
+    
     glClearColor([renderer->model->configurations[@"bg_color"][0] floatValue]/255,
                  [renderer->model->configurations[@"bg_color"][1] floatValue]/255,
                  [renderer->model->configurations[@"bg_color"][2] floatValue]/255,
                  [renderer->model->configurations[@"bg_color"][3] floatValue]/255);
-    */
+    
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable( GL_DEPTH_TEST);

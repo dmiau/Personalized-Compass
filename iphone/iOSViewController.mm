@@ -7,15 +7,104 @@
 //
 
 #import "iOSViewController.h"
-
+#include <cmath>
 
 @interface iOSViewController ()
 
 @end
 
 @implementation iOSViewController
+@synthesize model;
+
+- (void) awakeFromNib
+{
+    // Insert code here to initialize your application
+    
+//    [self mapView].showsCompass =NO;
+//    [self mapView].rotateEnabled = YES;
+    
+    
+    [self addObserver:self forKeyPath:@"mapUpdateFlag"
+              options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
+    
+    
+    //http://stackoverflow.com/questions/10796058/is-it-possible-to-continuously-track-the-mkmapview-region-while-scrolling-zoomin?lq=1
+    
+    _updateUITimer = [NSTimer timerWithTimeInterval:0.1
+                                             target:self
+                                           selector:@selector(vcTimerFired)
+                                           userInfo:nil
+                                            repeats:YES];
+    
+    [[NSRunLoop mainRunLoop] addTimer:_updateUITimer forMode:NSRunLoopCommonModes];
+    
+   
+//    [self updateMapDisplayRegion];
+}
+
+-(void)vcTimerFired{
+    
+    static double latitude_cache = 0.0;
+    static double longitude_cache = 0.0;
+    static double pitch_cache = 0.0;
+    double epsilon = 0.0000001;
+    
+    if ( abs((double)(latitude_cache - [_mapView centerCoordinate].latitude)) > epsilon ||
+        abs((double)(longitude_cache - [_mapView centerCoordinate].longitude)) > epsilon ||
+        abs((double)(pitch_cache - _mapView.camera.pitch)) > epsilon)
+    {
+        latitude_cache = [_mapView centerCoordinate].latitude;
+        longitude_cache = [_mapView centerCoordinate].longitude;
+        pitch_cache = _mapView.camera.pitch;
+        
+        self.mapUpdateFlag = [NSNumber numberWithDouble:0.0];
+    }
+    //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
+}
+
+//---------------
+// KVO code to update latitude, longitude, tile, heading, etc.
+//---------------
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    
+    // [todo] In the browser mode,
+    // updates should not come from map! Need to fix this
+    if ([keyPath isEqual:@"mapUpdateFlag"]) {
+        
+        [self feedModelLatitude: [_mapView centerCoordinate].latitude
+                      longitude: [_mapView centerCoordinate].longitude
+                        heading: -_mapView.camera.heading
+                           tilt: -_mapView.camera.pitch];
+    }
+}
+
+//---------------
+// This function is called when user actions changes
+// the location, heading and tilt.
+//---------------
+- (void) feedModelLatitude: (float) lat_float
+                 longitude: (float) lon_float
+                   heading: (float) heading_deg
+                      tilt: (float) tilt_deg
+{
+    NSString *latlon_str = [NSString stringWithFormat:@"%2.4f, %2.4f",
+                            lat_float, lon_float];
+    
+    //[todo] this is too heavy
+    model->current_pos.orientation = heading_deg;
+    model->tilt = tilt_deg;
+    
+    model->current_pos.latitude = lat_float;
+    model->current_pos.longitude = lon_float;
+    model->updateMdl();
+}
 
 
+#pragma mark ----Initialization----
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

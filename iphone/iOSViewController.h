@@ -15,6 +15,7 @@
 #import "iOSGLKView.h"
 
 @interface iOSViewController : UIViewController{
+    NSTimer *_updateUITimer;
     BOOL pinVisible;
     NSArray *kml_files;
 }
@@ -26,7 +27,13 @@
 @property compassMdl* model;
 @property compassRender* renderer;
 
+@property NSNumber *mapUpdateFlag;
 
 - (void) updateMapDisplayRegion;
+- (void) vcTimerFired;
+- (void) feedModelLatitude: (float) lat_float
+                 longitude: (float) lon_float
+                   heading: (float) heading_deg
+                      tilt: (float) tilt_deg;
 
 @end
