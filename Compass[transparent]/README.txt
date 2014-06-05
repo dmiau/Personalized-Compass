@@ -692,8 +692,12 @@ full name for user study.
 6.4.2014
 -------------------------------------------------------------------
 - have more knowledge about how iOS is initialized
+- completed a first verison of working iphone code!
 
-
+-------------------------------------------------------------------
+6.5.2014
+-------------------------------------------------------------------
+- Successfully installed my first iOS app!
 
 
 

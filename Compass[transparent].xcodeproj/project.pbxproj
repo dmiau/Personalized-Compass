@@ -648,6 +648,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = dmiau;
 				TargetAttributes = {
+					9A4F0F44193E2A8800CF32DE = {
+						DevelopmentTeam = T8L89L97Z5;
+					};
 					9AA789081909FE3000A26C66 = {
 						DevelopmentTeam = ZW2ULQ7FDF;
 						SystemCapabilities = {
@@ -955,6 +958,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -981,6 +985,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1267,6 +1272,7 @@
 				9A4F0F6E193E2A8900CF32DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9AA789311909FE3000A26C66 /* Build configuration list for PBXNativeTarget "webBrowser" */ = {
 			isa = XCConfigurationList;

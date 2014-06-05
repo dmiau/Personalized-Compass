@@ -35,5 +35,5 @@
                  longitude: (float) lon_float
                    heading: (float) heading_deg
                       tilt: (float) tilt_deg;
-
+-(void)rotate:(UIRotationGestureRecognizer *)gesture;
 @end

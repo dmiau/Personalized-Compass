@@ -12,16 +12,6 @@
 
 @synthesize renderer;
 
-#pragma mark ---- timer function ----
-// Timer callback method
-- (void)timerFired:(id)sender
-{
-    // it's the update routine for our C/C++ renderer
-    //    renderer.update();
-    //it sets the flag that windows has to be redrawn
-    [self setNeedsDisplay];
-}
-
 #pragma mark ---- initialization ----
 
 - (id)initWithCoder:(NSCoder *)decoder{
@@ -45,25 +35,6 @@
     
     [self setNeedsDisplay];
     
-    //-----------------
-    // Timer initialization
-    //-----------------
-    //when UI is created and properly initialized,
-    // we set the timer to continual, real-time rendering
-    //a 1ms time interval
-    renderTimer = [NSTimer timerWithTimeInterval:0.015
-                                          target:self
-                                        selector:@selector(timerFired:)
-                                        userInfo:nil
-                                         repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:renderTimer
-                                 forMode:NSDefaultRunLoopMode];
-    //Ensure timer fires during resize
-    [[NSRunLoop currentRunLoop]
-     addTimer:renderTimer
-     forMode:UITrackingRunLoopMode];
-
-        
     return self;
 }
 

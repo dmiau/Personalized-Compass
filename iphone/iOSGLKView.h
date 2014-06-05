@@ -10,9 +10,7 @@
 #import <GLKit/GLKit.h>
 #include "compassRender.h"
 
-@interface iOSGLKView : GLKView{
-    NSTimer* renderTimer;
-}
+@interface iOSGLKView : GLKView
 
 @property compassRender* renderer;
 

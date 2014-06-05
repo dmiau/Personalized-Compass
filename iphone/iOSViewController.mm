@@ -19,7 +19,8 @@
 - (void) awakeFromNib
 {
     // Insert code here to initialize your application
-    
+    // Disable compass is somehow tricky in iOS...
+//    http://stackoverflow.com/questions/19195936/disable-compass-on-mkmapview
 //    [self mapView].showsCompass =NO;
 //    [self mapView].rotateEnabled = YES;
     
@@ -30,7 +31,7 @@
     
     //http://stackoverflow.com/questions/10796058/is-it-possible-to-continuously-track-the-mkmapview-region-while-scrolling-zoomin?lq=1
     
-    _updateUITimer = [NSTimer timerWithTimeInterval:0.1
+    _updateUITimer = [NSTimer timerWithTimeInterval:0.015
                                              target:self
                                            selector:@selector(vcTimerFired)
                                            userInfo:nil
@@ -79,6 +80,9 @@
                       longitude: [_mapView centerCoordinate].longitude
                         heading: -_mapView.camera.heading
                            tilt: -_mapView.camera.pitch];
+        
+        // Redraw the compass
+        [self.glkView setNeedsDisplay];
     }
 }
 
@@ -141,6 +145,24 @@
     return self;
 }
 
+// [todo] This somehow is not working
+-(void)rotate:(UIRotationGestureRecognizer *)gesture
+{
+    if ([gesture state] == UIGestureRecognizerStateBegan || [gesture state] == UIGestureRecognizerStateChanged) {
+        // Gets array of subviews from the map view (MKMapView)
+        NSArray *mapSubViews = self.mapView.subviews;
+        
+        for (UIView *view in mapSubViews) {
+            // Checks if the view is of class MKCompassView
+            if ([view isKindOfClass:NSClassFromString(@"MKCompassView")]) {
+                // Removes view from mapView
+                [view removeFromSuperview];
+            }
+        }
+    }
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -152,7 +174,14 @@
      [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1]];
 
     [self updateMapDisplayRegion];
+    
+    UIRotationGestureRecognizer *rotateGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)];
+    
+    [self.mapView addGestureRecognizer:rotateGesture];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
