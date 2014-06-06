@@ -80,6 +80,21 @@
                       longitude: [_mapView centerCoordinate].longitude
                         heading: -_mapView.camera.heading
                            tilt: -_mapView.camera.pitch];
+
+        // [todo] This code should be put into the gesture recognizer
+        // Disable the compass
+        
+        // Gets array of subviews from the map view (MKMapView)
+        NSArray *mapSubViews = self.mapView.subviews;
+        
+        for (UIView *view in mapSubViews) {
+            // Checks if the view is of class MKCompassView
+            if ([view isKindOfClass:NSClassFromString(@"MKCompassView")]) {
+                // Removes view from mapView
+                [view removeFromSuperview];
+            }
+        }
+        
         
         // Redraw the compass
         [self.glkView setNeedsDisplay];
@@ -100,7 +115,7 @@
     
     //[todo] this is too heavy
     model->current_pos.orientation = heading_deg;
-    model->tilt = tilt_deg;
+//    model->tilt = tilt_deg; // no tilt changes on iOS
     
     model->current_pos.latitude = lat_float;
     model->current_pos.longitude = lon_float;

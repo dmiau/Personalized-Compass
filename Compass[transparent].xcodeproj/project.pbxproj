@@ -43,6 +43,32 @@
 		9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
 		9A6F53FA1910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
 		9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
+		9A82B6311941518900534A5F /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
+		9A82B6321941518900534A5F /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
+		9A82B6331941518900534A5F /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
+		9A82B6341941518900534A5F /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
+		9A82B6351941518900534A5F /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
+		9A82B6361941518900534A5F /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
+		9A82B6371941518900534A5F /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
+		9A82B6381941518900534A5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F56193E2A8900CF32DE /* AppDelegate.m */; };
+		9A82B6391941518900534A5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F52193E2A8900CF32DE /* main.m */; };
+		9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */; };
+		9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */; };
+		9A82B63D1941518900534A5F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0FAC193E70EA00CF32DE /* CoreLocation.framework */; };
+		9A82B63E1941518900534A5F /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F78193E2B7800CF32DE /* GLKit.framework */; };
+		9A82B63F1941518900534A5F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F76193E2B7100CF32DE /* MapKit.framework */; };
+		9A82B6401941518900534A5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F72193E2ABE00CF32DE /* UIKit.framework */; };
+		9A82B6411941518900534A5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */; };
+		9A82B6421941518900534A5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F46193E2A8900CF32DE /* Foundation.framework */; };
+		9A82B6441941518900534A5F /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
+		9A82B6451941518900534A5F /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
+		9A82B6461941518900534A5F /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
+		9A82B6471941518900534A5F /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
+		9A82B6481941518900534A5F /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B818DC8E95005823A2 /* montreal.kml */; };
+		9A82B6491941518900534A5F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F4F193E2A8900CF32DE /* InfoPlist.strings */; };
+		9A82B64A1941518900534A5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F58193E2A8900CF32DE /* Images.xcassets */; };
+		9A82B64B1941518900534A5F /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */; };
+		9A82B6541941528600534A5F /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A82B6531941528600534A5F /* iPad.storyboard */; };
 		9A9701CB19083B10007C3C19 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
 		9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
 		9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
@@ -200,6 +226,9 @@
 		9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugInfoWindow.xib; sourceTree = "<group>"; };
 		9A6F53F61910073F00F35FED /* DebugWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugWindowController.h; sourceTree = "<group>"; };
 		9A6F53F71910073F00F35FED /* DebugWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DebugWindowController.mm; sourceTree = "<group>"; };
+		9A82B64F1941518900534A5F /* iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
+		9A82B6531941528600534A5F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		9A9701E119083E8C007C3C19 /* smartWatch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = smartWatch.xib; path = "Compass[transparent]/smartWatch.xib"; sourceTree = "<group>"; };
 		9A9701E419085002007C3C19 /* watchNSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = watchNSView.h; path = "Compass[transparent]/watchNSView.h"; sourceTree = "<group>"; };
 		9A9701E519085002007C3C19 /* watchNSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = watchNSView.m; path = "Compass[transparent]/watchNSView.m"; sourceTree = "<group>"; };
@@ -280,6 +309,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9A82B63C1941518900534A5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A82B63D1941518900534A5F /* CoreLocation.framework in Frameworks */,
+				9A82B63E1941518900534A5F /* GLKit.framework in Frameworks */,
+				9A82B63F1941518900534A5F /* MapKit.framework in Frameworks */,
+				9A82B6401941518900534A5F /* UIKit.framework in Frameworks */,
+				9A82B6411941518900534A5F /* CoreGraphics.framework in Frameworks */,
+				9A82B6421941518900534A5F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9AA7891C1909FE3000A26C66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,6 +393,7 @@
 				9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */,
 				9A4F0F7D193E308400CF32DE /* iOSGLKView.h */,
 				9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */,
+				9A82B6531941528600534A5F /* iPad.storyboard */,
 			);
 			path = iphone;
 			sourceTree = "<group>";
@@ -440,6 +483,7 @@
 				9AEA57CF18D9EBB20028B80C /* Frameworks */,
 				9AEA57CE18D9EBB20028B80C /* Products */,
 				9AA789351909FE3100A26C66 /* Compass[transparent] copy-Info.plist */,
+				9A82B6501941518A00534A5F /* iphone copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -451,6 +495,7 @@
 				9AEC5CF918F3956F00A29F75 /* smartWatch.app */,
 				9AA789341909FE3000A26C66 /* webBrowser.app */,
 				9A4F0F45193E2A8800CF32DE /* iphone.app */,
+				9A82B64F1941518900534A5F /* iphone copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -569,6 +614,23 @@
 			name = iphone;
 			productName = iphone;
 			productReference = 9A4F0F45193E2A8800CF32DE /* iphone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9A82B62F1941518900534A5F /* ipad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A82B64C1941518900534A5F /* Build configuration list for PBXNativeTarget "ipad" */;
+			buildPhases = (
+				9A82B6301941518900534A5F /* Sources */,
+				9A82B63C1941518900534A5F /* Frameworks */,
+				9A82B6431941518900534A5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ipad;
+			productName = iphone;
+			productReference = 9A82B64F1941518900534A5F /* iphone copy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9AA789081909FE3000A26C66 /* webBrowser */ = {
@@ -703,6 +765,7 @@
 				9AEC5CD518F3956F00A29F75 /* smartWatch */,
 				9AA789081909FE3000A26C66 /* webBrowser */,
 				9A4F0F44193E2A8800CF32DE /* iphone */,
+				9A82B62F1941518900534A5F /* ipad */,
 			);
 		};
 /* End PBXProject section */
@@ -720,6 +783,22 @@
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
 				9A4F0F59193E2A8900CF32DE /* Images.xcassets in Resources */,
 				9A4F0F75193E2AF500CF32DE /* Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A82B6431941518900534A5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A82B6441941518900534A5F /* configurations.json in Resources */,
+				9A82B6541941528600534A5F /* iPad.storyboard in Resources */,
+				9A82B6451941518900534A5F /* New York City [many].kml in Resources */,
+				9A82B6461941518900534A5F /* london.kml in Resources */,
+				9A82B6471941518900534A5F /* newyork.kml in Resources */,
+				9A82B6481941518900534A5F /* montreal.kml in Resources */,
+				9A82B6491941518900534A5F /* InfoPlist.strings in Resources */,
+				9A82B64A1941518900534A5F /* Images.xcassets in Resources */,
+				9A82B64B1941518900534A5F /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,6 +898,24 @@
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
 				9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A82B6301941518900534A5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A82B6311941518900534A5F /* xmlParser.mm in Sources */,
+				9A82B6321941518900534A5F /* compassModel.mm in Sources */,
+				9A82B6331941518900534A5F /* locationFilter.mm in Sources */,
+				9A82B6341941518900534A5F /* readConfiguration.mm in Sources */,
+				9A82B6351941518900534A5F /* compassRender.mm in Sources */,
+				9A82B6361941518900534A5F /* renderStyles.mm in Sources */,
+				9A82B6371941518900534A5F /* commonTools.mm in Sources */,
+				9A82B6381941518900534A5F /* AppDelegate.m in Sources */,
+				9A82B6391941518900534A5F /* main.m in Sources */,
+				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
+				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,6 +1096,57 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9A82B64D1941518900534A5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iphone/iphone-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"__IPHONE__=1",
+				);
+				INFOPLIST_FILE = "iphone copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "iphone copy";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9A82B64E1941518900534A5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iphone/iphone-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "__IPHONE__=1";
+				INFOPLIST_FILE = "iphone copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "iphone copy";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1270,6 +1418,15 @@
 			buildConfigurations = (
 				9A4F0F6D193E2A8900CF32DE /* Debug */,
 				9A4F0F6E193E2A8900CF32DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A82B64C1941518900534A5F /* Build configuration list for PBXNativeTarget "ipad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A82B64D1941518900534A5F /* Debug */,
+				9A82B64E1941518900534A5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
