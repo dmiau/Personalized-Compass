@@ -29,11 +29,20 @@
 
 @property NSNumber *mapUpdateFlag;
 
-- (void) updateMapDisplayRegion;
+
+//----------------
+// Functions attached to the timer
+//----------------
 - (void) vcTimerFired;
 - (void) feedModelLatitude: (float) lat_float
                  longitude: (float) lon_float
                    heading: (float) heading_deg
                       tilt: (float) tilt_deg;
+- (float) calculateCameraHeading;
+
+//----------------
+// Update functions
+//----------------
+- (void) updateMapDisplayRegion;
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
 @end

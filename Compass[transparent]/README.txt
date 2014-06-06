@@ -703,7 +703,8 @@ full name for user study.
 6.6.2014
 -------------------------------------------------------------------
 Goals of today:
-- implement the rotation hack
+- implemented the rotation hack
+- need to add text indication (and feedback on map...)
 
 
 

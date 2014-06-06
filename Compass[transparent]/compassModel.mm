@@ -114,7 +114,7 @@ int compassMdl::initMdl(){
     if ((configuration_filename.length() == 0) ||
         (location_filename.length() == 0))
     {
-        location_filename =std::string([ [[NSBundle mainBundle] pathForResource:@"montreal.kml" ofType:@""] UTF8String]);
+        location_filename =std::string([ [[NSBundle mainBundle] pathForResource:@"newyork.kml" ofType:@""] UTF8String]);
         configuration_filename = std::string([ [[NSBundle mainBundle] pathForResource:@"configurations.json" ofType:@""] UTF8String]);
     }
     

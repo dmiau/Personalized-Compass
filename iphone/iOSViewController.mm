@@ -16,48 +16,27 @@
 @implementation iOSViewController
 @synthesize model;
 
-- (void) awakeFromNib
-{
-    // Insert code here to initialize your application
-    // Disable compass is somehow tricky in iOS...
-//    http://stackoverflow.com/questions/19195936/disable-compass-on-mkmapview
-//    [self mapView].showsCompass =NO;
-//    [self mapView].rotateEnabled = YES;
-    
-    
-    [self addObserver:self forKeyPath:@"mapUpdateFlag"
-              options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
-    
-    
-    //http://stackoverflow.com/questions/10796058/is-it-possible-to-continuously-track-the-mkmapview-region-while-scrolling-zoomin?lq=1
-    
-    _updateUITimer = [NSTimer timerWithTimeInterval:0.015
-                                             target:self
-                                           selector:@selector(vcTimerFired)
-                                           userInfo:nil
-                                            repeats:YES];
-    
-    [[NSRunLoop mainRunLoop] addTimer:_updateUITimer forMode:NSRunLoopCommonModes];
-    
-   
-//    [self updateMapDisplayRegion];
-}
-
+#pragma mark ---- Timer Functon Stuff ----
 -(void)vcTimerFired{
     
     static double latitude_cache = 0.0;
     static double longitude_cache = 0.0;
     static double pitch_cache = 0.0;
+    static double camera_heading = 0.0;
     double epsilon = 0.0000001;
     
+    
+    // Note that heading is defined as the negative of
+    // _mapView.camera.heading
     if ( abs((double)(latitude_cache - [_mapView centerCoordinate].latitude)) > epsilon ||
         abs((double)(longitude_cache - [_mapView centerCoordinate].longitude)) > epsilon ||
-        abs((double)(pitch_cache - _mapView.camera.pitch)) > epsilon)
+        abs((double)(pitch_cache - _mapView.camera.pitch)) > epsilon||
+        abs((double)(camera_heading - [self calculateCameraHeading])) > epsilon)
     {
         latitude_cache = [_mapView centerCoordinate].latitude;
         longitude_cache = [_mapView centerCoordinate].longitude;
         pitch_cache = _mapView.camera.pitch;
-        
+        camera_heading = [self calculateCameraHeading];
         self.mapUpdateFlag = [NSNumber numberWithDouble:0.0];
     }
     //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
@@ -78,7 +57,7 @@
         
         [self feedModelLatitude: [_mapView centerCoordinate].latitude
                       longitude: [_mapView centerCoordinate].longitude
-                        heading: -_mapView.camera.heading
+                        heading: [self calculateCameraHeading]
                            tilt: -_mapView.camera.pitch];
 
         // [todo] This code should be put into the gesture recognizer
@@ -95,7 +74,6 @@
             }
         }
         
-        
         // Redraw the compass
         [self.glkView setNeedsDisplay];
     }
@@ -107,14 +85,14 @@
 //---------------
 - (void) feedModelLatitude: (float) lat_float
                  longitude: (float) lon_float
-                   heading: (float) heading_deg
+                   heading: (float) camera_heading
                       tilt: (float) tilt_deg
 {
     NSString *latlon_str = [NSString stringWithFormat:@"%2.4f, %2.4f",
                             lat_float, lon_float];
     
     //[todo] this is too heavy
-    model->current_pos.orientation = heading_deg;
+    model->current_pos.orientation = -camera_heading;
 //    model->tilt = tilt_deg; // no tilt changes on iOS
     
     model->current_pos.latitude = lat_float;
@@ -123,7 +101,54 @@
 }
 
 
+- (float) calculateCameraHeading{
+    // calculateCameraHeading calculates the heading of camera relative to
+    // the magnetic north
+    
+    float true_north_wrt_up = 0;
+    
+    CLLocationCoordinate2D map_s_pt = {40.762959, -73.981161};
+    CLLocationCoordinate2D map_n_pt = {42.762959, -73.981161};
+    
+    CGPoint screen_s_pt = [self.mapView convertCoordinate:map_s_pt toPointToView:self.mapView];
+
+    CGPoint screen_n_pt = [self.mapView convertCoordinate:map_n_pt toPointToView:self.mapView];
+
+    //  Here is the screen coordinate system
+    //  -------------- +x
+    //  |
+    //  |
+    //  |
+    //  +y
+    
+    // As a result, there is a negative sign after the difference in y
+    
+    // Second the heading is defined such that the north is 0,
+    // as a result, we need to use 90 to substract the calculated heading
+    
+    true_north_wrt_up = 90 - atan2(-(screen_n_pt.y - screen_s_pt.y),
+                       screen_n_pt.x - screen_s_pt.x)* 180 / M_PI;
+    return -true_north_wrt_up;
+}
+
 #pragma mark ----Initialization----
+- (void) awakeFromNib
+{
+    // Insert code here to initialize your application
+    [self addObserver:self forKeyPath:@"mapUpdateFlag"
+              options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
+    
+    
+    //http://stackoverflow.com/questions/10796058/is-it-possible-to-continuously-track-the-mkmapview-region-while-scrolling-zoomin?lq=1
+    
+    _updateUITimer = [NSTimer timerWithTimeInterval:0.015
+                                             target:self
+                                           selector:@selector(vcTimerFired)
+                                           userInfo:nil
+                                            repeats:YES];
+    
+    [[NSRunLoop mainRunLoop] addTimer:_updateUITimer forMode:NSRunLoopCommonModes];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -148,7 +173,8 @@
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
         
-        // Collect a list of kml files
+        // The following code is to collect a list of kml files
+        // I use the path of montreal.kml to find a list of kml files
         NSString *path = [[[NSBundle mainBundle]
                            pathForResource:@"montreal.kml" ofType:@""]
                           stringByDeletingLastPathComponent];
