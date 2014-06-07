@@ -79,12 +79,12 @@ int compassRender::initRenderMdl(){
      [NSColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]
                      forKey:NSForegroundColorAttributeName];
     
-#ifndef __IPHONE__
+//#ifndef __IPHONE__
     label_string = [[GLString alloc] initWithString:@"" withAttributes:stringAttrib
-                                      withTextColor:[NSColor colorWithDeviceRed:1.0f green:0.0f blue:0.0f alpha:1.0f]
-                                       withBoxColor:[NSColor colorWithDeviceRed:0.5f green:0.5f blue:0.5f alpha:0.0f]
-                                    withBorderColor:[NSColor colorWithDeviceRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
-#endif
+                                      withTextColor:[NSColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:1.0f]
+                                       withBoxColor:[NSColor colorWithRed:0.5f green:0.5f blue:0.5f alpha:0.0f]
+                                    withBorderColor:[NSColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
+//#endif
     
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
@@ -321,7 +321,7 @@ void compassRender::drawTriangle(int central_disk_radius, float rotation, float 
 //-------------
 void compassRender::drawLabel(float rotation, float height, string name)
 {
-#ifndef __IPHONE__
+//#ifndef __IPHONE__
 	NSString * string = [NSString stringWithFormat:@"%@\n",
                          [NSString stringWithUTF8String:name.c_str()]];
     
@@ -357,12 +357,16 @@ void compassRender::drawLabel(float rotation, float height, string name)
         glRotatef(180, 0, 0, 1);
         glTranslatef(-[label_string frameSize].width, 0, 0);
     }
+#ifndef __IPHONE__
     [label_string drawAtPoint:NSMakePoint (0, 0)];
-    
-    glPopMatrix();
-    
-    glPopMatrix();
+#else
+    [label_string drawAtPoint:CGPointMake(0, 0)];
 #endif
+    
+    glPopMatrix();
+    
+    glPopMatrix();
+//#endif
 }
 
 //-------------

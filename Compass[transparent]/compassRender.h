@@ -14,9 +14,10 @@
 
 #ifdef __IPHONE__
 #import <GLKit/GLKit.h>
-#else
-#import "GLString.h"
 #endif
+
+#import "GLString.h"
+
 
 // http://stackoverflow.com/questions/4714698/mixing-objective-c-m-mm-c-cpp-files
 
@@ -79,9 +80,9 @@ public:
     float label_size;
 	NSMutableDictionary *stringAttrib; // Text attributes
 	
-#ifndef __IPHONE__
+//#ifndef __IPHONE__
 	GLString *label_string;
-#endif
+//#endif
     
     // Camera handling
     recCamera camera;

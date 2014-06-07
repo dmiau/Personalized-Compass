@@ -706,10 +706,14 @@ Goals of today:
 - implemented the rotation hack
 - need to add text indication (and feedback on map...)
 
+I coudln't get text work on iOS
+http://iphonedevelopment.blogspot.com/2009/05/opengl-es-from-ground-up-part-6_25.html
+http://gamesfromwithin.com/remixing-opengl-and-uikit
+http://liam.flookes.com/wp/2011/09/27/rendering-text-on-iphone-with-opengl/
 
 
 
-
+http://www.wmdeveloper.com/2010/09/create-bitmap-graphics-context-on.html
 
 
 

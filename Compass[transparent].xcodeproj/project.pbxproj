@@ -90,6 +90,8 @@
 		9A9701E319083EB9007C3C19 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E518D9EBB20028B80C /* MainMenu.xib */; };
 		9A9701E619085002007C3C19 /* watchNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9701E519085002007C3C19 /* watchNSView.m */; };
 		9A9701E8190851A3007C3C19 /* smartWatch.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A9701E7190851A3007C3C19 /* smartWatch.tif */; };
+		9A98AF31194289D6007166DE /* GLString.h in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7118ECE5FC0029A860 /* GLString.h */; };
+		9A98AF32194289D6007166DE /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
 		9AA7890A1909FE3000A26C66 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
 		9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
 		9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
@@ -887,6 +889,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A98AF31194289D6007166DE /* GLString.h in Sources */,
+				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
 				9A4F0F83193E331E00CF32DE /* compassModel.mm in Sources */,
 				9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */,

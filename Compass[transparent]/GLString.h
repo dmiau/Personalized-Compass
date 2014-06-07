@@ -1,18 +1,41 @@
+#ifdef __IPHONE__
+#import <GLKit/GLKit.h>
+typedef UIBezierPath NSBezierPath;
+typedef UIColor NSColor;
+typedef CGPoint NSPoint;
+typedef CGSize NSSize;
+typedef CGRect NSRect;
+typedef UIBezierPath NSBezierPath;
+typedef UIImage NSImage;
+
+#else
 #import <Cocoa/Cocoa.h>
 #import <OpenGL/gl.h>
 #import <OpenGL/glext.h>
 #import <OpenGL/OpenGL.h>
 #import <OpenGL/CGLContext.h>
+#endif
+
+struct Vertex2D{
+    float x;
+    float y;
+};
 
 
+#ifndef __IPHONE__
 @interface NSBezierPath (RoundRect)
+
 + (NSBezierPath *)bezierPathWithRoundedRect:(NSRect)rect cornerRadius:(float)radius;
 
 - (void)appendBezierPathWithRoundedRect:(NSRect)rect cornerRadius:(float)radius;
 @end
+#endif
 
 @interface GLString : NSObject {
+    
+#ifndef __IPHONE__
 	CGLContextObj cgl_ctx; // current context at time of texture creation
+#endif
 	GLuint texName;
 	NSSize texSize;
 	
