@@ -14,6 +14,7 @@
 typedef UIFont NSFont;
 typedef UIColor NSColor;
 #import <GLKit/GLKit.h>
+#import "Texture2D.h"
 #endif
 
 recVec glOrigin = {0.0, 0.0, 0.0};
@@ -257,10 +258,6 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
                      t_dist_list.end());
     max_dist = *result;
     
-    // Need to draw from front to back
-    // (this is interesting, is it because I am looking from the +z to 0?)
-
-    
     // ---------------
     // Draw the center circle
     // ---------------
@@ -286,6 +283,11 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     // draw the labels
     // ---------------
     if (label_flag){
+        glPushMatrix();
+        
+#ifdef __IPHONE__
+        glTranslatef(0, 0, 1);
+#endif
         for (int i = 0; i < indices_for_rendering.size(); ++i){
             int j = indices_for_rendering[i];
             data data_ = model->data_array[j];
@@ -293,6 +295,7 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
             double distance = data_.distance / max_dist * half_canvas_size * 0.9;
             drawLabel(data_.orientation, distance, data_.name);
         }
+        glPopMatrix();
     }
 
 }
@@ -314,59 +317,6 @@ void compassRender::drawTriangle(int central_disk_radius, float rotation, float 
     glDrawArrays(GL_TRIANGLES, 0, 3);
     
     glPopMatrix();
-}
-
-//-------------
-// draw label
-//-------------
-void compassRender::drawLabel(float rotation, float height, string name)
-{
-//#ifndef __IPHONE__
-	NSString * string = [NSString stringWithFormat:@"%@\n",
-                         [NSString stringWithUTF8String:name.c_str()]];
-    
-    // Modify font size
-	NSFont * font =[NSFont fontWithName:@"Helvetica"
-                                   size:
-                    [model->configurations[@"font_size"] floatValue]];
-	stringAttrib = [NSMutableDictionary dictionary];
-	[stringAttrib setObject:font forKey:NSFontAttributeName];
-    
-    [label_string setString:string withAttributes:stringAttrib];
-    
-    glPushMatrix();
-    glRotatef(rotation, 0, 0, -1);
-    
-    glTranslatef(0, half_canvas_size * 0.9, 0); //central_disk_radius
-    glRotatef(-90, 0, 0, -1);
-    // Fix text size
-    
-//    font_size
-//    float delta = [model->configurations[@"font_size"] floatValue]/ 100;
-//    float scale = (0.04 + delta) * 1/ (glDrawingCorrectionRatio * compass_scale);
-    float scale = 1/ ( compass_scale); // glDrawingCorrectionRatio *
-    glScalef(scale, scale, scale);
-    
-    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
-    
-    glPushMatrix();
-    glRotatef(180, 0, 1, 0);
-
-    // Handle the orientaion of the string
-    if ((rotation >= 0) && (rotation <= 180)) {
-        glRotatef(180, 0, 0, 1);
-        glTranslatef(-[label_string frameSize].width, 0, 0);
-    }
-#ifndef __IPHONE__
-    [label_string drawAtPoint:NSMakePoint (0, 0)];
-#else
-    [label_string drawAtPoint:CGPointMake(0, 0)];
-#endif
-    
-    glPopMatrix();
-    
-    glPopMatrix();
-//#endif
 }
 
 //-------------
@@ -394,3 +344,97 @@ void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
     delete[] p_vertex_array;
 }
 
+
+#pragma mark ---------drawing labels---------
+//-------------
+// draw label
+//-------------
+void compassRender::drawLabel(float rotation, float height, string name)
+{
+    //#ifndef __IPHONE__
+	NSString * string = [NSString stringWithFormat:@"%@\n",
+                         [NSString stringWithUTF8String:name.c_str()]];
+    
+    // Modify font size
+	NSFont * font =[NSFont fontWithName:@"Helvetica"
+                                   size:
+                    [model->configurations[@"font_size"] floatValue]];
+	stringAttrib = [NSMutableDictionary dictionary];
+	[stringAttrib setObject:font forKey:NSFontAttributeName];
+    
+    [label_string setString:string withAttributes:stringAttrib];
+    
+    glPushMatrix();
+    glRotatef(rotation, 0, 0, -1);
+    
+    glTranslatef(0, half_canvas_size * 0.9, 0); //central_disk_radius
+    glRotatef(-90, 0, 0, -1);
+    // Fix text size
+    
+    //    font_size
+    //    float delta = [model->configurations[@"font_size"] floatValue]/ 100;
+    //    float scale = (0.04 + delta) * 1/ (glDrawingCorrectionRatio * compass_scale);
+    float scale = 1/ ( compass_scale); // glDrawingCorrectionRatio *
+    glScalef(scale, scale, scale);
+    
+    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
+    
+    glPushMatrix();
+    
+#ifndef __IPHONE__
+    glRotatef(180, 0, 1, 0);
+#else
+    glTranslatef(-[label_string frameSize].width, 0, 0);
+#endif
+    
+    // Handle the orientaion of the string
+    if ((rotation >= 0) && (rotation <= 180)) {
+        glRotatef(180, 0, 0, 1);
+        glTranslatef(-[label_string frameSize].width, 0, 0);
+    }
+#ifndef __IPHONE__
+    [label_string drawAtPoint:NSMakePoint (0, 0)];
+#else
+//    [label_string drawAtPoint:CGPointMake(0, 0)];
+    drawiOSText(string, [model->configurations[@"font_size"] floatValue],
+                [label_string frameSize].width,
+                [label_string frameSize].height);
+#endif
+    
+    glPopMatrix();
+    
+    glPopMatrix();
+    //#endif
+}
+
+
+void drawiOSText(NSString *string, int font_size,
+                 CGFloat width, CGFloat height){
+    width = width*1.5;
+    height = height*1.5;
+    // Use black
+    glColor4f(0, 0, 0, 1.0);
+    glEnable(GL_TEXTURE_2D);
+    // Set up texture
+    Texture2D* statusTexture = [[Texture2D alloc] initWithString:string dimensions:CGSizeMake(width, height) alignment:UITextAlignmentLeft fontName:@"Helvetica" fontSize:22];
+    
+    // Bind texture
+    glBindTexture(GL_TEXTURE_2D, [statusTexture name]);
+    
+    // Enable modes needed for drawing
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnable(GL_TEXTURE_2D);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
+    // Draw
+    [statusTexture drawInRect:CGRectMake(0, 0, width, height)];
+    
+    // Disable modes so they don't interfere with other parts of the program
+    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisable(GL_TEXTURE_2D);
+    glDisable(GL_BLEND);
+    
+}

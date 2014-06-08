@@ -716,8 +716,11 @@ http://liam.flookes.com/wp/2011/09/27/rendering-text-on-iphone-with-opengl/
 http://www.wmdeveloper.com/2010/09/create-bitmap-graphics-context-on.html
 
 
-
-
+-------------------------------------------------------------------
+6.7.2014
+-------------------------------------------------------------------
+trying out this text solution
+http://stackoverflow.com/questions/512258/is-there-a-decent-opengl-text-drawing-library-for-the-iphone-sdk/512722#512722
 
 
 

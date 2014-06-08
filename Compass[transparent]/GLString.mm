@@ -226,26 +226,28 @@
     
 //    [string drawInRect:CGRectMake(0, 0, frameSize.width, frameSize.height) withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentLeft];
     
-    UIGraphicsPopContext();
-    
     CGImageRef imageRef = CGBitmapContextCreateImage(context);
     UIImage *result = [UIImage imageWithCGImage:imageRef];
+    CFDataRef rawData = CGDataProviderCopyData(CGImageGetDataProvider(imageRef));
+    
+    UIGraphicsPopContext();
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
     
     texSize.width = [result size].width;
 	texSize.height = [result size].height;
 
+    [EAGLContext setCurrentContext:_gl_context];
+    
     glEnable (GL_TEXTURE_2D);
     glGenTextures(1, &texName);
     glBindTexture(GL_TEXTURE_2D, texName);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     
-    CFDataRef rawData = CGDataProviderCopyData(CGImageGetDataProvider(imageRef));
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texSize.width, texSize.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, rawData);
     
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, frameSize.width, frameSize.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, rawData);
-    
-    CGContextRelease(context);
-    CGColorSpaceRelease(colorSpace);
+
     delete [] data;
 
     //---------------------

@@ -56,6 +56,9 @@ typedef struct{
 
 RenderParamStruct makeRenderParams(filter_enum filter_type, style_enum style_type);
 
+void drawiOSText(NSString *string, int font_size,
+                 CGFloat width, CGFloat height);
+
 //-------------
 class compassRender
 {

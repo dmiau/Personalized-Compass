@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
+		9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
+		9A2F0C5A1943DAD600350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
 		9A4F0F47193E2A8900CF32DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F46193E2A8900CF32DE /* Foundation.framework */; };
 		9A4F0F49193E2A8900CF32DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */; };
 		9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F4F193E2A8900CF32DE /* InfoPlist.strings */; };
@@ -200,6 +202,8 @@
 /* Begin PBXFileReference section */
 		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
 		9A28368A1900C0850041D22E /* readConfiguration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = readConfiguration.mm; sourceTree = "<group>"; };
+		9A2F0C521943DA9200350BD2 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
+		9A2F0C531943DA9200350BD2 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
 		9A4F0F45193E2A8800CF32DE /* iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F0F46193E2A8900CF32DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -536,6 +540,8 @@
 		9AEA57D618D9EBB20028B80C /* Compass[transparent] */ = {
 			isa = PBXGroup;
 			children = (
+				9A2F0C521943DA9200350BD2 /* Texture2D.h */,
+				9A2F0C531943DA9200350BD2 /* Texture2D.m */,
 				9A0A14E91907581300C89634 /* Archive */,
 				9A8E9B2E18DE4C0200C53010 /* Model */,
 				9A8E9B2F18DE4C2C00C53010 /* View */,
@@ -715,6 +721,9 @@
 					9A4F0F44193E2A8800CF32DE = {
 						DevelopmentTeam = T8L89L97Z5;
 					};
+					9A82B62F1941518900534A5F = {
+						DevelopmentTeam = T8L89L97Z5;
+					};
 					9AA789081909FE3000A26C66 = {
 						DevelopmentTeam = ZW2ULQ7FDF;
 						SystemCapabilities = {
@@ -889,6 +898,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2F0C5A1943DAD600350BD2 /* Texture2D.m in Sources */,
 				9A98AF31194289D6007166DE /* GLString.h in Sources */,
 				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
@@ -918,6 +928,7 @@
 				9A82B6371941518900534A5F /* commonTools.mm in Sources */,
 				9A82B6381941518900534A5F /* AppDelegate.m in Sources */,
 				9A82B6391941518900534A5F /* main.m in Sources */,
+				9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */,
 				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
 			);

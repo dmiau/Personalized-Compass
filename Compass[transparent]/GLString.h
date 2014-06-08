@@ -34,7 +34,7 @@ struct Vertex2D{
 @interface GLString : NSObject {
     
 #ifndef __IPHONE__
-	CGLContextObj cgl_ctx; // current context at time of texture creation
+    CGLContextObj cgl_ctx; // current context at time of texture creation
 #endif
 	GLuint texName;
 	NSSize texSize;
@@ -51,6 +51,10 @@ struct Vertex2D{
 	
 	BOOL requiresUpdate;
 }
+
+#ifdef __IPHONE__
+@property EAGLContext *gl_context;
+#endif
 
 // this API requires a current rendering context and all operations will be performed in regards to thar context
 // the same context should be current for all method calls for a particular object instance
