@@ -62,8 +62,6 @@ int compassRender::initRenderMdl(){
     compass_scale = [model->configurations[@"compass_scale"] floatValue];
     label_flag = true;
     glDrawingCorrectionRatio = 1;
-    half_canvas_size = camera.viewPos.z * tan(camera.fov/360*3.14);
-    central_disk_radius = half_canvas_size/10;
     
     compass_centroid = glOrigin;
     
@@ -97,6 +95,15 @@ int compassRender::initRenderMdl(){
 //---------------
 int compassRender::initRenderView(float win_width, float win_height){
     orig_wigth = win_width; orig_height = win_height;
+
+    // construction
+    camera.viewPos.z = win_width/2 * tan((90-camera.fov/2)/180*3.14);
+    half_canvas_size = win_width/2;
+    //
+    
+//    half_canvas_size = camera.viewPos.z * tan(camera.fov/360*3.14);
+    central_disk_radius = half_canvas_size/10;
+    
     
     // Transformations for the projection
     glMatrixMode(GL_PROJECTION);
@@ -107,8 +114,7 @@ int compassRender::initRenderView(float win_width, float win_height){
     glOrthof(-half_canvas_size*200, half_canvas_size*200, -half_canvas_size*200, half_canvas_size*200,
              -150, 150);
 #else
-    //fovy, asepect, zNear, zFar
-    myGluPerspective(camera.fov, 1, 1, 3 * camera.viewPos.z );
+    updateViewport(0, 0, orig_wigth, orig_height);
 #endif
     
     glMatrixMode(GL_MODELVIEW);
@@ -121,7 +127,6 @@ int compassRender::initRenderView(float win_width, float win_height){
     // Push the scene in the negative-z direction
     // This is just to simulate gluLoookAt
     glTranslatef(0, 0, -camera.viewPos.z);
-    
 #endif
     
     return EXIT_SUCCESS;
