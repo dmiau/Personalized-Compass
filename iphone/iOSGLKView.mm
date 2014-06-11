@@ -30,11 +30,11 @@
     self.drawableStencilFormat = GLKViewDrawableStencilFormat8;
     // Enable multisampling
     self.drawableMultisample = GLKViewDrawableMultisample4X;
+    //self.multipleTouchEnabled = YES;
     
     self.enableSetNeedsDisplay = YES;
     
-    [self setNeedsDisplay];
-    
+    //[self setNeedsDisplay];
     return self;
 }
 

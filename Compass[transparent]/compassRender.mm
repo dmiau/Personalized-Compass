@@ -13,7 +13,6 @@
 #ifdef __IPHONE__
 typedef UIFont NSFont;
 typedef UIColor NSColor;
-#import <GLKit/GLKit.h>
 #import "Texture2D.h"
 #endif
 
@@ -80,12 +79,12 @@ int compassRender::initRenderMdl(){
      [NSColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]
                      forKey:NSForegroundColorAttributeName];
     
-//#ifndef __IPHONE__
+#ifndef __IPHONE__
     label_string = [[GLString alloc] initWithString:@"" withAttributes:stringAttrib
                                       withTextColor:[NSColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:1.0f]
                                        withBoxColor:[NSColor colorWithRed:0.5f green:0.5f blue:0.5f alpha:0.0f]
                                     withBorderColor:[NSColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
-//#endif
+#endif
     
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
@@ -157,10 +156,8 @@ RenderParamStruct makeRenderParams(
             filter_enum filter_type, style_enum style_type){
     
     RenderParamStruct renderParamStruct;
-    renderParamStruct.filter_fun_param = 7;
     renderParamStruct.filter_type = filter_type;
     renderParamStruct.style_type = style_type;
-    
     return renderParamStruct;
 }
 
@@ -169,6 +166,8 @@ RenderParamStruct makeRenderParams(
 //--------------
 
 void compassRender::render(){
+    // Use the parameters supplied in configurations.json
+    // if no input parameter is supplied.
     
     filter_enum filter_type =
     model->hashFilterStr(model->configurations[@"filter_type"]);
@@ -190,7 +189,6 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //    glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
     //    glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST);
     //    glEnable(GL_MULTISAMPLE);
-    
     
 #ifdef __IPHONE__
     //--------------
@@ -229,28 +227,26 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     
     glPopMatrix();
     glDisableClientState(GL_VERTEX_ARRAY);
-//    glFlush();
-//    glutSwapBuffers();
+    
+    // glFlush is called in OpenGLView
+    //    glFlush();
 }
 
 //-------------
 // drawCompass
 //-------------
 void compassRender::drawCompass(RenderParamStruct renderParamStruct){
-    
-    // ------------------
-    // Preprocesing:
-    // ------------------
-    vector<int> indices_for_rendering =
-            model->applyFilter(renderParamStruct.filter_type,
-                               renderParamStruct.filter_fun_param);
-    
+    /*
+     By the time this funciton is called,
+     model->indices_for_rendering shold have been updated by the model
+    */
+        
     // ------------------
     // Find out the longest distance for normalization
     // ------------------
     vector <double> t_dist_list;
-    for (int i = 0; i < indices_for_rendering.size(); ++i){
-        int j = indices_for_rendering[i];
+    for (int i = 0; i < model->indices_for_rendering.size(); ++i){
+        int j = model->indices_for_rendering[i];
         t_dist_list.push_back(model->data_array[j].distance);
     }
     std::vector<double>::iterator result =
@@ -276,7 +272,7 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     // ---------------
     
     // [todo] more rendering style should be supported
-    applyStyle(renderParamStruct.style_type, indices_for_rendering);
+    applyStyle(renderParamStruct.style_type, model->indices_for_rendering);
 //    renderStyleBimodal(indices_for_rendering);
     
     // ---------------
@@ -288,8 +284,8 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
 #ifdef __IPHONE__
         glTranslatef(0, 0, 1);
 #endif
-        for (int i = 0; i < indices_for_rendering.size(); ++i){
-            int j = indices_for_rendering[i];
+        for (int i = 0; i < model->indices_for_rendering.size(); ++i){
+            int j = model->indices_for_rendering[i];
             data data_ = model->data_array[j];
             
             double distance = data_.distance / max_dist * half_canvas_size * 0.9;
@@ -351,72 +347,94 @@ void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
 //-------------
 void compassRender::drawLabel(float rotation, float height, string name)
 {
-    //#ifndef __IPHONE__
-	NSString * string = [NSString stringWithFormat:@"%@\n",
-                         [NSString stringWithUTF8String:name.c_str()]];
-    
-    // Modify font size
-	NSFont * font =[NSFont fontWithName:@"Helvetica"
-                                   size:
-                    [model->configurations[@"font_size"] floatValue]];
-	stringAttrib = [NSMutableDictionary dictionary];
-	[stringAttrib setObject:font forKey:NSFontAttributeName];
-    
-    [label_string setString:string withAttributes:stringAttrib];
-    
+
+	
     glPushMatrix();
     glRotatef(rotation, 0, 0, -1);
     
     glTranslatef(0, half_canvas_size * 0.9, 0); //central_disk_radius
-    glRotatef(-90, 0, 0, -1);
-    // Fix text size
     
-    //    font_size
-    //    float delta = [model->configurations[@"font_size"] floatValue]/ 100;
-    //    float scale = (0.04 + delta) * 1/ (glDrawingCorrectionRatio * compass_scale);
+    // Keep the text level
+    glRotatef(-rotation, 0, 0, -1);
+
+    // Fix text size
     float scale = 1/ ( compass_scale); // glDrawingCorrectionRatio *
     glScalef(scale, scale, scale);
     
-    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
-    
+    // This line seems to make the text darker for some reason
+//    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);    
     glPushMatrix();
     
+    //--------------
+    // Font generation
+    //--------------
+    // Set font size
 #ifndef __IPHONE__
-    glRotatef(180, 0, 1, 0);
+	NSFont * font =[NSFont fontWithName:@"Helvetica"
+                                   size:
+                    [model->configurations[@"font_size"] floatValue]];
 #else
-    glTranslatef(-[label_string frameSize].width, 0, 0);
+	UIFont *font = [UIFont fontWithName:@"Helvetica-Bold"
+                                   size:[model->configurations[@"ios_font_size"] floatValue]];
 #endif
+    NSString * string = [NSString stringWithFormat:@"%@\n",
+                         [NSString stringWithUTF8String:name.c_str()]];
     
-    // Handle the orientaion of the string
-    if ((rotation >= 0) && (rotation <= 180)) {
-        glRotatef(180, 0, 0, 1);
-        glTranslatef(-[label_string frameSize].width, 0, 0);
-    }
+	stringAttrib = [NSMutableDictionary dictionary];
+	[stringAttrib setObject:font forKey:NSFontAttributeName];
+    
 #ifndef __IPHONE__
+    [label_string setString:string withAttributes:stringAttrib];
+    glRotatef(180, 1, 0, 0);
+    
     [label_string drawAtPoint:NSMakePoint (0, 0)];
 #else
-//    [label_string drawAtPoint:CGPointMake(0, 0)];
-    drawiOSText(string, [model->configurations[@"font_size"] floatValue],
-                [label_string frameSize].width,
-                [label_string frameSize].height);
+    
+    NSAttributedString *attr_str =
+    [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
+
+    CGSize str_size = makeGLFrameSize(attr_str);
+    glTranslatef(-str_size.width, 0, 0);
+    
+//    if (rotation < 0)
+//        rotation = rotation + 360;
+//    
+//    if ((rotation >= 180) && (rotation <= 360)) {
+//        glRotatef(180, 0, 0, 1);
+//        glTranslatef(-str_size.width, 0, 0);
+//    }
+    drawiOSText(string, [model->configurations[@"ios_font_size"] floatValue],
+                str_size.width,
+                str_size.height);
 #endif
-    
     glPopMatrix();
     
     glPopMatrix();
-    //#endif
 }
 
+#ifdef __IPHONE__
+CGSize compassRender::makeGLFrameSize(NSAttributedString *attr_str){
+    CGSize t_size = [attr_str size];
+    
+    if (t_size.width > half_canvas_size/5){
+        t_size.width = t_size.width /2;
+        t_size.height = t_size.height * 2;
+    }
+        t_size.width = 2*round(t_size.width/2) + 8;
+    t_size.height = 2*round(t_size.height/2) + 4;
+        
+    return t_size;
+}
 
-void drawiOSText(NSString *string, int font_size,
+void compassRender::drawiOSText(NSString *string, int font_size,
                  CGFloat width, CGFloat height){
-    width = width*1.5;
-    height = height*1.5;
+    width = width;
+    height = height;
     // Use black
     glColor4f(0, 0, 0, 1.0);
     glEnable(GL_TEXTURE_2D);
     // Set up texture
-    Texture2D* statusTexture = [[Texture2D alloc] initWithString:string dimensions:CGSizeMake(width, height) alignment:UITextAlignmentLeft fontName:@"Helvetica" fontSize:22];
+    Texture2D* statusTexture = [[Texture2D alloc] initWithString:string dimensions:CGSizeMake(width, height) alignment:UITextAlignmentLeft fontName:@"Helvetica-Bold" fontSize:font_size];
     
     // Bind texture
     glBindTexture(GL_TEXTURE_2D, [statusTexture name]);
@@ -438,3 +456,4 @@ void drawiOSText(NSString *string, int font_size,
     glDisable(GL_BLEND);
     
 }
+#endif

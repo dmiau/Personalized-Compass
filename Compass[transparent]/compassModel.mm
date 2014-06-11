@@ -49,6 +49,8 @@ int compassMdl::initMdl(){
     // Parameter initialization
     //--------------
     tilt = 0;
+    compassCenterXY.x = 0.0;
+    compassCenterXY.y = 0.0;
 
     //--------------
     //Get command line argument from the process
@@ -114,7 +116,7 @@ int compassMdl::initMdl(){
     if ((configuration_filename.length() == 0) ||
         (location_filename.length() == 0))
     {
-        location_filename =std::string([ [[NSBundle mainBundle] pathForResource:@"newyork.kml" ofType:@""] UTF8String]);
+        location_filename =std::string([ [[NSBundle mainBundle] pathForResource:@"SundayTest.kml" ofType:@""] UTF8String]);
         configuration_filename = std::string([ [[NSBundle mainBundle] pathForResource:@"configurations.json" ofType:@""] UTF8String]);
     }
     
@@ -187,9 +189,9 @@ int compassMdl::updateMdl(){
     // -----------------
     
     // [todo] this part should be customizable
-//    filter_kNearestLocations(7);
-    indices_for_rendering = applyFilter(K_ORIENTATIONS, 7);
-//    indices_for_rendering = filter_kOrientations(7);
+    // K_ORIENTATIONS
+    indices_for_rendering = applyFilter(                                        hashFilterStr(configurations[@"filter_type"]),
+                                        [configurations[@"landmark_n"] intValue]);
     
     // -----------------
     // Calculate bounding box for displaying the map

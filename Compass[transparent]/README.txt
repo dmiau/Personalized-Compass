@@ -722,6 +722,51 @@ http://www.wmdeveloper.com/2010/09/create-bitmap-graphics-context-on.html
 trying out this text solution
 http://stackoverflow.com/questions/512258/is-there-a-decent-opengl-text-drawing-library-for-the-iphone-sdk/512722#512722
 
+-------------------------------------------------------------------
+6.8.2014
+-------------------------------------------------------------------
+
+Goals of today:
+Optimization
+
+Initialization
+- proper zoom level
+- exclude visible landmarks from the compass
+
+Interactions
+- hysteriesis
+- flip-flop?
+
+Text userability improvements:
+- line break
+- text size, style (bold)
+- orientation
+
+Map annotations
+- mark the personal landmarks on the map
+
+Control and Customization
+- localize myself (where am I?)
+- change to different presets
+- create a new set
+- move the compass
+- adjust the size of the compass
+- jump to different landmakrs
+
+Distance indicator 
+- adding distance to the compass 
+[ maybe I need to think about multi threading]
+
+
+-------------------------------------------------------------------
+6.9.2014
+-------------------------------------------------------------------
+- have better idea about text rendering on iOS, but there are still more to do...
+
+- compass color
+- make the text horizontal (and invariant to rotation)
+
+
 
 
 

@@ -51,6 +51,8 @@ public:
     static compassMdl* instance;
     float tilt;
     
+    CGPoint compassCenterXY;
+    
     NSMutableDictionary *configurations;
         
     std::string configuration_filename;

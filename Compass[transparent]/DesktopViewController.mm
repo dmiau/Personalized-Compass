@@ -84,6 +84,12 @@
       lastPathComponent]];
     
     [self updateMapDisplayRegion];
+    
+    // Provide the compass centroid information to the model
+    self.model->compassCenterXY =
+    [self.mapView convertPoint: NSMakePoint(self.compassView.frame.size.width/2,
+                                            self.compassView.frame.size.height/2)
+          fromView:self.compassView];
 }
 
 -(void)vcTimerFired{
@@ -119,8 +125,13 @@
     // updates should not come from map! Need to fix this
     if ([keyPath isEqual:@"mapUpdateFlag"]) {
         
-        [self feedModelLatitude: [_mapView centerCoordinate].latitude
-                      longitude: [_mapView centerCoordinate].longitude
+        CLLocationCoordinate2D compassCtrCoord = [_mapView convertPoint:
+        model->compassCenterXY
+    toCoordinateFromView:_mapView];
+        // [_mapView centerCoordinate].latitude
+        // [_mapView centerCoordinate].longitude
+        [self feedModelLatitude: compassCtrCoord.latitude
+                      longitude: compassCtrCoord.longitude
                         heading: -_mapView.camera.heading
                            tilt: -_mapView.camera.pitch];
     }

@@ -55,8 +55,14 @@
     // updates should not come from map! Need to fix this
     if ([keyPath isEqual:@"mapUpdateFlag"]) {
         
-        [self feedModelLatitude: [_mapView centerCoordinate].latitude
-                      longitude: [_mapView centerCoordinate].longitude
+        CLLocationCoordinate2D compassCtrCoord = [_mapView convertPoint:
+                                                  model->compassCenterXY
+                                                   toCoordinateFromView:_mapView];
+        // [_mapView centerCoordinate].latitude
+        // [_mapView centerCoordinate].longitude
+        
+        [self feedModelLatitude: compassCtrCoord.latitude
+                      longitude: compassCtrCoord.longitude
                         heading: [self calculateCameraHeading]
                            tilt: -_mapView.camera.pitch];
 
@@ -74,6 +80,11 @@
             }
         }
         
+//        dispatch_queue_t concurrentQueue =
+//        dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//        dispatch_async(concurrentQueue,
+//                       ^{
+//                       });
         // Redraw the compass
         [self.glkView setNeedsDisplay];
     }
@@ -220,6 +231,17 @@
     
     [self.mapView addGestureRecognizer:rotateGesture];
     
+    
+    // Provide the centroid of compass to the model
+    self.model->compassCenterXY =
+    [self.mapView convertPoint: CGPointMake(self.glkView.frame.size.width/2,
+                                            self.glkView.frame.size.height/2)
+                      fromView:self.glkView];
+    
+    cout << "glk.x: " << self.glkView.frame.size.width << endl;
+    cout << "glk.y: " << self.glkView.frame.size.height << endl;
+    NSLog(@"centroid: %@", NSStringFromCGPoint(self.model->compassCenterXY));
+    NSLog(@"Done!");
 }
 
 

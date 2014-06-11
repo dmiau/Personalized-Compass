@@ -12,11 +12,12 @@
 #include "compassModel.h"
 #import <Foundation/Foundation.h>
 
-#ifdef __IPHONE__
+#ifndef __IPHONE__
+#import "GLString.h"
+#else
+#import "GLString.h"
 #import <GLKit/GLKit.h>
 #endif
-
-#import "GLString.h"
 
 
 // http://stackoverflow.com/questions/4714698/mixing-objective-c-m-mm-c-cpp-files
@@ -24,7 +25,6 @@
 typedef struct {
     GLfloat x,y,z;
 } recVec;
-
 
 
 typedef struct {
@@ -51,13 +51,9 @@ enum style_enum {
 typedef struct{
     filter_enum filter_type;
     style_enum style_type;
-    int filter_fun_param;
 } RenderParamStruct;
 
 RenderParamStruct makeRenderParams(filter_enum filter_type, style_enum style_type);
-
-void drawiOSText(NSString *string, int font_size,
-                 CGFloat width, CGFloat height);
 
 //-------------
 class compassRender
@@ -83,9 +79,9 @@ public:
     float label_size;
 	NSMutableDictionary *stringAttrib; // Text attributes
 	
-//#ifndef __IPHONE__
+#ifndef __IPHONE__
 	GLString *label_string;
-//#endif
+#endif
     
     // Camera handling
     recCamera camera;
@@ -123,6 +119,12 @@ private:
     void renderStyleRealRatio(vector<int> &indices_for_rendering);
     void renderStyleBimodal(vector<int> &indices_for_rendering);
     void renderStyleThresholdSticks(vector<int> &indices_for_rendering);
+    
+#ifdef __IPHONE__
+    void drawiOSText(NSString *string, int font_size,
+                     CGFloat width, CGFloat height);
+    CGSize makeGLFrameSize(NSAttributedString *attr_str);
+#endif
     
 };
 

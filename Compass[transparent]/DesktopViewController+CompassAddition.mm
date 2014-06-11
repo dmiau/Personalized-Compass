@@ -47,6 +47,13 @@
         self.renderer->compass_centroid.y =
         self.renderer->compass_centroid.y - step_size;
     }
+    
+    // Provide the centroid of compass to the model
+    self.model->compassCenterXY =
+    [self.mapView convertPoint: NSMakePoint(self.compassView.frame.size.width/2,
+                                            self.compassView.frame.size.height/2)
+                      fromView:self.compassView];
+    
 }
 
 - (IBAction)toggleLabel:(id)sender {
