@@ -50,14 +50,16 @@ void compassRender::resetCamera()
     camera.viewUp.z = 0;
 }
 
+//---------------
+// Initialize the "model" part of the render
+//---------------
 int compassRender::initRenderMdl(){
-    
+    model = compassMdl::shareCompassMdl();
     //--------------------
     // Initialize camera and shapes
     //--------------------
     resetCamera();     // Initialize the camera
-    
-    compass_scale = 1;
+    compass_scale = [model->configurations[@"compass_scale"] floatValue];
     label_flag = true;
     glDrawingCorrectionRatio = 1;
     half_canvas_size = camera.viewPos.z * tan(camera.fov/360*3.14);
@@ -90,10 +92,11 @@ int compassRender::initRenderMdl(){
     return EXIT_SUCCESS;
 }
 
-
+//---------------
+// Initialize the "viewing" part of the render
+//---------------
 int compassRender::initRenderView(float win_width, float win_height){
     orig_wigth = win_width; orig_height = win_height;
-    model = compassMdl::shareCompassMdl();
     
     // Transformations for the projection
     glMatrixMode(GL_PROJECTION);
@@ -105,16 +108,20 @@ int compassRender::initRenderView(float win_width, float win_height){
              -150, 150);
 #else
     //fovy, asepect, zNear, zFar
-    gluPerspective(camera.fov, 1, 1, 3 * camera.viewPos.z );
+    myGluPerspective(camera.fov, 1, 1, 3 * camera.viewPos.z );
 #endif
     
     glMatrixMode(GL_MODELVIEW);
     
 #ifndef __IPHONE__
     glLoadIdentity();
-    gluLookAt(camera.viewPos.x, camera.viewPos.y, camera.viewPos.z,
-              0, 0, 0,
-              camera.viewUp.x, camera.viewUp.y, camera.viewUp.z);
+//    gluLookAt(camera.viewPos.x, camera.viewPos.y, camera.viewPos.z,
+//              0, 0, 0,
+//              camera.viewUp.x, camera.viewUp.y, camera.viewUp.z);
+    // Push the scene in the negative-z direction
+    // This is just to simulate gluLoookAt
+    glTranslatef(0, 0, -camera.viewPos.z);
+    
 #endif
     
     return EXIT_SUCCESS;
@@ -144,7 +151,7 @@ void compassRender::updateProjection(GLfloat aspect_ratio){
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     //fovy, asepect, zNear, zFar
-    gluPerspective(camera.fov, aspect_ratio, 1, 3 * camera.viewPos.z);
+    myGluPerspective(camera.fov, aspect_ratio, 1, 3 * camera.viewPos.z);
 #endif
 }
 
@@ -207,8 +214,8 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     
     glPushMatrix();
     
-    // Figureing out translation
-    glTranslatef(compass_centroid.x, compass_centroid.y, compass_centroid.z);
+    // Translate the compass to the desired screen location
+    glTranslatef(compass_centroid.x, compass_centroid.y, 0);
     
 
     // [todo] Careful! Potential bug here...
@@ -281,9 +288,9 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     if (label_flag){
         glPushMatrix();
         
-#ifdef __IPHONE__
+//#ifdef __IPHONE__
         glTranslatef(0, 0, 1);
-#endif
+//#endif
         for (int i = 0; i < model->indices_for_rendering.size(); ++i){
             int j = model->indices_for_rendering[i];
             data data_ = model->data_array[j];
@@ -346,9 +353,7 @@ void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
 // draw label
 //-------------
 void compassRender::drawLabel(float rotation, float height, string name)
-{
-
-	
+{	
     glPushMatrix();
     glRotatef(rotation, 0, 0, -1);
     
@@ -396,13 +401,6 @@ void compassRender::drawLabel(float rotation, float height, string name)
     CGSize str_size = makeGLFrameSize(attr_str);
     glTranslatef(-str_size.width, 0, 0);
     
-//    if (rotation < 0)
-//        rotation = rotation + 360;
-//    
-//    if ((rotation >= 180) && (rotation <= 360)) {
-//        glRotatef(180, 0, 0, 1);
-//        glTranslatef(-str_size.width, 0, 0);
-//    }
     drawiOSText(string, [model->configurations[@"ios_font_size"] floatValue],
                 str_size.width,
                 str_size.height);
@@ -457,3 +455,45 @@ void compassRender::drawiOSText(NSString *string, int font_size,
     
 }
 #endif
+
+
+//-------------------------
+// Tools
+//-------------------------
+// http://maniacdev.com/2009/05/opengl-gluperspective-function-in-iphone-opengl-es
+
+
+void __gluMakeIdentityf(GLfloat m[16])
+{
+    m[0+4*0] = 1; m[0+4*1] = 0; m[0+4*2] = 0; m[0+4*3] = 0;
+    m[1+4*0] = 0; m[1+4*1] = 1; m[1+4*2] = 0; m[1+4*3] = 0;
+    m[2+4*0] = 0; m[2+4*1] = 0; m[2+4*2] = 1; m[2+4*3] = 0;
+    m[3+4*0] = 0; m[3+4*1] = 0; m[3+4*2] = 0; m[3+4*3] = 1;
+}
+
+void myGluPerspective(GLfloat fovy, GLfloat aspect, GLfloat zNear, GLfloat zFar)
+{
+    GLfloat m[4][4];
+    GLfloat sine, cotangent;
+    GLfloat radians = fovy / 2 * 3.14 / 180;
+    
+    GLfloat deltaZ = zFar - zNear;
+    
+    sine = sin(radians);
+    if ((deltaZ == 0) || (sine == 0) || (aspect == 0))
+    {
+        return;
+    }
+    cotangent = cos(radians) / sine;
+    
+    __gluMakeIdentityf(&m[0][0]);
+    m[0][0] = cotangent / aspect;
+    m[1][1] = cotangent;
+    m[2][2] = -(zFar + zNear) / deltaZ;
+    m[2][3] = -1;
+    m[3][2] = -2 * zNear * zFar / deltaZ;
+    m[3][3] = 0;
+    glMultMatrixf(&m[0][0]);
+}
+
+

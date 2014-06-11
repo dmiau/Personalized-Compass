@@ -767,7 +767,11 @@ Distance indicator
 - make the text horizontal (and invariant to rotation)
 
 
-
+-------------------------------------------------------------------
+6.11.2014
+-------------------------------------------------------------------
+- adding gluPerspective to OpenGL ES
+http://maniacdev.com/2009/05/opengl-gluperspective-function-in-iphone-opengl-es
 
 
 

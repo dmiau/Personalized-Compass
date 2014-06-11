@@ -98,6 +98,8 @@
 		9A98AF31194289D6007166DE /* GLString.h in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7118ECE5FC0029A860 /* GLString.h */; };
 		9A98AF32194289D6007166DE /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
 		9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
+		9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
+		9AA1DB921948B30A0082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9AA7890A1909FE3000A26C66 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
 		9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
 		9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
@@ -825,6 +827,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA1DB921948B30A0082BABC /* SundayTest.kml in Resources */,
 				9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */,
 				9AA789251909FE3000A26C66 /* InfoPlist.strings in Resources */,
 				9AA789261909FE3000A26C66 /* moto360_bikemap.png in Resources */,
@@ -868,6 +871,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */,
 				9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */,
 				9A9701DD19083C9B007C3C19 /* configurations.json in Resources */,
 				9AEECFF81910599B0031BAAE /* StyleWindow.xib in Resources */,
@@ -1308,7 +1312,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Compass[transparent]",
-					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1330,7 +1333,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Compass[transparent]",
-					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

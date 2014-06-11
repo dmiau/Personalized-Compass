@@ -38,10 +38,7 @@ typedef struct {
 // Define different types of filter and styles
 //-------------
 
-// Note the filter functions are defined in compassModel.mm
-//
-
-
+// Filter functions are defined in compassModel.mm
 enum style_enum {
     BIMODAL = 1,
     REAL_RATIO = 2,
@@ -62,8 +59,11 @@ public:
     
     // Compass presenation parameters
     float glDrawingCorrectionRatio;
+    // the scale of the compass, a number between 0 and 1
     float compass_scale;
-    float compass_radius; // The size of compass relative to the canvas size
+    // the centroid of the compass in percentage of the viewable area
+    // (0.5, 0.5) means the centroid is at the center of the screen
+    CGPoint compassCentroidXYPercentage;
     int half_canvas_size; // Specify the boundary of orthographic projection
     float central_disk_radius;
     recVec compass_centroid;
@@ -127,5 +127,11 @@ private:
 #endif
     
 };
+
+//-------------------------
+// Tools
+//-------------------------
+void myGluPerspective(GLfloat fovy, GLfloat aspect,
+                      GLfloat zNear, GLfloat zFar);
 
 #endif /* defined(__compass__drawing__) */

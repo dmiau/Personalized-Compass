@@ -34,6 +34,22 @@
   "value": [46, 100, 213]
   },
   {
+  "property": "compassXYPercentage",
+  "value": [0.5, 0.5]
+  },
+  {
+  "property": "iOScompassXYPercentage",
+  "value": [0.5, 0.5]
+  },
+  {
+  "property": "compass_scale",
+  "value": 1
+  },
+  {
+  "property": "iOS_compass_scale",
+  "value": 1
+  },
+  {
   "property": "font_color",
   "value": [255, 255, 255]
   },
@@ -60,7 +76,7 @@
   {
   "property": "landmark_n",
   "value": 3,
-  "comment": "The number of landmarks"
+  "comment": "Specify the number of landmarks"
   },
   {
   "property": "color_map",

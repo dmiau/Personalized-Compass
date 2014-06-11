@@ -24,6 +24,9 @@
         // Do something
         if((self = [super init])) {
             model = compassMdl::shareCompassMdl();
+            
+            // Get the pointer to render
+            // At this point the render may not be fully initialized
             self.renderer = compassRender::shareCompassRender();
             
             pinVisible = FALSE;

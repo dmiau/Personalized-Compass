@@ -12,8 +12,7 @@
 
 int main(int argc, const char * argv[])
 {
-    // Initialize the location model and the viewer model
-    compassRender* render = compassRender::shareCompassRender();
+    // Initialize the compass model
     compassMdl* model = compassMdl::shareCompassMdl();
     return NSApplicationMain(argc, argv);
 }
