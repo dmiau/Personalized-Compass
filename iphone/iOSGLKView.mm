@@ -27,7 +27,7 @@
     // Configure renderbuffers created by the view
     self.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;
     self.drawableDepthFormat = GLKViewDrawableDepthFormat24;
-    self.drawableStencilFormat = GLKViewDrawableStencilFormat8;
+//    self.drawableStencilFormat = GLKViewDrawableStencilFormat8;
     // Enable multisampling
     self.drawableMultisample = GLKViewDrawableMultisample4X;
     //self.multipleTouchEnabled = YES;

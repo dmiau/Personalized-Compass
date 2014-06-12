@@ -61,9 +61,6 @@ public:
     float glDrawingCorrectionRatio;
     // the scale of the compass, a number between 0 and 1
     float compass_scale;
-    // the centroid of the compass in percentage of the viewable area
-    // (0.5, 0.5) means the centroid is at the center of the screen
-    CGPoint compassCentroidXYPercentage;
     int half_canvas_size; // Specify the boundary of orthographic projection
     float central_disk_radius;
     recVec compass_centroid;

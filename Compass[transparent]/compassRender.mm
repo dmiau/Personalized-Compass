@@ -190,6 +190,9 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
 #ifdef __IPHONE__
     compass_scale = [model->configurations[@"iOS_compass_scale"] floatValue];
     
+    compass_centroid.x = [model->configurations[@"iOS_compass_centroid"][0] floatValue];
+    compass_centroid.y = [model->configurations[@"iOS_compass_centroid"][1] floatValue];
+    
     static bool once = FALSE;
     if (!once){
         //--------------
@@ -266,8 +269,10 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
               1);
     
     // draw the center circle
+    glPushMatrix();
+    glTranslatef(0, 0, 1);
     drawCircle(0, 0, central_disk_radius, 50);
-    
+    glPopMatrix();
     
     // ---------------
     // Render triangles and the background disks
@@ -392,7 +397,16 @@ void compassRender::drawLabel(float rotation, float height, string name)
     [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
     
     CGSize str_size = makeGLFrameSize(attr_str);
-    glTranslatef(-str_size.width, 0, 0);
+    
+    glRotatef(model->current_pos.orientation, 0, 0, 1);
+    
+    rotation = rotation + model->current_pos.orientation;
+    
+    if (rotation < 0)
+        rotation = rotation + 360;
+    
+    if ((rotation > 180) && (rotation < 360))
+        glTranslatef(-str_size.width, 0, 0);
     
     glScalef(0.25, 0.25, 0);
     drawiOSText(string, 4*[model->configurations[@"ios_font_size"] floatValue],
