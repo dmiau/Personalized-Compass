@@ -60,13 +60,18 @@ public:
     
     // data_array stores the data of each location
     vector<data> data_array;
-    vector<int> indices_sorted_by_distance;  // indices ordered by distance
+    // indices of locations, ordered by distance
+    vector<int> indices_sorted_by_distance;
+    // indices of the filtered locations, for rendering
     vector<int> indices_for_rendering;
     vector<int *> color_map;
     data current_pos;
+    
+    //
     float latitudedelta;
     float longitudedelta;
     
+    // list of distances computed from the current location
     vector<double> distance_list;
     //http://stackoverflow.com/questions/936687/how-do-i-declare-a-2d-array-in-c-using-new
     //Check this too

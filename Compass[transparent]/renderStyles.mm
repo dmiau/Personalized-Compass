@@ -22,6 +22,9 @@ style_enum compassRender::hashStyleStr (NSString *inString) {
     throw(runtime_error("Unknown style string."));
 }
 
+//-------------------
+// This function renders the filtered landmakrs in the specified style
+//-------------------
 int compassRender::applyStyle(style_enum style_type,
                               vector<int> &indices_for_rendering){
     switch (style_type) {
@@ -99,8 +102,14 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     std::vector<pair<double, int>>::iterator result =
     std::min_element(ratio_sum_list.begin(),
                      ratio_sum_list.end(), compareAscending);
+    
+    // cut_id is the index of the element after which a cut should be placed,
+    // so the list of distances is divided into two groups
     int cut_id = result->second;
     
+    // The following structure stores the information (needed for rendering)
+    // of each mode
+    // base_radius is the radius of the base, far landmarks use smaller base
     struct mode_info{
         float base_radius;
         double max_dist;
@@ -157,17 +166,24 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // draw the triangle
     // ---------------
     
-    // absolute_drawable_radius_percentage specifies the radius
-    // of the drawable area of the disk
-    // (in terms of absolute percentage)
-    // absolute_drawable_radius_percentage is a number between 0 and 1
-    float absolute_drawable_radius_percentage = 0.9;
+    // half_canvas_size
+    // |-----------------------------------------|
+    // outer_radius = half_canvas_size * outer_disk_ratio;
+    // |----------------------------------|
+    // inner_radius = half_canvas_size * inner_disk_ratio;
+    // |-----------------|
+
     
-    // relative_close_radius_percentage specifies the drawable
-    // area of the inner disk
-    // (in terms of realative percentage)
-    float relative_close_radius_percentage =
-    [model->configurations[@"inner_disk_radius"] floatValue];
+    
+    // the radius of the outer disk
+    float outer_disk_radius =
+    half_canvas_size *
+    [model->configurations[@"outer_disk_ratio"] floatValue];
+    
+    // the radius of the inner disk
+    float inner_disk_radius =
+    half_canvas_size *
+    [model->configurations[@"inner_disk_ratio"] floatValue];
     
     for (int i = 0; i < indices_for_rendering.size(); ++i){
         int j = indices_for_rendering[i];
@@ -182,33 +198,36 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         
         // **Select appropriate radius and distance based on mode
         
-        float disk_radius = 0.0;
-        double k = 0, distance;
+        float base_radius = 0.0;
+        double distance;
         
         if (data_.distance <= mode_info_list[0].max_dist){
-            disk_radius = mode_info_list[0].base_radius;
+            base_radius = mode_info_list[0].base_radius;
             if (mode_info_list.size() == 1){
-                k = data_.distance /
-                mode_info_list[0].max_dist;
+                distance = data_.distance /
+                mode_info_list[0].max_dist * outer_disk_radius;
             }else{
-                k = data_.distance /
-                mode_info_list[0].max_dist * relative_close_radius_percentage;
+                distance = data_.distance /
+                mode_info_list[0].max_dist * inner_disk_radius;
             }
-            if (k > 1)
-                cout << "bug!" << endl;
         }else{
-            disk_radius = mode_info_list[1].base_radius;
+            base_radius = mode_info_list[1].base_radius;
             
-            k = (relative_close_radius_percentage +
-                 (1-relative_close_radius_percentage) *
-                        (data_.distance - filtered_dist_list[cut_id + 1])
-                        / (mode_info_list[1].max_dist -
-                           filtered_dist_list[cut_id + 1]));
-            if (k > 1)
-                cout << "bug!" << endl;
+            //             inner_disk_radius
+            // |------------------|--------|
+            //                         outer_disk_radius
+            
+            if ((mode_info_list[1].max_dist - data_.distance) < 0.000001){
+                distance = outer_disk_radius;
+            }else{
+                distance = (inner_disk_radius +
+                            (outer_disk_radius - inner_disk_radius) *
+                            (data_.distance - filtered_dist_list[cut_id + 1])
+                            / (mode_info_list[1].max_dist -
+                               filtered_dist_list[cut_id + 1]));
+            }
         }
-        distance = k * half_canvas_size * absolute_drawable_radius_percentage;
-        drawTriangle(disk_radius, data_.orientation, distance);
+        drawTriangle(base_radius, data_.orientation, distance);
     }
     
     // ---------------
@@ -221,16 +240,14 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                   [model->configurations[@"inner_disk_color"][1] floatValue]/255,
                   [model->configurations[@"inner_disk_color"][2] floatValue]/255,
                   [model->configurations[@"inner_disk_color"][3] floatValue]/255);
-        drawCircle(0, 0, half_canvas_size *
-                   relative_close_radius_percentage *
-                   absolute_drawable_radius_percentage, 50);
+        drawCircle(0, 0, inner_disk_radius, 50);
     }
     
     glColor4f([model->configurations[@"disk_color"][0] floatValue]/255,
               [model->configurations[@"disk_color"][1] floatValue]/255,
               [model->configurations[@"disk_color"][2] floatValue]/255,
               [model->configurations[@"disk_color"][3] floatValue]/255);
-    drawCircle(0, 0, half_canvas_size, 50);
+    drawCircle(0, 0, outer_disk_radius, 50);
 }
 
 

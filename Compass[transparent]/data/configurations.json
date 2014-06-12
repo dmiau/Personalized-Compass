@@ -2,7 +2,7 @@
   {
   "property": "default_location_filename",
   "value": "SundayTest.kml",
-  "comment": "This is a comment"
+  "comment": "Specify the default location file"
   },
   {
   "property": "traslation_step",
@@ -25,9 +25,14 @@
   "comment": "the color of the inner compass disk"
   },
   {
-  "property": "inner_disk_radius",
-  "value": 0.7,
-  "comment": "a number between 0 and 1"
+  "property": "outer_disk_ratio",
+  "value": 0.9,
+  "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
+  },
+  {
+  "property": "inner_disk_ratio",
+  "value": 0.63,
+  "comment": "Specify a number between 0 and 1. This is the ratio of inner_radius/half_canvas_size."
   },
   {
   "property": "bg_color",

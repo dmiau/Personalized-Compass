@@ -16,6 +16,7 @@ typedef UIColor NSColor;
 #import "Texture2D.h"
 #endif
 
+#pragma mark ---------drawing the compass---------
 //-------------
 // drawCompass
 //-------------
@@ -57,9 +58,8 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     // based on the specified style
     // ---------------
     
-    // [todo] more rendering style should be supported
+    // indices_for_rendering is updated in compassMdl.updateMdl()
     applyStyle(renderParamStruct.style_type, model->indices_for_rendering);
-    //    renderStyleBimodal(indices_for_rendering);
     
     // ---------------
     // draw the labels
@@ -79,7 +79,7 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     
 }
 
-#pragma mark ---------drawing helper functions---------
+#pragma mark ---------drawing shapes---------
 //-------------
 // coreTriangle
 //-------------

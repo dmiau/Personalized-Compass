@@ -778,7 +778,7 @@ http://maniacdev.com/2009/05/opengl-gluperspective-function-in-iphone-opengl-es
 -------------------------------------------------------------------
 Goals of today:
 - add dataset customization
-
+- file reorganization
 
 
 

@@ -8,7 +8,6 @@
 
 #include "compassModel.h"
 #include "commonInclude.h"
-//#include "jsonReader.h"
 #include <unistd.h>
 #import <CoreLocation/CoreLocation.h>
 #include "xmlParser.h"
@@ -16,12 +15,6 @@
 // http://stackoverflow.com/questions/3277121/include-objective-c-header-in-c-file
 
 using namespace std;
-
-////--------------
-//// global variable
-////--------------
-//params compass_params;
-
 #pragma mark compassMdl class`
 // http://www.galloway.me.uk/tutorials/singleton-classes/
 // http://www.yolinux.com/TUTORIALS/C++Singleton.html
@@ -170,7 +163,7 @@ int compassMdl::updateMdl(){
     vector<pair<double, int>> location_pair;
     
     // need to reset compass_params.indices_sorted_by_distance and distance_list
-    // entering the loop
+    // before entering the loop
     distance_list.clear();
     indices_sorted_by_distance.clear();
     indices_for_rendering.clear();
@@ -232,8 +225,9 @@ int compassMdl::cleanMdl(){
     return EXIT_SUCCESS;
 }
 
-
-
+//===================
+// watch the configuraiton, reread the configuration file if the file has been touched
+//===================
 void compassMdl::watchConfigurationFile(){
     //http://stackoverflow.com/questions/11355144/file-monitoring-using-grand-central-dispatch/11372441#11372441
     
@@ -277,7 +271,10 @@ void compassMdl::watchConfigurationFile(){
 }
 
 
-#pragma mark location distance/orientation tools
+#pragma mark ----------location distance/orientation tools----------
+//===================
+// tools for distance and orientation calculation
+//===================
 double DegreesToRadians(double degrees) {return degrees * M_PI / 180.0;};
 double RadiansToDegrees(double radians) {return radians * 180.0/M_PI;};
 // calculate bearing
@@ -318,8 +315,3 @@ double data::computeOrientationFromLocation(data &another_data){
     
     return RadiansToDegrees(radiansBearing);
 }
-
-
-
-
-

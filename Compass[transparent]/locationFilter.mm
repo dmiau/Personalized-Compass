@@ -23,6 +23,9 @@ filter_enum compassMdl::hashFilterStr (NSString *inString) {
     throw(runtime_error("Unknown style string."));
 }
 
+//---------------------
+// Central Filter Dispatcher
+//---------------------
 vector<int> compassMdl::applyFilter(filter_enum filter_type,
                            int filter_param){
     vector<int> result;
@@ -51,7 +54,7 @@ vector<int> compassMdl::applyFilter(filter_enum filter_type,
 }
 
 
-#pragma mark ---------k nearest locations
+#pragma mark ---------apply no filters
 vector<int> compassMdl::filter_none(){
     return indices_sorted_by_distance;
 }
@@ -67,6 +70,7 @@ vector<int> compassMdl::filter_kNearestLocations(int k){
 
 #pragma mark ---------k locations that spread out
 vector<int> compassMdl::filter_kOrientations(int k){
+    int i = 0;
     vector<int> result;
     
     // filter_kOrientations generates a new list of
@@ -75,11 +79,12 @@ vector<int> compassMdl::filter_kOrientations(int k){
     vector<pair<double, int>> dist_id_pair_list;
     vector<int> non_zero_id_list;
     // Find all the non-zero distances
-    for (int i = 0; i < data_array.size(); ++i){
-        if (data_array[i].distance > 0)
+    for (i = 0; i < data_array.size(); ++i){
+        if (data_array[i].distance > 0){
             non_zero_id_list.push_back(i);
+        }
     }
-    
+
     // Only need to eliminate if the # of landmarks > k
     if (non_zero_id_list.size() > k){
         vector<pair<float, int>> orient_id_list;
@@ -121,20 +126,22 @@ vector<int> compassMdl::filter_kOrientations(int k){
         sort(orient_diff_list.begin(), orient_diff_list.end(), compareAscending);
 
         // Backwards greedy elimination
-        for (int i = non_zero_id_list.size() - 1; i > k-1; --i){
+        for (i = non_zero_id_list.size() - 1; i > k-1; --i){
             orient_diff_list.erase(orient_diff_list.begin());
         }
         
         // Important, don't forget about the first one
-        dist_id_pair_list.push_back(make_pair(data_array[non_zero_id_list[primary_ind]].distance, primary_ind));
+        // a bug here before, index of index is extremely confusing
+        dist_id_pair_list.push_back(make_pair(data_array[non_zero_id_list[primary_ind]].distance, non_zero_id_list[primary_ind]));
+        
         // [todo] why no array out of bound error?
-        for (int i = 0; i < orient_diff_list.size(); ++i){
+        for (i = 0; i < orient_diff_list.size(); ++i){
             int j = orient_diff_list[i].second;
             dist_id_pair_list.push_back(make_pair(
                                                   data_array[j].distance, j));
         }
     }else{
-        for (int i = 0; i< non_zero_id_list.size(); ++i){
+        for (i = 0; i< non_zero_id_list.size(); ++i){
             dist_id_pair_list.push_back(make_pair(data_array[non_zero_id_list[i]].distance, non_zero_id_list[i]));
         }
     }
@@ -142,7 +149,7 @@ vector<int> compassMdl::filter_kOrientations(int k){
     // **indices_for_rendering should be sorted by distance
     sort(dist_id_pair_list.begin(), dist_id_pair_list.end(), compareAscending);
     
-    for (int i = 0; i < dist_id_pair_list.size(); ++i){
+    for (i = 0; i < dist_id_pair_list.size(); ++i){
         result.push_back(dist_id_pair_list[i].second);
     }
     
@@ -150,7 +157,6 @@ vector<int> compassMdl::filter_kOrientations(int k){
     if ( result.size() <= 1){
         throw(runtime_error("# of Lanrmakrs shoudl be > 1!"));
     }
-    
     return result;
 }
 

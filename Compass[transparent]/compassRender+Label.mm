@@ -48,14 +48,24 @@ void compassRender::drawLabel(float rotation, float height, string name)
     
 	stringAttrib = [NSMutableDictionary dictionary];
 	[stringAttrib setObject:font forKey:NSFontAttributeName];
+
     
+    
+    //--------------
+    // Render labels, different rendering methods depending on the platform
+    //--------------
 #ifndef __IPHONE__
+    //--------------
+    // OSX
+    //--------------
     [label_string setString:string withAttributes:stringAttrib];
     glRotatef(180, 1, 0, 0);
     
     [label_string drawAtPoint:NSMakePoint (0, 0)];
 #else
-    
+    //--------------
+    // iOS
+    //--------------
     NSAttributedString *attr_str =
     [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
     
@@ -81,6 +91,9 @@ void compassRender::drawLabel(float rotation, float height, string name)
     glPopMatrix();
 }
 
+//--------------
+// iOS related tools
+//--------------
 #ifdef __IPHONE__
 CGSize compassRender::makeGLFrameSize(NSAttributedString *attr_str){
     CGSize t_size = [attr_str size];
