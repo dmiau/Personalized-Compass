@@ -773,7 +773,11 @@ Distance indicator
 - adding gluPerspective to OpenGL ES
 http://maniacdev.com/2009/05/opengl-gluperspective-function-in-iphone-opengl-es
 
-
+-------------------------------------------------------------------
+6.12.2014
+-------------------------------------------------------------------
+Goals of today:
+- add dataset customization
 
 
 

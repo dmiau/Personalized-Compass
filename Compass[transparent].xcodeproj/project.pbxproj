@@ -97,6 +97,18 @@
 		9A9701E8190851A3007C3C19 /* smartWatch.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A9701E7190851A3007C3C19 /* smartWatch.tif */; };
 		9A98AF31194289D6007166DE /* GLString.h in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7118ECE5FC0029A860 /* GLString.h */; };
 		9A98AF32194289D6007166DE /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
+		9A998C8B1949F29500778DFC /* compassRender+Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C8A1949F29500778DFC /* compassRender+Label.mm */; };
+		9A998C8C1949F29500778DFC /* compassRender+Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C8A1949F29500778DFC /* compassRender+Label.mm */; };
+		9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C8A1949F29500778DFC /* compassRender+Label.mm */; };
+		9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C8A1949F29500778DFC /* compassRender+Label.mm */; };
+		9A998C8F1949F29500778DFC /* compassRender+Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C8A1949F29500778DFC /* compassRender+Label.mm */; };
+		9A998C901949F29500778DFC /* compassRender+Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C8A1949F29500778DFC /* compassRender+Label.mm */; };
+		9A998C921949F32800778DFC /* compassRender+Components.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C911949F32800778DFC /* compassRender+Components.mm */; };
+		9A998C931949F32800778DFC /* compassRender+Components.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C911949F32800778DFC /* compassRender+Components.mm */; };
+		9A998C941949F32800778DFC /* compassRender+Components.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C911949F32800778DFC /* compassRender+Components.mm */; };
+		9A998C951949F32800778DFC /* compassRender+Components.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C911949F32800778DFC /* compassRender+Components.mm */; };
+		9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C911949F32800778DFC /* compassRender+Components.mm */; };
+		9A998C971949F32800778DFC /* compassRender+Components.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C911949F32800778DFC /* compassRender+Components.mm */; };
 		9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9AA1DB921948B30A0082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
@@ -246,6 +258,8 @@
 		9A9701E419085002007C3C19 /* watchNSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = watchNSView.h; path = "Compass[transparent]/watchNSView.h"; sourceTree = "<group>"; };
 		9A9701E519085002007C3C19 /* watchNSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = watchNSView.m; path = "Compass[transparent]/watchNSView.m"; sourceTree = "<group>"; };
 		9A9701E7190851A3007C3C19 /* smartWatch.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = smartWatch.tif; sourceTree = "<group>"; };
+		9A998C8A1949F29500778DFC /* compassRender+Label.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Label.mm"; sourceTree = "<group>"; };
+		9A998C911949F32800778DFC /* compassRender+Components.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Components.mm"; sourceTree = "<group>"; };
 		9AA789341909FE3000A26C66 /* webBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA789351909FE3100A26C66 /* Compass[transparent] copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Compass[transparent] copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/Compass[transparent] copy-Info.plist"; sourceTree = "<absolute>"; };
 		9AA789361909FE5A00A26C66 /* browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = browser.xib; path = "Compass[transparent]/browser.xib"; sourceTree = "<group>"; };
@@ -443,13 +457,15 @@
 				9AF01B7118ECE5FC0029A860 /* GLString.h */,
 				9AF01B7218ECE5FC0029A860 /* GLString.mm */,
 				9AEA582A18D9ED600028B80C /* compassRender.mm */,
+				9A998C8A1949F29500778DFC /* compassRender+Label.mm */,
+				9A998C911949F32800778DFC /* compassRender+Components.mm */,
+				9AAE13D819046975003BF9B7 /* renderStyles.mm */,
 				9AEA582B18D9ED600028B80C /* compassRender.h */,
 				9AEA582718D9ED350028B80C /* OpenGLView.h */,
 				9AEA582818D9ED350028B80C /* OpenGLView.mm */,
 				9AEA57E518D9EBB20028B80C /* MainMenu.xib */,
 				9A6A74A218E4A45D00C7A9D5 /* LocationCellView.h */,
 				9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */,
-				9AAE13D819046975003BF9B7 /* renderStyles.mm */,
 				9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */,
 				9AEECFF51910599B0031BAAE /* StyleWindow.xib */,
 			);
@@ -915,11 +931,13 @@
 				9A98AF31194289D6007166DE /* GLString.h in Sources */,
 				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
+				9A998C8F1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A4F0F83193E331E00CF32DE /* compassModel.mm in Sources */,
 				9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */,
 				9A4F0F86193E331E00CF32DE /* readConfiguration.mm in Sources */,
 				9A4F0F87193E331E00CF32DE /* compassRender.mm in Sources */,
 				9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */,
+				9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */,
 				9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */,
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
@@ -933,8 +951,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A577E1F1943F060002243B1 /* GLString.mm in Sources */,
+				9A998C971949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A82B6311941518900534A5F /* xmlParser.mm in Sources */,
 				9A82B6321941518900534A5F /* compassModel.mm in Sources */,
+				9A998C901949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A82B6331941518900534A5F /* locationFilter.mm in Sources */,
 				9A82B6341941518900534A5F /* readConfiguration.mm in Sources */,
 				9A82B6351941518900534A5F /* compassRender.mm in Sources */,
@@ -958,6 +978,7 @@
 				9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */,
 				9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */,
 				9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */,
+				9A998C951949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9AA7890F1909FE3000A26C66 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AA789101909FE3000A26C66 /* xmlParser.mm in Sources */,
 				9AA789111909FE3000A26C66 /* compassModel.mm in Sources */,
@@ -969,6 +990,7 @@
 				9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */,
 				9AA789191909FE3000A26C66 /* main.mm in Sources */,
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -978,12 +1000,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AB6E8DB1906C9B000E28DE9 /* commonTools.mm in Sources */,
+				9A998C921949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */,
 				9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */,
 				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
 				9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
+				9A998C8B1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */,
 				9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */,
@@ -1007,6 +1031,7 @@
 				9A9701D719083B26007C3C19 /* DesktopViewController.mm in Sources */,
 				9A9701E619085002007C3C19 /* watchNSView.m in Sources */,
 				9A9701D819083B26007C3C19 /* DesktopViewController+TableAddition.mm in Sources */,
+				9A998C941949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A9701D919083B26007C3C19 /* DesktopViewController+MapViewAddition.mm in Sources */,
 				9A9701DA19083B26007C3C19 /* DesktopViewController+CompassAddition.mm in Sources */,
 				9A9701DB19083B26007C3C19 /* main.mm in Sources */,
@@ -1018,6 +1043,7 @@
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */,
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
+				9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A9701CE19083B10007C3C19 /* renderStyles.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1028,6 +1054,7 @@
 			files = (
 				9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */,
 				9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */,
+				9A998C931949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */,
 				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,
 				9AFB14A118EE639A00063632 /* compassRender.mm in Sources */,
@@ -1036,6 +1063,7 @@
 				9AFB14A418EE639A00063632 /* AppDelegate.mm in Sources */,
 				9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,
+				9A998C8C1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9AFB14A618EE639A00063632 /* DesktopViewController+MapViewAddition.mm in Sources */,
 				9AFB14A718EE639A00063632 /* GLString.mm in Sources */,
 			);

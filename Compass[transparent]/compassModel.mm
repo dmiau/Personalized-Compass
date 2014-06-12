@@ -116,8 +116,12 @@ int compassMdl::initMdl(){
     if ((configuration_filename.length() == 0) ||
         (location_filename.length() == 0))
     {
-        location_filename =std::string([ [[NSBundle mainBundle] pathForResource:@"SundayTest.kml" ofType:@""] UTF8String]);
         configuration_filename = std::string([ [[NSBundle mainBundle] pathForResource:@"configurations.json" ofType:@""] UTF8String]);
+        
+        // Need to read the configuraiton file first (to get the default location file name, if default options are used.
+        readConfigurations(this);
+        
+        location_filename =std::string([ [[NSBundle mainBundle] pathForResource:configurations[@"default_location_filename"] ofType:@""] UTF8String]);
     }
     
     //------------
@@ -142,10 +146,10 @@ int compassMdl::initMdl(){
 // from physical files into memory
 //===================
 int compassMdl::reloadFiles(){
-    // Read the location data
-    readLocationKml(this);
     // Read the configuration data
     readConfigurations(this);
+    // Read the location data
+    readLocationKml(this);
     updateMdl();
     
     cout << "Configuration filename: " << endl

@@ -43,6 +43,10 @@ int compassRender::applyStyle(style_enum style_type,
 
 #pragma mark ------------ styles
 
+
+//------------------------------------
+// Bimodal
+//------------------------------------
 void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     
     ostringstream db_stream;
@@ -230,6 +234,9 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
 }
 
 
+//------------------------------------
+// Real Ratio
+//------------------------------------
 void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
     // ------------------
     // Preprocesing:
@@ -272,7 +279,9 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
     drawCircle(0, 0, half_canvas_size, 50);
 }
 
-
+//------------------------------------
+// ThresholdSticks
+//------------------------------------
 void compassRender::renderStyleThresholdSticks(vector<int> &indices_for_rendering){
     
 }

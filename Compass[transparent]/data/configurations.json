@@ -1,5 +1,10 @@
  [
   {
+  "property": "default_location_filename",
+  "value": "SundayTest.kml",
+  "comment": "This is a comment"
+  },
+  {
   "property": "traslation_step",
   "value": 1,
   "comment": "This is a comment"
