@@ -147,6 +147,12 @@ int compassMdl::reloadFiles(){
     // Read the configuration data
     readConfigurations(this);
     updateMdl();
+    
+    cout << "Configuration filename: " << endl
+    << configuration_filename << endl;
+
+    cout << "Location filename: " << endl
+    << location_filename << endl;
     return 0;
 }
 

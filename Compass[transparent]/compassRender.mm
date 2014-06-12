@@ -94,41 +94,35 @@ int compassRender::initRenderMdl(){
 // Initialize the "viewing" part of the render
 //---------------
 int compassRender::initRenderView(float win_width, float win_height){
-    orig_wigth = win_width; orig_height = win_height;
-
-    // construction
-    camera.viewPos.z = win_width/2 * tan((90-camera.fov/2)/180*3.14);
-    half_canvas_size = win_width/2;
-    //
+    orig_width = win_width; orig_height = win_height;
     
-//    half_canvas_size = camera.viewPos.z * tan(camera.fov/360*3.14);
+    // construction
+#ifndef __IPHONE__
+    camera.viewPos.z = win_width/2 * tan((90-camera.fov/2)/180*3.14);
+#else
+    camera.viewPos.z = win_height/2 * tan((90-camera.fov/2)/180*3.14);
+#endif
+    
+    half_canvas_size = win_width/2;
+    
+    //    half_canvas_size = camera.viewPos.z * tan(camera.fov/360*3.14);
     central_disk_radius = half_canvas_size/10;
     
     
     // Transformations for the projection
     glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();    
-    
-#ifdef __IPHONE__
-    // left, right, bottom, top, z_near, z_far
-    glOrthof(-half_canvas_size*200, half_canvas_size*200, -half_canvas_size*200, half_canvas_size*200,
-             -150, 150);
-#else
-    updateViewport(0, 0, orig_wigth, orig_height);
-#endif
-    
-    glMatrixMode(GL_MODELVIEW);
-    
-#ifndef __IPHONE__
     glLoadIdentity();
-//    gluLookAt(camera.viewPos.x, camera.viewPos.y, camera.viewPos.z,
-//              0, 0, 0,
-//              camera.viewUp.x, camera.viewUp.y, camera.viewUp.z);
+    
+    updateViewport(0, 0, orig_width, orig_height);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    //    gluLookAt(camera.viewPos.x, camera.viewPos.y, camera.viewPos.z,
+    //              0, 0, 0,
+    //              camera.viewUp.x, camera.viewUp.y, camera.viewUp.z);
     // Push the scene in the negative-z direction
     // This is just to simulate gluLoookAt
     glTranslatef(0, 0, -camera.viewPos.z);
-#endif
-    
+    //#endif
     return EXIT_SUCCESS;
 }
 
@@ -136,7 +130,7 @@ int compassRender::initRenderView(float win_width, float win_height){
 
 
 void compassRender::updateViewport
-            (GLint x, GLint y, GLsizei width, GLsizei height)
+(GLint x, GLint y, GLsizei width, GLsizei height)
 {
     glDrawingCorrectionRatio = orig_height / height;
     glViewport (x, y, width, height);
@@ -144,20 +138,11 @@ void compassRender::updateViewport
 }
 
 void compassRender::updateProjection(GLfloat aspect_ratio){
-#ifdef __IPHONE__
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    
-    // left, right, bottom, top, z_near, z_far
-    glOrthof(-half_canvas_size, half_canvas_size, -half_canvas_size, half_canvas_size,
-             -150, 150);
-#else
 	// set projection
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     //fovy, asepect, zNear, zFar
     myGluPerspective(camera.fov, aspect_ratio, 1, 3 * camera.viewPos.z);
-#endif
 }
 
 #pragma mark ---------core rendering routine---------
@@ -165,7 +150,7 @@ void compassRender::updateProjection(GLfloat aspect_ratio){
 // Tools
 //--------------
 RenderParamStruct makeRenderParams(
-            filter_enum filter_type, style_enum style_type){
+                                   filter_enum filter_type, style_enum style_type){
     
     RenderParamStruct renderParamStruct;
     renderParamStruct.filter_type = filter_type;
@@ -186,10 +171,10 @@ void compassRender::render(){
     
     style_enum style_type =
     hashStyleStr(model->configurations[@"style_type"]);
-        
+    
     RenderParamStruct renderParamStruct =
     makeRenderParams(filter_type, style_type);
-//    makeRenderParams(NONE, BIMODAL);
+    //    makeRenderParams(NONE, BIMODAL);
     render(renderParamStruct);
 }
 
@@ -203,32 +188,38 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //    glEnable(GL_MULTISAMPLE);
     
 #ifdef __IPHONE__
-    //--------------
-    // This is something strnage. On iPhone I have to keep
-    // resetting the projection matrix...
-    //--------------
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-
-    // left, right, bottom, top, z_near, z_far
-    glOrthof(-half_canvas_size, half_canvas_size, -half_canvas_size, half_canvas_size,
-             -150, 150);
+    compass_scale = [model->configurations[@"iOS_compass_scale"] floatValue];
+    
+    static bool once = FALSE;
+    if (!once){
+        //--------------
+        // This is something strnage. On iPhone I have to keep
+        // resetting the projection matrix...
+        //--------------
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        //fovy, asepect, zNear, zFar
+        myGluPerspective(camera.fov, (float)orig_width/(float)orig_height, 1, 3 * camera.viewPos.z);
+        
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        glTranslatef(0, 0, -camera.viewPos.z);
+        once = TRUE;
+    }
 #endif
-    
     glMatrixMode(GL_MODELVIEW);
-    
     glPushMatrix();
     
     // Translate the compass to the desired screen location
     glTranslatef(compass_centroid.x, compass_centroid.y, 0);
     
-
+    
     // [todo] Careful! Potential bug here...
     // tilt
     glRotatef(model->tilt, 1, 0, 0);
     
     glRotatef(model->current_pos.orientation, 0, 0, -1);
-
+    
     float scale = glDrawingCorrectionRatio * compass_scale;
     glScalef(scale, scale, 1);
     
@@ -251,8 +242,8 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     /*
      By the time this funciton is called,
      model->indices_for_rendering shold have been updated by the model
-    */
-        
+     */
+    
     // ------------------
     // Find out the longest distance for normalization
     // ------------------
@@ -276,7 +267,7 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     
     // draw the center circle
     drawCircle(0, 0, central_disk_radius, 50);
-
+    
     
     // ---------------
     // Render triangles and the background disks
@@ -285,17 +276,14 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     
     // [todo] more rendering style should be supported
     applyStyle(renderParamStruct.style_type, model->indices_for_rendering);
-//    renderStyleBimodal(indices_for_rendering);
+    //    renderStyleBimodal(indices_for_rendering);
     
     // ---------------
     // draw the labels
     // ---------------
     if (label_flag){
         glPushMatrix();
-        
-//#ifdef __IPHONE__
         glTranslatef(0, 0, 1);
-//#endif
         for (int i = 0; i < model->indices_for_rendering.size(); ++i){
             int j = model->indices_for_rendering[i];
             data data_ = model->data_array[j];
@@ -305,7 +293,7 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
         }
         glPopMatrix();
     }
-
+    
 }
 
 #pragma mark ---------drawing helper functions---------
@@ -358,7 +346,7 @@ void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
 // draw label
 //-------------
 void compassRender::drawLabel(float rotation, float height, string name)
-{	
+{
     glPushMatrix();
     glRotatef(rotation, 0, 0, -1);
     
@@ -366,13 +354,13 @@ void compassRender::drawLabel(float rotation, float height, string name)
     
     // Keep the text level
     glRotatef(-rotation, 0, 0, -1);
-
+    
     // Fix text size
     float scale = 1/ ( compass_scale); // glDrawingCorrectionRatio *
     glScalef(scale, scale, scale);
     
     // This line seems to make the text darker for some reason
-//    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);    
+    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
     glPushMatrix();
     
     //--------------
@@ -384,7 +372,7 @@ void compassRender::drawLabel(float rotation, float height, string name)
                                    size:
                     [model->configurations[@"font_size"] floatValue]];
 #else
-	UIFont *font = [UIFont fontWithName:@"Helvetica-Bold"
+	UIFont *font = [UIFont fontWithName:@"Helvetica"
                                    size:[model->configurations[@"ios_font_size"] floatValue]];
 #endif
     NSString * string = [NSString stringWithFormat:@"%@\n",
@@ -402,13 +390,14 @@ void compassRender::drawLabel(float rotation, float height, string name)
     
     NSAttributedString *attr_str =
     [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
-
+    
     CGSize str_size = makeGLFrameSize(attr_str);
     glTranslatef(-str_size.width, 0, 0);
     
-    drawiOSText(string, [model->configurations[@"ios_font_size"] floatValue],
-                str_size.width,
-                str_size.height);
+    glScalef(0.25, 0.25, 0);
+    drawiOSText(string, 4*[model->configurations[@"ios_font_size"] floatValue],
+                4*str_size.width,
+                4*str_size.height);
 #endif
     glPopMatrix();
     
@@ -423,14 +412,14 @@ CGSize compassRender::makeGLFrameSize(NSAttributedString *attr_str){
         t_size.width = t_size.width /2;
         t_size.height = t_size.height * 2;
     }
-        t_size.width = 2*round(t_size.width/2) + 8;
+    t_size.width = 2*round(t_size.width/2) + 8;
     t_size.height = 2*round(t_size.height/2) + 4;
-        
+    
     return t_size;
 }
 
 void compassRender::drawiOSText(NSString *string, int font_size,
-                 CGFloat width, CGFloat height){
+                                CGFloat width, CGFloat height){
     width = width;
     height = height;
     // Use black
@@ -500,5 +489,3 @@ void myGluPerspective(GLfloat fovy, GLfloat aspect, GLfloat zNear, GLfloat zFar)
     m[3][3] = 0;
     glMultMatrixf(&m[0][0]);
 }
-
-

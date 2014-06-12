@@ -70,7 +70,7 @@ public:
     compassMdl* model;
     
     // Parameters for perspective projection
-    float orig_wigth;
+    float orig_width;
     float orig_height;
     float fov;
     

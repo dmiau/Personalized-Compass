@@ -33,6 +33,16 @@
     //self.multipleTouchEnabled = YES;
     
     self.enableSetNeedsDisplay = YES;
+
+    //-------------------
+    // Initialize the render
+    //-------------------
+    self.renderer = compassRender::shareCompassRender();
+    self.renderer->initRenderView(frame.size.width,
+                                  frame.size.height);
+    
+    NSLog(@"width: %f", frame.size.width);
+    NSLog(@"height: %f", frame.size.height);
     
     //[self setNeedsDisplay];
     return self;
@@ -40,15 +50,7 @@
 
 - (void)awakeFromNib
 {
-    //-------------------
-    // Initialize the render
-    //-------------------
-    self.renderer = compassRender::shareCompassRender();
-    self.renderer->initRenderView(self.frame.size.width,
-                                  self.frame.size.height);
-    
-    NSLog(@"width: %f", self.frame.size.width);
-    NSLog(@"height: %f", self.frame.size.height);
+
 }
 
 #pragma mark ---- Rendering ----

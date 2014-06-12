@@ -104,7 +104,7 @@
     
     //[todo] this is too heavy
     model->current_pos.orientation = -camera_heading;
-//    model->tilt = tilt_deg; // no tilt changes on iOS
+    model->tilt = tilt_deg; // no tilt changes on iOS
     
     model->current_pos.latitude = lat_float;
     model->current_pos.longitude = lon_float;
