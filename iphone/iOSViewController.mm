@@ -189,21 +189,8 @@
         
         self.model = compassMdl::shareCompassMdl();
         self.renderer = compassRender::shareCompassRender();
-        
-        pinVisible = FALSE;
-        
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
-        
-        // The following code is to collect a list of kml files
-        // I use the path of montreal.kml to find a list of kml files
-        NSString *path = [[[NSBundle mainBundle]
-                           pathForResource:@"montreal.kml" ofType:@""]
-                          stringByDeletingLastPathComponent];
-        
-        NSArray *dirFiles = [[NSFileManager defaultManager]
-                             contentsOfDirectoryAtPath: path error:nil];
-        kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
     }
     return self;
 }
@@ -289,6 +276,7 @@
 
 -(IBAction)unwindToRootVC:(UIStoryboardSegue *)segue
 {
+    [self updateMapDisplayRegion];
      // Nothing needed here.
 }
 

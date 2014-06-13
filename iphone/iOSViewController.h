@@ -16,8 +16,6 @@
 
 @interface iOSViewController : UIViewController{
     NSTimer *_updateUITimer;
-    BOOL pinVisible;
-    NSArray *kml_files;
 }
 
 @property (weak) IBOutlet MKMapView *mapView;

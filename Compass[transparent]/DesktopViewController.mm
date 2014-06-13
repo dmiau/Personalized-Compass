@@ -319,8 +319,9 @@ static NSComparisonResult myCustomViewAboveSiblingViewsComparator(id view1, id v
     [self.locationTableView reloadData];
 }
 
-
+//--------------------
 // Combo box control
+//--------------------
 - (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox {
     return [kml_files count];
 }
