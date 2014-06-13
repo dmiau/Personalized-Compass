@@ -276,8 +276,9 @@
 
 -(IBAction)unwindToRootVC:(UIStoryboardSegue *)segue
 {
+    // There is a bug here. There seems to be an extra shift component.
+    
     [self updateMapDisplayRegion];
-     // Nothing needed here.
 }
 
 /*
@@ -291,4 +292,40 @@
 }
 */
 
+- (IBAction)getCurrentLocation:(id)sender {
+    
+    // enable location manager
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
+    
+    NSLog(@"OldLocation %f %f", oldLocation.coordinate.latitude, oldLocation.coordinate.longitude);
+    NSLog(@"NewLocation %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+    
+    [self feedModelLatitude: newLocation.coordinate.latitude
+                  longitude: newLocation.coordinate.longitude
+                    heading: 0
+                       tilt: 0];
+    [self updateMapDisplayRegion];
+    
+    // Stop Location Manager
+    [locationManager stopUpdatingLocation];
+    
+}
+    
 @end

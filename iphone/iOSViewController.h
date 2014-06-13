@@ -14,8 +14,10 @@
 #include <iostream>
 #import "iOSGLKView.h"
 
-@interface iOSViewController : UIViewController{
+@interface iOSViewController : UIViewController
+<CLLocationManagerDelegate>{
     NSTimer *_updateUITimer;
+    CLLocationManager *locationManager;
 }
 
 @property (weak) IBOutlet MKMapView *mapView;
@@ -26,6 +28,7 @@
 @property compassRender* renderer;
 
 @property NSNumber *mapUpdateFlag;
+- (IBAction)getCurrentLocation:(id)sender;
 
 
 //----------------
@@ -42,5 +45,6 @@
 // Update functions
 //----------------
 - (void) updateMapDisplayRegion;
+//- (void) updateMapDisplayRegion(CLLocationCoordinate2D coord);
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
 @end

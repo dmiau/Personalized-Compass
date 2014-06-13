@@ -787,9 +787,19 @@ should look into this (scroll menu)
 https://github.com/John-Lluch/SWRevealViewController
 
 
+-------------------------------------------------------------------
+6.13.2014
+-------------------------------------------------------------------
+- when interface and implementation are in the same file, the interface usually acts as a class extension
+Note the parentheses.
 
+@interface myClass ()
 
+@end
 
+http://stackoverflow.com/questions/10647913/declare-interface-inside-implementation-file-objective-c
+
+- following the instructions here to implmenet iOS location services
 
 
 

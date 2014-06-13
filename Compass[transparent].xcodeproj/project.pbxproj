@@ -111,6 +111,10 @@
 		9A998C951949F32800778DFC /* compassRender+Components.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C911949F32800778DFC /* compassRender+Components.mm */; };
 		9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C911949F32800778DFC /* compassRender+Components.mm */; };
 		9A998C971949F32800778DFC /* compassRender+Components.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C911949F32800778DFC /* compassRender+Components.mm */; };
+		9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D63194B716200778DFC /* line__0000s_0084_menu.png */; };
+		9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D63194B716200778DFC /* line__0000s_0084_menu.png */; };
+		9A998D68194B721F00778DFC /* line__0000s_0005_compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D67194B721F00778DFC /* line__0000s_0005_compass.png */; };
+		9A998D69194B721F00778DFC /* line__0000s_0005_compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D67194B721F00778DFC /* line__0000s_0005_compass.png */; };
 		9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9AA1DB921948B30A0082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
@@ -265,6 +269,8 @@
 		9A9701E7190851A3007C3C19 /* smartWatch.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = smartWatch.tif; sourceTree = "<group>"; };
 		9A998C8A1949F29500778DFC /* compassRender+Label.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Label.mm"; sourceTree = "<group>"; };
 		9A998C911949F32800778DFC /* compassRender+Components.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Components.mm"; sourceTree = "<group>"; };
+		9A998D63194B716200778DFC /* line__0000s_0084_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line__0000s_0084_menu.png; path = icons/line__0000s_0084_menu.png; sourceTree = "<group>"; };
+		9A998D67194B721F00778DFC /* line__0000s_0005_compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line__0000s_0005_compass.png; path = icons/line__0000s_0005_compass.png; sourceTree = "<group>"; };
 		9AA789341909FE3000A26C66 /* webBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA789351909FE3100A26C66 /* Compass[transparent] copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Compass[transparent] copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/Compass[transparent] copy-Info.plist"; sourceTree = "<absolute>"; };
 		9AA789361909FE5A00A26C66 /* browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = browser.xib; path = "Compass[transparent]/browser.xib"; sourceTree = "<group>"; };
@@ -498,6 +504,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		9A998D66194B716800778DFC /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				9A998D67194B721F00778DFC /* line__0000s_0005_compass.png */,
+				9A998D63194B716200778DFC /* line__0000s_0084_menu.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
 		9AA789041909BB1200A26C66 /* WebBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +586,7 @@
 		9AEA57D618D9EBB20028B80C /* Compass[transparent] */ = {
 			isa = PBXGroup;
 			children = (
+				9A998D66194B716800778DFC /* icons */,
 				9A2F0C521943DA9200350BD2 /* Texture2D.h */,
 				9A2F0C531943DA9200350BD2 /* Texture2D.m */,
 				9A0A14E91907581300C89634 /* Archive */,
@@ -826,7 +842,9 @@
 				9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
 				9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */,
+				9A998D68194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A4F0FAF193E745900CF32DE /* london.kml in Resources */,
+				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */,
 				9A4F0FB1193E745900CF32DE /* montreal.kml in Resources */,
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
@@ -839,10 +857,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */,
 				9A82B6441941518900534A5F /* configurations.json in Resources */,
 				9A82B6541941528600534A5F /* iPad.storyboard in Resources */,
 				9A82B6451941518900534A5F /* New York City [many].kml in Resources */,
+				9A998D69194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A82B6461941518900534A5F /* london.kml in Resources */,
 				9A82B6471941518900534A5F /* newyork.kml in Resources */,
 				9A82B6481941518900534A5F /* montreal.kml in Resources */,
