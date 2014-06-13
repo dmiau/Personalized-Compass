@@ -798,12 +798,11 @@ Note the parentheses.
 @end
 
 http://stackoverflow.com/questions/10647913/declare-interface-inside-implementation-file-objective-c
-
 - following the instructions here to implmenet iOS location services
 
-
-
-
+3:53PM
+- added search, need to do pin and display managmenet
+- next step: look into iCloud syncing
 
 
 

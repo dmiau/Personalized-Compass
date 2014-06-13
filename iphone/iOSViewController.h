@@ -15,13 +15,17 @@
 #import "iOSGLKView.h"
 
 @interface iOSViewController : UIViewController
-<CLLocationManagerDelegate>{
+<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
+{
     NSTimer *_updateUITimer;
     CLLocationManager *locationManager;
+    MKLocalSearch *localSearch;
+    MKLocalSearchResponse *results;
 }
 
 @property (weak) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet GLKView *glkView;
+@property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
 
 
 @property compassMdl* model;

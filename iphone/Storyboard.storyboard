@@ -58,6 +58,7 @@
                     <navigationItem key="navigationItem" id="rL1-an-vSn"/>
                     <connections>
                         <outlet property="glkView" destination="w6C-r0-bI1" id="yhf-bo-5Lj"/>
+                        <outlet property="ibSearchBar" destination="we6-xT-3ZG" id="lqR-nJ-pAx"/>
                         <outlet property="mapView" destination="Nfb-xm-KgJ" id="zfv-nH-uVh"/>
                         <outlet property="searchDisplayController" destination="Rqg-Uh-RXs" id="TnG-zy-1n9"/>
                     </connections>

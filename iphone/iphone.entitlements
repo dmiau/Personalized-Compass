@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
-		<string>$(TeamIdentifierPrefix)com.dm.iphone-copy</string>
+		<string>$(TeamIdentifierPrefix)com.dm.iphone</string>
 	</array>
 </dict>
 </plist>
