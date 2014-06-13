@@ -783,7 +783,8 @@ Goals of today:
 check this:
 http://stackoverflow.com/questions/2503436/how-to-check-if-nsstring-begins-with-a-certain-character
 
-
+should look into this (scroll menu)
+https://github.com/John-Lluch/SWRevealViewController
 
 
 

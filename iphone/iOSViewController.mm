@@ -58,14 +58,19 @@
         CLLocationCoordinate2D compassCtrCoord = [_mapView convertPoint:
                                                   model->compassCenterXY
                                                    toCoordinateFromView:_mapView];
-        // [_mapView centerCoordinate].latitude
-        // [_mapView centerCoordinate].longitude
+
+//        dispatch_queue_t concurrentQueue =
+//        dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+//        dispatch_async(concurrentQueue,
+//                       ^{
+//                           
+//                       });
         
         [self feedModelLatitude: compassCtrCoord.latitude
                       longitude: compassCtrCoord.longitude
                         heading: [self calculateCameraHeading]
                            tilt: -_mapView.camera.pitch];
-
+        
         // [todo] This code should be put into the gesture recognizer
         // Disable the compass
         
@@ -80,13 +85,13 @@
             }
         }
         
-//        dispatch_queue_t concurrentQueue =
-//        dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//        dispatch_async(concurrentQueue,
-//                       ^{
-//                       });
-        // Redraw the compass
-        [self.glkView setNeedsDisplay];
+        dispatch_queue_t mainQueue = dispatch_get_main_queue();
+        dispatch_async(mainQueue,
+                       ^{
+                           // Redraw the compass
+                           [self.glkView setNeedsDisplay];
+                       });
+
     }
 }
 
@@ -152,7 +157,13 @@
     
     //http://stackoverflow.com/questions/10796058/is-it-possible-to-continuously-track-the-mkmapview-region-while-scrolling-zoomin?lq=1
     
-    _updateUITimer = [NSTimer timerWithTimeInterval:0.015
+#ifndef __IPAD__
+    float timer_interval = 0.03;
+#else
+    float timer_interval = 0.06;
+#endif
+    
+    _updateUITimer = [NSTimer timerWithTimeInterval:timer_interval
                                              target:self
                                            selector:@selector(vcTimerFired)
                                            userInfo:nil
@@ -235,9 +246,9 @@
     // Provide the centroid of compass to the model
     self.model->compassCenterXY =
     [self.mapView convertPoint: CGPointMake(self.glkView.frame.size.width/2
-                                            + [self.model->configurations[@"iOS_compass_centroid"][0] floatValue],
+                                            + [self.model->configurations[@"compass_centroid"][0] floatValue],
                                             self.glkView.frame.size.height/2+
-                                            - [self.model->configurations[@"iOS_compass_centroid"][1] floatValue])
+                                            - [self.model->configurations[@"compass_centroid"][1] floatValue])
                       fromView:self.glkView];
     
     cout << "glk.x: " << self.glkView.frame.size.width << endl;
@@ -274,6 +285,11 @@
     coord.latitude = self.model->current_pos.latitude;
     coord.longitude = self.model->current_pos.longitude;
     [self.mapView setCenterCoordinate:coord animated:YES];
+}
+
+-(IBAction)unwindToRootVC:(UIStoryboardSegue *)segue
+{
+     // Nothing needed here.
 }
 
 /*

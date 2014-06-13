@@ -188,10 +188,10 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //    glEnable(GL_MULTISAMPLE);
     
 #ifdef __IPHONE__
-    compass_scale = [model->configurations[@"iOS_compass_scale"] floatValue];
+    compass_scale = [model->configurations[@"compass_scale"] floatValue];
     
-    compass_centroid.x = [model->configurations[@"iOS_compass_centroid"][0] floatValue];
-    compass_centroid.y = [model->configurations[@"iOS_compass_centroid"][1] floatValue];
+    compass_centroid.x = [model->configurations[@"compass_centroid"][0] floatValue];
+    compass_centroid.y = [model->configurations[@"compass_centroid"][1] floatValue];
     
     static bool once = FALSE;
     if (!once){

@@ -28,13 +28,13 @@ int readConfigurations(compassMdl* mdl_instance){
         NSString *key = jsonData[i][@"property"];
         
         // There could be two types of prefixes: iPhone and iPad
-#ifdef __IPHONE__
-        if ([key hasPrefix:@"iPhone_"]){
-            key = [key substringFromIndex:7];
-        }
-#elif __IPAD__
+#if defined(__IPHONE__) && defined(__IPAD__)
         if ([key hasPrefix:@"iPad_"]){
             key = [key substringFromIndex:5];
+        }
+#elif __IPHONE__
+        if ([key hasPrefix:@"iOS_"]){
+            key = [key substringFromIndex:4];
         }
 #endif
         

@@ -74,6 +74,8 @@
 		9A82B64A1941518900534A5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F58193E2A8900CF32DE /* Images.xcassets */; };
 		9A82B64B1941518900534A5F /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */; };
 		9A82B6541941528600534A5F /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A82B6531941528600534A5F /* iPad.storyboard */; };
+		9A95CCB3194B4146008E520F /* iOSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A95CCB2194B4146008E520F /* iOSSettingViewController.m */; };
+		9A95CCB4194B4146008E520F /* iOSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A95CCB2194B4146008E520F /* iOSSettingViewController.m */; };
 		9A9701CB19083B10007C3C19 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
 		9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
 		9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
@@ -254,6 +256,9 @@
 		9A82B64F1941518900534A5F /* iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
 		9A82B6531941528600534A5F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		9A95CCB0194AC5A2008E520F /* iphone copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "iphone copy.entitlements"; sourceTree = "<group>"; };
+		9A95CCB1194B4146008E520F /* iOSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSSettingViewController.h; sourceTree = "<group>"; };
+		9A95CCB2194B4146008E520F /* iOSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSSettingViewController.m; sourceTree = "<group>"; };
 		9A9701E119083E8C007C3C19 /* smartWatch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = smartWatch.xib; path = "Compass[transparent]/smartWatch.xib"; sourceTree = "<group>"; };
 		9A9701E419085002007C3C19 /* watchNSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = watchNSView.h; path = "Compass[transparent]/watchNSView.h"; sourceTree = "<group>"; };
 		9A9701E519085002007C3C19 /* watchNSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = watchNSView.m; path = "Compass[transparent]/watchNSView.m"; sourceTree = "<group>"; };
@@ -421,6 +426,8 @@
 				9A4F0F7D193E308400CF32DE /* iOSGLKView.h */,
 				9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */,
 				9A82B6531941528600534A5F /* iPad.storyboard */,
+				9A95CCB1194B4146008E520F /* iOSSettingViewController.h */,
+				9A95CCB2194B4146008E520F /* iOSSettingViewController.m */,
 			);
 			path = iphone;
 			sourceTree = "<group>";
@@ -504,6 +511,7 @@
 		9AEA57C418D9EBB20028B80C = {
 			isa = PBXGroup;
 			children = (
+				9A95CCB0194AC5A2008E520F /* iphone copy.entitlements */,
 				9AA789041909BB1200A26C66 /* WebBrowser */,
 				9AEC5CFB18F3958200A29F75 /* smartWatch */,
 				9AFB14C018EE658800063632 /* tabView */,
@@ -747,6 +755,11 @@
 					};
 					9A82B62F1941518900534A5F = {
 						DevelopmentTeam = T8L89L97Z5;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					9AA789081909FE3000A26C66 = {
 						DevelopmentTeam = ZW2ULQ7FDF;
@@ -943,6 +956,7 @@
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
 				9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
+				9A95CCB3194B4146008E520F /* iOSSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,6 +977,7 @@
 				9A82B6381941518900534A5F /* AppDelegate.m in Sources */,
 				9A82B6391941518900534A5F /* main.m in Sources */,
 				9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */,
+				9A95CCB4194B4146008E520F /* iOSSettingViewController.m in Sources */,
 				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
 			);
@@ -1175,6 +1190,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 					"__IPHONE__=1",
+					"__IPAD__=1",
 				);
 				INFOPLIST_FILE = "iphone copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -1198,7 +1214,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iphone/iphone-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "__IPHONE__=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"__IPHONE__=1",
+					"__IPAD__=1",
+				);
 				INFOPLIST_FILE = "iphone copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "iphone copy";

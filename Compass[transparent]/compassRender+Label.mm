@@ -35,14 +35,14 @@ void compassRender::drawLabel(float rotation, float height, string name)
     // Font generation
     //--------------
     // Set font size
-#ifndef __IPHONE__
+//#ifndef __IPHONE__
 	NSFont * font =[NSFont fontWithName:@"Helvetica"
                                    size:
                     [model->configurations[@"font_size"] floatValue]];
-#else
-	UIFont *font = [UIFont fontWithName:@"Helvetica"
-                                   size:[model->configurations[@"ios_font_size"] floatValue]];
-#endif
+//#else
+//	UIFont *font = [UIFont fontWithName:@"Helvetica"
+//                                   size:[model->configurations[@"ios_font_size"] floatValue]];
+//#endif
     NSString * string = [NSString stringWithFormat:@"%@\n",
                          [NSString stringWithUTF8String:name.c_str()]];
     
@@ -82,7 +82,7 @@ void compassRender::drawLabel(float rotation, float height, string name)
         glTranslatef(-str_size.width, 0, 0);
     
     glScalef(0.25, 0.25, 0);
-    drawiOSText(string, 4*[model->configurations[@"ios_font_size"] floatValue],
+    drawiOSText(string, 4*[model->configurations[@"font_size"] floatValue],
                 4*str_size.width,
                 4*str_size.height);
 #endif

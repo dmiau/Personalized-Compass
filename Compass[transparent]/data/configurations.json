@@ -52,12 +52,20 @@
   "value": 0.3
   },
   {
+  "property": "iPad_compass_scale",
+  "value": 0.6
+  },
+  {
   "property": "compass_centroid",
   "value": [0, 0]
   },
   {
   "property": "iOS_compass_centroid",
   "value": [90, 180]
+  },
+  {
+  "property": "iPad_compass_centroid",
+  "value": [0, 0]
   },
   {
   "property": "font_color",
@@ -69,14 +77,14 @@
   "comment": "the scale needs to be redisgned."
   },
   {
+  "property": "iOS_font_size",
+  "value": 9,
+  "comment": "the scale needs to be redisgned."
+  },
+  {
   "property": "font_name",
   "value": "Helvetica",
   "comment": "Specify a font name"
-  },
-  {
-  "property": "ios_font_size",
-  "value": 9,
-  "comment": "the scale needs to be redisgned."
   },
   {
   "property": "filter_type",
