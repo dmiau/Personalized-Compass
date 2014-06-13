@@ -780,7 +780,8 @@ Goals of today:
 - add dataset customization
 - file reorganization
 
-
+check this:
+http://stackoverflow.com/questions/2503436/how-to-check-if-nsstring-begins-with-a-certain-character
 
 
 

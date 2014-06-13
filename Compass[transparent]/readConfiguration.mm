@@ -27,6 +27,17 @@ int readConfigurations(compassMdl* mdl_instance){
     for (int i = 0; i < [jsonData count]; ++i){
         NSString *key = jsonData[i][@"property"];
         
+        // There could be two types of prefixes: iPhone and iPad
+#ifdef __IPHONE__
+        if ([key hasPrefix:@"iPhone_"]){
+            key = [key substringFromIndex:7];
+        }
+#elif __IPAD__
+        if ([key hasPrefix:@"iPad_"]){
+            key = [key substringFromIndex:5];
+        }
+#endif
+        
         if ([key isEqualToString:@"color_map"] ){
             // Need to handle color_map as a special case
             NSArray *color_list_root = jsonData[i][@"value"];

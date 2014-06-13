@@ -212,8 +212,8 @@ int compassMdl::updateMdl(){
                      distance_list.end());
     double max_dist = *result; //(meters)
     
-    latitudedelta = 10 * max_dist / 1110000.0;
-    longitudedelta = 10 * max_dist / 1110000.0;
+    latitudedelta = 0.1 * max_dist / 1110000.0;
+    longitudedelta = 0.1 * max_dist / 1110000.0;
     return 0;
 }
 
