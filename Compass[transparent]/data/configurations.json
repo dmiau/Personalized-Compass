@@ -1,5 +1,10 @@
  [
   {
+  "property": "dropbox_root",
+  "value": "https://www.dropbox.com/s/ck8s0qfm9gso721/",
+  "comment": "dropbox root"
+  },
+  {
   "property": "default_location_filename",
   "value": "SundayTest.kml",
   "comment": "Specify the default location file"

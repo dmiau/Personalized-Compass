@@ -46,6 +46,12 @@
 - (float) calculateCameraHeading;
 
 //----------------
+// Display functions
+//----------------
+- (IBAction)toggleCompass:(id)sender;
+- (void) removeCompass;
+
+//----------------
 // Update functions
 //----------------
 - (void) updateMapDisplayRegion;

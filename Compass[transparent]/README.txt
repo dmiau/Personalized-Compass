@@ -804,5 +804,18 @@ http://stackoverflow.com/questions/10647913/declare-interface-inside-implementat
 - added search, need to do pin and display managmenet
 - next step: look into iCloud syncing
 
+8:54PM
+Some potential improvements:
+- Compass should only include invisible points
+http://stackoverflow.com/questions/16239443/how-to-know-whether-mkmapview-visiblemaprect-contains-a-coordinate
+
+
+
+
+
+
+
+
+
 
 

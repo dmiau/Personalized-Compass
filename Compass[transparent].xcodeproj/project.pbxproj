@@ -115,6 +115,16 @@
 		9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D63194B716200778DFC /* line__0000s_0084_menu.png */; };
 		9A998D68194B721F00778DFC /* line__0000s_0005_compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D67194B721F00778DFC /* line__0000s_0005_compass.png */; };
 		9A998D69194B721F00778DFC /* line__0000s_0005_compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D67194B721F00778DFC /* line__0000s_0005_compass.png */; };
+		9A998D71194BB8E300778DFC /* iOSViewController+Search.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998D70194BB8E300778DFC /* iOSViewController+Search.mm */; };
+		9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998D70194BB8E300778DFC /* iOSViewController+Search.mm */; };
+		9A998D75194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998D74194BB99D00778DFC /* iOSViewController+GetLocation.mm */; };
+		9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998D74194BB99D00778DFC /* iOSViewController+GetLocation.mm */; };
+		9A998D78194BC60C00778DFC /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D77194BC60C00778DFC /* location.png */; };
+		9A998D79194BC60C00778DFC /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D77194BC60C00778DFC /* location.png */; };
+		9A998D7A194BC60C00778DFC /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D77194BC60C00778DFC /* location.png */; };
+		9A998D7C194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
+		9A998D7D194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
+		9A998D7E194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
 		9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9AA1DB921948B30A0082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
@@ -272,6 +282,12 @@
 		9A998D63194B716200778DFC /* line__0000s_0084_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line__0000s_0084_menu.png; path = icons/line__0000s_0084_menu.png; sourceTree = "<group>"; };
 		9A998D67194B721F00778DFC /* line__0000s_0005_compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line__0000s_0005_compass.png; path = icons/line__0000s_0005_compass.png; sourceTree = "<group>"; };
 		9A998D6A194B90ED00778DFC /* iphone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iphone.entitlements; sourceTree = "<group>"; };
+		9A998D6F194BB8E300778DFC /* iOSViewController+Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Search.h"; sourceTree = "<group>"; };
+		9A998D70194BB8E300778DFC /* iOSViewController+Search.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Search.mm"; sourceTree = "<group>"; };
+		9A998D73194BB99D00778DFC /* iOSViewController+GetLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+GetLocation.h"; sourceTree = "<group>"; };
+		9A998D74194BB99D00778DFC /* iOSViewController+GetLocation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+GetLocation.mm"; sourceTree = "<group>"; };
+		9A998D77194BC60C00778DFC /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = icons/location.png; sourceTree = "<group>"; };
+		9A998D7B194BCB0900778DFC /* setup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = setup.jpg; path = icons/setup.jpg; sourceTree = "<group>"; };
 		9AA789341909FE3000A26C66 /* webBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA789351909FE3100A26C66 /* Compass[transparent] copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Compass[transparent] copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/Compass[transparent] copy-Info.plist"; sourceTree = "<absolute>"; };
 		9AA789361909FE5A00A26C66 /* browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = browser.xib; path = "Compass[transparent]/browser.xib"; sourceTree = "<group>"; };
@@ -431,6 +447,10 @@
 				9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */,
 				9A4F0F7A193E306A00CF32DE /* iOSViewController.h */,
 				9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */,
+				9A998D6F194BB8E300778DFC /* iOSViewController+Search.h */,
+				9A998D70194BB8E300778DFC /* iOSViewController+Search.mm */,
+				9A998D73194BB99D00778DFC /* iOSViewController+GetLocation.h */,
+				9A998D74194BB99D00778DFC /* iOSViewController+GetLocation.mm */,
 				9A4F0F7D193E308400CF32DE /* iOSGLKView.h */,
 				9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */,
 				9A82B6531941528600534A5F /* iPad.storyboard */,
@@ -509,6 +529,8 @@
 		9A998D66194B716800778DFC /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				9A998D7B194BCB0900778DFC /* setup.jpg */,
+				9A998D77194BC60C00778DFC /* location.png */,
 				9A998D67194B721F00778DFC /* line__0000s_0005_compass.png */,
 				9A998D63194B716200778DFC /* line__0000s_0084_menu.png */,
 			);
@@ -850,8 +872,10 @@
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
 				9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */,
 				9A998D68194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
+				9A998D79194BC60C00778DFC /* location.png in Resources */,
 				9A4F0FAF193E745900CF32DE /* london.kml in Resources */,
 				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
+				9A998D7D194BCB0900778DFC /* setup.jpg in Resources */,
 				9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */,
 				9A4F0FB1193E745900CF32DE /* montreal.kml in Resources */,
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
@@ -871,10 +895,12 @@
 				9A82B6451941518900534A5F /* New York City [many].kml in Resources */,
 				9A998D69194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A82B6461941518900534A5F /* london.kml in Resources */,
+				9A998D7E194BCB0900778DFC /* setup.jpg in Resources */,
 				9A82B6471941518900534A5F /* newyork.kml in Resources */,
 				9A82B6481941518900534A5F /* montreal.kml in Resources */,
 				9A82B6491941518900534A5F /* InfoPlist.strings in Resources */,
 				9A82B64A1941518900534A5F /* Images.xcassets in Resources */,
+				9A998D7A194BC60C00778DFC /* location.png in Resources */,
 				9A82B64B1941518900534A5F /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,8 +939,10 @@
 				9AF089FD1921390700E118D5 /* New York City [many].kml in Resources */,
 				9ACCED0018EF5425006E9CA4 /* london.kml in Resources */,
 				9AF523BC18DC8E95005823A2 /* montreal.kml in Resources */,
+				9A998D78194BC60C00778DFC /* location.png in Resources */,
 				9A5681B01944A57A0021DA97 /* SundayTest.kml in Resources */,
 				9AF523BB18DC8E95005823A2 /* newyork.kml in Resources */,
+				9A998D7C194BCB0900778DFC /* setup.jpg in Resources */,
 				9AF29F2A18F4C90000A28AC3 /* moto360_wrist.jpg in Resources */,
 				9AEA57E118D9EBB20028B80C /* Credits.rtf in Resources */,
 				9AEA581D18D9EC680028B80C /* README.txt in Resources */,
@@ -980,9 +1008,11 @@
 				9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */,
 				9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */,
+				9A998D75194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
 				9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
+				9A998D71194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9A95CCB3194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1007,6 +1037,8 @@
 				9A95CCB4194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
+				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
+				9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1171,8 +1203,9 @@
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1195,8 +1228,9 @@
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1225,6 +1259,7 @@
 				INFOPLIST_FILE = "iphone copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "iphone copy";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -1252,6 +1287,7 @@
 				INFOPLIST_FILE = "iphone copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "iphone copy";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

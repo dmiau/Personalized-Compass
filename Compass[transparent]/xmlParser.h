@@ -23,7 +23,7 @@ int readLocationKml(compassMdl* mdl);
     // Temporary variable to hold intermediate parsing results
     NSMutableString *element;
     string _str;
-    string filename;
+    NSURL* fileurl;
     BOOL place_flag;
     BOOL name_flag;
     BOOL coord_flag;
@@ -32,7 +32,7 @@ int readLocationKml(compassMdl* mdl);
 
 @property std::vector<data> data_array;
 
-- (id)initWithFilename: (string) in_filename;
+- (id)initWithFileURL: (NSURL*) in_fileurl;
 - (int) parseFile;
 
 @end

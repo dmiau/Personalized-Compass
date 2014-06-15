@@ -11,9 +11,33 @@
 
 
 int readLocationKml(compassMdl* mdl){
+    NSString* filename = [NSString stringWithUTF8String:mdl->location_filename.c_str()];
     
-    xmlParser *myParser = [[xmlParser alloc]
-                           initWithFilename: mdl->location_filename];
+    //-----------------
+    // Check if an online version exist
+    //-----------------
+    NSString *dropbox_root = mdl->configurations[@"dropbox_root"];
+    NSURL *url = [NSURL URLWithString:
+                  [dropbox_root stringByAppendingString:[filename lastPathComponent]]];
+
+    // Check if the URL is valid
+    NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1.0];
+    NSHTTPURLResponse* response = nil;
+    NSError* error = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
+    xmlParser *myParser;
+    if ([response statusCode] == 200){
+        // need to append "?dl=1" to access the file directly
+        myParser = [[xmlParser alloc]
+                    initWithFileURL:
+                    [NSURL URLWithString:[[url absoluteString] stringByAppendingString:@"?dl=1"]]
+                    ];
+    }else{
+        myParser = [[xmlParser alloc]
+                    initWithFileURL: [NSURL fileURLWithPath: filename]];
+    };
+    
     myParser.parseFile;
     
     mdl->current_pos.name = myParser.data_array[0].name;
@@ -42,8 +66,8 @@ int readLocationKml(compassMdl* mdl){
 
 @synthesize data_array;
 
--(id)initWithFilename: (string) in_filename{
-    filename = in_filename;
+-(id)initWithFileURL: (NSURL*) in_fileurl{
+    fileurl = in_fileurl;
     place_flag = false;
     name_flag = false;
     coord_flag = false;
@@ -51,13 +75,8 @@ int readLocationKml(compassMdl* mdl){
 }
 
 -(int) parseFile{
-
-    NSString *full_location_file_path = [NSString stringWithCString:filename.c_str()
-                                                encoding:[NSString defaultCStringEncoding]];
-
     parser = [[NSXMLParser alloc]
-              initWithContentsOfURL:
-              [NSURL fileURLWithPath: full_location_file_path ]];
+              initWithContentsOfURL: fileurl];
     
     [parser setDelegate:self];
     BOOL success = [parser parse];

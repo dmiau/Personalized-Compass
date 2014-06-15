@@ -25,7 +25,6 @@
     static double camera_heading = 0.0;
     double epsilon = 0.0000001;
     
-    
     // Note that heading is defined as the negative of
     // _mapView.camera.heading
     if ( abs((double)(latitude_cache - [_mapView centerCoordinate].latitude)) > epsilon ||
@@ -75,14 +74,9 @@
         // Disable the compass
         
         // Gets array of subviews from the map view (MKMapView)
-        NSArray *mapSubViews = self.mapView.subviews;
         
-        for (UIView *view in mapSubViews) {
-            // Checks if the view is of class MKCompassView
-            if ([view isKindOfClass:NSClassFromString(@"MKCompassView")]) {
-                // Removes view from mapView
-                [view removeFromSuperview];
-            }
+        if ([self.glkView isHidden] == NO){
+            [self setFactoryCompassHidden:YES];
         }
         
         dispatch_queue_t mainQueue = dispatch_get_main_queue();
@@ -95,6 +89,19 @@
     }
 }
 
+- (void) setFactoryCompassHidden: (BOOL) flag {
+    NSArray *mapSubViews = self.mapView.subviews;
+    
+    for (UIView *view in mapSubViews) {
+        // Checks if the view is of class MKCompassView
+        if ([view isKindOfClass:NSClassFromString(@"MKCompassView")]) {
+            [view setHidden:flag];
+//            // Removes view from mapView
+//            [view removeFromSuperview];
+        }
+    }
+}
+
 //---------------
 // This function is called when user actions changes
 // the location, heading and tilt.
@@ -103,10 +110,7 @@
                  longitude: (float) lon_float
                    heading: (float) camera_heading
                       tilt: (float) tilt_deg
-{
-    NSString *latlon_str = [NSString stringWithFormat:@"%2.4f, %2.4f",
-                            lat_float, lon_float];
-    
+{    
     //[todo] this is too heavy
     model->current_pos.orientation = -camera_heading;
     model->tilt = tilt_deg; // no tilt changes on iOS
@@ -123,8 +127,9 @@
     
     float true_north_wrt_up = 0;
     
-    CLLocationCoordinate2D map_s_pt = {40.762959, -73.981161};
-    CLLocationCoordinate2D map_n_pt = {42.762959, -73.981161};
+    // Important: should use the center coordinates as the reference
+    CLLocationCoordinate2D map_s_pt = [self.mapView centerCoordinate];
+    CLLocationCoordinate2D map_n_pt = map_s_pt; map_n_pt.latitude = map_n_pt.latitude + 2;
     
     CGPoint screen_s_pt = [self.mapView convertCoordinate:map_s_pt toPointToView:self.mapView];
 
@@ -142,6 +147,9 @@
     // Second the heading is defined such that the north is 0,
     // as a result, we need to use 90 to substract the calculated heading
     
+    
+//    NSLog(@"south: %@", NSStringFromCGPoint(screen_s_pt));
+//    NSLog(@"north: %@", NSStringFromCGPoint(screen_n_pt));
     true_north_wrt_up = 90 - atan2(-(screen_n_pt.y - screen_s_pt.y),
                        screen_n_pt.x - screen_s_pt.x)* 180 / M_PI;
     return -true_north_wrt_up;
@@ -239,12 +247,11 @@
                                             + [self.model->configurations[@"compass_centroid"][0] floatValue],
                                             self.glkView.frame.size.height/2+
                                             - [self.model->configurations[@"compass_centroid"][1] floatValue])
-                      fromView:self.glkView];
-    
-    cout << "glk.x: " << self.glkView.frame.size.width << endl;
-    cout << "glk.y: " << self.glkView.frame.size.height << endl;
-    NSLog(@"centroid: %@", NSStringFromCGPoint(self.model->compassCenterXY));
-    NSLog(@"Done!");
+                      fromView:self.glkView];    
+//    cout << "glk.x: " << self.glkView.frame.size.width << endl;
+//    cout << "glk.y: " << self.glkView.frame.size.height << endl;
+//    NSLog(@"centroid: %@", NSStringFromCGPoint(self.model->compassCenterXY));
+//    NSLog(@"Done!");
 }
 
 
@@ -294,144 +301,13 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)getCurrentLocation:(id)sender {
-    
-    // enable location manager
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager startUpdatingLocation];
-    
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    
-    
-    NSLog(@"OldLocation %f %f", oldLocation.coordinate.latitude, oldLocation.coordinate.longitude);
-    NSLog(@"NewLocation %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
-    
-    [self feedModelLatitude: newLocation.coordinate.latitude
-                  longitude: newLocation.coordinate.longitude
-                    heading: 0
-                       tilt: 0];
-    [self updateMapDisplayRegion];
-    
-    // Stop Location Manager
-    [locationManager stopUpdatingLocation];
-    
-}
-
-
-#pragma mark ------Search Related Stuff-----
-#pragma mark - Search Methods
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    
-    // Cancel any previous searches.
-    [localSearch cancel];
-    
-    // Perform a new search.
-    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
-    request.naturalLanguageQuery = searchBar.text;
-    request.region = self.mapView.region;
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    localSearch = [[MKLocalSearch alloc] initWithRequest:request];
-    
-    // startWithCompletionHander is a method of localSearch
-    // startWithCompletionHander performs the search and puts the output to
-    // results, whichi is a (private) property?!
-    [localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
-        // By the time this funciton is called, response has been filled up.
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        
-        if (error != nil) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Map Error",nil)
-                                        message:[error localizedDescription]
-                                       delegate:nil
-                              cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
-            return;
-        }
-        
-        if ([response.mapItems count] == 0) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Results",nil)
-                                        message:nil
-                                       delegate:nil
-                              cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
-            return;
-        }
-        
-        results = response;
-        
-        [self.searchDisplayController.searchResultsTableView reloadData];
-    }];
-}
-
-// Data presentation
-// Three different types of table views
-
-
-// This is called when the focus is put in the search boxis
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [results.mapItems count];
-}
-
-// This is called when the results are ready to be displayed
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *IDENTIFIER = @"SearchResultsCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:IDENTIFIER];
+- (IBAction)toggleCompass:(id)sender {
+    if ([self.glkView isHidden] == NO){
+        [self.glkView setHidden:YES];
+        [self setFactoryCompassHidden:NO];
+    }else{
+        [self.glkView setHidden:NO];
+        [self setFactoryCompassHidden:YES];
     }
-    
-    MKMapItem *item = results.mapItems[indexPath.row];
-    
-    cell.textLabel.text = item.name;
-    cell.detailTextLabel.text = item.placemark.addressDictionary[@"Street"];
-    
-    return cell;
 }
-
-// This is called when a table result is selected
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.searchDisplayController setActive:NO animated:YES];
-    
-    MKMapItem *item = results.mapItems[indexPath.row];
-    
-    //http://stackoverflow.com/questions/17682834/mapview-with-local-search
-    
-    
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    annotation.coordinate = item.placemark.coordinate;
-    annotation.title      = item.name;
-    annotation.subtitle   = item.placemark.title;
-    //    [mapView addAnnotation:annotation];
-    
-    // Can you do that--add placemark directly as an annotation?
-    //    [self.ibMapView addAnnotation:item.placemark];
-    [self.mapView addAnnotation:annotation];
-    
-    // This line throws an error:
-    // ERROR: Trying to select an annotation which has not been added
-    //    [self.ibMapView selectAnnotation:item.placemark animated:YES];
-    [self.mapView selectAnnotation:annotation animated:YES];
-    
-    [self.mapView setCenterCoordinate:item.placemark.location.coordinate animated:YES];
-    
-    [self.mapView setUserTrackingMode:MKUserTrackingModeNone];
-    
-}
-
 @end

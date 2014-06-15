@@ -184,7 +184,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     float inner_disk_radius =
     half_canvas_size *
     [model->configurations[@"inner_disk_ratio"] floatValue];
-    
+    glPushMatrix();
     for (int i = 0; i < indices_for_rendering.size(); ++i){
         int j = indices_for_rendering[i];
         
@@ -227,27 +227,47 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                                filtered_dist_list[cut_id + 1]));
             }
         }
+        
+        // Need to draw on different depth to avoid broken polygon
+        glTranslatef(0, 0, 0.0001);
         drawTriangle(base_radius, data_.orientation, distance);
     }
-    
+    glPopMatrix();
     // ---------------
     // draw the background (transparent) disk
     // ---------------
+    float alpha = 0;
     
     // Draw two disks
     if (mode_info_list.size() > 1){
+        // This is a temporary fix to the broken polygon problem
+        if (model->tilt == 0)
+            alpha = [model->configurations[@"inner_disk_color"][3] floatValue]/255;
+        else
+            alpha = 1;
+        
         glColor4f([model->configurations[@"inner_disk_color"][0] floatValue]/255,
                   [model->configurations[@"inner_disk_color"][1] floatValue]/255,
                   [model->configurations[@"inner_disk_color"][2] floatValue]/255,
-                  [model->configurations[@"inner_disk_color"][3] floatValue]/255);
+                  alpha);
+        glPushMatrix();
+        glTranslatef(0, 0, -0.09);
         drawCircle(0, 0, inner_disk_radius, 50);
+        glPopMatrix();
     }
     
+    glPushMatrix();
+    if (model->tilt == 0)
+        alpha = [model->configurations[@"disk_color"][3] floatValue]/255;
+    else
+        alpha = 1;
     glColor4f([model->configurations[@"disk_color"][0] floatValue]/255,
               [model->configurations[@"disk_color"][1] floatValue]/255,
               [model->configurations[@"disk_color"][2] floatValue]/255,
-              [model->configurations[@"disk_color"][3] floatValue]/255);
+              alpha);
+    glTranslatef(0, 0, -1);
     drawCircle(0, 0, outer_disk_radius, 50);
+    glPopMatrix();
 }
 
 
@@ -272,6 +292,7 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
     // ---------------
     // draw the triangle
     // ---------------
+    glPushMatrix();
     for (int i = 0; i < indices_for_rendering.size(); ++i){
         int j = indices_for_rendering[i];
 
@@ -283,9 +304,10 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
         data data_ = model->data_array[j];
 
         double distance = data_.distance / max_dist * half_canvas_size * 0.9;
+        glTranslatef(0, 0, 0.001);
         drawTriangle(central_disk_radius, data_.orientation, distance);
     }
-    
+    glPopMatrix();
     // ---------------
     // draw the background (transparent) disk
     // ---------------

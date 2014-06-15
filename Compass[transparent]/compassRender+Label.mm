@@ -16,13 +16,17 @@ typedef UIColor NSColor;
 void compassRender::drawLabel(float rotation, float height, string name)
 {
     glPushMatrix();
+    
+
     glRotatef(rotation, 0, 0, -1);
     
     glTranslatef(0, half_canvas_size * 0.9, 0); //central_disk_radius
-    
+
     // Keep the text level
     glRotatef(-rotation, 0, 0, -1);
     
+    //text tilting still needs to be fixed
+//    glRotatef(-model->tilt, 1, 0, 0);    
     // Fix text size
     float scale = 1/ ( compass_scale); // glDrawingCorrectionRatio *
     glScalef(scale, scale, scale);
@@ -35,14 +39,9 @@ void compassRender::drawLabel(float rotation, float height, string name)
     // Font generation
     //--------------
     // Set font size
-//#ifndef __IPHONE__
 	NSFont * font =[NSFont fontWithName:@"Helvetica"
                                    size:
                     [model->configurations[@"font_size"] floatValue]];
-//#else
-//	UIFont *font = [UIFont fontWithName:@"Helvetica"
-//                                   size:[model->configurations[@"ios_font_size"] floatValue]];
-//#endif
     NSString * string = [NSString stringWithFormat:@"%@\n",
                          [NSString stringWithUTF8String:name.c_str()]];
     

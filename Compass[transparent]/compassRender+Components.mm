@@ -49,6 +49,7 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     
     // draw the center circle
     glPushMatrix();
+    // Translate to the front to avoid broken polygon
     glTranslatef(0, 0, 1);
     drawCircle(0, 0, central_disk_radius, 50);
     glPopMatrix();

@@ -78,7 +78,7 @@ vector<int> compassMdl::filter_kOrientations(int k){
     
     vector<pair<double, int>> dist_id_pair_list;
     vector<int> non_zero_id_list;
-    // Find all the non-zero distances
+    // Get rid of the landmarks with 0 distance
     for (i = 0; i < data_array.size(); ++i){
         if (data_array[i].distance > 0){
             non_zero_id_list.push_back(i);
@@ -129,6 +129,10 @@ vector<int> compassMdl::filter_kOrientations(int k){
         for (i = non_zero_id_list.size() - 1; i > k-1; --i){
             orient_diff_list.erase(orient_diff_list.begin());
         }
+        
+        // May need to further eliminate if the two landmarks are too close
+        // in terms of their angels
+        
         
         // Important, don't forget about the first one
         // a bug here before, index of index is extremely confusing
