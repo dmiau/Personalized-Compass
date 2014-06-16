@@ -61,6 +61,11 @@
                                             <action selector="toggleCompass:" destination="RVv-fy-219" id="p3B-Uo-lTD"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Explr. Mode" id="3FE-5S-7JP">
+                                        <connections>
+                                            <action selector="toggleExplrMode:" destination="RVv-fy-219" id="2kP-19-yzm"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

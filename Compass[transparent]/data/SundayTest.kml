@@ -7,14 +7,7 @@
 			<name>Untitled layer</name>
 			<Placemark>
 				<styleUrl>#icon-503-DB4436</styleUrl>
-				<name>Golden Unicorn</name>
-				<Point>
-					<coordinates>-73.99714499999999,40.713559,0.0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<styleUrl>#icon-503-DB4436</styleUrl>
-				<name>Vincent</name>
+				<name>Vincent's</name>
 				<Point>
 					<coordinates>-74.0138164,40.7077634,0.0</coordinates>
 				</Point>
@@ -56,7 +49,7 @@
 			</Placemark>
 			<Placemark>
 				<styleUrl>#icon-503-DB4436</styleUrl>
-				<name>2 Columbus Ave</name>
+				<name>Michael's</name>
 				<Point>
 					<coordinates>-73.98479689999999,40.7692991,0.0</coordinates>
 				</Point>
@@ -66,6 +59,55 @@
 				<name>Governors Island</name>
 				<Point>
 					<coordinates>-74.01679200000001,40.68945009999999,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Newark Liberty International Airport</name>
+				<Point>
+					<coordinates>-74.174462,40.689531,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Michael's</name>
+				<Point>
+					<coordinates>-73.797777,41.005541,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Richard's</name>
+				<Point>
+					<coordinates>-73.95720690000002,40.7727523,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>White Plains</name>
+				<Point>
+					<coordinates>-73.76290970000002,41.03398620000001,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Sam's Club</name>
+				<Point>
+					<coordinates>-73.81560100000002,41.06566,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Stew Leonard's</name>
+				<Point>
+					<coordinates>-73.86442899999997,40.973826,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<name>Bronx Zoo</name>
+				<Point>
+					<coordinates>-73.87699800000001,40.850595,0.0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>

@@ -49,6 +49,8 @@
 // Display functions
 //----------------
 - (IBAction)toggleCompass:(id)sender;
+- (IBAction)toggleExplrMode:(id)sender;
+
 - (void) removeCompass;
 
 //----------------
