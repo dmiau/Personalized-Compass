@@ -30,6 +30,16 @@
   "comment": "the color of the inner compass disk"
   },
   {
+  "property": "close_landmark_color",
+  "value": [150, 150, 150, 150],
+  "comment": "the color of the inner compass disk"
+  },
+  {
+  "property": "far_landmark_color",
+  "value": [150, 150, 150, 150],
+  "comment": "the color of the inner compass disk"
+  },
+  {
   "property": "outer_disk_ratio",
   "value": 0.9,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
@@ -98,8 +108,8 @@
   },
   {
   "property": "style_type",
-  "value": "BIMODAL",
-  "comment": "Available types: BIMODAL, REAL_RATIO, THRESHOLD_STICK"
+  "value": "WEDGE",
+  "comment": "Available types: BIMODAL, REAL_RATIO, THRESHOLD_STICK, WEDGE"
   },
   {
   "property": "landmark_n",

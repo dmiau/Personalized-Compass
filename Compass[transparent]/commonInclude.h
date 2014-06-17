@@ -43,11 +43,27 @@ struct Triangle3D{
     
 };
 
+struct TriangleLine3D{
+    Vertex3D v1;
+    Vertex3D v2;
+    Vertex3D v3;
+    Vertex3D v4;
+};
+
 static inline Triangle3D Triangle3DMake(Vertex3D vertex1, Vertex3D vertex2, Vertex3D vertex3){
     Triangle3D triangle;
     triangle.v1 = vertex1;
     triangle.v2 = vertex2;
     triangle.v3 = vertex3;
+    return triangle;
+};
+
+static inline TriangleLine3D TriangleLine3DMake(Vertex3D vertex1, Vertex3D vertex2, Vertex3D vertex3){
+    TriangleLine3D triangle;
+    triangle.v1 = vertex1;
+    triangle.v2 = vertex2;
+    triangle.v3 = vertex3;
+    triangle.v4 = vertex1;
     return triangle;
 };
 

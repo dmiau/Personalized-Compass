@@ -252,6 +252,8 @@
 //    cout << "glk.y: " << self.glkView.frame.size.height << endl;
 //    NSLog(@"centroid: %@", NSStringFromCGPoint(self.model->compassCenterXY));
 //    NSLog(@"Done!");
+    
+    self.renderer->mapView = [self mapView];
 }
 
 

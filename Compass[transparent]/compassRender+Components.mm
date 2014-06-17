@@ -38,22 +38,7 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     std::max_element(t_dist_list.begin(),
                      t_dist_list.end());
     max_dist = *result;
-    
-    // ---------------
-    // Draw the center circle
-    // ---------------
-    glColor4f([model->configurations[@"circle_color"][0] floatValue]/255,
-              [model->configurations[@"circle_color"][1] floatValue]/255,
-              [model->configurations[@"circle_color"][2] floatValue]/255,
-              1);
-    
-    // draw the center circle
-    glPushMatrix();
-    // Translate to the front to avoid broken polygon
-    glTranslatef(0, 0, 1);
-    drawCircle(0, 0, central_disk_radius, 50);
-    glPopMatrix();
-    
+        
     // ---------------
     // Render triangles and the background disks
     // based on the specified style
@@ -92,6 +77,7 @@ void compassRender::drawTriangle(int central_disk_radius, float rotation, float 
     Vertex3D    vertex1 = Vertex3DMake(0, height, 0);
     Vertex3D    vertex2 = Vertex3DMake(-central_disk_radius, 0, 0);
     Vertex3D    vertex3 = Vertex3DMake(central_disk_radius, 0, 0);
+        
     Triangle3D  triangle = Triangle3DMake(vertex1, vertex2, vertex3);
     glVertexPointer(3, GL_FLOAT, 0, &triangle);
     glDrawArrays(GL_TRIANGLES, 0, 3);

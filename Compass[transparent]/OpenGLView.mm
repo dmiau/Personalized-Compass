@@ -153,6 +153,19 @@
 //=====================
 -(void) drawRect:(NSRect)bounds
 {
+    
+    //-----------------
+    // Clear background and call render
+    //-----------------
+    glClearColor([renderer->model->configurations[@"bg_color"][0] floatValue]/255,
+                 [renderer->model->configurations[@"bg_color"][1] floatValue]/255,
+                 [renderer->model->configurations[@"bg_color"][2] floatValue]/255,
+                 [renderer->model->configurations[@"bg_color"][3] floatValue]/255);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glEnable( GL_DEPTH_TEST);
+    
+    // call twice for debug pruposes
+    self.renderer->model->configurations[@"style_type"] = @"BIMODAL";
     // Need two drawing routines
     if ([[[self window] title] rangeOfString:@"Style"]
         .location == NSNotFound)
@@ -161,6 +174,21 @@
     }else{
         [self drawStyleWindow:bounds];
     }
+    
+    self.renderer->model->configurations[@"style_type"] = @"WEDGE";
+    // Need two drawing routines
+    if ([[[self window] title] rangeOfString:@"Style"]
+        .location == NSNotFound)
+    {
+        [self drawMainWindow:bounds];
+    }else{
+        [self drawStyleWindow:bounds];
+    }
+    
+    
+
+//    [self drawDebugTriangle:bounds];
+    
     // glFlush draws the content provided by the routine to the view
     glFlush();
 	glReportError();
@@ -170,26 +198,20 @@
     // NSLog(@"%i bits depth", depth);
 }
 
-- (void) drawMainWindow:(NSRect) bounds
+- (void) drawDebugTriangle: (NSRect) bounds
 {
     [[self openGLContext] makeCurrentContext];
     //-----------------
     // Handle window size/resize
     //-----------------
-    bool needsUpdate = false;
+
 	if ((viewHeight != bounds.size.height) || (viewWidth != bounds.size.width))
     {
 		viewHeight = bounds.size.height;
 		viewWidth = bounds.size.width;
-        needsUpdate = true;
-    }
-    
-    if (needsUpdate){
         renderer->updateViewport(bounds.origin.x, bounds.origin.y,
                                  bounds.size.width, bounds.size.height);
     }
-    
-//    renderer->resizeGL(bounds.size.width, bounds.size.height);
     
     //-----------------
     // Make the OpenGL context to have transparent background
@@ -202,16 +224,86 @@
     //    [[self openGLContext] setValues:&aValue1
     //                       forParameter:NSOpenGLCPSurfaceOrder];
     
+    //    //-----------------
+    //    // Clear background and call render
+    //    //-----------------
+    ////    glClearColor(0.0, 0.0, 0.0, 0.0);
+    //    glClearColor([renderer->model->configurations[@"bg_color"][0] floatValue]/255,
+    //                 [renderer->model->configurations[@"bg_color"][1] floatValue]/255,
+    //                 [renderer->model->configurations[@"bg_color"][2] floatValue]/255,
+    //                [renderer->model->configurations[@"bg_color"][3] floatValue]/255);
+    //
+    //    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    //    glEnable( GL_DEPTH_TEST);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    
+    double width = bounds.size.width, height = bounds.size.height;
+    
+    
+    cout << "bound width: " << bounds.size.width <<
+    " bound height: " << bounds.size.height << endl;
+    
+    glColor4f(1, 0, 0, 1);
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    
+    float scale = self.renderer->glDrawingCorrectionRatio * self.renderer->compass_scale;
+    glScalef(scale, scale, 1);
+    
+    
+    glTranslatef(-width/2, -height/2, 0);
+    //    cout << "rotation: " << rotation << endl;
+    Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(width, 0, 0);
+    Vertex3D    vertex3 = Vertex3DMake(width, height, 0);
+    
+    Triangle3D  triangle = Triangle3DMake(vertex1, vertex2, vertex3);
+    glVertexPointer(3, GL_FLOAT, 0, &triangle);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    
+    glPopMatrix();
+    glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+- (void) drawMainWindow:(NSRect) bounds
+{
+    [[self openGLContext] makeCurrentContext];
     //-----------------
-    // Clear background and call render
+    // Handle window size/resize
     //-----------------
-//    glClearColor(0.0, 0, 0, 0.0);
-    glClearColor([renderer->model->configurations[@"bg_color"][0] floatValue]/255,
-                 [renderer->model->configurations[@"bg_color"][1] floatValue]/255,
-                 [renderer->model->configurations[@"bg_color"][2] floatValue]/255,
-                 [renderer->model->configurations[@"bg_color"][3] floatValue]/255);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glEnable( GL_DEPTH_TEST);
+
+	if ((viewHeight != bounds.size.height) || (viewWidth != bounds.size.width))
+    {
+		viewHeight = bounds.size.height;
+		viewWidth = bounds.size.width;
+        renderer->updateViewport(bounds.origin.x, bounds.origin.y,
+                                 bounds.size.width, bounds.size.height);
+    }
+
+    //    //-----------------
+    //    // Clear background and call render
+    //    //-----------------
+    ////    glClearColor(0.0, 0.0, 0.0, 0.0);
+    //    glClearColor([renderer->model->configurations[@"bg_color"][0] floatValue]/255,
+    //                 [renderer->model->configurations[@"bg_color"][1] floatValue]/255,
+    //                 [renderer->model->configurations[@"bg_color"][2] floatValue]/255,
+    //                [renderer->model->configurations[@"bg_color"][3] floatValue]/255);
+    //
+    //    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    //    glEnable( GL_DEPTH_TEST);
+    
+    //-----------------
+    // Make the OpenGL context to have transparent background
+    //-----------------
+    // http://www.cocoabuilder.com/archive/cocoa/82041-nsopenglview-with-transparent-background.html
+    const GLint aValue = 0;
+    [[self openGLContext] setValues:&aValue
+                       forParameter:NSOpenGLCPSurfaceOpacity];
+    //    const GLint aValue1 = 0;
+    //    [[self openGLContext] setValues:&aValue1
+    //                       forParameter:NSOpenGLCPSurfaceOrder];
+    
+
     renderer->render();
 
 }
@@ -221,17 +313,17 @@
     float x, y, width, height;
     x = bounds.origin.x; y = bounds.origin.y;
     width = bounds.size.width; height = bounds.size.height;
-    //-----------------
-    // Clear background and call render
-    //-----------------
-//    glClearColor(0.0, 0.0, 0.0, 0.0);
-    glClearColor([renderer->model->configurations[@"bg_color"][0] floatValue]/255,
-                 [renderer->model->configurations[@"bg_color"][1] floatValue]/255,
-                 [renderer->model->configurations[@"bg_color"][2] floatValue]/255,
-                [renderer->model->configurations[@"bg_color"][3] floatValue]/255);
-    
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glEnable( GL_DEPTH_TEST);
+//    //-----------------
+//    // Clear background and call render
+//    //-----------------
+////    glClearColor(0.0, 0.0, 0.0, 0.0);
+//    glClearColor([renderer->model->configurations[@"bg_color"][0] floatValue]/255,
+//                 [renderer->model->configurations[@"bg_color"][1] floatValue]/255,
+//                 [renderer->model->configurations[@"bg_color"][2] floatValue]/255,
+//                [renderer->model->configurations[@"bg_color"][3] floatValue]/255);
+//    
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    glEnable( GL_DEPTH_TEST);
 
     //-----------------
     // Style(0,0)

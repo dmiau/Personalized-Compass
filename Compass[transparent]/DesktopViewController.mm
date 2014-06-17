@@ -67,6 +67,7 @@
     //    [self mapView].showsCompass =YES;
     [self mapView].rotateEnabled = YES;
     
+    self.renderer->mapView = [self mapView];
     
     [self addObserver:self forKeyPath:@"mapUpdateFlag"
                  options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];

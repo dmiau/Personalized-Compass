@@ -11,6 +11,7 @@
 
 #include "compassModel.h"
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 #ifndef __IPHONE__
 #import "GLString.h"
@@ -42,7 +43,8 @@ typedef struct {
 enum style_enum {
     BIMODAL = 1,
     REAL_RATIO = 2,
-    THRESHOLD_STICK = 3
+    THRESHOLD_STICK = 3,
+    WEDGE = 4
 };
 
 typedef struct{
@@ -55,7 +57,13 @@ RenderParamStruct makeRenderParams(filter_enum filter_type, style_enum style_typ
 //-------------
 class compassRender
 {
+    
+    //----------------
+    // Properties
+    //----------------
 public:
+    // need to include MapView for wedge
+    MKMapView *mapView;
     
     // Compass presenation parameters
     float glDrawingCorrectionRatio;
@@ -85,7 +93,11 @@ public:
 private:
     // Compass rendering intermediate parameters
     double max_dist;
+
     
+    //----------------
+    // Methods
+    //----------------
 public:
     static compassRender* shareCompassRender();
     compassRender(); // constructor
@@ -109,6 +121,10 @@ private:
     void drawCircle(float cx, float cy, float r, int num_segments);
     
     
+    //-----------------
+    // style related methods
+    //-----------------
+    
     style_enum hashStyleStr (NSString *inString);
     int applyStyle(style_enum style_type,
                    vector<int> &indices_for_rendering);
@@ -116,6 +132,7 @@ private:
     void renderStyleRealRatio(vector<int> &indices_for_rendering);
     void renderStyleBimodal(vector<int> &indices_for_rendering);
     void renderStyleThresholdSticks(vector<int> &indices_for_rendering);
+    void renderStyleWedge(vector<int> &indices_for_rendering);
     
 #ifdef __IPHONE__
     void drawiOSText(NSString *string, int font_size,

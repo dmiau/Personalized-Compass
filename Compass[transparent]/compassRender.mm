@@ -96,18 +96,14 @@ int compassRender::initRenderMdl(){
 int compassRender::initRenderView(float win_width, float win_height){
     orig_width = win_width; orig_height = win_height;
     
-    // construction
-#ifndef __IPHONE__
-    camera.viewPos.z = win_width/2 * tan((90-camera.fov/2)/180*3.14);
-#else
     camera.viewPos.z = win_height/2 * tan((90-camera.fov/2)/180*3.14);
+#ifndef __IPHONE__
+    half_canvas_size = win_height/2;
+#else
+    half_canvas_size = win_width/2;
 #endif
     
-    half_canvas_size = win_width/2;
-    
-    //    half_canvas_size = camera.viewPos.z * tan(camera.fov/360*3.14);
-    central_disk_radius = half_canvas_size/10;
-    
+    central_disk_radius = half_canvas_size/10;    
     
     // Transformations for the projection
     glMatrixMode(GL_PROJECTION);
@@ -141,6 +137,10 @@ void compassRender::updateProjection(GLfloat aspect_ratio){
 	// set projection
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
+    
+    cout << "camera z: " << camera.viewPos.z << endl;
+    cout << "aspect ratio: " << camera.fov << endl;
+    
     //fovy, asepect, zNear, zFar
     myGluPerspective(camera.fov, aspect_ratio, 1, 3 * camera.viewPos.z);
 }

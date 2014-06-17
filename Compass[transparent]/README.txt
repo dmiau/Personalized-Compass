@@ -809,8 +809,12 @@ Some potential improvements:
 - Compass should only include invisible points
 http://stackoverflow.com/questions/16239443/how-to-know-whether-mkmapview-visiblemaprect-contains-a-coordinate
 
+-------------------------------------------------------------------
+6.17.2014
+-------------------------------------------------------------------
 
-
+- it is possible to set line thickness in OpenGL
+http://opengl.czweb.org/ch06/141-145.html
 
 
 
