@@ -44,7 +44,8 @@ void compassRender::resetCamera()
     camera.viewPos.x = 0.0;
     camera.viewPos.y = 0.0;
     camera.viewPos.z = 900; // This is the effective focal length
-    
+                            // This will be reinitialized again in
+                            // initRenderView
     camera.viewUp.x = 0;
     camera.viewUp.y = 1;
     camera.viewUp.z = 0;
@@ -221,10 +222,14 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     // tilt
     glRotatef(model->tilt, 1, 0, 0);
     
-    glRotatef(model->current_pos.orientation, 0, 0, -1);
-    
-    float scale = glDrawingCorrectionRatio * compass_scale;
-    glScalef(scale, scale, 1);
+    NSString* render_style =
+    this->model->configurations[@"style_type"];
+    if (![render_style isEqualToString:@"WEDGE"]){
+        glRotatef(model->current_pos.orientation, 0, 0, -1);
+        // scaling only applies to non-wedge styles
+        float scale = glDrawingCorrectionRatio * compass_scale;
+        glScalef(scale, scale, 1);
+    }
     
     //--------------
     // Draw compass

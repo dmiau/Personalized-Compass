@@ -65,13 +65,13 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         x_diff = screen_pt.x - center_pt.x;
         y_diff = screen_pt.y - center_pt.y;
         
-        BOOL flag = [this->mapView isFlipped];
-//        NSLog(@"Map flipped? %hhd", [this->mapView isFlipped]);
+        // isFlipped is undefined in iOS
+//        BOOL flag = [this->mapView isFlipped];
         
         // construction
         cout << "-----------------" << endl;
         
-        NSLog(@"Map frame: %@", NSStringFromRect(this->mapView.frame));
+        NSLog(@"Map frame: %@", NSStringFromCGRect(this->mapView.frame));
         
         cout << "landmark: " << model->data_array[j].name << endl;
         cout << "x: " << x_diff << " y:" << y_diff << endl;
@@ -97,6 +97,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         //        v2
         // v1
         //        v3
+        glLineWidth(4);
         glColor4f(1, 0, 0, 1);
         glPushMatrix();
         // Plot the triangle first, then rotate and translate

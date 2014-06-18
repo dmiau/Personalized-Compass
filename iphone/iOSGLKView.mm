@@ -65,9 +65,6 @@
     // Clear background and call render
     //-----------------
     [self setOpaque:NO];
-    
-//    glClearColor(0.0, 0.0, 0.0, 0.5);
-    
     glClearColor([renderer->model->configurations[@"bg_color"][0] floatValue]/255,
                  [renderer->model->configurations[@"bg_color"][1] floatValue]/255,
                  [renderer->model->configurations[@"bg_color"][2] floatValue]/255,
@@ -76,7 +73,33 @@
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable( GL_DEPTH_TEST);
-    renderer->render();
+    
+    //-----------------
+    // Draw Personalized Compass
+    //-----------------
+    NSString* personalized_compass_status =
+    self.renderer->model->configurations[@"personalized_compass_status"];
+    
+    if ([personalized_compass_status isEqualToString:@"on"]){
+        renderer->render();
+    }
+
+    //-----------------
+    // Draw Wedge
+    //-----------------
+    NSString* original_style = self.renderer->model->configurations[@"style_type"];
+    NSString* wedge_status = self.renderer->model->configurations[@"wedge_status"];
+    
+    if ([wedge_status isEqualToString:@"on"]){
+        // call twice for debug pruposes
+        bool original_label_flag = self.renderer->label_flag;
+        self.renderer->label_flag = false;
+        self.renderer->model->configurations[@"style_type"] = @"WEDGE";
+        renderer->render();    
+        self.renderer->label_flag = original_label_flag;
+        self.renderer->model->configurations[@"style_type"] = original_style;
+    }
+    
     // glFlush draws the content provided by the routine to the view
     glFlush();
 }

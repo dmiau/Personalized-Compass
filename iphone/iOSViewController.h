@@ -26,6 +26,7 @@
 @property (weak) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet GLKView *glkView;
 @property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
+@property (weak, nonatomic) IBOutlet UIView *menuView;
 
 
 @property compassMdl* model;
@@ -46,12 +47,13 @@
 - (float) calculateCameraHeading;
 
 //----------------
-// Display functions
+// Toolbar Items
 //----------------
 - (IBAction)toggleCompass:(id)sender;
 - (IBAction)toggleExplrMode:(id)sender;
 
 - (void) removeCompass;
+- (IBAction)toggleMenu:(id)sender;
 
 //----------------
 // Update functions

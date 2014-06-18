@@ -5,6 +5,16 @@
   "comment": "dropbox root"
   },
   {
+  "property": "personalized_compass_status",
+  "value": "on",
+  "comment": "on, off"
+  },
+  {
+  "property": "wedge_status",
+  "value": "off",
+  "comment": "on, off"
+  },
+  {
   "property": "default_location_filename",
   "value": "SundayTest.kml",
   "comment": "Specify the default location file"
@@ -108,7 +118,7 @@
   },
   {
   "property": "style_type",
-  "value": "WEDGE",
+  "value": "BIMODAL",
   "comment": "Available types: BIMODAL, REAL_RATIO, THRESHOLD_STICK, WEDGE"
   },
   {

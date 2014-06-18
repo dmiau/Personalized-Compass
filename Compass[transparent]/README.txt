@@ -816,6 +816,53 @@ http://stackoverflow.com/questions/16239443/how-to-know-whether-mkmapview-visibl
 - it is possible to set line thickness in OpenGL
 http://opengl.czweb.org/ch06/141-145.html
 
+- need to fix the scaling code, for wedge, we need to draw them "true to scale"
+
+slide out menu
+http://www.raywenderlich.com/32054/how-to-create-a-slide-out-navigation-like-facebook-and-path
+
+http://sugartin.info/2012/10/01/ios-notification-sliding-type-animation-for-slide-up-down/
+
+-------------------------------------------------------------------
+6.18.2014
+-------------------------------------------------------------------
+* need to labeling code, one for the personalized compass, one for Wedge
+- filter algorithm improvement (esp. for overlap)
+- box2d (need to include the scale information)
+- 3D text tilt
+- annotate the landmarks, control the annotation of landmarks
+- dropbox file support
+- debug support (mark the problematic location), add the support to
+start the map at a chosen location
+
+- "lock" certain landmarks
+
+Nice to have:
+- Google street view
+* 
+
+Done:
+--------
+- incorporate wedge
+* infrastructure work
+* add a menu pane to support extra parameters
+- draw wedge "true to scale"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

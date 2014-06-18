@@ -303,6 +303,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark ------Toolbar Items------
+
+//------------------
+// Toggle between conventional compass and personalized compass
+//------------------
 - (IBAction)toggleCompass:(id)sender {
     if ([self.glkView isHidden] == NO){
         [self.glkView setHidden:YES];
@@ -313,6 +320,9 @@
     }
 }
 
+//------------------
+// Show pcomass in big size
+//------------------
 - (IBAction)toggleExplrMode:(id)sender {
     
     static BOOL explr_mode = false;
@@ -356,5 +366,15 @@
         explr_mode = false;
         [self.glkView setNeedsDisplay];
     }
+}
+
+//------------------
+// Show the menu view
+//------------------
+- (IBAction)toggleMenu:(id)sender {
+    if ([[self menuView] isHidden])
+        [[self menuView] setHidden:NO];
+    else
+        [[self menuView] setHidden:YES];
 }
 @end

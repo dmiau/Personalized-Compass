@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A006CA219522918009BB81C /* iOSViewController+Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Menu.mm */; };
+		9A006CA319522918009BB81C /* iOSViewController+Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Menu.mm */; };
 		9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
 		9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
 		9A2F0C5A1943DAD600350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
@@ -252,6 +254,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A006CA019522918009BB81C /* iOSViewController+Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Menu.h"; sourceTree = "<group>"; };
+		9A006CA119522918009BB81C /* iOSViewController+Menu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Menu.mm"; sourceTree = "<group>"; };
 		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
 		9A28368A1900C0850041D22E /* readConfiguration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = readConfiguration.mm; sourceTree = "<group>"; };
 		9A2F0C521943DA9200350BD2 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
@@ -477,6 +481,8 @@
 				9A82B6531941528600534A5F /* iPad.storyboard */,
 				9A95CCB1194B4146008E520F /* iOSSettingViewController.h */,
 				9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */,
+				9A006CA019522918009BB81C /* iOSViewController+Menu.h */,
+				9A006CA119522918009BB81C /* iOSViewController+Menu.mm */,
 			);
 			path = iphone;
 			sourceTree = "<group>";
@@ -1034,6 +1040,7 @@
 				9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */,
 				9A4F0F86193E331E00CF32DE /* readConfiguration.mm in Sources */,
 				9A4F0F87193E331E00CF32DE /* compassRender.mm in Sources */,
+				9A006CA219522918009BB81C /* iOSViewController+Menu.mm in Sources */,
 				9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */,
 				9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */,
@@ -1066,6 +1073,7 @@
 				9A82B6371941518900534A5F /* commonTools.mm in Sources */,
 				9AB90B99194F383A0030BF5B /* compassRender_Bimodal.mm in Sources */,
 				9A82B6381941518900534A5F /* AppDelegate.m in Sources */,
+				9A006CA319522918009BB81C /* iOSViewController+Menu.mm in Sources */,
 				9A82B6391941518900534A5F /* main.m in Sources */,
 				9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */,
 				9A95CCB4194B4146008E520F /* iOSSettingViewController.mm in Sources */,
