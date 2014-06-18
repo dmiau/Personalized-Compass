@@ -70,8 +70,12 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         
         // construction
         cout << "-----------------" << endl;
-        
+
+#ifndef __IPHONE__
+        NSLog(@"Map frame: %@", NSStringFromRect(this->mapView.frame));
+#else
         NSLog(@"Map frame: %@", NSStringFromCGRect(this->mapView.frame));
+#endif
         
         cout << "landmark: " << model->data_array[j].name << endl;
         cout << "x: " << x_diff << " y:" << y_diff << endl;
