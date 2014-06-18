@@ -211,19 +211,24 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         once = TRUE;
     }
 #endif
+    
+    NSString* render_style =
+    this->model->configurations[@"style_type"];
+    
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
-    
-    // Translate the compass to the desired screen location
-    glTranslatef(compass_centroid.x, compass_centroid.y, 0);
-    
+
+    // Do NOT do the following for wedge
+    if (![render_style isEqualToString:@"WEDGE"]){
+        // Translate the compass to the desired screen location
+        glTranslatef(compass_centroid.x, compass_centroid.y, 0);
+    }
     
     // [todo] Careful! Potential bug here...
     // tilt
     glRotatef(model->tilt, 1, 0, 0);
     
-    NSString* render_style =
-    this->model->configurations[@"style_type"];
+
     if (![render_style isEqualToString:@"WEDGE"]){
         glRotatef(model->current_pos.orientation, 0, 0, -1);
         // scaling only applies to non-wedge styles

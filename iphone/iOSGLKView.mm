@@ -7,6 +7,7 @@
 //
 
 #import "iOSGLKView.h"
+#include "commonInclude.h"
 
 @implementation iOSGLKView
 
@@ -100,8 +101,39 @@
         self.renderer->model->configurations[@"style_type"] = original_style;
     }
     
+    //-----------------
+    // Debugging code
+    //-----------------
+//    [self drawDebugTriangle:bounds];
+    
     // glFlush draws the content provided by the routine to the view
     glFlush();
+}
+
+- (void) drawDebugTriangle: (NSRect) bounds
+{    glEnableClientState(GL_VERTEX_ARRAY);
+    
+    double width = bounds.size.width-10, height = bounds.size.height-10;
+    
+    
+    cout << "bound width: " << bounds.size.width <<
+    " bound height: " << bounds.size.height << endl;
+    glColor4f(0, 1, 0, 1);
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    
+    glTranslatef(-width/2, -height/2, 0);
+    //    cout << "rotation: " << rotation << endl;
+    Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(width, 0, 0);
+    Vertex3D    vertex3 = Vertex3DMake(width, height, 0);
+    
+    Triangle3D  triangle = Triangle3DMake(vertex1, vertex2, vertex3);
+    glVertexPointer(3, GL_FLOAT, 0, &triangle);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    
+    glPopMatrix();
+    glDisableClientState(GL_VERTEX_ARRAY);
 }
 @end
 

@@ -53,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="980" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" id="vQq-9H-se9"/>
+                                    <barButtonItem title="[Personalized]" id="vQq-9H-se9"/>
                                 </items>
                             </toolbar>
                         </subviews>

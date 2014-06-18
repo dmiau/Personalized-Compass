@@ -71,7 +71,7 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wedge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEt-KJ-zsy">
-                                        <rect key="frame" x="93" y="110" width="68" height="20"/>
+                                        <rect key="frame" x="93" y="111" width="68" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -84,6 +84,23 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I9x-cZ-FrE">
+                                        <rect key="frame" x="38" y="57" width="243" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="real ratio"/>
+                                            <segment title="bimodal"/>
+                                            <segment title=""/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oOW-b7-eYY">
+                                        <rect key="frame" x="51" y="199" width="135" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="standard"/>
+                                            <segment title="hybrid"/>
+                                        </segments>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -91,17 +108,17 @@
                                 <rect key="frame" x="0.0" y="523" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Personalized" id="4gf-EJ-v22">
+                                    <barButtonItem title="[Personalized]" id="4gf-EJ-v22">
                                         <connections>
                                             <action selector="toggleCompass:" destination="RVv-fy-219" id="p3B-Uo-lTD"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Explr. Mode" id="3FE-5S-7JP">
+                                    <barButtonItem title="[Explr. Mode]" id="3FE-5S-7JP">
                                         <connections>
                                             <action selector="toggleExplrMode:" destination="RVv-fy-219" id="2kP-19-yzm"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Opt." id="O8V-7Z-YW9">
+                                    <barButtonItem title="[Opt.]" id="O8V-7Z-YW9">
                                         <connections>
                                             <action selector="toggleMenu:" destination="RVv-fy-219" id="cdw-k8-dPn"/>
                                         </connections>

@@ -826,6 +826,7 @@ http://sugartin.info/2012/10/01/ios-notification-sliding-type-animation-for-slid
 -------------------------------------------------------------------
 6.18.2014
 -------------------------------------------------------------------
+- "lock" certain landmarks
 * need to labeling code, one for the personalized compass, one for Wedge
 - filter algorithm improvement (esp. for overlap)
 - box2d (need to include the scale information)
@@ -834,8 +835,6 @@ http://sugartin.info/2012/10/01/ios-notification-sliding-type-animation-for-slid
 - dropbox file support
 - debug support (mark the problematic location), add the support to
 start the map at a chosen location
-
-- "lock" certain landmarks
 
 Nice to have:
 - Google street view
