@@ -25,6 +25,7 @@
 @property compassMdl* model;
 @property compassRender* renderer;
 @property iOSViewController* mainViewController;
+@property bool needUpdateDisplayRegion;
 @property (weak, nonatomic) IBOutlet UIPickerView *dataPicker;
 
 @end

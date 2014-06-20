@@ -868,9 +868,12 @@ http://stackoverflow.com/questions/1121889/intercepting-hijacking-iphone-touch-e
 - adding annotations and table
 - successfully added the table
 
+maybe I should look into how to add a dropbox folder
 
+pass data using segue:
+http://www.appcoda.com/storyboards-ios-tutorial-pass-data-between-view-controller-with-segue/
 
-
+- fixed the rotation bug in iOS
 
 
 

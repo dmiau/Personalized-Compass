@@ -57,6 +57,8 @@ public:
     static compassMdl* instance;
     float tilt;
     
+    // indicates the centroid of compass in the map window coordinate frame
+    // (in terms of u, v, not in terms of latitude and longitude)
     CGPoint compassCenterXY;
     
     NSMutableDictionary *configurations;

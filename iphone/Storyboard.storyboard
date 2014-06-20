@@ -39,7 +39,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9xM-YS-8bl" kind="push" id="dqm-u3-uK4"/>
+                                    <segue destination="9xM-YS-8bl" kind="push" identifier="settingSegue" id="dqm-u3-uK4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-jM-ph6">
@@ -125,7 +125,7 @@
                                     </barButtonItem>
                                     <barButtonItem systemItem="bookmarks" id="Ey4-ip-hP9">
                                         <connections>
-                                            <segue destination="KRL-rx-xwq" kind="custom" customClass="bottomUpSegue" id="zjE-YJ-EH1"/>
+                                            <segue destination="KRL-rx-xwq" kind="custom" identifier="tableSegue" customClass="bottomUpSegue" id="zjE-YJ-EH1"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

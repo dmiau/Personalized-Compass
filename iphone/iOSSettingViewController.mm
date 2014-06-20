@@ -7,6 +7,7 @@
 //
 
 #import "iOSSettingViewController.h"
+#import "iOSViewController.h"
 
 @interface iOSSettingViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -41,6 +42,9 @@
         NSArray *dirFiles = [[NSFileManager defaultManager]
                              contentsOfDirectoryAtPath: path error:nil];
         kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
+        
+        self.needUpdateDisplayRegion = false;
+        
     }
     return self;
 }
@@ -113,11 +117,11 @@
     // po ((NSComboBox *)sender).stringValue
     
     model->reloadFiles();
-    
+    self.needUpdateDisplayRegion = true;
     // updateMapDisplayRegion will be called in unwindSegue
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -125,7 +129,11 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"settingSegue"] &&
+        self.needUpdateDisplayRegion) {
+        iOSViewController *destViewController = segue.destinationViewController;
+        destViewController.needUpdateDisplayRegion = true;
+    }
 }
-*/
 
 @end

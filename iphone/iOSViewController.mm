@@ -127,32 +127,17 @@
     
     float true_north_wrt_up = 0;
     
-    // Important: should use the center coordinates as the reference
+    //---------------------------
+    // fix angle calculation
+    //---------------------------
     CLLocationCoordinate2D map_s_pt = [self.mapView centerCoordinate];
-    CLLocationCoordinate2D map_n_pt = map_s_pt; map_n_pt.latitude = map_n_pt.latitude + 2;
+    CLLocationCoordinate2D center_pt = [self.mapView convertPoint:CGPointMake(160, 503.0/2) toCoordinateFromView:self.mapView];
     
-    CGPoint screen_s_pt = [self.mapView convertCoordinate:map_s_pt toPointToView:self.mapView];
-
-    CGPoint screen_n_pt = [self.mapView convertCoordinate:map_n_pt toPointToView:self.mapView];
-
-    //  Here is the screen coordinate system
-    //  -------------- +x
-    //  |
-    //  |
-    //  |
-    //  +y
+    CLLocationCoordinate2D map_n_pt = [self.mapView convertPoint:CGPointMake(160, 230) toCoordinateFromView:self.mapView];
     
-    // As a result, there is a negative sign after the difference in y
-    
-    // Second the heading is defined such that the north is 0,
-    // as a result, we need to use 90 to substract the calculated heading
-    
-    
-//    NSLog(@"south: %@", NSStringFromCGPoint(screen_s_pt));
-//    NSLog(@"north: %@", NSStringFromCGPoint(screen_n_pt));
-    true_north_wrt_up = 90 - atan2(-(screen_n_pt.y - screen_s_pt.y),
-                       screen_n_pt.x - screen_s_pt.x)* 180 / M_PI;
-    return -true_north_wrt_up;
+    true_north_wrt_up = [self computeOrientationFromLocation:(CLLocationCoordinate2D) map_s_pt
+                                            toLocation: (CLLocationCoordinate2D) map_n_pt];
+    return true_north_wrt_up;
 }
 
 #pragma mark ----Initialization----
@@ -202,6 +187,8 @@
         
         [self.searchDisplayController setDelegate:self];
         [self.ibSearchBar setDelegate:self];
+        
+        self.needUpdateDisplayRegion = false;
     }
     return self;
 }
@@ -297,14 +284,26 @@
     CLLocationCoordinate2D coord;
     coord.latitude = self.model->current_pos.latitude;
     coord.longitude = self.model->current_pos.longitude;
+    
+    
+//    // The compass may be off-center, thus we need to calculate the
+//    // coordinate of the true center
+//    [self.mapView convertPoint: NSMakePoint(-self.compassView.frame.size.width/2,
+//                                            -self.compassView.frame.size.height/2)
+//                      fromView:self.compassView];
+    
+    
+    
     [self.mapView setCenterCoordinate:coord animated:YES];
 }
 
 -(IBAction)unwindToRootVC:(UIStoryboardSegue *)segue
 {
     // There is a bug here. There seems to be an extra shift component.
-    
-    [self updateMapDisplayRegion];
+    if (self.needUpdateDisplayRegion){
+        [self updateMapDisplayRegion];
+        self.needUpdateDisplayRegion = false;
+    }
 }
 
 /*
@@ -392,4 +391,28 @@
         [[self menuView] setHidden:YES];
 }
 
+//------------------
+// Tools
+//------------------
+double DegreesToRadians_(double degrees) {return degrees * M_PI / 180.0;};
+double RadiansToDegrees_(double radians) {return radians * 180.0/M_PI;};
+
+-(double) computeOrientationFromLocation:(CLLocationCoordinate2D) refPt
+                              toLocation: (CLLocationCoordinate2D) destPt{
+    
+    double lat1 = DegreesToRadians_(refPt.latitude);
+    double lon1 = DegreesToRadians_(refPt.longitude);
+    
+    double lat2 = DegreesToRadians_(destPt.latitude);
+    double lon2 = DegreesToRadians_(destPt.longitude);
+    
+    double dLon = lon2 - lon1;
+    
+    double y = sin(dLon) * cos(lat2);
+    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+    double radiansBearing = atan2(y, x);
+    
+    return RadiansToDegrees_(radiansBearing);
+}
 @end
+

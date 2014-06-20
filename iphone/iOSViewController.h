@@ -34,6 +34,9 @@ MKMapViewDelegate>
 @property compassRender* renderer;
 
 @property NSNumber *mapUpdateFlag;
+
+// This is used for communication via segue
+@property bool needUpdateDisplayRegion;
 - (IBAction)getCurrentLocation:(id)sender;
 
 
