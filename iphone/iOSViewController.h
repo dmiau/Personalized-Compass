@@ -15,7 +15,8 @@
 #import "iOSGLKView.h"
 
 @interface iOSViewController : UIViewController
-<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
+<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate,
+MKMapViewDelegate>
 {
     NSTimer *_updateUITimer;
     CLLocationManager *locationManager;
@@ -61,4 +62,12 @@
 - (void) updateMapDisplayRegion;
 //- (void) updateMapDisplayRegion(CLLocationCoordinate2D coord);
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
+
+
+//----------------
+// Annotations related methods
+//----------------
+- (void) renderAnnotations;
+
+- (void) drawAnnotations;
 @end

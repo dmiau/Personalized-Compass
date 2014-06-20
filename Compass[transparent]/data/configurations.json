@@ -78,7 +78,7 @@
   },
   {
   "property": "iPad_compass_scale",
-  "value": 0.6
+  "value": 0.4
   },
   {
   "property": "compass_centroid",
@@ -103,6 +103,11 @@
   },
   {
   "property": "iOS_font_size",
+  "value": 9,
+  "comment": "the scale needs to be redisgned."
+  },
+  {
+  "property": "iPad_font_size",
   "value": 9,
   "comment": "the scale needs to be redisgned."
   },

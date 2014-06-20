@@ -116,6 +116,8 @@ int readLocationKml(compassMdl* mdl){
         _data.longitude = 0;
         _data.distance = 0;
         _data.orientation = 0;
+        _data.isEnabled = YES;
+        _data.annotation = [[MKPointAnnotation alloc] init];
         data_array.push_back(_data);
         place_flag = true;
     }else if ([elementName isEqualToString:@"name"]){
@@ -129,6 +131,8 @@ int readLocationKml(compassMdl* mdl){
     if (place_flag){
         if (name_flag){
             data_array[data_array.size()-1].name = [string UTF8String];
+            data_array[data_array.size()-1].annotation.title
+            = string;
         }else if (coord_flag){
             // Need to somehow split the sting
             
@@ -136,6 +140,12 @@ int readLocationKml(compassMdl* mdl){
             // Note that in KML coordinates order are (lon, lat)
             data_array[data_array.size()-1].latitude = [_coord[1] floatValue];
             data_array[data_array.size()-1].longitude = [_coord[0] floatValue];
+            
+            // Populate MKPointAnnotation
+            CLLocationCoordinate2D coord2D = CLLocationCoordinate2DMake
+            (data_array[data_array.size()-1].latitude,
+             data_array[data_array.size()-1].longitude);
+            data_array[data_array.size()-1].annotation.coordinate = coord2D;
         }
     }
 }

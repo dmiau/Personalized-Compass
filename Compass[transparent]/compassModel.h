@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <vector>
+#import <MapKit/MapKit.h>
 
 #ifndef __IPHONE__
 #import <Cocoa/Cocoa.h>
@@ -20,6 +21,9 @@
 
 using namespace std;
 
+//--------------
+// landmark object
+//--------------
 class data {
 public:
     // Properties
@@ -28,6 +32,8 @@ public:
     float orientation;
     float latitude;
     float longitude;
+    MKPointAnnotation* annotation;
+    bool isEnabled; // indicates wheather the landmark is enabled or not
 public:    
     // Methods
     double computeDistanceFromLocation(data& another_data);

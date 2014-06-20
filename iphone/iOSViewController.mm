@@ -229,12 +229,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //-------------------
+    // Initialize OpenGL ES
+    //-------------------
+    
     // Create an OpenGL ES context and assign it to the view loaded from storyboard
     [self.glkView initWithFrame:self.glkView.frame
                 context:
      [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1]];
-
+    
+    //-------------------
+    // Initialize Map View
+    //-------------------
     [self updateMapDisplayRegion];
+    self.mapView.delegate = self;
     
     UIRotationGestureRecognizer *rotateGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)];
     
@@ -253,6 +261,12 @@
 //    NSLog(@"centroid: %@", NSStringFromCGPoint(self.model->compassCenterXY));
 //    NSLog(@"Done!");
     
+    // Add pin annotations
+    [self renderAnnotations];
+    
+    //-------------------
+    // Connect mapView to render
+    //-------------------
     self.renderer->mapView = [self mapView];
 }
 
@@ -377,4 +391,5 @@
     else
         [[self menuView] setHidden:YES];
 }
+
 @end

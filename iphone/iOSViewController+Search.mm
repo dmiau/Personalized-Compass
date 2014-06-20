@@ -10,7 +10,6 @@
 
 @implementation iOSViewController (Search)
 #pragma mark ------Search Related Stuff-----
-#pragma mark - Search Methods
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     

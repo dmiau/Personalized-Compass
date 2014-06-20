@@ -826,12 +826,15 @@ http://sugartin.info/2012/10/01/ios-notification-sliding-type-animation-for-slid
 -------------------------------------------------------------------
 6.18.2014
 -------------------------------------------------------------------
+
+Todo:
+--------
 - "lock" certain landmarks
 * need to labeling code, one for the personalized compass, one for Wedge
 - filter algorithm improvement (esp. for overlap)
 - box2d (need to include the scale information)
 - 3D text tilt
-- annotate the landmarks, control the annotation of landmarks
+
 - dropbox file support
 - debug support (mark the problematic location), add the support to
 start the map at a chosen location
@@ -839,6 +842,11 @@ start the map at a chosen location
 Nice to have:
 - Google street view
 * 
+
+Next:
+--------
+- annotate the landmarks, control the annotation of landmarks
+
 
 Done:
 --------
@@ -848,10 +856,16 @@ Done:
 - draw wedge "true to scale"
 
 
+-------------------------------------------------------------------
+6.19.2014
+-------------------------------------------------------------------
+Look into how to recognize gesture in MKMapView
+http://stackoverflow.com/questions/1121889/intercepting-hijacking-iphone-touch-events-for-mkmapview/4064570#4064570
 
-
-
-
+-------------------------------------------------------------------
+6.20.2014
+-------------------------------------------------------------------
+- adding annotations and table
 
 
 
