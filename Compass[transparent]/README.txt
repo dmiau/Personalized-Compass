@@ -876,7 +876,9 @@ http://www.appcoda.com/storyboards-ios-tutorial-pass-data-between-view-controlle
 - fixed the rotation bug in iOS
 
 
+L198 indices_for_rendering needs to be sorted by distance
 
+sort_id_by_distance function?
 
 
 

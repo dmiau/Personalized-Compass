@@ -27,4 +27,14 @@
      self.model->configurations[@"wedge_status"] = @"off";
     }
 }
+
+- (IBAction)toggleLandmarkLock:(id)sender {
+    UISwitch* mySwitch = (UISwitch*) sender;
+    if ([mySwitch isOn] == YES){
+        self.model->lockLandmarks = true;
+    }else{
+        self.model->lockLandmarks = false;
+    }
+
+}
 @end

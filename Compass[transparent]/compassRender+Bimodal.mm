@@ -197,16 +197,11 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
             
             distance = outer_disk_radius *
             data_.distance / mode_info_list[1].max_dist;
-            
-            //            if ((mode_info_list[1].max_dist - data_.distance) < 0.000001){
-            //                distance = outer_disk_radius;
-            //            }else{
-            //                distance = (inner_disk_radius +
-            //                            (outer_disk_radius - inner_disk_radius) *
-            //                            (data_.distance - filtered_dist_list[cut_id + 1])
-            //                            / (mode_info_list[1].max_dist -
-            //                               filtered_dist_list[cut_id + 1]));
-            //            }
+            if (data_.distance / mode_info_list[1].max_dist > 1)
+            {
+                NSLog(@"Something wrong. Ratio: %f",
+                      data_.distance / mode_info_list[1].max_dist);
+            }
         }
         
         // Need to draw on different depth to avoid broken polygon

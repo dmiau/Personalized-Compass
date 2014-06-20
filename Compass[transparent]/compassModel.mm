@@ -44,93 +44,25 @@ int compassMdl::initMdl(){
     tilt = 0;
     compassCenterXY.x = 0.0;
     compassCenterXY.y = 0.0;
-
-    //--------------
-    //Get command line argument from the process
-    //--------------
-    //http://stackoverflow.com/questions/5146849/accessing-command-line-arguments-in-objective-c
-    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
-    int argc = [arguments count];
-    
-    char** argv = new char*[argc];
-    for (int i = 0; i<argc; ++i)
-        argv[i] = (char*) [arguments[i] UTF8String];
-
-    //--------------
-    // Parse (command line) input argument
-    //--------------
-    // http://www.gnu.org/software/libc/manual/html_node/Example-of-Getopt.html
-    
-    // The program is in demo mode if no configuration file is supplied,
-    // otherwise, the program reads the configuration file
-    configuration_filename = "";
-    location_filename = "";
-    
+    lockLandmarks = false;
     configurations = [[NSMutableDictionary alloc] init];
     
-    int c;
-    string str_;
-    //http://stackoverflow.com/questions/10502516/how-to-call-correctly-getopt-function
-    //CHECK: here I actually need an explicit cast!
-    while ((c = getopt(argc, (char **)argv, "c:l:")) != -1) {
-        switch (c) {
-            case 'c':
-                // optarg is considered as the real argument only if the
-                // leading character is empty
-                if (str_.assign(optarg).find(".") != string::npos){
-                    //-c $(SRCROOT)/Compass[transparent]/data/configurations.json
-                    //configuration_filename = str_.assign(optarg);
-                    
-                    NSString *configurationNSString = [NSString stringWithUTF8String:optarg];
-                    configuration_filename =std::string([ [[NSBundle mainBundle] pathForResource:configurationNSString
-                                                                                     ofType:@""] UTF8String]);                                        
-                }
-                break;
-            case 'l':
-                if (str_.assign(optarg).find(".") != string::npos){
-//                    location_filename = str_.assign(optarg);
-                    NSString *locationNSString = [NSString stringWithUTF8String:optarg];
-                    location_filename =std::string([ [[NSBundle mainBundle] pathForResource:locationNSString
-                                                                                     ofType:@""] UTF8String]);
-                }
-                break;
-            case '?':
-                fprintf(stderr, "Unknown option `-%c'.\n", optopt);
-                //                return 1;
-                //            default:
-                //                abort();
-        }
-    }
+    //--------------
+    // Load configurations and locations
+    //--------------
+    configuration_filename = std::string([ [[NSBundle mainBundle] pathForResource:@"configurations.json" ofType:@""] UTF8String]);
     
-    //--------------
-    // Assign default values to location_filename and configuration_filename
-    // if no augument is specified
-    //--------------
-    if ((configuration_filename.length() == 0) ||
-        (location_filename.length() == 0))
-    {
-        configuration_filename = std::string([ [[NSBundle mainBundle] pathForResource:@"configurations.json" ofType:@""] UTF8String]);
-        
-        // Need to read the configuraiton file first (to get the default location file name, if default options are used.
-        readConfigurations(this);
-        
-        location_filename =std::string([ [[NSBundle mainBundle] pathForResource:configurations[@"default_location_filename"] ofType:@""] UTF8String]);
-    }
+    // Need to read the configuraiton file first (to get the default location file name, if default options are used.
+    readConfigurations(this);
+    
+    location_filename =std::string([ [[NSBundle mainBundle] pathForResource:configurations[@"default_location_filename"] ofType:@""] UTF8String]);
     
     //------------
     // Load configuations from physical files into memory
     //------------
     reloadFiles();
     watchConfigurationFile();
-    //------------
-    // [todo] Populate maps for filter and style function pointers
-    //------------
-
     
-    //------------
-    // Clean up
-    //------------
-    delete [] argv;
     return 0;
 }
 
@@ -166,7 +98,7 @@ int compassMdl::updateMdl(){
     // before entering the loop
     distance_list.clear();
     indices_sorted_by_distance.clear();
-    indices_for_rendering.clear();
+
     
     for (int i = 0; i < data_array.size(); ++i){
         double distance = current_pos.computeDistanceFromLocation
@@ -193,9 +125,31 @@ int compassMdl::updateMdl(){
     
     // [todo] this part should be customizable
     // K_ORIENTATIONS
-    indices_for_rendering = applyFilter(                                        hashFilterStr(configurations[@"filter_type"]),
-                                        [configurations[@"landmark_n"] intValue]);
     
+    if (lockLandmarks){
+        // indices_for_rendering should be sorted by its associated distances
+        vector<pair<double, int>> dist_id_pair_list;
+        for (int i = 0; i< indices_for_rendering.size(); ++i)
+        {
+            int j = indices_for_rendering[i];
+            dist_id_pair_list
+            .push_back(make_pair(data_array[j].distance, j));
+        }
+        
+        // **indices_for_rendering should be sorted by distance
+        sort(dist_id_pair_list.begin(), dist_id_pair_list.end(), compareAscending);
+        
+        indices_for_rendering.clear();
+        for (int i = 0; i < dist_id_pair_list.size(); ++i)
+        {
+            indices_for_rendering.push_back(dist_id_pair_list[i].second);
+        }
+    }else{
+        indices_for_rendering.clear();
+        indices_for_rendering =
+        applyFilter(hashFilterStr(configurations[@"filter_type"]),
+                    [configurations[@"landmark_n"] intValue]);
+    }
     // -----------------
     // Calculate bounding box for displaying the map
     // -----------------

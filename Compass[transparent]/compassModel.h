@@ -57,6 +57,9 @@ public:
     static compassMdl* instance;
     float tilt;
     
+    // Do not update indices_for_rendering when this is on.
+    bool lockLandmarks;
+    
     // indicates the centroid of compass in the map window coordinate frame
     // (in terms of u, v, not in terms of latitude and longitude)
     CGPoint compassCenterXY;
@@ -110,5 +113,7 @@ private:
 // tools
 //--------------
 int readConfigurations(compassMdl* mdl_instance);
+double DegreesToRadians(double degrees);
+double RadiansToDegrees(double radians);
 
 #endif /* defined(__Exploration__model__) */

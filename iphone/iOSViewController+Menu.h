@@ -11,6 +11,7 @@
 @interface iOSViewController (Menu)
 - (IBAction)togglePCompass:(id)sender;
 - (IBAction)toggleWedge:(id)sender;
+- (IBAction)toggleLandmarkLock:(id)sender;
 
 
 

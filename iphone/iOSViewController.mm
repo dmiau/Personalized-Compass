@@ -394,17 +394,14 @@
 //------------------
 // Tools
 //------------------
-double DegreesToRadians_(double degrees) {return degrees * M_PI / 180.0;};
-double RadiansToDegrees_(double radians) {return radians * 180.0/M_PI;};
-
 -(double) computeOrientationFromLocation:(CLLocationCoordinate2D) refPt
                               toLocation: (CLLocationCoordinate2D) destPt{
     
-    double lat1 = DegreesToRadians_(refPt.latitude);
-    double lon1 = DegreesToRadians_(refPt.longitude);
+    double lat1 = DegreesToRadians(refPt.latitude);
+    double lon1 = DegreesToRadians(refPt.longitude);
     
-    double lat2 = DegreesToRadians_(destPt.latitude);
-    double lon2 = DegreesToRadians_(destPt.longitude);
+    double lat2 = DegreesToRadians(destPt.latitude);
+    double lon2 = DegreesToRadians(destPt.longitude);
     
     double dLon = lon2 - lon1;
     
@@ -412,7 +409,7 @@ double RadiansToDegrees_(double radians) {return radians * 180.0/M_PI;};
     double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
     double radiansBearing = atan2(y, x);
     
-    return RadiansToDegrees_(radiansBearing);
+    return RadiansToDegrees(radiansBearing);
 }
 @end
 
