@@ -109,3 +109,66 @@ void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
     glDrawArrays(GL_TRIANGLE_FAN, 0, num_segments);
     delete[] p_vertex_array;
 }
+
+//-------------
+// draws the mini box to signify scale
+//-------------
+void compassRender::drawBox(double renderD2realDRatio)
+{
+    // calculate the parameters needed to draw the box
+    
+    // First the width and height
+    MKMapPoint mpTopLeft = mapView.visibleMapRect.origin;
+    
+    MKMapPoint mpTopRight = MKMapPointMake(
+                                           mapView.visibleMapRect.origin.x + mapView.visibleMapRect.size.width,
+                                           mapView.visibleMapRect.origin.y);
+    
+    MKMapPoint mpBottomRight = MKMapPointMake(
+                                              mapView.visibleMapRect.origin.x + mapView.visibleMapRect.size.width,
+                                              mapView.visibleMapRect.origin.y + mapView.visibleMapRect.size.height);
+    
+    CLLocationDistance box_width = MKMetersBetweenMapPoints(mpTopLeft, mpTopRight);
+    CLLocationDistance box_height = MKMetersBetweenMapPoints(mpTopRight, mpBottomRight);
+    
+    double render_width = box_width * renderD2realDRatio;
+    double render_height = box_height * renderD2realDRatio;
+    
+    // Then the origin
+    double x, y;
+    x = -render_width * (0.5* orig_width + compass_centroid.x) / orig_width;
+    y = render_height * (0.5 * orig_height - compass_centroid.y) / orig_height;
+        
+    //---------------
+    // Debug info
+    //---------------
+    NSLog(@"-------------");
+    NSLog(@"x: %f, y: %f", x, y);
+    NSLog(@"render width: %f, render height %f", render_width, render_height);
+    NSLog(@"renderD2realD: %f", renderD2realDRatio);
+    NSLog(@"box width/height: %f", box_width/box_height);
+    NSLog(@"-------------");
+    
+    // Draw the box
+    glLineWidth(1);
+    glColor4f(1, 0, 0, 1);
+    glPushMatrix();
+    // Plot the triangle first, then rotate and translate
+    
+    Vertex3D    vertex1 = Vertex3DMake(x, y, 0);
+    Vertex3D    vertex2 = Vertex3DMake(x+render_width,
+                                       y, 0);
+    
+    Vertex3D    vertex3 = Vertex3DMake(x+render_width,
+                                       y-render_height, 0);
+
+    Vertex3D    vertex4 = Vertex3DMake(x,
+                                       y-render_height, 0);
+    
+    RectangleLine3D  rectangle = RectangleLine3DMake(vertex1, vertex2,
+                                                     vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &rectangle);
+    glDrawArrays(GL_LINE_STRIP, 0,5);
+    
+    glPopMatrix();
+}

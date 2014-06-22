@@ -96,19 +96,24 @@
           fromView:self.compassView];
 }
 
+//-----------
+// Pooling function
+// This function keeps watching latitude, longitude and pitch.
+// If there is any change, the function touches the observed variable:
+// mapUpdateFlag
+//-----------
 -(void)vcTimerFired{
-    
-    static double latitude_cache = 0.0;
-    static double longitude_cache = 0.0;
     static double pitch_cache = 0.0;
+    static MKMapRect visibleMapRect_cache = MKMapRectMake(0, 0, 0, 0);
+    
     double epsilon = 0.0000001;
     
-    if ( abs((double)(latitude_cache - [_mapView centerCoordinate].latitude)) > epsilon ||
-        abs((double)(longitude_cache - [_mapView centerCoordinate].longitude)) > epsilon ||
+    MKMapRect visibleMapRect = self.mapView.visibleMapRect;
+    
+    if ( !MKMapRectEqualToRect(visibleMapRect_cache, visibleMapRect)||
         abs((double)(pitch_cache - _mapView.camera.pitch)) > epsilon)
     {
-        latitude_cache = [_mapView centerCoordinate].latitude;
-        longitude_cache = [_mapView centerCoordinate].longitude;
+        visibleMapRect_cache = visibleMapRect;
         pitch_cache = _mapView.camera.pitch;
                         
         self.mapUpdateFlag = [NSNumber numberWithDouble:0.0];

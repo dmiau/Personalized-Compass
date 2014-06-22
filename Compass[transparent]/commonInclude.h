@@ -36,18 +36,14 @@ struct Vertex3D{
 };
 
 // Open GL related stuff
+//------------------
+// Triangle
+//------------------
 struct Triangle3D{
     Vertex3D v1;
     Vertex3D v2;
     Vertex3D v3;
     
-};
-
-struct TriangleLine3D{
-    Vertex3D v1;
-    Vertex3D v2;
-    Vertex3D v3;
-    Vertex3D v4;
 };
 
 static inline Triangle3D Triangle3DMake(Vertex3D vertex1, Vertex3D vertex2, Vertex3D vertex3){
@@ -56,6 +52,16 @@ static inline Triangle3D Triangle3DMake(Vertex3D vertex1, Vertex3D vertex2, Vert
     triangle.v2 = vertex2;
     triangle.v3 = vertex3;
     return triangle;
+};
+
+//------------------
+// Triangle Line
+//------------------
+struct TriangleLine3D{
+    Vertex3D v1;
+    Vertex3D v2;
+    Vertex3D v3;
+    Vertex3D v4;
 };
 
 static inline TriangleLine3D TriangleLine3DMake(Vertex3D vertex1, Vertex3D vertex2, Vertex3D vertex3){
@@ -73,5 +79,30 @@ static inline Vertex3D Vertex3DMake(GLfloat x, GLfloat y, GLfloat z){
     vertex.y = y;
     vertex.z = z;
     return vertex;
-}
+};
+
+//----------------
+// Rectangle Line
+//----------------
+struct RectangleLine3D{
+    Vertex3D v1;
+    Vertex3D v2;
+    Vertex3D v3;
+    Vertex3D v4;
+    Vertex3D v5;
+};
+
+static inline RectangleLine3D RectangleLine3DMake
+(Vertex3D vertex1, Vertex3D vertex2,
+ Vertex3D vertex3, Vertex3D vertex4)
+{
+    RectangleLine3D rectangle;
+    rectangle.v1 = vertex1;
+    rectangle.v2 = vertex2;
+    rectangle.v3 = vertex3;
+    rectangle.v4 = vertex4;
+    rectangle.v5 = vertex1;
+    return rectangle;
+};
+
 #endif

@@ -154,10 +154,6 @@ int compassMdl::updateMdl(){
     // Calculate bounding box for displaying the map
     // -----------------
     
-    //http://stackoverflow.com/questions/5082738/ios-calling-app-delegate-method-from-DesktopViewController
-//    AppDelegate *appDelegate = (AppDelegate *)[[NSApplication sharedApplication] delegate];
-    //[todo][appDelegate updateMapDisplayRegion];
-    
     // [todo better bound]
     // Calculate latitude delta and longitude delta
     // Find out the longest distance for normalization

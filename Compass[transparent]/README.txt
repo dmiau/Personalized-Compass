@@ -880,6 +880,28 @@ L198 indices_for_rendering needs to be sorted by distance
 
 sort_id_by_distance function?
 
+label collision tutorial
+http://www.iforce2d.net/b2dtut/collision-anatomy
+
+let's implement an overview map
+check MKMapPointsPerMeterAtLatitude
+
+
+-------------------------------------------------------------------
+6.22.2014
+-------------------------------------------------------------------
+- checked and confirmed that smartWatch and browser targets sitll work
+- one step at a time
+- implemented the scaling rectangle, but the behavior is strange, 
+I need to give it a bit more thought.
+- need to fix the rotation issue of the scale indicator (the box)
+
+
+
+
+
+
+
 
 
 

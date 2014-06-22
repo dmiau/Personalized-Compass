@@ -155,10 +155,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     half_canvas_size *
     [model->configurations[@"outer_disk_ratio"] floatValue];
     
-    // the radius of the inner disk
-    float inner_disk_radius =
-    half_canvas_size *
-    [model->configurations[@"inner_disk_ratio"] floatValue];
     glPushMatrix();
     for (int i = 0; i < indices_for_rendering.size(); ++i){
         int j = indices_for_rendering[i];
@@ -178,13 +174,8 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         
         if (data_.distance <= mode_info_list[0].max_dist){
             base_radius = mode_info_list[0].base_radius;
-            if (mode_info_list.size() == 1){
-                distance = data_.distance /
-                mode_info_list[0].max_dist * outer_disk_radius;
-            }else{
-                distance = data_.distance /
-                mode_info_list[0].max_dist * inner_disk_radius;
-            }
+            distance = data_.distance /
+            mode_info_list[0].max_dist * outer_disk_radius;
         }else{
             base_radius = mode_info_list[1].base_radius;
             
@@ -209,6 +200,18 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         drawTriangle(base_radius, data_.orientation, distance);
     }
     glPopMatrix();
+    
+    
+    // ---------------
+    // draw the box
+    // ---------------
+    
+    cout << "max dist: " << mode_info_list[0].max_dist << endl;
+    glPushMatrix();
+    glRotatef(-model->current_pos.orientation, 0, 0, -1);
+    drawBox(outer_disk_radius/mode_info_list[0].max_dist);
+    glPopMatrix();
+    
     // ---------------
     // draw the background (transparent) disk
     // ---------------

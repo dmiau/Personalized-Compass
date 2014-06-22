@@ -229,6 +229,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     glRotatef(model->tilt, 1, 0, 0);
     
 
+    // Do NOT do the following for wedge
     if (![render_style isEqualToString:@"WEDGE"]){
         glRotatef(model->current_pos.orientation, 0, 0, -1);
         // scaling only applies to non-wedge styles

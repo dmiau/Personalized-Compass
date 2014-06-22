@@ -62,7 +62,7 @@ class compassRender
     // Properties
     //----------------
 public:
-    // need to include MapView for wedge
+    // need to include MapView for wedge drawing
     MKMapView *mapView;
     
     // Compass presenation parameters
@@ -119,7 +119,7 @@ private:
     void drawTriangle(int central_disk_radius, float rotation, float height);
     void drawLabel(float rotation, float height, string name);
     void drawCircle(float cx, float cy, float r, int num_segments);
-    
+    void drawBox(double renderD2realDRatio);
     
     //-----------------
     // style related methods
