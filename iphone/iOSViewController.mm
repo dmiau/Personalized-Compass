@@ -75,7 +75,7 @@
         
         // Gets array of subviews from the map view (MKMapView)
         
-        if ([self.glkView isHidden] == NO){
+        if (!self.conventionalCompassVisible){
             [self setFactoryCompassHidden:YES];
         }
         
@@ -83,6 +83,7 @@
         dispatch_async(mainQueue,
                        ^{
                            // Redraw the compass
+                           [self updateOverviewMap];
                            [self.glkView setNeedsDisplay];
                        });
 
@@ -251,6 +252,9 @@
     // Add pin annotations
     [self renderAnnotations];
     
+    // Set the conventional compass to be invisible
+    self.conventionalCompassVisible = false;
+    
     //-------------------
     // Connect mapView to render
     //-------------------
@@ -321,19 +325,6 @@
 #pragma mark ------Toolbar Items------
 
 //------------------
-// Toggle between conventional compass and personalized compass
-//------------------
-- (IBAction)toggleCompass:(id)sender {
-    if ([self.glkView isHidden] == NO){
-        [self.glkView setHidden:YES];
-        [self setFactoryCompassHidden:NO];
-    }else{
-        [self.glkView setHidden:NO];
-        [self setFactoryCompassHidden:YES];
-    }
-}
-
-//------------------
 // Show pcomass in big size
 //------------------
 - (IBAction)toggleExplrMode:(id)sender {
@@ -389,6 +380,13 @@
         [[self menuView] setHidden:NO];
     else
         [[self menuView] setHidden:YES];
+}
+
+- (IBAction)toggleTypeMenu:(id)sender {
+    if ([[self typeSelectorView] isHidden])
+        [[self typeSelectorView] setHidden:NO];
+    else
+        [[self typeSelectorView] setHidden:YES];
 }
 
 //------------------

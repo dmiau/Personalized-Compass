@@ -188,6 +188,8 @@
 		9AB90B9E194F39F40030BF5B /* compassRender+Wedge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */; };
 		9AB90B9F194F39F40030BF5B /* compassRender+Wedge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */; };
 		9AB90BA0194F39F40030BF5B /* compassRender+Wedge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */; };
+		9ABB96B41957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+TypeSelector.mm */; };
+		9ABB96B51957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+TypeSelector.mm */; };
 		9ACCED0018EF5425006E9CA4 /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
 		9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
 		9AE093D118ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
@@ -330,6 +332,8 @@
 		9AB90B8C194DED0B0030BF5B /* Taiwan.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taiwan.kml; sourceTree = "<group>"; };
 		9AB90B93194F383A0030BF5B /* compassRender+Bimodal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Bimodal.mm"; sourceTree = "<group>"; };
 		9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Wedge.mm"; sourceTree = "<group>"; };
+		9ABB96B21957C94A00D7296A /* iOSViewController+TypeSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+TypeSelector.h"; sourceTree = "<group>"; };
+		9ABB96B31957C94A00D7296A /* iOSViewController+TypeSelector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+TypeSelector.mm"; sourceTree = "<group>"; };
 		9ACCECFF18EF5425006E9CA4 /* london.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = london.kml; sourceTree = "<group>"; };
 		9ACF5D8618EB572100F03872 /* DesktopViewController+TableAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+TableAddition.h"; sourceTree = "<group>"; };
 		9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+TableAddition.mm"; sourceTree = "<group>"; };
@@ -490,6 +494,8 @@
 				9A998D70194BB8E300778DFC /* iOSViewController+Search.mm */,
 				9A998D73194BB99D00778DFC /* iOSViewController+GetLocation.h */,
 				9A998D74194BB99D00778DFC /* iOSViewController+GetLocation.mm */,
+				9ABB96B21957C94A00D7296A /* iOSViewController+TypeSelector.h */,
+				9ABB96B31957C94A00D7296A /* iOSViewController+TypeSelector.mm */,
 				9A4F0F7D193E308400CF32DE /* iOSGLKView.h */,
 				9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */,
 				9A82B6531941528600534A5F /* iPad.storyboard */,
@@ -1053,6 +1059,7 @@
 				9A49A5F2195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
 				9A49A5FA1954A90E00937961 /* bottomUpSegue.m in Sources */,
 				9A98AF31194289D6007166DE /* GLString.h in Sources */,
+				9ABB96B41957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */,
 				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
 				9A998C8F1949F29500778DFC /* compassRender+Label.mm in Sources */,
@@ -1105,6 +1112,7 @@
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
 				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
+				9ABB96B51957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

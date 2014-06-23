@@ -25,15 +25,20 @@ MKMapViewDelegate>
 }
 
 @property (weak) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet MKMapView *overviewMapView;
+
 @property (weak, nonatomic) IBOutlet GLKView *glkView;
 @property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
+@property (weak, nonatomic) IBOutlet UIView *typeSelectorView;
 
 
 @property compassMdl* model;
 @property compassRender* renderer;
 
 @property NSNumber *mapUpdateFlag;
+@property bool conventionalCompassVisible;
+
 
 // This is used for communication via segue
 @property bool needUpdateDisplayRegion;
@@ -51,13 +56,14 @@ MKMapViewDelegate>
 - (float) calculateCameraHeading;
 
 //----------------
-// Toolbar Items
+// Toolbar and menu related functions
 //----------------
-- (IBAction)toggleCompass:(id)sender;
 - (IBAction)toggleExplrMode:(id)sender;
 
 - (void) removeCompass;
 - (IBAction)toggleMenu:(id)sender;
+- (IBAction)toggleTypeMenu:(id)sender;
+- (void) setFactoryCompassHidden: (BOOL) flag;
 
 //----------------
 // Update functions
@@ -65,7 +71,7 @@ MKMapViewDelegate>
 - (void) updateMapDisplayRegion;
 //- (void) updateMapDisplayRegion(CLLocationCoordinate2D coord);
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
-
+- (void)updateOverviewMap;
 
 //----------------
 // Annotations related methods
