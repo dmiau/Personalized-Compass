@@ -106,7 +106,9 @@ public:
     int initRenderView(float orig_width, float orig_height);
 
     
-    //
+    //-----------------
+    // Render
+    //-----------------
     void render();
     void render(RenderParamStruct renderParamStruct);
     
@@ -139,7 +141,11 @@ private:
                      CGFloat width, CGFloat height);
     CGSize makeGLFrameSize(NSAttributedString *attr_str);
 #endif
-    
+    //-----------------
+    // Map tools
+    //-----------------
+    double getMapWidthInMeters();
+    double getMapHeightInMeters();
 };
 
 //-------------------------

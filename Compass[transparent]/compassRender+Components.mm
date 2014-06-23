@@ -117,19 +117,8 @@ void compassRender::drawBox(double renderD2realDRatio)
 {
     // calculate the parameters needed to draw the box
     
-    // First the width and height
-    MKMapPoint mpTopLeft = mapView.visibleMapRect.origin;
-    
-    MKMapPoint mpTopRight = MKMapPointMake(
-                                           mapView.visibleMapRect.origin.x + mapView.visibleMapRect.size.width,
-                                           mapView.visibleMapRect.origin.y);
-    
-    MKMapPoint mpBottomRight = MKMapPointMake(
-                                              mapView.visibleMapRect.origin.x + mapView.visibleMapRect.size.width,
-                                              mapView.visibleMapRect.origin.y + mapView.visibleMapRect.size.height);
-    
-    CLLocationDistance box_width = MKMetersBetweenMapPoints(mpTopLeft, mpTopRight);
-    CLLocationDistance box_height = MKMetersBetweenMapPoints(mpTopRight, mpBottomRight);
+    CLLocationDistance box_width = getMapWidthInMeters();
+    CLLocationDistance box_height = getMapHeightInMeters();
     
     double render_width = box_width * renderD2realDRatio;
     double render_height = box_height * renderD2realDRatio;
@@ -150,8 +139,8 @@ void compassRender::drawBox(double renderD2realDRatio)
     NSLog(@"-------------");
     
     // Draw the box
-    glLineWidth(1);
-    glColor4f(1, 0, 0, 1);
+    glLineWidth(2);
+    glColor4f(1, 0, 0, 0.5);
     glPushMatrix();
     // Plot the triangle first, then rotate and translate
     
@@ -172,3 +161,43 @@ void compassRender::drawBox(double renderD2realDRatio)
     
     glPopMatrix();
 }
+
+#pragma mark ----Tools----
+double compassRender::getMapWidthInMeters(){
+
+    CLLocationCoordinate2D top_left_coord =
+    [this->mapView convertPoint:CGPointMake(0, 0)
+           toCoordinateFromView:this->mapView];
+    
+    CLLocation *top_left_loc =
+    [[CLLocation alloc] initWithLatitude:top_left_coord.latitude longitude:top_left_coord.longitude];
+    
+    CLLocationCoordinate2D top_right_coord =
+    [this->mapView convertPoint:CGPointMake(orig_width, 0)
+           toCoordinateFromView:this->mapView];
+    CLLocation *top_right_loc =
+    [[CLLocation alloc] initWithLatitude:top_right_coord.latitude longitude:top_right_coord.longitude];
+    return [top_left_loc distanceFromLocation:top_right_loc];
+}
+
+double compassRender::getMapHeightInMeters(){
+    CLLocationCoordinate2D top_left_coord =
+    [this->mapView convertPoint:CGPointMake(0, 0)
+           toCoordinateFromView:this->mapView];
+    
+    CLLocation *top_left_loc =
+    [[CLLocation alloc] initWithLatitude:top_left_coord.latitude longitude:top_left_coord.longitude];
+    
+    CLLocationCoordinate2D bottom_left_coord =
+    [this->mapView convertPoint:CGPointMake(0, orig_height)
+           toCoordinateFromView:this->mapView];
+    CLLocation *bottom_left_loc =
+    [[CLLocation alloc] initWithLatitude:bottom_left_coord.latitude longitude:bottom_left_coord.longitude];
+    return [top_left_loc distanceFromLocation:bottom_left_loc];
+}
+
+
+
+
+
+
