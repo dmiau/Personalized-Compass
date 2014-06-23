@@ -896,8 +896,10 @@ check MKMapPointsPerMeterAtLatitude
 I need to give it a bit more thought.
 - need to fix the rotation issue of the scale indicator (the box)
 
-
-
+-------------------------------------------------------------------
+6.23.2014
+-------------------------------------------------------------------
+- debug ipad coordinate issues
 
 
 

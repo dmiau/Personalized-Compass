@@ -120,23 +120,32 @@ void compassRender::drawBox(double renderD2realDRatio)
     CLLocationDistance box_width = getMapWidthInMeters();
     CLLocationDistance box_height = getMapHeightInMeters();
     
+//    NSLog(@"box_width %f", box_width);
+//    NSLog(@"box_height %f", box_height);
+    
     double render_width = box_width * renderD2realDRatio;
     double render_height = box_height * renderD2realDRatio;
     
     // Then the origin
     double x, y;
-    x = -render_width * (0.5* orig_width + compass_centroid.x) / orig_width;
-    y = render_height * (0.5 * orig_height - compass_centroid.y) / orig_height;
-        
-    //---------------
-    // Debug info
-    //---------------
-    NSLog(@"-------------");
-    NSLog(@"x: %f, y: %f", x, y);
-    NSLog(@"render width: %f, render height %f", render_width, render_height);
-    NSLog(@"renderD2realD: %f", renderD2realDRatio);
-    NSLog(@"box width/height: %f", box_width/box_height);
-    NSLog(@"-------------");
+    
+    // The following formula needs to be corrected
+//model->compassCenterXY.x / mapView.frame.size.width
+//    x = -render_width * (0.5* orig_width + compass_centroid.x) / orig_width;
+//    y = render_height * (0.5 * orig_height - compass_centroid.y) / orig_height;
+
+    x = -render_width * model->compassCenterXY.x / mapView.frame.size.width;
+    y = render_height * model->compassCenterXY.y / mapView.frame.size.height;
+    
+//    //---------------
+//    // Debug info
+//    //---------------
+//    NSLog(@"-------------");
+//    NSLog(@"x: %f, y: %f", x, y);
+//    NSLog(@"render width: %f, render height %f", render_width, render_height);
+//    NSLog(@"renderD2realD: %f", renderD2realDRatio);
+//    NSLog(@"box width/height: %f", box_width/box_height);
+//    NSLog(@"-------------");
     
     // Draw the box
     glLineWidth(2);
@@ -173,7 +182,7 @@ double compassRender::getMapWidthInMeters(){
     [[CLLocation alloc] initWithLatitude:top_left_coord.latitude longitude:top_left_coord.longitude];
     
     CLLocationCoordinate2D top_right_coord =
-    [this->mapView convertPoint:CGPointMake(orig_width, 0)
+    [this->mapView convertPoint:CGPointMake(this->mapView.frame.size.width, 0)
            toCoordinateFromView:this->mapView];
     CLLocation *top_right_loc =
     [[CLLocation alloc] initWithLatitude:top_right_coord.latitude longitude:top_right_coord.longitude];
@@ -189,7 +198,7 @@ double compassRender::getMapHeightInMeters(){
     [[CLLocation alloc] initWithLatitude:top_left_coord.latitude longitude:top_left_coord.longitude];
     
     CLLocationCoordinate2D bottom_left_coord =
-    [this->mapView convertPoint:CGPointMake(0, orig_height)
+    [this->mapView convertPoint:CGPointMake(0, this->mapView.frame.size.height)
            toCoordinateFromView:this->mapView];
     CLLocation *bottom_left_loc =
     [[CLLocation alloc] initWithLatitude:bottom_left_coord.latitude longitude:bottom_left_coord.longitude];

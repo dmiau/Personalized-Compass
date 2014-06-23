@@ -57,7 +57,8 @@
         CLLocationCoordinate2D compassCtrCoord = [_mapView convertPoint:
                                                   model->compassCenterXY
                                                    toCoordinateFromView:_mapView];
-
+        NSLog(@"Converted compass latitude: %f, longitude: %f",
+              compassCtrCoord.latitude, compassCtrCoord.longitude);
 //        dispatch_queue_t concurrentQueue =
 //        dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
 //        dispatch_async(concurrentQueue,
@@ -131,10 +132,13 @@
     //---------------------------
     // fix angle calculation
     //---------------------------
-    CLLocationCoordinate2D map_s_pt = [self.mapView centerCoordinate];
-    CLLocationCoordinate2D center_pt = [self.mapView convertPoint:CGPointMake(160, 503.0/2) toCoordinateFromView:self.mapView];
+    double width = self.mapView.frame.size.width;
+    double height = self.mapView.frame.size.height;
     
-    CLLocationCoordinate2D map_n_pt = [self.mapView convertPoint:CGPointMake(160, 230) toCoordinateFromView:self.mapView];
+    CLLocationCoordinate2D map_s_pt = [self.mapView centerCoordinate];
+    CLLocationCoordinate2D center_pt = [self.mapView convertPoint:CGPointMake(width/2, height/2) toCoordinateFromView:self.mapView];
+    
+    CLLocationCoordinate2D map_n_pt = [self.mapView convertPoint:CGPointMake(width/2, height/2-30) toCoordinateFromView:self.mapView];
     
     true_north_wrt_up = [self computeOrientationFromLocation:(CLLocationCoordinate2D) map_s_pt
                                             toLocation: (CLLocationCoordinate2D) map_n_pt];
@@ -194,24 +198,6 @@
     return self;
 }
 
-// [todo] This somehow is not working
--(void)rotate:(UIRotationGestureRecognizer *)gesture
-{
-    if ([gesture state] == UIGestureRecognizerStateBegan || [gesture state] == UIGestureRecognizerStateChanged) {
-        // Gets array of subviews from the map view (MKMapView)
-        NSArray *mapSubViews = self.mapView.subviews;
-        
-        for (UIView *view in mapSubViews) {
-            // Checks if the view is of class MKCompassView
-            if ([view isKindOfClass:NSClassFromString(@"MKCompassView")]) {
-                // Removes view from mapView
-                [view removeFromSuperview];
-            }
-        }
-    }
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -229,13 +215,16 @@
     //-------------------
     // Initialize Map View
     //-------------------
-    [self updateMapDisplayRegion];
     self.mapView.delegate = self;
-    
-    UIRotationGestureRecognizer *rotateGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)];
-    
-    [self.mapView addGestureRecognizer:rotateGesture];
-    
+    self.renderer->mapView = [self mapView];
+    [self initMapView];
+}
+
+//-----------------
+// initMapView may be called whenever configurations.json is reloaded
+//-----------------
+- (void) initMapView{
+    [self updateMapDisplayRegion];
     
     // Provide the centroid of compass to the model
     self.model->compassCenterXY =
@@ -243,25 +232,14 @@
                                             + [self.model->configurations[@"compass_centroid"][0] floatValue],
                                             self.glkView.frame.size.height/2+
                                             - [self.model->configurations[@"compass_centroid"][1] floatValue])
-                      fromView:self.glkView];    
-//    cout << "glk.x: " << self.glkView.frame.size.width << endl;
-//    cout << "glk.y: " << self.glkView.frame.size.height << endl;
-//    NSLog(@"centroid: %@", NSStringFromCGPoint(self.model->compassCenterXY));
-//    NSLog(@"Done!");
-    
+                      fromView:self.glkView];
     // Add pin annotations
     [self renderAnnotations];
     
     // Set the conventional compass to be invisible
     self.conventionalCompassVisible = false;
-    
-    //-------------------
-    // Connect mapView to render
-    //-------------------
-    self.renderer->mapView = [self mapView];
+
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -409,5 +387,24 @@
     
     return RadiansToDegrees(radiansBearing);
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    UITouch* touch = [touches anyObject];
+    CGPoint pos = [touch locationInView:self.mapView];
+    NSLog(@"****Touch detected");
+    NSLog(@"Display Coordinates: %@", NSStringFromCGPoint(pos));
+    
+    // Convert it to the real coordinate
+    CLLocationCoordinate2D myCoord = [self.mapView convertPoint:pos toCoordinateFromView:self.mapView];
+    NSLog(@"Map latitude: %f, longitude: %f", myCoord.latitude, myCoord.longitude);
+    
+    // pass touch event to super
+    [super touchesBegan:touches withEvent:event];
+    
+}
+
+
+
 @end
 
