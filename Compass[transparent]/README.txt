@@ -907,7 +907,7 @@ I need to give it a bit more thought.
 Need to learn how to use unwind segue
 http://stackoverflow.com/questions/12561735/what-are-unwind-segues-for-and-how-do-you-use-them
 
-
+- added the table view to iPad
 
 
 
