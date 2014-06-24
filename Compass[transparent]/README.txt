@@ -901,8 +901,11 @@ I need to give it a bit more thought.
 -------------------------------------------------------------------
 - debug ipad coordinate issues
 
-
-
+-------------------------------------------------------------------
+6.24.2014
+-------------------------------------------------------------------
+Need to learn how to use unwind segue
+http://stackoverflow.com/questions/12561735/what-are-unwind-segues-for-and-how-do-you-use-them
 
 
 

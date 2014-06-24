@@ -63,11 +63,16 @@ MKMapViewDelegate>
 - (void) removeCompass;
 - (IBAction)toggleMenu:(id)sender;
 - (IBAction)toggleTypeMenu:(id)sender;
+- (IBAction)refreshApp:(id)sender;
+- (IBAction)openIPADSettings:(id)sender;
+
+
 - (void) setFactoryCompassHidden: (BOOL) flag;
 
 //----------------
-// Update functions
+// Update and initialization functions
 //----------------
+- (void)initMapView;
 - (void) updateMapDisplayRegion;
 //- (void) updateMapDisplayRegion(CLLocationCoordinate2D coord);
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;

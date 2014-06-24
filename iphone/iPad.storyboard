@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="RyZ-6E-Ee0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="w1l-tE-In0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -17,15 +17,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iOu-2k-m7m">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <rect key="frame" x="0.0" y="70" width="768" height="954"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <glkView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" drawableDepthFormat="16" drawableMultisample="4X" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-oC-5JL" customClass="iOSGLKView">
-                                <rect key="frame" x="332" y="61" width="416" height="465"/>
+                                <rect key="frame" x="321" y="91" width="416" height="465"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </glkView>
                             <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-7A-1wb">
-                                <rect key="frame" x="123" y="17" width="630" height="44"/>
+                                <rect key="frame" x="11" y="21" width="630" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -43,31 +43,84 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcv-n5-7ZP">
-                                <rect key="frame" x="23" y="24" width="81" height="30"/>
+                                <rect key="frame" x="672" y="28" width="81" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="bsL-PH-kKP" kind="modal" modalPresentationStyle="formSheet" id="pu3-4Z-xsR"/>
+                                </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6q-wo-nON">
                                 <rect key="frame" x="0.0" y="980" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="[Type]" id="vQq-9H-se9"/>
-                                    <barButtonItem title="[Settings]" id="Ch5-cZ-f7I"/>
+                                    <barButtonItem title="[Type]" id="vQq-9H-se9" userLabel="[Type]">
+                                        <connections>
+                                            <action selector="toggleTypeMenu:" destination="RyZ-6E-Ee0" id="C6G-GB-Amb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="[Menu]" id="Ch5-cZ-f7I" userLabel="[Menu]"/>
+                                    <barButtonItem title="[Refresh]" id="7y8-H0-seU" userLabel="[Refresh]">
+                                        <connections>
+                                            <action selector="refreshApp:" destination="RyZ-6E-Ee0" id="iv6-9B-lE3"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJy-bh-6AD" userLabel="Type Selector View">
+                                <rect key="frame" x="0.0" y="511" width="768" height="469"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f3L-H2-mLr" userLabel="Overview Switch">
+                                        <rect key="frame" x="43" y="28" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="toggleOverviewMap:" destination="RyZ-6E-Ee0" eventType="valueChanged" id="yXk-zK-yv2"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrH-Vb-Noa">
+                                        <rect key="frame" x="121" y="33" width="118" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="OAj-ws-YN2">
+                                        <rect key="frame" x="43" y="92" width="281" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Conventional"/>
+                                            <segment title="Personalized"/>
+                                            <segment title="None"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="compassSegmentControl:" destination="RyZ-6E-Ee0" eventType="valueChanged" id="knb-KQ-3G2"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-4X-IXW" userLabel="Overview Map">
+                                <rect key="frame" x="20" y="91" width="286" height="186"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XQF-6g-BDi"/>
                     <connections>
                         <outlet property="glkView" destination="Lei-oC-5JL" id="iAb-0M-hEp"/>
                         <outlet property="ibSearchBar" destination="CI6-7A-1wb" id="Cqe-GN-t0a"/>
                         <outlet property="mapView" destination="iOu-2k-m7m" id="5g7-Q1-hOl"/>
+                        <outlet property="overviewMapView" destination="SHc-4X-IXW" id="Vva-mx-MWO"/>
                         <outlet property="searchDisplayController" destination="nBK-W2-8Vc" id="EAp-sF-OsM"/>
+                        <outlet property="typeSelectorView" destination="cJy-bh-6AD" id="6fh-di-q12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xvz-aD-KmM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WR7-bc-Ypi" userLabel="Exit" sceneMemberID="exit"/>
                 <searchDisplayController id="nBK-W2-8Vc">
                     <connections>
                         <outlet property="delegate" destination="RyZ-6E-Ee0" id="5l7-2R-3gv"/>
@@ -78,7 +131,70 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-297" y="-359"/>
+            <point key="canvasLocation" x="-2153" y="-675"/>
+        </scene>
+        <!--IOS Setting View Controller-->
+        <scene sceneID="cDi-QH-146">
+            <objects>
+                <viewController id="bsL-PH-kKP" customClass="iOSSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y3Q-at-3Kr"/>
+                        <viewControllerLayoutGuide type="bottom" id="gYy-Lr-9aY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zSC-DH-VQB">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fn-Mb-STU">
+                                <rect key="frame" x="0.0" y="14" width="540" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="gyc-ap-Vtb">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="khU-6s-a9n">
+                                            <connections>
+                                                <segue destination="WR7-bc-Ypi" kind="unwind" unwindAction="unwindToRootVC:" id="oVP-gu-zNQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jSc-Ke-xt4">
+                                <rect key="frame" x="120" y="326" width="272" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bsL-PH-kKP" id="Cgg-gj-Ka7"/>
+                                    <outlet property="delegate" destination="bsL-PH-kKP" id="5Nl-aT-f8X"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="dataPicker" destination="jSc-Ke-xt4" id="ADH-eK-fdj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BPD-Yn-J6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1259" y="-473"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Cdm-a7-god">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="w1l-tE-In0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qef-Zb-5Fa">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RyZ-6E-Ee0" kind="relationship" relationship="rootViewController" id="Cpb-ag-hKg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xli-yp-QKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3121" y="-675"/>
         </scene>
     </scenes>
     <resources>

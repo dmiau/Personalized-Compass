@@ -109,7 +109,8 @@
     
     NSString* astr = [kml_files objectAtIndex:row];
     
-    model->location_filename = std::string([ [[NSBundle mainBundle] pathForResource:astr                                                                             ofType:@""] UTF8String]);
+    model->location_filename = std::string([ [[NSBundle mainBundle] pathForResource:astr
+                    ofType:@""] UTF8String]);
     
     NSLog(@"json combon triggered %@", astr);
     
@@ -119,6 +120,7 @@
     model->reloadFiles();
     self.needUpdateDisplayRegion = true;
     // updateMapDisplayRegion will be called in unwindSegue
+
 }
 
 
@@ -127,6 +129,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if (self.needUpdateDisplayRegion)

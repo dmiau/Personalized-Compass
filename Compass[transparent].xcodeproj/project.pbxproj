@@ -56,6 +56,10 @@
 		9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
 		9A6F53FA1910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
 		9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6F53F71910073F00F35FED /* DebugWindowController.mm */; };
+		9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FB7EF1958FF390020355A /* iOSViewController+Toolbar.mm */; };
+		9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FB7EF1958FF390020355A /* iOSViewController+Toolbar.mm */; };
+		9A6FB7F41958FFC20020355A /* iOSViewController+Updates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FB7F31958FFC20020355A /* iOSViewController+Updates.mm */; };
+		9A6FB7F51958FFC20020355A /* iOSViewController+Updates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FB7F31958FFC20020355A /* iOSViewController+Updates.mm */; };
 		9A82B6311941518900534A5F /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9A82B6321941518900534A5F /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
 		9A82B6331941518900534A5F /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
@@ -303,6 +307,10 @@
 		9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugInfoWindow.xib; sourceTree = "<group>"; };
 		9A6F53F61910073F00F35FED /* DebugWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugWindowController.h; sourceTree = "<group>"; };
 		9A6F53F71910073F00F35FED /* DebugWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DebugWindowController.mm; sourceTree = "<group>"; };
+		9A6FB7EE1958FF390020355A /* iOSViewController+Toolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Toolbar.h"; sourceTree = "<group>"; };
+		9A6FB7EF1958FF390020355A /* iOSViewController+Toolbar.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Toolbar.mm"; sourceTree = "<group>"; };
+		9A6FB7F21958FFC20020355A /* iOSViewController+Updates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Updates.h"; sourceTree = "<group>"; };
+		9A6FB7F31958FFC20020355A /* iOSViewController+Updates.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Updates.mm"; sourceTree = "<group>"; };
 		9A82B64F1941518900534A5F /* iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
 		9A82B6531941528600534A5F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
@@ -490,21 +498,25 @@
 				9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */,
 				9A4F0F7A193E306A00CF32DE /* iOSViewController.h */,
 				9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */,
+				9A6FB7F21958FFC20020355A /* iOSViewController+Updates.h */,
+				9A6FB7F31958FFC20020355A /* iOSViewController+Updates.mm */,
 				9A998D6F194BB8E300778DFC /* iOSViewController+Search.h */,
 				9A998D70194BB8E300778DFC /* iOSViewController+Search.mm */,
 				9A998D73194BB99D00778DFC /* iOSViewController+GetLocation.h */,
 				9A998D74194BB99D00778DFC /* iOSViewController+GetLocation.mm */,
 				9ABB96B21957C94A00D7296A /* iOSViewController+TypeSelector.h */,
 				9ABB96B31957C94A00D7296A /* iOSViewController+TypeSelector.mm */,
+				9A006CA019522918009BB81C /* iOSViewController+Menu.h */,
+				9A006CA119522918009BB81C /* iOSViewController+Menu.mm */,
+				9A49A5F0195491CF00937961 /* iOSViewController+Annotations.h */,
+				9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */,
+				9A6FB7EE1958FF390020355A /* iOSViewController+Toolbar.h */,
+				9A6FB7EF1958FF390020355A /* iOSViewController+Toolbar.mm */,
 				9A4F0F7D193E308400CF32DE /* iOSGLKView.h */,
 				9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */,
 				9A82B6531941528600534A5F /* iPad.storyboard */,
 				9A95CCB1194B4146008E520F /* iOSSettingViewController.h */,
 				9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */,
-				9A006CA019522918009BB81C /* iOSViewController+Menu.h */,
-				9A006CA119522918009BB81C /* iOSViewController+Menu.mm */,
-				9A49A5F0195491CF00937961 /* iOSViewController+Annotations.h */,
-				9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */,
 				9A49A5F41954A8BB00937961 /* myTableViewController.h */,
 				9A49A5F51954A8BB00937961 /* myTableViewController.mm */,
 			);
@@ -1056,11 +1068,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A2F0C5A1943DAD600350BD2 /* Texture2D.m in Sources */,
+				9A6FB7F41958FFC20020355A /* iOSViewController+Updates.mm in Sources */,
 				9A49A5F2195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
 				9A49A5FA1954A90E00937961 /* bottomUpSegue.m in Sources */,
 				9A98AF31194289D6007166DE /* GLString.h in Sources */,
 				9ABB96B41957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */,
 				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
+				9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
 				9A998C8F1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A4F0F83193E331E00CF32DE /* compassModel.mm in Sources */,
@@ -1088,6 +1102,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A6FB7F51958FFC20020355A /* iOSViewController+Updates.mm in Sources */,
 				9A577E1F1943F060002243B1 /* GLString.mm in Sources */,
 				9A998C971949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A82B6311941518900534A5F /* xmlParser.mm in Sources */,
@@ -1110,6 +1125,7 @@
 				9A95CCB4194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
+				9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9ABB96B51957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */,
