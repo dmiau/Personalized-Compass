@@ -913,9 +913,10 @@ http://stackoverflow.com/questions/12561735/what-are-unwind-segues-for-and-how-d
 6.26.2014
 -------------------------------------------------------------------
 - adding dropbox support
+- implement data source
 
-
-
+- should I implement an unlink option?
+https://www.dropbox.com/developers/sync/docs/ios
 
 
 

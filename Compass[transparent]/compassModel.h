@@ -63,6 +63,7 @@ public:
     
     // File system
 #ifdef __IPHONE__
+    FILESYS_TYPE filesys_type;
     filesystem* docFilesystem;
     filesystem* dbFilesystem;
 #endif

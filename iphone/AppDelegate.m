@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Dropbox/Dropbox.h>
 
 @implementation AppDelegate
 
@@ -17,6 +18,22 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+
+/*
+ * You'll need to handle requests sent to your app from the linking dialog
+ */
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+  sourceApplication:(NSString *)source annotation:(id)annotation
+{
+    DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
+    if (account) {
+        NSLog(@"App linked successfully!");
+        return YES;
+    }
+    return NO;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

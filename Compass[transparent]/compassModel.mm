@@ -51,6 +51,8 @@ int compassMdl::initMdl(){
     // Initialize filesystem
     //--------------
 #ifdef __IPHONE__
+    // By default try to use the data in dropbox, if dropbox is available
+    filesys_type = DROPBOX;
     docFilesystem = [[filesystem alloc] initIOSDOC];
     dbFilesystem = [[filesystem alloc] initDROPBOX];
 #endif

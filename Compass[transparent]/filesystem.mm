@@ -170,8 +170,8 @@
             }
             NSMutableArray* mutableDirFiles = [[NSMutableArray alloc] init];
             for (DBFileInfo *info in contents) {
-                
-                [mutableDirFiles addObject:info.path.stringValue];
+                // Otherwise there is a / prefix...
+                [mutableDirFiles addObject:[info.path.stringValue lastPathComponent]];
             }
             dirFiles = [[NSArray alloc] initWithArray:mutableDirFiles];
             break;

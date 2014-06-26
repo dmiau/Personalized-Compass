@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9A006CA219522918009BB81C /* iOSViewController+Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Menu.mm */; };
 		9A006CA319522918009BB81C /* iOSViewController+Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Menu.mm */; };
-		9A02D0EA195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
 		9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
 		9A02D0EC195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
 		9A02D0EE195C5CA900A64987 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0ED195C5CA900A64987 /* QuartzCore.framework */; };
@@ -1228,7 +1227,6 @@
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */,
 				9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */,
-				9A02D0EA195C5C8700A64987 /* filesystem.mm in Sources */,
 				9AEA582C18D9ED600028B80C /* compassRender.mm in Sources */,
 				9AB90B94194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */,

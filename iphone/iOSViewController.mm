@@ -125,7 +125,7 @@
 {
     
     // Can I know which segue it is?
-    NSLog(@"Segue id: %@", segue.identifier);
+//    NSLog(@"Segue id: %@", segue.identifier);
     
     // There is a bug here. There seems to be an extra shift component.
     if (self.needUpdateDisplayRegion){

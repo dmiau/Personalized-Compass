@@ -7,25 +7,30 @@
 //
 
 #include "compassModel.h"
-#include "filesystem.h"
 #include <string>
+
+#ifdef __IPHONE__
+#include "filesystem.h"
+#endif
 
 using namespace std;
 
 int readConfigurations(compassMdl* mdl_instance){
     
 #ifdef __IPHONE__
-    NSData *data;
+    NSData *data = nil;
     NSString *jsonPath = mdl_instance->configuration_filename;
-    if (mdl_instance->dbFilesystem.isReady){
+    
+    if (mdl_instance->dbFilesystem.isReady &&
+        mdl_instance->filesys_type == DROPBOX){
         data = [mdl_instance->dbFilesystem readFileFromName:
                 [jsonPath lastPathComponent]];
     }
     
     if (!data){
-//        data = [NSData dataWithContentsOfFile:jsonPath];
         data = [mdl_instance->docFilesystem readFileFromName:
                 [jsonPath lastPathComponent]];
+        mdl_instance->filesys_type = IOS_DOC;
     }
 
     if (!data){

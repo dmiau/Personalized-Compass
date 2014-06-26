@@ -27,5 +27,10 @@
 @property iOSViewController* mainViewController;
 @property bool needUpdateDisplayRegion;
 @property (weak, nonatomic) IBOutlet UIPickerView *dataPicker;
+- (IBAction)toggleDataSource:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *dataSource;
+@property (weak, nonatomic) IBOutlet UITextView *systemMessage;
+
 
 @end

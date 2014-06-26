@@ -41,8 +41,9 @@ int readLocationKml(compassMdl* mdl){
     
     
 
-    NSData* data;
-    if (mdl->dbFilesystem.isReady){
+    NSData* data = nil;
+    if (mdl->dbFilesystem.isReady &&
+        mdl->filesys_type == DROPBOX){
         data = [mdl->dbFilesystem readFileFromName:
                 [filename lastPathComponent]];
     }
@@ -51,10 +52,11 @@ int readLocationKml(compassMdl* mdl){
         //        data = [NSData dataWithContentsOfFile:jsonPath];
         data = [mdl->docFilesystem readFileFromName:
                 [filename lastPathComponent]];
+        mdl->filesys_type = IOS_DOC;
     }
     
     if (!data){
-        throw(runtime_error("Failed to read the configuration file."));
+        throw(runtime_error("Failed to read the location file."));
         return EXIT_FAILURE;
     }else{
         myParser = [[xmlParser alloc] initWithData: data];
