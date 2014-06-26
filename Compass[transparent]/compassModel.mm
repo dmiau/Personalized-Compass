@@ -50,12 +50,12 @@ int compassMdl::initMdl(){
     //--------------
     // Load configurations and locations
     //--------------
-    configuration_filename = std::string([ [[NSBundle mainBundle] pathForResource:@"configurations.json" ofType:@""] UTF8String]);
+    configuration_filename = [[NSBundle mainBundle] pathForResource:@"configurations.json" ofType:@""];
     
     // Need to read the configuraiton file first (to get the default location file name, if default options are used.
     readConfigurations(this);
     
-    location_filename =std::string([ [[NSBundle mainBundle] pathForResource:configurations[@"default_location_filename"] ofType:@""] UTF8String]);
+    location_filename =[[NSBundle mainBundle] pathForResource:configurations[@"default_location_filename"] ofType:@""];
     
     //------------
     // Load configuations from physical files into memory
@@ -76,12 +76,6 @@ int compassMdl::reloadFiles(){
     // Read the location data
     readLocationKml(this);
     updateMdl();
-    
-    cout << "Configuration filename: " << endl
-    << configuration_filename << endl;
-
-    cout << "Location filename: " << endl
-    << location_filename << endl;
     return 0;
 }
 
@@ -181,7 +175,7 @@ int compassMdl::cleanMdl(){
 void compassMdl::watchConfigurationFile(){
     //http://stackoverflow.com/questions/11355144/file-monitoring-using-grand-central-dispatch/11372441#11372441
     
-    int fdes = open(configuration_filename.c_str(), O_RDONLY);
+    int fdes = open([configuration_filename UTF8String], O_RDONLY);
     dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
     void (^eventHandler)(void), (^cancelHandler)(void);
     unsigned long mask = DISPATCH_VNODE_DELETE | DISPATCH_VNODE_WRITE | DISPATCH_VNODE_EXTEND | DISPATCH_VNODE_ATTRIB | DISPATCH_VNODE_LINK | DISPATCH_VNODE_RENAME | DISPATCH_VNODE_REVOKE;
@@ -205,7 +199,7 @@ void compassMdl::watchConfigurationFile(){
         int fdes = dispatch_source_get_handle(source);
         close(fdes);
         // Wait for new file to exist.
-        while ((fdes = open(configuration_filename.c_str(), O_RDONLY)) == -1)
+        while ((fdes = open([configuration_filename UTF8String], O_RDONLY)) == -1)
             sleep(1);
         printf("re-opened target file in cancel handler\n");
         source = dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE, fdes, mask, queue);

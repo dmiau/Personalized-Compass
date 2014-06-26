@@ -66,8 +66,8 @@ public:
     
     NSMutableDictionary *configurations;
         
-    std::string configuration_filename;
-    std::string location_filename;
+    NSString* configuration_filename;
+    NSString* location_filename;
     
     // data_array stores the data of each location
     vector<data> data_array;

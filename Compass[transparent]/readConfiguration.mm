@@ -14,7 +14,7 @@ using namespace std;
 int readConfigurations(compassMdl* mdl_instance){
     
     
-    NSString *jsonPath = [NSString stringWithUTF8String:mdl_instance->configuration_filename.c_str()];
+    NSString *jsonPath = mdl_instance->configuration_filename;
     NSData *data = [NSData dataWithContentsOfFile:jsonPath];
     NSError *error = nil;
     NSArray *jsonData= [NSJSONSerialization JSONObjectWithData:data

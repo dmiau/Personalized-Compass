@@ -64,7 +64,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSString *file_name = [NSString stringWithUTF8String:model->location_filename.c_str()];
+    NSString *file_name = model->location_filename;
     
     NSInteger anIndex=[kml_files indexOfObject:[file_name lastPathComponent]];
     //[todo] need to update the index dynamically
@@ -109,8 +109,8 @@
     
     NSString* astr = [kml_files objectAtIndex:row];
     
-    model->location_filename = std::string([ [[NSBundle mainBundle] pathForResource:astr
-                    ofType:@""] UTF8String]);
+    model->location_filename = [[NSBundle mainBundle] pathForResource:astr
+                    ofType:@""];
     
     NSLog(@"json combon triggered %@", astr);
     

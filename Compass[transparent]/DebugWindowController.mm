@@ -30,8 +30,7 @@
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    NSString *file_str = [NSString stringWithUTF8String:
-                          self.model->configuration_filename.c_str()];
+    NSString *file_str = self.model->configuration_filename;
     
     [[self configuration_file_path] setStringValue: file_str];
 }

@@ -84,7 +84,7 @@
     [[NSRunLoop mainRunLoop] addTimer:_updateUITimer forMode:NSRunLoopCommonModes];
 
     [self.kmlComboBox setStringValue:
-     [[NSString stringWithUTF8String: model->location_filename.c_str()]
+     [model->location_filename
       lastPathComponent]];
     
     [self updateMapDisplayRegion];
@@ -298,7 +298,7 @@ static NSComparisonResult myCustomViewAboveSiblingViewsComparator(id view1, id v
 - (IBAction)didChangeKMLCombo:(id)sender {
     NSString* astr = [self.kmlComboBox stringValue];
     
-    model->location_filename = std::string([ [[NSBundle mainBundle] pathForResource:astr                                                                             ofType:@""] UTF8String]);
+    model->location_filename = [[NSBundle mainBundle] pathForResource:astr                                                                             ofType:@""];
     
     NSLog(@"json combon triggered %@", astr);
     

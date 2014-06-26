@@ -11,7 +11,7 @@
 
 
 int readLocationKml(compassMdl* mdl){
-    NSString* filename = [NSString stringWithUTF8String:mdl->location_filename.c_str()];
+    NSString* filename = mdl->location_filename;
     
     //-----------------
     // Check if an online version exist
