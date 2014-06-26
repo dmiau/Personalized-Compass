@@ -909,6 +909,12 @@ http://stackoverflow.com/questions/12561735/what-are-unwind-segues-for-and-how-d
 
 - added the table view to iPad
 
+-------------------------------------------------------------------
+6.26.2014
+-------------------------------------------------------------------
+- adding dropbox support
+
+
 
 
 
