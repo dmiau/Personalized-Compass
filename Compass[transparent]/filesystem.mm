@@ -24,22 +24,25 @@
     //---------------
     // initialize parameters
     //---------------
-    self.filesys_type = BUNDLE;
     self.error_str = [[NSMutableString alloc] init];
     
     // Get directory path
     self.bundle_path = [[NSBundle mainBundle] resourcePath];
     self.document_path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    self.isReady = YES;
     return self;
 }
 
 - (id) initBUNDLE{
-    return [self init];
+    self = [self init];
+    self.filesys_type = BUNDLE;
+    return self;
 }
 
 - (id) initIOSDOC{
-
+    self = [super init];
     self = [self init];
+    self.filesys_type = IOS_DOC;
     // Diff the file to decide if it is necessary to copy all the files
     NSArray* bundle_files = [self listSupportedFilesInDirectory: self.bundle_path];
     NSArray* document_files = [self listSupportedFilesInDirectory: self.document_path];
@@ -69,7 +72,7 @@
     return self;
 }
 
-- (id) initDROPBOX: (UIVideoEditorController*) controller{
+- (id) initDROPBOX{
     self = [super init];
     self = [self init];
     self.supported_filetypes = @[@"'.kml'", @"'.json'"];
@@ -97,14 +100,22 @@
     
     if (accountMgr.linkedAccount) {
         [self initDropboxWithAccount:accountMgr.linkedAccount];
+        self.isReady = YES;
     }else{
-        /*
-         * Ask the user to link an account.
-         */
-        [[DBAccountManager sharedManager] linkFromController:controller];
+        self.isReady = NO;
+        // User will need to call linkDropbox
     }
     
     return self;
+}
+
+
+- (void) linkDropbox: (UIVideoEditorController*) controller{
+    /*
+     * Ask the user to link an account.
+     */
+    [[DBAccountManager sharedManager] linkFromController:controller];
+    self.isReady = YES;
 }
 
 - (NSArray*) listSupportedFilesInDirectory: (NSString*) dir_path{

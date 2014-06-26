@@ -7,20 +7,41 @@
 //
 
 #include "compassModel.h"
+#include "filesystem.h"
 #include <string>
 
 using namespace std;
 
 int readConfigurations(compassMdl* mdl_instance){
     
+#ifdef __IPHONE__
+    NSData *data;
+    NSString *jsonPath = mdl_instance->configuration_filename;
+    if (mdl_instance->dbFilesystem.isReady){
+        data = [mdl_instance->dbFilesystem readFileFromName:
+                [jsonPath lastPathComponent]];
+    }
     
+    if (!data){
+//        data = [NSData dataWithContentsOfFile:jsonPath];
+        data = [mdl_instance->docFilesystem readFileFromName:
+                [jsonPath lastPathComponent]];
+    }
+
+    if (!data){
+        throw(runtime_error("Failed to read the configuration file."));
+        return EXIT_FAILURE;
+    }
+    
+#else
     NSString *jsonPath = mdl_instance->configuration_filename;
     NSData *data = [NSData dataWithContentsOfFile:jsonPath];
+#endif
+    
     NSError *error = nil;
     NSArray *jsonData= [NSJSONSerialization JSONObjectWithData:data
                                                        options:kNilOptions
                                                          error:&error];
-//    NSLog(@"JSON: %@", jsonData[0]);
     if (error)
         return EXIT_FAILURE;
     

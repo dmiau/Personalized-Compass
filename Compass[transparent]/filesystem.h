@@ -22,6 +22,7 @@ typedef enum{
 @property NSString *document_path;
 @property DBFilesystem* db_filesystem;
 @property NSMutableString* error_str;
+@property bool isReady;
 
 //--------------
 // Methods
@@ -29,7 +30,8 @@ typedef enum{
 
 - (id) initBUNDLE;
 - (id) initIOSDOC;
-- (id) initDROPBOX: (UIVideoEditorController*) controller;
+- (id) initDROPBOX;
+- (void) linkDropbox: (UIVideoEditorController*) controller;
 - (NSArray*) listFiles;
 - (NSData*) readFileFromName: (NSString*) filename;
 

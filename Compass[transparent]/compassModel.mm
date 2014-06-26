@@ -46,6 +46,14 @@ int compassMdl::initMdl(){
     compassCenterXY.y = 0.0;
     lockLandmarks = false;
     configurations = [[NSMutableDictionary alloc] init];
+
+    //--------------
+    // Initialize filesystem
+    //--------------
+#ifdef __IPHONE__
+    docFilesystem = [[filesystem alloc] initIOSDOC];
+    dbFilesystem = [[filesystem alloc] initDROPBOX];
+#endif
     
     //--------------
     // Load configurations and locations

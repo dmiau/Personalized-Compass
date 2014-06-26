@@ -12,31 +12,59 @@
 
 int readLocationKml(compassMdl* mdl){
     NSString* filename = mdl->location_filename;
-    
-    //-----------------
-    // Check if an online version exist
-    //-----------------
-    NSString *dropbox_root = mdl->configurations[@"dropbox_root"];
-    NSURL *url = [NSURL URLWithString:
-                  [dropbox_root stringByAppendingString:[filename lastPathComponent]]];
-
-    // Check if the URL is valid
-    NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1.0];
-    NSHTTPURLResponse* response = nil;
-    NSError* error = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-
     xmlParser *myParser;
-    if ([response statusCode] == 200){
-        // need to append "?dl=1" to access the file directly
-        myParser = [[xmlParser alloc]
-                    initWithFileURL:
-                    [NSURL URLWithString:[[url absoluteString] stringByAppendingString:@"?dl=1"]]
-                    ];
+#ifdef __IPHONE__
+//    //-----------------
+//    // Check if an online version exist
+//    //-----------------
+//    NSString *dropbox_root = mdl->configurations[@"dropbox_root"];
+//    NSURL *url = [NSURL URLWithString:
+//                  [dropbox_root stringByAppendingString:[filename lastPathComponent]]];
+//    
+//    // Check if the URL is valid
+//    NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1.0];
+//    NSHTTPURLResponse* response = nil;
+//    NSError* error = nil;
+//    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//    
+//
+//    if ([response statusCode] == 200){
+//        // need to append "?dl=1" to access the file directly
+//        myParser = [[xmlParser alloc]
+//                    initWithFileURL:
+//                    [NSURL URLWithString:[[url absoluteString] stringByAppendingString:@"?dl=1"]]
+//                    ];
+//    }else{
+//        myParser = [[xmlParser alloc]
+//                    initWithFileURL: [NSURL fileURLWithPath: filename]];
+//    };
+    
+    
+
+    NSData* data;
+    if (mdl->dbFilesystem.isReady){
+        data = [mdl->dbFilesystem readFileFromName:
+                [filename lastPathComponent]];
+    }
+    
+    if (!data){
+        //        data = [NSData dataWithContentsOfFile:jsonPath];
+        data = [mdl->docFilesystem readFileFromName:
+                [filename lastPathComponent]];
+    }
+    
+    if (!data){
+        throw(runtime_error("Failed to read the configuration file."));
+        return EXIT_FAILURE;
     }else{
-        myParser = [[xmlParser alloc]
-                    initWithFileURL: [NSURL fileURLWithPath: filename]];
-    };
+        myParser = [[xmlParser alloc] initWithData: data];
+    }
+    
+    
+#else
+    myParser = [[xmlParser alloc]
+                initWithFileURL: [NSURL fileURLWithPath: filename]];
+#endif
     
     myParser.parseFile;
     
@@ -67,7 +95,19 @@ int readLocationKml(compassMdl* mdl){
 @synthesize data_array;
 
 -(id)initWithFileURL: (NSURL*) in_fileurl{
+    self = [super init];
     fileurl = in_fileurl;
+    in_data = nil;
+    place_flag = false;
+    name_flag = false;
+    coord_flag = false;
+    return self;
+}
+
+-(id)initWithData: (NSData*) inData{
+    self = [super init];
+    fileurl = nil;
+    in_data = inData;
     place_flag = false;
     name_flag = false;
     coord_flag = false;
@@ -75,8 +115,13 @@ int readLocationKml(compassMdl* mdl){
 }
 
 -(int) parseFile{
-    parser = [[NSXMLParser alloc]
-              initWithContentsOfURL: fileurl];
+    
+    if (!in_data){
+        parser = [[NSXMLParser alloc]
+                  initWithContentsOfURL: fileurl];
+    }else{
+        parser = [[NSXMLParser alloc] initWithData: in_data];
+    }
     
     [parser setDelegate:self];
     BOOL success = [parser parse];

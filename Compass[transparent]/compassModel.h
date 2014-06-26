@@ -17,6 +17,7 @@
 #import <Cocoa/Cocoa.h>
 #else
 #import <UIKit/UIKit.h>
+#import "filesystem.h"
 #endif
 
 using namespace std;
@@ -59,6 +60,12 @@ public:
     
     // Do not update indices_for_rendering when this is on.
     bool lockLandmarks;
+    
+    // File system
+#ifdef __IPHONE__
+    filesystem* docFilesystem;
+    filesystem* dbFilesystem;
+#endif
     
     // indicates the centroid of compass in the map window coordinate frame
     // (in terms of u, v, not in terms of latitude and longitude)

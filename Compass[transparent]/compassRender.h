@@ -83,7 +83,7 @@ public:
     bool label_flag;
     float label_size;
 	NSMutableDictionary *stringAttrib; // Text attributes
-	
+   
 #ifndef __IPHONE__
 	GLString *label_string;
 #endif
