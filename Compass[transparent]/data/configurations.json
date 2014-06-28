@@ -15,6 +15,11 @@
   "comment": "on, off"
   },
   {
+  "property": "wedge_correction_x",
+  "value": 1,
+  "comment": "float"
+  },
+  {
   "property": "default_location_filename",
   "value": "SundayTest.kml",
   "comment": "Specify the default location file"

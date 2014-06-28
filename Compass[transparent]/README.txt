@@ -918,6 +918,34 @@ http://stackoverflow.com/questions/12561735/what-are-unwind-segues-for-and-how-d
 - should I implement an unlink option?
 https://www.dropbox.com/developers/sync/docs/ios
 
+-------------------------------------------------------------------
+6.27.2014
+-------------------------------------------------------------------
+
+Here is the trick to draw polylines on top of a map:
+http://stackoverflow.com/questions/20350685/polyline-not-drawing-from-user-location-blue-dot
+
+http://stackoverflow.com/questions/6167884/monotouch-draw-a-mkpolyline-on-map
+
+    MKMapPoint *pointsArray = malloc(sizeof(CLLocationCoordinate2D));
+    pointsArray[0]= MKMapPointForCoordinate(currentLocation);
+    pointsArray[1]= MKMapPointForCoordinate(otherLocation);
+    routeLine = [MKPolyline polylineWithPoints:pointsArray count:2];
+    free(pointsArray);
+
+    [self.mapView addOverlay:routeLine];
+
+- bug fixes, add-ons
+* fix wedge
+
+-------------------------------------------------------------------
+6.28.2014
+-------------------------------------------------------------------
+- implement a constrait for the wedge
+
+
+
+
 
 
 

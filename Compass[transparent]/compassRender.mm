@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Daniel Miau. All rights reserved.
 //
 #include "commonInclude.h"
-#include <math.h>
+#include <cmath>
 #include <algorithm>
 #include "compassRender.h"
 

@@ -118,7 +118,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         }
         db_stream << ", ";
     }
-    //    cout << db_stream.str() << endl;
+//    cout << db_stream.str() << endl;
 
     
     // ---------------
