@@ -1,5 +1,20 @@
  [
   {
+  "property": "separator",
+  "value": "==================================================",
+  "comment": "program related stuff"
+  },
+  {
+  "property": "db_stream_flag",
+  "value": "off",
+  "comment": "on, off"
+  },
+  {
+  "property": "default_location_filename",
+  "value": "SundayTest.kml",
+  "comment": "Specify the default location file"
+  },
+  {
   "property": "dropbox_root",
   "value": "https://www.dropbox.com/s/ck8s0qfm9gso721/",
   "comment": "dropbox root"
@@ -8,6 +23,11 @@
   "property": "personalized_compass_status",
   "value": "on",
   "comment": "on, off"
+  },
+  {
+  "property": "separator",
+  "value": "==================================================",
+  "comment": "wedge related stuff"
   },
   {
   "property": "wedge_status",
@@ -20,9 +40,9 @@
   "comment": "float"
   },
   {
-  "property": "default_location_filename",
-  "value": "SundayTest.kml",
-  "comment": "Specify the default location file"
+  "property": "separator",
+  "value": "==================================================",
+  "comment": "compass related stuff"
   },
   {
   "property": "traslation_step",

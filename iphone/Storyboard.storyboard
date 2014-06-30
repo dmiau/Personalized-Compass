@@ -28,11 +28,15 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <mapView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u8M-kf-lHS" userLabel="Overview Map">
+                                <rect key="frame" x="10" y="80" width="130" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
                             <glkView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" drawableDepthFormat="16" drawableMultisample="4X" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6C-r0-bI1" customClass="iOSGLKView">
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </glkView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuN-zz-sjI">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuN-zz-sjI" userLabel="Setting Menu">
                                 <rect key="frame" x="278" y="27" width="35" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="setup.jpg">
@@ -42,7 +46,7 @@
                                     <segue destination="9xM-YS-8bl" kind="push" identifier="settingSegue" id="dqm-u3-uK4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-jM-ph6">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-jM-ph6" userLabel="Show Current Location">
                                 <rect key="frame" x="269" y="488" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="location.png">
@@ -52,10 +56,6 @@
                                     <action selector="getCurrentLocation:" destination="RVv-fy-219" eventType="touchUpInside" id="7nz-Bu-F1F"/>
                                 </connections>
                             </button>
-                            <mapView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u8M-kf-lHS" userLabel="Overview Map">
-                                <rect key="frame" x="10" y="80" width="130" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </mapView>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="js4-0U-F0i" userLabel="Style Control">
                                 <rect key="frame" x="0.0" y="267" width="320" height="255"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,6 +177,11 @@
                                     <barButtonItem systemItem="bookmarks" id="Ey4-ip-hP9">
                                         <connections>
                                             <segue destination="KRL-rx-xwq" kind="custom" identifier="tableSegue" customClass="bottomUpSegue" id="zjE-YJ-EH1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Debug" id="6jh-vN-hUB">
+                                        <connections>
+                                            <action selector="toggleDebugView:" destination="RVv-fy-219" id="k7n-yV-92w"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

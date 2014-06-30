@@ -83,6 +83,9 @@ public:
     bool label_flag;
     float label_size;
 	NSMutableDictionary *stringAttrib; // Text attributes
+    
+    // Debug string
+    NSString* debugString;
    
 #ifndef __IPHONE__
 	GLString *label_string;
@@ -90,6 +93,11 @@ public:
     
     // Camera handling
     recCamera camera;
+    
+    // Overview map stuff
+    bool isOverviewMapEnabled;
+//    CGPoint box4Corners[4];
+    
 private:
     // Compass rendering intermediate parameters
     double max_dist;
@@ -122,6 +130,7 @@ private:
     void drawLabel(float rotation, float height, string name);
     void drawCircle(float cx, float cy, float r, int num_segments);
     void drawBox(double renderD2realDRatio);
+    void drawOverviewBox();
     
     //-----------------
     // style related methods

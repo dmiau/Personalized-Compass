@@ -62,6 +62,14 @@ int compassRender::initRenderMdl(){
     resetCamera();     // Initialize the camera
     compass_scale = [model->configurations[@"compass_scale"] floatValue];
     label_flag = true;
+    isOverviewMapEnabled = false;
+    
+//    // Initialize all four corners to 0 first
+//    box4Corners[0].x = 0; box4Corners[0].y = 0;
+//    box4Corners[1].x = 0; box4Corners[1].y = 0;
+//    box4Corners[2].x = 0; box4Corners[2].y = 0;
+//    box4Corners[3].x = 0; box4Corners[3].y = 0;
+    
     glDrawingCorrectionRatio = 1;
     
     compass_centroid = glOrigin;
@@ -241,6 +249,18 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     // Draw compass
     //--------------
     drawCompass(renderParamStruct);
+    
+//    //--------------
+//    // Draw the overview box
+//    //--------------
+//    if (isOverviewMapEnabled){
+//        drawOverviewBox();
+//        
+//        for (int i = 0; i < 4; ++i){
+//            cout << "point " << i << ": " <<
+//            box4Corners[i].x << " " << box4Corners[i].y << endl;
+//        }
+//    }
     
     glPopMatrix();
     glDisableClientState(GL_VERTEX_ARRAY);

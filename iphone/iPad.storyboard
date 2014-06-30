@@ -72,6 +72,11 @@
                                             <segue destination="06K-e6-nHH" kind="modal" modalPresentationStyle="formSheet" id="xmo-n9-EnG"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Debug" id="om0-Jr-fMb" userLabel="Debug">
+                                        <connections>
+                                            <action selector="toggleDebugView:" destination="RyZ-6E-Ee0" id="X04-ZB-btn"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJy-bh-6AD" userLabel="Type Selector View">

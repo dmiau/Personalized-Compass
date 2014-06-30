@@ -31,7 +31,8 @@ MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIView *typeSelectorView;
-
+@property UIView *debugView;
+@property UITextView *debugTextView;
 
 @property compassMdl* model;
 @property compassRender* renderer;
@@ -65,7 +66,7 @@ MKMapViewDelegate>
 - (IBAction)toggleTypeMenu:(id)sender;
 - (IBAction)refreshApp:(id)sender;
 - (IBAction)openIPADSettings:(id)sender;
-
+- (IBAction)toggleDebugView:(id)sender;
 
 - (void) setFactoryCompassHidden: (BOOL) flag;
 

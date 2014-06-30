@@ -943,6 +943,42 @@ http://stackoverflow.com/questions/6167884/monotouch-draw-a-mkpolyline-on-map
 -------------------------------------------------------------------
 - implement a constrait for the wedge
 
+-------------------------------------------------------------------
+6.29.2014
+-------------------------------------------------------------------
+- adding a debug subview (done)
+- need to populate debug subview
+- added debug view
+- next step, draw box on the map
+
+check this method:
++ (instancetype)polylineWithPoints:(MKMapPoint *)points count:(NSUInteger)count
+
+this is useful to find the visible rect
+http://stackoverflow.com/questions/2081753/getting-the-bounds-of-an-mkmapview
+
+
+-------------------------------------------------------------------
+6.30.2014
+-------------------------------------------------------------------
+two goals toady:
+- draw the box
+- fix debug information pane
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

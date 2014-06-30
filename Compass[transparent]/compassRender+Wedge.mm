@@ -50,9 +50,6 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     if (this->mapView == nil)
         throw(runtime_error("mapView is uninitialized."));
     
-    glPushMatrix();
-    glTranslated(0, 0, 3);
-    
     for (int i = 0; i < indices_for_rendering.size(); ++i){
         int j = indices_for_rendering[i];
         
@@ -72,16 +69,16 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
 //        BOOL flag = [this->mapView isFlipped];
         
         // construction
-        cout << "-----------------" << endl;
+        db_stream << "-----------------" << endl;
 
-#ifndef __IPHONE__
-        NSLog(@"Map frame: %@", NSStringFromRect(this->mapView.frame));
-#else
-        NSLog(@"Map frame: %@", NSStringFromCGRect(this->mapView.frame));
-#endif
+//#ifndef __IPHONE__
+//        NSLog(@"Map frame: %@", NSStringFromRect(this->mapView.frame));
+//#else
+//        NSLog(@"Map frame: %@", NSStringFromCGRect(this->mapView.frame));
+//#endif
         
-        cout << "landmark: " << model->data_array[j].name << endl;
-        cout << "x: " << x_diff << " y:" << y_diff << endl;
+        db_stream << "landmark: " << model->data_array[j].name << endl;
+        db_stream << "x: " << x_diff << " y:" << y_diff << endl;
         
         calculateDistInBox(this->orig_width, this->orig_height,
                            CGPointMake(x_diff, y_diff),
@@ -123,14 +120,14 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         
         if (aperture > max_aperture){
             aperture = max_aperture;
-            NSLog(@"Aperture is bigger than max_apertue!");
+//            NSLog(@"Aperture is bigger than max_apertue!");
         }
         
         leg = leg / correction_x;
 
-        cout << "leg: " << leg << endl;
-        cout << "rotation (deg): " << rotation << endl;
-        cout << "-----------------" << endl;
+        db_stream << "leg: " << leg << endl;
+        db_stream << "rotation (deg): " << rotation << endl;
+        db_stream << "-----------------" << endl;
         
         // Draw the wedge
         //        v2
@@ -157,9 +154,13 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         
         glPopMatrix();
     }
-    glPopMatrix();
     
-    cout << "Done!" << endl;
+    db_stream << "Done!" << endl;
+    
+    if ([this->model->configurations[@"db_stream_flag"] isEqualToString:@"on"])
+    {
+        cout << db_stream.str() << endl;
+    }
 }
 
 //--------------

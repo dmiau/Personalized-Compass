@@ -69,8 +69,8 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // of each mode
     // base_radius is the radius of the base, far landmarks use smaller base
     struct mode_info{
-        float base_radius;
-        double max_dist;
+        float base_radius;  // this control how fat the arrow should be
+        double max_dist;    // max distance in this mode
     };
     
     vector<mode_info> mode_info_list;
@@ -89,12 +89,22 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         mode_info_list.push_back(t_mode_info_big);
         
         db_stream << "Bimodal" <<endl;
+        
+        // Populate debug string
+        debugString = [NSString
+                       stringWithFormat:@"cluster #: 2\n ratio: %f",
+                       t_mode_info_big.max_dist/
+                       t_mode_info_small.max_dist];
+        
     }else{
         // Easy case
         mode_info t_mode_info = {central_disk_radius,
             filtered_dist_list[landmark_n-1]};
         mode_info_list.push_back(t_mode_info);
         db_stream << "Unimodal" <<endl;
+        // Populate debug string
+        debugString = [NSString
+                       stringWithFormat:@"cluster #: 1"];
     }
     
     // ---------------
@@ -246,5 +256,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
               alpha);
     glTranslatef(0, 0, -1);
     drawCircle(0, 0, outer_disk_radius, 50);
+    
     glPopMatrix();
 }
