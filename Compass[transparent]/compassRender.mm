@@ -195,16 +195,15 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //    glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
     //    glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST);
     //    glEnable(GL_MULTISAMPLE);
-    
-#ifdef __IPHONE__
-    //-------------
-    // The following is needed for iOS to initialize OpenGL correctly.
-    //-------------
     compass_scale = [model->configurations[@"compass_scale"] floatValue];
     
     compass_centroid.x = [model->configurations[@"compass_centroid"][0] floatValue];
     compass_centroid.y = [model->configurations[@"compass_centroid"][1] floatValue];
-    
+
+#ifdef __IPHONE__
+    //-------------
+    // The following is needed for iOS to initialize OpenGL correctly.
+    //-------------
     static bool once = FALSE;
     if (!once){
         //--------------
@@ -227,21 +226,31 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     this->model->configurations[@"style_type"];
     
     glMatrixMode(GL_MODELVIEW);
+    
+    //--------------
+    // Draw overview box
+    //--------------
+    // This is strange, I couldn't place this block below the draw compass code...
     glPushMatrix();
-
+    if (isOverviewMapEnabled){
+        // Note UIView's coordinate system is diffrent than OpenGL's
+        glTranslatef(-orig_width/2, orig_height/2, 0);
+        glRotatef(180, 1, 0, 0);
+        drawOverviewBox();
+    }
+    glPopMatrix();
+    
+    
+    glPushMatrix();
     // Do NOT do the following for wedge
     if (![render_style isEqualToString:@"WEDGE"]){
         // Translate the compass to the desired screen location
         glTranslatef(compass_centroid.x, compass_centroid.y, 0);
-    }
-    
-    // [todo] Careful! Potential bug here...
-    // tilt
-    glRotatef(model->tilt, 1, 0, 0);
-    
-
-    // Do NOT do the following for wedge
-    if (![render_style isEqualToString:@"WEDGE"]){
+        
+        // [todo] Careful! Potential bug here...
+        // tilt
+        glRotatef(model->tilt, 1, 0, 0);
+        
         glRotatef(model->current_pos.orientation, 0, 0, -1);
         // scaling only applies to non-wedge styles
         float scale = glDrawingCorrectionRatio * compass_scale;
@@ -252,21 +261,8 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     // Draw compass
     //--------------
     drawCompass(renderParamStruct);
-
-    if ([render_style isEqualToString:@"WEDGE"]){
-        //--------------
-        // Draw the overview box
-        //--------------
-        if (isOverviewMapEnabled){
-            drawOverviewBox();
-            
-            for (int i = 0; i < 4; ++i){
-                cout << "point " << i << ": " <<
-                box4Corners[i].x << " " << box4Corners[i].y << endl;
-            }
-        }
-    }
     glPopMatrix();
+
     glDisableClientState(GL_VERTEX_ARRAY);
     
     // glFlush is called in OpenGLView
