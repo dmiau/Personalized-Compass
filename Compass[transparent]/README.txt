@@ -965,7 +965,8 @@ two goals toady:
 - draw the box
 - fix debug information pane
 
-
+- need to fix this->model->configurations[@"wedge_correction_x"] issue
+dropbox configuraiton
 
 
 

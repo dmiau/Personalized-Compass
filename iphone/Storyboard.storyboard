@@ -28,6 +28,10 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <mapView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u8M-kf-lHS" userLabel="Overview Map">
+                                <rect key="frame" x="10" y="80" width="130" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
                             <glkView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" drawableDepthFormat="16" drawableMultisample="4X" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6C-r0-bI1" customClass="iOSGLKView">
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -52,10 +56,6 @@
                                     <action selector="getCurrentLocation:" destination="RVv-fy-219" eventType="touchUpInside" id="7nz-Bu-F1F"/>
                                 </connections>
                             </button>
-                            <mapView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u8M-kf-lHS" userLabel="Overview Map">
-                                <rect key="frame" x="10" y="80" width="130" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </mapView>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="js4-0U-F0i" userLabel="Style Control">
                                 <rect key="frame" x="0.0" y="267" width="320" height="255"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

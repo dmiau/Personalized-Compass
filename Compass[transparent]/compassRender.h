@@ -96,7 +96,7 @@ public:
     
     // Overview map stuff
     bool isOverviewMapEnabled;
-//    CGPoint box4Corners[4];
+    CGPoint box4Corners[4];
     
 private:
     // Compass rendering intermediate parameters
