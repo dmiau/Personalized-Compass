@@ -50,15 +50,17 @@
     
     if ([label isEqualToString:@"Conventional"]){
         self.conventionalCompassVisible = YES;
-        [self.glkView setHidden:YES];
+//        [self.glkView setHidden:YES];
+        self.model->configurations[@"personalized_compass_status"] = @"off";
         [self setFactoryCompassHidden:NO];
     }else if ([label isEqualToString:@"Personalized"]){
         self.conventionalCompassVisible = NO;
-        [self.glkView setHidden:NO];
+        self.model->configurations[@"personalized_compass_status"] = @"on";
         [self setFactoryCompassHidden:YES];
     }else{
         self.conventionalCompassVisible = NO;
-        [self.glkView setHidden:YES];
+        self.model->configurations[@"personalized_compass_status"] = @"off";
+//        [self.glkView setHidden:YES];
         [self setFactoryCompassHidden:YES];
     }
 }
