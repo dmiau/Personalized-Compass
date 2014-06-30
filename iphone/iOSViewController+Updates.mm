@@ -51,6 +51,12 @@
         CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
                                                   self.model->compassCenterXY
                                                    toCoordinateFromView:self.mapView];
+        //        dispatch_queue_t concurrentQueue =
+        //        dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+        //        dispatch_async(concurrentQueue,
+        //                       ^{
+        //
+        //                       });
         
         [self feedModelLatitude: compassCtrCoord.latitude
                       longitude: compassCtrCoord.longitude
@@ -74,15 +80,6 @@
                            [self.glkView setNeedsDisplay];
                        });
         
-        
-//        dispatch_async(mainQueue,
-//                       ^{
-//                           // Update the debug message
-//                           if (self.debugTextView){
-//                               self.debugTextView.text =
-//                               self.renderer->debugString;
-//                           }
-//                       });
     }
 }
 

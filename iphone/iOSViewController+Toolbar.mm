@@ -96,22 +96,4 @@
 - (IBAction)refreshApp:(id)sender {
     [self initMapView];
 }
-
-- (IBAction)toggleDebugView:(id)sender {
-    if ([[self debugView] isHidden]){
-        [[self debugView] setHidden:NO];
-        
-        // populate the debug view
-//        // add a textview to the debug view
-//        UITextView *textView = [[UITextView alloc] initWithFrame:
-//                                self.debugView.bounds];
-//        textView.text = @"Hello World!\n";
-//        [textView setFont:[UIFont systemFontOfSize:25]];
-//        textView.editable = NO;
-//        [self.debugView addSubview:textView];
-        
-    }else{
-        [[self debugView] setHidden:YES];
-    }
-}
 @end
