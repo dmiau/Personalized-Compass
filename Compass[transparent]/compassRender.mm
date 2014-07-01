@@ -221,12 +221,11 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         once = TRUE;
     }
 #endif
-    
-    NSString* render_style =
-    this->model->configurations[@"style_type"];
-    
+
     glMatrixMode(GL_MODELVIEW);
     
+    
+#ifdef __IPHONE__
     //--------------
     // Draw overview box
     //--------------
@@ -239,11 +238,18 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         drawOverviewBox();
     }
     glPopMatrix();
+#endif
+
+    //--------------
+    // Draw compass
+    //--------------
+    NSString* personalized_compass_status =
+    model->configurations[@"personalized_compass_status"];
     
-    
-    glPushMatrix();
-    // Do NOT do the following for wedge
-    if (![render_style isEqualToString:@"WEDGE"]){
+    if ([personalized_compass_status isEqualToString:@"on"]){
+        glPushMatrix();
+        // Do NOT do the following for wedge
+        
         // Translate the compass to the desired screen location
         glTranslatef(compass_centroid.x, compass_centroid.y, 0);
         
@@ -255,14 +261,26 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         // scaling only applies to non-wedge styles
         float scale = glDrawingCorrectionRatio * compass_scale;
         glScalef(scale, scale, 1);
+        
+        drawWayfindingAid(renderParamStruct);
+        glPopMatrix();
+    }
+
+    //--------------
+    // Draw wedge
+    //--------------
+    NSString* wedge_status = model->configurations[@"wedge_status"];
+    if ([wedge_status isEqualToString:@"on"]){
+        bool orig_label_flag = label_flag;
+        label_flag = false;
+        renderParamStruct.style_type =
+        hashStyleStr(@"WEDGE");
+        glPushMatrix();
+        drawWayfindingAid(renderParamStruct);
+        glPopMatrix();
+        label_flag = orig_label_flag;
     }
     
-    //--------------
-    // Draw compass
-    //--------------
-    drawCompass(renderParamStruct);
-    glPopMatrix();
-
     glDisableClientState(GL_VERTEX_ARRAY);
     
     // glFlush is called in OpenGLView

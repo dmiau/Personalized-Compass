@@ -20,7 +20,7 @@ typedef UIColor NSColor;
 //-------------
 // drawCompass
 //-------------
-void compassRender::drawCompass(RenderParamStruct renderParamStruct){
+void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
     /*
      By the time this funciton is called,
      model->indices_for_rendering shold have been updated by the model

@@ -125,7 +125,7 @@ public:
     void updateProjection(GLfloat aspect_ratio);
 private:
     // Drawing routines
-    void drawCompass(RenderParamStruct renderParamStruct);
+    void drawWayfindingAid(RenderParamStruct renderParamStruct);
     void drawTriangle(int central_disk_radius, float rotation, float height);
     void drawLabel(float rotation, float height, string name);
     void drawCircle(float cx, float cy, float r, int num_segments);

@@ -69,7 +69,7 @@
 // Update Overview map
 //------------------
 - (void)updateOverviewMap{
-    float scale = 5;
+    float scale = 10;
     MKCoordinateRegion region;
     region.center.latitude = self.mapView.region.center.latitude;
     region.center.longitude = self.mapView.region.center.longitude;
@@ -131,7 +131,7 @@
     for (int i = 0; i < 4; ++i){
         self.renderer->box4Corners[i] =
         [self.overviewMapView convertCoordinate:coord_array[i]
-                                  toPointToView:self.mapView];
+                                  toPointToView:self.glkView];
     }
     //    //Draw a box
     //    MKPolyline *routeLine = [MKPolyline polylineWithCoordinates:coord_array count:4];
