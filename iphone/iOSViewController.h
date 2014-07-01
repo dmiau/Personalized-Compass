@@ -25,6 +25,9 @@ MKMapViewDelegate>
 }
 
 @property (weak) IBOutlet MKMapView *mapView;
+@property UIView *debugView;
+@property UITextView *debugTextView;
+
 @property (weak, nonatomic) IBOutlet MKMapView *overviewMapView;
 
 @property (weak, nonatomic) IBOutlet GLKView *glkView;
@@ -63,6 +66,7 @@ MKMapViewDelegate>
 - (void) removeCompass;
 - (IBAction)toggleMenu:(id)sender;
 - (IBAction)toggleTypeMenu:(id)sender;
+- (IBAction)toggleDebugView:(id)sender;
 - (IBAction)refreshApp:(id)sender;
 - (IBAction)openIPADSettings:(id)sender;
 

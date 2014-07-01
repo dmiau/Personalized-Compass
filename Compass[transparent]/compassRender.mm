@@ -265,7 +265,9 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         drawWayfindingAid(renderParamStruct);
         glPopMatrix();
     }
-
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    
     //--------------
     // Draw wedge
     //--------------

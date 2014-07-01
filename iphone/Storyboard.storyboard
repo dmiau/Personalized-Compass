@@ -179,6 +179,11 @@
                                             <segue destination="KRL-rx-xwq" kind="custom" identifier="tableSegue" customClass="bottomUpSegue" id="zjE-YJ-EH1"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Debug" id="J0x-2f-WyJ">
+                                        <connections>
+                                            <action selector="toggleDebugView:" destination="RVv-fy-219" id="rIm-yr-UNm"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

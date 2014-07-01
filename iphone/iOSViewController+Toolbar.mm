@@ -93,6 +93,16 @@
         [[self typeSelectorView] setHidden:YES];
 }
 
+
+- (IBAction)toggleDebugView:(id)sender {
+    if ([[self debugView] isHidden]){
+        [[self debugView] setHidden:NO];
+        self.debugTextView.text = self.renderer->debugString;
+    }else{
+        [[self debugView] setHidden:YES];
+    }
+}
+
 - (IBAction)refreshApp:(id)sender {
     [self initMapView];
 }

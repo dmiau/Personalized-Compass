@@ -88,6 +88,13 @@
     self.mapView.delegate = self;
     self.renderer->mapView = [self mapView];
     [self initMapView];
+    
+    //-------------------
+    // Add a debug view
+    //-------------------
+    [self addDebugView];
+    [self.debugView setHidden:YES];
+
 }
 
 //-----------------
@@ -109,6 +116,29 @@
     // Set the conventional compass to be invisible
     self.conventionalCompassVisible = false;
 
+}
+
+//-----------------
+// initialize debug view
+//-----------------
+- (void) addDebugView{
+    
+    self.debugView = [[UIView alloc] initWithFrame:
+                      CGRectMake(0, self.view.frame.size.height - 144,
+                                 320, 100)];
+    self.debugView.backgroundColor = [UIColor redColor];
+    self.debugView.alpha = 0.6;
+    [self.view addSubview:self.debugView];
+    
+    
+    // add a textview to the debug view
+    UITextView *textView = [[UITextView alloc] initWithFrame:
+                            self.debugView.bounds];
+    textView.text = @"Hello World!\n";
+    [textView setFont:[UIFont systemFontOfSize:25]];
+    textView.editable = NO;
+    self.debugTextView = textView;
+    [self.debugView addSubview:textView];
 }
 
 - (void)didReceiveMemoryWarning
