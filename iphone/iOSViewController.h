@@ -86,6 +86,4 @@ MKMapViewDelegate>
 // Annotations related methods
 //----------------
 - (void) renderAnnotations;
-
-- (void) drawAnnotations;
 @end

@@ -180,6 +180,8 @@ int readLocationKml(compassMdl* mdl){
             data_array[data_array.size()-1].name = [string UTF8String];
             data_array[data_array.size()-1].annotation.title
             = string;
+            data_array[data_array.size()-1].annotation.subtitle =
+            [NSString stringWithFormat:@"%lu", data_array.size()-1];
         }else if (coord_flag){
             // Need to somehow split the sting
             

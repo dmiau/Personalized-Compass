@@ -72,35 +72,61 @@
     return self.model->data_array.size();
 }
 
+
+//----------------
+// This method is called to populate each row
+//----------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = (UITableViewCell *)[tableView
                                                 dequeueReusableCellWithIdentifier:@"myTableCell"];
-    
     if (cell == nil){
         NSLog(@"Something wrong...");
     }
+    // Get the row ID
     int i = [indexPath row];
     
     // Configure Cell
     cell.textLabel.text =
     [NSString stringWithUTF8String:self.model->data_array[i].name.c_str()];
-    
+    if (self.model->data_array[i].isEnabled){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell;
 }
 
-
+//----------------
+// This method is called when the accessory button is pressed
+//----------------
 - (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Accessory button is tapped for cell at index path = %@", indexPath);
+    
+    // It appears that this method will only be called when
+    // accessoryTrype is set to "Detail Disclosure"
+    
+//    NSLog(@"Accessory button is tapped for cell at index path = %@", indexPath);
+
+    // Get the row ID
+    int i = [indexPath row];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark){
+        self.model->data_array[i].isEnabled = true;
+    }else{
+        self.model->data_array[i].isEnabled = false;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
-    
+    int i = [path row];
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
+        self.model->data_array[i].isEnabled = false;
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.model->data_array[i].isEnabled = true;
     }
 }
 

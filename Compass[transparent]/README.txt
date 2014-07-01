@@ -968,8 +968,10 @@ two goals toady:
 - need to fix this->model->configurations[@"wedge_correction_x"] issue
 dropbox configuraiton
 
-
-
+-------------------------------------------------------------------
+7.1.2014
+-------------------------------------------------------------------
+- bookmark management
 
 
 

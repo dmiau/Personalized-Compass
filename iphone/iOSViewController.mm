@@ -89,6 +89,13 @@
     self.renderer->mapView = [self mapView];
     [self initMapView];
     
+    // Recognize long-press gesture
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleGesture:)];
+    lpgr.minimumPressDuration = 0.5;
+    [self.mapView addGestureRecognizer:lpgr];
+    
+    
     //-------------------
     // Add a debug view
     //-------------------
@@ -194,6 +201,27 @@
     [super touchesBegan:touches withEvent:event];
     
 }
+
+- (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
+{
+    // UIGestureRecognizerStateEnded
+    // UIGestureRecognizerStateBegan
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
+        return;
+    
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+    CLLocationCoordinate2D touchMapCoordinate =
+    [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    
+    MKPointAnnotation *pa = [[MKPointAnnotation alloc] init];
+    pa.coordinate = touchMapCoordinate;
+    pa.title = @"Hello";
+    [self.mapView addAnnotation:pa];
+    
+//    // this line displays the callout
+//    [self.mapView selectAnnotation:pa animated:YES];
+}
+
 
 @end
 

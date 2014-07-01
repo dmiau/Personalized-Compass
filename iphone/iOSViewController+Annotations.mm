@@ -23,9 +23,6 @@
     }
 }
 
--(void) drawAnnotations{
-}
-
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id < MKAnnotation >)annotation {
     
     // in case it's the user location, we already have an annotation, so just return nil
@@ -41,11 +38,22 @@
     (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:landmarkAnnotationID];
     if (pinView == nil)
     {
-        MKPinAnnotationView *pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
+        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
         
         [pinView setAnimatesDrop:YES];
         [pinView setCanShowCallout:YES];
-        pinView.pinColor = MKPinAnnotationColorPurple;
+        
+        //Decide which color to show
+        if ([annotation subtitle] == nil){
+                pinView.pinColor = MKPinAnnotationColorPurple;
+        }else{
+            int i = [[annotation subtitle] integerValue];
+            if (self.model->data_array[i].isEnabled){
+                pinView.pinColor = MKPinAnnotationColorRed;
+            }else{
+                pinView.pinColor = MKPinAnnotationColorGreen;
+            }
+        }
         
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
         [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
@@ -65,7 +73,7 @@
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     NSLog(@"Annotation clicked");
     MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
-    pinView.pinColor = MKPinAnnotationColorPurple;
+//    pinView.pinColor = MKPinAnnotationColorPurple;
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
     pinView.rightCalloutAccessoryView = rightButton;
