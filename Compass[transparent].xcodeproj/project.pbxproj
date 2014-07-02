@@ -26,6 +26,7 @@
 		9A02D100195C5D4F00A64987 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F1195C5CB800A64987 /* Security.framework */; };
 		9A02D101195C5D5500A64987 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F3195C5CBE00A64987 /* CFNetwork.framework */; };
 		9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
+		9A2ED70A19639D5900CA385E /* ViewPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2ED70919639D5900CA385E /* ViewPanel.xib */; };
 		9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
 		9A2F0C5A1943DAD600350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
 		9A49A5F2195491CF00937961 /* iOSViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */; };
@@ -189,6 +190,18 @@
 		9AA789301909FE3000A26C66 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA581C18D9EC680028B80C /* README.txt */; };
 		9AA789371909FE5A00A26C66 /* browser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA789361909FE5A00A26C66 /* browser.xib */; };
 		9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
+		9AB2A718196372AA0001E96F /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A716196372AA0001E96F /* selected.png */; };
+		9AB2A719196372AA0001E96F /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A716196372AA0001E96F /* selected.png */; };
+		9AB2A71A196372AA0001E96F /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A716196372AA0001E96F /* selected.png */; };
+		9AB2A71B196372AA0001E96F /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A716196372AA0001E96F /* selected.png */; };
+		9AB2A71C196372AA0001E96F /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A716196372AA0001E96F /* selected.png */; };
+		9AB2A71D196372AA0001E96F /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A716196372AA0001E96F /* selected.png */; };
+		9AB2A71E196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
+		9AB2A71F196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
+		9AB2A720196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
+		9AB2A721196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
+		9AB2A722196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
+		9AB2A723196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
 		9AB6E8DB1906C9B000E28DE9 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
 		9AB90B8D194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
 		9AB90B8E194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
@@ -295,6 +308,7 @@
 		9A02D0FA195C5D1700A64987 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
 		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
 		9A28368A1900C0850041D22E /* readConfiguration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = readConfiguration.mm; sourceTree = "<group>"; };
+		9A2ED70919639D5900CA385E /* ViewPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewPanel.xib; sourceTree = "<group>"; };
 		9A2F0C521943DA9200350BD2 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
 		9A2F0C531943DA9200350BD2 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
 		9A49A5F0195491CF00937961 /* iOSViewController+Annotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Annotations.h"; sourceTree = "<group>"; };
@@ -361,6 +375,8 @@
 		9AA789351909FE3100A26C66 /* Compass[transparent] copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Compass[transparent] copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/Compass[transparent] copy-Info.plist"; sourceTree = "<absolute>"; };
 		9AA789361909FE5A00A26C66 /* browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = browser.xib; path = "Compass[transparent]/browser.xib"; sourceTree = "<group>"; };
 		9AAE13D819046975003BF9B7 /* renderStyles.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = renderStyles.mm; sourceTree = "<group>"; };
+		9AB2A716196372AA0001E96F /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = icons/selected.png; sourceTree = "<group>"; };
+		9AB2A717196372AA0001E96F /* unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unselected.png; path = icons/unselected.png; sourceTree = "<group>"; };
 		9AB6E8D91906C9B000E28DE9 /* commonTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = commonTools.mm; sourceTree = "<group>"; };
 		9AB90B8C194DED0B0030BF5B /* Taiwan.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taiwan.kml; sourceTree = "<group>"; };
 		9AB90B93194F383A0030BF5B /* compassRender+Bimodal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Bimodal.mm"; sourceTree = "<group>"; };
@@ -558,6 +574,7 @@
 				9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */,
 				9A49A5F41954A8BB00937961 /* myTableViewController.h */,
 				9A49A5F51954A8BB00937961 /* myTableViewController.mm */,
+				9A2ED70919639D5900CA385E /* ViewPanel.xib */,
 			);
 			path = iphone;
 			sourceTree = "<group>";
@@ -635,6 +652,8 @@
 		9A998D66194B716800778DFC /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				9AB2A716196372AA0001E96F /* selected.png */,
+				9AB2A717196372AA0001E96F /* unselected.png */,
 				9A998D7B194BCB0900778DFC /* setup.jpg */,
 				9A998D77194BC60C00778DFC /* location.png */,
 				9A998D67194B721F00778DFC /* line__0000s_0005_compass.png */,
@@ -985,15 +1004,18 @@
 				9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
 				9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */,
+				9AB2A71C196372AA0001E96F /* selected.png in Resources */,
 				9A998D68194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A998D79194BC60C00778DFC /* location.png in Resources */,
 				9A4F0FAF193E745900CF32DE /* london.kml in Resources */,
 				9AB90B91194DED0B0030BF5B /* Taiwan.kml in Resources */,
+				9A2ED70A19639D5900CA385E /* ViewPanel.xib in Resources */,
 				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A998D7D194BCB0900778DFC /* setup.jpg in Resources */,
 				9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */,
 				9A4F0FB1193E745900CF32DE /* montreal.kml in Resources */,
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
+				9AB2A722196372AA0001E96F /* unselected.png in Resources */,
 				9A4F0F59193E2A8900CF32DE /* Images.xcassets in Resources */,
 				9A4F0F75193E2AF500CF32DE /* Storyboard.storyboard in Resources */,
 			);
@@ -1005,12 +1027,14 @@
 			files = (
 				9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */,
+				9AB2A723196372AA0001E96F /* unselected.png in Resources */,
 				9A82B6441941518900534A5F /* configurations.json in Resources */,
 				9A82B6541941528600534A5F /* iPad.storyboard in Resources */,
 				9A82B6451941518900534A5F /* New York City [many].kml in Resources */,
 				9A998D69194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A82B6461941518900534A5F /* london.kml in Resources */,
 				9A998D7E194BCB0900778DFC /* setup.jpg in Resources */,
+				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
 				9A82B6471941518900534A5F /* newyork.kml in Resources */,
 				9A82B6481941518900534A5F /* montreal.kml in Resources */,
 				9A82B6491941518900534A5F /* InfoPlist.strings in Resources */,
@@ -1030,10 +1054,12 @@
 				9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */,
 				9AA789251909FE3000A26C66 /* InfoPlist.strings in Resources */,
 				9AA789261909FE3000A26C66 /* moto360_bikemap.png in Resources */,
+				9AB2A721196372AA0001E96F /* unselected.png in Resources */,
 				9AA789271909FE3000A26C66 /* Images.xcassets in Resources */,
 				9AA789281909FE3000A26C66 /* configurations.json in Resources */,
 				9AA789291909FE3000A26C66 /* london.kml in Resources */,
 				9AA7892A1909FE3000A26C66 /* montreal.kml in Resources */,
+				9AB2A71B196372AA0001E96F /* selected.png in Resources */,
 				9AA7892D1909FE3000A26C66 /* newyork.kml in Resources */,
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
@@ -1057,8 +1083,10 @@
 				9ACCED0018EF5425006E9CA4 /* london.kml in Resources */,
 				9AF523BC18DC8E95005823A2 /* montreal.kml in Resources */,
 				9A998D78194BC60C00778DFC /* location.png in Resources */,
+				9AB2A71E196372AA0001E96F /* unselected.png in Resources */,
 				9A5681B01944A57A0021DA97 /* SundayTest.kml in Resources */,
 				9AF523BB18DC8E95005823A2 /* newyork.kml in Resources */,
+				9AB2A718196372AA0001E96F /* selected.png in Resources */,
 				9A998D7C194BCB0900778DFC /* setup.jpg in Resources */,
 				9AF29F2A18F4C90000A28AC3 /* moto360_wrist.jpg in Resources */,
 				9AEA57E118D9EBB20028B80C /* Credits.rtf in Resources */,
@@ -1075,12 +1103,14 @@
 			files = (
 				9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */,
 				9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */,
+				9AB2A720196372AA0001E96F /* unselected.png in Resources */,
 				9A9701DD19083C9B007C3C19 /* configurations.json in Resources */,
 				9AEECFF81910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9A9701E8190851A3007C3C19 /* smartWatch.tif in Resources */,
 				9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */,
 				9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */,
 				9AEC5CED18F3956F00A29F75 /* Images.xcassets in Resources */,
+				9AB2A71A196372AA0001E96F /* selected.png in Resources */,
 				9AEC5CEE18F3956F00A29F75 /* london.kml in Resources */,
 				9AEC5CEF18F3956F00A29F75 /* montreal.kml in Resources */,
 				9A6F53F41910069F00F35FED /* DebugInfoWindow.xib in Resources */,
@@ -1100,6 +1130,8 @@
 				9AFB14B118EE639A00063632 /* Images.xcassets in Resources */,
 				9AFB14B218EE639A00063632 /* montreal.kml in Resources */,
 				9A6F53F31910069F00F35FED /* DebugInfoWindow.xib in Resources */,
+				9AB2A71F196372AA0001E96F /* unselected.png in Resources */,
+				9AB2A719196372AA0001E96F /* selected.png in Resources */,
 				9AFB14B518EE639A00063632 /* newyork.kml in Resources */,
 				9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,

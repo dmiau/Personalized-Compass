@@ -64,6 +64,7 @@
         [self.ibSearchBar setDelegate:self];
         
         self.needUpdateDisplayRegion = false;
+        self.needUpdateAnnotations = false;
     }
     return self;
 }
@@ -170,6 +171,12 @@
         self.needUpdateDisplayRegion = false;
     }
 
+    
+    if (self.needUpdateAnnotations){
+        [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
+        [self renderAnnotations];
+    }
+    
     // This may be an iPad only thing
     [self dismissViewControllerAnimated:YES completion:nil];
 }

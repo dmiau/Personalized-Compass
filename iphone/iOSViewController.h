@@ -45,6 +45,7 @@ MKMapViewDelegate>
 
 // This is used for communication via segue
 @property bool needUpdateDisplayRegion;
+@property bool needUpdateAnnotations;
 - (IBAction)getCurrentLocation:(id)sender;
 
 

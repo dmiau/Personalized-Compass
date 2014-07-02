@@ -7,6 +7,7 @@
 //
 
 #import "myTableViewController.h"
+#import "iOSViewController.h"
 
 @interface myTableViewController ()
 
@@ -32,6 +33,7 @@
         self.model = compassMdl::shareCompassMdl();
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
+        self.needUpdateAnnotations = false;
     }
     return self;
 }
@@ -51,17 +53,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 #pragma mark -----Table View Data Source Methods-----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -128,10 +119,27 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         self.model->data_array[i].isEnabled = true;
     }
+    
+    self.needUpdateAnnotations = true;
 }
 
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return YES;
 //}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if (self.needUpdateAnnotations)
+    {
+        iOSViewController *destViewController = segue.destinationViewController;
+        destViewController.needUpdateAnnotations = true;
+    }
+}
 
 @end

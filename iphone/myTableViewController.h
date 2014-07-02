@@ -15,4 +15,5 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;
+@property bool needUpdateAnnotations;
 @end

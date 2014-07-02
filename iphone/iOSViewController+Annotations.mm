@@ -18,7 +18,7 @@
     
     for (int i = 0; i < self.model->data_array.size(); ++i){
         data myData = self.model->data_array[i];
-        if (myData.isEnabled)
+//        if (myData.isEnabled)
             [self.mapView addAnnotation: myData.annotation];
     }
 }
@@ -42,25 +42,35 @@
         
         [pinView setAnimatesDrop:YES];
         [pinView setCanShowCallout:YES];
-        
-        //Decide which color to show
-        if ([annotation subtitle] == nil){
-                pinView.pinColor = MKPinAnnotationColorPurple;
-        }else{
-            int i = [[annotation subtitle] integerValue];
-            if (self.model->data_array[i].isEnabled){
-                pinView.pinColor = MKPinAnnotationColorRed;
-            }else{
-                pinView.pinColor = MKPinAnnotationColorGreen;
-            }
-        }
-        
-        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-        [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
-        pinView.rightCalloutAccessoryView = rightButton;
     }else{
         pinView.annotation = annotation;
     }
+    
+    //Decide which color to show
+    UIImage *btnImage;
+    if ([annotation subtitle] == nil){
+        pinView.pinColor = MKPinAnnotationColorPurple;
+    }else{
+        int i = [[annotation subtitle] integerValue];
+        if (self.model->data_array[i].isEnabled){
+            pinView.pinColor = MKPinAnnotationColorRed;
+            btnImage = [UIImage imageNamed:@"selected.png"];
+        }else{
+            pinView.pinColor = MKPinAnnotationColorGreen;
+            btnImage = [UIImage imageNamed:@"unselected.png"];
+        }
+    }
+    
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setImage:btnImage forState:UIControlStateNormal];
+    
+    rightButton.frame = CGRectMake(0, 0,
+                                   btnImage.size.width, btnImage.size.height);
+    [rightButton setBackgroundColor: [UIColor redColor]];
+    
+    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+    pinView.rightCalloutAccessoryView = rightButton;
+    
     return pinView;
 }
 
@@ -70,6 +80,7 @@
     NSLog(@"Do something");
 }
 
+/*
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     NSLog(@"Annotation clicked");
     MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
@@ -78,5 +89,5 @@
     [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
     pinView.rightCalloutAccessoryView = rightButton;
 }
-
+*/
 @end
