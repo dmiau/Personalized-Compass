@@ -74,23 +74,22 @@
 //------------------
 // Show the menu view
 //------------------
-- (IBAction)toggleMenu:(id)sender {
-    if ([[self menuView] isHidden])
-        [[self menuView] setHidden:NO];
+- (IBAction)toggleModelPanel:(id)sender {
+    if ([[self modelPanel] isHidden])
+        [[self modelPanel] setHidden:NO];
     else{
-        [[self menuView] setHidden:YES];
+        [[self modelPanel] setHidden:YES];
         
-
         if (self.needUpdateDisplayRegion)
             [self updateMapDisplayRegion];
     }
 }
 
-- (IBAction)toggleTypeMenu:(id)sender {
-    if ([[self typeSelectorView] isHidden])
-        [[self typeSelectorView] setHidden:NO];
+- (IBAction)toggleViewPanel:(id)sender {
+    if ([[self viewPanel] isHidden])
+        [[self viewPanel] setHidden:NO];
     else
-        [[self typeSelectorView] setHidden:YES];
+        [[self viewPanel] setHidden:YES];
 }
 
 

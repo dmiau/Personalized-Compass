@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
 
-#import "iOSViewController+TypeSelector.h"
+#import "iOSViewController+ViewPanel.h"
 
-@implementation iOSViewController (TypeSelector)
+@implementation iOSViewController (ViewPanel)
 
 //------------------
 // Toggle between conventional compass and personalized compass
@@ -37,6 +37,35 @@
     }else{
         [[self overviewMapView] setHidden:YES];
         self.renderer->isOverviewMapEnabled = false;
+    }
+}
+
+//------------------
+// Toggle wedge
+//------------------
+- (IBAction)toggleWedge:(id)sender {
+    UISwitch* mySwitch = (UISwitch*) sender;
+    if ([mySwitch isOn] == YES){
+        self.model->configurations[@"wedge_status"] = @"on";
+    }else{
+        self.model->configurations[@"wedge_status"] = @"off";
+    }
+}
+
+//------------------
+// Select map style
+//------------------
+- (IBAction)mapStyleSegmentControl:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    NSString *label = [segmentedControl
+                       titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
+    
+    if ([label isEqualToString:@"Standard"]){
+        self.mapView.mapType = MKMapTypeStandard;
+    }else if ([label isEqualToString:@"Hybrid"]){
+        self.mapView.mapType = MKMapTypeHybrid;
+    }else{
+        self.mapView.mapType = MKMapTypeSatellite;
     }
 }
 

@@ -975,8 +975,10 @@ dropbox configuraiton
 
 http://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-code
 
-
-
+-------------------------------------------------------------------
+7.2.2014
+-------------------------------------------------------------------
+- constructing the new viewPanel and modelPanel
 
 
 

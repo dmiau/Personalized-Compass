@@ -56,112 +56,18 @@
                                     <action selector="getCurrentLocation:" destination="RVv-fy-219" eventType="touchUpInside" id="7nz-Bu-F1F"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="js4-0U-F0i" userLabel="Style Control">
-                                <rect key="frame" x="0.0" y="267" width="320" height="255"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cnc-mn-V1A" userLabel="ToggleCompass">
-                                        <rect key="frame" x="20" y="70" width="51" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="togglePCompass:" destination="RVv-fy-219" eventType="valueChanged" id="JOg-df-wGy"/>
-                                        </connections>
-                                    </switch>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LFV-Lz-mHi" userLabel="ToggleWedge">
-                                        <rect key="frame" x="20" y="168" width="51" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="toggleWedge:" destination="RVv-fy-219" eventType="valueChanged" id="GTR-tF-dyY"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wedge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEt-KJ-zsy">
-                                        <rect key="frame" x="93" y="174" width="68" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Personalized Compass" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXR-dh-SjY">
-                                        <rect key="frame" x="93" y="73" width="188" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I9x-cZ-FrE">
-                                        <rect key="frame" x="38" y="120" width="243" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="real ratio"/>
-                                            <segment title="bimodal"/>
-                                            <segment title=""/>
-                                        </segments>
-                                    </segmentedControl>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oOW-b7-eYY">
-                                        <rect key="frame" x="38" y="207" width="135" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="standard"/>
-                                            <segment title="hybrid"/>
-                                        </segments>
-                                    </segmentedControl>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7ij-P2-2MO" userLabel="Lock Landmarks Switch">
-                                        <rect key="frame" x="20" y="14" width="51" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="toggleLandmarkLock:" destination="RVv-fy-219" eventType="valueChanged" id="jBP-Ka-NDw"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lock Landmarks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ze-In-8me">
-                                        <rect key="frame" x="93" y="20" width="146" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v60-GT-5Bf" userLabel="Type Selector">
-                                <rect key="frame" x="0.0" y="267" width="320" height="255"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h78-BE-jpC" userLabel="Overview Switch">
-                                        <rect key="frame" x="20" y="15" width="51" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="toggleOverviewMap:" destination="RVv-fy-219" eventType="valueChanged" id="Glu-5m-R2M"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overview Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlK-g4-OpC">
-                                        <rect key="frame" x="95" y="22" width="135" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="wgF-6s-qrY" userLabel="Compass Selector">
-                                        <rect key="frame" x="14" y="82" width="281" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="Conventional"/>
-                                            <segment title="Personalized"/>
-                                            <segment title="None"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="compassSegmentControl:" destination="RVv-fy-219" eventType="valueChanged" id="fdE-Uo-WNx"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNx-RU-M1b">
                                 <rect key="frame" x="0.0" y="523" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="[Type]" style="plain" id="4gf-EJ-v22">
+                                    <barButtonItem title="[View]" style="plain" id="4gf-EJ-v22">
                                         <connections>
-                                            <action selector="toggleTypeMenu:" destination="RVv-fy-219" id="2dI-TG-RJk"/>
+                                            <action selector="toggleViewPanel:" destination="RVv-fy-219" id="mox-LM-BE8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="[Mdl]" id="O8V-7Z-YW9">
+                                        <connections>
+                                            <action selector="toggleModelPanel:" destination="RVv-fy-219" id="8At-di-duY"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="[Explr. Mode]" id="3FE-5S-7JP">
@@ -169,19 +75,14 @@
                                             <action selector="toggleExplrMode:" destination="RVv-fy-219" id="2kP-19-yzm"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="[Opt.]" id="O8V-7Z-YW9">
+                                    <barButtonItem title="Debug" id="J0x-2f-WyJ">
                                         <connections>
-                                            <action selector="toggleMenu:" destination="RVv-fy-219" id="cdw-k8-dPn"/>
+                                            <action selector="toggleDebugView:" destination="RVv-fy-219" id="rIm-yr-UNm"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="bookmarks" id="Ey4-ip-hP9">
                                         <connections>
                                             <segue destination="KRL-rx-xwq" kind="custom" identifier="tableSegue" customClass="bottomUpSegue" id="zjE-YJ-EH1"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Debug" id="J0x-2f-WyJ">
-                                        <connections>
-                                            <action selector="toggleDebugView:" destination="RVv-fy-219" id="rIm-yr-UNm"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -194,10 +95,8 @@
                         <outlet property="glkView" destination="w6C-r0-bI1" id="yhf-bo-5Lj"/>
                         <outlet property="ibSearchBar" destination="we6-xT-3ZG" id="lqR-nJ-pAx"/>
                         <outlet property="mapView" destination="Nfb-xm-KgJ" id="zfv-nH-uVh"/>
-                        <outlet property="menuView" destination="js4-0U-F0i" id="iGI-kg-yTX"/>
                         <outlet property="overviewMapView" destination="u8M-kf-lHS" id="txA-tO-WaT"/>
                         <outlet property="searchDisplayController" destination="Rqg-Uh-RXs" id="TnG-zy-1n9"/>
-                        <outlet property="typeSelectorView" destination="v60-GT-5Bf" id="W3v-Kq-FZW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6t-MK-lm4" userLabel="First Responder" sceneMemberID="firstResponder"/>

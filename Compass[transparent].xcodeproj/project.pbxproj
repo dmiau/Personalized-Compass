@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A006CA219522918009BB81C /* iOSViewController+Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Menu.mm */; };
-		9A006CA319522918009BB81C /* iOSViewController+Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Menu.mm */; };
+		9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
+		9A006CA319522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
 		9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
 		9A02D0EC195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
 		9A02D0EE195C5CA900A64987 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0ED195C5CA900A64987 /* QuartzCore.framework */; };
@@ -221,8 +221,8 @@
 		9AB90B9E194F39F40030BF5B /* compassRender+Wedge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */; };
 		9AB90B9F194F39F40030BF5B /* compassRender+Wedge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */; };
 		9AB90BA0194F39F40030BF5B /* compassRender+Wedge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */; };
-		9ABB96B41957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+TypeSelector.mm */; };
-		9ABB96B51957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+TypeSelector.mm */; };
+		9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */; };
+		9ABB96B51957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */; };
 		9ACCED0018EF5425006E9CA4 /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
 		9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
 		9AE093D118ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
@@ -295,8 +295,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A006CA019522918009BB81C /* iOSViewController+Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Menu.h"; sourceTree = "<group>"; };
-		9A006CA119522918009BB81C /* iOSViewController+Menu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Menu.mm"; sourceTree = "<group>"; };
+		9A006CA019522918009BB81C /* iOSViewController+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Model.h"; sourceTree = "<group>"; };
+		9A006CA119522918009BB81C /* iOSViewController+Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Model.mm"; sourceTree = "<group>"; };
 		9A02D0E8195C5C8700A64987 /* filesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filesystem.h; sourceTree = "<group>"; };
 		9A02D0E9195C5C8700A64987 /* filesystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = filesystem.mm; sourceTree = "<group>"; };
 		9A02D0ED195C5CA900A64987 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -381,8 +381,8 @@
 		9AB90B8C194DED0B0030BF5B /* Taiwan.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taiwan.kml; sourceTree = "<group>"; };
 		9AB90B93194F383A0030BF5B /* compassRender+Bimodal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Bimodal.mm"; sourceTree = "<group>"; };
 		9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Wedge.mm"; sourceTree = "<group>"; };
-		9ABB96B21957C94A00D7296A /* iOSViewController+TypeSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+TypeSelector.h"; sourceTree = "<group>"; };
-		9ABB96B31957C94A00D7296A /* iOSViewController+TypeSelector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+TypeSelector.mm"; sourceTree = "<group>"; };
+		9ABB96B21957C94A00D7296A /* iOSViewController+ViewPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+ViewPanel.h"; sourceTree = "<group>"; };
+		9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+ViewPanel.mm"; sourceTree = "<group>"; };
 		9ACCECFF18EF5425006E9CA4 /* london.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = london.kml; sourceTree = "<group>"; };
 		9ACF5D8618EB572100F03872 /* DesktopViewController+TableAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+TableAddition.h"; sourceTree = "<group>"; };
 		9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+TableAddition.mm"; sourceTree = "<group>"; };
@@ -540,17 +540,21 @@
 			name = Archive;
 			sourceTree = "<group>";
 		};
-		9A4F0F4C193E2A8900CF32DE /* iphone */ = {
+		9A2ED70B19646AF600CA385E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9A49A5F81954A90E00937961 /* bottomUpSegue.h */,
-				9A49A5F91954A90E00937961 /* bottomUpSegue.m */,
-				9A998D6A194B90ED00778DFC /* iphone.entitlements */,
-				9A4F0F55193E2A8900CF32DE /* AppDelegate.h */,
-				9A4F0F56193E2A8900CF32DE /* AppDelegate.m */,
-				9A4F0F58193E2A8900CF32DE /* Images.xcassets */,
-				9A4F0F4D193E2A8900CF32DE /* Supporting Files */,
+				9A4F0F7D193E308400CF32DE /* iOSGLKView.h */,
+				9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */,
+				9A82B6531941528600534A5F /* iPad.storyboard */,
+				9A2ED70919639D5900CA385E /* ViewPanel.xib */,
 				9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9A2ED70C19646B0200CA385E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				9A4F0F7A193E306A00CF32DE /* iOSViewController.h */,
 				9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */,
 				9A6FB7F21958FFC20020355A /* iOSViewController+Updates.h */,
@@ -559,22 +563,34 @@
 				9A998D70194BB8E300778DFC /* iOSViewController+Search.mm */,
 				9A998D73194BB99D00778DFC /* iOSViewController+GetLocation.h */,
 				9A998D74194BB99D00778DFC /* iOSViewController+GetLocation.mm */,
-				9ABB96B21957C94A00D7296A /* iOSViewController+TypeSelector.h */,
-				9ABB96B31957C94A00D7296A /* iOSViewController+TypeSelector.mm */,
-				9A006CA019522918009BB81C /* iOSViewController+Menu.h */,
-				9A006CA119522918009BB81C /* iOSViewController+Menu.mm */,
+				9ABB96B21957C94A00D7296A /* iOSViewController+ViewPanel.h */,
+				9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */,
+				9A006CA019522918009BB81C /* iOSViewController+Model.h */,
+				9A006CA119522918009BB81C /* iOSViewController+Model.mm */,
 				9A49A5F0195491CF00937961 /* iOSViewController+Annotations.h */,
 				9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */,
 				9A6FB7EE1958FF390020355A /* iOSViewController+Toolbar.h */,
 				9A6FB7EF1958FF390020355A /* iOSViewController+Toolbar.mm */,
-				9A4F0F7D193E308400CF32DE /* iOSGLKView.h */,
-				9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */,
-				9A82B6531941528600534A5F /* iPad.storyboard */,
 				9A95CCB1194B4146008E520F /* iOSSettingViewController.h */,
 				9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */,
 				9A49A5F41954A8BB00937961 /* myTableViewController.h */,
 				9A49A5F51954A8BB00937961 /* myTableViewController.mm */,
-				9A2ED70919639D5900CA385E /* ViewPanel.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9A4F0F4C193E2A8900CF32DE /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				9A2ED70C19646B0200CA385E /* Controller */,
+				9A2ED70B19646AF600CA385E /* View */,
+				9A49A5F81954A90E00937961 /* bottomUpSegue.h */,
+				9A49A5F91954A90E00937961 /* bottomUpSegue.m */,
+				9A998D6A194B90ED00778DFC /* iphone.entitlements */,
+				9A4F0F55193E2A8900CF32DE /* AppDelegate.h */,
+				9A4F0F56193E2A8900CF32DE /* AppDelegate.m */,
+				9A4F0F58193E2A8900CF32DE /* Images.xcassets */,
+				9A4F0F4D193E2A8900CF32DE /* Supporting Files */,
 			);
 			path = iphone;
 			sourceTree = "<group>";
@@ -1152,7 +1168,7 @@
 				9A49A5F2195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
 				9A49A5FA1954A90E00937961 /* bottomUpSegue.m in Sources */,
 				9A98AF31194289D6007166DE /* GLString.h in Sources */,
-				9ABB96B41957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */,
+				9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
 				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
 				9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
@@ -1161,7 +1177,7 @@
 				9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */,
 				9A4F0F86193E331E00CF32DE /* readConfiguration.mm in Sources */,
 				9A4F0F87193E331E00CF32DE /* compassRender.mm in Sources */,
-				9A006CA219522918009BB81C /* iOSViewController+Menu.mm in Sources */,
+				9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */,
 				9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */,
 				9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */,
@@ -1200,7 +1216,7 @@
 				9AB90B99194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A82B6381941518900534A5F /* AppDelegate.m in Sources */,
 				9A49A5F3195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
-				9A006CA319522918009BB81C /* iOSViewController+Menu.mm in Sources */,
+				9A006CA319522918009BB81C /* iOSViewController+Model.mm in Sources */,
 				9A82B6391941518900534A5F /* main.m in Sources */,
 				9A49A5F71954A8BB00937961 /* myTableViewController.mm in Sources */,
 				9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */,
@@ -1210,7 +1226,7 @@
 				9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
-				9ABB96B51957C94A00D7296A /* iOSViewController+TypeSelector.mm in Sources */,
+				9ABB96B51957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

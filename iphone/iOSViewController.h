@@ -33,8 +33,9 @@ MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet GLKView *glkView;
 @property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
-@property (weak, nonatomic) IBOutlet UIView *typeSelectorView;
 
+@property UIView *viewPanel;
+@property UIView *modelPanel;
 
 @property compassMdl* model;
 @property compassRender* renderer;
@@ -65,9 +66,12 @@ MKMapViewDelegate>
 - (IBAction)toggleExplrMode:(id)sender;
 
 - (void) removeCompass;
-- (IBAction)toggleMenu:(id)sender;
-- (IBAction)toggleTypeMenu:(id)sender;
+
 - (IBAction)toggleDebugView:(id)sender;
+
+- (IBAction)toggleViewPanel:(id)sender;
+- (IBAction)toggleModelPanel:(id)sender;
+
 - (IBAction)refreshApp:(id)sender;
 - (IBAction)openIPADSettings:(id)sender;
 

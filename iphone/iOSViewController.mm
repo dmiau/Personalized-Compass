@@ -65,6 +65,7 @@
         
         self.needUpdateDisplayRegion = false;
         self.needUpdateAnnotations = false;
+        
     }
     return self;
 }
@@ -102,6 +103,26 @@
     //-------------------
     [self addDebugView];
     [self.debugView setHidden:YES];
+    
+    //-------------------
+    // Add View Panel
+    //-------------------
+    
+    // Note this method needs to be here
+    NSArray *view_array =
+    [[NSBundle mainBundle] loadNibNamed:@"ViewPanel"
+                                  owner:self options:nil];
+    for (UIView *aView in view_array){
+        [aView setHidden:YES];
+        aView.frame = CGRectMake(0, 267, 320, 255);
+        if ([[aView restorationIdentifier] isEqualToString:@"ViewPanel"]){
+            self.viewPanel = aView;
+            [self.view addSubview:self.viewPanel];
+        }else{
+            self.modelPanel = aView;
+            [self.view addSubview:self.modelPanel];
+        }
+    }
 
 }
 
