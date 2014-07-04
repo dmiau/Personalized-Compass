@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;
 @property bool needUpdateAnnotations;
+- (IBAction)toggleLandmakrSelection:(id)sender;
 @end

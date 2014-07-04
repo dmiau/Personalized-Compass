@@ -17,6 +17,7 @@
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.move2UpdatedLocation = true;
     [locationManager startUpdatingLocation];
     
 }
@@ -34,12 +35,14 @@
     
 //    NSLog(@"OldLocation %f %f", oldLocation.coordinate.latitude, oldLocation.coordinate.longitude);
 //    NSLog(@"NewLocation %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
-    
-    [self feedModelLatitude: newLocation.coordinate.latitude
-                  longitude: newLocation.coordinate.longitude
-                    heading: 0
-                       tilt: 0];
-    [self updateMapDisplayRegion];
+    if (self.move2UpdatedLocation){
+        [self feedModelLatitude: newLocation.coordinate.latitude
+                      longitude: newLocation.coordinate.longitude
+                        heading: 0
+                           tilt: 0];
+        [self updateMapDisplayRegion];
+        self.move2UpdatedLocation = false;
+    }
     
     // Diable location service after 10 seconds
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 20

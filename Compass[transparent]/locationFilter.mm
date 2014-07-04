@@ -46,6 +46,9 @@ vector<int> compassMdl::applyFilter(filter_enum filter_type,
         case FORCE_EQUILIBRIUM:
             result = filter_forceEquilibrium(filter_param);
             break;
+        case MANUAL:
+            result = filter_manual(filter_param);
+            break;
         default:
 //            cout << "Unknown filter type";
             throw(runtime_error("Unknown filter type"));
@@ -80,7 +83,7 @@ vector<int> compassMdl::filter_kOrientations(int k){
     vector<int> non_zero_id_list;
     // Get rid of the landmarks with 0 distance
     for (i = 0; i < data_array.size(); ++i){
-        if (data_array[i].distance > 0){
+        if (data_array[i].distance > 0 && data_array[i].isEnabled){
             non_zero_id_list.push_back(i);
         }
     }
@@ -169,3 +172,45 @@ vector<int> compassMdl::filter_forceEquilibrium(int k){
     vector<int> result;
     return result;
 }
+
+#pragma mark ---------apply manual filter
+vector<int> compassMdl::filter_manual(int k){
+    
+    
+    vector<int> id_list;
+    id_list.clear();
+    for (int i = 0; i < data_array.size(); ++i) {
+        if (data_array[i].isEnabled){
+            id_list.push_back(i);
+        }
+    }
+    vector<int> out_list = sortIDByDistance(id_list);
+    return out_list;
+}
+
+#pragma mark ---------tool
+
+// This function sorts ID by distance (in ascending order)
+vector<int> compassMdl::sortIDByDistance(vector<int> id_list){
+
+    vector<pair<double, int>> dist_id_pair_list;
+    vector<int> output_list;
+    
+    for (int i = 1; i<id_list.size(); ++i) {
+        dist_id_pair_list
+        .push_back(make_pair(data_array[i].distance, i));
+    }
+    
+    // **indices_for_rendering should be sorted by distance
+    sort(dist_id_pair_list.begin(), dist_id_pair_list.end(), compareAscending);
+    
+    output_list.clear();
+    for (int i = 0; i < dist_id_pair_list.size(); ++i)
+    {
+        output_list.push_back(dist_id_pair_list[i].second);
+    }
+    return output_list;
+}
+
+
+

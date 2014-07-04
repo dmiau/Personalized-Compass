@@ -42,7 +42,7 @@ MKMapViewDelegate>
 
 @property NSNumber *mapUpdateFlag;
 @property bool conventionalCompassVisible;
-
+@property bool move2UpdatedLocation;
 
 // This is used for communication via segue
 @property bool needUpdateDisplayRegion;

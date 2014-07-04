@@ -214,7 +214,16 @@
                                 <rect key="frame" x="0.0" y="519" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" id="p4E-FQ-wfB"/>
+                                    <barButtonItem title="Select All" id="p4E-FQ-wfB">
+                                        <connections>
+                                            <action selector="toggleLandmakrSelection:" destination="KRL-rx-xwq" id="Khl-Z4-0Pw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Deselect All" id="L7i-CY-aOg">
+                                        <connections>
+                                            <action selector="toggleLandmakrSelection:" destination="KRL-rx-xwq" id="2Zt-Do-JcL"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ks0-N8-m3w">

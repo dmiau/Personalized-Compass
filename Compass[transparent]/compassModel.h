@@ -46,7 +46,8 @@ enum filter_enum{
     NONE = 1,
     K_NEARESTLOCATIONS = 2,
     K_ORIENTATIONS = 3,
-    FORCE_EQUILIBRIUM = 4
+    FORCE_EQUILIBRIUM = 4,
+    MANUAL = 5
 };
 
 //--------------
@@ -112,6 +113,8 @@ public:
     vector<int> filter_kNearestLocations(int k);
     vector<int> filter_kOrientations(int k);
     vector<int> filter_forceEquilibrium(int k);
+    vector<int> filter_manual(int k);
+    vector<int> sortIDByDistance(vector<int> id_list);
     
 private:
     compassMdl(){}; // Private so that it can not be called

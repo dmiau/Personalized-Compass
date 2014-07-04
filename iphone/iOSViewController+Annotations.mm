@@ -47,9 +47,28 @@
     }
     
     //Decide which color to show
-    UIImage *btnImage;
+    UIImage *btnImage, *btnLeftImage;
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
     if ([annotation subtitle] == nil){
+        //---------------
+        // Custom droppin
+        //---------------
         pinView.pinColor = MKPinAnnotationColorPurple;
+        btnImage = [UIImage imageNamed:@"add.png"];
+        btnLeftImage = [UIImage imageNamed:@"remove.png"];
+        
+        [leftButton setImage:btnLeftImage forState:UIControlStateNormal];
+        leftButton.frame = CGRectMake(0, 0,
+                                       btnLeftImage.size.width,
+                                      btnLeftImage.size.height);
+        [leftButton setBackgroundColor: [UIColor redColor]];
+        
+        [leftButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+        leftButton.tag = 0; //left button has tag 0
+        pinView.leftCalloutAccessoryView = leftButton;
+        
     }else{
         int i = [[annotation subtitle] integerValue];
         if (self.model->data_array[i].isEnabled){
@@ -61,14 +80,13 @@
         }
     }
     
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightButton setImage:btnImage forState:UIControlStateNormal];
-    
     rightButton.frame = CGRectMake(0, 0,
                                    btnImage.size.width, btnImage.size.height);
     [rightButton setBackgroundColor: [UIColor redColor]];
     
     [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+    rightButton.tag = 1;  //right button has tag 0
     pinView.rightCalloutAccessoryView = rightButton;
     
     return pinView;
@@ -78,16 +96,44 @@
 {
     
     NSLog(@"Do something");
+    MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
+    // Check if this is a custom pin
+    if ([pinView.annotation subtitle] == nil){
+        //------------------
+        // The pin is a custom pin
+        //------------------
+        UIButton *myButton = (UIButton *)control;
+        if(myButton.tag == 0){
+            // Left buttton tapped - remove the pin
+            [self.mapView removeAnnotation:view.annotation];
+        }else{
+            // Right buttton tapped - add the pin to data_array
+            data myData;
+            myData.name = "custom";
+            myData.annotation = view.annotation;
+            
+            myData.annotation.title = @"custom";
+            myData.annotation.subtitle =
+            [NSString stringWithFormat:@"%lu",
+             self.model->data_array.size()];
+            
+            myData.latitude =  view.annotation.coordinate.latitude;
+            myData.longitude =  view.annotation.coordinate.longitude;
+            
+            // Add the new data to data_array
+            self.model->data_array.push_back(myData);
+        }
+    }
 }
 
-/*
+
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     NSLog(@"Annotation clicked");
-    MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
-//    pinView.pinColor = MKPinAnnotationColorPurple;
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
-    pinView.rightCalloutAccessoryView = rightButton;
+//    MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
+////    pinView.pinColor = MKPinAnnotationColorPurple;
+//    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+//    pinView.rightCalloutAccessoryView = rightButton;
 }
-*/
+
 @end
