@@ -981,6 +981,20 @@ http://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-co
 - constructing the new viewPanel and modelPanel
 - try to wirte an XML writer
 
+-------------------------------------------------------------------
+7.4.2014
+-------------------------------------------------------------------
+- fixed manual control
+- add select/deselect all
+- removed the lock when "find current location" is enabled
+
+-------------------------------------------------------------------
+7.5.2014
+-------------------------------------------------------------------
+- work on the expanded view of custom droppin
+- figured out how navigation controller works!
+
+
 
 
 

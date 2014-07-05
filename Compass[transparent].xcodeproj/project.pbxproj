@@ -47,6 +47,20 @@
 		9A3DA0A71964F5E3009E0073 /* xmlWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */; };
 		9A3DA0A81964F5E3009E0073 /* xmlWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */; };
 		9A3DA0A91964F5E3009E0073 /* xmlWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */; };
+		9A3DA0BB1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
+		9A3DA0BC1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
+		9A3DA0BD1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
+		9A3DA0BE1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
+		9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
+		9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
+		9A3DA0C31966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
+		9A3DA0C41966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
+		9A3DA0C51966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
+		9A3DA0C61966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
+		9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
+		9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
+		9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */; };
+		9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */; };
 		9A49A5F2195491CF00937961 /* iOSViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */; };
 		9A49A5F3195491CF00937961 /* iOSViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */; };
 		9A49A5F61954A8BB00937961 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F51954A8BB00937961 /* myTableViewController.mm */; };
@@ -332,6 +346,10 @@
 		9A3DA0951964E9B1009E0073 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = icons/add.png; sourceTree = "<group>"; };
 		9A3DA0961964E9B1009E0073 /* remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remove.png; path = icons/remove.png; sourceTree = "<group>"; };
 		9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = xmlWriter.mm; sourceTree = "<group>"; };
+		9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myPinAnnotationViewOSX.xib; sourceTree = "<group>"; };
+		9A3DA0C11966E563009E0073 /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
+		9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomAnnotationView.mm; sourceTree = "<group>"; };
+		9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myPinAnnotationViewIOS.xib; sourceTree = "<group>"; };
 		9A49A5F0195491CF00937961 /* iOSViewController+Annotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Annotations.h"; sourceTree = "<group>"; };
 		9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Annotations.mm"; sourceTree = "<group>"; };
 		9A49A5F41954A8BB00937961 /* myTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTableViewController.h; sourceTree = "<group>"; };
@@ -569,6 +587,7 @@
 				9A82B6531941528600534A5F /* iPad.storyboard */,
 				9A2ED70919639D5900CA385E /* ViewPanel.xib */,
 				9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */,
+				9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -664,6 +683,9 @@
 				9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */,
 				9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */,
 				9AEECFF51910599B0031BAAE /* StyleWindow.xib */,
+				9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */,
+				9A3DA0C11966E563009E0073 /* CustomAnnotationView.h */,
+				9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1052,6 +1074,8 @@
 				9A2ED70A19639D5900CA385E /* ViewPanel.xib in Resources */,
 				9A3DA09B1964E9B1009E0073 /* add.png in Resources */,
 				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
+				9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
+				9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A998D7D194BCB0900778DFC /* setup.jpg in Resources */,
 				9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */,
 				9A4F0FB1193E745900CF32DE /* montreal.kml in Resources */,
@@ -1078,6 +1102,8 @@
 				9A998D7E194BCB0900778DFC /* setup.jpg in Resources */,
 				9A3DA09C1964E9B1009E0073 /* add.png in Resources */,
 				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
+				9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
+				9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A82B6471941518900534A5F /* newyork.kml in Resources */,
 				9A82B6481941518900534A5F /* montreal.kml in Resources */,
 				9A82B6491941518900534A5F /* InfoPlist.strings in Resources */,
@@ -1093,6 +1119,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3DA0BE1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AB90B90194DED0B0030BF5B /* Taiwan.kml in Resources */,
 				9AA1DB921948B30A0082BABC /* SundayTest.kml in Resources */,
 				9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */,
@@ -1123,6 +1150,7 @@
 				9A3DA0971964E9B1009E0073 /* add.png in Resources */,
 				9A9701E319083EB9007C3C19 /* MainMenu.xib in Resources */,
 				9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */,
+				9A3DA0BB1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AF29F2918F4C90000A28AC3 /* moto360_bikemap.png in Resources */,
 				9AEA57E918D9EBB20028B80C /* Images.xcassets in Resources */,
 				9AF7EB2E190175F900983C2F /* configurations.json in Resources */,
@@ -1160,6 +1188,7 @@
 				9AEC5CED18F3956F00A29F75 /* Images.xcassets in Resources */,
 				9A3DA0991964E9B1009E0073 /* add.png in Resources */,
 				9AB2A71A196372AA0001E96F /* selected.png in Resources */,
+				9A3DA0BD1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AEC5CEE18F3956F00A29F75 /* london.kml in Resources */,
 				9AEC5CEF18F3956F00A29F75 /* montreal.kml in Resources */,
 				9A6F53F41910069F00F35FED /* DebugInfoWindow.xib in Resources */,
@@ -1181,6 +1210,7 @@
 				9AFB14B218EE639A00063632 /* montreal.kml in Resources */,
 				9A6F53F31910069F00F35FED /* DebugInfoWindow.xib in Resources */,
 				9AB2A71F196372AA0001E96F /* unselected.png in Resources */,
+				9A3DA0BC1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AB2A719196372AA0001E96F /* selected.png in Resources */,
 				9AFB14B518EE639A00063632 /* newyork.kml in Resources */,
 				9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */,
@@ -1225,6 +1255,7 @@
 				9AB90B9F194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
 				9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */,
+				9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
 				9A998D71194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9A95CCB3194B4146008E520F /* iOSSettingViewController.mm in Sources */,
@@ -1248,6 +1279,7 @@
 				9A82B6331941518900534A5F /* locationFilter.mm in Sources */,
 				9A82B6341941518900534A5F /* readConfiguration.mm in Sources */,
 				9A82B6351941518900534A5F /* compassRender.mm in Sources */,
+				9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A82B6361941518900534A5F /* renderStyles.mm in Sources */,
 				9A82B6371941518900534A5F /* commonTools.mm in Sources */,
 				9AB90B99194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
@@ -1290,6 +1322,7 @@
 				9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */,
 				9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */,
 				9AA789191909FE3000A26C66 /* main.mm in Sources */,
+				9A3DA0C61966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A3DA0A71964F5E3009E0073 /* xmlWriter.mm in Sources */,
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */,
 				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
@@ -1310,6 +1343,7 @@
 				9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
+				9A3DA0C31966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A998C8B1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */,
@@ -1349,6 +1383,7 @@
 				9A9701D519083B19007C3C19 /* commonTools.mm in Sources */,
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */,
+				9A3DA0C51966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A3DA0A61964F5E3009E0073 /* xmlWriter.mm in Sources */,
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
 				9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */,
@@ -1361,6 +1396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3DA0C41966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */,
 				9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */,
 				9A998C931949F32800778DFC /* compassRender+Components.mm in Sources */,

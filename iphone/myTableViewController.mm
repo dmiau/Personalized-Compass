@@ -143,6 +143,16 @@
 }
 
 - (IBAction)toggleLandmakrSelection:(id)sender {
-    
+    UIBarButtonItem *myButton = (UIBarButtonItem*) sender;
+    if ([[myButton title] isEqualToString:@"Select All"]){
+        for (int i = 0; i < self.model->data_array.size(); ++i) {
+            self.model->data_array[i].isEnabled = true;
+        }
+    }else{
+        for (int i = 0; i < self.model->data_array.size(); ++i) {
+            self.model->data_array[i].isEnabled = false;
+        }
+    }
+    [self.myTableView reloadData];
 }
 @end

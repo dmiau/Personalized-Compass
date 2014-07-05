@@ -97,6 +97,7 @@
                         <outlet property="mapView" destination="Nfb-xm-KgJ" id="zfv-nH-uVh"/>
                         <outlet property="overviewMapView" destination="u8M-kf-lHS" id="txA-tO-WaT"/>
                         <outlet property="searchDisplayController" destination="Rqg-Uh-RXs" id="TnG-zy-1n9"/>
+                        <segue destination="CAm-Aa-yYX" kind="push" identifier="DetailVC" id="WS4-yg-Oj7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6t-MK-lm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -111,7 +112,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1250" y="119"/>
+            <point key="canvasLocation" x="1259" y="119"/>
         </scene>
         <!--IOS Setting View Controller-->
         <scene sceneID="d0x-n5-UHE">
@@ -198,6 +199,25 @@
             </objects>
             <point key="canvasLocation" x="1760" y="-193"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="TIU-OB-Aod">
+            <objects>
+                <viewController id="CAm-Aa-yYX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rXo-Nk-JM7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vhh-B1-dim"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bNl-nt-mRj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wTL-O1-2lg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dH8-sM-UYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312" y="814"/>
+        </scene>
         <!--My Table View Controller-->
         <scene sceneID="fdt-lN-AEa">
             <objects>
@@ -281,7 +301,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ngT-rg-hp7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="xJv-Aa-iHt" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xJv-Aa-iHt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ynL-TP-9F3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cqq-YO-Lfk">

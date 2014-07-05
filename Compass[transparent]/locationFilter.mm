@@ -20,6 +20,7 @@ filter_enum compassMdl::hashFilterStr (NSString *inString) {
     if ([inString isEqualToString:@"K_NEARESTLOCATIONS"]) return K_NEARESTLOCATIONS;
     if ([inString isEqualToString:@"K_ORIENTATIONS"]) return K_ORIENTATIONS;
     if ([inString isEqualToString:@"FORCE_EQUILIBRIUM"]) return FORCE_EQUILIBRIUM;
+    if ([inString isEqualToString:@"MANUAL"]) return MANUAL;    
     throw(runtime_error("Unknown style string."));
 }
 
@@ -195,10 +196,11 @@ vector<int> compassMdl::sortIDByDistance(vector<int> id_list){
 
     vector<pair<double, int>> dist_id_pair_list;
     vector<int> output_list;
-    
-    for (int i = 1; i<id_list.size(); ++i) {
+    dist_id_pair_list.clear();
+    for (int i = 0; i<id_list.size(); ++i) {
+        int j = id_list[i];
         dist_id_pair_list
-        .push_back(make_pair(data_array[i].distance, i));
+        .push_back(make_pair(data_array[j].distance, j));
     }
     
     // **indices_for_rendering should be sorted by distance

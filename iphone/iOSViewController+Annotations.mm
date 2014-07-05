@@ -7,6 +7,7 @@
 //
 
 #import "iOSViewController+Annotations.h"
+#import "CustomAnnotationView.h"
 
 @implementation iOSViewController (Annotations)
 
@@ -36,6 +37,12 @@
     
     MKPinAnnotationView *pinView =
     (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:landmarkAnnotationID];
+    
+//    CustomAnnotationView *myCustomAnnotationView =
+//    [[CustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
+//    return myCustomAnnotationView;
+    
+
     if (pinView == nil)
     {
         pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
@@ -48,7 +55,6 @@
     
     //Decide which color to show
     UIImage *btnImage, *btnLeftImage;
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     if ([annotation subtitle] == nil){
@@ -80,15 +86,24 @@
         }
     }
     
-    [rightButton setImage:btnImage forState:UIControlStateNormal];
-    rightButton.frame = CGRectMake(0, 0,
-                                   btnImage.size.width, btnImage.size.height);
-    [rightButton setBackgroundColor: [UIColor redColor]];
+    //---------------
+    // Constructing a right button
+    //---------------
     
-    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [rightButton setImage:btnImage forState:UIControlStateNormal];
+//    rightButton.frame = CGRectMake(0, 0,
+//                                   btnImage.size.width, btnImage.size.height);
+//    [rightButton setBackgroundColor: [UIColor redColor]];
+//    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+//
+//    
+//    rightButton.tag = 1;  //right button has tag 0
+//    pinView.rightCalloutAccessoryView = rightButton;
+    
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     rightButton.tag = 1;  //right button has tag 0
     pinView.rightCalloutAccessoryView = rightButton;
-    
     return pinView;
 }
 
@@ -108,20 +123,24 @@
             [self.mapView removeAnnotation:view.annotation];
         }else{
             // Right buttton tapped - add the pin to data_array
-            data myData;
-            myData.name = "custom";
-            myData.annotation = view.annotation;
+//            data myData;
+//            myData.name = "custom";
+//            myData.annotation = view.annotation;
+//            
+//            myData.annotation.title = @"custom";
+//            myData.annotation.subtitle =
+//            [NSString stringWithFormat:@"%lu",
+//             self.model->data_array.size()];
+//            
+//            myData.latitude =  view.annotation.coordinate.latitude;
+//            myData.longitude =  view.annotation.coordinate.longitude;
+//            
+//            // Add the new data to data_array
+//            self.model->data_array.push_back(myData);
             
-            myData.annotation.title = @"custom";
-            myData.annotation.subtitle =
-            [NSString stringWithFormat:@"%lu",
-             self.model->data_array.size()];
+            [self performSegueWithIdentifier:@"DetailVC" sender:view];
             
-            myData.latitude =  view.annotation.coordinate.latitude;
-            myData.longitude =  view.annotation.coordinate.longitude;
             
-            // Add the new data to data_array
-            self.model->data_array.push_back(myData);
         }
     }
 }
@@ -134,6 +153,21 @@
 //    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
 //    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
 //    pinView.rightCalloutAccessoryView = rightButton;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(MKAnnotationView *)sender
+{
+    if ([segue.identifier isEqualToString:@"DetailVC"])
+    {
+//        DetailViewController *destinationViewController = segue.destinationViewController;
+//        
+//        // grab the annotation from the sender
+//        
+//        destinationViewController.receivedLocation = sender.annotation;
+    } else {
+        NSLog(@"PFS:something else");
+    }
 }
 
 @end

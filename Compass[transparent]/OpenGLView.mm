@@ -177,47 +177,6 @@
 //        self.renderer->model->configurations[@"style_type"] = original_style;
     }
     
-    
-//    //-----------------
-//    // Draw Personalized Compass
-//    //-----------------
-//    NSString* personalized_compass_status =
-//    self.renderer->model->configurations[@"personalized_compass_status"];
-//    
-//    if ([personalized_compass_status isEqualToString:@"on"]){
-//        // Need two drawing routines
-//        if ([[[self window] title] rangeOfString:@"Style"]
-//            .location == NSNotFound)
-//        {
-//            [self drawMainWindow:bounds];
-//        }else{
-//            [self drawStyleWindow:bounds];
-//        }
-//    }
-//
-//    //-----------------
-//    // Draw Wedge
-//    //-----------------
-//    NSString* original_style = self.renderer->model->configurations[@"style_type"];
-//    NSString* wedge_status = self.renderer->model->configurations[@"wedge_status"];
-//    
-//    if ([wedge_status isEqualToString:@"on"]){
-//        // call twice for debug pruposes
-//        bool original_label_flag = self.renderer->label_flag;
-//        self.renderer->label_flag = false;
-//        self.renderer->model->configurations[@"style_type"] = @"WEDGE";
-//        // Need two drawing routines
-//        if ([[[self window] title] rangeOfString:@"Style"]
-//            .location == NSNotFound)
-//        {
-//            [self drawMainWindow:bounds];
-//        }else{
-//            [self drawStyleWindow:bounds];
-//        }
-//        self.renderer->label_flag = original_label_flag;
-//        self.renderer->model->configurations[@"style_type"] = original_style;
-//    }
-    
     //-----------------
     // Debugging code
     //-----------------

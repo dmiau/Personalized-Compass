@@ -148,8 +148,24 @@
     {
         iOSViewController *destViewController = segue.destinationViewController;
         destViewController.needUpdateDisplayRegion = true;
+        destViewController.needUpdateAnnotations = true;
     }
 }
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        // back button was pressed.  We know this is true because self is no longer
+        // in the navigation stack.
+    }
+    
+    iOSViewController *destViewController =
+    [self.navigationController.viewControllers objectAtIndex:0];
+    destViewController.needUpdateDisplayRegion = true;
+    destViewController.needUpdateAnnotations = true;
+    
+    [super viewWillDisappear:animated];
+}
+
 
 //--------------
 // Data source selector
