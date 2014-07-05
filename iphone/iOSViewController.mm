@@ -211,30 +211,30 @@
 }
 
 
-#pragma mark ------update------
-
-
--(IBAction)unwindToRootVC:(UIStoryboardSegue *)segue
-{
-    
-    // Can I know which segue it is?
-//    NSLog(@"Segue id: %@", segue.identifier);
-    
-    // There is a bug here. There seems to be an extra shift component.
-    if (self.needUpdateDisplayRegion){
-        [self updateMapDisplayRegion];
-        self.needUpdateDisplayRegion = false;
-    }
-
-    
-    if (self.needUpdateAnnotations){
-        [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
-        [self renderAnnotations];
-    }
-    
-    // This may be an iPad only thing
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//#pragma mark ------update------
+//
+//
+//-(IBAction)unwindToRootVC:(UIStoryboardSegue *)segue
+//{
+//    
+//    // Can I know which segue it is?
+////    NSLog(@"Segue id: %@", segue.identifier);
+//    
+//    // There is a bug here. There seems to be an extra shift component.
+//    if (self.needUpdateDisplayRegion){
+//        [self updateMapDisplayRegion];
+//        self.needUpdateDisplayRegion = false;
+//    }
+//
+//    
+//    if (self.needUpdateAnnotations){
+//        [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
+//        [self renderAnnotations];
+//    }
+//    
+//    // This may be an iPad only thing
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 /*
 #pragma mark - Navigation

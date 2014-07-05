@@ -82,7 +82,7 @@
                                     </barButtonItem>
                                     <barButtonItem systemItem="bookmarks" id="Ey4-ip-hP9">
                                         <connections>
-                                            <segue destination="KRL-rx-xwq" kind="custom" identifier="tableSegue" customClass="bottomUpSegue" id="zjE-YJ-EH1"/>
+                                            <segue destination="KRL-rx-xwq" kind="push" identifier="tableSegue" customClass="bottomUpSegue" id="zjE-YJ-EH1"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -101,7 +101,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6t-MK-lm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="joY-8v-YOg" userLabel="Exit" sceneMemberID="exit"/>
                 <searchDisplayController id="Rqg-Uh-RXs">
                     <connections>
                         <outlet property="delegate" destination="RVv-fy-219" id="69s-ry-RdU"/>
@@ -126,16 +125,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7N2-s1-dRu">
-                                <rect key="frame" x="15" y="20" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="2Ro-H1-aEz" kind="unwind" unwindAction="unwindToRootVC:" id="2Kg-Qq-UhT"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhc-s3-l6X">
                                 <rect key="frame" x="80" y="358" width="146" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -195,14 +184,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FF-be-GOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="2Ro-H1-aEz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1760" y="-193"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller - Detail View-->
         <scene sceneID="TIU-OB-Aod">
             <objects>
-                <viewController id="CAm-Aa-yYX" sceneMemberID="viewController">
+                <viewController id="CAm-Aa-yYX" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rXo-Nk-JM7"/>
                         <viewControllerLayoutGuide type="bottom" id="Vhh-B1-dim"/>
@@ -210,15 +198,34 @@
                     <view key="view" contentMode="scaleToFill" id="bNl-nt-mRj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYt-2d-4h3">
+                                <rect key="frame" x="36" y="92" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vor-Ip-1fg">
+                                <rect key="frame" x="36" y="126" width="212" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wTL-O1-2lg"/>
+                    <navigationItem key="navigationItem" title="Detail View" id="wTL-O1-2lg">
+                        <barButtonItem key="backBarButtonItem" title="Map View" id="0C5-g6-zyZ"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dH8-sM-UYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1312" y="814"/>
         </scene>
-        <!--My Table View Controller-->
+        <!--My Table View Controller - Landmark List-->
         <scene sceneID="fdt-lN-AEa">
             <objects>
                 <viewController id="KRL-rx-xwq" customClass="myTableViewController" sceneMemberID="viewController">
@@ -246,19 +253,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ks0-N8-m3w">
-                                <rect key="frame" x="0.0" y="25" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="Gd8-ws-g5I">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="65n-Dm-yXU">
-                                            <connections>
-                                                <segue destination="joY-8v-YOg" kind="unwind" unwindAction="unwindToRootVC:" id="JWU-z9-OhC"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qr2-Je-S7j">
                                 <rect key="frame" x="0.0" y="71" width="320" height="448"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -290,6 +284,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Landmark List" id="Gd8-ws-g5I">
+                        <barButtonItem key="backBarButtonItem" title="Map View" id="2eH-Vi-ORD"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="qr2-Je-S7j" id="zvt-RW-fWE"/>
                     </connections>

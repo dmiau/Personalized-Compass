@@ -138,31 +138,28 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//// In a storyboard-based application, you will often want to do a little preparation before navigation
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//    if (self.needUpdateDisplayRegion)
+//    {
+//        iOSViewController *destViewController = segue.destinationViewController;
+//        destViewController.needUpdateDisplayRegion = true;
+//        destViewController.needUpdateAnnotations = true;
+//    }
+//}
+
+-(void) viewWillDisappear:(BOOL)animated {
     if (self.needUpdateDisplayRegion)
     {
-        iOSViewController *destViewController = segue.destinationViewController;
+        iOSViewController *destViewController =
+        [self.navigationController.viewControllers objectAtIndex:0];
         destViewController.needUpdateDisplayRegion = true;
         destViewController.needUpdateAnnotations = true;
     }
-}
-
--(void) viewWillDisappear:(BOOL)animated {
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        // back button was pressed.  We know this is true because self is no longer
-        // in the navigation stack.
-    }
-    
-    iOSViewController *destViewController =
-    [self.navigationController.viewControllers objectAtIndex:0];
-    destViewController.needUpdateDisplayRegion = true;
-    destViewController.needUpdateAnnotations = true;
-    
     [super viewWillDisappear:animated];
 }
 

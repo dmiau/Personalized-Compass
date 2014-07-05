@@ -7,7 +7,8 @@
 //
 
 #import "iOSViewController+Annotations.h"
-#import "CustomAnnotationView.h"
+//#import "CustomAnnotationView.h"
+#import "DetailViewController.h"
 
 @implementation iOSViewController (Annotations)
 
@@ -24,7 +25,7 @@
     }
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id < MKAnnotation >)annotation {
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(MKPointAnnotation*)annotation {
     
     // in case it's the user location, we already have an annotation, so just return nil
     if ([annotation isKindOfClass:[MKUserLocation class]])
@@ -59,8 +60,33 @@
     
     if ([annotation subtitle] == nil){
         //---------------
-        // Custom droppin
+        // User triggered droppin
         //---------------
+
+        NSString *address;
+        CLLocation *location = [[CLLocation alloc]
+                                initWithLatitude:[annotation coordinate].latitude
+                                longitude:[annotation coordinate].longitude];
+        
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        [geocoder reverseGeocodeLocation:location
+                       completionHandler:^(NSArray *placemarks, NSError *error)
+         {
+             if(placemarks && placemarks.count > 0)
+             {
+                 CLPlacemark *placemark= [placemarks objectAtIndex:0];
+                 //address is NSString variable that declare in .h file.
+                 NSString* address =
+                 [NSString stringWithFormat:@"%@ %@ , %@ , %@",
+                  [placemark subThoroughfare],
+                  [placemark thoroughfare],[placemark locality],[placemark administrativeArea]];
+
+                 NSLog(@"New Address Is:%@",address);
+                 MKPointAnnotation *copyAnnotation = annotation;
+                 copyAnnotation.subtitle = address;
+             }
+         }];
+
         pinView.pinColor = MKPinAnnotationColorPurple;
         btnImage = [UIImage imageNamed:@"add.png"];
         btnLeftImage = [UIImage imageNamed:@"remove.png"];
@@ -74,8 +100,17 @@
         [leftButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
         leftButton.tag = 0; //left button has tag 0
         pinView.leftCalloutAccessoryView = leftButton;
-        
+
+        //---------------
+        // Constructing a right button
+        //---------------
+        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        rightButton.tag = 1;  //right button has tag 0
+        pinView.rightCalloutAccessoryView = rightButton;
     }else{
+        //---------------
+        // Landmark pin
+        //---------------
         int i = [[annotation subtitle] integerValue];
         if (self.model->data_array[i].isEnabled){
             pinView.pinColor = MKPinAnnotationColorRed;
@@ -84,26 +119,21 @@
             pinView.pinColor = MKPinAnnotationColorGreen;
             btnImage = [UIImage imageNamed:@"unselected.png"];
         }
+
+        //---------------
+        // Constructing a right button
+        //---------------
+        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [rightButton setImage:btnImage forState:UIControlStateNormal];
+        rightButton.frame = CGRectMake(0, 0,
+                                       btnImage.size.width, btnImage.size.height);
+        [rightButton setBackgroundColor: [UIColor redColor]];
+        [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        rightButton.tag = 1;  //right button has tag 0
+        pinView.rightCalloutAccessoryView = rightButton;
     }
-    
-    //---------------
-    // Constructing a right button
-    //---------------
-    
-//    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [rightButton setImage:btnImage forState:UIControlStateNormal];
-//    rightButton.frame = CGRectMake(0, 0,
-//                                   btnImage.size.width, btnImage.size.height);
-//    [rightButton setBackgroundColor: [UIColor redColor]];
-//    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
-//
-//    
-//    rightButton.tag = 1;  //right button has tag 0
-//    pinView.rightCalloutAccessoryView = rightButton;
-    
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    rightButton.tag = 1;  //right button has tag 0
-    pinView.rightCalloutAccessoryView = rightButton;
     return pinView;
 }
 
@@ -160,11 +190,10 @@
 {
     if ([segue.identifier isEqualToString:@"DetailVC"])
     {
-//        DetailViewController *destinationViewController = segue.destinationViewController;
-//        
-//        // grab the annotation from the sender
-//        
-//        destinationViewController.receivedLocation = sender.annotation;
+        DetailViewController *destinationViewController = segue.destinationViewController;
+        
+        // grab the annotation from the sender
+        destinationViewController.annotation = sender.annotation;
     } else {
         NSLog(@"PFS:something else");
     }

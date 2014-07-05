@@ -129,18 +129,29 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//// In a storyboard-based application, you will often want to do a little preparation before navigation
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//    if (self.needUpdateAnnotations)
+//    {
+//        iOSViewController *destViewController = segue.destinationViewController;
+//        destViewController.needUpdateAnnotations = true;
+//    }
+//}
+
+-(void) viewWillDisappear:(BOOL)animated {
     if (self.needUpdateAnnotations)
     {
-        iOSViewController *destViewController = segue.destinationViewController;
+        iOSViewController *destViewController =
+        [self.navigationController.viewControllers objectAtIndex:0];
         destViewController.needUpdateAnnotations = true;
     }
+    [super viewWillDisappear:animated];
 }
+
 
 - (IBAction)toggleLandmakrSelection:(id)sender {
     UIBarButtonItem *myButton = (UIBarButtonItem*) sender;
