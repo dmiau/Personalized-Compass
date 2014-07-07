@@ -7,6 +7,7 @@
 //
 
 #import "xmlParser.h"
+#import "CustomPointAnnotation.h"
 #include <stdexcept>
 
 
@@ -164,7 +165,7 @@ int readLocationKml(compassMdl* mdl){
         _data.distance = 0;
         _data.orientation = 0;
         _data.isEnabled = YES;
-        _data.annotation = [[MKPointAnnotation alloc] init];
+        _data.annotation = [[CustomPointAnnotation alloc] init];
         data_array.push_back(_data);
         place_flag = true;
     }else if ([elementName isEqualToString:@"name"]){
@@ -180,8 +181,10 @@ int readLocationKml(compassMdl* mdl){
             data_array[data_array.size()-1].name = [string UTF8String];
             data_array[data_array.size()-1].annotation.title
             = string;
-            data_array[data_array.size()-1].annotation.subtitle =
-            [NSString stringWithFormat:@"%lu", data_array.size()-1];
+//            data_array[data_array.size()-1].annotation.subtitle =
+//            [NSString stringWithFormat:@"%lu", data_array.size()-1];
+            data_array[data_array.size()-1].annotation.point_type = landmark;
+            data_array[data_array.size()-1].annotation.data_id = data_array.size()-1;
         }else if (coord_flag){
             // Need to somehow split the sting
             

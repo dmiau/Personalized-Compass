@@ -12,7 +12,7 @@
 
 @interface DetailViewController : UIViewController
 
-@property MKPointAnnotation *annotation;
+@property CustomPointAnnotation *annotation;
 @property (weak, nonatomic) IBOutlet UITextView *addressView;
 @property compassMdl* model;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;

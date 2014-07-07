@@ -12,6 +12,7 @@
 #include <iostream>
 #include <vector>
 #import <MapKit/MapKit.h>
+#import "CustomPointAnnotation.h"
 
 #ifndef __IPHONE__
 #import <Cocoa/Cocoa.h>
@@ -33,7 +34,7 @@ public:
     float orientation;
     float latitude;
     float longitude;
-    MKPointAnnotation* annotation;
+    CustomPointAnnotation* annotation;
     bool isEnabled; // indicates wheather the landmark is enabled or not
 public:    
     // Methods

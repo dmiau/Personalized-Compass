@@ -210,32 +210,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-//#pragma mark ------update------
-//
-//
-//-(IBAction)unwindToRootVC:(UIStoryboardSegue *)segue
-//{
-//    
-//    // Can I know which segue it is?
-////    NSLog(@"Segue id: %@", segue.identifier);
-//    
-//    // There is a bug here. There seems to be an extra shift component.
-//    if (self.needUpdateDisplayRegion){
-//        [self updateMapDisplayRegion];
-//        self.needUpdateDisplayRegion = false;
-//    }
-//
-//    
-//    if (self.needUpdateAnnotations){
-//        [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
-//        [self renderAnnotations];
-//    }
-//    
-//    // This may be an iPad only thing
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
 /*
 #pragma mark - Navigation
 
@@ -275,15 +249,14 @@
     CLLocationCoordinate2D touchMapCoordinate =
     [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
-    MKPointAnnotation *pa = [[MKPointAnnotation alloc] init];
+    CustomPointAnnotation *pa = [[CustomPointAnnotation alloc] init];
     pa.coordinate = touchMapCoordinate;
-    pa.title = @"Hello";
+    pa.title = @"Dropped Pin";
+    pa.point_type = dropped;
     [self.mapView addAnnotation:pa];
     
 //    // this line displays the callout
 //    [self.mapView selectAnnotation:pa animated:YES];
 }
-
-
 @end
 

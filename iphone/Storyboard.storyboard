@@ -304,7 +304,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="myTableCell" editingAccessoryType="disclosureIndicator" textLabel="5nc-xS-d1c" style="IBUITableViewCellStyleDefault" id="mnt-PG-coc">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="myTableCell" editingAccessoryType="detailButton" textLabel="5nc-xS-d1c" detailTextLabel="QS4-jg-Nrm" style="IBUITableViewCellStyleSubtitle" id="mnt-PG-coc">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mnt-PG-coc" id="Upi-8Z-lPW">
@@ -312,9 +312,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5nc-xS-d1c">
-                                                    <rect key="frame" x="15" y="0.0" width="266" height="43"/>
+                                                    <rect key="frame" x="15" y="3" width="34" height="22"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QS4-jg-Nrm">
+                                                    <rect key="frame" x="15" y="25" width="32" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -332,7 +339,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Landmark List" id="Gd8-ws-g5I">
                         <barButtonItem key="backBarButtonItem" title="Map View" id="2eH-Vi-ORD"/>
-                        <barButtonItem key="rightBarButtonItem" title="Editing" id="rNR-I6-Y2C">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="rNR-I6-Y2C">
                             <connections>
                                 <action selector="toggleEditing:" destination="KRL-rx-xwq" id="R1A-eu-Pz0"/>
                             </connections>
@@ -340,11 +347,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="qr2-Je-S7j" id="zvt-RW-fWE"/>
+                        <segue destination="CAm-Aa-yYX" kind="push" identifier="TableDetailVC" id="VT9-KB-V4S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iam-fF-Gx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1760" y="482"/>
+            <point key="canvasLocation" x="1746" y="552"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ngT-rg-hp7">
@@ -379,4 +387,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="VT9-KB-V4S"/>
+    </inferredMetricsTieBreakers>
 </document>

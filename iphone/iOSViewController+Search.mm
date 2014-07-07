@@ -89,14 +89,12 @@
     //http://stackoverflow.com/questions/17682834/mapview-with-local-search
     
     
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
     annotation.coordinate = item.placemark.coordinate;
     annotation.title      = item.name;
     annotation.subtitle   = item.placemark.title;
-    //    [mapView addAnnotation:annotation];
-    
-    // Can you do that--add placemark directly as an annotation?
-    //    [self.ibMapView addAnnotation:item.placemark];
+    annotation.point_type = search_result;
+
     [self.mapView addAnnotation:annotation];
     
     // This line throws an error:
@@ -106,7 +104,6 @@
     
     [self.mapView setCenterCoordinate:item.placemark.location.coordinate animated:YES];
     
-    [self.mapView setUserTrackingMode:MKUserTrackingModeNone];
-    
+//    [self.mapView setUserTrackingMode:MKUserTrackingModeNone];    
 }
 @end

@@ -1001,8 +1001,11 @@ http://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-co
 - working on save and saveas
 - working on the dropbox file write case
 
-
-
+-------------------------------------------------------------------
+7.7.2014
+-------------------------------------------------------------------
+- refactory the pinview code
+- need to connect detail view from the table view
 
 
 

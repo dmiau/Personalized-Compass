@@ -8,6 +8,7 @@
 
 #import "myTableViewController.h"
 #import "iOSViewController.h"
+#import "DetailViewController.h"
 
 @interface myTableViewController ()
 
@@ -65,7 +66,7 @@
 
 
 //----------------
-// This method is called to populate each row
+// Populate each row of the table
 //----------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = (UITableViewCell *)[tableView
@@ -79,6 +80,8 @@
     // Configure Cell
     cell.textLabel.text =
     [NSString stringWithUTF8String:self.model->data_array[i].name.c_str()];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
+    
     if (self.model->data_array[i].isEnabled){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
@@ -89,24 +92,18 @@
 
 //----------------
 // This method is called when the accessory button is pressed
+// *************
+// It appears that this method will only be called when
+// accessoryTrype is set to "Detail Disclosure"
 //----------------
 - (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    
-    // It appears that this method will only be called when
-    // accessoryTrype is set to "Detail Disclosure"
-    
-//    NSLog(@"Accessory button is tapped for cell at index path = %@", indexPath);
-
     // Get the row ID
     int i = [indexPath row];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if (cell.accessoryType == UITableViewCellAccessoryCheckmark){
-        self.model->data_array[i].isEnabled = true;
-    }else{
-        self.model->data_array[i].isEnabled = false;
-    }
+    // Perform segue
+    [self performSegueWithIdentifier:@"TableDetailVC"
+                              sender:self.model->data_array[i].annotation];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path {
@@ -128,19 +125,21 @@
 //}
 
 #pragma mark - Navigation
-
-//// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//    if (self.needUpdateAnnotations)
-//    {
-//        iOSViewController *destViewController = segue.destinationViewController;
-//        destViewController.needUpdateAnnotations = true;
-//    }
-//}
+//------------------
+// Prepare for the detail view
+//------------------
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(CustomPointAnnotation*)sender
+{
+    if ([segue.identifier isEqualToString:@"TableDetailVC"])
+    {
+        DetailViewController *destinationViewController = segue.destinationViewController;
+        
+        // grab the annotation from the sender
+        destinationViewController.annotation = sender;
+    } else {
+        NSLog(@"PFS:something else");
+    }
+}
 
 -(void) viewWillDisappear:(BOOL)animated {
     if (self.needUpdateAnnotations)
@@ -175,13 +174,30 @@
     (UIBarButtonItem*) sender;
     if (self.myTableView.editing == YES){
         [self.myTableView setEditing:NO animated:YES];
-        myButton.title = @"Editing";
+        myButton.title = @"Edit";
     }else{
         [self.myTableView setEditing:YES animated:YES];
         myButton.title = @"Done";
     }
 
 }
+
+//-------------
+// Deleting rows
+//-------------
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //https://developer.apple.com/library/ios/documentation/userexperience/conceptual/tableview_iphone/ManageInsertDeleteRow/ManageInsertDeleteRow.html
+    
+//    // If row is deleted, remove it from the list.
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        SimpleEditableListAppDelegate *controller = (SimpleEditableListAppDelegate *)[[UIApplication sharedApplication] delegate];
+//        [controller removeObjectFromListAtIndex:indexPath.row];
+//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    }
+}
+
+
 //-------------
 // Save file
 //-------------

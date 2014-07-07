@@ -10,7 +10,8 @@
 
 enum location_enum {
     landmark,
-    dropped
+    dropped,
+    search_result
 };
 
 @interface CustomPointAnnotation : MKPointAnnotation
