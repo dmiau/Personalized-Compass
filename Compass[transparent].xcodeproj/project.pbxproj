@@ -41,19 +41,18 @@
 		9A3DA0A01964E9B1009E0073 /* remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0961964E9B1009E0073 /* remove.png */; };
 		9A3DA0A11964E9B1009E0073 /* remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0961964E9B1009E0073 /* remove.png */; };
 		9A3DA0A21964E9B1009E0073 /* remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0961964E9B1009E0073 /* remove.png */; };
-		9A3DA0A41964F5E3009E0073 /* xmlWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */; };
-		9A3DA0A51964F5E3009E0073 /* xmlWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */; };
-		9A3DA0A61964F5E3009E0073 /* xmlWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */; };
-		9A3DA0A71964F5E3009E0073 /* xmlWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */; };
-		9A3DA0A81964F5E3009E0073 /* xmlWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */; };
-		9A3DA0A91964F5E3009E0073 /* xmlWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */; };
+		9A3DA0A41964F5E3009E0073 /* genKMLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* genKMLString.mm */; };
+		9A3DA0A51964F5E3009E0073 /* genKMLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* genKMLString.mm */; };
+		9A3DA0A61964F5E3009E0073 /* genKMLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* genKMLString.mm */; };
+		9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* genKMLString.mm */; };
+		9A3DA0A81964F5E3009E0073 /* genKMLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* genKMLString.mm */; };
+		9A3DA0A91964F5E3009E0073 /* genKMLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0A31964F5E3009E0073 /* genKMLString.mm */; };
 		9A3DA0BB1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0BC1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0BD1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0BE1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
-		9A3DA0C31966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C41966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C51966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C61966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
@@ -287,6 +286,12 @@
 		9AEC5CF218F3956F00A29F75 /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
 		9AEC5CF318F3956F00A29F75 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57DF18D9EBB20028B80C /* Credits.rtf */; };
 		9AEC5CF418F3956F00A29F75 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA581C18D9EC680028B80C /* README.txt */; };
+		9AECA768196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */; };
+		9AECA769196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */; };
+		9AECA76A196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */; };
+		9AECA76B196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */; };
+		9AECA76C196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */; };
+		9AECA76D196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */; };
 		9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */; };
 		9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
 		9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
@@ -347,7 +352,7 @@
 		9A2F0C531943DA9200350BD2 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
 		9A3DA0951964E9B1009E0073 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = icons/add.png; sourceTree = "<group>"; };
 		9A3DA0961964E9B1009E0073 /* remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remove.png; path = icons/remove.png; sourceTree = "<group>"; };
-		9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = xmlWriter.mm; sourceTree = "<group>"; };
+		9A3DA0A31964F5E3009E0073 /* genKMLString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genKMLString.mm; sourceTree = "<group>"; };
 		9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myPinAnnotationViewOSX.xib; sourceTree = "<group>"; };
 		9A3DA0C11966E563009E0073 /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
 		9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomAnnotationView.mm; sourceTree = "<group>"; };
@@ -464,6 +469,8 @@
 		9AEC5CF918F3956F00A29F75 /* smartWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEC5CFA18F3957000A29F75 /* smartWatch.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = smartWatch.plist; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/smartWatch.plist"; sourceTree = "<absolute>"; };
 		9AEC5CFC18F3960500A29F75 /* smartWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = smartWatch.entitlements; sourceTree = "<group>"; };
+		9AECA766196A0269008ADAEC /* CustomPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPointAnnotation.h; sourceTree = "<group>"; };
+		9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomPointAnnotation.mm; sourceTree = "<group>"; };
 		9AEECFAC190A0B6B0031BAAE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = "Compass[transparent]/WebViewController.h"; sourceTree = "<group>"; };
 		9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = WebViewController.mm; path = "Compass[transparent]/WebViewController.mm"; sourceTree = "<group>"; };
 		9AEECFF51910599B0031BAAE /* StyleWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StyleWindow.xib; sourceTree = "<group>"; };
@@ -665,7 +672,9 @@
 				9A6EC77E19004BCB00C3815F /* locationFilter.mm */,
 				9A28368A1900C0850041D22E /* readConfiguration.mm */,
 				9AB6E8D91906C9B000E28DE9 /* commonTools.mm */,
-				9A3DA0A31964F5E3009E0073 /* xmlWriter.mm */,
+				9A3DA0A31964F5E3009E0073 /* genKMLString.mm */,
+				9AECA766196A0269008ADAEC /* CustomPointAnnotation.h */,
+				9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1242,7 +1251,7 @@
 				9A49A5FA1954A90E00937961 /* bottomUpSegue.m in Sources */,
 				9A98AF31194289D6007166DE /* GLString.h in Sources */,
 				9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
-				9A3DA0A81964F5E3009E0073 /* xmlWriter.mm in Sources */,
+				9A3DA0A81964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
 				9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
@@ -1255,6 +1264,7 @@
 				9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */,
 				9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */,
+				9AECA76C196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */,
 				9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */,
 				9AB90B98194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
@@ -1292,6 +1302,7 @@
 				9A82B6371941518900534A5F /* commonTools.mm in Sources */,
 				9AB90B99194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A82B6381941518900534A5F /* AppDelegate.m in Sources */,
+				9AECA76D196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A49A5F3195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
 				9A006CA319522918009BB81C /* iOSViewController+Model.mm in Sources */,
 				9A82B6391941518900534A5F /* main.m in Sources */,
@@ -1303,7 +1314,7 @@
 				9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
-				9A3DA0A91964F5E3009E0073 /* xmlWriter.mm in Sources */,
+				9A3DA0A91964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9ABB96B51957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1313,6 +1324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AA7890A1909FE3000A26C66 /* commonTools.mm in Sources */,
+				9AECA76B196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */,
 				9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */,
@@ -1331,7 +1343,7 @@
 				9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */,
 				9AA789191909FE3000A26C66 /* main.mm in Sources */,
 				9A3DA0C61966E563009E0073 /* CustomAnnotationView.mm in Sources */,
-				9A3DA0A71964F5E3009E0073 /* xmlWriter.mm in Sources */,
+				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */,
 				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
@@ -1345,13 +1357,13 @@
 			files = (
 				9AB6E8DB1906C9B000E28DE9 /* commonTools.mm in Sources */,
 				9A998C921949F32800778DFC /* compassRender+Components.mm in Sources */,
+				9AECA768196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */,
 				9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */,
 				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
 				9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
-				9A3DA0C31966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A998C8B1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */,
@@ -1364,7 +1376,7 @@
 				9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */,
 				9AEA57DD18D9EBB20028B80C /* main.mm in Sources */,
 				9AE093D118ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm in Sources */,
-				9A3DA0A41964F5E3009E0073 /* xmlWriter.mm in Sources */,
+				9A3DA0A41964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AF01B7318ECE5FC0029A860 /* GLString.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1374,6 +1386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A9701DC19083BCF007C3C19 /* LocationCellView.m in Sources */,
+				9AECA76A196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A6F53FA1910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A9701D619083B26007C3C19 /* AppDelegate.mm in Sources */,
 				9A9701D719083B26007C3C19 /* DesktopViewController.mm in Sources */,
@@ -1392,7 +1405,7 @@
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */,
 				9A3DA0C51966E563009E0073 /* CustomAnnotationView.mm in Sources */,
-				9A3DA0A61964F5E3009E0073 /* xmlWriter.mm in Sources */,
+				9A3DA0A61964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
 				9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A9701CE19083B10007C3C19 /* renderStyles.mm in Sources */,
@@ -1418,8 +1431,9 @@
 				9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AB90B9C194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,
-				9A3DA0A51964F5E3009E0073 /* xmlWriter.mm in Sources */,
+				9A3DA0A51964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A998C8C1949F29500778DFC /* compassRender+Label.mm in Sources */,
+				9AECA769196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9AFB14A618EE639A00063632 /* DesktopViewController+MapViewAddition.mm in Sources */,
 				9AFB14A718EE639A00063632 /* GLString.mm in Sources */,
 			);

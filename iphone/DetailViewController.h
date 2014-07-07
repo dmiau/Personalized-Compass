@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "compassModel.h"
 
 @interface DetailViewController : UIViewController
 
-@property id<MKAnnotation> annotation;
+@property MKPointAnnotation *annotation;
+@property (weak, nonatomic) IBOutlet UITextView *addressView;
+@property compassMdl* model;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+
+
+- (IBAction)doneEditing:(id)sender;
+- (IBAction)addLocation:(id)sender;
+
 @end

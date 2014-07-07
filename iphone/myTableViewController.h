@@ -10,11 +10,16 @@
 #include "compassModel.h"
 
 @interface myTableViewController : UIViewController
-<UITableViewDelegate>
+<UITableViewDelegate, UIAlertViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;
 @property bool needUpdateAnnotations;
 - (IBAction)toggleLandmakrSelection:(id)sender;
+
+- (IBAction)toggleEditing:(id)sender;
+- (IBAction)saveKML:(id)sender;
+- (IBAction)saveKMLAs:(id)sender;
+
 @end

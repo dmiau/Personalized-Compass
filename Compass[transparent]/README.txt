@@ -994,6 +994,17 @@ http://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-co
 - work on the expanded view of custom droppin
 - figured out how navigation controller works!
 
+-------------------------------------------------------------------
+7.6.2014
+-------------------------------------------------------------------
+- working on the detail pane
+- working on save and saveas
+- working on the dropbox file write case
+
+
+
+
+
 
 
 

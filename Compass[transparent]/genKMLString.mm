@@ -3,7 +3,8 @@
 #include <sstream>
 
 using namespace std;
-bool xmlWirter(NSString* out_filepath, vector<data> my_data_array){
+NSString* genKMLString(vector<data> my_data_array)
+{
     
     string temp_str, coord_str;
     std::ostringstream stringStream;
@@ -12,7 +13,6 @@ bool xmlWirter(NSString* out_filepath, vector<data> my_data_array){
     // Header
     //-------------
     temp_str = "<?xml version='1.0' encoding='UTF-8'?>\n";
-    temp_str = temp_str + "<?xml version='1.0' encoding='UTF-8'?>\n";
     temp_str = temp_str + "<kml xmlns='http://www.opengis.net/kml/2.2'>\n";
     temp_str = temp_str + "<Document>\n";
     
@@ -38,7 +38,7 @@ bool xmlWirter(NSString* out_filepath, vector<data> my_data_array){
         
         temp_str = temp_str + "<name>";
         temp_str = temp_str + my_data_array[i].name;
-        temp_str = temp_str + "</name>";
+        temp_str = temp_str + "</name>\n";
         
         
         temp_str = temp_str + "<Point>\n";
@@ -46,20 +46,22 @@ bool xmlWirter(NSString* out_filepath, vector<data> my_data_array){
         temp_str = temp_str + "<coordinates>";
         
         // Need to use this trick to output coordinates
+        // longitude first, latitude second
         stringStream.clear();
-        stringStream << my_data_array[i].latitude << ","
-        << my_data_array[i].longitude << ",0.0";
+        stringStream.str("");
+        stringStream << my_data_array[i].longitude << ","
+        << my_data_array[i].latitude << ",0.0";
         
         coord_str = stringStream.str();
         temp_str = temp_str + coord_str;
         
-        temp_str = temp_str + "</coordinates>";
+        temp_str = temp_str + "</coordinates>\n";
         
         
         temp_str = temp_str + "</Point>\n";
         
         
-        temp_str = temp_str + "</Placemark>\n";
+        temp_str = temp_str + "</Placemark>\n\n";
         
     }
     
@@ -71,15 +73,5 @@ bool xmlWirter(NSString* out_filepath, vector<data> my_data_array){
     temp_str = temp_str + "</kml>\n";
     
     NSString *out_str = [NSString stringWithUTF8String:temp_str.c_str()];
-    NSError* error;
-    if (![out_str writeToFile:out_filepath
-              atomically:YES encoding: NSASCIIStringEncoding
-                   error:&error])
-    {
-        // Do something if write fails.
-    }
-    
-    // Use this method
-    //writeToFile:atomically:encoding:error:
-    return true;
+    return out_str;
 }

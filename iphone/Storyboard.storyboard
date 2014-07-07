@@ -200,26 +200,62 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYt-2d-4h3">
-                                <rect key="frame" x="36" y="92" width="64" height="21"/>
+                                <rect key="frame" x="36" y="239" width="64" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vor-Ip-1fg">
-                                <rect key="frame" x="36" y="126" width="212" height="79"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vor-Ip-1fg">
+                                <rect key="frame" x="36" y="258" width="212" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptu-6x-KOn">
+                                <rect key="frame" x="43" y="345" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addLocation:" destination="CAm-Aa-yYX" eventType="touchUpInside" id="GMT-nb-57h"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPd-Bw-L12">
+                                <rect key="frame" x="36" y="98" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WDr-Ya-gSv">
+                                <rect key="frame" x="36" y="127" width="157" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1m-AR-KLy">
+                                <rect key="frame" x="215" y="127" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneEditing:" destination="CAm-Aa-yYX" eventType="touchUpInside" id="2U6-OF-cJd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail View" id="wTL-O1-2lg">
                         <barButtonItem key="backBarButtonItem" title="Map View" id="0C5-g6-zyZ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressView" destination="Vor-Ip-1fg" id="bjL-RZ-hTy"/>
+                        <outlet property="titleTextField" destination="WDr-Ya-gSv" id="YMr-Op-YCc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dH8-sM-UYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -241,14 +277,24 @@
                                 <rect key="frame" x="0.0" y="519" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Select All" id="p4E-FQ-wfB">
+                                    <barButtonItem title="SelectAll" id="p4E-FQ-wfB">
                                         <connections>
                                             <action selector="toggleLandmakrSelection:" destination="KRL-rx-xwq" id="Khl-Z4-0Pw"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Deselect All" id="L7i-CY-aOg">
+                                    <barButtonItem title="DeselectAll" id="L7i-CY-aOg">
                                         <connections>
                                             <action selector="toggleLandmakrSelection:" destination="KRL-rx-xwq" id="2Zt-Do-JcL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="[Save]" id="AaY-Hh-x1G">
+                                        <connections>
+                                            <action selector="saveKML:" destination="KRL-rx-xwq" id="ISK-4n-H1m"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="[SaveAs]" id="4z0-1K-h67">
+                                        <connections>
+                                            <action selector="saveKMLAs:" destination="KRL-rx-xwq" id="Hvl-hj-F3n"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -258,7 +304,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="myTableCell" editingAccessoryType="detailDisclosureButton" textLabel="5nc-xS-d1c" style="IBUITableViewCellStyleDefault" id="mnt-PG-coc">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="myTableCell" editingAccessoryType="disclosureIndicator" textLabel="5nc-xS-d1c" style="IBUITableViewCellStyleDefault" id="mnt-PG-coc">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mnt-PG-coc" id="Upi-8Z-lPW">
@@ -286,6 +332,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Landmark List" id="Gd8-ws-g5I">
                         <barButtonItem key="backBarButtonItem" title="Map View" id="2eH-Vi-ORD"/>
+                        <barButtonItem key="rightBarButtonItem" title="Editing" id="rNR-I6-Y2C">
+                            <connections>
+                                <action selector="toggleEditing:" destination="KRL-rx-xwq" id="R1A-eu-Pz0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="qr2-Je-S7j" id="zvt-RW-fWE"/>

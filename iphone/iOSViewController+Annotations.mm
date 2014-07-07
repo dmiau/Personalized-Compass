@@ -17,14 +17,16 @@
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
     
     // Add annotations one by one
-    
     for (int i = 0; i < self.model->data_array.size(); ++i){
         data myData = self.model->data_array[i];
-//        if (myData.isEnabled)
-            [self.mapView addAnnotation: myData.annotation];
+        [self.mapView addAnnotation: myData.annotation];
     }
 }
 
+
+//------------------
+// This function is called to prepare a view for an annotation
+//------------------
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(MKPointAnnotation*)annotation {
     
     // in case it's the user location, we already have an annotation, so just return nil
@@ -39,20 +41,18 @@
     MKPinAnnotationView *pinView =
     (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:landmarkAnnotationID];
     
-//    CustomAnnotationView *myCustomAnnotationView =
-//    [[CustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
-//    return myCustomAnnotationView;
-    
-
     if (pinView == nil)
     {
         pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
-        
-        [pinView setAnimatesDrop:YES];
-        [pinView setCanShowCallout:YES];
     }else{
         pinView.annotation = annotation;
     }
+    
+    [pinView setAnimatesDrop:YES];
+    [pinView setCanShowCallout:YES];
+
+    
+    //-----------------------------------------
     
     //Decide which color to show
     UIImage *btnImage, *btnLeftImage;
@@ -105,7 +105,7 @@
         // Constructing a right button
         //---------------
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        rightButton.tag = 1;  //right button has tag 0
+        rightButton.tag = 1;  //right button has tag 1
         pinView.rightCalloutAccessoryView = rightButton;
     }else{
         //---------------
@@ -137,13 +137,17 @@
     return pinView;
 }
 
+
+//------------------
+// When the callout of a pin is tapped
+//------------------
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     
     NSLog(@"Do something");
     MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
     // Check if this is a custom pin
-    if ([pinView.annotation subtitle] == nil){
+    if ([pinView pinColor] == MKPinAnnotationColorPurple){
         //------------------
         // The pin is a custom pin
         //------------------
@@ -152,22 +156,6 @@
             // Left buttton tapped - remove the pin
             [self.mapView removeAnnotation:view.annotation];
         }else{
-            // Right buttton tapped - add the pin to data_array
-//            data myData;
-//            myData.name = "custom";
-//            myData.annotation = view.annotation;
-//            
-//            myData.annotation.title = @"custom";
-//            myData.annotation.subtitle =
-//            [NSString stringWithFormat:@"%lu",
-//             self.model->data_array.size()];
-//            
-//            myData.latitude =  view.annotation.coordinate.latitude;
-//            myData.longitude =  view.annotation.coordinate.longitude;
-//            
-//            // Add the new data to data_array
-//            self.model->data_array.push_back(myData);
-            
             [self performSegueWithIdentifier:@"DetailVC" sender:view];
             
             
@@ -175,7 +163,9 @@
     }
 }
 
-
+//------------------
+// When a pin is selected
+//------------------
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     NSLog(@"Annotation clicked");
 //    MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
@@ -186,6 +176,9 @@
 }
 
 
+//------------------
+// Prepare for the detail view
+//------------------
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(MKAnnotationView *)sender
 {
     if ([segue.identifier isEqualToString:@"DetailVC"])

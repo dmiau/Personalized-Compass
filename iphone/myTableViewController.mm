@@ -166,4 +166,87 @@
     }
     [self.myTableView reloadData];
 }
+
+//-------------
+// Toggle editing mode
+//-------------
+- (IBAction)toggleEditing:(id)sender {
+    UIBarButtonItem *myButton =
+    (UIBarButtonItem*) sender;
+    if (self.myTableView.editing == YES){
+        [self.myTableView setEditing:NO animated:YES];
+        myButton.title = @"Editing";
+    }else{
+        [self.myTableView setEditing:YES animated:YES];
+        myButton.title = @"Done";
+    }
+
+}
+//-------------
+// Save file
+//-------------
+- (IBAction)saveKML:(id)sender {
+
+    NSString *filename =
+    [self.model->location_filename lastPathComponent];
+    [self saveKMLWithFilename:filename];
+
+}
+
+- (IBAction)saveKMLAs:(id)sender {
+    // Prompt a dialog box to get the filename
+    UIAlertView *alertView =
+    [[UIAlertView alloc] initWithTitle:@"File Name"
+    message:@"Please enter a filename"
+    delegate:self
+    cancelButtonTitle:@"Cancel"
+                     otherButtonTitles:@"OK", nil];
+    
+    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+
+    [alertView show];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if ([buttonTitle isEqualToString:@"OK"]){
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        NSString *filename = textField.text;
+        [self saveKMLWithFilename:filename];
+    }
+}
+
+- (BOOL) saveKMLWithFilename:(NSString*) filename{
+    bool hasError = false;
+    NSString *content = genKMLString(self.model->data_array);
+    
+    if (self.model->filesys_type == DROPBOX){
+        if (![self.model->dbFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }else{
+        if (![self.model->docFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }
+    
+    if (hasError){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+                                                        message:@"Fail to save the file."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        NSLog(@"Failed to write file.");
+        return false;
+    }
+    return true;
+}
+
 @end

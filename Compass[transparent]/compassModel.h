@@ -126,5 +126,5 @@ private:
 int readConfigurations(compassMdl* mdl_instance);
 double DegreesToRadians(double degrees);
 double RadiansToDegrees(double radians);
-
+NSString* genKMLString(vector<data> my_data_array);
 #endif /* defined(__Exploration__model__) */

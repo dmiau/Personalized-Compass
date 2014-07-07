@@ -242,6 +242,55 @@
     }
 }
 
+//----------------
+// write files
+//----------------
+- (BOOL) writeFileWithName: (NSString*) filename
+                   Content: (NSString*) content
+{
+    NSError* error;
+    NSString *doc_path = [self.document_path stringByAppendingPathComponent:filename];
+
+    if (![content writeToFile:doc_path
+                   atomically:YES encoding: NSASCIIStringEncoding
+                        error:&error])
+    {
+        NSLog(@"KML write failed");
+        return false;
+    }
+    
+    // Always write to the Documentation folder first
+    if (self.filesys_type == DROPBOX)
+    {
+        // Dropbox case
+        DBError *error = nil;
+        DBPath *path = [[DBPath root] childPath:filename];
+        
+        DBFileInfo *info = [self.db_filesystem fileInfoForPath:path error:&error];
+
+        DBFile *file;
+        // Check whether the file exists or not
+        if (!info){
+            file = [self.db_filesystem createFile:path error:&error];
+        }else{
+            file = [[DBFilesystem sharedFilesystem]
+               openFile:path error:&error];
+        }
+        
+        if (!file){
+            [self.error_str appendString:@"Error opening file."];
+            return nil;
+        }else{
+            if (![file writeString:content error:&error]){
+            [self.error_str appendString:@"Failed to write file to dropbox."];
+                return nil;
+            }
+        }
+    }
+    return true;
+}
+
+
 #pragma mark ----Dropbox related stuff----
 
 - (BOOL)initDropboxWithAccount:(DBAccount *)account

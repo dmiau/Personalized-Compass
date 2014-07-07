@@ -34,5 +34,6 @@ typedef enum{
 - (void) linkDropbox: (UIVideoEditorController*) controller;
 - (NSArray*) listFiles;
 - (NSData*) readFileFromName: (NSString*) filename;
-
+- (BOOL) writeFileWithName: (NSString*) filename
+                   Content: (NSString*) content;
 @end
