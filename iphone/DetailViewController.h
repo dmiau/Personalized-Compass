@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *addressView;
 @property compassMdl* model;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextView *noteTextField;
 
 
 - (IBAction)doneEditing:(id)sender;

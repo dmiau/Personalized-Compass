@@ -104,6 +104,7 @@
     // The order is important
     self.renderer->loadParametersFromModelConfiguration();
     [self updateModelCompassCenterXY];
+    [self.glkView setNeedsDisplay];    
 }
 
 //------------------

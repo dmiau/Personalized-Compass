@@ -131,9 +131,7 @@
 //---------------
 - (MKPinAnnotationView *) configureLandmarkPinView: (MKPinAnnotationView *) pinView
 {
-    UIImage *btnImage, *btnLeftImage;
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
+    UIImage *btnImage;
     CustomPointAnnotation *myAnnotation =
     (CustomPointAnnotation *) pinView.annotation;
     
@@ -147,18 +145,26 @@
     }
     
     //---------------
-    // Constructing a right button
+    // Constructing a left button (tag: 0)
     //---------------
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setImage:btnImage forState:UIControlStateNormal];
-    rightButton.frame = CGRectMake(0, 0,
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftButton setImage:btnImage forState:UIControlStateNormal];
+    leftButton.frame = CGRectMake(0, 0,
                                    btnImage.size.width, btnImage.size.height);
-    [rightButton setBackgroundColor: [UIColor redColor]];
-    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+    [leftButton setBackgroundColor: [UIColor redColor]];
+    [leftButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
     
     
-    rightButton.tag = 1;  //right button has tag 0
+    leftButton.tag = 0;  //right button has tag 0
+    pinView.leftCalloutAccessoryView = leftButton;
+    
+    //---------------
+    // Constructing a right button (tag: 1)
+    //---------------
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    rightButton.tag = 1;  //right button has tag 1
     pinView.rightCalloutAccessoryView = rightButton;
+    
     return pinView;
 }
 
@@ -175,21 +181,18 @@
     
     NSLog(@"Do something");
     MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
-    // Check if this is a custom pin
-    if ([pinView pinColor] == MKPinAnnotationColorPurple){
-        //------------------
-        // The pin is a custom pin
-        //------------------
-        UIButton *myButton = (UIButton *)control;
-        if(myButton.tag == 0){
-            // Left buttton tapped - remove the pin
-            [self.mapView removeAnnotation:view.annotation];
-        }else{
-            [self performSegueWithIdentifier:@"DetailVC" sender:view];
-            
-            
-        }
+    //------------------
+    // The pin is a custom pin
+    //------------------
+    UIButton *myButton = (UIButton *)control;
+    if([pinView pinColor] == MKPinAnnotationColorPurple &&
+       myButton.tag == 0){
+        // Left buttton tapped - remove the pin
+        [self.mapView removeAnnotation:view.annotation];
+    }else if (myButton.tag == 1){
+        [self performSegueWithIdentifier:@"DetailVC" sender:view];
     }
+    
 }
 
 //------------------

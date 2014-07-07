@@ -48,8 +48,6 @@
         }
         self.renderer->model->configurations[@"compass_scale"] =
         [NSNumber numberWithFloat:0.9];
-        
-        [self.glkView setNeedsDisplay];
         explr_mode = true;
     }else{
         for (int i = 0; i<4; ++i){
@@ -65,10 +63,12 @@
         }
         self.renderer->model->configurations[@"compass_scale"] =
         cache_configurations[@"compass_scale"];
-        
         explr_mode = false;
-        [self.glkView setNeedsDisplay];
     }
+    
+    self.renderer->loadParametersFromModelConfiguration();
+    [self updateModelCompassCenterXY];
+    [self.glkView setNeedsDisplay];
 }
 
 //------------------

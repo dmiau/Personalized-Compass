@@ -28,7 +28,33 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.titleTextField.text = self.annotation.title;
+    self.noteTextField.text = self.annotation.notes;
     self.addressView.text = self.annotation.subtitle;
+
+    NSString *address;
+    CLLocation *location = [[CLLocation alloc]
+                            initWithLatitude:[self.annotation coordinate].latitude
+                            longitude:[self.annotation coordinate].longitude];
+    
+    if ([self.addressView.text isEqualToString:@""]){
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        [geocoder reverseGeocodeLocation:location
+                       completionHandler:^(NSArray *placemarks, NSError *error)
+         {
+             if(placemarks && placemarks.count > 0)
+             {
+                 CLPlacemark *placemark= [placemarks objectAtIndex:0];
+                 //address is NSString variable that declare in .h file.
+                 NSString* address =
+                 [NSString stringWithFormat:@"%@ %@ , %@ , %@",
+                  [placemark subThoroughfare],
+                  [placemark thoroughfare],[placemark locality],[placemark administrativeArea]];
+                 NSLog(@"New Address Is:%@",address);
+                 self.addressView.text = address;
+             }
+         }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
