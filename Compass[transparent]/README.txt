@@ -1006,7 +1006,7 @@ http://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-co
 -------------------------------------------------------------------
 - refactory the pinview code
 - need to connect detail view from the table view
-
+- hook up table view with detail view
 
 
 

@@ -18,4 +18,6 @@ enum location_enum {
 
 @property enum location_enum point_type;
 @property int data_id;
+@property NSString* address;
+@property NSString* notes;
 @end
