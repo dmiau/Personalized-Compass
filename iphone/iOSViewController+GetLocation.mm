@@ -7,9 +7,15 @@
 //
 
 #import "iOSViewController+GetLocation.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation iOSViewController (GetLocation)
 - (IBAction)getCurrentLocation:(id)sender {
+    
+
+    self.findMeButton.backgroundColor = [UIColor orangeColor];
+    self.findMeButton.layer.cornerRadius = 5;
+    self.findMeButton.clipsToBounds = YES;
     
     self.mapView.showsUserLocation = YES;
     // enable location manager
@@ -20,6 +26,14 @@
     self.move2UpdatedLocation = true;
     [locationManager startUpdatingLocation];
     
+    //    // Diable location service after some time
+    //    NSTimer *timer1 = [NSTimer scheduledTimerWithTimeInterval: 3
+    //        target:self
+    //        selector:@selector(handleTimer:)
+    //        userInfo:nil
+    //        repeats:NO];
+    [self performSelector:@selector(handleTimer:)
+               withObject:self afterDelay:30];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -28,6 +42,7 @@
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
+    self.findMeButton.backgroundColor = [UIColor clearColor];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -43,21 +58,14 @@
         [self updateMapDisplayRegion];
         self.move2UpdatedLocation = false;
     }
-    
-    // Diable location service after 10 seconds
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 20
-                                                      target:self
-                                                    selector:@selector(handleTimer:)
-                                                    userInfo:nil
-                                                     repeats:NO];
 }
 
 -(void)handleTimer: (NSTimer *) timer
 {
-     self.mapView.showsUserLocation = NO;
+    self.mapView.showsUserLocation = NO;
     // Stop Location Manager
     [locationManager stopUpdatingLocation];
-    
+    self.findMeButton.backgroundColor = [UIColor clearColor];
 }
 
 @end

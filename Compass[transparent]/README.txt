@@ -1007,9 +1007,11 @@ http://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-co
 - refactory the pinview code
 - need to connect detail view from the table view
 - hook up table view with detail view
+- need to do something about compassCenterXY (model) and compass_centroid (render)
+- should implement KVO to resolve configuration file update issues
 
-
-
+Todo:
+- need to add code to watch this variable: configurationFileReadFlag (model)
 
 
 

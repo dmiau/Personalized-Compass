@@ -69,6 +69,43 @@
     }
 }
 
+- (IBAction)compassLocationSegmentControl:(id)sender {
+    
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    NSString *label = [segmentedControl
+                       titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
+    // Need to perform a deep copy
+    static NSArray *defaultCentroidParams =
+    [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations[@"compass_centroid"]]];
+    
+    
+    static NSDictionary* cache_configurations =
+    [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations]];
+    
+    if ([label isEqualToString:@"Default"]){
+        self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
+    }else if ([label isEqualToString:@"UL"]){
+        self.model->configurations[@"compass_centroid"][0] =
+        [NSNumber numberWithInt:90];
+        self.model->configurations[@"compass_centroid"][1] =
+        [NSNumber numberWithInt:180];
+    }else if ([label isEqualToString:@"Center"]){
+        self.model->configurations[@"compass_centroid"][0] =
+        [NSNumber numberWithInt:0];
+        self.model->configurations[@"compass_centroid"][1] =
+        [NSNumber numberWithInt:0];
+    }else if ([label isEqualToString:@"BR"]){
+        self.model->configurations[@"compass_centroid"][0] =
+        [NSNumber numberWithInt:-70];
+        self.model->configurations[@"compass_centroid"][1] =
+        [NSNumber numberWithInt:-150];
+    }
+    
+    // The order is important
+    self.renderer->loadParametersFromModelConfiguration();
+    [self updateModelCompassCenterXY];
+}
+
 //------------------
 // Select compass type
 //------------------

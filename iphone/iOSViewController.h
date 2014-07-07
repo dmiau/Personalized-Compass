@@ -48,6 +48,7 @@ MKMapViewDelegate>
 @property bool needUpdateDisplayRegion;
 @property bool needUpdateAnnotations;
 - (IBAction)getCurrentLocation:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *findMeButton;
 
 
 //----------------
@@ -85,7 +86,8 @@ MKMapViewDelegate>
 - (void) updateMapDisplayRegion;
 //- (void) updateMapDisplayRegion(CLLocationCoordinate2D coord);
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
-- (void)updateOverviewMap;
+-(void)updateOverviewMap;
+-(bool)updateModelCompassCenterXY;
 
 //----------------
 // Annotations related methods

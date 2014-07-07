@@ -292,6 +292,12 @@
 		9AECA76B196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */; };
 		9AECA76C196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */; };
 		9AECA76D196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */; };
+		9AECA76F196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
+		9AECA770196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
+		9AECA771196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
+		9AECA772196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
+		9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
+		9AECA774196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
 		9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */; };
 		9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
 		9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
@@ -471,6 +477,7 @@
 		9AEC5CFC18F3960500A29F75 /* smartWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = smartWatch.entitlements; sourceTree = "<group>"; };
 		9AECA766196A0269008ADAEC /* CustomPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPointAnnotation.h; sourceTree = "<group>"; };
 		9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomPointAnnotation.mm; sourceTree = "<group>"; };
+		9AECA76E196AEAB7008ADAEC /* UKLondon.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = UKLondon.kml; sourceTree = "<group>"; };
 		9AEECFAC190A0B6B0031BAAE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = "Compass[transparent]/WebViewController.h"; sourceTree = "<group>"; };
 		9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = WebViewController.mm; path = "Compass[transparent]/WebViewController.mm"; sourceTree = "<group>"; };
 		9AEECFF51910599B0031BAAE /* StyleWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StyleWindow.xib; sourceTree = "<group>"; };
@@ -862,6 +869,7 @@
 		9AF523B418DC8E95005823A2 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				9AECA76E196AEAB7008ADAEC /* UKLondon.kml */,
 				9AB90B8C194DED0B0030BF5B /* Taiwan.kml */,
 				9A5681AF1944A57A0021DA97 /* SundayTest.kml */,
 				9AF089FC1921390700E118D5 /* New York City [many].kml */,
@@ -1090,6 +1098,7 @@
 				9A3DA09B1964E9B1009E0073 /* add.png in Resources */,
 				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
+				9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A998D7D194BCB0900778DFC /* setup.jpg in Resources */,
 				9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */,
@@ -1118,6 +1127,7 @@
 				9A3DA09C1964E9B1009E0073 /* add.png in Resources */,
 				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
 				9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
+				9AECA774196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A82B6471941518900534A5F /* newyork.kml in Resources */,
 				9A82B6481941518900534A5F /* montreal.kml in Resources */,
@@ -1146,6 +1156,7 @@
 				9AA789291909FE3000A26C66 /* london.kml in Resources */,
 				9AA7892A1909FE3000A26C66 /* montreal.kml in Resources */,
 				9A3DA09A1964E9B1009E0073 /* add.png in Resources */,
+				9AECA772196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9AB2A71B196372AA0001E96F /* selected.png in Resources */,
 				9AA7892D1909FE3000A26C66 /* newyork.kml in Resources */,
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
@@ -1162,6 +1173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AECA76F196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A3DA0971964E9B1009E0073 /* add.png in Resources */,
 				9A9701E319083EB9007C3C19 /* MainMenu.xib in Resources */,
 				9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */,
@@ -1207,6 +1219,7 @@
 				9AEC5CEE18F3956F00A29F75 /* london.kml in Resources */,
 				9AEC5CEF18F3956F00A29F75 /* montreal.kml in Resources */,
 				9A6F53F41910069F00F35FED /* DebugInfoWindow.xib in Resources */,
+				9AECA771196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9AEC5CF218F3956F00A29F75 /* newyork.kml in Resources */,
 				9A3DA09F1964E9B1009E0073 /* remove.png in Resources */,
 				9AEC5CF318F3956F00A29F75 /* Credits.rtf in Resources */,
@@ -1227,6 +1240,7 @@
 				9AB2A71F196372AA0001E96F /* unselected.png in Resources */,
 				9A3DA0BC1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AB2A719196372AA0001E96F /* selected.png in Resources */,
+				9AECA770196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9AFB14B518EE639A00063632 /* newyork.kml in Resources */,
 				9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,

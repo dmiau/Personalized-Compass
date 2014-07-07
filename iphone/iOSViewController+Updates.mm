@@ -155,6 +155,18 @@
 }
 
 //------------------
+// This function should be called after the user moves the compass
+//------------------
+-(bool)updateModelCompassCenterXY{
+    self.model->compassCenterXY =
+    [self.mapView convertPoint: CGPointMake(self.glkView.frame.size.width/2
+                                            + [self.model->configurations[@"compass_centroid"][0] floatValue],
+                                            self.glkView.frame.size.height/2+
+                                            - [self.model->configurations[@"compass_centroid"][1] floatValue])
+                      fromView:self.glkView];
+    return true;
+}
+//------------------
 // Tools
 //------------------
 -(double) computeOrientationFromLocation:(CLLocationCoordinate2D) refPt

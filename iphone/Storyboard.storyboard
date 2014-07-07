@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </glkView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuN-zz-sjI">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuN-zz-sjI" userLabel="Setting Button">
                                 <rect key="frame" x="278" y="27" width="35" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="setup.jpg">
@@ -46,8 +46,8 @@
                                     <segue destination="9xM-YS-8bl" kind="push" identifier="settingSegue" id="dqm-u3-uK4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-jM-ph6">
-                                <rect key="frame" x="269" y="488" width="25" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-jM-ph6" userLabel="Locate Button">
+                                <rect key="frame" x="269" y="476" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="location.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,6 +92,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rL1-an-vSn"/>
                     <connections>
+                        <outlet property="findMeButton" destination="xmf-jM-ph6" id="qvX-HN-aV5"/>
                         <outlet property="glkView" destination="w6C-r0-bI1" id="yhf-bo-5Lj"/>
                         <outlet property="ibSearchBar" destination="we6-xT-3ZG" id="lqR-nJ-pAx"/>
                         <outlet property="mapView" destination="Nfb-xm-KgJ" id="zfv-nH-uVh"/>
@@ -388,6 +389,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VT9-KB-V4S"/>
+        <segue reference="WS4-yg-Oj7"/>
     </inferredMetricsTieBreakers>
 </document>

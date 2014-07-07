@@ -72,7 +72,8 @@ int compassRender::initRenderMdl(){
     
     glDrawingCorrectionRatio = 1;
     
-    compass_centroid = glOrigin;
+//    compass_centroid = glOrigin;
+    loadParametersFromModelConfiguration();
     
     //--------------------
     // Initialize string parameters
@@ -97,6 +98,18 @@ int compassRender::initRenderMdl(){
     
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
+}
+
+//---------------
+// Load parameters from configuration files
+//---------------
+void compassRender::loadParametersFromModelConfiguration(){
+    compass_scale = [model->configurations[@"compass_scale"] floatValue];
+    
+    compass_centroid.x =
+    [model->configurations[@"compass_centroid"][0] floatValue];
+    compass_centroid.y =
+    [model->configurations[@"compass_centroid"][1] floatValue];
 }
 
 //---------------
@@ -195,10 +208,10 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //    glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
     //    glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST);
     //    glEnable(GL_MULTISAMPLE);
-    compass_scale = [model->configurations[@"compass_scale"] floatValue];
-    
-    compass_centroid.x = [model->configurations[@"compass_centroid"][0] floatValue];
-    compass_centroid.y = [model->configurations[@"compass_centroid"][1] floatValue];
+//    compass_scale = [model->configurations[@"compass_scale"] floatValue];
+//    
+//    compass_centroid.x = [model->configurations[@"compass_centroid"][0] floatValue];
+//    compass_centroid.y = [model->configurations[@"compass_centroid"][1] floatValue];
 
 #ifdef __IPHONE__
     //-------------

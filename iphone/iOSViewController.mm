@@ -149,7 +149,9 @@
                                   owner:self options:nil];
     for (UIView *aView in view_array){
         [aView setHidden:YES];
-        aView.frame = CGRectMake(0, 267, 320, 255);
+        // iphone's screen size: 568x320
+        aView.frame = CGRectMake(0, 568 - 44 - aView.frame.size.height,
+                                 aView.frame.size.width, aView.frame.size.height);
         if ([[aView restorationIdentifier] isEqualToString:@"ViewPanel"]){
             self.viewPanel = aView;
             [self.view addSubview:self.viewPanel];
@@ -168,12 +170,8 @@
     [self updateMapDisplayRegion];
     
     // Provide the centroid of compass to the model
-    self.model->compassCenterXY =
-    [self.mapView convertPoint: CGPointMake(self.glkView.frame.size.width/2
-                                            + [self.model->configurations[@"compass_centroid"][0] floatValue],
-                                            self.glkView.frame.size.height/2+
-                                            - [self.model->configurations[@"compass_centroid"][1] floatValue])
-                      fromView:self.glkView];
+    [self updateModelCompassCenterXY];
+
     // Add pin annotations
     [self renderAnnotations];
     

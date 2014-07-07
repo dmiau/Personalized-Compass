@@ -73,7 +73,7 @@ public:
     // indicates the centroid of compass in the map window coordinate frame
     // (in terms of u, v, not in terms of latitude and longitude)
     CGPoint compassCenterXY;
-    
+    NSNumber *configurationFileReadFlag;
     NSMutableDictionary *configurations;
         
     NSString* configuration_filename;
