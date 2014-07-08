@@ -1026,7 +1026,10 @@ http://stackoverflow.com/questions/9483100/iphone-navigation-back-button
 
 - working on the ipad target to catch up the development progress
 
+Here is a tutorial for deleting and inserting rows in a table
+https://developer.apple.com/library/ios/documentation/userexperience/conceptual/tableview_iphone/ManageInsertDeleteRow/ManageInsertDeleteRow.html
 
+- working on CLLocationManager related stuff
 
 
 

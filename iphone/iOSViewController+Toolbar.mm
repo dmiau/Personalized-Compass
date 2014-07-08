@@ -75,9 +75,10 @@
 // Show the menu view
 //------------------
 - (IBAction)toggleModelPanel:(id)sender {
-    if ([[self modelPanel] isHidden])
+    if ([[self modelPanel] isHidden]){
+        [[self viewPanel] setHidden:YES];
         [[self modelPanel] setHidden:NO];
-    else{
+    }else{
         [[self modelPanel] setHidden:YES];
         
         if (self.needUpdateDisplayRegion)
@@ -86,9 +87,10 @@
 }
 
 - (IBAction)toggleViewPanel:(id)sender {
-    if ([[self viewPanel] isHidden])
+    if ([[self viewPanel] isHidden]){
+        [[self modelPanel] setHidden:YES];        
         [[self viewPanel] setHidden:NO];
-    else
+    }else
         [[self viewPanel] setHidden:YES];
 }
 

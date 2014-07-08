@@ -77,6 +77,8 @@
 - (IBAction)doneEditing:(id)sender {
     [self.titleTextField resignFirstResponder];
     self.annotation.title = self.titleTextField.text;
+    [self.noteTextField resignFirstResponder];
+    self.annotation.notes = self.noteTextField.text;
 }
 
 - (IBAction)addLocation:(id)sender {

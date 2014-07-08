@@ -189,12 +189,14 @@
 {
     //https://developer.apple.com/library/ios/documentation/userexperience/conceptual/tableview_iphone/ManageInsertDeleteRow/ManageInsertDeleteRow.html
     
-//    // If row is deleted, remove it from the list.
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        SimpleEditableListAppDelegate *controller = (SimpleEditableListAppDelegate *)[[UIApplication sharedApplication] delegate];
-//        [controller removeObjectFromListAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    }
+    // If row is deleted, remove it from the list.
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+        UITableViewCell *aCell = [self.myTableView cellForRowAtIndexPath:indexPath];
+        aCell.backgroundColor = [UIColor lightGrayColor];
+        
+//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];        
+    }
 }
 
 

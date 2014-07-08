@@ -227,6 +227,23 @@
     // pass touch event to super
     [super touchesBegan:touches withEvent:event];
     
+    
+    
+    //------------------
+    // Perform hitTest to dismiss dialogs
+    //------------------
+    NSArray* dialog_array = @[self.viewPanel, self.modelPanel];
+    
+    for (UIView* aView in dialog_array){
+
+        UIView* hitView = [aView
+                   hitTest:[touch locationInView:aView]
+                   withEvent:event];
+        if ([aView isHidden] == NO &&
+            hitView == nil){
+            [aView setHidden:YES];
+        }
+    }
 }
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer

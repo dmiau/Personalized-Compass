@@ -15,8 +15,7 @@
 #import "iOSGLKView.h"
 
 @interface iOSViewController : UIViewController
-<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate,
-MKMapViewDelegate>
+<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate>
 {
     NSTimer *_updateUITimer;
     CLLocationManager *locationManager;
