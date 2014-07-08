@@ -16,6 +16,7 @@
 
 #import "iOSViewController.h"
 
+
 @interface iOSSettingViewController : UIViewController
 {
     BOOL pinVisible;
@@ -32,5 +33,6 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dataSource;
 @property (weak, nonatomic) IBOutlet UITextView *systemMessage;
 
+- (IBAction)dismissModalVC:(id)sender;
 
 @end

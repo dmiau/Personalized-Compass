@@ -1013,7 +1013,18 @@ http://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-co
 Todo:
 - need to add code to watch this variable: configurationFileReadFlag (model)
 
+ipad modal back button:
+http://stackoverflow.com/questions/10841653/create-a-modal-view-with-navigation-bar-and-back-button
+http://stackoverflow.com/questions/9483100/iphone-navigation-back-button
 
+
+-------------------------------------------------------------------
+7.8.2014
+-------------------------------------------------------------------
+- implementing the back action of modal view controllers
+[self dismissViewControllerAnimated:YES completion:nil];
+
+- working on the ipad target to catch up the development progress
 
 
 

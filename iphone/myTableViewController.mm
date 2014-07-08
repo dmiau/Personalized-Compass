@@ -154,7 +154,7 @@
 
 - (IBAction)toggleLandmakrSelection:(id)sender {
     UIBarButtonItem *myButton = (UIBarButtonItem*) sender;
-    if ([[myButton title] isEqualToString:@"Select All"]){
+    if ([[myButton title] isEqualToString:@"SelectAll"]){
         for (int i = 0; i < self.model->data_array.size(); ++i) {
             self.model->data_array[i].isEnabled = true;
         }
@@ -265,4 +265,8 @@
     return true;
 }
 
+#pragma mark -----Exit-----
+- (IBAction)dismissModalVC:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

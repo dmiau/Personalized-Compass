@@ -96,4 +96,10 @@
             // Add the new data to data_array
             self.model->data_array.push_back(myData);
 }
+
+#pragma mark -----Exit-----
+- (IBAction)dismissModalVC:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

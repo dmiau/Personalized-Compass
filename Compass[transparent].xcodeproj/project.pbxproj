@@ -298,6 +298,7 @@
 		9AECA772196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
 		9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
 		9AECA774196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
+		9AECA775196B1545008ADAEC /* ViewPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2ED70919639D5900CA385E /* ViewPanel.xib */; };
 		9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */; };
 		9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
 		9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
@@ -1115,6 +1116,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AECA775196B1545008ADAEC /* ViewPanel.xib in Resources */,
 				9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */,
 				9AB2A723196372AA0001E96F /* unselected.png in Resources */,

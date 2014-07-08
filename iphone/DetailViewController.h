@@ -22,4 +22,5 @@
 - (IBAction)doneEditing:(id)sender;
 - (IBAction)addLocation:(id)sender;
 
+- (IBAction)dismissModalVC:(id)sender;
 @end

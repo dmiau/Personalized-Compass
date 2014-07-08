@@ -22,4 +22,5 @@
 - (IBAction)saveKML:(id)sender;
 - (IBAction)saveKMLAs:(id)sender;
 
+- (IBAction)dismissModalVC:(id)sender;
 @end

@@ -207,7 +207,6 @@
 //    pinView.rightCalloutAccessoryView = rightButton;
 }
 
-
 //------------------
 // Prepare for the detail view
 //------------------

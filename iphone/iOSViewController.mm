@@ -140,7 +140,7 @@
     [self.debugView setHidden:YES];
     
     //-------------------
-    // Add View Panel
+    // Add View and Model Panels
     //-------------------
     
     // Note this method needs to be here
@@ -150,7 +150,11 @@
     for (UIView *aView in view_array){
         [aView setHidden:YES];
         // iphone's screen size: 568x320
-        aView.frame = CGRectMake(0, 568 - 44 - aView.frame.size.height,
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+        CGFloat screenHeight = screenRect.size.height;
+        
+        aView.frame = CGRectMake(0, screenHeight - 44 - aView.frame.size.height,
                                  aView.frame.size.width, aView.frame.size.height);
         if ([[aView restorationIdentifier] isEqualToString:@"ViewPanel"]){
             self.viewPanel = aView;
@@ -209,18 +213,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
     UITouch* touch = [touches anyObject];
@@ -257,5 +249,7 @@
 //    // this line displays the callout
 //    [self.mapView selectAnnotation:pa animated:YES];
 }
+
+
 @end
 

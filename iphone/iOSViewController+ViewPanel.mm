@@ -130,6 +130,7 @@
 //        [self.glkView setHidden:YES];
         [self setFactoryCompassHidden:YES];
     }
+    [self.glkView setNeedsDisplay];    
 }
 
 //------------------
