@@ -31,6 +31,7 @@
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         self.move2UpdatedLocation = true;
         [locationManager startUpdatingLocation];
+        [locationManager startUpdatingHeading];
         
         //    // Diable location service after some time
         //    NSTimer *timer1 = [NSTimer scheduledTimerWithTimeInterval: 3
@@ -70,12 +71,22 @@
         self.move2UpdatedLocation = false;
     }
     
+    // Update user position
+    self.model->user_pos.latitude = myLocation.coordinate.latitude;
+    self.model->user_pos.longitude = myLocation.coordinate.longitude;
+    self.model->user_pos.annotation.coordinate = myLocation.coordinate;
+
+    [self.mapView addAnnotation:self.model->user_pos.annotation];    
 }
 
 //-------------------
 // Heading is updated
 //-------------------
-- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
+- (void)locationManager:(CLLocationManager *)manager
+       didUpdateHeading:(CLHeading *)newHeading
+{
+    self.model->user_pos.orientation = [newHeading trueHeading]; // heading is in degree
+
 }
 
 
@@ -91,7 +102,9 @@
     self.mapView.showsUserLocation = NO;
     // Stop Location Manager
     [locationManager stopUpdatingLocation];
-        self.findMeButton.selected = NO;
+    [locationManager stopUpdatingHeading];
+    
+    self.findMeButton.selected = NO;
     self.findMeButton.backgroundColor = [UIColor clearColor];
 }
 

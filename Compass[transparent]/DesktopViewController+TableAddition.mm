@@ -75,9 +75,9 @@
     int ind = (int)[idx firstIndex];
     
     //[todo] hwo to improve?
-    self.model->current_pos.name = self.model->data_array[ind].name;
-    self.model->current_pos.latitude = self.model->data_array[ind].latitude;
-    self.model->current_pos.longitude = self.model->data_array[ind].longitude;
+    self.model->camera_pos.name = self.model->data_array[ind].name;
+    self.model->camera_pos.latitude = self.model->data_array[ind].latitude;
+    self.model->camera_pos.longitude = self.model->data_array[ind].longitude;
     
 //    self.model->updateMdl();
     [self updateMapDisplayRegion];

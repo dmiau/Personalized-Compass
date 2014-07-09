@@ -35,39 +35,64 @@
         return nil;
     }
     
-    // try to dequeue an existing pin view first
-    static NSString *landmarkAnnotationID = @"landmarkAnnotationID";
-    
-    MKPinAnnotationView *pinView =
-    (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:landmarkAnnotationID];
-    
-    if (pinView == nil)
-    {
-        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
+    if ([annotation point_type] != heading){
+        
+        // try to dequeue an existing pin view first
+        static NSString *landmarkAnnotationID = @"landmarkAnnotationID";
+        
+        MKPinAnnotationView *pinView =
+        (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:landmarkAnnotationID];
+        
+        if (pinView == nil)
+        {
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
+        }else{
+            pinView.annotation = annotation;
+        }
+        
+        [pinView setAnimatesDrop:YES];
+        [pinView setCanShowCallout:YES];
+        
+        
+        if ([annotation point_type] == dropped){
+            //---------------
+            // User triggered drop pin
+            //---------------
+            pinView = [self configureUserDroppedPinView: pinView];
+        }else if ([annotation point_type] == landmark){
+            //---------------
+            // Landmark pin
+            //---------------
+            pinView = [self configureLandmarkPinView: pinView];
+        }else if ([annotation point_type] == search_result){
+            //---------------
+            // Search pin
+            //---------------
+            pinView = [self configureUserDroppedPinView: pinView];
+        }
+        return pinView;
     }else{
-        pinView.annotation = annotation;
+        //---------------
+        // Heading image
+        //---------------
+        
+        // try to dequeue an existing pin view first
+        static NSString *headingAnnotationID = @"headingAnnotationID";
+        
+        MKAnnotationView *pinView =
+        (MKAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:headingAnnotationID];
+        
+        if (pinView == nil)
+        {
+            pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:headingAnnotationID];
+        }else{
+            pinView.annotation = annotation;
+        }
+        [pinView setCanShowCallout:NO];
+        
+        pinView = [self configureHeadingImageView: pinView];
+        return pinView;
     }
-    
-    [pinView setAnimatesDrop:YES];
-    [pinView setCanShowCallout:YES];
-
-    if ([annotation point_type] == dropped){
-        //---------------
-        // User triggered drop pin
-        //---------------
-        pinView = [self configureUserDroppedPinView: pinView];
-    }else if ([annotation point_type] == landmark){
-        //---------------
-        // Landmark pin
-        //---------------
-        pinView = [self configureLandmarkPinView: pinView];
-    }else{
-        //---------------
-        // Search pin
-        //---------------
-        pinView = [self configureUserDroppedPinView: pinView];
-    }
-    return pinView;
 }
 
 //---------------
@@ -170,6 +195,13 @@
 
 - (MKPinAnnotationView *) configureSearchPinView: (MKPinAnnotationView *) pinView
 {
+    return pinView;
+}
+
+- (MKAnnotationView *) configureHeadingImageView: (MKAnnotationView *) pinView
+{
+    UIImage *myImg = [UIImage imageNamed:@"heading.png"];
+    pinView.image = [UIImage imageNamed:@"heading.png"];
     return pinView;
 }
 

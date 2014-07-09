@@ -68,6 +68,12 @@ int compassMdl::initMdl(){
     location_filename =[[NSBundle mainBundle] pathForResource:configurations[@"default_location_filename"] ofType:@""];
     
     //------------
+    // Initialize user position
+    //------------
+    user_pos.annotation = [[CustomPointAnnotation alloc] init];
+    user_pos.annotation.point_type = heading;
+    
+    //------------
     // Load configuations from physical files into memory
     //------------
     reloadFiles();
@@ -105,9 +111,9 @@ int compassMdl::updateMdl(){
 
     
     for (int i = 0; i < data_array.size(); ++i){
-        double distance = current_pos.computeDistanceFromLocation
+        double distance = camera_pos.computeDistanceFromLocation
         (data_array[i]);
-        double orientation = current_pos.computeOrientationFromLocation
+        double orientation = camera_pos.computeOrientationFromLocation
         (data_array[i]);
         data_array[i].distance = distance;
         data_array[i].orientation = orientation;

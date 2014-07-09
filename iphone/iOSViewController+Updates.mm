@@ -93,11 +93,11 @@
                       tilt: (float) tilt_deg
 {
     //[todo] this is too heavy
-    self.model->current_pos.orientation = -camera_heading;
+    self.model->camera_pos.orientation = -camera_heading;
     self.model->tilt = tilt_deg; // no tilt changes on iOS
     
-    self.model->current_pos.latitude = lat_float;
-    self.model->current_pos.longitude = lon_float;
+    self.model->camera_pos.latitude = lat_float;
+    self.model->camera_pos.longitude = lon_float;
     self.model->updateMdl();
 }
 
@@ -129,8 +129,8 @@
     static int once = 0;
     if (once==0){
         MKCoordinateRegion region;
-        region.center.latitude = self.model->current_pos.latitude;
-        region.center.longitude = self.model->current_pos.longitude;
+        region.center.latitude = self.model->camera_pos.latitude;
+        region.center.longitude = self.model->camera_pos.longitude;
         
         region.span.longitudeDelta = self.model->latitudedelta;
         region.span.latitudeDelta = self.model->longitudedelta;
@@ -139,8 +139,8 @@
     }
     
     CLLocationCoordinate2D coord;
-    coord.latitude = self.model->current_pos.latitude;
-    coord.longitude = self.model->current_pos.longitude;
+    coord.latitude = self.model->camera_pos.latitude;
+    coord.longitude = self.model->camera_pos.longitude;
     
     
     //    // The compass may be off-center, thus we need to calculate the

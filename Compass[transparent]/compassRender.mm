@@ -270,7 +270,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         // tilt
         glRotatef(model->tilt, 1, 0, 0);
         
-        glRotatef(model->current_pos.orientation, 0, 0, -1);
+        glRotatef(model->camera_pos.orientation, 0, 0, -1);
         // scaling only applies to non-wedge styles
         float scale = glDrawingCorrectionRatio * compass_scale;
         glScalef(scale, scale, 1);

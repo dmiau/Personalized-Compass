@@ -146,7 +146,7 @@
     region.span.longitudeDelta = self.mapView.region.span.longitudeDelta * scale;
 
     [self.overviewMapView setRegion:region animated:NO];
-    self.overviewMapView.camera.heading = -self.model->current_pos.orientation;
+    self.overviewMapView.camera.heading = -self.model->camera_pos.orientation;
     
     
     //-------------

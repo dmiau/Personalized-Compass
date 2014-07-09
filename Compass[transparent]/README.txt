@@ -1031,8 +1031,23 @@ https://developer.apple.com/library/ios/documentation/userexperience/conceptual/
 
 - working on CLLocationManager related stuff
 
+Evening at UCL office
 
+add a custom MKPinAnnotationView:
+http://stackoverflow.com/questions/15950698/custom-pin-on-mkmapview-in-ios
 
+custom the image of MKAnnotationView
+http://stackoverflow.com/questions/9814988/mkmapview-instead-of-annotation-pin-a-custom-view
 
+- update ipad code
+
+-------------------------------------------------------------------
+7.9.2014
+-------------------------------------------------------------------
+- fix ipad navigation issue (from the setting pane to the map pane)
+
+todo:
+rotate an UIImage:
+http://stackoverflow.com/questions/1315251/how-to-rotate-a-uiimage-90-degrees?rq=1
 
 

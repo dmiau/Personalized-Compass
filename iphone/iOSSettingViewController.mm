@@ -8,6 +8,7 @@
 
 #import "iOSSettingViewController.h"
 #import "iOSViewController.h"
+#import "AppDelegate.h"
 
 @interface iOSSettingViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -157,6 +158,17 @@
     {
         iOSViewController *destViewController =
         [self.navigationController.viewControllers objectAtIndex:0];
+        
+        //---------------
+        // iPad case (because we use modal dialog)
+        //---------------
+        if (destViewController == nil){
+            UINavigationController *temp;
+            temp = (UINavigationController*)
+            self.presentingViewController;
+            destViewController = [[temp viewControllers] objectAtIndex:0];
+        }
+        
         destViewController.needUpdateDisplayRegion = true;
         destViewController.needUpdateAnnotations = true;
     }
@@ -205,6 +217,12 @@
 }
 
 - (IBAction)dismissModalVC:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    UINavigationController *temp = (UINavigationController *) (self.presentingViewController);
+    iOSViewController* parentVC = (iOSViewController*) [[temp viewControllers] objectAtIndex:0];
+    [self dismissViewControllerAnimated:YES completion:^{
+        // call your completion method:
+        [parentVC viewWillAppear:YES];
+    }];
 }
 @end

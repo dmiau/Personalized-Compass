@@ -86,7 +86,8 @@ public:
     // indices of the filtered locations, for rendering
     vector<int> indices_for_rendering;
     vector<int *> color_map;
-    data current_pos;
+    data camera_pos; // Specify the camera position
+    data user_pos; // Specify the user position
     
     //
     float latitudedelta;

@@ -101,8 +101,8 @@
     compassMdl* model = compassMdl::shareCompassMdl();
     
     MKCoordinateRegion region;
-    region.center.latitude = model->current_pos.latitude;
-    region.center.longitude = model->current_pos.longitude;
+    region.center.latitude = model->camera_pos.latitude;
+    region.center.longitude = model->camera_pos.longitude;
     
     region.span.longitudeDelta = model->latitudedelta;
     region.span.latitudeDelta = model->longitudedelta;

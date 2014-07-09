@@ -70,9 +70,9 @@ void compassRender::drawLabel(float rotation, float height, string name)
     
     CGSize str_size = makeGLFrameSize(attr_str);
     
-    glRotatef(model->current_pos.orientation, 0, 0, 1);
+    glRotatef(model->camera_pos.orientation, 0, 0, 1);
     
-    rotation = rotation + model->current_pos.orientation;
+    rotation = rotation + model->camera_pos.orientation;
     
     if (rotation < 0)
         rotation = rotation + 360;

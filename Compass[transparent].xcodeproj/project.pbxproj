@@ -26,6 +26,18 @@
 		9A02D100195C5D4F00A64987 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F1195C5CB800A64987 /* Security.framework */; };
 		9A02D101195C5D5500A64987 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F3195C5CBE00A64987 /* CFNetwork.framework */; };
 		9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
+		9A2E42DE196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
+		9A2E42DF196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
+		9A2E42E0196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
+		9A2E42E1196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
+		9A2E42E2196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
+		9A2E42E3196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
+		9A2E42E5196C9D2C00CF8862 /* heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E42E4196C9D2C00CF8862 /* heading.png */; };
+		9A2E42E6196C9D2C00CF8862 /* heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E42E4196C9D2C00CF8862 /* heading.png */; };
+		9A2E42E7196C9D2C00CF8862 /* heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E42E4196C9D2C00CF8862 /* heading.png */; };
+		9A2E42E8196C9D2C00CF8862 /* heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E42E4196C9D2C00CF8862 /* heading.png */; };
+		9A2E42E9196C9D2C00CF8862 /* heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E42E4196C9D2C00CF8862 /* heading.png */; };
+		9A2E42EA196C9D2C00CF8862 /* heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E42E4196C9D2C00CF8862 /* heading.png */; };
 		9A2ED70A19639D5900CA385E /* ViewPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2ED70919639D5900CA385E /* ViewPanel.xib */; };
 		9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
 		9A2F0C5A1943DAD600350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
@@ -354,6 +366,9 @@
 		9A02D0FA195C5D1700A64987 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
 		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
 		9A28368A1900C0850041D22E /* readConfiguration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = readConfiguration.mm; sourceTree = "<group>"; };
+		9A2E42DC196C8A2800CF8862 /* HeadingAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadingAnnotationView.h; sourceTree = "<group>"; };
+		9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadingAnnotationView.m; sourceTree = "<group>"; };
+		9A2E42E4196C9D2C00CF8862 /* heading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heading.png; path = icons/heading.png; sourceTree = "<group>"; };
 		9A2ED70919639D5900CA385E /* ViewPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewPanel.xib; sourceTree = "<group>"; };
 		9A2F0C521943DA9200350BD2 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
 		9A2F0C531943DA9200350BD2 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
@@ -709,6 +724,8 @@
 				9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */,
 				9A3DA0C11966E563009E0073 /* CustomAnnotationView.h */,
 				9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */,
+				9A2E42DC196C8A2800CF8862 /* HeadingAnnotationView.h */,
+				9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -735,6 +752,7 @@
 		9A998D66194B716800778DFC /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				9A2E42E4196C9D2C00CF8862 /* heading.png */,
 				9A3DA0951964E9B1009E0073 /* add.png */,
 				9A3DA0961964E9B1009E0073 /* remove.png */,
 				9AB2A716196372AA0001E96F /* selected.png */,
@@ -1107,6 +1125,7 @@
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
 				9A3DA0A11964E9B1009E0073 /* remove.png in Resources */,
 				9AB2A722196372AA0001E96F /* unselected.png in Resources */,
+				9A2E42E9196C9D2C00CF8862 /* heading.png in Resources */,
 				9A4F0F59193E2A8900CF32DE /* Images.xcassets in Resources */,
 				9A4F0F75193E2AF500CF32DE /* Storyboard.storyboard in Resources */,
 			);
@@ -1130,6 +1149,7 @@
 				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
 				9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AECA774196AEAB7008ADAEC /* UKLondon.kml in Resources */,
+				9A2E42EA196C9D2C00CF8862 /* heading.png in Resources */,
 				9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A82B6471941518900534A5F /* newyork.kml in Resources */,
 				9A82B6481941518900534A5F /* montreal.kml in Resources */,
@@ -1166,6 +1186,7 @@
 				9AA789371909FE5A00A26C66 /* browser.xib in Resources */,
 				9AA789301909FE3000A26C66 /* README.txt in Resources */,
 				9AEECFF91910599B0031BAAE /* StyleWindow.xib in Resources */,
+				9A2E42E8196C9D2C00CF8862 /* heading.png in Resources */,
 				9A6F53F51910069F00F35FED /* DebugInfoWindow.xib in Resources */,
 				9A3DA0A01964E9B1009E0073 /* remove.png in Resources */,
 			);
@@ -1184,6 +1205,7 @@
 				9AEA57E918D9EBB20028B80C /* Images.xcassets in Resources */,
 				9AF7EB2E190175F900983C2F /* configurations.json in Resources */,
 				9AF089FD1921390700E118D5 /* New York City [many].kml in Resources */,
+				9A2E42E5196C9D2C00CF8862 /* heading.png in Resources */,
 				9A3DA09D1964E9B1009E0073 /* remove.png in Resources */,
 				9ACCED0018EF5425006E9CA4 /* london.kml in Resources */,
 				9AF523BC18DC8E95005823A2 /* montreal.kml in Resources */,
@@ -1208,6 +1230,7 @@
 			files = (
 				9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */,
 				9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */,
+				9A2E42E7196C9D2C00CF8862 /* heading.png in Resources */,
 				9AB2A720196372AA0001E96F /* unselected.png in Resources */,
 				9A9701DD19083C9B007C3C19 /* configurations.json in Resources */,
 				9AEECFF81910599B0031BAAE /* StyleWindow.xib in Resources */,
@@ -1235,6 +1258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AFB14BF18EE655F00063632 /* tabView.xib in Resources */,
+				9A2E42E6196C9D2C00CF8862 /* heading.png in Resources */,
 				9AFB14B018EE639A00063632 /* InfoPlist.strings in Resources */,
 				9AFB14B118EE639A00063632 /* Images.xcassets in Resources */,
 				9AFB14B218EE639A00063632 /* montreal.kml in Resources */,
@@ -1280,6 +1304,7 @@
 				9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */,
 				9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */,
+				9A2E42E2196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AECA76C196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */,
 				9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */,
@@ -1326,6 +1351,7 @@
 				9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */,
 				9A95CCB4194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
+				9A2E42E3196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
 				9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
@@ -1363,6 +1389,7 @@
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */,
 				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
+				9A2E42E1196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AB90B9E194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1379,6 +1406,7 @@
 				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
 				9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
+				9A2E42DE196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
 				9A998C8B1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
@@ -1425,6 +1453,7 @@
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
 				9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A9701CE19083B10007C3C19 /* renderStyles.mm in Sources */,
+				9A2E42E0196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AB90B9D194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1437,6 +1466,7 @@
 				9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */,
 				9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */,
 				9A998C931949F32800778DFC /* compassRender+Components.mm in Sources */,
+				9A2E42DF196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AB90B95194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */,
 				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,

@@ -218,7 +218,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     
 //    cout << "max dist: " << mode_info_list[0].max_dist << endl;
     glPushMatrix();
-    glRotatef(-model->current_pos.orientation, 0, 0, -1);
+    glRotatef(-model->camera_pos.orientation, 0, 0, -1);
     drawBox(outer_disk_radius/mode_info_list[0].max_dist);
     glPopMatrix();
     

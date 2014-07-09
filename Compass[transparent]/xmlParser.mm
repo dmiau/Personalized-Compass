@@ -71,11 +71,11 @@ int readLocationKml(compassMdl* mdl){
     
     myParser.parseFile;
     
-    mdl->current_pos.name = myParser.data_array[0].name;
+    mdl->camera_pos.name = myParser.data_array[0].name;
     // Set the initial orientation to 0
-    mdl->current_pos.orientation = 0;
-    mdl->current_pos.latitude = myParser.data_array[0].latitude;
-    mdl->current_pos.longitude = myParser.data_array[0].longitude;
+    mdl->camera_pos.orientation = 0;
+    mdl->camera_pos.latitude = myParser.data_array[0].latitude;
+    mdl->camera_pos.longitude = myParser.data_array[0].longitude;
     
     // Remove the first data (since it is the current location)
 //    cout << myParser.data_array.begin()->name << endl;
