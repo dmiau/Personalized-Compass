@@ -208,10 +208,6 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //    glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
     //    glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST);
     //    glEnable(GL_MULTISAMPLE);
-//    compass_scale = [model->configurations[@"compass_scale"] floatValue];
-//    
-//    compass_centroid.x = [model->configurations[@"compass_centroid"][0] floatValue];
-//    compass_centroid.y = [model->configurations[@"compass_centroid"][1] floatValue];
 
 #ifdef __IPHONE__
     //-------------

@@ -34,5 +34,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *systemMessage;
 
 - (IBAction)dismissModalVC:(id)sender;
+- (IBAction)refreshConfiguraitons:(id)sender;
 
 @end

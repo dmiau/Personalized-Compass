@@ -225,4 +225,13 @@
         [parentVC viewWillAppear:YES];
     }];
 }
+
+- (IBAction)refreshConfiguraitons:(id)sender {
+    if (self.model->filesys_type == DROPBOX){
+        
+    }else{
+        [self.model->docFilesystem
+         copyBundleConfigurations];
+    }
+}
 @end

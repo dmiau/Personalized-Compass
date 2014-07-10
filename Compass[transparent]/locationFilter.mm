@@ -161,10 +161,10 @@ vector<int> compassMdl::filter_kOrientations(int k){
         result.push_back(dist_id_pair_list[i].second);
     }
     
-    // Need to do something more if the number of selected landmarks < k
-    if ( result.size() <= 1){
-        throw(runtime_error("# of Lanrmakrs shoudl be > 1!"));
-    }
+//    // Need to do something more if the number of selected landmarks < k
+//    if ( result.size() <= 1){
+//        throw(runtime_error("# of Lanrmakrs shoudl be > 1!"));
+//    }
     return result;
 }
 

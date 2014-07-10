@@ -31,9 +31,9 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     
     int landmark_n = filtered_dist_list.size();
     
-    if (landmark_n <= 1){
-        // In rare cases we may ended up with a single landmark?
-        throw(runtime_error("Only single landmark!!"));
+    if (landmark_n < 1){
+        renderBareboneCompass();
+        return;
     }
     
     // Two goals here:
@@ -145,8 +145,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     glTranslatef(0, 0, 1);
     drawCircle(0, 0, central_disk_radius, 50);
     glPopMatrix();
-    
-    
+
     // ---------------
     // draw the triangle
     // ---------------
@@ -157,8 +156,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // |----------------------------------|
     // inner_radius = half_canvas_size * inner_disk_ratio;
     // |-----------------|
-    
-    
     
     // the radius of the outer disk
     float outer_disk_radius =
@@ -210,7 +207,16 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         drawTriangle(base_radius, data_.orientation, distance);
     }
     glPopMatrix();
-    
+
+    // ---------------
+    // draw the north indicator
+    // ---------------
+    glColor4f(50/256,
+              50/256,
+              50/256, 0.5);
+    drawTriangle(central_disk_radius/6, 0,
+                 half_canvas_size *
+                 [model->configurations[@"north_indicator_ratio"] floatValue]);
     
     // ---------------
     // draw the box
@@ -227,23 +233,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // ---------------
     float alpha = 0;
     
-    //    // Draw two disks
-    //    if (mode_info_list.size() > 1){
-    //        // This is a temporary fix to the broken polygon problem
-    //        if (model->tilt == 0)
-    //            alpha = [model->configurations[@"inner_disk_color"][3] floatValue]/255;
-    //        else
-    //            alpha = 1;
-    //
-    //        glColor4f([model->configurations[@"inner_disk_color"][0] floatValue]/255,
-    //                  [model->configurations[@"inner_disk_color"][1] floatValue]/255,
-    //                  [model->configurations[@"inner_disk_color"][2] floatValue]/255,
-    //                  alpha);
-    //        glPushMatrix();
-    //        glTranslatef(0, 0, -0.09);
-    //        drawCircle(0, 0, inner_disk_radius, 50);
-    //        glPopMatrix();
-    //    }
     
     glPushMatrix();
     if (model->tilt == 0)

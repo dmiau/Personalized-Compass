@@ -34,11 +34,15 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
         int j = model->indices_for_rendering[i];
         t_dist_list.push_back(model->data_array[j].distance);
     }
-    std::vector<double>::iterator result =
-    std::max_element(t_dist_list.begin(),
-                     t_dist_list.end());
-    max_dist = *result;
-        
+    
+    if (t_dist_list.size() >= 1){
+        std::vector<double>::iterator result =
+        std::max_element(t_dist_list.begin(),
+                         t_dist_list.end());
+        max_dist = *result;
+    }else{
+        max_dist = INFINITY;
+    }
     // ---------------
     // Render triangles and the background disks
     // based on the specified style

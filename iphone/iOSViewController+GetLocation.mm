@@ -98,8 +98,8 @@
 
 -(void)updateFindMeView{
     
-    if (!self.updateUserLocationFlag)
-        return;
+//    if (!self.updateUserLocationFlag)
+//        return;
     
     //----------------------
     // Update compass heading (image)

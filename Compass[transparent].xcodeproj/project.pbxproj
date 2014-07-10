@@ -25,6 +25,12 @@
 		9A02D0FF195C5D4900A64987 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0EF195C5CB200A64987 /* SystemConfiguration.framework */; };
 		9A02D100195C5D4F00A64987 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F1195C5CB800A64987 /* Security.framework */; };
 		9A02D101195C5D5500A64987 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F3195C5CBE00A64987 /* CFNetwork.framework */; };
+		9A239EDD196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
+		9A239EDE196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
+		9A239EDF196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
+		9A239EE0196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
+		9A239EE1196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
+		9A239EE2196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
 		9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
 		9A2E42DE196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
 		9A2E42DF196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
@@ -365,6 +371,7 @@
 		9A02D0F8195C5D0C00A64987 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		9A02D0FA195C5D1700A64987 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
 		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
+		9A239EDC196EFF410064BDC9 /* new.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = new.kml; sourceTree = "<group>"; };
 		9A28368A1900C0850041D22E /* readConfiguration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = readConfiguration.mm; sourceTree = "<group>"; };
 		9A2E42DC196C8A2800CF8862 /* HeadingAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadingAnnotationView.h; sourceTree = "<group>"; };
 		9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadingAnnotationView.m; sourceTree = "<group>"; };
@@ -888,6 +895,7 @@
 		9AF523B418DC8E95005823A2 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				9A239EDC196EFF410064BDC9 /* new.kml */,
 				9AECA76E196AEAB7008ADAEC /* UKLondon.kml */,
 				9AB90B8C194DED0B0030BF5B /* Taiwan.kml */,
 				9A5681AF1944A57A0021DA97 /* SundayTest.kml */,
@@ -1108,6 +1116,7 @@
 				9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
 				9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */,
+				9A239EE1196EFF410064BDC9 /* new.kml in Resources */,
 				9AB2A71C196372AA0001E96F /* selected.png in Resources */,
 				9A998D68194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A998D79194BC60C00778DFC /* location.png in Resources */,
@@ -1137,6 +1146,7 @@
 			files = (
 				9AECA775196B1545008ADAEC /* ViewPanel.xib in Resources */,
 				9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
+				9A239EE2196EFF410064BDC9 /* new.kml in Resources */,
 				9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */,
 				9AB2A723196372AA0001E96F /* unselected.png in Resources */,
 				9A82B6441941518900534A5F /* configurations.json in Resources */,
@@ -1169,6 +1179,7 @@
 				9A3DA0BE1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AB90B90194DED0B0030BF5B /* Taiwan.kml in Resources */,
 				9AA1DB921948B30A0082BABC /* SundayTest.kml in Resources */,
+				9A239EE0196EFF410064BDC9 /* new.kml in Resources */,
 				9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */,
 				9AA789251909FE3000A26C66 /* InfoPlist.strings in Resources */,
 				9AA789261909FE3000A26C66 /* moto360_bikemap.png in Resources */,
@@ -1197,6 +1208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AECA76F196AEAB7008ADAEC /* UKLondon.kml in Resources */,
+				9A239EDD196EFF410064BDC9 /* new.kml in Resources */,
 				9A3DA0971964E9B1009E0073 /* add.png in Resources */,
 				9A9701E319083EB9007C3C19 /* MainMenu.xib in Resources */,
 				9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */,
@@ -1249,6 +1261,7 @@
 				9A3DA09F1964E9B1009E0073 /* remove.png in Resources */,
 				9AEC5CF318F3956F00A29F75 /* Credits.rtf in Resources */,
 				9AB90B8F194DED0B0030BF5B /* Taiwan.kml in Resources */,
+				9A239EDF196EFF410064BDC9 /* new.kml in Resources */,
 				9AEC5CF418F3956F00A29F75 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1272,6 +1285,7 @@
 				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,
 				9AB90B8E194DED0B0030BF5B /* Taiwan.kml in Resources */,
 				9A3DA09E1964E9B1009E0073 /* remove.png in Resources */,
+				9A239EDE196EFF410064BDC9 /* new.kml in Resources */,
 				9AFB14B718EE639A00063632 /* README.txt in Resources */,
 				9A3DA0981964E9B1009E0073 /* add.png in Resources */,
 			);

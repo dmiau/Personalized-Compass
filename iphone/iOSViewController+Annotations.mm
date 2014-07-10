@@ -51,7 +51,12 @@
             pinView.annotation = annotation;
         }
         
-        [pinView setAnimatesDrop:YES];
+        if (annotation.point_type == landmark){
+            [pinView setAnimatesDrop:NO];
+        }else{
+            [pinView setAnimatesDrop:YES];
+        }
+
         [pinView setCanShowCallout:YES];
         
         

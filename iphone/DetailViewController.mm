@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "iOSViewController.h"
 
 @interface DetailViewController ()
 
@@ -19,7 +20,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.model = compassMdl::shareCompassMdl();        
     }
     return self;
 }
@@ -27,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.needUpdateAnnotation = false;
+    self.model = compassMdl::shareCompassMdl();
+    
     // Do any additional setup after loading the view.
     self.titleTextField.text = self.annotation.title;
     self.noteTextField.text = self.annotation.notes;
@@ -55,6 +58,28 @@
              }
          }];
     }
+    
+    //-------------
+    // Configure the add buttons
+    //-------------
+    if (self.annotation.point_type == dropped){
+        self.addButton.enabled = YES;
+    }else{
+        self.addButton.enabled = NO;
+    }
+
+    //-------------
+    // Configure the enable/disable status
+    //-------------    
+    if (self.annotation.point_type == landmark){
+        int i = self.annotation.data_id;
+        if (self.model->data_array[i].isEnabled)
+            self.statusSegmentControl.selectedSegmentIndex = 0;
+        else
+            self.statusSegmentControl.selectedSegmentIndex = 1;
+    }else{
+        self.statusSegmentControl.enabled = false;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,26 +102,46 @@
 - (IBAction)doneEditing:(id)sender {
     [self.titleTextField resignFirstResponder];
     self.annotation.title = self.titleTextField.text;
+    
     [self.noteTextField resignFirstResponder];
     self.annotation.notes = self.noteTextField.text;
 }
 
 - (IBAction)addLocation:(id)sender {
-// Right buttton tapped - add the pin to data_array
-            data myData;
-            myData.name = "custom";
-            myData.annotation = self.annotation;
+    // Right buttton tapped - add the pin to data_array
+    data myData;
+    myData.name = "Custom";
+    myData.annotation = self.annotation;
+    myData.annotation.point_type = landmark;
+    myData.annotation.title = @"Custom";
+    myData.annotation.subtitle =
+    [NSString stringWithFormat:@"%lu",
+     self.model->data_array.size()];
+    
+    myData.latitude =  self.annotation.coordinate.latitude;
+    myData.longitude =  self.annotation.coordinate.longitude;
+    
+    myData.annotation.data_id = self.model->data_array.size();
+    // Add the new data to data_array
+    self.model->data_array.push_back(myData);
+    
+    self.addButton.enabled = NO;
+    self.removeButton.enabled = YES;
+    self.needUpdateAnnotation = YES;
+}
 
-            myData.annotation.title = @"custom";
-            myData.annotation.subtitle =
-            [NSString stringWithFormat:@"%lu",
-             self.model->data_array.size()];
+- (IBAction)removeLocation:(id)sender {
+}
 
-            myData.latitude =  self.annotation.coordinate.latitude;
-            myData.longitude =  self.annotation.coordinate.longitude;
-
-            // Add the new data to data_array
-            self.model->data_array.push_back(myData);
+- (IBAction)toggleEnable:(id)sender {
+    if (self.annotation.point_type == landmark){
+        int i = self.annotation.data_id;
+        self.model->data_array[i].isEnabled =
+        !self.model->data_array[i].isEnabled;
+        
+        // Update the pin color
+        self.needUpdateAnnotation = YES;
+    }
 }
 
 #pragma mark -----Exit-----
@@ -104,4 +149,23 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void) viewWillDisappear:(BOOL)animated {
+    if (self.needUpdateAnnotation)
+    {
+        iOSViewController *destViewController =
+        [self.navigationController.viewControllers objectAtIndex:0];
+        
+        //---------------
+        // iPad case (because we use modal dialog)
+        //---------------
+        if (destViewController == nil){
+            UINavigationController *temp;
+            temp = (UINavigationController*)
+            self.presentingViewController;
+            destViewController = [[temp viewControllers] objectAtIndex:0];
+        }
+        destViewController.needUpdateAnnotations = true;
+    }
+    [super viewWillDisappear:animated];
+}
 @end

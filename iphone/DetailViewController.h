@@ -17,10 +17,17 @@
 @property compassMdl* model;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *noteTextField;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UIButton *removeButton;
+@property BOOL needUpdateAnnotation;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *statusSegmentControl;
 
 
 - (IBAction)doneEditing:(id)sender;
 - (IBAction)addLocation:(id)sender;
+- (IBAction)removeLocation:(id)sender;
+- (IBAction)toggleEnable:(id)sender;
 
 - (IBAction)dismissModalVC:(id)sender;
 @end

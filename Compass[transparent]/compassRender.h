@@ -146,6 +146,7 @@ private:
     void renderStyleBimodal(vector<int> &indices_for_rendering);
     void renderStyleThresholdSticks(vector<int> &indices_for_rendering);
     void renderStyleWedge(vector<int> &indices_for_rendering);
+    void renderBareboneCompass();
     
 #ifdef __IPHONE__
     void drawiOSText(NSString *string, int font_size,

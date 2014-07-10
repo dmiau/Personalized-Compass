@@ -72,6 +72,16 @@
     return self;
 }
 
+
+- (void) copyBundleConfigurations{
+    NSString * filename = @"configurations.json";
+    NSError* error;    
+    [[NSFileManager defaultManager]
+     copyItemAtPath:[self.bundle_path stringByAppendingPathComponent:filename]
+     toPath:[self.document_path stringByAppendingPathComponent:filename]
+     error:&error];
+}
+
 - (id) initDROPBOX{
     self = [super init];
     self = [self init];

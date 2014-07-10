@@ -70,6 +70,9 @@ int compassMdl::initMdl(){
     //------------
     // Initialize user position
     //------------
+    user_pos.orientation = 0.0;
+//    user_pos.latitude = data_array[0].latitude;
+//    user_pos.longitude = data_array[0].longitude;
     user_pos.annotation = [[CustomPointAnnotation alloc] init];
     user_pos.annotation.point_type = heading;
     
