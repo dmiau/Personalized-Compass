@@ -76,8 +76,10 @@
         dispatch_async(mainQueue,
                        ^{
                            // Redraw the compass
+                           // Update GUI components
                            [self updateOverviewMap];
                            [self.glkView setNeedsDisplay];
+                           [self updateFindMeView];
                        });
         
     }

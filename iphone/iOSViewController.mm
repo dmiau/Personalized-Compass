@@ -101,6 +101,13 @@
         self.needUpdateDisplayRegion = false;
         self.needUpdateAnnotations = false;
         
+        // Initialize location service
+        // enable location manager
+        self.locationManager =
+        [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        self.locationManager.distanceFilter = kCLDistanceFilterNone;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     }
     return self;
 }

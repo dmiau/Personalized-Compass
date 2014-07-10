@@ -8,6 +8,7 @@
 
 #import "iOSViewController+GetLocation.h"
 #import <QuartzCore/QuartzCore.h>
+#import "commonInclude.h"
 
 @implementation iOSViewController (GetLocation)
 - (IBAction)getCurrentLocation:(id)sender {
@@ -23,15 +24,14 @@
         self.findMeButton.layer.cornerRadius = 5;
         self.findMeButton.clipsToBounds = YES;
         
-        self.mapView.showsUserLocation = YES;
-        // enable location manager
-        locationManager = [[CLLocationManager alloc] init];
-        locationManager.delegate = self;
-        locationManager.distanceFilter = kCLDistanceFilterNone;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        self.move2UpdatedLocation = true;
-        [locationManager startUpdatingLocation];
-        [locationManager startUpdatingHeading];
+        // Use custom image istead
+        self.mapView.showsUserLocation = NO;
+        
+
+        self.move2UpdatedLocation   = true;
+        self.updateUserLocationFlag = true;
+        [self.locationManager startUpdatingLocation];
+        [self.locationManager startUpdatingHeading];
         
         //    // Diable location service after some time
         //    NSTimer *timer1 = [NSTimer scheduledTimerWithTimeInterval: 3
@@ -39,8 +39,8 @@
         //        selector:@selector(handleTimer:)
         //        userInfo:nil
         //        repeats:NO];
-        [self performSelector:@selector(handleTimer:)
-                   withObject:self afterDelay:30];
+//        [self performSelector:@selector(handleTimer:)
+//                   withObject:self afterDelay:30];
     }
 }
 
@@ -76,7 +76,8 @@
     self.model->user_pos.longitude = myLocation.coordinate.longitude;
     self.model->user_pos.annotation.coordinate = myLocation.coordinate;
 
-    [self.mapView addAnnotation:self.model->user_pos.annotation];    
+    [self.mapView addAnnotation:self.model->user_pos.annotation];
+    [self updateFindMeView];
 }
 
 //-------------------
@@ -86,7 +87,7 @@
        didUpdateHeading:(CLHeading *)newHeading
 {
     self.model->user_pos.orientation = [newHeading trueHeading]; // heading is in degree
-
+    [self updateFindMeView];
 }
 
 
@@ -95,14 +96,44 @@
     [self disableLocationUpdate];
 }
 
+-(void)updateFindMeView{
+    
+    if (!self.updateUserLocationFlag)
+        return;
+    
+    //----------------------
+    // Update compass heading (image)
+    //----------------------
+    MKAnnotationView *aView = [self.mapView
+                               viewForAnnotation:self.model->user_pos.annotation];
+    
+    if (aView != nil){
+        UIImage *myImg = [UIImage imageNamed:@"heading.png"];
+        //-------------
+        // rotate the image according to the current heading
+        //-------------
+        aView.image = myImg;
+        
+        float radians = (self.model->user_pos.orientation
+                         + self.model->camera_pos.orientation)/180 * M_PI;
+        
+        //        NSLog(@"camera orientation: %f", self.model->camera_pos.orientation);
+        //        NSLog(@"User orientation: %f", self.model->user_pos.orientation);
+        
+        CGAffineTransform transform = CGAffineTransformRotate(CGAffineTransformIdentity, radians);
+        aView.transform = transform;
+    }
+}
+
 //-------------------
 // Disable location service
 //-------------------
 - (void)disableLocationUpdate{
     self.mapView.showsUserLocation = NO;
+    self.updateUserLocationFlag = false;
     // Stop Location Manager
-    [locationManager stopUpdatingLocation];
-    [locationManager stopUpdatingHeading];
+    [self.locationManager stopUpdatingLocation];
+    [self.locationManager stopUpdatingHeading];
     
     self.findMeButton.selected = NO;
     self.findMeButton.backgroundColor = [UIColor clearColor];

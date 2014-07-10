@@ -18,7 +18,6 @@
 <CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate>
 {
     NSTimer *_updateUITimer;
-    CLLocationManager *locationManager;
     MKLocalSearch *localSearch;
     MKLocalSearchResponse *results;
 }
@@ -31,7 +30,6 @@
 
 @property (weak, nonatomic) IBOutlet GLKView *glkView;
 @property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
-@property (weak, nonatomic) IBOutlet UIView *menuView;
 
 @property UIView *viewPanel;
 @property UIView *modelPanel;
@@ -41,7 +39,7 @@
 
 @property NSNumber *mapUpdateFlag;
 @property bool conventionalCompassVisible;
-@property bool move2UpdatedLocation;
+
 
 // This is used for communication via segue
 @property bool needUpdateDisplayRegion;
@@ -49,6 +47,13 @@
 - (IBAction)getCurrentLocation:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *findMeButton;
 
+//----------------
+// Location service related stuff
+//----------------
+@property bool move2UpdatedLocation;
+@property bool updateUserLocationFlag;
+@property CLLocationManager *locationManager;
+-(void)updateFindMeView;
 
 //----------------
 // Functions attached to the timer
@@ -73,8 +78,6 @@
 - (IBAction)toggleModelPanel:(id)sender;
 
 - (IBAction)refreshApp:(id)sender;
-- (IBAction)openIPADSettings:(id)sender;
-
 
 - (void) setFactoryCompassHidden: (BOOL) flag;
 

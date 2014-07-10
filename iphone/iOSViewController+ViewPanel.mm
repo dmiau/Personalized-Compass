@@ -107,6 +107,12 @@
     [self.glkView setNeedsDisplay];    
 }
 
+- (IBAction)pinSegmentControl:(id)sender {
+}
+
+- (IBAction)toggleLandmarkPins:(id)sender {
+}
+
 //------------------
 // Select compass type
 //------------------

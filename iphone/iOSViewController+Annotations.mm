@@ -9,6 +9,7 @@
 #import "iOSViewController+Annotations.h"
 //#import "CustomAnnotationView.h"
 #import "DetailViewController.h"
+#import "commonInclude.h"
 
 @implementation iOSViewController (Annotations)
 
@@ -200,8 +201,6 @@
 
 - (MKAnnotationView *) configureHeadingImageView: (MKAnnotationView *) pinView
 {
-    UIImage *myImg = [UIImage imageNamed:@"heading.png"];
-    pinView.image = [UIImage imageNamed:@"heading.png"];
     return pinView;
 }
 

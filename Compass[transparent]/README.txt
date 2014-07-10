@@ -1050,4 +1050,33 @@ todo:
 rotate an UIImage:
 http://stackoverflow.com/questions/1315251/how-to-rotate-a-uiimage-90-degrees?rq=1
 
+update annotation:
+http://stackoverflow.com/questions/6375473/updating-mkannotation-image-without-flashing
+
+- looks like the proper way to rotate the heading image is to rotate
+the view UIView setTrnasform
+
+Use the keyword: UIView rotate
+
+http://stackoverflow.com/questions/11476296/mkannotationview-rotation
+http://stackoverflow.com/questions/3169298/setting-a-rotation-transformation-to-a-uiview-or-its-layer-doesnt-seem-to-work
+
+check this:
+http://stackoverflow.com/questions/21370728/rotate-uiview-around-its-center-keeping-its-size
+
+-------------------------------------------------------------------
+7.10.2014
+-------------------------------------------------------------------
+This solution works to rotate a view around its center:
+http://stackoverflow.com/questions/21370728/rotate-uiview-around-its-center-keeping-its-size
+
+- fix the FindMe view
+
+
+
+
+
+
+
+
 

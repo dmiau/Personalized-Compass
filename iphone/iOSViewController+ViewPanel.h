@@ -15,5 +15,6 @@
 - (IBAction)toggleWedge:(id)sender;
 - (IBAction)mapStyleSegmentControl:(id)sender;
 - (IBAction)compassLocationSegmentControl:(id)sender;
+- (IBAction)pinSegmentControl:(id)sender;
 
 @end
