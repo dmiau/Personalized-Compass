@@ -397,4 +397,21 @@ GLenum glReportError (void)
     [super mouseDown:theEvent];
 }
 
+
+- (void)magnifyWithEvent:(NSEvent *)event {
+    NSLog(@"happy");
+//    if ([event magnification] > 0)
+//    {
+//        self.renderer->compass_scale = self.renderer->compass_scale + 0.1;        
+//    }
+//    else if ([event magnification] < 0)
+//    {
+//        self.renderer->compass_scale = self.renderer->compass_scale - 0.1;
+//    }    
+}
+
+- (void)rotateWithEvent:(NSEvent *)event {
+    NSLog(@"happy");
+
+}
 @end

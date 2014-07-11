@@ -73,7 +73,6 @@
 		9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0C41966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C51966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
-		9A3DA0C61966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */; };
@@ -1398,12 +1397,11 @@
 				9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */,
 				9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */,
 				9AA789191909FE3000A26C66 /* main.mm in Sources */,
-				9A3DA0C61966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */,
-				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
 				9A2E42E1196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
+				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9AB90B9E194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

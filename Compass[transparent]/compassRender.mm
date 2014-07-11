@@ -264,6 +264,12 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         
         // [todo] Careful! Potential bug here...
         // tilt
+
+#ifdef __IPHONE__
+        if (model->tilt < -45){
+            model->tilt = -45;
+        }
+#endif
         glRotatef(model->tilt, 1, 0, 0);
         
         glRotatef(model->camera_pos.orientation, 0, 0, -1);

@@ -36,6 +36,8 @@ public:
     float longitude;
     CustomPointAnnotation* annotation;
     bool isEnabled; // indicates wheather the landmark is enabled or not
+    bool isVisible; // indicates the locaiton is within the current
+                    // visible region or not.
 public:    
     // Methods
     double computeDistanceFromLocation(data& another_data);

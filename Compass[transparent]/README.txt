@@ -1093,7 +1093,10 @@ GLKVector3 vec3 = GLKMatrix4MultiplyAndProjectVector3 (
                         rotateMat,GLKVector3Make(1, 0, 0));
 ------
 
+Looks like it is possible to catch the zoom and rotate event. I will do that later.
 
+This recipe checks whether a point is visible or not:
+http://stackoverflow.com/questions/9126137/how-can-we-know-that-map-coordinates-are-in-current-region-or-not-in-current-reg?lq=1
 
 
 

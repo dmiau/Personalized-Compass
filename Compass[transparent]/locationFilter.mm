@@ -82,9 +82,14 @@ vector<int> compassMdl::filter_kOrientations(int k){
     
     vector<pair<double, int>> dist_id_pair_list;
     vector<int> non_zero_id_list;
-    // Get rid of the landmarks with 0 distance
+    // Get rid of the landmarks with 0 distance,
+    // visible, or disabled
+    
     for (i = 0; i < data_array.size(); ++i){
-        if (data_array[i].distance > 0 && data_array[i].isEnabled){
+        if (data_array[i].distance > 0
+            && data_array[i].isEnabled
+            && !data_array[i].isVisible)
+        {
             non_zero_id_list.push_back(i);
         }
     }

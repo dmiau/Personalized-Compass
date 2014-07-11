@@ -165,6 +165,7 @@ int readLocationKml(compassMdl* mdl){
         _data.distance = 0;
         _data.orientation = 0;
         _data.isEnabled = YES;
+        _data.isVisible = NO;
         _data.annotation = [[CustomPointAnnotation alloc] init];
         data_array.push_back(_data);
         place_flag = true;

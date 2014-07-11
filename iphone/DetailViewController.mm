@@ -62,7 +62,7 @@
     //-------------
     // Configure the add buttons
     //-------------
-    if (self.annotation.point_type == dropped){
+    if (self.annotation.point_type != landmark){
         self.addButton.enabled = YES;
     }else{
         self.addButton.enabled = NO;

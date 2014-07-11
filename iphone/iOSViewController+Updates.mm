@@ -62,6 +62,8 @@
                       longitude: compassCtrCoord.longitude
                         heading: [self calculateCameraHeading]
                            tilt: -self.mapView.camera.pitch];
+
+        [self updateLocationVisibility];
         
         // [todo] This code should be put into the gesture recognizer
         // Disable the compass
@@ -188,4 +190,20 @@
     
     return RadiansToDegrees(radiansBearing);
 }
+
+-(void) updateLocationVisibility{
+    for (int i = 0; i < self.model->data_array.size(); ++i){
+    CLLocationCoordinate2D coord2d =
+        self.model->data_array[i].annotation.coordinate;
+        if (MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord2d)))
+        {
+            self.model->data_array[i].isVisible = true;
+        }
+        else {
+            self.model->data_array[i].isVisible = false;
+        }
+   
+    }
+}
+
 @end
