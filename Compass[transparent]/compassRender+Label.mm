@@ -15,26 +15,6 @@ typedef UIColor NSColor;
 //-------------
 void compassRender::drawLabel(float rotation, float height, string name)
 {
-    glPushMatrix();
-    
-
-    glRotatef(rotation, 0, 0, -1);
-    
-    glTranslatef(0, half_canvas_size * 0.9, 0); //central_disk_radius
-
-    // Keep the text level
-    glRotatef(-rotation, 0, 0, -1);
-    
-    //text tilting still needs to be fixed
-//    glRotatef(-model->tilt, 1, 0, 0);    
-    // Fix text size
-    float scale = 1/ ( compass_scale); // glDrawingCorrectionRatio *
-    glScalef(scale, scale, scale);
-    
-    // This line seems to make the text darker for some reason
-    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
-    glPushMatrix();
-    
     //--------------
     // Font generation
     //--------------
@@ -47,8 +27,6 @@ void compassRender::drawLabel(float rotation, float height, string name)
     
 	stringAttrib = [NSMutableDictionary dictionary];
 	[stringAttrib setObject:font forKey:NSFontAttributeName];
-
-    
     
     //--------------
     // Render labels, different rendering methods depending on the platform
@@ -58,20 +36,46 @@ void compassRender::drawLabel(float rotation, float height, string name)
     // OSX
     //--------------
     [label_string setString:string withAttributes:stringAttrib];
-    glRotatef(180, 1, 0, 0);
-    
-    [label_string drawAtPoint:NSMakePoint (0, 0)];
 #else
     //--------------
     // iOS
     //--------------
     NSAttributedString *attr_str =
     [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
-    
     CGSize str_size = makeGLFrameSize(attr_str);
+#endif
     
+    
+    glPushMatrix();
+    //--------------------
+    // Keep the text level (rotate->translate->rotate)
+    //--------------------
+    glRotatef(rotation, 0, 0, -1);
+    glTranslatef(0, half_canvas_size * 0.9, 0); //central_disk_radius
+    glRotatef(-rotation, 0, 0, -1);
+    
+    // Fix text size
+    float scale = 1/ (compass_scale); // glDrawingCorrectionRatio *
+    glScalef(scale, scale, 1);
+    
+    // This line seems to make the text darker for some reason
+    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
+    
+    //--------------
+    // Render labels, different rendering methods depending on the platform
+    //--------------
+#ifndef __IPHONE__
+    //--------------
+    // OSX
+    //--------------
+    glRotatef(-model->tilt, 1, 0, 0);    
+    glRotatef(180, 1, 0, 0);
+    [label_string drawAtPoint:NSMakePoint (0, 0)];
+#else
+    //--------------
+    // iOS
+    //--------------
     glRotatef(model->camera_pos.orientation, 0, 0, 1);
-    
     rotation = rotation + model->camera_pos.orientation;
     
     if (rotation < 0)
@@ -80,13 +84,17 @@ void compassRender::drawLabel(float rotation, float height, string name)
     if ((rotation > 180) && (rotation < 360))
         glTranslatef(-str_size.width, 0, 0);
     
+    //--------------------
+    //text tilting still needs to be fixed
+//    glTranslatef(0, str_size.height/2, 0);
+    glRotatef(-model->tilt, 1, 0, 0);
+//    glTranslatef(0, -str_size.height/2, 0);
+    //--------------------
     glScalef(0.25, 0.25, 0);
     drawiOSText(string, 4*[model->configurations[@"font_size"] floatValue],
                 4*str_size.width,
                 4*str_size.height);
 #endif
-    glPopMatrix();
-    
     glPopMatrix();
 }
 

@@ -206,8 +206,9 @@
     }
     
     if (refreshPicker){
-        model->reloadFiles();
+        readConfigurations(model);
         model->location_filename = model->configurations[@"default_location_filename"];
+        model->reloadFiles();
         [self initPickerData];
         [self.dataPicker reloadAllComponents];
         [self selectDefaultLocationFromPicker];

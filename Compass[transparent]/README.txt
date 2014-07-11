@@ -1071,6 +1071,34 @@ This solution works to rotate a view around its center:
 http://stackoverflow.com/questions/21370728/rotate-uiview-around-its-center-keeping-its-size
 
 - fix the FindMe view
+- 
+
+-------------------------------------------------------------------
+7.11.2014
+-------------------------------------------------------------------
+Goals of today:
+- fix the tilt issue
+
+The following is not needed:
+------
+float modelview[16];
+glGetFloatv(GL_MODELVIEW_MATRIX, modelview);
+
+//https://developer.apple.com/library/ios/documentation/GLkit/Reference/GLKMatrix4/Reference/reference.html#//apple_ref/c/func/GLKMatrix4Multiply
+
+GLKMatrix4 rotateMat;
+rotateMat =  GLKMatrix4RotateZ (GLKMatrix4Identity,
+                                (rotation)/180 * M_PI);
+GLKVector3 vec3 = GLKMatrix4MultiplyAndProjectVector3 (
+                        rotateMat,GLKVector3Make(1, 0, 0));
+------
+
+
+
+
+
+
+
 
 
 

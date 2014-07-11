@@ -62,10 +62,13 @@
             NSError* error;
 //            NSString* sourcePath = [bundlePath stringByAppendingString:filename];
             
-            [[NSFileManager defaultManager]
+            bool succeed = [[NSFileManager defaultManager]
              copyItemAtPath:[self.bundle_path stringByAppendingPathComponent:filename]
              toPath:[self.document_path stringByAppendingPathComponent:filename]
              error:&error];
+            if (!succeed){
+                NSLog(@"!!!Failed to copy file");
+            }
         }
     }
     
@@ -75,11 +78,17 @@
 
 - (void) copyBundleConfigurations{
     NSString * filename = @"configurations.json";
-    NSError* error;    
-    [[NSFileManager defaultManager]
-     copyItemAtPath:[self.bundle_path stringByAppendingPathComponent:filename]
-     toPath:[self.document_path stringByAppendingPathComponent:filename]
-     error:&error];
+//    NSError* error;    
+//    bool succeed = [[NSFileManager defaultManager]
+//     copyItemAtPath:[self.bundle_path stringByAppendingPathComponent:filename]
+//     toPath:[self.document_path stringByAppendingPathComponent:filename]
+//     error:&error];
+    NSData *myData = [self readBundleFileFromName:filename];
+    bool succeed = [myData writeToFile:[self.document_path stringByAppendingPathComponent:filename] atomically:YES];
+    
+    if (!succeed){
+        NSLog(@"!!!Failed to copy configurations.json");
+    }    
 }
 
 - (id) initDROPBOX{

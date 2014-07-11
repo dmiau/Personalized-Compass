@@ -63,6 +63,7 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             
             double distance = data_.distance / max_dist * half_canvas_size * 0.9;
             drawLabel(data_.orientation, distance, data_.name);
+
         }
         glPopMatrix();
     }

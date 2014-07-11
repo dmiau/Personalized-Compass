@@ -232,6 +232,10 @@
     if ([buttonTitle isEqualToString:@"OK"]){
         UITextField *textField = [alertView textFieldAtIndex:0];
         NSString *filename = textField.text;
+        
+        if ([filename rangeOfString:@".kml"].location == NSNotFound) {
+            filename = [filename stringByAppendingString:@".kml"];
+        }
         [self saveKMLWithFilename:filename];
     }
 }

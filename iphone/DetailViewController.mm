@@ -101,19 +101,25 @@
 
 - (IBAction)doneEditing:(id)sender {
     [self.titleTextField resignFirstResponder];
-    self.annotation.title = self.titleTextField.text;
-    
     [self.noteTextField resignFirstResponder];
+    
+    self.annotation.title = self.titleTextField.text;
     self.annotation.notes = self.noteTextField.text;
+    
+    if (self.annotation.point_type == landmark){
+        int i = self.annotation.data_id;
+        self.model->data_array[i].name =
+        [self.annotation.title UTF8String];
+    }
 }
 
 - (IBAction)addLocation:(id)sender {
     // Right buttton tapped - add the pin to data_array
     data myData;
-    myData.name = "Custom";
+    myData.name = [self.annotation.title UTF8String];
     myData.annotation = self.annotation;
     myData.annotation.point_type = landmark;
-    myData.annotation.title = @"Custom";
+ 
     myData.annotation.subtitle =
     [NSString stringWithFormat:@"%lu",
      self.model->data_array.size()];
@@ -127,6 +133,10 @@
     
     self.addButton.enabled = NO;
     self.removeButton.enabled = YES;
+
+    self.statusSegmentControl.enabled = true;
+    self.statusSegmentControl.selectedSegmentIndex = 0;
+
     self.needUpdateAnnotation = YES;
 }
 
@@ -145,8 +155,17 @@
 }
 
 #pragma mark -----Exit-----
+//-------------
+// This method is for ipad
+//-------------
 - (IBAction)dismissModalVC:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UINavigationController *temp = (UINavigationController *) (self.presentingViewController);
+    iOSViewController* parentVC = (iOSViewController*) [[temp viewControllers] objectAtIndex:0];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        // call your completion method:
+        [parentVC viewWillAppear:YES];
+    }];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
