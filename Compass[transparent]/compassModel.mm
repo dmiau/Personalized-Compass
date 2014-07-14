@@ -68,19 +68,29 @@ int compassMdl::initMdl(){
     location_filename =[[NSBundle mainBundle] pathForResource:configurations[@"default_location_filename"] ofType:@""];
     
     //------------
-    // Initialize user position
-    //------------
-    user_pos.orientation = 0.0;
-//    user_pos.latitude = data_array[0].latitude;
-//    user_pos.longitude = data_array[0].longitude;
-    user_pos.annotation = [[CustomPointAnnotation alloc] init];
-    user_pos.annotation.point_type = heading;
-    
-    //------------
     // Load configuations from physical files into memory
     //------------
     reloadFiles();
     watchConfigurationFile();
+    
+    
+    //------------
+    // Initialize user position
+    //------------
+    user_pos.orientation = 0.0;
+    user_pos.isEnabled = false;
+    
+    // At this point the latitude and longitude in user_pos
+    // are just place holders
+    user_pos.latitude = data_array[0].latitude;
+    user_pos.longitude = data_array[0].longitude;
+    user_pos.annotation = [[CustomPointAnnotation alloc] init];
+    CLLocationCoordinate2D coord;
+    coord.latitude = user_pos.latitude;
+    coord.longitude = user_pos.longitude;
+    user_pos.annotation.coordinate = coord;
+    
+    user_pos.annotation.point_type = heading;
     
     return 0;
 }
@@ -127,6 +137,20 @@ int compassMdl::updateMdl(){
         location_pair.push_back(make_pair(distance, i));
     }
     
+    
+    //---------------
+    // Calculate the distance and orientation to the user's
+    // current location
+    //---------------    
+    if (user_pos.isEnabled){
+        double distance = camera_pos.computeDistanceFromLocation
+        (user_pos);
+        double orientation = camera_pos.computeOrientationFromLocation
+        (user_pos);
+        user_pos.distance = distance;
+        user_pos.orientation = orientation;
+    }
+
     sort(location_pair.begin(), location_pair.end(), compareAscending);
     for (int i = 0; i < location_pair.size(); ++i){
         indices_sorted_by_distance.push_back(location_pair[i].second);

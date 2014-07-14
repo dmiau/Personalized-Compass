@@ -192,17 +192,27 @@
 }
 
 -(void) updateLocationVisibility{
-    for (int i = 0; i < self.model->data_array.size(); ++i){
-    CLLocationCoordinate2D coord2d =
-        self.model->data_array[i].annotation.coordinate;
+    for (int i = -1; i < (int)self.model->data_array.size(); ++i){
+        
+        data *data_ptr;
+        if (i == -1 && !self.model->user_pos.isEnabled){
+            continue;
+        }else if (i == -1 && !self.model->user_pos.isEnabled){
+            data_ptr = &(self.model->user_pos);
+        }else{
+            data_ptr = &(self.model->data_array[i]);
+        }
+        
+        CLLocationCoordinate2D coord2d =
+        data_ptr->annotation.coordinate;
         if (MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord2d)))
         {
-            self.model->data_array[i].isVisible = true;
+            data_ptr->isVisible = true;
         }
         else {
-            self.model->data_array[i].isVisible = false;
+            data_ptr->isVisible = false;
         }
-   
+        
     }
 }
 

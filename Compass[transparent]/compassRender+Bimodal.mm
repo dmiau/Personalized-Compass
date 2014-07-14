@@ -36,6 +36,16 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         return;
     }
     
+    //-----------------
+    // Include
+    // the distance to the user's current location
+    // to filtered_dist_list
+    //-----------------
+    if (model->user_pos.isEnabled && !model->user_pos.isVisible){
+        filtered_dist_list.push_back(model->user_pos.distance);
+        cout << "User distance: " << model->user_pos.distance << endl;
+    }
+    
     // Two goals here:
     // 1) decide whether it is unimodal or bimodal
     // 2) decide the best threshodl if it is bimodal
@@ -163,17 +173,30 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     [model->configurations[@"outer_disk_ratio"] floatValue];
     
     glPushMatrix();
-    for (int i = 0; i < indices_for_rendering.size(); ++i){
-        int j = indices_for_rendering[i];
+    // Note that the index starts from -1
+    
+    for (int i = -1; i < (int)indices_for_rendering.size(); ++i){
+    
+        data data_;
         
-        //[todo] fix color map (increase the size?)
-        glColor4f((float)model->color_map[j][0]/256,
-                  (float)model->color_map[j][1]/256,
-                  (float)model->color_map[j][2]/256, 1);
-        
-        data data_ = model->data_array[j];
-        
-        
+        if (i == -1){
+            if (model->user_pos.isEnabled && !model->user_pos.isVisible){
+                glColor4f(0, 1, 0, 1);
+                data_ = model->user_pos;
+            }else{
+                continue;
+            }
+        }else{
+            int j = indices_for_rendering[i];
+            
+            //[todo] fix color map (increase the size?)
+            glColor4f((float)model->color_map[j][0]/256,
+                      (float)model->color_map[j][1]/256,
+                      (float)model->color_map[j][2]/256, 1);
+            
+            data_ = model->data_array[j];
+        }
+    
         // **Select appropriate radius and distance based on mode
         
         float base_radius = 0.0;
@@ -193,6 +216,10 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                       217/256,
                       86/256, 1);
             
+            if (i == -1 && model->user_pos.isEnabled == true){
+                glColor4f(0, 1, 0, 1);
+            }
+            
             distance = outer_disk_radius *
             data_.distance / mode_info_list[1].max_dist;
             if (data_.distance / mode_info_list[1].max_dist > 1)
@@ -207,7 +234,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         drawTriangle(base_radius, data_.orientation, distance);
     }
     glPopMatrix();
-
+    
     // ---------------
     // draw the north indicator
     // ---------------

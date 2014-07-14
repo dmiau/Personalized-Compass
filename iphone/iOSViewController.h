@@ -51,7 +51,9 @@
 // Location service related stuff
 //----------------
 @property bool move2UpdatedLocation;
-@property bool updateUserLocationFlag;
+
+
+// this flag indicates whether the FindMe mode is turned on or not
 @property CLLocationManager *locationManager;
 -(void)updateFindMeView;
 

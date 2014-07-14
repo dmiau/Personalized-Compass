@@ -29,18 +29,9 @@
         
 
         self.move2UpdatedLocation   = true;
-        self.updateUserLocationFlag = true;
+        self.model->user_pos.isEnabled = true;
         [self.locationManager startUpdatingLocation];
         [self.locationManager startUpdatingHeading];
-        
-        //    // Diable location service after some time
-        //    NSTimer *timer1 = [NSTimer scheduledTimerWithTimeInterval: 3
-        //        target:self
-        //        selector:@selector(handleTimer:)
-        //        userInfo:nil
-        //        repeats:NO];
-//        [self performSelector:@selector(handleTimer:)
-//                   withObject:self afterDelay:30];
     }
 }
 
@@ -98,8 +89,8 @@
 
 -(void)updateFindMeView{
     
-//    if (!self.updateUserLocationFlag)
-//        return;
+    if (!self.model->user_pos.isEnabled)
+        return;
     
     //----------------------
     // Update compass heading (image)
@@ -130,7 +121,7 @@
 //-------------------
 - (void)disableLocationUpdate{
     self.mapView.showsUserLocation = NO;
-    self.updateUserLocationFlag = false;
+    self.model->user_pos.isEnabled = false;
     // Stop Location Manager
     [self.locationManager stopUpdatingLocation];
     [self.locationManager stopUpdatingHeading];

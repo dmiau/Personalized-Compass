@@ -43,6 +43,10 @@
     // This may be an iPad only thing
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    
+    if (self.model->user_pos.isEnabled){
+        [self getCurrentLocation: nil];
+    }    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

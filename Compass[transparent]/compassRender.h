@@ -144,6 +144,7 @@ private:
     
     void renderStyleRealRatio(vector<int> &indices_for_rendering);
     void renderStyleBimodal(vector<int> &indices_for_rendering);
+    
     void renderStyleThresholdSticks(vector<int> &indices_for_rendering);
     void renderStyleWedge(vector<int> &indices_for_rendering);
     void renderBareboneCompass();

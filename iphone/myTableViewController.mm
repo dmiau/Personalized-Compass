@@ -57,36 +57,67 @@
 
 #pragma mark -----Table View Data Source Methods-----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.model->data_array.size();
+    
+    if (section == 0)
+        return 1;
+    else
+        return self.model->data_array.size();
 }
 
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSArray *list = @[@"Special (user)", @"Landmarks (json)"];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
+    /* Create custom view to display section header... */
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
+    [label setFont:[UIFont boldSystemFontOfSize:12]];
+    NSString *string =[list objectAtIndex:section];
+    /* Section header is in 0th index... */
+    [label setText:string];
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
+    return view;
+}
 
 //----------------
 // Populate each row of the table
 //----------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = (UITableViewCell *)[tableView
-                                                dequeueReusableCellWithIdentifier:@"myTableCell"];
+    UITableViewCell *cell = (UITableViewCell *)[tableView                                                dequeueReusableCellWithIdentifier:@"myTableCell"];
+    
     if (cell == nil){
         NSLog(@"Something wrong...");
     }
     // Get the row ID
+    int section_id = [indexPath section];
     int i = [indexPath row];
+    data *data_ptr;
     
-    // Configure Cell
-    cell.textLabel.text =
-    [NSString stringWithUTF8String:self.model->data_array[i].name.c_str()];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
     
-    if (self.model->data_array[i].isEnabled){
+    if (section_id == 0){
+        cell.textLabel.text = @"My Location";
+
+        data_ptr = &(self.model->user_pos);
+    }else{
+        // Configure Cell
+        cell.textLabel.text =
+        [NSString stringWithUTF8String:self.model->data_array[i].name.c_str()];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
+
+        data_ptr = &(self.model->data_array[i]);
+    }
+    
+    if (data_ptr->isEnabled){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
+    
     return cell;
 }
 
@@ -100,21 +131,39 @@
 {
     // Get the row ID
     int i = [indexPath row];
+    int section_id = [indexPath section];
+    
+    data *data_ptr;
+    
+    if (section_id == 0){
+        data_ptr = &(self.model->user_pos);
+    }else{
+        data_ptr = &(self.model->data_array[i]);
+    }
     
     // Perform segue
     [self performSegueWithIdentifier:@"TableDetailVC"
-                              sender:self.model->data_array[i].annotation];
+                              sender:data_ptr->annotation];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
-    int i = [path row];
+    int row_id = [path row];
+    int section_id = [path section];
+    data *data_ptr;
+    
+    if (section_id == 0){
+        data_ptr = &(self.model->user_pos);
+    }else{
+        data_ptr = &(self.model->data_array[row_id]);
+    }
+    
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        self.model->data_array[i].isEnabled = false;
+        data_ptr->isEnabled = false;
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        self.model->data_array[i].isEnabled = true;
+        data_ptr->isEnabled = true;
     }
     
     self.needUpdateAnnotations = true;
@@ -146,6 +195,17 @@
     {
         iOSViewController *destViewController =
         [self.navigationController.viewControllers objectAtIndex:0];
+        
+        //---------------
+        // iPad case (because we use modal dialog)
+        //---------------
+        if (destViewController == nil){
+            UINavigationController *temp;
+            temp = (UINavigationController*)
+            self.presentingViewController;
+            destViewController = [[temp viewControllers] objectAtIndex:0];
+        }        
+        
         destViewController.needUpdateAnnotations = true;
     }
     [super viewWillDisappear:animated];
@@ -272,7 +332,12 @@
 }
 
 #pragma mark -----Exit-----
-- (IBAction)dismissModalVC:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)dismissModalVC:(id)sender {    
+    UINavigationController *temp = (UINavigationController *) (self.presentingViewController);
+    iOSViewController* parentVC = (iOSViewController*) [[temp viewControllers] objectAtIndex:0];
+    [self dismissViewControllerAnimated:YES completion:^{
+        // call your completion method:
+        [parentVC viewWillAppear:YES];
+    }];
 }
 @end

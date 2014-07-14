@@ -1099,11 +1099,14 @@ This recipe checks whether a point is visible or not:
 http://stackoverflow.com/questions/9126137/how-can-we-know-that-map-coordinates-are-in-current-region-or-not-in-current-reg?lq=1
 
 
+-------------------------------------------------------------------
+7.14.2014
+-------------------------------------------------------------------
+Goals of today:
+- implement FindMe
+If I can fix overlap issues, even better!
 
-
-
-
-
+reserve some special index for the user location
 
 
 
