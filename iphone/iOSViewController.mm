@@ -44,9 +44,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
     
-    if (self.model->user_pos.isEnabled){
-        [self getCurrentLocation: nil];
-    }    
+    if ([self needToggleLocationService]){
+        [self toggleLocationService:1];
+        self.needToggleLocationService = false;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -107,6 +108,7 @@
         
         // Initialize location service
         // enable location manager
+        self.needToggleLocationService = false;
         self.locationManager =
         [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
@@ -176,7 +178,31 @@
         }
     }
 
+    //-------------------
+    // Add gesture recognizer to the FindMe button
+    //-------------------
+    UITapGestureRecognizer *singleTapFindMe = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doSingleTapFindMe:)];
+    singleTapFindMe.numberOfTapsRequired = 1;
+    [self.findMeButton addGestureRecognizer:singleTapFindMe];
+    
+    UITapGestureRecognizer *doubleTapFindMe = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doDoubleTapFindMe:)];
+    doubleTapFindMe.numberOfTapsRequired = 2;
+    [self.findMeButton addGestureRecognizer:doubleTapFindMe];
 }
+
+
+- (void) doSingleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer
+{
+    [self toggleLocationService:1];
+    NSLog(@"Single tap!");
+}
+
+- (void) doDoubleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer
+{
+    [self toggleLocationService:2];
+    NSLog(@"Double tap!");
+}
+
 
 //-----------------
 // initMapView may be called whenever configurations.json is reloaded

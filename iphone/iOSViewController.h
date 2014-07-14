@@ -14,6 +14,13 @@
 #include <iostream>
 #import "iOSGLKView.h"
 
+
+enum findMe_enum{
+    LOCATION_ON,
+    LOCATION_OFF,
+    MOVE2LOCATION
+};
+
 @interface iOSViewController : UIViewController
 <CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate>
 {
@@ -44,14 +51,17 @@
 // This is used for communication via segue
 @property bool needUpdateDisplayRegion;
 @property bool needUpdateAnnotations;
-- (IBAction)getCurrentLocation:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIButton *findMeButton;
 
 //----------------
 // Location service related stuff
 //----------------
 @property bool move2UpdatedLocation;
-
+@property bool needToggleLocationService;
+//- (void) doSingleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer;
+//- (void) doDoubleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer;
+- (void)toggleLocationService:(int)tapNumber;
 
 // this flag indicates whether the FindMe mode is turned on or not
 @property CLLocationManager *locationManager;

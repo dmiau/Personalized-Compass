@@ -11,27 +11,44 @@
 #import "commonInclude.h"
 
 @implementation iOSViewController (GetLocation)
-- (IBAction)getCurrentLocation:(id)sender {
+- (void)toggleLocationService:(int) tapNumber {
+    
+    static enum findMe_enum button_status = LOCATION_OFF;
+    
+    findMe_enum mode;
+    if (tapNumber == 1){
+        if (button_status == LOCATION_OFF){
+            mode = LOCATION_ON;
+            button_status = LOCATION_ON;
+        }else{
+            mode = LOCATION_OFF;
+            button_status = LOCATION_OFF;
+        }
+    }else{
+        mode = MOVE2LOCATION;
+    }
     
     //---------------
     // Check the state of the button
     //---------------
-    if (self.findMeButton.isSelected){
+    if (mode == LOCATION_OFF){
         [self disableLocationUpdate];
     }else{
-        self.findMeButton.selected = YES;
         self.findMeButton.backgroundColor = [UIColor orangeColor];
+        self.findMeButton.selected = YES;
         self.findMeButton.layer.cornerRadius = 5;
         self.findMeButton.clipsToBounds = YES;
         
         // Use custom image istead
         self.mapView.showsUserLocation = NO;
         
-
-        self.move2UpdatedLocation   = true;
         self.model->user_pos.isEnabled = true;
         [self.locationManager startUpdatingLocation];
         [self.locationManager startUpdatingHeading];
+        
+        if (mode == MOVE2LOCATION){
+            self.move2UpdatedLocation  = true;
+        }
     }
 }
 

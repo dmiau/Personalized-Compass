@@ -1108,9 +1108,16 @@ If I can fix overlap issues, even better!
 
 reserve some special index for the user location
 
+it will be very nice if the find me button can distinguish betweeen single tap 
+and double taps
 
+single tap: turn on/off location service
+double tap: go to current location
 
+recognize single tap and double taps:
+http://stackoverflow.com/questions/8876202/uitapgesturerecognizer-single-tap-and-double-tap
 
+UIButton customization
+http://stackoverflow.com/questions/5608654/double-tap-on-a-uibutton
 
-
-
+findMe toggle code still needs to be fixed. 

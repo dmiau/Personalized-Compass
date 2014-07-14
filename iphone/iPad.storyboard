@@ -38,9 +38,6 @@
                                 <state key="normal" image="location.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="getCurrentLocation:" destination="RyZ-6E-Ee0" eventType="touchUpInside" id="BPs-6C-9yb"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcv-n5-7ZP">
                                 <rect key="frame" x="672" y="28" width="81" height="30"/>

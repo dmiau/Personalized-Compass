@@ -52,9 +52,6 @@
                                 <state key="normal" image="location.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="getCurrentLocation:" destination="RVv-fy-219" eventType="touchUpInside" id="7nz-Bu-F1F"/>
-                                </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNx-RU-M1b">
                                 <rect key="frame" x="0.0" y="523" width="320" height="44"/>
@@ -447,6 +444,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VT9-KB-V4S"/>
+        <segue reference="WS4-yg-Oj7"/>
     </inferredMetricsTieBreakers>
 </document>

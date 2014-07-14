@@ -35,6 +35,7 @@
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
         self.needUpdateAnnotations = false;
+        self.needToggleLocationService = false;
     }
     return self;
 }
@@ -137,6 +138,7 @@
     
     if (section_id == 0){
         data_ptr = &(self.model->user_pos);
+        self.needToggleLocationService = true;
     }else{
         data_ptr = &(self.model->data_array[i]);
     }
@@ -191,23 +193,28 @@
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
+    iOSViewController *destViewController =
+    [self.navigationController.viewControllers objectAtIndex:0];
+    
+    //---------------
+    // iPad case (because we use modal dialog)
+    //---------------
+    if (destViewController == nil){
+        UINavigationController *temp;
+        temp = (UINavigationController*)
+        self.presentingViewController;
+        destViewController = [[temp viewControllers] objectAtIndex:0];
+    }
+    
     if (self.needUpdateAnnotations)
     {
-        iOSViewController *destViewController =
-        [self.navigationController.viewControllers objectAtIndex:0];
-        
-        //---------------
-        // iPad case (because we use modal dialog)
-        //---------------
-        if (destViewController == nil){
-            UINavigationController *temp;
-            temp = (UINavigationController*)
-            self.presentingViewController;
-            destViewController = [[temp viewControllers] objectAtIndex:0];
-        }        
-        
         destViewController.needUpdateAnnotations = true;
     }
+    
+    if (self.needToggleLocationService){
+        destViewController.needToggleLocationService = true;
+    }
+    
     [super viewWillDisappear:animated];
 }
 
