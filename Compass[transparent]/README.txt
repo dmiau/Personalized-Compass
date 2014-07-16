@@ -1121,3 +1121,15 @@ UIButton customization
 http://stackoverflow.com/questions/5608654/double-tap-on-a-uibutton
 
 findMe toggle code still needs to be fixed. 
+
+-------------------------------------------------------------------
+7.15.2014
+-------------------------------------------------------------------
+- fixed a small orientation bug
+
+-------------------------------------------------------------------
+7.16.2014
+-------------------------------------------------------------------
+- came back to NYC, let's do some refactoring work, if I can get
+box2d to work, even better!
+

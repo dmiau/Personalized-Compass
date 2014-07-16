@@ -197,7 +197,7 @@
         data *data_ptr;
         if (i == -1 && !self.model->user_pos.isEnabled){
             continue;
-        }else if (i == -1 && !self.model->user_pos.isEnabled){
+        }else if (i == -1 && self.model->user_pos.isEnabled){
             data_ptr = &(self.model->user_pos);
         }else{
             data_ptr = &(self.model->data_array[i]);

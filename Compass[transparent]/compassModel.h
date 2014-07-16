@@ -90,7 +90,10 @@ public:
     vector<int *> color_map;
     data camera_pos; // Specify the camera position
     data user_pos; // Specify the user position
-    
+
+    // Need this field because the orientation in user_pos
+    // indicating the orientation from the current camera_pos
+    double user_heading_deg;
     //
     float latitudedelta;
     float longitudedelta;

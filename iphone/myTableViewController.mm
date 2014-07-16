@@ -138,7 +138,6 @@
     
     if (section_id == 0){
         data_ptr = &(self.model->user_pos);
-        self.needToggleLocationService = true;
     }else{
         data_ptr = &(self.model->data_array[i]);
     }
@@ -156,6 +155,7 @@
     
     if (section_id == 0){
         data_ptr = &(self.model->user_pos);
+        self.needToggleLocationService = true;
     }else{
         data_ptr = &(self.model->data_array[row_id]);
     }

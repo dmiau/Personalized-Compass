@@ -94,7 +94,7 @@
 - (void)locationManager:(CLLocationManager *)manager
        didUpdateHeading:(CLHeading *)newHeading
 {
-    self.model->user_pos.orientation = [newHeading trueHeading]; // heading is in degree
+    self.model->user_heading_deg = [newHeading trueHeading]; // heading is in degree
     [self updateFindMeView];
 }
 
@@ -122,7 +122,7 @@
         //-------------
         aView.image = myImg;
         
-        float radians = (self.model->user_pos.orientation
+        float radians = (self.model->user_heading_deg
                          + self.model->camera_pos.orientation)/180 * M_PI;
         
         //        NSLog(@"camera orientation: %f", self.model->camera_pos.orientation);

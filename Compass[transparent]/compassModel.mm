@@ -77,6 +77,7 @@ int compassMdl::initMdl(){
     //------------
     // Initialize user position
     //------------
+    user_heading_deg = 0;
     user_pos.orientation = 0.0;
     user_pos.isEnabled = false;
     
