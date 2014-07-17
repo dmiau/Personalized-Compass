@@ -88,11 +88,13 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
 
         // We will use rotation and max_aperture from calculateDistInBox
         if (watchMode){
-            float outer_disk_radius =
-            half_canvas_size *
-            [model->configurations[@"outer_disk_ratio"] floatValue];
-            float scale = glDrawingCorrectionRatio * compass_scale;
-            screen_dist = outer_disk_radius * scale;
+//            float outer_disk_radius =
+//            half_canvas_size *
+//            [model->configurations[@"outer_disk_ratio"] floatValue];
+//            float scale = glDrawingCorrectionRatio * compass_scale;
+//            screen_dist = outer_disk_radius * scale;
+            
+            screen_dist = [model->configurations[@"watch_radius"] floatValue];
         }
         off_screen_dist = dist - screen_dist;
         

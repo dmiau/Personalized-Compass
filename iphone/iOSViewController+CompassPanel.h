@@ -1,5 +1,5 @@
 //
-//  iOSViewController+WatchPanel.h
+//  iOSViewController+CompassPanel.h
 //  Compass[transparent]
 //
 //  Created by dmiau on 7/16/14.
@@ -11,4 +11,8 @@
 @interface iOSViewController (WatchPanel)
 - (IBAction)watchModeSegmentControl:(id)sender;
 
+
+- (IBAction)compassSegmentControl:(id)sender;
+- (IBAction)compassLocationSegmentControl:(id)sender;
+- (IBAction)labelSegmentControl:(id)sender;
 @end

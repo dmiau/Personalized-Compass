@@ -153,7 +153,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     glPushMatrix();
     // Translate to the front to avoid broken polygon
     glTranslatef(0, 0, 1);
-    drawCircle(0, 0, central_disk_radius, 50);
+    drawCircle(0, 0, central_disk_radius, 50, true);
     glPopMatrix();
 
     // ---------------
@@ -251,10 +251,15 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     
 //    cout << "max dist: " << mode_info_list[0].max_dist << endl;
     if (fabs(model->tilt - 0) < 0.1 ){
-        glPushMatrix();
-        glRotatef(-model->camera_pos.orientation, 0, 0, -1);
-        drawBox(outer_disk_radius/mode_info_list[0].max_dist);
-        glPopMatrix();
+        
+        if (watchMode){
+            drawBoundaryCircle(outer_disk_radius/mode_info_list[0].max_dist);
+        }else{
+            glPushMatrix();
+            glRotatef(-model->camera_pos.orientation, 0, 0, -1);
+            drawBox(outer_disk_radius/mode_info_list[0].max_dist);
+            glPopMatrix();
+        }
     }
     // ---------------
     // draw the background (transparent) disk
@@ -272,7 +277,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
               [model->configurations[@"disk_color"][2] floatValue]/255,
               alpha);
     glTranslatef(0, 0, -1);
-    drawCircle(0, 0, outer_disk_radius, 50);
+    drawCircle(0, 0, outer_disk_radius, 50, true);
     
     glPopMatrix();
 }

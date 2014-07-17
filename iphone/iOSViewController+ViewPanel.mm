@@ -76,37 +76,6 @@
     }
 }
 
-//------------------
-// Label Control
-//------------------
-- (IBAction)labelSegmentControl:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
-    
-    switch (segmentedControl.selectedSegmentIndex) {
-        case 0:
-            //-----------
-            // None
-            //-----------
-            self.renderer->label_flag = false;
-            break;
-        case 1:
-            //-----------
-            // Abbreviation
-            //-----------
-            self.renderer->label_flag = true;
-            break;
-        case 2:
-            //-----------
-            // Full
-            //-----------
-            self.renderer->label_flag = true;
-            break;
-        default:
-            throw(runtime_error("Undefined control, update needed"));
-            break;
-            
-    }
-}
 
 //------------------
 // Select map style
@@ -125,96 +94,6 @@
     }
 }
 
-- (IBAction)compassLocationSegmentControl:(id)sender {
-    
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
-    NSString *label = [segmentedControl
-                       titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
-
-    // Need to perform a deep copy
-    static bool cached_flag = false;
-    static NSArray *defaultCentroidParams;
-    static CGRect default_rect;
-    
-    if (!cached_flag){
-        defaultCentroidParams =
-        [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations[@"compass_centroid"]]];
-        default_rect = self.glkView.frame;
-        cached_flag = true;
-    }
-    
-    //---------------
-    // iPhone case
-    //---------------
-#ifndef __IPAD__
-    if ([label isEqualToString:@"Default"]){
-        self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
-    }else if ([label isEqualToString:@"UL"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:90];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:180];
-    }else if ([label isEqualToString:@"Center"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:0];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:0];
-    }else if ([label isEqualToString:@"BR"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:-70];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:-150];
-    }
-#endif
-    //---------------
-    // iPad case
-    //---------------
-#ifdef __IPAD__
-    
-
-    
-    if ([label isEqualToString:@"Default"]){
-        self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
-        self.glkView.frame = default_rect;
-    }else if ([label isEqualToString:@"UL"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:80];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:100];
-        
-        self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
-        self.glkView.frame = default_rect;
-        
-    }else if ([label isEqualToString:@"Center"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:0];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:0];
-        
-        self.glkView.frame = CGRectMake(176, 314,
-                                        default_rect.size.width,
-                                        default_rect.size.height);
-    }else if ([label isEqualToString:@"BR"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:-70];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:-150];
-        
-        self.glkView.frame = CGRectMake(0, 514,
-                                        default_rect.size.width,
-                                        default_rect.size.height);
-    }
-
-#endif
-    
-    
-    NSLog(@"centroid x: %@", self.model->configurations[@"compass_centroid"][0]);
-    NSLog(@"centroid x: %@", self.model->configurations[@"compass_centroid"][1]);
-    // The order is important
-    self.renderer->loadParametersFromModelConfiguration();
-    [self updateModelCompassCenterXY];
-    [self.glkView setNeedsDisplay];    
-}
 
 - (IBAction)pinSegmentControl:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
@@ -251,31 +130,7 @@
     }
 }
 
-//------------------
-// Select compass type
-//------------------
-- (IBAction)compassSegmentControl:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
-    NSString *label = [segmentedControl
-                       titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
-    
-    if ([label isEqualToString:@"Conventional"]){
-        self.conventionalCompassVisible = YES;
-//        [self.glkView setHidden:YES];
-        self.model->configurations[@"personalized_compass_status"] = @"off";
-        [self setFactoryCompassHidden:NO];
-    }else if ([label isEqualToString:@"Personalized"]){
-        self.conventionalCompassVisible = NO;
-        self.model->configurations[@"personalized_compass_status"] = @"on";
-        [self setFactoryCompassHidden:YES];
-    }else{
-        self.conventionalCompassVisible = NO;
-        self.model->configurations[@"personalized_compass_status"] = @"off";
-//        [self.glkView setHidden:YES];
-        [self setFactoryCompassHidden:YES];
-    }
-    [self.glkView setNeedsDisplay];    
-}
+
 
 //------------------
 // Update Overview map

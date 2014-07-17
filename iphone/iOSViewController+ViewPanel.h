@@ -11,11 +11,13 @@
 @interface iOSViewController (ViewPanel)
 
 - (IBAction)toggleOverviewMap:(id)sender;
-- (IBAction)compassSegmentControl:(id)sender;
+
 
 - (IBAction)mapStyleSegmentControl:(id)sender;
-- (IBAction)compassLocationSegmentControl:(id)sender;
+
 - (IBAction)pinSegmentControl:(id)sender;
 - (IBAction)wedgeSegmentControl:(id)sender;
-- (IBAction)labelSegmentControl:(id)sender;
+
+
+
 @end

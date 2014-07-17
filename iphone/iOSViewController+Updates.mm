@@ -192,6 +192,20 @@
 }
 
 -(void) updateLocationVisibility{
+    
+    CLLocationCoordinate2D orig_coord2d =
+    [self.mapView convertPoint:CGPointMake(self.mapView.frame.size.width/2,
+                                           self.mapView.frame.size.height/2)
+          toCoordinateFromView:self.mapView];
+    CLLocation* orig_location = [[CLLocation alloc]
+                                 initWithLatitude:orig_coord2d.latitude
+                                 longitude:orig_coord2d.longitude];
+    
+    
+    double true_radius_dist = self.renderer->getMapWidthInMeters() *
+    [self.model->configurations[@"watch_radius"] floatValue] /
+    self.mapView.frame.size.width;
+    
     for (int i = -1; i < (int)self.model->data_array.size(); ++i){
         
         data *data_ptr;
@@ -205,14 +219,28 @@
         
         CLLocationCoordinate2D coord2d =
         data_ptr->annotation.coordinate;
-        if (MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord2d)))
-        {
-            data_ptr->isVisible = true;
-        }
-        else {
-            data_ptr->isVisible = false;
-        }
         
+        if (self.renderer->watchMode){
+            
+            
+            CLLocation *point_location = [[CLLocation alloc]
+                                          initWithLatitude:coord2d.latitude
+                                          longitude:coord2d.longitude];
+           CLLocationDistance dist = [orig_location distanceFromLocation:point_location];
+            
+            if (dist <= true_radius_dist)
+                data_ptr->isVisible= true;
+            else
+                data_ptr->isVisible = false;
+        }else{
+            if (MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord2d)))
+            {
+                data_ptr->isVisible = true;
+            }
+            else {
+                data_ptr->isVisible = false;
+            }
+        }
     }
 }
 

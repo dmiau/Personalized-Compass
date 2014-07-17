@@ -127,17 +127,22 @@ public:
     void updateViewport(GLint x, GLint y, GLsizei width, GLsizei height);
     void updateProjection(GLfloat aspect_ratio);
     void loadParametersFromModelConfiguration();
-    
+
+    //-----------------
+    // Map tools
+    //-----------------
+    double getMapWidthInMeters();
+    double getMapHeightInMeters();
 private:
     // Drawing routines
     void drawWayfindingAid(RenderParamStruct renderParamStruct);
     void drawTriangle(int central_disk_radius, float rotation, float height);
     void drawLabel(float rotation, float height, string name);
-    void drawCircle(float cx, float cy, float r, int num_segments);
+    void drawCircle(float cx, float cy, float r, int num_segments, bool isSolid);
     void drawBox(double renderD2realDRatio);
+    void drawBoundaryCircle(double renderD2realDRatio);
     void drawOverviewBox();
     void drawClearWatch();
-    void drawWatchMask();
     
     //-----------------
     // style related methods
@@ -159,11 +164,7 @@ private:
                      CGFloat width, CGFloat height);
     CGSize makeGLFrameSize(NSAttributedString *attr_str);
 #endif
-    //-----------------
-    // Map tools
-    //-----------------
-    double getMapWidthInMeters();
-    double getMapHeightInMeters();
+
 };
 
 //-------------------------

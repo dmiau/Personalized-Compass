@@ -80,7 +80,7 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
     glPushMatrix();
     // Translate to the front to avoid broken polygon
     glTranslatef(0, 0, 1);
-    drawCircle(0, 0, central_disk_radius, 50);
+    drawCircle(0, 0, central_disk_radius, 50, true);
     glPopMatrix();
     
     // ---------------
@@ -109,7 +109,7 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
               [model->configurations[@"disk_color"][1] floatValue]/255,
               [model->configurations[@"disk_color"][2] floatValue]/255,
               [model->configurations[@"disk_color"][3] floatValue]/255);
-    drawCircle(0, 0, half_canvas_size, 50);
+    drawCircle(0, 0, half_canvas_size, 50, true);
 }
 
 //------------------------------------
@@ -132,7 +132,7 @@ void compassRender::renderBareboneCompass(){
     glPushMatrix();
     // Translate to the front to avoid broken polygon
     glTranslatef(0, 0, 1);
-    drawCircle(0, 0, central_disk_radius, 50);
+    drawCircle(0, 0, central_disk_radius, 50, true);
     glPopMatrix();
     
     
@@ -165,7 +165,7 @@ void compassRender::renderBareboneCompass(){
     float outer_disk_radius =
     half_canvas_size *
     [model->configurations[@"outer_disk_ratio"] floatValue];
-    drawCircle(0, 0, outer_disk_radius, 50);
+    drawCircle(0, 0, outer_disk_radius, 50, true);
     
     glPopMatrix();
 }

@@ -109,6 +109,15 @@
   "value": [80, 100]
   },
   {
+  "property": "separator",
+  "value": "==================================================",
+  "comment": "watch related stuff"
+  },
+  {
+  "property": "watch_radius",
+  "value": 114
+  },
+  {
   "property": "font_color",
   "value": [255, 255, 255]
   },

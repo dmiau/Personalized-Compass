@@ -1152,10 +1152,11 @@ check this solution:
 http://stackoverflow.com/questions/16512761/calayer-with-transparent-hole-in-it
 
 - the solution works. need to refine further
+- made some progress on the watch mode
 
+introducing colors seems to be a low-hanging fruit
 
-
-
+- added boundary indicator for smart watch
 
 
 

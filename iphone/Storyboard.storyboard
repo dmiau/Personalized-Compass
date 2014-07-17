@@ -67,12 +67,12 @@
                                             <action selector="toggleModelPanel:" destination="RVv-fy-219" id="8At-di-duY"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="[Watch]" id="3FE-5S-7JP">
+                                    <barButtonItem title="[Compass]" id="3FE-5S-7JP">
                                         <connections>
                                             <action selector="toggleWatchPanel:" destination="RVv-fy-219" id="3RN-w0-EgG"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Debug" id="J0x-2f-WyJ">
+                                    <barButtonItem title="[Debug]" id="J0x-2f-WyJ">
                                         <connections>
                                             <action selector="toggleDebugView:" destination="RVv-fy-219" id="rIm-yr-UNm"/>
                                         </connections>
@@ -85,7 +85,6 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="rL1-an-vSn"/>
                     <connections>
