@@ -67,9 +67,9 @@
                                             <action selector="toggleModelPanel:" destination="RVv-fy-219" id="8At-di-duY"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="[Explr. Mode]" id="3FE-5S-7JP">
+                                    <barButtonItem title="[Watch]" id="3FE-5S-7JP">
                                         <connections>
-                                            <action selector="toggleExplrMode:" destination="RVv-fy-219" id="2kP-19-yzm"/>
+                                            <action selector="toggleWatchPanel:" destination="RVv-fy-219" id="3RN-w0-EgG"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Debug" id="J0x-2f-WyJ">
@@ -132,11 +132,12 @@
                                 </connections>
                             </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B2u-Zp-sZD">
-                                <rect key="frame" x="36" y="99" width="123" height="29"/>
+                                <rect key="frame" x="36" y="99" width="190" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Local"/>
                                     <segment title="Dropbox"/>
+                                    <segment title="Bundle"/>
                                 </segments>
                                 <connections>
                                     <action selector="toggleDataSource:" destination="9xM-YS-8bl" eventType="valueChanged" id="dJr-jE-zQa"/>

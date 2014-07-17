@@ -145,20 +145,13 @@
     lpgr.minimumPressDuration = 0.5;
     [self.mapView addGestureRecognizer:lpgr];
     
-    
     //-------------------
-    // Add a debug view
-    //-------------------
-    [self addDebugView];
-    [self.debugView setHidden:YES];
-    
-    //-------------------
-    // Add View and Model Panels
+    // Add View, Model, Watch and Debug Panels
     //-------------------
     
     // Note this method needs to be here
     NSArray *view_array =
-    [[NSBundle mainBundle] loadNibNamed:@"ViewPanel"
+    [[NSBundle mainBundle] loadNibNamed:@"ExtraPanels"
                                   owner:self options:nil];
     for (UIView *aView in view_array){
         [aView setHidden:YES];
@@ -171,11 +164,15 @@
                                  aView.frame.size.width, aView.frame.size.height);
         if ([[aView restorationIdentifier] isEqualToString:@"ViewPanel"]){
             self.viewPanel = aView;
-            [self.view addSubview:self.viewPanel];
-        }else{
+        }else if ([[aView restorationIdentifier] isEqualToString:@"ModelPanel"]){
             self.modelPanel = aView;
-            [self.view addSubview:self.modelPanel];
+        }else if ([[aView restorationIdentifier] isEqualToString:@"WatchPanel"]){
+            self.watchPanel = aView;
+        }else if ([[aView restorationIdentifier] isEqualToString:@"DebugPanel"]){
+            self.debugPanel = aView;
+            aView.alpha = 0.6;
         }
+        [self.view addSubview:aView];
     }
 
     //-------------------
@@ -221,29 +218,6 @@
 
 }
 
-//-----------------
-// initialize debug view
-//-----------------
-- (void) addDebugView{
-    
-    self.debugView = [[UIView alloc] initWithFrame:
-                      CGRectMake(0, self.view.frame.size.height - 144,
-                                 320, 100)];
-    self.debugView.backgroundColor = [UIColor redColor];
-    self.debugView.alpha = 0.6;
-    [self.view addSubview:self.debugView];
-    
-    
-    // add a textview to the debug view
-    UITextView *textView = [[UITextView alloc] initWithFrame:
-                            self.debugView.bounds];
-    textView.text = @"Hello World!\n";
-    [textView setFont:[UIFont systemFontOfSize:25]];
-    textView.editable = NO;
-    self.debugTextView = textView;
-    [self.debugView addSubview:textView];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -269,7 +243,8 @@
     //------------------
     // Perform hitTest to dismiss dialogs
     //------------------
-    NSArray* dialog_array = @[self.viewPanel, self.modelPanel];
+    NSArray* dialog_array = @[self.viewPanel, self.modelPanel
+                              , self.watchPanel, self.debugPanel];
     
     for (UIView* aView in dialog_array){
 

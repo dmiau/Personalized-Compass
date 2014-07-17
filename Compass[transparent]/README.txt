@@ -1132,4 +1132,6 @@ findMe toggle code still needs to be fixed.
 -------------------------------------------------------------------
 - came back to NYC, let's do some refactoring work, if I can get
 box2d to work, even better!
+- figure out what the important features are
+- reorganize menu items
 

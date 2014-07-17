@@ -68,7 +68,11 @@
                                             <action selector="refreshApp:" destination="RyZ-6E-Ee0" id="iv6-9B-lE3"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Debug" id="ujH-hy-25C"/>
+                                    <barButtonItem title="Debug" id="ujH-hy-25C">
+                                        <connections>
+                                            <action selector="toggleDebugView:" destination="RyZ-6E-Ee0" id="F4S-KA-N0x"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="bookmarks" id="YYx-uF-oAz" userLabel="Locations">
                                         <connections>
                                             <segue destination="06K-e6-nHH" kind="modal" modalPresentationStyle="formSheet" id="xmo-n9-EnG"/>
@@ -266,11 +270,12 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qUz-br-yTL">
-                                <rect key="frame" x="141" y="94" width="133" height="29"/>
+                                <rect key="frame" x="141" y="94" width="183" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Local"/>
                                     <segment title="Dropbox"/>
+                                    <segment title="Bundle"/>
                                 </segments>
                                 <connections>
                                     <action selector="toggleDataSource:" destination="bsL-PH-kKP" eventType="valueChanged" id="Z1B-yJ-xge"/>

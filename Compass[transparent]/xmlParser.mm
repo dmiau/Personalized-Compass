@@ -55,6 +55,13 @@ int readLocationKml(compassMdl* mdl){
                 [filename lastPathComponent]];
         mdl->filesys_type = IOS_DOC;
     }
+
+    if (!data){
+        //        data = [NSData dataWithContentsOfFile:jsonPath];
+        data = [mdl->docFilesystem readBundleFileFromName:
+                [filename lastPathComponent]];
+        mdl->filesys_type = BUNDLE;
+    }
     
     if (!data){
         throw(runtime_error("Failed to read the location file."));

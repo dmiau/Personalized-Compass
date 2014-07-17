@@ -118,9 +118,11 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         
         aperture = (5+corrected_off_screen_dist*0.3)/leg;
         
-        if (aperture > max_aperture){
+        
+        if (aperture > max_aperture &&
+            [model->configurations[@"wedge_style"] isEqualToString:@"modified"])
+        {
             aperture = max_aperture;
-//            NSLog(@"Aperture is bigger than max_apertue!");
         }
         
         leg = leg / correction_x;

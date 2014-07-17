@@ -40,6 +40,11 @@
   "comment": "float"
   },
   {
+  "property": "wedge_style",
+  "value": "modified",
+  "comment": "original, modified"
+  },
+  {
   "property": "separator",
   "value": "==================================================",
   "comment": "compass related stuff"

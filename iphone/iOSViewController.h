@@ -30,8 +30,6 @@ enum findMe_enum{
 }
 
 @property (weak) IBOutlet MKMapView *mapView;
-@property UIView *debugView;
-@property UITextView *debugTextView;
 
 @property (weak, nonatomic) IBOutlet MKMapView *overviewMapView;
 
@@ -40,6 +38,10 @@ enum findMe_enum{
 
 @property UIView *viewPanel;
 @property UIView *modelPanel;
+@property UIView *watchPanel;
+@property UIView *debugPanel;
+@property (weak) IBOutlet UITextView *debugTextView;
+
 
 @property compassMdl* model;
 @property compassRender* renderer;
@@ -80,7 +82,7 @@ enum findMe_enum{
 //----------------
 // Toolbar and menu related functions
 //----------------
-- (IBAction)toggleExplrMode:(id)sender;
+- (IBAction)toggleWatchPanel:(id)sender;
 
 - (void) removeCompass;
 

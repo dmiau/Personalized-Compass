@@ -66,8 +66,10 @@
     // Initialize data source indicator
     if (model->filesys_type == IOS_DOC)
         self.dataSource.selectedSegmentIndex = 0;
-    else
+    else if (model->filesys_type == DROPBOX)
         self.dataSource.selectedSegmentIndex = 1;
+    else
+        self.dataSource.selectedSegmentIndex = 2;
     
 }
 

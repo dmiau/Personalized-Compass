@@ -42,14 +42,69 @@
 }
 
 //------------------
-// Toggle wedge
+// Wedge Control
 //------------------
-- (IBAction)toggleWedge:(id)sender {
-    UISwitch* mySwitch = (UISwitch*) sender;
-    if ([mySwitch isOn] == YES){
-        self.model->configurations[@"wedge_status"] = @"on";
-    }else{
-        self.model->configurations[@"wedge_status"] = @"off";
+
+- (IBAction)wedgeSegmentControl:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    
+    switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            //-----------
+            // None
+            //-----------
+            self.model->configurations[@"wedge_status"] = @"off";
+            break;
+        case 1:
+            //-----------
+            // Original
+            //-----------
+            self.model->configurations[@"wedge_status"] = @"on";
+            self.model->configurations[@"wedge_style"] = @"original";
+            break;
+        case 2:
+            //-----------
+            // Modified
+            //-----------
+            self.model->configurations[@"wedge_status"] = @"on";
+            self.model->configurations[@"wedge_style"] = @"modified";
+            break;
+        default:
+            throw(runtime_error("Undefined control, update needed"));
+            break;
+            
+    }
+}
+
+//------------------
+// Label Control
+//------------------
+- (IBAction)labelSegmentControl:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    
+    switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            //-----------
+            // None
+            //-----------
+            self.renderer->label_flag = false;
+            break;
+        case 1:
+            //-----------
+            // Abbreviation
+            //-----------
+            self.renderer->label_flag = true;
+            break;
+        case 2:
+            //-----------
+            // Full
+            //-----------
+            self.renderer->label_flag = true;
+            break;
+        default:
+            throw(runtime_error("Undefined control, update needed"));
+            break;
+            
     }
 }
 
@@ -75,14 +130,23 @@
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     NSString *label = [segmentedControl
                        titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
+
     // Need to perform a deep copy
-    static NSArray *defaultCentroidParams =
-    [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations[@"compass_centroid"]]];
+    static bool cached_flag = false;
+    static NSArray *defaultCentroidParams;
+    static CGRect default_rect;
     
+    if (!cached_flag){
+        defaultCentroidParams =
+        [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations[@"compass_centroid"]]];
+        default_rect = self.glkView.frame;
+        cached_flag = true;
+    }
     
-    static NSDictionary* cache_configurations =
-    [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations]];
-    
+    //---------------
+    // iPhone case
+    //---------------
+#ifndef __IPAD__
     if ([label isEqualToString:@"Default"]){
         self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
     }else if ([label isEqualToString:@"UL"]){
@@ -101,7 +165,51 @@
         self.model->configurations[@"compass_centroid"][1] =
         [NSNumber numberWithInt:-150];
     }
+#endif
+    //---------------
+    // iPad case
+    //---------------
+#ifdef __IPAD__
     
+
+    
+    if ([label isEqualToString:@"Default"]){
+        self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
+        self.glkView.frame = default_rect;
+    }else if ([label isEqualToString:@"UL"]){
+        self.model->configurations[@"compass_centroid"][0] =
+        [NSNumber numberWithInt:80];
+        self.model->configurations[@"compass_centroid"][1] =
+        [NSNumber numberWithInt:100];
+        
+        self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
+        self.glkView.frame = default_rect;
+        
+    }else if ([label isEqualToString:@"Center"]){
+        self.model->configurations[@"compass_centroid"][0] =
+        [NSNumber numberWithInt:0];
+        self.model->configurations[@"compass_centroid"][1] =
+        [NSNumber numberWithInt:0];
+        
+        self.glkView.frame = CGRectMake(176, 314,
+                                        default_rect.size.width,
+                                        default_rect.size.height);
+    }else if ([label isEqualToString:@"BR"]){
+        self.model->configurations[@"compass_centroid"][0] =
+        [NSNumber numberWithInt:-70];
+        self.model->configurations[@"compass_centroid"][1] =
+        [NSNumber numberWithInt:-150];
+        
+        self.glkView.frame = CGRectMake(0, 514,
+                                        default_rect.size.width,
+                                        default_rect.size.height);
+    }
+
+#endif
+    
+    
+    NSLog(@"centroid x: %@", self.model->configurations[@"compass_centroid"][0]);
+    NSLog(@"centroid x: %@", self.model->configurations[@"compass_centroid"][1]);
     // The order is important
     self.renderer->loadParametersFromModelConfiguration();
     [self updateModelCompassCenterXY];
@@ -142,7 +250,6 @@
         }
     }
 }
-
 
 //------------------
 // Select compass type

@@ -71,7 +71,8 @@
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSArray *list = @[@"Special (user)", @"Landmarks (json)"];
+    NSArray *list = @[@"Special (user)",
+                      [self.model->location_filename lastPathComponent]];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
     /* Create custom view to display section header... */
