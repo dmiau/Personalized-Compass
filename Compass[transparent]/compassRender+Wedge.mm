@@ -45,7 +45,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     center_pt.x = orig_width/2;
     center_pt.y = orig_height/2;
     double screen_dist, off_screen_dist, max_aperture, leg, aperture;
-    double rotation, x_diff, y_diff;
+    double rotation, x_diff, y_diff, dist;
     
     if (this->mapView == nil)
         throw(runtime_error("mapView is uninitialized."));
@@ -80,10 +80,22 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         db_stream << "landmark: " << model->data_array[j].name << endl;
         db_stream << "x: " << x_diff << " y:" << y_diff << endl;
         
+        
+        dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2));
         calculateDistInBox(this->orig_width, this->orig_height,
                            CGPointMake(x_diff, y_diff),
                            &screen_dist, &rotation, &max_aperture);
-        off_screen_dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2)) - screen_dist;
+
+        // We will use rotation and max_aperture from calculateDistInBox
+        if (watchMode){
+            float outer_disk_radius =
+            half_canvas_size *
+            [model->configurations[@"outer_disk_ratio"] floatValue];
+            float scale = glDrawingCorrectionRatio * compass_scale;
+            screen_dist = outer_disk_radius * scale;
+        }
+        off_screen_dist = dist - screen_dist;
+        
         // distance needs to be corrected
         
         // -----------------------
@@ -117,6 +129,11 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         leg = corrected_off_screen_dist + log((corrected_off_screen_dist + 20)/12)*10;
         
         aperture = (5+corrected_off_screen_dist*0.3)/leg;
+        
+        if (watchMode){
+                max_aperture =
+            acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2 * 0.8;
+        }
         
         
         if (aperture > max_aperture &&

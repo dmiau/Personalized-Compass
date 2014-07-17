@@ -115,6 +115,108 @@ void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
     delete[] p_vertex_array;
 }
 
+
+void compassRender::drawClearWatch(){
+    
+    glPushMatrix();
+    glTranslatef(0, 0, -1);
+    // ---------------
+    // draw the background (transparent) disk
+    // ---------------
+    
+    float outer_disk_radius =
+    half_canvas_size *
+    [model->configurations[@"outer_disk_ratio"] floatValue];
+    
+ 
+    glPushMatrix();
+    // Translate the compass to the desired screen location
+    glTranslatef(compass_centroid.x, compass_centroid.y, 0);
+    
+    glColor4f(0, 0, 0, 0);
+
+    float scale = glDrawingCorrectionRatio * compass_scale;
+    glScalef(scale, scale, 1);
+    drawCircle(0, 0, outer_disk_radius, 50);
+    glPopMatrix();
+    
+//    //-----------------
+//    // Draw a solid rectangle
+//    //-----------------
+//
+//    glColor4f(0, 0, 0, 1);
+//    
+//    // Plot the triangle first, then rotate and translate
+//    
+//    Vertex3D    vertex1 = Vertex3DMake(-orig_width/2, orig_height/2, 0);
+//    Vertex3D    vertex2 = Vertex3DMake(orig_width/2,
+//                                       orig_height/2, 0);
+//    
+//    Vertex3D    vertex3 = Vertex3DMake(orig_width/2,
+//                                       -orig_height/2, 0);
+//    
+//    Vertex3D    vertex4 = Vertex3DMake(-orig_width/2,
+//                                       -orig_height/2, 0);
+//    
+//    RectangleLine3D  rectangle = RectangleLine3DMake(vertex1, vertex2,
+//                                                     vertex3, vertex4);
+//    glVertexPointer(3, GL_FLOAT, 0, &rectangle);
+//    glDrawArrays(GL_TRIANGLE_FAN, 0,5);
+    
+    glPopMatrix();
+}
+
+void compassRender::drawWatchMask(){
+    
+    glPushMatrix();
+    glTranslatef(0, 0, 2);
+    // ---------------
+    // draw the background (transparent) disk
+    // ---------------
+    
+    float outer_disk_radius =
+    half_canvas_size *
+    [model->configurations[@"outer_disk_ratio"] floatValue];
+    
+    
+    glPushMatrix();
+    // Translate the compass to the desired screen location
+    glTranslatef(compass_centroid.x, compass_centroid.y, 0);
+    
+    glColorMask(0, 0, 0, 0);
+
+    float scale = glDrawingCorrectionRatio * compass_scale;
+    glScalef(scale, scale, 1);
+    drawCircle(0, 0, outer_disk_radius, 50);
+    glPopMatrix();
+    
+    //-----------------
+    // Draw a solid rectangle
+    //-----------------
+
+    glColor4f(0, 0, 0, 1);
+
+    // Plot the triangle first, then rotate and translate
+
+    Vertex3D    vertex1 = Vertex3DMake(-orig_width/2, orig_height/2, 0);
+    Vertex3D    vertex2 = Vertex3DMake(orig_width/2,
+                                       orig_height/2, 0);
+
+    Vertex3D    vertex3 = Vertex3DMake(orig_width/2,
+                                       -orig_height/2, 0);
+
+    Vertex3D    vertex4 = Vertex3DMake(-orig_width/2,
+                                       -orig_height/2, 0);
+
+    RectangleLine3D  rectangle = RectangleLine3DMake(vertex1, vertex2,
+                                                     vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &rectangle);
+    glDrawArrays(GL_TRIANGLE_FAN, 0,5);
+    
+    glPopMatrix();
+}
+
+
 //-------------
 // draws the mini box to signify scale
 //-------------

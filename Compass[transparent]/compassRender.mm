@@ -62,6 +62,7 @@ int compassRender::initRenderMdl(){
     resetCamera();     // Initialize the camera
     compass_scale = [model->configurations[@"compass_scale"] floatValue];
     label_flag = true;
+    watchMode = false;
     isOverviewMapEnabled = false;
     
     // Initialize all four corners to 0 first
@@ -279,6 +280,8 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         
         drawWayfindingAid(renderParamStruct);
         glPopMatrix();
+    }else if (watchMode){
+        drawClearWatch();
     }
     glDisableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_VERTEX_ARRAY);
@@ -297,6 +300,10 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         glPopMatrix();
         label_flag = orig_label_flag;
     }
+    
+//    if (watchMode){
+//        drawWatchMask();
+//    }
     
     glDisableClientState(GL_VERTEX_ARRAY);
     

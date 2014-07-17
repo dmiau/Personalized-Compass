@@ -65,6 +65,9 @@ public:
     // need to include MapView for wedge drawing
     MKMapView *mapView;
     
+    // Indicates whether the watch mode is on or not
+    bool watchMode;
+    
     // Compass presenation parameters
     float glDrawingCorrectionRatio;
     // the scale of the compass, a number between 0 and 1
@@ -133,6 +136,8 @@ private:
     void drawCircle(float cx, float cy, float r, int num_segments);
     void drawBox(double renderD2realDRatio);
     void drawOverviewBox();
+    void drawClearWatch();
+    void drawWatchMask();
     
     //-----------------
     // style related methods

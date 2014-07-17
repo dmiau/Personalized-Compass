@@ -1135,3 +1135,32 @@ box2d to work, even better!
 - figure out what the important features are
 - reorganize menu items
 
+-------------------------------------------------------------------
+7.17.2014
+-------------------------------------------------------------------
+Goals of today:
+- smart watch mode improvement
+- font color and triangle colors in the satellite mode
+
+Progress:
+- enhance watch mode
+- bring wedge to the watch mode
+- max_aperture needs to be corrected
+- how can I create a mask?
+
+check this solution:
+http://stackoverflow.com/questions/16512761/calayer-with-transparent-hole-in-it
+
+- the solution works. need to refine further
+
+
+
+
+
+
+
+
+
+
+
+

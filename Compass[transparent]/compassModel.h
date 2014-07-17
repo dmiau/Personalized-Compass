@@ -44,6 +44,9 @@ public:
     double computeOrientationFromLocation(data& another_data);
 };
 
+//--------------
+// filter types
+//--------------
 enum filter_enum{
     DEFAULT_FILTER = 0,
     NONE = 1,

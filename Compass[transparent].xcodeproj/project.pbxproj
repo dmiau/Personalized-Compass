@@ -659,12 +659,12 @@
 				9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */,
 				9A49A5F41954A8BB00937961 /* myTableViewController.h */,
 				9A49A5F51954A8BB00937961 /* myTableViewController.mm */,
+				9ABB382C19776A2B00AFADA8 /* iOSViewController+WatchPanel.h */,
+				9ABB382D19776A2B00AFADA8 /* iOSViewController+WatchPanel.mm */,
 				9A49A5F81954A90E00937961 /* bottomUpSegue.h */,
 				9A49A5F91954A90E00937961 /* bottomUpSegue.m */,
 				9A3DA0CC19683235009E0073 /* DetailViewController.h */,
 				9A3DA0CD19683235009E0073 /* DetailViewController.mm */,
-				9ABB382C19776A2B00AFADA8 /* iOSViewController+WatchPanel.h */,
-				9ABB382D19776A2B00AFADA8 /* iOSViewController+WatchPanel.mm */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
