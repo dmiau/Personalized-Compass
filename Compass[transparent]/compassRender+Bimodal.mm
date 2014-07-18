@@ -187,13 +187,15 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                 continue;
             }
         }else{
-            int j = indices_for_rendering[i];
-            
+            //----------------
+            // For each landmark, pick a color from the list
+            //----------------
             //[todo] fix color map (increase the size?)
-            glColor4f((float)model->color_map[j][0]/256,
-                      (float)model->color_map[j][1]/256,
-                      (float)model->color_map[j][2]/256, 1);
+            glColor4f((float)model->color_map[i][0]/256,
+                      (float)model->color_map[i][1]/256,
+                      (float)model->color_map[i][2]/256, 1);
             
+            int j = indices_for_rendering[i];
             data_ = model->data_array[j];
         }
     
@@ -265,7 +267,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // draw the background (transparent) disk
     // ---------------
     float alpha = 0;
-    
     
     glPushMatrix();
     if (model->tilt == 0)

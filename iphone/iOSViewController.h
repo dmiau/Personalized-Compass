@@ -83,18 +83,13 @@ enum findMe_enum{
 // Toolbar and menu related functions
 //----------------
 - (IBAction)toggleWatchPanel:(id)sender;
-
-- (void) removeCompass;
-
 - (IBAction)toggleDebugView:(id)sender;
-
 - (IBAction)toggleViewPanel:(id)sender;
 - (IBAction)toggleModelPanel:(id)sender;
-
 - (IBAction)refreshApp:(id)sender;
 
 - (void) setFactoryCompassHidden: (BOOL) flag;
-
+- (void) removeCompass;
 //----------------
 // Update and initialization functions
 //----------------

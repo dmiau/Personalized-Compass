@@ -63,9 +63,14 @@
                                             <action selector="toggleModelPanel:" destination="RyZ-6E-Ee0" id="jTY-JS-Lz3"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="[Refresh]" id="7y8-H0-seU" userLabel="[Refresh]">
+                                    <barButtonItem enabled="NO" title="[Refresh]" id="7y8-H0-seU" userLabel="[Refresh]">
                                         <connections>
                                             <action selector="refreshApp:" destination="RyZ-6E-Ee0" id="iv6-9B-lE3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="[Compass]" id="mxF-na-g3J">
+                                        <connections>
+                                            <action selector="toggleWatchPanel:" destination="RyZ-6E-Ee0" id="IM4-Fh-nNb"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Debug" id="ujH-hy-25C">

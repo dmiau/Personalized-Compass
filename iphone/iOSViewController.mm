@@ -16,10 +16,9 @@
 @implementation iOSViewController
 @synthesize model;
 
-// Make navigation bar disappeared
-// http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
-
 - (void)viewWillAppear:(BOOL)animated {
+    // Make navigation bar disappeared
+    // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     

@@ -1158,8 +1158,11 @@ introducing colors seems to be a low-hanging fruit
 
 - added boundary indicator for smart watch
 
-
-
+-------------------------------------------------------------------
+7.18.2014
+-------------------------------------------------------------------
+- fix the color issue
+- updated color profile, it was a good choice
 
 
 
