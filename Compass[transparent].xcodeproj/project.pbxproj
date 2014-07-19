@@ -85,6 +85,8 @@
 		9A49A5F71954A8BB00937961 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F51954A8BB00937961 /* myTableViewController.mm */; };
 		9A49A5FA1954A90E00937961 /* bottomUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F91954A90E00937961 /* bottomUpSegue.m */; };
 		9A49A5FB1954A90E00937961 /* bottomUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F91954A90E00937961 /* bottomUpSegue.m */; };
+		9A4A44771979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */; };
+		9A4A44781979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */; };
 		9A4F0F47193E2A8900CF32DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F46193E2A8900CF32DE /* Foundation.framework */; };
 		9A4F0F49193E2A8900CF32DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */; };
 		9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F4F193E2A8900CF32DE /* InfoPlist.strings */; };
@@ -395,6 +397,8 @@
 		9A49A5F51954A8BB00937961 /* myTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = myTableViewController.mm; sourceTree = "<group>"; };
 		9A49A5F81954A90E00937961 /* bottomUpSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bottomUpSegue.h; sourceTree = "<group>"; };
 		9A49A5F91954A90E00937961 /* bottomUpSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bottomUpSegue.m; sourceTree = "<group>"; };
+		9A4A44751979B151007F0120 /* iOSViewController+DebugPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+DebugPanel.h"; sourceTree = "<group>"; };
+		9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+DebugPanel.mm"; sourceTree = "<group>"; };
 		9A4F0F45193E2A8800CF32DE /* iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F0F46193E2A8900CF32DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -661,6 +665,8 @@
 				9A49A5F51954A8BB00937961 /* myTableViewController.mm */,
 				9ABB382C19776A2B00AFADA8 /* iOSViewController+CompassPanel.h */,
 				9ABB382D19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm */,
+				9A4A44751979B151007F0120 /* iOSViewController+DebugPanel.h */,
+				9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */,
 				9A49A5F81954A90E00937961 /* bottomUpSegue.h */,
 				9A49A5F91954A90E00937961 /* bottomUpSegue.m */,
 				9A3DA0CC19683235009E0073 /* DetailViewController.h */,
@@ -1316,6 +1322,7 @@
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
 				9A998C8F1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A4F0F83193E331E00CF32DE /* compassModel.mm in Sources */,
+				9A4A44771979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */,
 				9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */,
 				9A4F0F86193E331E00CF32DE /* readConfiguration.mm in Sources */,
 				9A4F0F87193E331E00CF32DE /* compassRender.mm in Sources */,
@@ -1356,6 +1363,7 @@
 				9A998C901949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A3DA0CF19683235009E0073 /* DetailViewController.mm in Sources */,
 				9A82B6331941518900534A5F /* locationFilter.mm in Sources */,
+				9A4A44781979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */,
 				9A82B6341941518900534A5F /* readConfiguration.mm in Sources */,
 				9A82B6351941518900534A5F /* compassRender.mm in Sources */,
 				9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */,

@@ -188,7 +188,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
             }
         }else{
             //----------------
-            // For each landmark, pick a color from the list
+            // For each landmark, pick a color from the list 
             //----------------
             //[todo] fix color map (increase the size?)
             glColor4f((float)model->color_map[i][0]/256,

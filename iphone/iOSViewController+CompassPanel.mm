@@ -139,7 +139,11 @@
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     NSString *label = [segmentedControl
                        titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
-    
+    [self changeCompassLocationTo:label];
+}
+
+
+- (void) changeCompassLocationTo: (NSString*) label{
     // Need to perform a deep copy
     static bool cached_flag = false;
     static NSArray *defaultCentroidParams;
@@ -158,7 +162,7 @@
 #ifndef __IPAD__
     if ([label isEqualToString:@"Default"]){
         self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
-    }else if ([label isEqualToString:@"UL"]){
+    }else if ([label isEqualToString:@"UR"]){
         self.model->configurations[@"compass_centroid"][0] =
         [NSNumber numberWithInt:90];
         self.model->configurations[@"compass_centroid"][1] =
@@ -168,24 +172,22 @@
         [NSNumber numberWithInt:0];
         self.model->configurations[@"compass_centroid"][1] =
         [NSNumber numberWithInt:0];
-    }else if ([label isEqualToString:@"BR"]){
+    }else if ([label isEqualToString:@"BL"]){
         self.model->configurations[@"compass_centroid"][0] =
         [NSNumber numberWithInt:-70];
         self.model->configurations[@"compass_centroid"][1] =
         [NSNumber numberWithInt:-150];
     }
 #endif
+    
+#ifdef __IPAD__
     //---------------
     // iPad case
     //---------------
-#ifdef __IPAD__
-    
-    
-    
     if ([label isEqualToString:@"Default"]){
         self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
         self.glkView.frame = default_rect;
-    }else if ([label isEqualToString:@"UL"]){
+    }else if ([label isEqualToString:@"UR"]){
         self.model->configurations[@"compass_centroid"][0] =
         [NSNumber numberWithInt:80];
         self.model->configurations[@"compass_centroid"][1] =
@@ -203,7 +205,7 @@
         self.glkView.frame = CGRectMake(176, 314,
                                         default_rect.size.width,
                                         default_rect.size.height);
-    }else if ([label isEqualToString:@"BR"]){
+    }else if ([label isEqualToString:@"BL"]){
         self.model->configurations[@"compass_centroid"][0] =
         [NSNumber numberWithInt:-70];
         self.model->configurations[@"compass_centroid"][1] =
@@ -215,15 +217,14 @@
     }
     
 #endif
-    
-    
-    NSLog(@"centroid x: %@", self.model->configurations[@"compass_centroid"][0]);
-    NSLog(@"centroid x: %@", self.model->configurations[@"compass_centroid"][1]);
     // The order is important
     self.renderer->loadParametersFromModelConfiguration();
     [self updateModelCompassCenterXY];
     [self.glkView setNeedsDisplay];
 }
+
+
+
 
 //------------------
 // Label Control

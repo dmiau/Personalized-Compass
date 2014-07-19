@@ -167,9 +167,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Default"/>
-                        <segment title="UL"/>
+                        <segment title="UR"/>
                         <segment title="Center"/>
-                        <segment title="BR"/>
+                        <segment title="BL"/>
                     </segments>
                     <connections>
                         <action selector="compassLocationSegmentControl:" destination="-1" eventType="valueChanged" id="ax6-C6-NKD"/>
@@ -213,6 +213,9 @@
                     <state key="normal" title="SnapShot">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="takeSnapshot:" destination="-1" eventType="touchUpInside" id="tOz-Vm-vWb"/>
+                    </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h1h-zG-GXH">
                     <rect key="frame" x="11" y="2" width="195" height="56"/>

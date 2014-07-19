@@ -1163,6 +1163,20 @@ introducing colors seems to be a low-hanging fruit
 -------------------------------------------------------------------
 - fix the color issue
 - updated color profile, it was a good choice
+- implement the debug view
+How to capture a snapshot:
+http://stackoverflow.com/questions/4189621/setting-the-zoom-level-for-a-mkmapview
+
+How can I serialize data with plist?
+
+- maybe I need to modify xmlParser? and use a common data format? 
+that is, I will need to add the following items:
+- span
+- orientation
+
+
+
+
 
 
 

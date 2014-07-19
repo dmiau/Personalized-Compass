@@ -70,6 +70,12 @@ enum findMe_enum{
 -(void)updateFindMeView;
 
 //----------------
+// Compass related stuff
+//----------------
+- (void) changeCompassLocationTo: (NSString*) label;
+
+
+//----------------
 // Functions attached to the timer
 //----------------
 - (void) vcTimerFired;

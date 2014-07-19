@@ -97,6 +97,12 @@
                       tilt: (float) tilt_deg
 {
     //[todo] this is too heavy
+    
+    if (self.model->tilt == 0 && tilt_deg !=0){
+        [self changeCompassLocationTo:@"BL"];
+    }
+    
+    
     self.model->camera_pos.orientation = -camera_heading;
     self.model->tilt = tilt_deg; // no tilt changes on iOS
     

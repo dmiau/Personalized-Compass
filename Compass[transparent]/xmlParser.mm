@@ -84,16 +84,6 @@ int readLocationKml(compassMdl* mdl){
     mdl->camera_pos.latitude = myParser.data_array[0].latitude;
     mdl->camera_pos.longitude = myParser.data_array[0].longitude;
     
-    // Remove the first data (since it is the current location)
-//    cout << myParser.data_array.begin()->name << endl;
-//    myParser.data_array[0].name = "paris";
-//    cout << myParser.data_array[0].name << endl;
-//    cout << myParser.data_array.begin()->name << endl;
-
-//    vector<data>::iterator it = myParser.data_array.begin();
-//    it->name = "paris";
-//    cout << myParser.data_array.begin()->name << endl;
-    
     mdl->data_array = myParser.data_array;
     
     return EXIT_SUCCESS;
@@ -142,29 +132,13 @@ int readLocationKml(compassMdl* mdl){
     }else{
         throw(std::runtime_error("Failed to parse the document!"));
     }
-    
-#ifdef DM_DEBUG
-    // Need to check the result here
-    NSLog(@"done!");
-    cout << data_array.size() << endl;
-#endif
-    
     return success;
 }
 
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
-#ifdef DM_DEBUG
-    NSLog(@"Started Element %@", elementName);
-#endif
-//    // initialize element?
-//    element = [NSMutableString string];
-    
     
     if ([elementName isEqualToString:@"Placemark"]) {
-#ifdef DM_DEBUG
-        NSLog(@"Placemark block found – create a new instance of data class...");
-#endif
         data _data;
         _data.name = "";
         _data.latitude = 0;
@@ -189,10 +163,9 @@ int readLocationKml(compassMdl* mdl){
             data_array[data_array.size()-1].name = [string UTF8String];
             data_array[data_array.size()-1].annotation.title
             = string;
-//            data_array[data_array.size()-1].annotation.subtitle =
-//            [NSString stringWithFormat:@"%lu", data_array.size()-1];
             data_array[data_array.size()-1].annotation.point_type = landmark;
-            data_array[data_array.size()-1].annotation.data_id = data_array.size()-1;
+            data_array[data_array.size()-1].annotation.data_id =
+            data_array.size()-1;
         }else if (coord_flag){
             // Need to somehow split the sting
             
@@ -212,9 +185,6 @@ int readLocationKml(compassMdl* mdl){
 
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
-#ifdef DM_DEBUG
-    NSLog(@"Found an element named: %@ with a value of: %@", elementName, element);
-#endif
     if ([elementName isEqualToString:@"Placemark"]) {
         place_flag = false;
     }else if ([elementName isEqualToString:@"name"]) {

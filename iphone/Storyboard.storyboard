@@ -79,7 +79,7 @@
                                     </barButtonItem>
                                     <barButtonItem systemItem="bookmarks" id="Ey4-ip-hP9">
                                         <connections>
-                                            <segue destination="KRL-rx-xwq" kind="push" identifier="tableSegue" customClass="bottomUpSegue" id="zjE-YJ-EH1"/>
+                                            <segue destination="6fH-EG-ulz" kind="push" id="NZu-LE-j9p"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -315,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dH8-sM-UYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312" y="814"/>
+            <point key="canvasLocation" x="2296" y="-227"/>
         </scene>
         <!--My Table View Controller - Landmark List-->
         <scene sceneID="fdt-lN-AEa">
@@ -330,7 +330,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PfU-1a-zZr">
-                                <rect key="frame" x="0.0" y="519" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="475" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="SelectAll" id="p4E-FQ-wfB">
@@ -356,7 +356,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qr2-Je-S7j">
-                                <rect key="frame" x="0.0" y="71" width="320" height="448"/>
+                                <rect key="frame" x="0.0" y="71" width="320" height="404"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -393,6 +393,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Landmarks" id="JG4-hz-xPs"/>
                     <navigationItem key="navigationItem" title="Landmark List" id="Gd8-ws-g5I">
                         <barButtonItem key="backBarButtonItem" title="Map View" id="2eH-Vi-ORD"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="rNR-I6-Y2C">
@@ -408,7 +409,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iam-fF-Gx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1746" y="552"/>
+            <point key="canvasLocation" x="2172" y="600"/>
+        </scene>
+        <!--View Controller - Snapshots-->
+        <scene sceneID="ggx-Tg-iKG">
+            <objects>
+                <viewController id="UAp-Pt-p2J" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XWx-cg-D1f"/>
+                        <viewControllerLayoutGuide type="bottom" id="wM0-G5-Gx8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="47V-rg-wa9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Snapshots" id="2PV-mX-bGj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mid-tB-AAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2172" y="1273"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ngT-rg-hp7">
@@ -433,6 +453,26 @@
             </objects>
             <point key="canvasLocation" x="847" y="119"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Z81-gu-Fz1">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6fH-EG-ulz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="kdQ-Ew-4jD"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="TzB-Ak-cRl">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KRL-rx-xwq" kind="relationship" relationship="viewControllers" id="K1H-er-9a7"/>
+                        <segue destination="UAp-Pt-p2J" kind="relationship" relationship="viewControllers" id="2lm-e3-2TP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12B-YL-7kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752" y="600"/>
+        </scene>
     </scenes>
     <resources>
         <image name="location.png" width="60" height="60"/>
@@ -444,6 +484,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WS4-yg-Oj7"/>
+        <segue reference="VT9-KB-V4S"/>
     </inferredMetricsTieBreakers>
 </document>

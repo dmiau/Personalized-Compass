@@ -65,7 +65,6 @@ NSString* genKMLString(vector<data> my_data_array)
         
     }
     
-
     //-------------
     // Ending
     //-------------
