@@ -90,8 +90,10 @@
         dirFiles = [model->docFilesystem listFiles];
     }else{
         dirFiles = [model->dbFilesystem listFiles];
-        //            dirFiles = [model->docFilesystem listFiles];
     }
+    
+    dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'snapshot.kml')"]];
+    dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'history.kml')"]];
     
     kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
 }

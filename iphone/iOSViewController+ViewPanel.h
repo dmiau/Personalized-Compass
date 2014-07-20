@@ -17,7 +17,6 @@
 
 - (IBAction)pinSegmentControl:(id)sender;
 - (IBAction)wedgeSegmentControl:(id)sender;
-
-
+- (IBAction)removeDroppedPins:(id)sender;
 
 @end

@@ -1182,6 +1182,15 @@ check NSDate
 
 http://stackoverflow.com/questions/5689179/get-time-and-date-by-nsdate
 
+-------------------------------------------------------------------
+7.20.2014
+-------------------------------------------------------------------
+- investigate drawing polyline
+http://stackoverflow.com/questions/10911534/how-to-draw-a-mkpolyline-on-a-mapview
+- implementd the snapshot and breadcrumb mode
+
+
+
 
 
 

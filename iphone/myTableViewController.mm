@@ -16,14 +16,14 @@
 
 @implementation myTableViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (id)initWithCoder:(NSCoder*)aDecoder
 {
@@ -307,7 +307,7 @@
     [alertView show];
 }
 
-- (IBAction)go2Landmark:(id)sender {    
+- (IBAction)go2Landmark:(id)sender {
     NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
     if ([indexPath section] == 1){
         self.rootViewController.landmark_id_toshow = [indexPath row];

@@ -78,13 +78,13 @@
         [self updateMapDisplayRegion];
         self.move2UpdatedLocation = false;
     }
-    
+    [self.mapView removeAnnotation:self.model->user_pos.annotation];
     // Update user position
     self.model->user_pos.latitude = myLocation.coordinate.latitude;
     self.model->user_pos.longitude = myLocation.coordinate.longitude;
     self.model->user_pos.annotation.coordinate = myLocation.coordinate;
-
     [self.mapView addAnnotation:self.model->user_pos.annotation];
+    [self addBreadcrumb:myLocation.coordinate];
     [self updateFindMeView];
 }
 

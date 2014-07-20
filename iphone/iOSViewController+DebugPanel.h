@@ -10,5 +10,6 @@
 
 @interface iOSViewController (DebugPanel)
 - (IBAction)takeSnapshot:(id)sender;
+- (IBAction)breadcrumbSegmentControl:(id)sender;
 
 @end

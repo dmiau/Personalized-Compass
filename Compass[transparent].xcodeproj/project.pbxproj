@@ -365,6 +365,14 @@
 		9AFB14BF18EE655F00063632 /* tabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5F3FC518EE606200953336 /* tabView.xib */; };
 		9AFD8F4C197B2E460099BD88 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F4B197B2E460099BD88 /* snapshotTableViewController.mm */; };
 		9AFD8F4D197B2E460099BD88 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F4B197B2E460099BD88 /* snapshotTableViewController.mm */; };
+		9AFD8F56197C20000099BD88 /* genSnapshotString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F55197C20000099BD88 /* genSnapshotString.mm */; };
+		9AFD8F57197C20000099BD88 /* genSnapshotString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F55197C20000099BD88 /* genSnapshotString.mm */; };
+		9AFD8F58197C20000099BD88 /* genSnapshotString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F55197C20000099BD88 /* genSnapshotString.mm */; };
+		9AFD8F59197C20000099BD88 /* genSnapshotString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F55197C20000099BD88 /* genSnapshotString.mm */; };
+		9AFD8F5A197C20000099BD88 /* genSnapshotString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F55197C20000099BD88 /* genSnapshotString.mm */; };
+		9AFD8F5B197C20000099BD88 /* genSnapshotString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F55197C20000099BD88 /* genSnapshotString.mm */; };
+		9AFD8F5E197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F5D197C57B60099BD88 /* breadcrumbTableViewController.mm */; };
+		9AFD8F5F197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F5D197C57B60099BD88 /* breadcrumbTableViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -537,6 +545,9 @@
 		9AFB14BD18EE639A00063632 /* tabView.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = tabView.plist; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/tabView.plist"; sourceTree = "<absolute>"; };
 		9AFD8F4A197B2E460099BD88 /* snapshotTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snapshotTableViewController.h; sourceTree = "<group>"; };
 		9AFD8F4B197B2E460099BD88 /* snapshotTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = snapshotTableViewController.mm; sourceTree = "<group>"; };
+		9AFD8F55197C20000099BD88 /* genSnapshotString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genSnapshotString.mm; sourceTree = "<group>"; };
+		9AFD8F5C197C57B60099BD88 /* breadcrumbTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = breadcrumbTableViewController.h; sourceTree = "<group>"; };
+		9AFD8F5D197C57B60099BD88 /* breadcrumbTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = breadcrumbTableViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -689,6 +700,8 @@
 				9A49A5F91954A90E00937961 /* bottomUpSegue.m */,
 				9A3DA0CC19683235009E0073 /* DetailViewController.h */,
 				9A3DA0CD19683235009E0073 /* DetailViewController.mm */,
+				9AFD8F5C197C57B60099BD88 /* breadcrumbTableViewController.h */,
+				9AFD8F5D197C57B60099BD88 /* breadcrumbTableViewController.mm */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -732,6 +745,7 @@
 				9A28368A1900C0850041D22E /* readConfiguration.mm */,
 				9AB6E8D91906C9B000E28DE9 /* commonTools.mm */,
 				9A3DA0A31964F5E3009E0073 /* genKMLString.mm */,
+				9AFD8F55197C20000099BD88 /* genSnapshotString.mm */,
 				9AECA766196A0269008ADAEC /* CustomPointAnnotation.h */,
 				9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */,
 			);
@@ -1336,6 +1350,7 @@
 				9A98AF31194289D6007166DE /* GLString.h in Sources */,
 				9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
 				9A3DA0A81964F5E3009E0073 /* genKMLString.mm in Sources */,
+				9AFD8F5E197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
 				9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
@@ -1356,6 +1371,7 @@
 				9AFD8F4C197B2E460099BD88 /* snapshotTableViewController.mm in Sources */,
 				9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */,
 				9AB90B98194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
+				9AFD8F5A197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A3240D8197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */,
 				9A998D75194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9AB90B9F194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
@@ -1373,6 +1389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AFD8F5F197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A3240D9197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */,
 				9A6FB7F51958FFC20020355A /* iOSViewController+Updates.mm in Sources */,
 				9A577E1F1943F060002243B1 /* GLString.mm in Sources */,
@@ -1389,6 +1406,7 @@
 				9A82B6341941518900534A5F /* readConfiguration.mm in Sources */,
 				9A82B6351941518900534A5F /* compassRender.mm in Sources */,
 				9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */,
+				9AFD8F5B197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A82B6361941518900534A5F /* renderStyles.mm in Sources */,
 				9AFD8F4D197B2E460099BD88 /* snapshotTableViewController.mm in Sources */,
 				9A82B6371941518900534A5F /* commonTools.mm in Sources */,
@@ -1421,6 +1439,7 @@
 				9AA7890A1909FE3000A26C66 /* commonTools.mm in Sources */,
 				9AECA76B196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */,
+				9AFD8F59197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */,
 				9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */,
 				9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */,
@@ -1464,6 +1483,7 @@
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */,
 				9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */,
+				9AFD8F56197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9AEA582C18D9ED600028B80C /* compassRender.mm in Sources */,
 				9AB90B94194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */,
@@ -1482,6 +1502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A9701DC19083BCF007C3C19 /* LocationCellView.m in Sources */,
+				9AFD8F58197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9AECA76A196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A6F53FA1910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A9701D619083B26007C3C19 /* AppDelegate.mm in Sources */,
@@ -1527,6 +1548,7 @@
 				9AFB14A318EE639A00063632 /* OpenGLView.mm in Sources */,
 				9AFB14A418EE639A00063632 /* AppDelegate.mm in Sources */,
 				9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */,
+				9AFD8F57197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9AB90B9C194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,
 				9A3DA0A51964F5E3009E0073 /* genKMLString.mm in Sources */,

@@ -68,7 +68,6 @@ public:
     NSString* name;
     MKMapType mapType;
     int time;
-    NSString* date_str;
     NSDate* time_stamp;
 };
 
@@ -76,7 +75,6 @@ class breadcrumb{
 public:
     CLLocationCoordinate2D coord2D;
     int id;
-    NSString* date_str;
     NSDate* time_stamp;
 };
 
@@ -191,4 +189,5 @@ int readConfigurations(compassMdl* mdl_instance);
 double DegreesToRadians(double degrees);
 double RadiansToDegrees(double radians);
 NSString* genKMLString(vector<data> my_data_array);
+NSString* genSnapshotString(vector<snapshot> my_snapshot_array);
 #endif /* defined(__Exploration__model__) */

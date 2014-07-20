@@ -172,44 +172,10 @@
 //-------------
 - (IBAction)saveKML:(id)sender {
     
-    NSString *filename =
-    [self.model->location_filename lastPathComponent];
-    [self saveKMLWithFilename:filename];
+    NSString *filename = @"snapshot.kml";
     
-}
-
-- (IBAction)saveKMLAs:(id)sender {
-    // Prompt a dialog box to get the filename
-    UIAlertView *alertView =
-    [[UIAlertView alloc] initWithTitle:@"File Name"
-                               message:@"Please enter a filename"
-                              delegate:self
-                     cancelButtonTitle:@"Cancel"
-                     otherButtonTitles:@"OK", nil];
-    
-    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
-    
-    [alertView show];
-}
-
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
-    
-    if ([buttonTitle isEqualToString:@"OK"]){
-        UITextField *textField = [alertView textFieldAtIndex:0];
-        NSString *filename = textField.text;
-        
-        if ([filename rangeOfString:@".kml"].location == NSNotFound) {
-            filename = [filename stringByAppendingString:@".kml"];
-        }
-        [self saveKMLWithFilename:filename];
-    }
-}
-
-- (BOOL) saveKMLWithFilename:(NSString*) filename{
     bool hasError = false;
-    NSString *content = genKMLString(self.model->data_array);
+    NSString *content = genSnapshotString(self.model->snapshot_array);
     
     if (self.model->filesys_type == DROPBOX){
         if (![self.model->dbFilesystem
@@ -233,9 +199,8 @@
                                               otherButtonTitles:nil];
         [alert show];
         NSLog(@"Failed to write file.");
-        return false;
     }
-    return true;
+    
 }
 
 #pragma mark -----Exit-----

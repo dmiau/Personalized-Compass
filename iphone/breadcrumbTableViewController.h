@@ -1,8 +1,8 @@
 //
-//  snapshotTableViewController.h
+//  breadcrumbTableViewController.h
 //  Compass[transparent]
 //
-//  Created by dmiau on 7/19/14.
+//  Created by dmiau on 7/20/14.
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
 
@@ -10,8 +10,9 @@
 #include "compassModel.h"
 #import "iOSViewController.h"
 
-@interface snapshotTableViewController : UIViewController<UITableViewDelegate, UIAlertViewDelegate>
-
+@interface breadcrumbTableViewController : UIViewController<UITableViewDelegate, UIAlertViewDelegate>{
+    int starting_index;
+}
 
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -26,19 +27,4 @@
 - (IBAction)dismissModalVC:(id)sender;
 
 
-//---------------
-// Parking lot
-//---------------
-@property bool needUpdateAnnotations;
-@property bool needToggleLocationService;
-- (IBAction)toggleLandmakrSelection:(id)sender;
-
-- (IBAction)toggleEditing:(id)sender;
-
 @end
-
-
-
-
-
-

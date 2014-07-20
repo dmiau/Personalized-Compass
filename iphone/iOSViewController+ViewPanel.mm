@@ -76,6 +76,14 @@
     }
 }
 
+- (IBAction)removeDroppedPins:(id)sender {
+    NSArray* annotation_array = self.mapView.annotations;
+    for (CustomPointAnnotation* annotation in annotation_array){
+        if (annotation.point_type == dropped){
+            [self.mapView removeAnnotation:annotation];
+        }
+    }
+}
 
 //------------------
 // Select map style

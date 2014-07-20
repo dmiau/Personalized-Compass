@@ -58,8 +58,13 @@
         self.snapshot_id_toshow = -1;
     }
 
-    if (self.history_id_toshow >= 0){
+    if (self.breadcrumb_id_toshow >= 0){
+        [self displayBreadcrumb];
+        breadcrumb myBreadcrumb =
+        self.model->breadcrumb_array[self.breadcrumb_id_toshow];
         
+        [self.mapView setCenterCoordinate:myBreadcrumb.coord2D animated:YES];
+        self.breadcrumb_id_toshow = -1;
     }
     
     //---------------
@@ -143,7 +148,7 @@
         
         // These two properties are used by snapshot and history
         self.snapshot_id_toshow     = -1;
-        self.history_id_toshow      = -1;
+        self.breadcrumb_id_toshow      = -1;
         self.landmark_id_toshow     = -1;
     }
     return self;
@@ -201,7 +206,6 @@
             self.watchPanel = aView;
         }else if ([[aView restorationIdentifier] isEqualToString:@"DebugPanel"]){
             self.debugPanel = aView;
-            aView.alpha = 0.6;
         }
         [self.view addSubview:aView];
     }
@@ -304,6 +308,11 @@
     pa.coordinate = touchMapCoordinate;
     pa.title = @"Dropped Pin";
     pa.point_type = dropped;
+    
+    if (self.sprinkleBreadCrumbMode){
+        [self addBreadcrumb:touchMapCoordinate];
+    }
+    
     [self.mapView addAnnotation:pa];
     
 //    // this line displays the callout

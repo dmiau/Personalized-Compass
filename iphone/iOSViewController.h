@@ -63,7 +63,7 @@ enum findMe_enum{
 @property bool needUpdateDisplayRegion;
 @property bool needUpdateAnnotations;
 @property int snapshot_id_toshow;
-@property int history_id_toshow;
+@property int breadcrumb_id_toshow;
 @property int landmark_id_toshow;
 
 //----------------
@@ -77,9 +77,11 @@ enum findMe_enum{
 //----------------
 // History related stuff
 //----------------
-- (bool) addBreadcrumb;
+- (bool) addBreadcrumb: (CLLocationCoordinate2D) coord2D;
+- (bool) displayBreadcrumb;
 - (bool) saveBreadcrumbArray;
 - (bool) loadBreadkcrumbArray;
+@property bool sprinkleBreadCrumbMode;
 
 //----------------
 // Location service related stuff
