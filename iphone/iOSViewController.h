@@ -21,6 +21,7 @@ enum findMe_enum{
     MOVE2LOCATION
 };
 
+
 @interface iOSViewController : UIViewController
 <CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate>
 {
@@ -29,18 +30,24 @@ enum findMe_enum{
     MKLocalSearchResponse *results;
 }
 
+//----------------
+// Views
+//----------------
 @property (weak) IBOutlet MKMapView *mapView;
-
 @property (weak, nonatomic) IBOutlet MKMapView *overviewMapView;
-
 @property (weak, nonatomic) IBOutlet GLKView *glkView;
-@property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
-
 @property UIView *viewPanel;
 @property UIView *modelPanel;
 @property UIView *watchPanel;
 @property UIView *debugPanel;
 @property (weak) IBOutlet UITextView *debugTextView;
+
+
+//----------------
+// UI Components
+//----------------
+@property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
+@property (weak, nonatomic) IBOutlet UIButton *findMeButton;
 
 
 @property compassMdl* model;
@@ -49,12 +56,30 @@ enum findMe_enum{
 @property NSNumber *mapUpdateFlag;
 @property bool conventionalCompassVisible;
 
-
+//----------------
+// Segue communication related stuff
+//----------------
 // This is used for communication via segue
 @property bool needUpdateDisplayRegion;
 @property bool needUpdateAnnotations;
+@property int snapshot_id_toshow;
+@property int history_id_toshow;
+@property int landmark_id_toshow;
 
-@property (weak, nonatomic) IBOutlet UIButton *findMeButton;
+//----------------
+// Snapshot related stuff
+//----------------
+- (bool)takeSnapshot;
+- (bool)displaySnapshot: (int) id;
+- (bool)saveSnapshotArray;
+- (bool)loadSanpshotArray;
+
+//----------------
+// History related stuff
+//----------------
+- (bool) addBreadcrumb;
+- (bool) saveBreadcrumbArray;
+- (bool) loadBreadkcrumbArray;
 
 //----------------
 // Location service related stuff

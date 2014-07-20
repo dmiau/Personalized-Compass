@@ -1174,9 +1174,13 @@ that is, I will need to add the following items:
 - span
 - orientation
 
+-------------------------------------------------------------------
+7.19.2014
+-------------------------------------------------------------------
+- implement snapshot object and history object
+check NSDate
 
-
-
+http://stackoverflow.com/questions/5689179/get-time-and-date-by-nsdate
 
 
 

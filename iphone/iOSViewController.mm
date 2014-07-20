@@ -40,12 +40,39 @@
     }
     
     // This may be an iPad only thing
+    // (dismissing the modal dialog)
     [self dismissViewControllerAnimated:YES completion:nil];
     
     
     if ([self needToggleLocationService]){
         [self toggleLocationService:1];
         self.needToggleLocationService = false;
+    }
+    
+    
+    //---------------
+    // Snapshot and history stuff
+    //---------------
+    if (self.snapshot_id_toshow >= 0){
+        [self displaySnapshot:self.snapshot_id_toshow];
+        self.snapshot_id_toshow = -1;
+    }
+
+    if (self.history_id_toshow >= 0){
+        
+    }
+    
+    //---------------
+    // Goto the selected location
+    //---------------
+    if (self.landmark_id_toshow >= 0){
+        int id = self.landmark_id_toshow;
+        self.model->camera_pos.latitude =
+        self.model->data_array[id].latitude;
+        self.model->camera_pos.longitude =
+        self.model->data_array[id].longitude;
+        self.landmark_id_toshow = -1;
+        [self updateMapDisplayRegion];
     }
 }
 
@@ -113,6 +140,11 @@
         self.locationManager.delegate = self;
         self.locationManager.distanceFilter = kCLDistanceFilterNone;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        // These two properties are used by snapshot and history
+        self.snapshot_id_toshow     = -1;
+        self.history_id_toshow      = -1;
+        self.landmark_id_toshow     = -1;
     }
     return self;
 }

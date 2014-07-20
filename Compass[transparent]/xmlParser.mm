@@ -15,33 +15,6 @@ int readLocationKml(compassMdl* mdl){
     NSString* filename = mdl->location_filename;
     xmlParser *myParser;
 #ifdef __IPHONE__
-//    //-----------------
-//    // Check if an online version exist
-//    //-----------------
-//    NSString *dropbox_root = mdl->configurations[@"dropbox_root"];
-//    NSURL *url = [NSURL URLWithString:
-//                  [dropbox_root stringByAppendingString:[filename lastPathComponent]]];
-//    
-//    // Check if the URL is valid
-//    NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1.0];
-//    NSHTTPURLResponse* response = nil;
-//    NSError* error = nil;
-//    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//    
-//
-//    if ([response statusCode] == 200){
-//        // need to append "?dl=1" to access the file directly
-//        myParser = [[xmlParser alloc]
-//                    initWithFileURL:
-//                    [NSURL URLWithString:[[url absoluteString] stringByAppendingString:@"?dl=1"]]
-//                    ];
-//    }else{
-//        myParser = [[xmlParser alloc]
-//                    initWithFileURL: [NSURL fileURLWithPath: filename]];
-//    };
-    
-    
-
     NSData* data = nil;
     if (mdl->dbFilesystem.isReady &&
         mdl->filesys_type == DROPBOX){
@@ -50,14 +23,12 @@ int readLocationKml(compassMdl* mdl){
     }
     
     if (!data){
-        //        data = [NSData dataWithContentsOfFile:jsonPath];
         data = [mdl->docFilesystem readFileFromName:
                 [filename lastPathComponent]];
         mdl->filesys_type = IOS_DOC;
     }
 
     if (!data){
-        //        data = [NSData dataWithContentsOfFile:jsonPath];
         data = [mdl->docFilesystem readBundleFileFromName:
                 [filename lastPathComponent]];
         mdl->filesys_type = BUNDLE;
@@ -127,9 +98,7 @@ int readLocationKml(compassMdl* mdl){
     BOOL success = [parser parse];
     
     // test the result
-    if (success){
-        
-    }else{
+    if (!success){
         throw(std::runtime_error("Failed to parse the document!"));
     }
     return success;
@@ -140,14 +109,7 @@ int readLocationKml(compassMdl* mdl){
     
     if ([elementName isEqualToString:@"Placemark"]) {
         data _data;
-        _data.name = "";
-        _data.latitude = 0;
-        _data.longitude = 0;
-        _data.distance = 0;
-        _data.orientation = 0;
-        _data.isEnabled = YES;
-        _data.isVisible = NO;
-        _data.annotation = [[CustomPointAnnotation alloc] init];
+
         data_array.push_back(_data);
         place_flag = true;
     }else if ([elementName isEqualToString:@"name"]){

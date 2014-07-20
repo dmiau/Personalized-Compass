@@ -108,7 +108,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1259" y="119"/>
+            <point key="canvasLocation" x="1303" y="119"/>
         </scene>
         <!--IOS Setting View Controller-->
         <scene sceneID="d0x-n5-UHE">
@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FF-be-GOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1760" y="-193"/>
+            <point key="canvasLocation" x="1888" y="-343"/>
         </scene>
         <!--Detail View Controller - Detail View-->
         <scene sceneID="TIU-OB-Aod">
@@ -315,9 +315,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dH8-sM-UYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2296" y="-227"/>
+            <point key="canvasLocation" x="2776" y="113"/>
         </scene>
-        <!--My Table View Controller - Landmark List-->
+        <!--My Table View Controller - Landmarks-->
         <scene sceneID="fdt-lN-AEa">
             <objects>
                 <viewController id="KRL-rx-xwq" customClass="myTableViewController" sceneMemberID="viewController">
@@ -333,14 +333,19 @@
                                 <rect key="frame" x="0.0" y="475" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="SelectAll" id="p4E-FQ-wfB">
+                                    <barButtonItem title="[All]" id="p4E-FQ-wfB">
                                         <connections>
                                             <action selector="toggleLandmakrSelection:" destination="KRL-rx-xwq" id="Khl-Z4-0Pw"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="DeselectAll" id="L7i-CY-aOg">
+                                    <barButtonItem title="[None]" id="L7i-CY-aOg">
                                         <connections>
                                             <action selector="toggleLandmakrSelection:" destination="KRL-rx-xwq" id="2Zt-Do-JcL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="[Go]" id="gLf-z4-GPw">
+                                        <connections>
+                                            <action selector="go2Landmark:" destination="KRL-rx-xwq" id="Gr3-LC-yyl"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="[Save]" id="AaY-Hh-x1G">
@@ -356,7 +361,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qr2-Je-S7j">
-                                <rect key="frame" x="0.0" y="71" width="320" height="404"/>
+                                <rect key="frame" x="0.0" y="67" width="320" height="408"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -394,14 +399,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Landmarks" id="JG4-hz-xPs"/>
-                    <navigationItem key="navigationItem" title="Landmark List" id="Gd8-ws-g5I">
-                        <barButtonItem key="backBarButtonItem" title="Map View" id="2eH-Vi-ORD"/>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="rNR-I6-Y2C">
-                            <connections>
-                                <action selector="toggleEditing:" destination="KRL-rx-xwq" id="R1A-eu-Pz0"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="qr2-Je-S7j" id="zvt-RW-fWE"/>
                         <segue destination="CAm-Aa-yYX" kind="push" identifier="TableDetailVC" id="VT9-KB-V4S"/>
@@ -411,10 +408,10 @@
             </objects>
             <point key="canvasLocation" x="2172" y="600"/>
         </scene>
-        <!--View Controller - Snapshots-->
+        <!--Snapshot Table View Controller - Snapshots-->
         <scene sceneID="ggx-Tg-iKG">
             <objects>
-                <viewController id="UAp-Pt-p2J" sceneMemberID="viewController">
+                <viewController id="UAp-Pt-p2J" customClass="snapshotTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XWx-cg-D1f"/>
                         <viewControllerLayoutGuide type="bottom" id="wM0-G5-Gx8"/>
@@ -422,13 +419,61 @@
                     <view key="view" contentMode="scaleToFill" id="47V-rg-wa9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9s-r6-dOc">
+                                <rect key="frame" x="0.0" y="471" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="t5g-aX-CTx"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VKh-3x-aXQ">
+                                <rect key="frame" x="0.0" y="66" width="320" height="405"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="myTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="myTableCell" textLabel="A8h-MB-0Kj" detailTextLabel="ZF2-4L-bMf" style="IBUITableViewCellStyleSubtitle" id="JPW-Ds-vul">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JPW-Ds-vul" id="Hqc-XV-mjy">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A8h-MB-0Kj">
+                                                    <rect key="frame" x="15" y="5" width="34" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZF2-4L-bMf">
+                                                    <rect key="frame" x="15" y="27" width="32" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="UAp-Pt-p2J" id="AXp-80-3Q8"/>
+                                    <outlet property="delegate" destination="UAp-Pt-p2J" id="Mtr-I7-ooH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Snapshots" id="2PV-mX-bGj"/>
+                    <navigationItem key="navigationItem" id="aD1-tU-5Dq"/>
+                    <connections>
+                        <outlet property="myTableView" destination="VKh-3x-aXQ" id="FGh-zL-KYQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mid-tB-AAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2172" y="1273"/>
+            <point key="canvasLocation" x="2172" y="1289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ngT-rg-hp7">
@@ -453,12 +498,12 @@
             </objects>
             <point key="canvasLocation" x="847" y="119"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller - Landmarks + Snapshots-->
         <scene sceneID="Z81-gu-Fz1">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6fH-EG-ulz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="kdQ-Ew-4jD"/>
+                    <navigationItem key="navigationItem" title="Landmarks + Snapshots" id="kdQ-Ew-4jD"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="TzB-Ak-cRl">
                         <autoresizingMask key="autoresizingMask"/>
