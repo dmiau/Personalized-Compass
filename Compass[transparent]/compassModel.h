@@ -114,6 +114,9 @@ public:
         
     NSString* configuration_filename;
     NSString* location_filename;
+    NSString* snapshot_filename;
+    NSString* history_filename;
+    
     // Do not update indices_for_rendering when this is on.
     bool lockLandmarks;
     

@@ -1208,8 +1208,25 @@ search for "Monitoring App State Changes"
 n choose k in c++:
 http://stackoverflow.com/questions/5095407/n-choose-k-implementation
 
-
 -------------------------------------------------------------------
 7.21.2014
 -------------------------------------------------------------------
 - propagated the new changes to iPad
+- prototype hollow indicator
+- implemented snapshot parser
+
+
+- augmented reality mode?
+
+
+
+
+
+
+
+
+
+
+
+
+

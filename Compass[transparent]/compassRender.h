@@ -139,8 +139,9 @@ private:
     void drawTriangle(int central_disk_radius, float rotation, float height);
     void drawLabel(float rotation, float height, string name);
     void drawCircle(float cx, float cy, float r, int num_segments, bool isSolid);
-    void drawBox(double renderD2realDRatio);
-    void drawBoundaryCircle(double renderD2realDRatio);
+    
+    BOOL drawBox(double renderD2realDRatio);
+    BOOL drawBoundaryCircle(double renderD2realDRatio);
     void drawOverviewBox();
     void drawClearWatch();
     

@@ -11,6 +11,7 @@
 #include <unistd.h>
 #import <CoreLocation/CoreLocation.h>
 #include "xmlParser.h"
+#import "snapshotParser.h"
 
 // http://stackoverflow.com/questions/3277121/include-objective-c-header-in-c-file
 
@@ -72,7 +73,24 @@ int compassMdl::initMdl(){
     //------------
     reloadFiles();
     watchConfigurationFile();
+
+    //------------
+    // Load snapshot if the file is available
+    //------------
+    bool snapshotFileExists = false;
+    // Check if a snapshot file exists
+    if (filesys_type == DROPBOX){
+        snapshotFileExists = [dbFilesystem fileExists:@"snapshot.kml"];
+    }else{
+        snapshotFileExists = [docFilesystem fileExists:@"snapshot.kml"];
+    }
     
+    if (snapshotFileExists){
+        snapshot_filename = @"snapshot.kml";
+        if (readSnapshotKml(this) != EXIT_SUCCESS){
+            throw(runtime_error("Failed to load snapshot files"));
+        }
+    }
     
     //------------
     // Initialize user position

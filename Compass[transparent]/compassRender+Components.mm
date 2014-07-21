@@ -152,8 +152,11 @@ void compassRender::drawClearWatch(){
 //-------------
 // draws the mini box to signify scale
 //-------------
-void compassRender::drawBox(double renderD2realDRatio)
+BOOL compassRender::drawBox(double renderD2realDRatio)
 {
+    // drawBox returns true when the box is successfully drawn
+    // drawBox returns false when the box is too small to be drawn
+    
     // calculate the parameters needed to draw the box
     
     CLLocationDistance box_width = getMapWidthInMeters();
@@ -164,6 +167,11 @@ void compassRender::drawBox(double renderD2realDRatio)
     
     double render_width = box_width * renderD2realDRatio;
     double render_height = box_height * renderD2realDRatio;
+    
+    if (render_width <= central_disk_radius ||
+        render_height <= central_disk_radius){
+        return false;
+    }
     
     // Then the origin
     double x, y;
@@ -208,10 +216,14 @@ void compassRender::drawBox(double renderD2realDRatio)
     glDrawArrays(GL_LINE_STRIP, 0,5);
     
     glPopMatrix();
+    return true;
 }
 
-void compassRender::drawBoundaryCircle(double renderD2realDRatio)
+bool compassRender::drawBoundaryCircle(double renderD2realDRatio)
 {
+    // drawBoundaryCircle returns true when the circle is successfully drawn
+    // drawBoundaryCircle returns false when the circle is too small to be drawn
+    
     // calculate the parameters needed to draw the box
     
     CLLocationDistance box_width = getMapWidthInMeters();
@@ -219,11 +231,17 @@ void compassRender::drawBoundaryCircle(double renderD2realDRatio)
     
     double boundary_radius = box_width * renderD2realDRatio
     * radius / mapView.frame.size.width;
+
+    if (boundary_radius <= central_disk_radius)
+    {
+        return false;
+    }
     
-    // Draw the box
+    // Draw the circle
     glLineWidth(2);
     glColor4f(1, 0, 0, 0.5);
     drawCircle(0, 0, boundary_radius, 20, false);
+    return true;
 }
 
 void compassRender::drawOverviewBox(){

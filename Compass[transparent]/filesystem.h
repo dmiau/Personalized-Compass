@@ -32,12 +32,13 @@ typedef enum{
 - (id) initIOSDOC;
 - (id) initDROPBOX;
 - (void) linkDropbox: (UIVideoEditorController*) controller;
+
 - (NSArray*) listFiles;
 - (NSData*) readFileFromName: (NSString*) filename;
 - (NSData*) readBundleFileFromName: (NSString*) filename;
 - (BOOL) writeFileWithName: (NSString*) filename
                    Content: (NSString*) content;
-
+- (BOOL) fileExists: (NSString*) filename;
 
 - (void) copyBundleConfigurations;
 @end

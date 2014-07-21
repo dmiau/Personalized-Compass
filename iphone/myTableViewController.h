@@ -24,6 +24,5 @@
 - (IBAction)saveKMLAs:(id)sender;
 - (IBAction)go2Landmark:(id)sender;
 
-
 - (IBAction)dismissModalVC:(id)sender;
 @end

@@ -199,6 +199,36 @@
 }
 
 //----------------
+// check existence
+//----------------
+- (bool) fileExists:(NSString *)filename{
+    bool fileStatus;
+    NSString *path;
+    
+    switch (self.filesys_type) {
+        case BUNDLE:
+            path = [self.bundle_path stringByAppendingPathComponent:filename];
+            fileStatus = [[NSFileManager defaultManager] fileExistsAtPath:path];
+            break;
+        case IOS_DOC:
+            path = [self.document_path stringByAppendingPathComponent:filename];
+            fileStatus = [[NSFileManager defaultManager] fileExistsAtPath:path];
+            break;
+        case DROPBOX:
+            DBPath *path = [[DBPath root] childPath:filename];
+            DBError *error = nil;
+            DBFileInfo *info = [self.db_filesystem fileInfoForPath:path error:&error];
+            if (!info)
+                fileStatus = false;
+            else
+                fileStatus = true;
+            break;
+    }
+    return fileStatus;
+}
+
+
+//----------------
 // read files
 //----------------
 - (NSData*) readFileFromName: (NSString*) filename{
@@ -220,13 +250,13 @@
 
 - (NSData*) readBundleFileFromName: (NSString*) filename{
     NSString *path = [self.bundle_path stringByAppendingPathComponent:filename];
-    NSData* fileContents = [[NSFileManager defaultManager] contentsAtPath:path];;
+    NSData* fileContents = [[NSFileManager defaultManager] contentsAtPath:path];
     return fileContents;
 }
 
 - (NSData*) readDocFileFromName: (NSString*) filename{
     NSString *path = [self.document_path stringByAppendingPathComponent:filename];
-    NSData* fileContents = [[NSFileManager defaultManager] contentsAtPath:path];;
+    NSData* fileContents = [[NSFileManager defaultManager] contentsAtPath:path];
     return fileContents;
 }
 

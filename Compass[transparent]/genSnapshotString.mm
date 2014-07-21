@@ -41,7 +41,7 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         temp_str = temp_str + "</name>\n";
         
         //-----------------
-        // Coordinates
+        // Coordinates (longitude, latitude)
         //-----------------
         temp_str = temp_str + "<Point>\n";
         temp_str = temp_str + "<coordinates>";
@@ -57,12 +57,31 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         temp_str = temp_str + coord_str;
         
         temp_str = temp_str + "</coordinates>\n";
+        
+        //-----------------
+        // Coordinates (span)
+        //-----------------
+        temp_str = temp_str + "<spans>";
+        
+        // Need to use this trick to output coordinates
+        // longitude first, latitude second
+        stringStream.clear();
+        stringStream.str("");
+        stringStream << my_snapshot_array[i].coordinateRegion.span.longitudeDelta << ","
+        << my_snapshot_array[i].coordinateRegion.span.latitudeDelta << ",0.0";
+        
+        coord_str = stringStream.str();
+        temp_str = temp_str + coord_str;
+        
+        temp_str = temp_str + "</spans>\n";
+        
+        
         temp_str = temp_str + "</Point>\n";
         
         //-----------------
         // Orientation
         //-----------------
-        temp_str = temp_str + "<orientation>\n";
+        temp_str = temp_str + "<orientation>";
         stringStream.clear();
         stringStream.str("");
         stringStream << my_snapshot_array[i].orientation;
@@ -73,7 +92,7 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         //-----------------
         // kmlFinename
         //-----------------
-        temp_str = temp_str + "<kmlFilename>\n";
+        temp_str = temp_str + "<kmlFilename>";
         stringStream.clear();
         stringStream.str("");
         stringStream << [[my_snapshot_array[i].kmlFilename lastPathComponent] UTF8String];
