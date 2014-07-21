@@ -160,8 +160,7 @@
 
 #pragma mark -----Exit-----
 - (IBAction)dismissModalVC:(id)sender {
-    UINavigationController *temp = (UINavigationController *) (self.presentingViewController);
-    iOSViewController* parentVC = (iOSViewController*) [[temp viewControllers] objectAtIndex:0];
+    iOSViewController* parentVC = self.rootViewController;
     [self dismissViewControllerAnimated:YES completion:^{
         // call your completion method:
         [parentVC viewWillAppear:YES];

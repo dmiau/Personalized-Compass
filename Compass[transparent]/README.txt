@@ -1205,7 +1205,11 @@ search for "Monitoring App State Changes"
 
 - need to fix the case when location service fails to update
 
+n choose k in c++:
+http://stackoverflow.com/questions/5095407/n-choose-k-implementation
 
 
-
-
+-------------------------------------------------------------------
+7.21.2014
+-------------------------------------------------------------------
+- propagated the new changes to iPad

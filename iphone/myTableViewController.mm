@@ -16,15 +16,10 @@
 
 @implementation myTableViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-
+#pragma mark -----Initialization-----
+//-------------------
+// Initialization
+//-------------------
 - (id)initWithCoder:(NSCoder*)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -34,8 +29,6 @@
         self.model = compassMdl::shareCompassMdl();
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
-        self.needUpdateAnnotations = false;
-        self.needToggleLocationService = false;
     }
     return self;
 }
@@ -43,8 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+   
     // Connect to the parent view controller to update its
     // properties directly
     
@@ -67,6 +59,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+//-------------------
+// Table related methods
+//-------------------
 #pragma mark -----Table View Data Source Methods-----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
@@ -167,7 +162,7 @@
     
     if (section_id == 0){
         data_ptr = &(self.model->user_pos);
-        self.needToggleLocationService = true;
+        self.rootViewController.needToggleLocationService = true;
     }else{
         data_ptr = &(self.model->data_array[row_id]);
     }
@@ -180,70 +175,12 @@
         data_ptr->isEnabled = true;
     }
     
-    self.needUpdateAnnotations = true;
+    self.rootViewController.needUpdateAnnotations = true;
 }
 
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return YES;
 //}
-
-#pragma mark - Navigation
-//------------------
-// Prepare for the detail view
-//------------------
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(CustomPointAnnotation*)sender
-{
-    if ([segue.identifier isEqualToString:@"TableDetailVC"])
-    {
-        DetailViewController *destinationViewController = segue.destinationViewController;
-        
-        // grab the annotation from the sender
-        destinationViewController.annotation = sender;
-    } else {
-        NSLog(@"PFS:something else");
-    }
-}
-
--(void) viewWillDisappear:(BOOL)animated {
-    iOSViewController *destViewController =
-    [self.navigationController.viewControllers objectAtIndex:0];
-    
-    //---------------
-    // iPad case (because we use modal dialog)
-    //---------------
-    if (destViewController == nil){
-        UINavigationController *temp;
-        temp = (UINavigationController*)
-        self.presentingViewController;
-        destViewController = [[temp viewControllers] objectAtIndex:0];
-    }
-    
-    if (self.needUpdateAnnotations)
-    {
-        destViewController.needUpdateAnnotations = true;
-    }
-    
-    if (self.needToggleLocationService){
-        destViewController.needToggleLocationService = true;
-    }
-    
-    [super viewWillDisappear:animated];
-}
-
-
-- (IBAction)toggleLandmakrSelection:(id)sender {
-    UIBarButtonItem *myButton = (UIBarButtonItem*) sender;
-    if ([[myButton title] isEqualToString:@"SelectAll"]){
-        for (int i = 0; i < self.model->data_array.size(); ++i) {
-            self.model->data_array[i].isEnabled = true;
-        }
-    }else{
-        for (int i = 0; i < self.model->data_array.size(); ++i) {
-            self.model->data_array[i].isEnabled = false;
-        }
-    }
-    [self.myTableView reloadData];
-}
 
 //-------------
 // Toggle editing mode
@@ -281,6 +218,24 @@
     }
 }
 
+#pragma mark -----Tool bar-----
+
+//-------------
+// Toolbar related stuff
+//-------------
+- (IBAction)toggleLandmakrSelection:(id)sender {
+    UIBarButtonItem *myButton = (UIBarButtonItem*) sender;
+    if ([[myButton title] isEqualToString:@"SelectAll"]){
+        for (int i = 0; i < self.model->data_array.size(); ++i) {
+            self.model->data_array[i].isEnabled = true;
+        }
+    }else{
+        for (int i = 0; i < self.model->data_array.size(); ++i) {
+            self.model->data_array[i].isEnabled = false;
+        }
+    }
+    [self.myTableView reloadData];
+}
 
 //-------------
 // Save file
@@ -365,10 +320,27 @@
     return true;
 }
 
-#pragma mark -----Exit-----
+#pragma mark -----Navigation and Exit-----
+//------------------
+// Prepare for the detail view
+//------------------
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(CustomPointAnnotation*)sender
+{
+    if ([segue.identifier isEqualToString:@"TableDetailVC"])
+    {
+        DetailViewController *destinationViewController =
+        segue.destinationViewController;
+        
+        // grab the annotation from the sender
+        destinationViewController.annotation = sender;
+    }
+}
+
+//------------------
+// This is needed for iPad
+//------------------
 - (IBAction)dismissModalVC:(id)sender {    
-    UINavigationController *temp = (UINavigationController *) (self.presentingViewController);
-    iOSViewController* parentVC = (iOSViewController*) [[temp viewControllers] objectAtIndex:0];
+    iOSViewController* parentVC = self.rootViewController;
     [self dismissViewControllerAnimated:YES completion:^{
         // call your completion method:
         [parentVC viewWillAppear:YES];

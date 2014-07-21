@@ -18,9 +18,6 @@
 @property compassMdl* model;
 @property iOSViewController* rootViewController;
 
-@property bool needUpdateAnnotations;
-@property bool needToggleLocationService;
-
 - (IBAction)toggleLandmakrSelection:(id)sender;
 - (IBAction)toggleEditing:(id)sender;
 - (IBAction)saveKML:(id)sender;

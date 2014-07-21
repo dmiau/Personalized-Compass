@@ -106,34 +106,6 @@
 
 }
 
--(void) viewWillDisappear:(BOOL)animated {
-    iOSViewController *destViewController =
-    [self.navigationController.viewControllers objectAtIndex:0];
-    
-    //---------------
-    // iPad case (because we use modal dialog)
-    //---------------
-    if (destViewController == nil){
-        UINavigationController *temp;
-        temp = (UINavigationController*)
-        self.presentingViewController;
-        destViewController = [[temp viewControllers] objectAtIndex:0];
-    }
-    
-    if (self.needUpdateAnnotations)
-    {
-        destViewController.needUpdateAnnotations = true;
-    }
-    
-    if (self.needToggleLocationService){
-        destViewController.needToggleLocationService = true;
-    }
-    
-    [super viewWillDisappear:animated];
-}
-
-
-
 //-------------
 // Toggle editing mode
 //-------------
@@ -205,8 +177,7 @@
 
 #pragma mark -----Exit-----
 - (IBAction)dismissModalVC:(id)sender {
-    UINavigationController *temp = (UINavigationController *) (self.presentingViewController);
-    iOSViewController* parentVC = (iOSViewController*) [[temp viewControllers] objectAtIndex:0];
+    iOSViewController* parentVC = self.rootViewController;
     [self dismissViewControllerAnimated:YES completion:^{
         // call your completion method:
         [parentVC viewWillAppear:YES];
