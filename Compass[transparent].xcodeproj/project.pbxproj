@@ -373,6 +373,12 @@
 		9AFD8F5B197C20000099BD88 /* genSnapshotString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F55197C20000099BD88 /* genSnapshotString.mm */; };
 		9AFD8F5E197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F5D197C57B60099BD88 /* breadcrumbTableViewController.mm */; };
 		9AFD8F5F197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F5D197C57B60099BD88 /* breadcrumbTableViewController.mm */; };
+		9AFD8F61197C612B0099BD88 /* genHistoryString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F60197C612B0099BD88 /* genHistoryString.mm */; };
+		9AFD8F62197C612B0099BD88 /* genHistoryString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F60197C612B0099BD88 /* genHistoryString.mm */; };
+		9AFD8F63197C612B0099BD88 /* genHistoryString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F60197C612B0099BD88 /* genHistoryString.mm */; };
+		9AFD8F64197C612B0099BD88 /* genHistoryString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F60197C612B0099BD88 /* genHistoryString.mm */; };
+		9AFD8F65197C612B0099BD88 /* genHistoryString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F60197C612B0099BD88 /* genHistoryString.mm */; };
+		9AFD8F66197C612B0099BD88 /* genHistoryString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F60197C612B0099BD88 /* genHistoryString.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -548,6 +554,7 @@
 		9AFD8F55197C20000099BD88 /* genSnapshotString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genSnapshotString.mm; sourceTree = "<group>"; };
 		9AFD8F5C197C57B60099BD88 /* breadcrumbTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = breadcrumbTableViewController.h; sourceTree = "<group>"; };
 		9AFD8F5D197C57B60099BD88 /* breadcrumbTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = breadcrumbTableViewController.mm; sourceTree = "<group>"; };
+		9AFD8F60197C612B0099BD88 /* genHistoryString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genHistoryString.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -745,6 +752,7 @@
 				9A28368A1900C0850041D22E /* readConfiguration.mm */,
 				9AB6E8D91906C9B000E28DE9 /* commonTools.mm */,
 				9A3DA0A31964F5E3009E0073 /* genKMLString.mm */,
+				9AFD8F60197C612B0099BD88 /* genHistoryString.mm */,
 				9AFD8F55197C20000099BD88 /* genSnapshotString.mm */,
 				9AECA766196A0269008ADAEC /* CustomPointAnnotation.h */,
 				9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */,
@@ -1089,6 +1097,9 @@
 					9A82B62F1941518900534A5F = {
 						DevelopmentTeam = T8L89L97Z5;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -1381,6 +1392,7 @@
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
 				9A998D71194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9A95CCB3194B4146008E520F /* iOSSettingViewController.mm in Sources */,
+				9AFD8F65197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A49A5F61954A8BB00937961 /* myTableViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1421,6 +1433,7 @@
 				9A95CCB4194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
 				9A2E42E3196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
+				9AFD8F66197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A3240DD197AB083008E929D /* iOSViewController+History.mm in Sources */,
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
 				9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
@@ -1437,6 +1450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AA7890A1909FE3000A26C66 /* commonTools.mm in Sources */,
+				9AFD8F64197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9AECA76B196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AFD8F59197C20000099BD88 /* genSnapshotString.mm in Sources */,
@@ -1475,6 +1489,7 @@
 				9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */,
 				9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */,
 				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
+				9AFD8F61197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
 				9A2E42DE196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
@@ -1527,6 +1542,7 @@
 				9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A9701CE19083B10007C3C19 /* renderStyles.mm in Sources */,
 				9A2E42E0196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
+				9AFD8F63197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9AB90B9D194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1541,6 +1557,7 @@
 				9A998C931949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A2E42DF196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AB90B95194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
+				9AFD8F62197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */,
 				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,
 				9AFB14A118EE639A00063632 /* compassRender.mm in Sources */,

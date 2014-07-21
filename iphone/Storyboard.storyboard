@@ -317,7 +317,7 @@
             </objects>
             <point key="canvasLocation" x="2776" y="113"/>
         </scene>
-        <!--My Table View Controller - Landmarks-->
+        <!--My Table View Controller-->
         <scene sceneID="fdt-lN-AEa">
             <objects>
                 <viewController id="KRL-rx-xwq" customClass="myTableViewController" sceneMemberID="viewController">
@@ -398,7 +398,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Landmarks" id="JG4-hz-xPs"/>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="JG4-hz-xPs"/>
                     <connections>
                         <outlet property="myTableView" destination="qr2-Je-S7j" id="zvt-RW-fWE"/>
                         <segue destination="CAm-Aa-yYX" kind="push" identifier="TableDetailVC" id="VT9-KB-V4S"/>
@@ -408,7 +408,7 @@
             </objects>
             <point key="canvasLocation" x="2172" y="600"/>
         </scene>
-        <!--Snapshot Table View Controller - Snapshots-->
+        <!--Snapshot Table View Controller - Snapshot-->
         <scene sceneID="ggx-Tg-iKG">
             <objects>
                 <viewController id="UAp-Pt-p2J" customClass="snapshotTableViewController" sceneMemberID="viewController">
@@ -469,7 +469,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Snapshots" id="2PV-mX-bGj"/>
+                    <tabBarItem key="tabBarItem" title="Snapshot" id="2PV-mX-bGj"/>
                     <navigationItem key="navigationItem" id="aD1-tU-5Dq"/>
                     <connections>
                         <outlet property="myTableView" destination="VKh-3x-aXQ" id="FGh-zL-KYQ"/>
@@ -479,7 +479,7 @@
             </objects>
             <point key="canvasLocation" x="2172" y="1289"/>
         </scene>
-        <!--Breadcrumb Table View Controller - Breadcrumb-->
+        <!--Breadcrumb Table View Controller-->
         <scene sceneID="tLm-1D-9Lp">
             <objects>
                 <viewController id="gZn-Ka-qU5" customClass="breadcrumbTableViewController" sceneMemberID="viewController">
@@ -495,7 +495,11 @@
                                 <rect key="frame" x="0.0" y="477" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" id="4IF-9o-AFG"/>
+                                    <barButtonItem title="[Save]" id="4IF-9o-AFG">
+                                        <connections>
+                                            <action selector="saveKML:" destination="gZn-Ka-qU5" id="4rc-cJ-dJ0"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="39P-jr-pV6">
@@ -536,7 +540,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Breadcrumb" id="2Pc-zx-A2T"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="2Pc-zx-A2T"/>
                     <connections>
                         <outlet property="myTableView" destination="39P-jr-pV6" id="8Yo-Lf-Yhu"/>
                     </connections>

@@ -74,6 +74,7 @@ public:
 class breadcrumb{
 public:
     CLLocationCoordinate2D coord2D;
+    NSString* name;
     int id;
     NSDate* time_stamp;
 };
@@ -190,4 +191,5 @@ double DegreesToRadians(double degrees);
 double RadiansToDegrees(double radians);
 NSString* genKMLString(vector<data> my_data_array);
 NSString* genSnapshotString(vector<snapshot> my_snapshot_array);
+NSString* genHistoryString(vector<breadcrumb> my_breadcrumb_array);
 #endif /* defined(__Exploration__model__) */

@@ -1189,7 +1189,21 @@ http://stackoverflow.com/questions/5689179/get-time-and-date-by-nsdate
 http://stackoverflow.com/questions/10911534/how-to-draw-a-mkpolyline-on-a-mapview
 - implementd the snapshot and breadcrumb mode
 
+Need to enable background location update:
+http://stackoverflow.com/questions/3413258/give-some-screenshots-to-create-uibackgroundmodes-key-in-info-plist-for-ios4
 
+check out this:
+http://stackoverflow.com/questions/18946881/background-location-services-not-working-in-ios-7?lq=1
+http://mobileoop.com/background-location-update-programming-for-ios-7
+https://github.com/voyage11/Location/tree/master/Location
+
+check if the app is in background mode:
+http://stackoverflow.com/questions/5835806/check-if-ios-app-is-in-background
+
+https://developer.apple.com/library/ios/documentation/uikit/reference/uiapplicationdelegate_protocol/Reference/Reference.html
+search for "Monitoring App State Changes"
+
+- need to fix the case when location service fails to update
 
 
 

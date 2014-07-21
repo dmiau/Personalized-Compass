@@ -105,6 +105,68 @@
     [self.navigationController popViewControllerAnimated:NO];
 }
 
+//-------------
+// Save file
+//-------------
+- (IBAction)saveKML:(id)sender {
+    
+    //------------------
+    // Prevent file overwritten
+    //------------------
+    // Collect a list of kml files
+    NSArray *dirFiles, *kml_files;
+    if (self.model->filesys_type == IOS_DOC){
+        dirFiles = [self.model->docFilesystem listFiles];
+    }else{
+        dirFiles = [self.model->dbFilesystem listFiles];
+    }
+    
+    dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS 'history'"]];
+    kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
+    
+    int counter = [kml_files count];
+    
+    NSString *filename = [NSString
+                          stringWithFormat:@"history%d.kml", counter];
+    
+    bool hasError = false;
+    NSString *content = genHistoryString(self.model->breadcrumb_array);
+    
+    if (self.model->filesys_type == DROPBOX){
+        if (![self.model->dbFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }else{
+        if (![self.model->docFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }
+    
+    if (hasError){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+                                                        message:@"Fail to save the file."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        NSLog(@"Failed to write file.");
+    }
+    
+}
+
+#pragma mark -----Exit-----
+- (IBAction)dismissModalVC:(id)sender {
+    UINavigationController *temp = (UINavigationController *) (self.presentingViewController);
+    iOSViewController* parentVC = (iOSViewController*) [[temp viewControllers] objectAtIndex:0];
+    [self dismissViewControllerAnimated:YES completion:^{
+        // call your completion method:
+        [parentVC viewWillAppear:YES];
+    }];
+}
 
 
 /*

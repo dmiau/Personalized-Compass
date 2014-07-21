@@ -10,7 +10,15 @@
 
 @implementation iOSViewController (History)
 - (bool) addBreadcrumb: (CLLocationCoordinate2D) coord2D{
+    
+    NSString *dateString = [NSDateFormatter
+                            localizedStringFromDate:[NSDate date]
+                            dateStyle:NSDateFormatterShortStyle
+                            timeStyle:NSDateFormatterFullStyle];
+    NSLog(@"%@",dateString);
+    
     breadcrumb myBreadcrumb;
+    myBreadcrumb.name = dateString;
     myBreadcrumb.coord2D = coord2D;
     self.model->breadcrumb_array.push_back(myBreadcrumb);
     
