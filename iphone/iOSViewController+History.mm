@@ -22,10 +22,10 @@
     myBreadcrumb.coord2D = coord2D;
     self.model->breadcrumb_array.push_back(myBreadcrumb);
     
-    if (self.model->breadcrumb_array.size() > 100){
-        self.model->breadcrumb_array.erase(
-        self.model->breadcrumb_array.begin());
-    }
+//    if (self.model->breadcrumb_array.size() > 100){
+//        self.model->breadcrumb_array.erase(
+//        self.model->breadcrumb_array.begin());
+//    }
     return true;
 }
 

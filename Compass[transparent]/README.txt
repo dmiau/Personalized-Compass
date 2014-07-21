@@ -1214,7 +1214,7 @@ http://stackoverflow.com/questions/5095407/n-choose-k-implementation
 - propagated the new changes to iPad
 - prototype hollow indicator
 - implemented snapshot parser
-
+- need to put the save history code into background thread
 
 - augmented reality mode?
 

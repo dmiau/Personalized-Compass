@@ -139,6 +139,12 @@
 		9A757153197D6C1500C23AEE /* snapshotParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A75714F197D6C1500C23AEE /* snapshotParser.mm */; };
 		9A757154197D6C1500C23AEE /* snapshotParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A75714F197D6C1500C23AEE /* snapshotParser.mm */; };
 		9A757155197D6C1500C23AEE /* snapshotParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A75714F197D6C1500C23AEE /* snapshotParser.mm */; };
+		9A757158197D804100C23AEE /* historyParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757157197D804100C23AEE /* historyParser.mm */; };
+		9A757159197D804100C23AEE /* historyParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757157197D804100C23AEE /* historyParser.mm */; };
+		9A75715A197D804100C23AEE /* historyParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757157197D804100C23AEE /* historyParser.mm */; };
+		9A75715B197D804100C23AEE /* historyParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757157197D804100C23AEE /* historyParser.mm */; };
+		9A75715C197D804100C23AEE /* historyParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757157197D804100C23AEE /* historyParser.mm */; };
+		9A75715D197D804100C23AEE /* historyParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757157197D804100C23AEE /* historyParser.mm */; };
 		9A82B6311941518900534A5F /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9A82B6321941518900534A5F /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
 		9A82B6331941518900534A5F /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
@@ -464,6 +470,8 @@
 		9A6FB7F31958FFC20020355A /* iOSViewController+Updates.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Updates.mm"; sourceTree = "<group>"; };
 		9A75714E197D6C1500C23AEE /* snapshotParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snapshotParser.h; sourceTree = "<group>"; };
 		9A75714F197D6C1500C23AEE /* snapshotParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = snapshotParser.mm; sourceTree = "<group>"; };
+		9A757156197D804100C23AEE /* historyParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historyParser.h; sourceTree = "<group>"; };
+		9A757157197D804100C23AEE /* historyParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = historyParser.mm; sourceTree = "<group>"; };
 		9A82B64F1941518900534A5F /* iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
 		9A82B6531941528600534A5F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
@@ -755,6 +763,8 @@
 				9AF523B218DC83BF005823A2 /* xmlParser.mm */,
 				9A75714E197D6C1500C23AEE /* snapshotParser.h */,
 				9A75714F197D6C1500C23AEE /* snapshotParser.mm */,
+				9A757156197D804100C23AEE /* historyParser.h */,
+				9A757157197D804100C23AEE /* historyParser.mm */,
 				9AEA580518D9EC440028B80C /* compassModel.h */,
 				9AEA580618D9EC440028B80C /* compassModel.mm */,
 				9AEA580418D9EC440028B80C /* commonInclude.h */,
@@ -1391,6 +1401,7 @@
 				9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */,
 				9AFD8F4C197B2E460099BD88 /* snapshotTableViewController.mm in Sources */,
 				9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */,
+				9A75715C197D804100C23AEE /* historyParser.mm in Sources */,
 				9AB90B98194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9AFD8F5A197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A3240D8197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */,
@@ -1429,6 +1440,7 @@
 				9A82B6341941518900534A5F /* readConfiguration.mm in Sources */,
 				9A82B6351941518900534A5F /* compassRender.mm in Sources */,
 				9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */,
+				9A75715D197D804100C23AEE /* historyParser.mm in Sources */,
 				9AFD8F5B197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A757155197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A82B6361941518900534A5F /* renderStyles.mm in Sources */,
@@ -1488,6 +1500,7 @@
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
 				9A2E42E1196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
+				9A75715B197D804100C23AEE /* historyParser.mm in Sources */,
 				9AB90B9E194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1509,6 +1522,7 @@
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
 				9A998C8B1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
+				9A757158197D804100C23AEE /* historyParser.mm in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */,
 				9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */,
 				9AFD8F56197C20000099BD88 /* genSnapshotString.mm in Sources */,
@@ -1537,6 +1551,7 @@
 				9A9701D619083B26007C3C19 /* AppDelegate.mm in Sources */,
 				9A9701D719083B26007C3C19 /* DesktopViewController.mm in Sources */,
 				9A9701E619085002007C3C19 /* watchNSView.m in Sources */,
+				9A75715A197D804100C23AEE /* historyParser.mm in Sources */,
 				9A9701D819083B26007C3C19 /* DesktopViewController+TableAddition.mm in Sources */,
 				9AB90B96194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A998C941949F32800778DFC /* compassRender+Components.mm in Sources */,
@@ -1567,6 +1582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A3DA0C41966E563009E0073 /* CustomAnnotationView.mm in Sources */,
+				9A757159197D804100C23AEE /* historyParser.mm in Sources */,
 				9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */,
 				9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */,
 				9A998C931949F32800778DFC /* compassRender+Components.mm in Sources */,

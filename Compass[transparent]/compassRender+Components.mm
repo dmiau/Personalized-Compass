@@ -219,7 +219,7 @@ BOOL compassRender::drawBox(double renderD2realDRatio)
     return true;
 }
 
-bool compassRender::drawBoundaryCircle(double renderD2realDRatio)
+BOOL compassRender::drawBoundaryCircle(double renderD2realDRatio)
 {
     // drawBoundaryCircle returns true when the circle is successfully drawn
     // drawBoundaryCircle returns false when the circle is too small to be drawn
