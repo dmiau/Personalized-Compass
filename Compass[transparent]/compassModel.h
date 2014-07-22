@@ -91,9 +91,9 @@ enum filter_enum{
     MANUAL = 5
 };
 
-//--------------
+//----------------------------
 // compassModel class
-//--------------
+//----------------------------
 
 class compassMdl{
 public:
@@ -182,6 +182,7 @@ public:
     vector<int> filter_manual(int k);
     vector<int> sortIDByDistance(vector<int> id_list);
     
+    vector<double> clusterData(vector<int> indices_for_rendering);    
 private:
     compassMdl(){}; // Private so that it can not be called
 };

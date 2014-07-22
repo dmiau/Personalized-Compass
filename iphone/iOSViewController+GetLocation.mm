@@ -58,7 +58,7 @@
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
-    self.findMeButton.backgroundColor = [UIColor clearColor];
+//    self.findMeButton.backgroundColor = [UIColor clearColor];
 }
 
 //-------------------

@@ -140,6 +140,11 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     }
 //    cout << db_stream.str() << endl;
 
+
+    
+    
+    
+    
     
     // ---------------
     // Draw the center circle
@@ -233,7 +238,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         
         // Need to draw on different depth to avoid broken polygon
         glTranslatef(0, 0, 0.0001);
-        drawTriangle(base_radius, data_.orientation, distance);
+        drawTriangle(base_radius, data_.orientation, distance + central_disk_radius/2);
     }
     glPopMatrix();
     
@@ -268,6 +273,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     
     // ---------------
     // draw the hollow indicator
+    // (to indicate that there is a boudary indicator
     // ---------------
     if (isBoundaryIndicatorDrawn){
         glPushMatrix();
@@ -275,6 +281,17 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         glTranslatef(0, 0, 2);
         drawCircle(0, 0, central_disk_radius/1.5, 50, true);
         glPopMatrix();
+    }
+
+    // ---------------
+    // draw the scale indicator
+    // ---------------
+
+    if (mode_info_list.size() == 2){
+        // Only need to draw the scale indicator in bimodal mode
+        glLineWidth(2);
+        glColor4f(0, 0, 0, 1);
+        drawCircle(0, 0, outer_disk_radius, 50, false);
     }
     
     // ---------------

@@ -1215,12 +1215,20 @@ http://stackoverflow.com/questions/5095407/n-choose-k-implementation
 - prototype hollow indicator
 - implemented snapshot parser
 - need to put the save history code into background thread
+- implemented history parser (but not connected yet)
+
 
 - augmented reality mode?
 
+-------------------------------------------------------------------
+7.21.2014
+-------------------------------------------------------------------
+Goals of today:
+- implement scale indicator
+- there may be a way I can optimize text rendering, can I somehow render all the
+labels and cache them?
 
-
-
+- moving some data analysis tool to compassMdl
 
 
 
