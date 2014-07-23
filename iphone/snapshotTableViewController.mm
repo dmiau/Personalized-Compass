@@ -9,6 +9,7 @@
 #import "snapshotTableViewController.h"
 #import "AppDelegate.h"
 #import "SnapshotDetailViewController.h"
+#import "snapshotParser.h"
 
 @interface snapshotTableViewController ()
 
@@ -207,6 +208,28 @@
         NSLog(@"Failed to write file.");
     }
     
+}
+
+- (IBAction)reloadSnapshotFile:(id)sender {
+    //------------
+    // Load snapshot if the file is available
+    //------------
+    NSString* filename = @"snapshot.kml";
+    bool snapshotFileExists = false;
+    // Check if a snapshot file exists
+    if (self.model->filesys_type == DROPBOX){
+        snapshotFileExists = [self.model->dbFilesystem fileExists:filename];
+    }else{
+        snapshotFileExists = [self.model->docFilesystem fileExists:filename];
+    }
+    
+    if (snapshotFileExists){
+        self.model->snapshot_filename = filename;
+        if (readSnapshotKml(self.model) != EXIT_SUCCESS){
+            throw(runtime_error("Failed to load snapshot files"));
+        }
+    }
+    [self.myTableView reloadData];
 }
 
 #pragma mark -----Exit-----

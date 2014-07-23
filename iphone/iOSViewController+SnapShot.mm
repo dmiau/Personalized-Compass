@@ -32,8 +32,13 @@
     return true;
 }
 
-- (bool)displaySnapshot: (int) id{
+- (bool)displaySnapshot: (int) id
+{
     snapshot mySnapshot = self.model->snapshot_array[id];
+    
+    self.model->location_filename = mySnapshot.kmlFilename;
+    self.model->reloadFiles();
+    
     [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];
     self.mapView.camera.heading = -mySnapshot.orientation;    
     return true;

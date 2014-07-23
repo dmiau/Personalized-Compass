@@ -19,6 +19,7 @@
 @property iOSViewController* rootViewController;
 
 - (IBAction)saveKML:(id)sender;
+- (IBAction)reloadSnapshotFile:(id)sender;
 
 //---------------
 // iPad
