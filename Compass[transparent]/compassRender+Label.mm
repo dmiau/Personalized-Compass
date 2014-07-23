@@ -51,7 +51,7 @@ void compassRender::drawLabel(float rotation, float height, string name)
     // Keep the text level (rotate->translate->rotate)
     //--------------------
     glRotatef(rotation, 0, 0, -1);
-    glTranslatef(0, half_canvas_size * 0.9, 0); //central_disk_radius
+    glTranslatef(0, height, 0); //central_disk_radius
     glRotatef(-rotation, 0, 0, -1);
     
     // Fix text size

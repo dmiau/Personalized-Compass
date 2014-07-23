@@ -55,15 +55,33 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
     // draw the labels
     // ---------------
     if (label_flag){
+        vector<double> orientation_array;
+        orientation_array.clear();
+        
         glPushMatrix();
         glTranslatef(0, 0, 1);
         for (int i = 0; i < model->indices_for_rendering.size(); ++i){
             int j = model->indices_for_rendering[i];
             data data_ = model->data_array[j];
             
-            double distance = data_.distance / max_dist * half_canvas_size * 0.9;
+            double distance;
+//            distance = data_.distance / max_dist * half_canvas_size * 0.9;
+            distance = half_canvas_size * 0.9;
             drawLabel(data_.orientation, distance, data_.name);
+            orientation_array.push_back(data_.orientation);
+        }
 
+        //--------------
+        // Draw scale indicator
+        //--------------
+        if (model->mode_max_dist_array.size() > 1){
+            double best_orientation = findBestEmptyOrienation(orientation_array);
+            
+            // Generate the string
+            char buff[10];
+            sprintf(buff, "1:%2.1f",
+                    model->mode_max_dist_array[1]/model->mode_max_dist_array[0]);
+            drawLabel(best_orientation, half_canvas_size * 0.3, string(buff));
         }
         glPopMatrix();
     }
@@ -305,8 +323,48 @@ double compassRender::getMapHeightInMeters(){
     return [top_left_loc distanceFromLocation:bottom_left_loc];
 }
 
+double compassRender::findBestEmptyOrienation(vector<double> orientation_array){
+    
+    vector<double> debug_array = orientation_array;
+    double empty_orientation;
+    vector<pair<double, int>> diff_array;
+    // sort by ascending order
+    sort(orientation_array.begin(), orientation_array.end());
+    
+    
+    //---------------
+    // Calculate the differences
+    //---------------
+    for (int i = 0; i < orientation_array.size(); ++i){
+        if (i == 0 ){
+            diff_array.push_back
+            (make_pair(360 - orientation_array.back() + orientation_array[0], i));
+        }else{
+            diff_array.push_back
+            (make_pair(orientation_array[i] - orientation_array[i-1], i));
+        }
+    }
+    
+    //---------------
+    // Find the max difference
+    //---------------
+    // Figure out the data is unimodal or bimodal?
+    std::vector<pair<double, int>>::iterator result =
+    std::max_element(diff_array.begin(),
+                     diff_array.end(), compareAscending);
+    int idx = result->second;
 
-
+    //---------------
+    // Decide the empty orientation
+    //---------------
+    if (idx == 0){
+        empty_orientation = orientation_array.back() + diff_array[0].first/2;
+        empty_orientation = fmod(empty_orientation, 360);
+    }else{
+        empty_orientation = 0.5*(orientation_array[idx] + orientation_array[idx-1]);
+    }
+    return empty_orientation;
+}
 
 
 

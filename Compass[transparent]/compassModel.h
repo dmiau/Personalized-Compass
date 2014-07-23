@@ -132,6 +132,7 @@ public:
     vector<int> indices_sorted_by_distance;
     // indices of the filtered locations, for rendering
     vector<int> indices_for_rendering;
+    vector<double> mode_max_dist_array;
     vector<int *> color_map;
     
     //-----------------
@@ -182,7 +183,9 @@ public:
     vector<int> filter_manual(int k);
     vector<int> sortIDByDistance(vector<int> id_list);
     
-    vector<double> clusterData(vector<int> indices_for_rendering);    
+    vector<double> clusterData(vector<int> indices_for_rendering);
+    vector<pair<double, int>> generateOrientDiffList
+    (vector<int> id_list);
 private:
     compassMdl(){}; // Private so that it can not be called
 };

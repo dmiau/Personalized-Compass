@@ -103,7 +103,6 @@
 		9A4F0F79193E2B7800CF32DE /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F78193E2B7800CF32DE /* GLKit.framework */; };
 		9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */; };
 		9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */; };
-		9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
 		9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9A4F0F83193E331E00CF32DE /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
 		9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
@@ -157,7 +156,6 @@
 		9A82B6341941518900534A5F /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
 		9A82B6351941518900534A5F /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
 		9A82B6361941518900534A5F /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
-		9A82B6371941518900534A5F /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
 		9A82B6381941518900534A5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F56193E2A8900CF32DE /* AppDelegate.m */; };
 		9A82B6391941518900534A5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F52193E2A8900CF32DE /* main.m */; };
 		9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */; };
@@ -187,7 +185,6 @@
 		9A9701D019083B19007C3C19 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
 		9A9701D219083B19007C3C19 /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
 		9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
-		9A9701D519083B19007C3C19 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
 		9A9701D619083B26007C3C19 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
 		9A9701D719083B26007C3C19 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
 		9A9701D819083B26007C3C19 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
@@ -231,7 +228,6 @@
 		9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9AA1DB921948B30A0082BABC /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
-		9AA7890A1909FE3000A26C66 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
 		9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
 		9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
 		9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
@@ -276,7 +272,6 @@
 		9AB2A721196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
 		9AB2A722196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
 		9AB2A723196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
-		9AB6E8DB1906C9B000E28DE9 /* commonTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6E8D91906C9B000E28DE9 /* commonTools.mm */; };
 		9AB90B8D194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
 		9AB90B8E194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
 		9AB90B8F194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
@@ -506,7 +501,6 @@
 		9AAE13D819046975003BF9B7 /* renderStyles.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = renderStyles.mm; sourceTree = "<group>"; };
 		9AB2A716196372AA0001E96F /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = icons/selected.png; sourceTree = "<group>"; };
 		9AB2A717196372AA0001E96F /* unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unselected.png; path = icons/unselected.png; sourceTree = "<group>"; };
-		9AB6E8D91906C9B000E28DE9 /* commonTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = commonTools.mm; sourceTree = "<group>"; };
 		9AB90B8C194DED0B0030BF5B /* Taiwan.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taiwan.kml; sourceTree = "<group>"; };
 		9AB90B93194F383A0030BF5B /* compassRender+Bimodal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Bimodal.mm"; sourceTree = "<group>"; };
 		9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Wedge.mm"; sourceTree = "<group>"; };
@@ -780,7 +774,6 @@
 				9AEA580418D9EC440028B80C /* commonInclude.h */,
 				9A6EC77E19004BCB00C3815F /* locationFilter.mm */,
 				9A28368A1900C0850041D22E /* readConfiguration.mm */,
-				9AB6E8D91906C9B000E28DE9 /* commonTools.mm */,
 				9A3DA0A31964F5E3009E0073 /* genKMLString.mm */,
 				9AFD8F60197C612B0099BD88 /* genHistoryString.mm */,
 				9AFD8F55197C20000099BD88 /* genSnapshotString.mm */,
@@ -1402,7 +1395,6 @@
 				9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */,
 				9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */,
 				9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */,
-				9A4F0F81193E32CF00CF32DE /* commonTools.mm in Sources */,
 				9ABB382E19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm in Sources */,
 				9A2E42E2196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AECA76C196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
@@ -1454,7 +1446,6 @@
 				9A757155197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A82B6361941518900534A5F /* renderStyles.mm in Sources */,
 				9AFD8F4D197B2E460099BD88 /* snapshotTableViewController.mm in Sources */,
-				9A82B6371941518900534A5F /* commonTools.mm in Sources */,
 				9AB90B99194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A82B6381941518900534A5F /* AppDelegate.m in Sources */,
 				9AECA76D196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
@@ -1483,7 +1474,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AA7890A1909FE3000A26C66 /* commonTools.mm in Sources */,
 				9AFD8F64197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9AECA76B196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */,
@@ -1520,7 +1510,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AB6E8DB1906C9B000E28DE9 /* commonTools.mm in Sources */,
 				9A998C921949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9AECA768196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */,
@@ -1574,7 +1563,6 @@
 				9A9701D019083B19007C3C19 /* compassModel.mm in Sources */,
 				9A9701D219083B19007C3C19 /* locationFilter.mm in Sources */,
 				9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */,
-				9A9701D519083B19007C3C19 /* commonTools.mm in Sources */,
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */,
 				9A757152197D6C1500C23AEE /* snapshotParser.mm in Sources */,

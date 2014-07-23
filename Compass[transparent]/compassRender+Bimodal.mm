@@ -17,134 +17,14 @@ using namespace std;
 // Bimodal
 //------------------------------------
 void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
+
+    vector<double> mode_max_dist_array =
+    model->clusterData(indices_for_rendering);
     
-    ostringstream db_stream;
-    
-    // Assume indices_for_rendering stores sorted distances
-    
-    // Cache all the distance candidates into a vector
-    vector <double> filtered_dist_list;
-    for (int i = 0; i < indices_for_rendering.size(); ++i){
-        int j = indices_for_rendering[i];
-        filtered_dist_list.push_back(model->data_array[j].distance);
-    }
-    
-    int landmark_n = filtered_dist_list.size();
-    
-    if (landmark_n < 1){
+    if (mode_max_dist_array.size() < 1){
         renderBareboneCompass();
         return;
     }
-    
-    //-----------------
-    // Include
-    // the distance to the user's current location
-    // to filtered_dist_list
-    //-----------------
-    if (model->user_pos.isEnabled && !model->user_pos.isVisible){
-        filtered_dist_list.push_back(model->user_pos.distance);
-        cout << "User distance: " << model->user_pos.distance << endl;
-    }
-    
-    // Two goals here:
-    // 1) decide whether it is unimodal or bimodal
-    // 2) decide the best threshodl if it is bimodal
-    // - Divide into two groups: A, B
-    // - index by the end of group A, a_end
-    // Assumption: min_d != 0
-    double min_d = filtered_dist_list[0];
-    double max_d = filtered_dist_list[filtered_dist_list.size()-1];
-    double ratio_sum = 0;
-    double lamda = 2;
-    vector<pair<double, int>>  ratio_sum_list;
-    for (int a_end = 0; a_end < filtered_dist_list.size(); ++a_end){
-        ratio_sum = filtered_dist_list[a_end]/min_d;
-        if (a_end < (filtered_dist_list.size()-1)){
-            ratio_sum += max_d / filtered_dist_list[a_end + 1];
-            ratio_sum += lamda;
-        }
-        ratio_sum_list.push_back(make_pair(ratio_sum, a_end));
-    }
-    
-    // Figure out the data is unimodal or bimodal?
-    std::vector<pair<double, int>>::iterator result =
-    std::min_element(ratio_sum_list.begin(),
-                     ratio_sum_list.end(), compareAscending);
-    
-    // cut_id is the index of the element after which a cut should be placed,
-    // so the list of distances is divided into two groups
-    int cut_id = result->second;
-    
-    // The following structure stores the information (needed for rendering)
-    // of each mode
-    // base_radius is the radius of the base, far landmarks use smaller base
-    struct mode_info{
-        float base_radius;  // this control how fat the arrow should be
-        double max_dist;    // max distance in this mode
-    };
-    
-    vector<mode_info> mode_info_list;
-    
-    // Debug
-    if (cut_id != (landmark_n -1)){
-        
-        // close landmark mode
-        mode_info t_mode_info_small = {central_disk_radius,
-            filtered_dist_list[cut_id]};
-        mode_info_list.push_back(t_mode_info_small);
-        
-        // far landmark mode
-        mode_info t_mode_info_big = { central_disk_radius / (float)4,
-            filtered_dist_list[landmark_n-1]};
-        mode_info_list.push_back(t_mode_info_big);
-        
-        db_stream << "Bimodal" <<endl;
-        
-        // Populate debug string
-        debugString = [NSString
-                       stringWithFormat:@"cluster #: 2\n ratio: %f",
-                       t_mode_info_big.max_dist/
-                       t_mode_info_small.max_dist];
-        
-    }else{
-        // Easy case
-        mode_info t_mode_info = {central_disk_radius,
-            filtered_dist_list[landmark_n-1]};
-        mode_info_list.push_back(t_mode_info);
-        db_stream << "Unimodal" <<endl;
-        // Populate debug string
-        debugString = [NSString
-                       stringWithFormat:@"cluster #: 1"];
-    }
-    
-    // ---------------
-    // Debug info
-    // ---------------
-    db_stream << "filtered_dist_list: " << endl;
-    for (int i = 0; i< filtered_dist_list.size(); ++i){
-        db_stream << filtered_dist_list[i] << ", ";
-        
-        if ((mode_info_list.size() == 2) && (cut_id == i)){
-            db_stream << " |  ";
-        }
-    }
-    db_stream << endl << "modified_Otsu_list" << endl;
-    
-    for (int i = 0; i< ratio_sum_list.size(); ++i){
-        db_stream << ratio_sum_list[i].first;
-        
-        if ((mode_info_list.size() == 2) && (cut_id == i)){
-            db_stream << "* ";
-        }
-        db_stream << ", ";
-    }
-//    cout << db_stream.str() << endl;
-
-
-    
-    
-    
-    
     
     // ---------------
     // Draw the center circle
@@ -169,8 +49,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // |-----------------------------------------|
     // outer_radius = half_canvas_size * outer_disk_ratio;
     // |----------------------------------|
-    // inner_radius = half_canvas_size * inner_disk_ratio;
-    // |-----------------|
     
     // the radius of the outer disk
     float outer_disk_radius =
@@ -179,7 +57,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     
     glPushMatrix();
     // Note that the index starts from -1
-    
     for (int i = -1; i < (int)indices_for_rendering.size(); ++i){
     
         data data_;
@@ -209,16 +86,13 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         float base_radius = 0.0;
         double distance;
         
-        if (data_.distance <= mode_info_list[0].max_dist){
-            base_radius = mode_info_list[0].base_radius;
+        if (data_.distance <= mode_max_dist_array[0]){
+            base_radius = central_disk_radius;
             distance = data_.distance /
-            mode_info_list[0].max_dist * outer_disk_radius;
+            mode_max_dist_array[0] * outer_disk_radius;
         }else{
-            base_radius = mode_info_list[1].base_radius;
+            base_radius = central_disk_radius/4;
             
-            //             inner_disk_radius
-            // |------------------|--------|
-            //                         outer_disk_radius
             glColor4f(48/256,
                       217/256,
                       86/256, 1);
@@ -228,11 +102,11 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
             }
             
             distance = outer_disk_radius *
-            data_.distance / mode_info_list[1].max_dist;
-            if (data_.distance / mode_info_list[1].max_dist > 1)
+            data_.distance / mode_max_dist_array[1];
+            if (data_.distance / mode_max_dist_array[1] > 1)
             {
                 NSLog(@"Something wrong. Ratio: %f",
-                      data_.distance / mode_info_list[1].max_dist);
+                      data_.distance / mode_max_dist_array[1]);
             }
         }
         
@@ -255,18 +129,18 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // ---------------
     // draw the box
     // ---------------
-    
-//    cout << "max dist: " << mode_info_list[0].max_dist << endl;
     bool isBoundaryIndicatorDrawn = false;
     
     if (fabs(model->tilt - 0) < 0.1 ){
         
         if (watchMode){
-            isBoundaryIndicatorDrawn = drawBoundaryCircle(outer_disk_radius/mode_info_list[0].max_dist);
+            isBoundaryIndicatorDrawn = drawBoundaryCircle
+            (outer_disk_radius/mode_max_dist_array[0]);
         }else{
             glPushMatrix();
             glRotatef(-model->camera_pos.orientation, 0, 0, -1);
-            isBoundaryIndicatorDrawn = drawBox(outer_disk_radius/mode_info_list[0].max_dist);
+            isBoundaryIndicatorDrawn = drawBox
+            (outer_disk_radius/mode_max_dist_array[0]);
             glPopMatrix();
         }
     }
@@ -287,7 +161,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // draw the scale indicator
     // ---------------
 
-    if (mode_info_list.size() == 2){
+    if (mode_max_dist_array.size() == 2){
         // Only need to draw the scale indicator in bimodal mode
         glLineWidth(2);
         glColor4f(0, 0, 0, 1);

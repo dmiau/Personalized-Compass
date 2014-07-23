@@ -101,10 +101,7 @@ public:
     // String parameters
     bool label_flag; // Indicates whether labels to be drawn or not
 	NSMutableDictionary *stringAttrib; // Text attributes
-    
-    // Debug string
-    NSString* debugString;
-   
+       
 #ifndef __IPHONE__
 	GLString *label_string;
 #endif
@@ -144,10 +141,11 @@ public:
     void loadParametersFromModelConfiguration();
 
     //-----------------
-    // Map tools
+    // Tools
     //-----------------
     double getMapWidthInMeters();
     double getMapHeightInMeters();
+    double findBestEmptyOrienation(vector<double> orientation_array);
 private:
     // Drawing routines
     void drawWayfindingAid(RenderParamStruct renderParamStruct);

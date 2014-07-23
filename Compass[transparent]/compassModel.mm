@@ -319,5 +319,9 @@ double data::computeOrientationFromLocation(data &another_data){
     double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
     double radiansBearing = atan2(y, x);
     
-    return RadiansToDegrees(radiansBearing);
+    double degree = RadiansToDegrees(radiansBearing);
+    
+    // This guarantees that the orientaiton is always positive
+    if (degree < 0) degree += 360;    
+    return degree;
 }

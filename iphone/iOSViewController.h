@@ -40,8 +40,6 @@ enum findMe_enum{
 @property UIView *modelPanel;
 @property UIView *watchPanel;
 @property UIView *debugPanel;
-@property (weak) IBOutlet UITextView *debugTextView;
-
 
 //----------------
 // UI Components

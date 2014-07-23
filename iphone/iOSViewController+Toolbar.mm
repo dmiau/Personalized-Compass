@@ -62,7 +62,6 @@
 - (IBAction)toggleDebugView:(id)sender {
     if ([[self debugPanel] isHidden]){
         [[self debugPanel] setHidden:NO];
-        self.debugTextView.text = self.renderer->debugString;
     }else{
         [[self debugPanel] setHidden:YES];
     }
