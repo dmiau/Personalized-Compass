@@ -1221,7 +1221,7 @@ http://stackoverflow.com/questions/5095407/n-choose-k-implementation
 - augmented reality mode?
 
 -------------------------------------------------------------------
-7.21.2014
+7.22.2014
 -------------------------------------------------------------------
 Goals of today:
 - implement scale indicator
@@ -1229,7 +1229,9 @@ Goals of today:
 labels and cache them?
 
 - moving some data analysis tool to compassMdl
-
+- running does help me be more productive 
+* finished seveal snapshot, scale indicator changes today
+(need to figure out how to incorporate running into my routine)
 
 
 

@@ -79,4 +79,10 @@
     self.mySnapshot->notes = self.noteTextField.text;
 }
 
+#pragma mark -----Exit-----
+- (IBAction)dismissModalVC:(id)sender {
+
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
 @end
