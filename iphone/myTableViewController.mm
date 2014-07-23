@@ -27,6 +27,7 @@
         // Do something
         
         self.model = compassMdl::shareCompassMdl();
+        selected_id = -1;
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
     }
@@ -52,6 +53,21 @@
     [myNavigationController.viewControllers objectAtIndex:0];
     
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (selected_id > -1){
+        UITableViewCell* cell = [self.myTableView
+                                 cellForRowAtIndexPath:
+                                 [NSIndexPath indexPathForRow: selected_id
+                                                    inSection: 0]];
+        cell.textLabel.text =
+        [NSString stringWithUTF8String:
+         self.model->data_array[selected_id].name.c_str()];
+        selected_id = -1;
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -140,7 +156,7 @@
     // Get the row ID
     int i = [indexPath row];
     int section_id = [indexPath section];
-    
+    selected_id = i;
     data *data_ptr;
     
     if (section_id == 0){

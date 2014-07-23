@@ -24,6 +24,10 @@
     // Need to save the file name too
     mySnapshot.kmlFilename = self.model->location_filename;
     mySnapshot.name = @"debug_snapshot";
+    mySnapshot.date_str =
+    [NSDateFormatter localizedStringFromDate:[NSDate date]
+                                   dateStyle:NSDateFormatterShortStyle
+                                   timeStyle:NSDateFormatterFullStyle];
     self.model->snapshot_array.push_back(mySnapshot);
     return true;
 }

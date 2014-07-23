@@ -10,9 +10,9 @@
 #include "compassModel.h"
 #import "iOSViewController.h"
 
-@interface snapshotTableViewController : UIViewController<UITableViewDelegate, UIAlertViewDelegate>
-
-
+@interface snapshotTableViewController : UIViewController<UITableViewDelegate, UIAlertViewDelegate>{
+    int selected_snapshot_id;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;

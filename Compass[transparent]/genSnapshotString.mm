@@ -99,6 +99,30 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         temp_str = temp_str + stringStream.str();
         
         temp_str = temp_str + "</kmlFilename>\n";
+
+        //-----------------
+        // Address
+        //-----------------
+        temp_str = temp_str + "<address>";
+        temp_str = temp_str +
+        string([my_snapshot_array[i].address UTF8String]);
+        temp_str = temp_str + "</address>\n";
+        
+        //-----------------
+        // Notes
+        //-----------------
+        temp_str = temp_str + "<notes>";
+        temp_str = temp_str +
+        string([my_snapshot_array[i].notes UTF8String]);
+        temp_str = temp_str + "</notes>\n";
+        
+        //-----------------
+        // date_str
+        //-----------------
+        temp_str = temp_str + "<date>";
+        temp_str = temp_str +
+        string([my_snapshot_array[i].date_str UTF8String]);
+        temp_str = temp_str + "</date>\n";
         
         temp_str = temp_str + "</Placemark>\n\n";
     }

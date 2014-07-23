@@ -392,6 +392,8 @@
 		9AFD8F64197C612B0099BD88 /* genHistoryString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F60197C612B0099BD88 /* genHistoryString.mm */; };
 		9AFD8F65197C612B0099BD88 /* genHistoryString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F60197C612B0099BD88 /* genHistoryString.mm */; };
 		9AFD8F66197C612B0099BD88 /* genHistoryString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F60197C612B0099BD88 /* genHistoryString.mm */; };
+		9AFD8F69197F3DC80099BD88 /* SnapshotDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F68197F3DC80099BD88 /* SnapshotDetailViewController.mm */; };
+		9AFD8F6A197F3DC80099BD88 /* SnapshotDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F68197F3DC80099BD88 /* SnapshotDetailViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -572,6 +574,8 @@
 		9AFD8F5C197C57B60099BD88 /* breadcrumbTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = breadcrumbTableViewController.h; sourceTree = "<group>"; };
 		9AFD8F5D197C57B60099BD88 /* breadcrumbTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = breadcrumbTableViewController.mm; sourceTree = "<group>"; };
 		9AFD8F60197C612B0099BD88 /* genHistoryString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genHistoryString.mm; sourceTree = "<group>"; };
+		9AFD8F67197F3DC80099BD88 /* SnapshotDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotDetailViewController.h; sourceTree = "<group>"; };
+		9AFD8F68197F3DC80099BD88 /* SnapshotDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SnapshotDetailViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -728,6 +732,8 @@
 				9A3DA0CD19683235009E0073 /* DetailViewController.mm */,
 				9AFD8F5C197C57B60099BD88 /* breadcrumbTableViewController.h */,
 				9AFD8F5D197C57B60099BD88 /* breadcrumbTableViewController.mm */,
+				9AFD8F67197F3DC80099BD88 /* SnapshotDetailViewController.h */,
+				9AFD8F68197F3DC80099BD88 /* SnapshotDetailViewController.mm */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1386,6 +1392,7 @@
 				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
 				9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
+				9AFD8F69197F3DC80099BD88 /* SnapshotDetailViewController.mm in Sources */,
 				9A998C8F1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A4F0F83193E331E00CF32DE /* compassModel.mm in Sources */,
 				9A4A44771979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */,
@@ -1439,6 +1446,7 @@
 				9A82B6331941518900534A5F /* locationFilter.mm in Sources */,
 				9A4A44781979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */,
 				9A82B6341941518900534A5F /* readConfiguration.mm in Sources */,
+				9AFD8F6A197F3DC80099BD88 /* SnapshotDetailViewController.mm in Sources */,
 				9A82B6351941518900534A5F /* compassRender.mm in Sources */,
 				9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A75715D197D804100C23AEE /* historyParser.mm in Sources */,

@@ -11,7 +11,9 @@
 #import "iOSViewController.h"
 
 @interface myTableViewController : UIViewController
-<UITableViewDelegate, UIAlertViewDelegate>
+<UITableViewDelegate, UIAlertViewDelegate>{
+    int selected_id;
+}
 
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;

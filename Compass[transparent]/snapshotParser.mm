@@ -123,6 +123,12 @@ int readSnapshotKml(compassMdl* mdl){
         orienttion_flag = true;
     }else if ([elementName isEqualToString:@"kmlFilename"]){
         kmlFilename_flag = true;
+    }else if ([elementName isEqualToString:@"address"]){
+        address_flag = true;
+    }else if ([elementName isEqualToString:@"notes"]){
+        notes_flag = true;
+    }else if ([elementName isEqualToString:@"date"]){
+        date_flag = true;
     }
 }
 
@@ -157,6 +163,12 @@ int readSnapshotKml(compassMdl* mdl){
             [string floatValue];
         }else if (kmlFilename_flag){
             snapshot_array[snapshot_array.size()-1].kmlFilename = string;
+        }else if (address_flag){
+            snapshot_array[snapshot_array.size()-1].address = string;
+        }else if (notes_flag){
+            snapshot_array[snapshot_array.size()-1].notes = string;
+        }else if (date_flag){
+            snapshot_array[snapshot_array.size()-1].date_str = string;
         }
     }
 }
@@ -177,6 +189,12 @@ int readSnapshotKml(compassMdl* mdl){
         orienttion_flag = false;
     }else if ([elementName isEqualToString:@"kmlFilename"]){
         kmlFilename_flag = false;
+    }else if ([elementName isEqualToString:@"address"]){
+        address_flag = false;
+    }else if ([elementName isEqualToString:@"notes"]){
+        notes_flag = false;
+    }else if ([elementName isEqualToString:@"date"]){
+        date_flag = false;
     }
 }
 @end

@@ -67,8 +67,17 @@ public:
     bool overviewMapStatus;
     NSString* name;
     MKMapType mapType;
-    int time;
     NSDate* time_stamp;
+    NSString* date_str;
+    NSString* notes;
+    NSString* address;
+public:
+    snapshot(){
+        kmlFilename = @"";
+        address     = @"";
+        notes       = @"";
+        date_str    = @"";
+    }
 };
 
 class breadcrumb{

@@ -43,7 +43,7 @@ int readHistoryKml(compassMdl* mdl){
     }
     
 #else
-    myParser = [[snapshotParser alloc]
+    myParser = [[historyParser alloc]
                 initWithFileURL: [NSURL fileURLWithPath: filename]];
 #endif
     myParser.parseFile;

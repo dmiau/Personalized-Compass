@@ -8,6 +8,7 @@
 
 #import "snapshotTableViewController.h"
 #import "AppDelegate.h"
+#import "SnapshotDetailViewController.h"
 
 @interface snapshotTableViewController ()
 
@@ -33,6 +34,21 @@
     
     self.rootViewController =
     [myNavigationController.viewControllers objectAtIndex:0];
+    selected_snapshot_id = -1;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (selected_snapshot_id > -1){
+        UITableViewCell* cell = [self.myTableView
+                                 cellForRowAtIndexPath:
+                                 [NSIndexPath indexPathForRow: selected_snapshot_id
+                                                    inSection: 0]];
+        // bug? The first row is quite small...
+        cell.textLabel.text =
+        self.model->snapshot_array[selected_snapshot_id].name;
+        selected_snapshot_id = -1;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,7 +103,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
+
     int row_id = [path row];
     self.rootViewController.snapshot_id_toshow = row_id;
     
@@ -97,13 +113,31 @@
     [self.navigationController popViewControllerAnimated:NO];
 }
 
+- (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+//    // Get the row ID
+    int i = [indexPath row];
+//    int section_id = [indexPath section];
+    selected_snapshot_id = i;
+    // Perform segue
+    [self performSegueWithIdentifier:@"ToSnapshotDetailView"
+                              sender:nil];
+}
+
 #pragma mark - Navigation
 //------------------
 // Prepare for the detail view
 //------------------
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(CustomPointAnnotation*)sender
 {
-
+    if ([segue.identifier isEqualToString:@"ToSnapshotDetailView"])
+    {
+        SnapshotDetailViewController *destinationViewController =
+        segue.destinationViewController;
+        
+        // grab the annotation from the sender
+        destinationViewController.snapshot_id = selected_snapshot_id;
+    }
 }
 
 //-------------
