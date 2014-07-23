@@ -18,19 +18,19 @@
 
 #pragma mark ---- Accept External Command ----
 //[todo]
-- (BOOL)acceptsFirstResponder
-{
-    return YES;
-}
-
-- (BOOL)becomeFirstResponder
-{
-    return  YES;
-}
-
-//- (BOOL)resignFirstResponder
+//- (BOOL)acceptsFirstResponder
 //{
 //    return NO;
+//}
+//
+//- (BOOL)becomeFirstResponder
+//{
+//    return  NO;
+//}
+//
+//- (BOOL)resignFirstResponder
+//{
+//    return YES;
 //}
 
 -(void)flagsChanged:(NSEvent*)theEvent {

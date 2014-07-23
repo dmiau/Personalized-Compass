@@ -81,7 +81,7 @@
   },
   {
   "property": "north_indicator_ratio",
-  "value": 0.9,
+  "value": 1.0,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },
   {

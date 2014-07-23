@@ -119,9 +119,16 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // ---------------
     // draw the north indicator
     // ---------------
-    glColor4f(50/256,
-              50/256,
-              50/256, 0.5);
+
+    if (fabs(model->tilt) < 0.1 ){
+        glColor4f(50/256,
+                  50/256,
+                  50/256, 0.6);
+    }else{
+        glColor4f(228/256,
+                  101/256,
+                  42/256, 1);
+    }
     drawTriangle(central_disk_radius/6, 0,
                  half_canvas_size *
                  [model->configurations[@"north_indicator_ratio"] floatValue]);
@@ -177,7 +184,8 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     if (model->tilt == 0)
         alpha = [model->configurations[@"disk_color"][3] floatValue]/255;
     else
-        alpha = 1;
+        alpha = 0.7;
+    
     glColor4f([model->configurations[@"disk_color"][0] floatValue]/255,
               [model->configurations[@"disk_color"][1] floatValue]/255,
               [model->configurations[@"disk_color"][2] floatValue]/255,

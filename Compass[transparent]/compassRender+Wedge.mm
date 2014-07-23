@@ -25,18 +25,11 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     
     // Assume indices_for_rendering stores sorted distances
     
-    // Cache all the distance candidates into a vector
-    vector <double> filtered_dist_list;
-    for (int i = 0; i < indices_for_rendering.size(); ++i){
-        int j = indices_for_rendering[i];
-        filtered_dist_list.push_back(model->data_array[j].distance);
-    }
-    
-    int landmark_n = filtered_dist_list.size();
-    
-    if (landmark_n <= 1){
-        // In rare cases we may ended up with a single landmark?
-        throw(runtime_error("Only single landmark!!"));
+    if (indices_for_rendering.size() <= 0 &&
+        !(model->user_pos.isEnabled && !model->user_pos.isVisible))
+    {
+        // Nothing to be drawn, return
+        return;
     }
     
     // Declarations
@@ -50,12 +43,23 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     if (this->mapView == nil)
         throw(runtime_error("mapView is uninitialized."));
     
-    for (int i = 0; i < indices_for_rendering.size(); ++i){
-        int j = indices_for_rendering[i];
+    for (int i = -1; i < (int)indices_for_rendering.size(); ++i){
         
-        // Calculate the screen coordinates
-        myCoord.latitude = model->data_array[j].latitude;
-        myCoord.longitude = model->data_array[j].longitude;
+        if (i == -1){
+            if (model->user_pos.isEnabled && !model->user_pos.isVisible){
+                myCoord.latitude = model->user_pos.latitude;
+                myCoord.longitude = model->user_pos.longitude;
+            }else{
+                continue;
+            }
+        }else{
+            int j = indices_for_rendering[i];
+            // Calculate the screen coordinates
+            myCoord.latitude = model->data_array[j].latitude;
+            myCoord.longitude = model->data_array[j].longitude;
+        }
+        
+        
         screen_pt =
         [this->mapView convertCoordinate:myCoord toPointToView:this->mapView];
         
@@ -71,15 +75,6 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         // construction
         db_stream << "-----------------" << endl;
 
-//#ifndef __IPHONE__
-//        NSLog(@"Map frame: %@", NSStringFromRect(this->mapView.frame));
-//#else
-//        NSLog(@"Map frame: %@", NSStringFromCGRect(this->mapView.frame));
-//#endif
-        
-        db_stream << "landmark: " << model->data_array[j].name << endl;
-        db_stream << "x: " << x_diff << " y:" << y_diff << endl;
-        
         
         dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2));
         calculateDistInBox(this->orig_width, this->orig_height,
@@ -155,7 +150,13 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         // v1
         //        v3
         glLineWidth(4);
-        glColor4f(1, 0, 0, 1);
+        
+        if (i == -1){
+            glColor4f(0, 1, 0, 1);
+        }else{
+            glColor4f(1, 0, 0, 1);
+        }
+
         glPushMatrix();
         // Plot the triangle first, then rotate and translate
         glTranslatef(x_diff, y_diff, 0);

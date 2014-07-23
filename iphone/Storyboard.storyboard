@@ -411,6 +411,7 @@
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="JG4-hz-xPs"/>
                     <connections>
                         <outlet property="myTableView" destination="qr2-Je-S7j" id="zvt-RW-fWE"/>
+                        <outlet property="saveButton" destination="PfU-1a-zZr" id="9Tm-sD-xK4"/>
                         <segue destination="CAm-Aa-yYX" kind="push" identifier="TableDetailVC" id="VT9-KB-V4S"/>
                     </connections>
                 </viewController>

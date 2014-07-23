@@ -144,6 +144,12 @@
 // Update Overview map
 //------------------
 - (void)updateOverviewMap{
+    
+    if ([[self overviewMapView] isHidden]){
+        // Don't need to update if it is hidden
+        return;
+    }
+    
     float scale = 10;
     MKCoordinateRegion region;
     region.center.latitude = self.mapView.region.center.latitude;
@@ -152,6 +158,14 @@
     region.span.latitudeDelta = self.mapView.region.span.latitudeDelta * scale;
     region.span.longitudeDelta = self.mapView.region.span.longitudeDelta * scale;
 
+    
+    // Check if the data is within the range
+    if (region.span.latitudeDelta > 90) region.span.latitudeDelta = 90;
+    if (region.span.latitudeDelta < -90) region.span.latitudeDelta = -90;
+
+    if (region.span.longitudeDelta > 180) region.span.longitudeDelta = 180;
+    if (region.span.longitudeDelta < -180) region.span.longitudeDelta = -180;
+    
     [self.overviewMapView setRegion:region animated:NO];
     self.overviewMapView.camera.heading = -self.model->camera_pos.orientation;
     

@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "compassModel.h"
+#import "iOSViewController.h"
 
 @interface DetailViewController : UIViewController
+
+@property iOSViewController *rootViewController;
 
 @property CustomPointAnnotation *annotation;
 @property (weak, nonatomic) IBOutlet UITextView *addressView;

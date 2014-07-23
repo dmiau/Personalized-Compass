@@ -13,6 +13,7 @@
 @interface myTableViewController : UIViewController
 <UITableViewDelegate, UIAlertViewDelegate>{
     int selected_id;
+    bool data_dirty_flag;
 }
 
 
@@ -27,4 +28,8 @@
 - (IBAction)go2Landmark:(id)sender;
 
 - (IBAction)dismissModalVC:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIToolbar *saveButton;
+
+
 @end

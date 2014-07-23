@@ -217,6 +217,10 @@
     }
     
 #endif
+    
+    // Need to update compass center (this is important!)
+    [self updateModelCompassCenterXY];
+    
     // The order is important
     self.renderer->loadParametersFromModelConfiguration();
     [self updateModelCompassCenterXY];

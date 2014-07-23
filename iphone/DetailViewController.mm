@@ -7,7 +7,7 @@
 //
 
 #import "DetailViewController.h"
-#import "iOSViewController.h"
+#import "AppDelegate.h"
 
 @interface DetailViewController ()
 
@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.needUpdateAnnotation = false;
+
     self.model = compassMdl::shareCompassMdl();
     
     // Do any additional setup after loading the view.
@@ -59,13 +59,26 @@
          }];
     }
     
+    //-------------------
+    // Set the rootViewController
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    self.rootViewController =
+    [myNavigationController.viewControllers objectAtIndex:0];
+    
+    
     //-------------
-    // Configure the add buttons
+    // Configure the add and remove buttons
     //-------------
     if (self.annotation.point_type != landmark){
         self.addButton.enabled = YES;
     }else{
         self.addButton.enabled = NO;
+        self.removeButton.enabled = YES;
     }
 
     //-------------
@@ -137,10 +150,15 @@
     self.statusSegmentControl.enabled = true;
     self.statusSegmentControl.selectedSegmentIndex = 0;
 
-    self.needUpdateAnnotation = YES;
+    self.rootViewController.needUpdateAnnotations = YES;
 }
 
 - (IBAction)removeLocation:(id)sender {
+    int i = self.annotation.data_id;
+    [self.rootViewController.mapView removeAnnotation:
+     self.model->data_array[i].annotation];
+    self.model->data_array.erase(
+                                 self.model->data_array.begin() + i );
 }
 
 - (IBAction)toggleEnable:(id)sender {
@@ -150,7 +168,7 @@
         !self.model->data_array[i].isEnabled;
         
         // Update the pin color
-        self.needUpdateAnnotation = YES;
+        self.rootViewController.needUpdateAnnotations = YES;
     }
 }
 
@@ -159,8 +177,8 @@
 // This method is for ipad
 //-------------
 - (IBAction)dismissModalVC:(id)sender {
-    UINavigationController *temp = (UINavigationController *) (self.presentingViewController);
-    iOSViewController* parentVC = (iOSViewController*) [[temp viewControllers] objectAtIndex:0];
+
+    iOSViewController* parentVC = self.rootViewController;
     
     [self dismissViewControllerAnimated:YES completion:^{
         // call your completion method:
@@ -169,22 +187,7 @@
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
-    if (self.needUpdateAnnotation)
-    {
-        iOSViewController *destViewController =
-        [self.navigationController.viewControllers objectAtIndex:0];
-        
-        //---------------
-        // iPad case (because we use modal dialog)
-        //---------------
-        if (destViewController == nil){
-            UINavigationController *temp;
-            temp = (UINavigationController*)
-            self.presentingViewController;
-            destViewController = [[temp viewControllers] objectAtIndex:0];
-        }
-        destViewController.needUpdateAnnotations = true;
-    }
+    
     [super viewWillDisappear:animated];
 }
 @end

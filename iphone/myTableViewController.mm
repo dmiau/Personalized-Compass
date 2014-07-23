@@ -28,6 +28,7 @@
         
         self.model = compassMdl::shareCompassMdl();
         selected_id = -1;
+        data_dirty_flag = false;
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
     }
@@ -51,6 +52,11 @@
     
     self.rootViewController =
     [myNavigationController.viewControllers objectAtIndex:0];
+    
+    
+    //-----------------
+    // Initialize the Save and SaveAs button
+    //-----------------
     
 }
 
@@ -225,6 +231,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if ([indexPath section] == 1){
             int i = [indexPath row];
+            [self.rootViewController.mapView removeAnnotation:
+             self.model->data_array[i].annotation];
             self.model->data_array.erase(
                                          self.model->data_array.begin() + i );
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -302,6 +310,14 @@
             filename = [filename stringByAppendingString:@".kml"];
         }
         [self saveKMLWithFilename:filename];
+        
+        // There are some more works to do at the point
+        
+        // At this point we are operating on the new file
+        self.model->location_filename = filename;
+        
+        // Need to update the section header too
+        [self.myTableView reloadData];
     }
 }
 

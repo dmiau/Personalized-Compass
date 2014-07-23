@@ -77,6 +77,10 @@ int compassMdl::initMdl(){
     //------------
     // Load snapshot if the file is available
     //------------
+    
+#ifdef __IPHONE__
+    // [todo] need to think about the OSX case
+    
     bool snapshotFileExists = false;
     // Check if a snapshot file exists
     if (filesys_type == DROPBOX){
@@ -91,6 +95,7 @@ int compassMdl::initMdl(){
             throw(runtime_error("Failed to load snapshot files"));
         }
     }
+#endif
     
     //------------
     // Initialize user position
@@ -274,54 +279,4 @@ void compassMdl::watchConfigurationFile(){
     dispatch_source_set_event_handler(source, eventHandler);
     dispatch_source_set_cancel_handler(source, cancelHandler);
     dispatch_resume(source);
-}
-
-
-#pragma mark ----------location distance/orientation tools----------
-//===================
-// tools for distance and orientation calculation
-//===================
-double DegreesToRadians(double degrees) {return degrees * M_PI / 180.0;};
-double RadiansToDegrees(double radians) {return radians * 180.0/M_PI;};
-// calculate bearing
-// http://stackoverflow.com/questions/3925942/cllocation-category-for-calculating-bearing-w-haversine-function
-//
-
-double data::computeDistanceFromLocation(data& another_data){
-
-    // Take advantage of OSX's foundation class
-    CLLocation *cur_location = [[CLLocation alloc]
-                                initWithLatitude: this->latitude
-                                longitude: this->longitude];
-    
-    
-    CLLocation *target_location = [[CLLocation alloc]
-                                   initWithLatitude:
-                                   another_data.latitude
-                                   longitude:
-                                   another_data.longitude];
-    CLLocationDistance distnace = [cur_location distanceFromLocation: target_location];
-    return distnace;
-}
-
-
-double data::computeOrientationFromLocation(data &another_data){
-    
-    double lat1 = DegreesToRadians(this->latitude);
-    double lon1 = DegreesToRadians(this->longitude);
-    
-    double lat2 = DegreesToRadians(another_data.latitude);
-    double lon2 = DegreesToRadians(another_data.longitude);
-    
-    double dLon = lon2 - lon1;
-    
-    double y = sin(dLon) * cos(lat2);
-    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
-    double radiansBearing = atan2(y, x);
-    
-    double degree = RadiansToDegrees(radiansBearing);
-    
-    // This guarantees that the orientaiton is always positive
-    if (degree < 0) degree += 360;    
-    return degree;
 }
