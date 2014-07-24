@@ -119,7 +119,7 @@ vector<int> compassMdl::filter_kOrientations(int k){
     //-------------------
     vector<pair<double, int>> orient_diff_list =
     generateOrientDiffList(qualified_id_list);
-        sort(orient_diff_list.begin(), orient_diff_list.end(), compareAscending);
+    sort(orient_diff_list.begin(), orient_diff_list.end(), compareAscending);
     qualified_id_list.clear();
     for (int i = 0; i < orient_diff_list.size(); ++i){
         //[todo] need to remove the far landmark

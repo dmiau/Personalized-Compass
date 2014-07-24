@@ -60,4 +60,53 @@
         }
     }
 }
+
+//-----------------
+// Pins
+//-----------------
+- (IBAction)removeDroppedPins:(id)sender {
+    NSArray* annotation_array = self.mapView.annotations;
+    for (CustomPointAnnotation* annotation in annotation_array){
+        if (annotation.point_type == dropped){
+            [self.mapView removeAnnotation:annotation];
+        }
+    }
+}
+
+
+- (IBAction)pinSegmentControl:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    
+    NSString *label = [segmentedControl
+                       titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
+    NSArray* annotation_array = self.mapView.annotations;
+    
+    if ([label isEqualToString:@"All"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+        }
+    }else if ([label isEqualToString:@"Enabled"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            int i = annotation.data_id;
+            if (self.model->data_array[i].isEnabled){
+                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+            }else{
+                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+            }
+        }
+    }else if ([label isEqualToString:@"Dropped"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            if (annotation.point_type == dropped){
+                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+            }else{
+                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+            }
+        }
+    }else if ([label isEqualToString:@"None"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+        }
+    }
+}
+
 @end

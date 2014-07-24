@@ -225,6 +225,7 @@
         
         CLLocationCoordinate2D coord2d =
         data_ptr->annotation.coordinate;
+        CGRect myRect = [self.mapView frame];
         
         if (self.renderer->watchMode){
             
@@ -239,11 +240,13 @@
             else
                 data_ptr->isVisible = false;
         }else{
-            if (MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord2d)))
-            {
+            // testing if someLocation is on rotating mapView
+            CGPoint screenP = [self.mapView convertCoordinate:
+                               coord2d toPointToView:self.mapView];            
+            if (screenP.x > 0 && screenP.x < myRect.size.width
+                && screenP.y > 0 && screenP.y < myRect.size.height){
                 data_ptr->isVisible = true;
-            }
-            else {
+            }else{
                 data_ptr->isVisible = false;
             }
         }

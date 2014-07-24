@@ -159,6 +159,7 @@
      self.model->data_array[i].annotation];
     self.model->data_array.erase(
                                  self.model->data_array.begin() + i );
+    self.removeButton.enabled = NO;
 }
 
 - (IBAction)toggleEnable:(id)sender {

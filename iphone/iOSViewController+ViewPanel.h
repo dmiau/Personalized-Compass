@@ -10,13 +10,15 @@
 
 @interface iOSViewController (ViewPanel)
 
-- (IBAction)toggleOverviewMap:(id)sender;
+- (IBAction)overviewSegmentControl:(id)sender;
 
 
 - (IBAction)mapStyleSegmentControl:(id)sender;
 
-- (IBAction)pinSegmentControl:(id)sender;
+
 - (IBAction)wedgeSegmentControl:(id)sender;
-- (IBAction)removeDroppedPins:(id)sender;
+
+- (IBAction)scaleSlider:(id)sender;
+
 
 @end

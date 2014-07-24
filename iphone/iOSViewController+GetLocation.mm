@@ -33,6 +33,7 @@
     //---------------
     if (mode == LOCATION_OFF){
         [self disableLocationUpdate];
+        
     }else{
         self.findMeButton.backgroundColor = [UIColor orangeColor];
         self.findMeButton.selected = YES;
@@ -45,11 +46,13 @@
         self.model->user_pos.isEnabled = true;
         [self.locationManager startUpdatingLocation];
         [self.locationManager startUpdatingHeading];
-        
+
+        // This way the green arrow will be shown immediately
         if (mode == MOVE2LOCATION){
             self.move2UpdatedLocation  = true;
         }
     }
+    [self.glkView setNeedsDisplay];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error

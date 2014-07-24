@@ -24,23 +24,6 @@
 //    }
 //}
 
-
-//------------------
-// Toggle the overview map
-//------------------
-- (IBAction)toggleOverviewMap:(id)sender {
-    if ([[self overviewMapView] isHidden]){
-        [[self overviewMapView] setHidden:NO];
-                
-        self.overviewMapView.layer.borderColor = [UIColor blackColor].CGColor;
-        self.overviewMapView.layer.borderWidth = 2.0f;
-        self.renderer->isOverviewMapEnabled = true;
-    }else{
-        [[self overviewMapView] setHidden:YES];
-        self.renderer->isOverviewMapEnabled = false;
-    }
-}
-
 //------------------
 // Wedge Control
 //------------------
@@ -74,16 +57,51 @@
             break;
             
     }
+    [self.glkView setNeedsDisplay];
 }
 
-- (IBAction)removeDroppedPins:(id)sender {
-    NSArray* annotation_array = self.mapView.annotations;
-    for (CustomPointAnnotation* annotation in annotation_array){
-        if (annotation.point_type == dropped){
-            [self.mapView removeAnnotation:annotation];
-        }
+//------------------
+// Overview segment control
+//------------------
+- (IBAction)overviewSegmentControl:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    switch ([segmentedControl selectedSegmentIndex]) {
+        case 0:
+            //------------
+            // None
+            //------------
+            [[self overviewMapView] setHidden:YES];
+            self.renderer->isOverviewMapEnabled = false;
+            self.model->configurations[@"personalized_compass_status"] = @"off";
+            break;
+        case 1:
+            //------------
+            // Overview
+            //------------
+            self.model->configurations[@"personalized_compass_status"] = @"off";
+            [[self overviewMapView] setHidden:NO];
+            
+            self.overviewMapView.layer.borderColor = [UIColor blackColor].CGColor;
+            self.overviewMapView.layer.borderWidth = 2.0f;
+            self.renderer->isOverviewMapEnabled = true;
+            [self updateOverviewMap];
+            break;
+        case 2:
+            //------------
+            // PCompass
+            //------------
+            [[self overviewMapView] setHidden:YES];
+            self.renderer->isOverviewMapEnabled = false;
+            self.conventionalCompassVisible = NO;
+            self.model->configurations[@"personalized_compass_status"] = @"on";
+            [self setFactoryCompassHidden:YES];
+            break;
+        default:
+            break;
     }
+    [self.glkView setNeedsDisplay];
 }
+
 
 //------------------
 // Select map style
@@ -102,44 +120,6 @@
     }
 }
 
-
-- (IBAction)pinSegmentControl:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
-    
-    NSString *label = [segmentedControl
-                       titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
-    NSArray* annotation_array = self.mapView.annotations;
-    
-    if ([label isEqualToString:@"All"]){
-        for (CustomPointAnnotation* annotation in annotation_array){
-            [[self.mapView viewForAnnotation:annotation] setHidden:NO];
-        }
-    }else if ([label isEqualToString:@"Enabled"]){
-        for (CustomPointAnnotation* annotation in annotation_array){
-            int i = annotation.data_id;
-            if (self.model->data_array[i].isEnabled){
-                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
-            }else{
-                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
-            }
-        }
-    }else if ([label isEqualToString:@"Dropped"]){
-        for (CustomPointAnnotation* annotation in annotation_array){
-            if (annotation.point_type == dropped){
-                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
-            }else{
-                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
-            }
-        }
-    }else if ([label isEqualToString:@"None"]){
-        for (CustomPointAnnotation* annotation in annotation_array){
-            [[self.mapView viewForAnnotation:annotation] setHidden:YES];
-        }
-    }
-}
-
-
-
 //------------------
 // Update Overview map
 //------------------
@@ -150,7 +130,8 @@
         return;
     }
     
-    float scale = 10;
+    float scale = [self.model->configurations[@"overview_map_scale"]
+                   floatValue];
     MKCoordinateRegion region;
     region.center.latitude = self.mapView.region.center.latitude;
     region.center.longitude = self.mapView.region.center.longitude;
@@ -228,6 +209,19 @@
     //    // There is probably some performance penalty
     //    [self.overviewMapView removeOverlays: self.overviewMapView.overlays];
     //    [self.overviewMapView addOverlay:routeLine];
+    [self.glkView setNeedsDisplay];
     
+}
+
+- (IBAction)scaleSlider:(UISlider *)sender {
+    
+    float scale  = [sender value];
+    
+    self.model->configurations[@"overview_map_scale"] =
+    [NSNumber numberWithFloat:scale];
+    
+    self.scaleIndicator.text = [NSString stringWithFormat:@"%2.1f",
+                                scale];
+    [self updateOverviewMap];
 }
 @end

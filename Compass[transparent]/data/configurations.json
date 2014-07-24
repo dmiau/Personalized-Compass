@@ -27,6 +27,16 @@
   {
   "property": "separator",
   "value": "==================================================",
+  "comment": "overview map related stuff"
+  },
+  {
+  "property": "overview_map_scale",
+  "value": 10,
+  "comment": "This is a comment"
+  },
+  {
+  "property": "separator",
+  "value": "==================================================",
   "comment": "wedge related stuff"
   },
   {

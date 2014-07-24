@@ -12,4 +12,7 @@
 - (IBAction)takeSnapshot:(id)sender;
 - (IBAction)breadcrumbSegmentControl:(id)sender;
 
+- (IBAction)pinSegmentControl:(id)sender;
+- (IBAction)removeDroppedPins:(id)sender;
+
 @end
