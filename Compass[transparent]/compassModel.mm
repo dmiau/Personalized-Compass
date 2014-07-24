@@ -95,6 +95,7 @@ int compassMdl::initMdl(){
             throw(runtime_error("Failed to load snapshot files"));
         }
     }
+    history_filename = @"";
 #endif
     
     //------------

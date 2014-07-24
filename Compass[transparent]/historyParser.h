@@ -13,6 +13,8 @@
 
 using namespace std;
 
+int readHistoryKml(compassMdl* mdl);
+
 @interface historyParser : NSObject <NSXMLParserDelegate>
 {
     // instance variables are like (private) properties

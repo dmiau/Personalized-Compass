@@ -339,6 +339,32 @@
     return true;
 }
 
+//----------------
+// Rename a file
+//----------------
+- (BOOL) renameFilename: (NSString*) old_name
+               withName: (NSString*) new_name
+{
+    bool rename_status;
+    NSString *old_doc_path = [self.document_path
+                              stringByAppendingPathComponent:old_name];
+    NSString *new_doc_path = [self.document_path
+                              stringByAppendingPathComponent:new_name];
+
+    
+    rename_status = [[NSFileManager defaultManager] moveItemAtPath:old_doc_path
+                                            toPath:new_doc_path
+                                             error:nil];
+    if (self.filesys_type == DROPBOX)
+    {
+        DBError *error = nil;
+        DBPath *old_path = [[DBPath root] childPath:old_name];
+        DBPath *new_path = [[DBPath root] childPath:new_name];
+        rename_status = [self.db_filesystem movePath:old_path toPath:new_path error:&error];
+    }
+    
+    return rename_status;
+}
 
 #pragma mark ----Dropbox related stuff----
 

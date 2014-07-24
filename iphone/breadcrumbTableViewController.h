@@ -12,6 +12,9 @@
 
 @interface breadcrumbTableViewController : UIViewController<UITableViewDelegate, UIAlertViewDelegate>{
     int starting_index;
+    NSArray* history_file_array;
+    NSString* selected_filename;
+    bool dirty_flag;
 }
 
 

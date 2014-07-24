@@ -112,6 +112,14 @@
     // We might need to do something for iPad
     //--------------
     [self.navigationController popViewControllerAnimated:NO];
+    
+#ifdef __IPAD__
+    iOSViewController* parentVC = self.rootViewController;
+    [self dismissViewControllerAnimated:YES completion:^{
+        // call your completion method:
+        [parentVC viewWillAppear:YES];
+    }];
+#endif
 }
 
 - (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath

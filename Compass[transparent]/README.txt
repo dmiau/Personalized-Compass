@@ -1234,7 +1234,7 @@ labels and cache them?
 (need to figure out how to incorporate running into my routine)
 
 -------------------------------------------------------------------
-7.22.2014
+7.23.2014
 -------------------------------------------------------------------
 I had to switch the order (made MapView below OpenGL View) to make gesture recognition works on Map View. But now OpenGLView cannot accept touch events. 
 
@@ -1242,5 +1242,12 @@ Maybe we will need to add user location into indices_for_rendering for data clus
 - fixed the issue, filtered_id_list needs to be sorted
 
 - orientation calculation may need to be fixed
+
+-------------------------------------------------------------------
+7.24.2014
+-------------------------------------------------------------------
+- do not fly to the 1st location if the location file is new.kml
+- added code to list and load history files
+- adding a detail pane for history files
 
 

@@ -135,9 +135,18 @@
 {
     model->location_filename = [kml_files objectAtIndex:row];
     model->reloadFiles();
-    self.needUpdateDisplayRegion = true;
-    // updateMapDisplayRegion will be called in unwindSegue
-
+    
+    
+    //--------------
+    // new.kml is a speical location file used to creating new data,
+    // it is therefore not necessary to go to the first location
+    //--------------
+    if (![model->location_filename
+          isEqualToString:@"new.kml"])
+    {
+        self.needUpdateDisplayRegion = true;
+        // updateMapDisplayRegion will be called in unwindSegue
+    }
 }
 
 

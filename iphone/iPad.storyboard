@@ -169,8 +169,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-6a-APv">
-                                <rect key="frame" x="123" y="177" width="157" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-6a-APv">
+                                <rect key="frame" x="123" y="177" width="170" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.88160241169999998" green="0.88160241169999998" blue="0.88160241169999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -242,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nG6-e4-tlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1155" y="523"/>
+            <point key="canvasLocation" x="-993" y="593"/>
         </scene>
         <!--IOS Setting View Controller-->
         <scene sceneID="cDi-QH-146">
@@ -410,6 +410,11 @@
                                             <action selector="toggleLandmakrSelection:" destination="06K-e6-nHH" id="nar-CB-ZSK"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="[Go]" id="D3I-Nf-pBp">
+                                        <connections>
+                                            <action selector="go2Landmark:" destination="06K-e6-nHH" id="6AH-PN-Dzb"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="[Save]" id="Hz8-l4-C72">
                                         <connections>
                                             <action selector="saveKML:" destination="06K-e6-nHH" id="mjH-08-SWx"/>
@@ -439,6 +444,7 @@
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="myTableView" destination="cdb-2a-KPk" id="Hpn-K2-gkH"/>
+                        <segue destination="qko-YN-4d6" kind="modal" identifier="TableDetailVC" modalPresentationStyle="formSheet" id="hMT-KF-uad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7Q-E5-jFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -553,7 +559,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vMs-Oe-3T4">
-                                <rect key="frame" x="134" y="200" width="239" height="17"/>
+                                <rect key="frame" x="134" y="200" width="239" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.88160241169999998" green="0.88160241169999998" blue="0.88160241169999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -776,4 +782,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="hMT-KF-uad"/>
+    </inferredMetricsTieBreakers>
 </document>

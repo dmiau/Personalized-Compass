@@ -291,10 +291,21 @@
     if ([indexPath section] == 1){
         self.rootViewController.landmark_id_toshow = [indexPath row];
         
+
+        [self.navigationController popViewControllerAnimated:NO];
+        
         //--------------
         // We might need to do something for iPad
         //--------------
-        [self.navigationController popViewControllerAnimated:NO];
+#ifdef __IPAD__
+        self.rootViewController.needUpdateDisplayRegion = true;
+        iOSViewController* parentVC = self.rootViewController;
+        [self dismissViewControllerAnimated:YES completion:^{
+            // call your completion method:
+            [parentVC viewWillAppear:YES];
+        }];
+#endif
+        
     }
 }
 

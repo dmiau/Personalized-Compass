@@ -71,7 +71,7 @@
                         <action selector="overviewSegmentControl:" destination="-1" eventType="valueChanged" id="563-Tb-9ml"/>
                     </connections>
                 </segmentedControl>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="2" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="q0u-q7-bxI">
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="2" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="q0u-q7-bxI">
                     <rect key="frame" x="18" y="155" width="191" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <connections>

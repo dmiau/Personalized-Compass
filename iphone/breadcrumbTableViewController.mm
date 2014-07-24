@@ -8,6 +8,8 @@
 
 #import "breadcrumbTableViewController.h"
 #import "AppDelegate.h"
+#import "historyParser.h"
+#import "BreadcrumbDetailViewController.h"
 
 @interface breadcrumbTableViewController ()
 
@@ -19,10 +21,10 @@
     self = [super initWithCoder:aDecoder];
     if(self) {
         // Do something
-        
         self.model = compassMdl::shareCompassMdl();
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
+        dirty_flag = false;
     }
     return self;
 }
@@ -46,6 +48,33 @@
     
     self.rootViewController =
     [myNavigationController.viewControllers objectAtIndex:0];
+    
+    [self updateHistoryFileList];
+}
+
+- (void)updateHistoryFileList{
+    //-------------------
+    // Collect a list of history files
+    //-------------------
+    // Collect a list of kml files
+    NSArray *dirFiles;
+    if (self.model->filesys_type == IOS_DOC){
+        dirFiles = [self.model->docFilesystem listFiles];
+    }else{
+        dirFiles = [self.model->dbFilesystem listFiles];
+    }
+    
+    history_file_array = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS 'history'"]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (dirty_flag){
+        [self updateHistoryFileList];
+        [self.myTableView reloadData];
+        dirty_flag = false;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,20 +85,41 @@
 
 #pragma mark -----Table View Data Source Methods-----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    int numberOfBreadcrumb = self.model->breadcrumb_array.size();
-    starting_index = 0;
-    // Display the last 20 history entries
-    if (numberOfBreadcrumb > 20){
-        starting_index = numberOfBreadcrumb - 20;
-        numberOfBreadcrumb = 20;
+    if (section == 0){
+        return [history_file_array count];
+    }else{
+        int numberOfBreadcrumb = self.model->breadcrumb_array.size();
+        starting_index = 0;
+        // Display the last 20 history entries
+        if (numberOfBreadcrumb > 20){
+            starting_index = numberOfBreadcrumb - 20;
+            numberOfBreadcrumb = 20;
+        }
+        
+        return numberOfBreadcrumb;
     }
+}
+
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSArray *list = @[@"History files",
+                      [self.model->history_filename lastPathComponent]];
     
-    return numberOfBreadcrumb;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
+    /* Create custom view to display section header... */
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
+    [label setFont:[UIFont boldSystemFontOfSize:12]];
+    NSString *string =[list objectAtIndex:section];
+    /* Section header is in 0th index... */
+    [label setText:string];
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
+    return view;
 }
 
 
@@ -85,24 +135,64 @@
     }
     // Get the row ID
     
+    int section_id = [indexPath section];
     int i = [indexPath row];
     
-    // Configure Cell
-    cell.textLabel.text = @"Breadcrumb";
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", starting_index + i];
+    if (section_id == 0){
+        cell.textLabel.text = history_file_array[i];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", starting_index + i];
+    }else{
+        // Configure Cell
+        cell.textLabel.text = @"Breadcrumb";
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", starting_index + i];
+    }
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
+    int section_id = [path section];
     int row_id = [path row];
-    self.rootViewController.breadcrumb_id_toshow = row_id;
     
-    //--------------
-    // We might need to do something for iPad
-    //--------------
-    [self.navigationController popViewControllerAnimated:NO];
+    if (section_id == 0){
+        NSString* old_history_filename = self.model->history_filename;
+        self.model->history_filename = history_file_array[row_id];
+        if (readHistoryKml(self.model)!= EXIT_SUCCESS){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+                                                            message:@"Fail to read the history file."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            self.model->history_filename = old_history_filename;
+        }else{
+            [self.myTableView reloadData];
+        }
+    }else{
+
+        self.rootViewController.breadcrumb_id_toshow = row_id;
+        
+        //--------------
+        // We might need to do something for iPad
+        //--------------
+        [self.navigationController popViewControllerAnimated:NO];
+    }
+}
+
+- (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+
+    int i = [indexPath row];
+    int section_id = [indexPath section];
+
+    if (section_id == 0){
+        dirty_flag = true;
+        selected_filename = history_file_array[i];
+        // Perform segue
+        [self performSegueWithIdentifier:@"ToBreadcrumbDetailView"
+                                  sender:nil];
+    }
 }
 
 //-------------
@@ -168,15 +258,19 @@
 }
 
 
-/*
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//------------------
+// Prepare for the detail view
+//------------------
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(CustomPointAnnotation*)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"ToBreadcrumbDetailView"])
+    {
+        BreadcrumbDetailViewController *destinationViewController =
+        segue.destinationViewController;
+        
+        // grab the annotation from the sender
+        destinationViewController.filename = selected_filename;
+    }
 }
-*/
-
 @end
