@@ -178,17 +178,7 @@
 // This method is for ipad
 //-------------
 - (IBAction)dismissModalVC:(id)sender {
-
-    iOSViewController* parentVC = self.rootViewController;
     
-    [self dismissViewControllerAnimated:YES completion:^{
-        // call your completion method:
-        [parentVC viewWillAppear:YES];
-    }];
-}
-
--(void) viewWillDisappear:(BOOL)animated {
-    
-    [super viewWillDisappear:animated];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 @end

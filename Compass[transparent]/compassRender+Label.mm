@@ -2,11 +2,12 @@
 #include <cmath>
 #include <algorithm>
 #include "compassRender.h"
-//#import "Texture2D.h"
+
 
 #ifdef __IPHONE__
 typedef UIFont NSFont;
 typedef UIColor NSColor;
+#import "Texture2D.h"
 #endif
 
 #pragma mark ---------drawing labels---------
@@ -127,9 +128,11 @@ void compassRender::drawiOSText(NSString *string, int font_size,
     glColor4f(0, 0, 0, 1.0);
     glEnable(GL_TEXTURE_2D);
     // Set up texture
-    Texture2D* statusTexture = [[Texture2D alloc] initWithString:string dimensions:CGSizeMake(width, height) alignment: 0                                                        fontName:@"Helvetica-Bold" fontSize:font_size];
-    
-    //UITextAlignmentLeft
+    Texture2D* statusTexture = [[Texture2D alloc]
+                                initWithString:string
+                                dimensions:CGSizeMake(width, height)
+                                alignment: UITextAlignmentLeft
+                                fontName:@"Helvetica-Bold" fontSize:font_size];
     
     // Bind texture
     glBindTexture(GL_TEXTURE_2D, [statusTexture name]);

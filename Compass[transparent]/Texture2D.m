@@ -68,12 +68,8 @@
  
  */
 
-#ifdef __IPHONE__
 #import <OpenGLES/ES1/glext.h>
-#endif
-
 #import "Texture2D.h"
-
 
 //CONSTANTS:
 

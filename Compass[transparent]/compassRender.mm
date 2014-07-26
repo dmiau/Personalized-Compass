@@ -236,7 +236,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     glMatrixMode(GL_MODELVIEW);
     
     
-#ifdef __IPHONE__
+
     //--------------
     // Draw overview box
     //--------------
@@ -249,7 +249,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         drawOverviewBox();
     }
     glPopMatrix();
-#endif
+
 
     //--------------
     // Draw compass
