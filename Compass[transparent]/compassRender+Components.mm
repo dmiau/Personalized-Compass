@@ -272,13 +272,7 @@ void compassRender::drawOverviewBox(){
     Vertex3D    vertex2 = Vertex3DMake(box4Corners[1].x, box4Corners[1].y, 0);
     Vertex3D    vertex3 = Vertex3DMake(box4Corners[2].x, box4Corners[2].y, 0);
     Vertex3D    vertex4 = Vertex3DMake(box4Corners[3].x, box4Corners[3].y, 0);
-
-//    Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
-//    Vertex3D    vertex2 = Vertex3DMake(20, 0, 0);
-//    Vertex3D    vertex3 = Vertex3DMake(20, 20, 0);
-//    Vertex3D    vertex4 = Vertex3DMake(0, 20, 0);
-    
-    
+        
     RectangleLine3D  rectangle = RectangleLine3DMake(vertex1, vertex2,
                                                      vertex3, vertex4);
     glVertexPointer(3, GL_FLOAT, 0, &rectangle);

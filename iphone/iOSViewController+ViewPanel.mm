@@ -12,19 +12,6 @@
 @implementation iOSViewController (ViewPanel)
 
 //------------------
-// Toggle between conventional compass and personalized compass
-//------------------
-//- (IBAction)toggleCompass:(id)sender {
-//    if ([self.glkView isHidden] == NO){
-//        [self.glkView setHidden:YES];
-//        [self setFactoryCompassHidden:NO];
-//    }else{
-//        [self.glkView setHidden:NO];
-//        [self setFactoryCompassHidden:YES];
-//    }
-//}
-
-//------------------
 // Wedge Control
 //------------------
 
@@ -65,6 +52,11 @@
 //------------------
 - (IBAction)overviewSegmentControl:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    
+    // Need to cache glkview's inital location:
+    static CGRect cache_rect =  self.glkView.frame;
+    
+    self.glkView.frame = cache_rect;
     switch ([segmentedControl selectedSegmentIndex]) {
         case 0:
             //------------
@@ -79,6 +71,9 @@
             // Overview
             //------------
             self.model->configurations[@"personalized_compass_status"] = @"off";
+#ifdef __IPAD__
+            self.glkView.frame = CGRectMake(0, 0, cache_rect.size.width, cache_rect.size.height);
+#endif
             [[self overviewMapView] setHidden:NO];
             
             self.overviewMapView.layer.borderColor = [UIColor blackColor].CGColor;
@@ -99,6 +94,9 @@
         default:
             break;
     }
+    
+    NSLog(@"cached: %@", NSStringFromCGRect(cache_rect));
+    NSLog(@"glkview: %@", NSStringFromCGRect(self.glkView.frame));
     [self.glkView setNeedsDisplay];
 }
 
@@ -147,12 +145,16 @@
     if (region.span.longitudeDelta > 180) region.span.longitudeDelta = 180;
     if (region.span.longitudeDelta < -180) region.span.longitudeDelta = -180;
     
-    [self.overviewMapView setRegion:region animated:NO];
+    if (self.model->tilt > - 0.1)
+        [self.overviewMapView setRegion:region animated:NO];
+    else
+        [self.overviewMapView setCenterCoordinate:region.center];
+    
     self.overviewMapView.camera.heading = -self.model->camera_pos.orientation;
     
     
     //-------------
-    // Disable compass
+    // Disable overview map's compass
     //-------------
     NSArray *mapSubViews = self.overviewMapView.subviews;
     
@@ -203,14 +205,7 @@
         [self.overviewMapView convertCoordinate:coord_array[i]
                                   toPointToView:self.glkView];
     }
-    //    //Draw a box
-    //    MKPolyline *routeLine = [MKPolyline polylineWithCoordinates:coord_array count:4];
-    //
-    //    // There is probably some performance penalty
-    //    [self.overviewMapView removeOverlays: self.overviewMapView.overlays];
-    //    [self.overviewMapView addOverlay:routeLine];
     [self.glkView setNeedsDisplay];
-    
 }
 
 - (IBAction)scaleSlider:(UISlider *)sender {

@@ -207,10 +207,11 @@
     if (!cached_flag){
         defaultCentroidParams =
         [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations[@"compass_centroid"]]];
+        
         default_rect = self.glkView.frame;
         cached_flag = true;
     }
-    
+    NSLog(@"defautl centroid: %@", defaultCentroidParams);
     //---------------
     // iPhone case
     //---------------
@@ -246,9 +247,7 @@
         self.model->configurations[@"compass_centroid"][0] =
         [NSNumber numberWithInt:80];
         self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:100];
-        
-        self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
+        [NSNumber numberWithInt:100];        
         self.glkView.frame = default_rect;
         
     }else if ([label isEqualToString:@"Center"]){

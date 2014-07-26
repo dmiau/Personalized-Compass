@@ -20,8 +20,12 @@
                                 <rect key="frame" x="0.0" y="70" width="768" height="954"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-4X-IXW" userLabel="Overview Map">
+                                <rect key="frame" x="20" y="91" width="286" height="186"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
                             <glkView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" drawableDepthFormat="16" drawableMultisample="4X" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-oC-5JL" customClass="iOSGLKView">
-                                <rect key="frame" x="321" y="91" width="416" height="465"/>
+                                <rect key="frame" x="346" y="76" width="416" height="465"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </glkView>
                             <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-7A-1wb">
@@ -85,10 +89,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-4X-IXW" userLabel="Overview Map">
-                                <rect key="frame" x="20" y="91" width="286" height="186"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

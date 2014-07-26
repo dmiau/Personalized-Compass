@@ -242,8 +242,11 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //--------------
     // This is strange, I couldn't place this block below the draw compass code...
     glPushMatrix();
-    if (isOverviewMapEnabled){
+    if (isOverviewMapEnabled &&
+        model->tilt > -0.0001)
+    {
         // Note UIView's coordinate system is diffrent than OpenGL's
+        
         glTranslatef(-orig_width/2, orig_height/2, 0);
         glRotatef(180, 1, 0, 0);
         drawOverviewBox();
