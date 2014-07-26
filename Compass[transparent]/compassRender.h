@@ -77,6 +77,7 @@ public:
     //----------------
     // Indicates whether the watch mode is on or not
     bool watchMode;
+    bool trainingMode;
     
     // Compass presenation parameters
     float glDrawingCorrectionRatio;
@@ -174,13 +175,12 @@ private:
     void renderStyleThresholdSticks(vector<int> &indices_for_rendering);
     void renderStyleWedge(vector<int> &indices_for_rendering);
     void renderBareboneCompass();
-    
+
+    CGSize makeGLFrameSize(NSAttributedString *attr_str);
 #ifdef __IPHONE__
     void drawiOSText(NSString *string, int font_size,
                      CGFloat width, CGFloat height);
-    CGSize makeGLFrameSize(NSAttributedString *attr_str);
 #endif
-
 };
 
 //-------------------------

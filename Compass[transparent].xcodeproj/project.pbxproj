@@ -45,8 +45,7 @@
 		9A2E42E9196C9D2C00CF8862 /* heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E42E4196C9D2C00CF8862 /* heading.png */; };
 		9A2E42EA196C9D2C00CF8862 /* heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E42E4196C9D2C00CF8862 /* heading.png */; };
 		9A2ED70A19639D5900CA385E /* ExtraPanels.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2ED70919639D5900CA385E /* ExtraPanels.xib */; };
-		9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
-		9A2F0C5A1943DAD600350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
+		9A2F0C591943DA9200350BD2 /* Texture2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.mm */; };
 		9A3240D8197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* iOSViewController+SnapShot.mm */; };
 		9A3240D9197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* iOSViewController+SnapShot.mm */; };
 		9A3240DC197AB083008E929D /* iOSViewController+History.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240DB197AB083008E929D /* iOSViewController+History.mm */; };
@@ -348,6 +347,19 @@
 		9AF089FD1921390700E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
 		9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
 		9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
+		9AF1231C19843097004D4EFC /* Texture2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.mm */; };
+		9AF2730C1982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
+		9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
+		9AF2730E1982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
+		9AF2730F1982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
+		9AF273101982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
+		9AF273111982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
+		9AF273121982865C00C0195B /* snapshotSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730B1982865C00C0195B /* snapshotSelected.png */; };
+		9AF273131982865C00C0195B /* snapshotSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730B1982865C00C0195B /* snapshotSelected.png */; };
+		9AF273141982865C00C0195B /* snapshotSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730B1982865C00C0195B /* snapshotSelected.png */; };
+		9AF273151982865C00C0195B /* snapshotSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730B1982865C00C0195B /* snapshotSelected.png */; };
+		9AF273161982865C00C0195B /* snapshotSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730B1982865C00C0195B /* snapshotSelected.png */; };
+		9AF273171982865C00C0195B /* snapshotSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730B1982865C00C0195B /* snapshotSelected.png */; };
 		9AF29F2918F4C90000A28AC3 /* moto360_bikemap.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */; };
 		9AF29F2A18F4C90000A28AC3 /* moto360_wrist.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AF29F2818F4C90000A28AC3 /* moto360_wrist.jpg */; };
 		9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
@@ -418,7 +430,7 @@
 		9A2E42E4196C9D2C00CF8862 /* heading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heading.png; path = icons/heading.png; sourceTree = "<group>"; };
 		9A2ED70919639D5900CA385E /* ExtraPanels.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtraPanels.xib; sourceTree = "<group>"; };
 		9A2F0C521943DA9200350BD2 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture2D.h; path = "../Compass[transparent]/Texture2D.h"; sourceTree = "<group>"; };
-		9A2F0C531943DA9200350BD2 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Texture2D.m; path = "../Compass[transparent]/Texture2D.m"; sourceTree = "<group>"; };
+		9A2F0C531943DA9200350BD2 /* Texture2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Texture2D.mm; path = "../Compass[transparent]/Texture2D.mm"; sourceTree = "<group>"; };
 		9A3240D6197AB06F008E929D /* iOSViewController+SnapShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+SnapShot.h"; sourceTree = "<group>"; };
 		9A3240D7197AB06F008E929D /* iOSViewController+SnapShot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+SnapShot.mm"; sourceTree = "<group>"; };
 		9A3240DA197AB083008E929D /* iOSViewController+History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+History.h"; sourceTree = "<group>"; };
@@ -561,6 +573,8 @@
 		9AF01B7118ECE5FC0029A860 /* GLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLString.h; sourceTree = "<group>"; };
 		9AF01B7218ECE5FC0029A860 /* GLString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLString.mm; sourceTree = "<group>"; };
 		9AF089FC1921390700E118D5 /* New York City [many].kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "New York City [many].kml"; sourceTree = "<group>"; };
+		9AF2730A1982865C00C0195B /* snapshotDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snapshotDefault.png; path = icons/snapshotDefault.png; sourceTree = "<group>"; };
+		9AF2730B1982865C00C0195B /* snapshotSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snapshotSelected.png; path = icons/snapshotSelected.png; sourceTree = "<group>"; };
 		9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moto360_bikemap.png; sourceTree = "<group>"; };
 		9AF29F2818F4C90000A28AC3 /* moto360_wrist.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moto360_wrist.jpg; sourceTree = "<group>"; };
 		9AF523B118DC83BF005823A2 /* xmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlParser.h; sourceTree = "<group>"; };
@@ -692,7 +706,7 @@
 				9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */,
 				9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */,
 				9A2F0C521943DA9200350BD2 /* Texture2D.h */,
-				9A2F0C531943DA9200350BD2 /* Texture2D.m */,
+				9A2F0C531943DA9200350BD2 /* Texture2D.mm */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -845,6 +859,8 @@
 		9A998D66194B716800778DFC /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				9AF2730A1982865C00C0195B /* snapshotDefault.png */,
+				9AF2730B1982865C00C0195B /* snapshotSelected.png */,
 				9A2E42E4196C9D2C00CF8862 /* heading.png */,
 				9A3DA0951964E9B1009E0073 /* add.png */,
 				9A3DA0961964E9B1009E0073 /* remove.png */,
@@ -1214,11 +1230,13 @@
 				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */,
+				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
 				9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A998D7D194BCB0900778DFC /* setup.jpg in Resources */,
 				9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */,
 				9A4F0FB1193E745900CF32DE /* montreal.kml in Resources */,
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
+				9AF273101982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A3DA0A11964E9B1009E0073 /* remove.png in Resources */,
 				9AB2A722196372AA0001E96F /* unselected.png in Resources */,
 				9A2E42E9196C9D2C00CF8862 /* heading.png in Resources */,
@@ -1235,9 +1253,11 @@
 				9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A239EE2196EFF410064BDC9 /* new.kml in Resources */,
 				9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */,
+				9AF273171982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AB2A723196372AA0001E96F /* unselected.png in Resources */,
 				9A82B6441941518900534A5F /* configurations.json in Resources */,
 				9A82B6541941528600534A5F /* iPad.storyboard in Resources */,
+				9AF273111982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A82B6451941518900534A5F /* New York City [many].kml in Resources */,
 				9A998D69194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A82B6461941518900534A5F /* london.kml in Resources */,
@@ -1277,11 +1297,13 @@
 				9AA7892A1909FE3000A26C66 /* montreal.kml in Resources */,
 				9A3DA09A1964E9B1009E0073 /* add.png in Resources */,
 				9AECA772196AEAB7008ADAEC /* UKLondon.kml in Resources */,
+				9AF273151982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AB2A71B196372AA0001E96F /* selected.png in Resources */,
 				9AA7892D1909FE3000A26C66 /* newyork.kml in Resources */,
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
 				9AA789371909FE5A00A26C66 /* browser.xib in Resources */,
+				9AF2730F1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9AA789301909FE3000A26C66 /* README.txt in Resources */,
 				9AEECFF91910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9A2E42E8196C9D2C00CF8862 /* heading.png in Resources */,
@@ -1298,6 +1320,7 @@
 				9A239EDD196EFF410064BDC9 /* new.kml in Resources */,
 				9A3DA0971964E9B1009E0073 /* add.png in Resources */,
 				9A9701E319083EB9007C3C19 /* MainMenu.xib in Resources */,
+				9AF273121982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */,
 				9A3DA0BB1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AF29F2918F4C90000A28AC3 /* moto360_bikemap.png in Resources */,
@@ -1316,6 +1339,7 @@
 				9A998D7C194BCB0900778DFC /* setup.jpg in Resources */,
 				9AF29F2A18F4C90000A28AC3 /* moto360_wrist.jpg in Resources */,
 				9AEA57E118D9EBB20028B80C /* Credits.rtf in Resources */,
+				9AF2730C1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9AEA581D18D9EC680028B80C /* README.txt in Resources */,
 				9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9AB90B8D194DED0B0030BF5B /* Taiwan.kml in Resources */,
@@ -1329,6 +1353,7 @@
 			files = (
 				9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */,
 				9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */,
+				9AF273141982865C00C0195B /* snapshotSelected.png in Resources */,
 				9A2E42E7196C9D2C00CF8862 /* heading.png in Resources */,
 				9AB2A720196372AA0001E96F /* unselected.png in Resources */,
 				9A9701DD19083C9B007C3C19 /* configurations.json in Resources */,
@@ -1346,6 +1371,7 @@
 				9AECA771196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9AEC5CF218F3956F00A29F75 /* newyork.kml in Resources */,
 				9A3DA09F1964E9B1009E0073 /* remove.png in Resources */,
+				9AF2730E1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9AEC5CF318F3956F00A29F75 /* Credits.rtf in Resources */,
 				9AB90B8F194DED0B0030BF5B /* Taiwan.kml in Resources */,
 				9A239EDF196EFF410064BDC9 /* new.kml in Resources */,
@@ -1369,8 +1395,10 @@
 				9AECA770196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9AFB14B518EE639A00063632 /* newyork.kml in Resources */,
 				9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */,
+				9AF273131982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,
 				9AB90B8E194DED0B0030BF5B /* Taiwan.kml in Resources */,
+				9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A3DA09E1964E9B1009E0073 /* remove.png in Resources */,
 				9A239EDE196EFF410064BDC9 /* new.kml in Resources */,
 				9AFB14B718EE639A00063632 /* README.txt in Resources */,
@@ -1385,7 +1413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A2F0C5A1943DAD600350BD2 /* Texture2D.m in Sources */,
+				9AF1231C19843097004D4EFC /* Texture2D.mm in Sources */,
 				9A6FB7F41958FFC20020355A /* iOSViewController+Updates.mm in Sources */,
 				9A49A5F2195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
 				9A3DA0CE19683235009E0073 /* DetailViewController.mm in Sources */,
@@ -1470,7 +1498,7 @@
 				9AE020B3198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */,
 				9A82B6391941518900534A5F /* main.m in Sources */,
 				9A49A5F71954A8BB00937961 /* myTableViewController.mm in Sources */,
-				9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */,
+				9A2F0C591943DA9200350BD2 /* Texture2D.mm in Sources */,
 				9A95CCB4194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
 				9A2E42E3196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,

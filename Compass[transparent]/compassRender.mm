@@ -63,6 +63,7 @@ int compassRender::initRenderMdl(){
     compass_scale = [model->configurations[@"compass_scale"] floatValue];
     label_flag = true;
     watchMode = false;
+    trainingMode = false;
     isOverviewMapEnabled = false;
     
     // Initialize all four corners to 0 first

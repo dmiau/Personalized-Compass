@@ -138,6 +138,7 @@
                         <segment title="Normal"/>
                         <segment title="Explorer"/>
                         <segment title="Watch"/>
+                        <segment title="Training"/>
                     </segments>
                     <connections>
                         <action selector="watchModeSegmentControl:" destination="-1" eventType="valueChanged" id="G0W-qA-Yy3"/>

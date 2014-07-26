@@ -65,7 +65,6 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             data data_ = model->data_array[j];
             
             double distance;
-//            distance = data_.distance / max_dist * half_canvas_size * 0.9;
             distance = half_canvas_size * 0.9;
             drawLabel(data_.orientation, distance, data_.name);
             orientation_array.push_back(data_.orientation);

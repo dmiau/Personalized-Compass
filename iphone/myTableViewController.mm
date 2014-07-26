@@ -249,7 +249,8 @@
 //-------------
 - (IBAction)toggleLandmakrSelection:(id)sender {
     UIBarButtonItem *myButton = (UIBarButtonItem*) sender;
-    if ([[myButton title] isEqualToString:@"SelectAll"]){
+
+    if ([[myButton title] rangeOfString:@"All"].location != NSNotFound){
         for (int i = 0; i < self.model->data_array.size(); ++i) {
             self.model->data_array[i].isEnabled = true;
         }

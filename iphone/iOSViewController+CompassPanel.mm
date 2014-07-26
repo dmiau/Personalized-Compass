@@ -17,13 +17,37 @@
     // http://www.cocoanetics.com/2009/09/deep-copying-dictionaries/
     static NSDictionary* cache_configurations =
     [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations]];
+
+    self.renderer->watchMode = false;
+    self.renderer->trainingMode = false;
+    
+    
+    
+    // Initialization
+    static BOOL once = false;
+    static UISlider *slider;
+    if (!once){
+        CGRect frame = CGRectMake(28.0,
+                                  self.view.frame.size.height - 100
+                                  , 200.0, 40.0);
+        slider = [[UISlider alloc] initWithFrame:frame];
+        [slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventValueChanged];
+        [slider setBackgroundColor:[UIColor grayColor]];
+        slider.minimumValue = 0.0;
+        slider.maximumValue = 1.0;
+        slider.continuous = YES;
+        slider.value = 0.5;
+        once = true;
+    }
+    [slider removeFromSuperview];
+    self.renderer->model->configurations[@"font_size"] =
+    cache_configurations[@"font_size"];
     
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
             //-----------
             // Normal
             //-----------
-            self.renderer->watchMode = false;
             for (int i = 0; i<4; ++i){
                 self.renderer->model->configurations[@"bg_color"][i] =
                 cache_configurations[@"bg_color"][i];
@@ -42,17 +66,15 @@
             //-----------
             // Explorer Mode
             //-----------
-            self.renderer->watchMode = false;
             // Change background color
             for (int i = 0; i<4; ++i){
                 self.renderer->model->configurations[@"bg_color"][i] =
                 [NSNumber numberWithFloat:255];
             }
             // Change compass ctr
-            for (int i = 0; i<2; ++i){
-                self.renderer->model->configurations[@"compass_centroid"][i] =
-                [NSNumber numberWithFloat:0];
-            }
+            [self changeCompassLocationTo: @"Center"];
+            self.renderer->model->configurations[@"font_size"] =
+            [NSNumber numberWithFloat:14];
             self.renderer->model->configurations[@"compass_scale"] =
             [NSNumber numberWithFloat:0.9];
             break;
@@ -61,21 +83,40 @@
             // Watch Mode
             //-----------
             self.renderer->watchMode = true;
-            
             // Change compass ctr
-            for (int i = 0; i<2; ++i){
-                self.renderer->model->configurations[@"compass_centroid"][i] =
-                [NSNumber numberWithFloat:0];
-            }
+            [self changeCompassLocationTo: @"Center"];
             self.renderer->model->configurations[@"compass_scale"] =
             [NSNumber numberWithFloat:0.3];
 
             break;
+        case 3:
+            //-----------
+            // Training Mode
+            //-----------
+            self.renderer->trainingMode = true;
+            
+            // Change compass ctr
+            [self changeCompassLocationTo: @"Center"];
+            
+            self.renderer->model->configurations[@"compass_scale"] =
+            [NSNumber numberWithFloat:0.8];
+            self.renderer->model->configurations[@"font_size"] =
+            [NSNumber numberWithFloat:14];
+            [self.view addSubview:slider];
+            break;
     }
-    [self toggleWatchMask];    
+    [self toggleMapMask];
+    [self toggleWatchMask];
     self.renderer->loadParametersFromModelConfiguration();
     [self updateModelCompassCenterXY];
     [self.glkView setNeedsDisplay];
+}
+
+-(void)sliderAction:(id)sender
+{
+    UISlider *slider = (UISlider*)sender;
+    float value = slider.value;
+    mapMask.opacity = value;
 }
 
 - (void) toggleWatchMask{
@@ -106,6 +147,20 @@
     }
 }
 
+- (void) toggleMapMask{
+
+    if (self.renderer->trainingMode){
+        mapMask.backgroundColor = [[UIColor whiteColor] CGColor];
+        mapMask.frame = CGRectMake(0, 0,
+                                   self.mapView.frame.size.width,
+                                   self.mapView.frame.size.height);
+        mapMask.opacity = 0.5;
+        
+        [self.mapView.layer addSublayer:mapMask];
+    }else{
+        [mapMask removeFromSuperlayer];
+    }
+}
 
 //------------------
 // Select compass type
@@ -226,7 +281,6 @@
     [self updateModelCompassCenterXY];
     [self.glkView setNeedsDisplay];
 }
-
 
 
 

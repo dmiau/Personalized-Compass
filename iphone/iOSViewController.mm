@@ -79,6 +79,7 @@
         self.landmark_id_toshow = -1;
         [self updateMapDisplayRegion];
     }
+    [self.glkView setNeedsDisplay];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -174,7 +175,7 @@
     self.mapView.delegate = self;
     self.renderer->mapView = [self mapView];
     [self initMapView];
-    
+    mapMask = [CALayer layer];
     // Recognize long-press gesture
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleGesture:)];

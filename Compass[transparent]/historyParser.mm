@@ -48,7 +48,7 @@ int readHistoryKml(compassMdl* mdl){
 #endif
     myParser.parseFile;
     mdl->breadcrumb_array = myParser.breadcrumb_array;
-    
+    mdl->history_notes = myParser.history_notes;
     return EXIT_SUCCESS;
 }
 
@@ -59,25 +59,32 @@ int readHistoryKml(compassMdl* mdl){
 @implementation historyParser
 @synthesize breadcrumb_array;
 
--(id)initWithFileURL: (NSURL*) in_fileurl{
+-(id)initCommon{
     self = [super init];
-    fileurl = in_fileurl;
-    in_data = nil;
-    
     place_flag          =false;
     name_flag           =false;
     coord_flag          =false;
+    notes_flag          =false;
+    date_flag           =false;
+    self.history_notes = @"";
+    return self;
+}
+
+
+-(id)initWithFileURL: (NSURL*) in_fileurl{
+
+    self = [self initCommon];
+    
+    fileurl = in_fileurl;
+    in_data = nil;
     return self;
 }
 
 -(id)initWithData: (NSData*) inData{
-    self = [super init];
+    self = [self initCommon];
     fileurl = nil;
     in_data = inData;
     
-    place_flag          =false;
-    name_flag           =false;
-    coord_flag          =false;
     return self;
 }
 
@@ -114,6 +121,10 @@ int readHistoryKml(compassMdl* mdl){
         name_flag = true;
     }else if ([elementName isEqualToString:@"coordinates"]){
         coord_flag = true;
+    }else if ([elementName isEqualToString:@"notes"]){
+        notes_flag = true;
+    }else if ([elementName isEqualToString:@"date"]){
+        date_flag = true;
     }
 }
 
@@ -134,7 +145,11 @@ int readHistoryKml(compassMdl* mdl){
             ([_coord[1] floatValue],
              [_coord[0] floatValue]);
             breadcrumb_array[breadcrumb_array.size()-1].coord2D = coord2D;
+        }else if (date_flag){
+            breadcrumb_array[breadcrumb_array.size()-1].date_str = string;
         }
+    }else if (notes_flag){
+        self.history_notes = string;
     }
 }
 
@@ -148,6 +163,10 @@ int readHistoryKml(compassMdl* mdl){
         name_flag = false;
     }else if ([elementName isEqualToString:@"coordinates"]){
         coord_flag = false;
+    }else if ([elementName isEqualToString:@"notes"]){
+        notes_flag = false;
+    }else if ([elementName isEqualToString:@"date"]){
+        date_flag = false;
     }
 }
 

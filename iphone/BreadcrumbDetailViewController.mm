@@ -29,6 +29,10 @@
     self.model = compassMdl::shareCompassMdl();
     old_name = self.filename;
     self.filenameTextField.text = self.filename;
+    self.noteTextField.text = self.model->history_notes;
+    self.dataCount.text =
+    [NSString stringWithFormat:@"%lu",
+     self.model->breadcrumb_array.size()];
     // Do any additional setup after loading the view.
 }
 
@@ -54,13 +58,20 @@
     [self.filenameTextField resignFirstResponder];
     [self.noteTextField resignFirstResponder];
     new_name = self.filenameTextField.text;
+    self.model->history_notes = self.noteTextField.text;
 }
 
 - (IBAction)clickedSaveButton:(UIButton*)sender {
     bool rename_status;
+    
+    //-------------
+    // Save and then rename
+    //-------------
     if (self.model->filesys_type == DROPBOX){
+        rename_status = [self.model->dbFilesystem writeFileWithName:old_name Content:genHistoryString(self.model)];
         rename_status = [self.model->dbFilesystem renameFilename:old_name withName:new_name];
     }else{
+        rename_status = [self.model->docFilesystem writeFileWithName:old_name Content:genHistoryString(self.model)];
         rename_status = [self.model->docFilesystem renameFilename:old_name withName:new_name];
     }
     

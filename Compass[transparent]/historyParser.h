@@ -28,9 +28,12 @@ int readHistoryKml(compassMdl* mdl);
     BOOL place_flag;
     BOOL name_flag;
     BOOL coord_flag;
+    BOOL notes_flag;
+    BOOL date_flag;
 }
 //snapshot_array stores the output
 @property std::vector<breadcrumb> breadcrumb_array;
+@property NSString* history_notes;
 - (id)initWithFileURL: (NSURL*) in_fileurl;
 - (id)initWithData: (NSData*) in_data;
 - (int) parseFile;

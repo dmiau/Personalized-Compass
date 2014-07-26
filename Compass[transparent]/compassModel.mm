@@ -96,6 +96,7 @@ int compassMdl::initMdl(){
         }
     }
     history_filename = @"";
+    history_notes = @"";
 #endif
     
     //------------

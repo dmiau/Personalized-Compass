@@ -28,6 +28,7 @@ enum findMe_enum{
     NSTimer *_updateUITimer;
     MKLocalSearch *localSearch;
     MKLocalSearchResponse *results;
+    CALayer *mapMask;
 }
 
 //----------------

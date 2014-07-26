@@ -80,13 +80,13 @@
   "comment": "the color of the compass disk"
   },
   {
-  "property": "inner_disk_color",
-  "value": [150, 150, 150, 150],
-  "comment": "the color of the inner compass disk"
-  },
-  {
   "property": "outer_disk_ratio",
   "value": 0.7,
+  "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
+  },
+  {
+  "property": "label_dist_ratio",
+  "value": 0.9,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },
   {
@@ -138,12 +138,12 @@
   },
   {
   "property": "iOS_font_size",
-  "value": 9,
+  "value": 10,
   "comment": "the scale needs to be redisgned."
   },
   {
   "property": "iPad_font_size",
-  "value": 9,
+  "value": 10,
   "comment": "the scale needs to be redisgned."
   },
   {

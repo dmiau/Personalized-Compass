@@ -87,8 +87,11 @@ class breadcrumb{
 public:
     CLLocationCoordinate2D coord2D;
     NSString* name;
-    int id;
-    NSDate* time_stamp;
+    NSString* date_str;
+public:
+    breadcrumb(){
+        date_str    = @"";        
+    }
 };
 
 //--------------
@@ -128,6 +131,7 @@ public:
     NSString* location_filename;
     NSString* snapshot_filename;
     NSString* history_filename;
+    NSString* history_notes;
     
     // Do not update indices_for_rendering when this is on.
     bool lockLandmarks;
@@ -210,5 +214,5 @@ double DegreesToRadians(double degrees);
 double RadiansToDegrees(double radians);
 NSString* genKMLString(vector<data> my_data_array);
 NSString* genSnapshotString(vector<snapshot> my_snapshot_array);
-NSString* genHistoryString(vector<breadcrumb> my_breadcrumb_array);
+NSString* genHistoryString(compassMdl* mdl_instance);
 #endif /* defined(__Exploration__model__) */

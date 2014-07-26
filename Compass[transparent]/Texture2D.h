@@ -60,8 +60,20 @@
  
  */
 
+#ifdef __IPHONE__
 #import <UIKit/UIKit.h>
 #import <OpenGLES/ES1/gl.h>
+#else
+#import <Cocoa/Cocoa.h>
+#import <OpenGL/gl.h>
+#import <OpenGL/glext.h>
+#import <OpenGL/OpenGL.h>
+#import <OpenGL/CGLContext.h>
+typedef NSImage UIImage;
+typedef NSTextAlignment UITextAlignment;
+#endif
+
+
 
 //CONSTANTS:
 

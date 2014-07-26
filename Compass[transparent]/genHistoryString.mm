@@ -3,9 +3,11 @@
 #include <sstream>
 
 using namespace std;
-NSString* genHistoryString(vector<breadcrumb> my_breadcrumb_array)
+NSString* genHistoryString(compassMdl* mdl_instance)
 {
     
+    vector<breadcrumb> my_breadcrumb_array =
+    mdl_instance->breadcrumb_array;
     string temp_str, coord_str;
     std::ostringstream stringStream;
     
@@ -31,7 +33,23 @@ NSString* genHistoryString(vector<breadcrumb> my_breadcrumb_array)
      <kmlFilename>london.kml</kmlFilename>
      </Placemark>
      */
+
+    //-------------
+    // History notes
+    //-------------
+    if ([mdl_instance->history_notes length] > 0){
+        //-----------------
+        // Notes
+        //-----------------
+        temp_str = temp_str + "<notes>";
+        temp_str = temp_str +
+        string([mdl_instance->history_notes UTF8String]);
+        temp_str = temp_str + "</notes>\n";
+    }
     
+    //-------------
+    // Breadcrumb array
+    //-------------
     for (int i = 0; i < my_breadcrumb_array.size(); ++i) {
         temp_str = temp_str + "<Placemark>\n";
         
@@ -58,6 +76,15 @@ NSString* genHistoryString(vector<breadcrumb> my_breadcrumb_array)
         
         temp_str = temp_str + "</coordinates>\n";
         temp_str = temp_str + "</Point>\n";
+        
+        //-----------------
+        // date_str
+        //-----------------
+        temp_str = temp_str + "<date>";
+        temp_str = temp_str +
+        string([my_breadcrumb_array[i].date_str UTF8String]);
+        temp_str = temp_str + "</date>\n";
+        
         
         temp_str = temp_str + "</Placemark>\n\n";
     }

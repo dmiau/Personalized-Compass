@@ -23,8 +23,6 @@
     if(self = [super initWithCoder:aDecoder]) {
         // Do something
         
-        self.mainViewController = (iOSViewController*)self.parentViewController;
-        
         model = compassMdl::shareCompassMdl();
         if (model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
@@ -37,7 +35,19 @@
         
         [self initPickerData];
         
-        self.needUpdateDisplayRegion = false;
+        // Connect to the parent view controller to update its
+        // properties directly
+        
+        //-------------------
+        // Set the rootViewController
+        //-------------------
+        AppDelegate *app = [[UIApplication sharedApplication] delegate];
+        
+        UINavigationController *myNavigationController =
+        app.window.rootViewController;
+        
+        self.rootViewController =
+        [myNavigationController.viewControllers objectAtIndex:0];
         
     }
     return self;
@@ -56,6 +66,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     [self selectDefaultLocationFromPicker];
     
@@ -142,52 +153,15 @@
     // it is therefore not necessary to go to the first location
     //--------------
     if (![model->location_filename
-          isEqualToString:@"new.kml"])
+         isEqualToString:@"new.kml"])
     {
-        self.needUpdateDisplayRegion = true;
+        self.rootViewController.needUpdateDisplayRegion = true;
         // updateMapDisplayRegion will be called in unwindSegue
     }
+    self.rootViewController.needUpdateAnnotations = true;
 }
-
 
 #pragma mark - Navigation
-
-//// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//    if (self.needUpdateDisplayRegion)
-//    {
-//        iOSViewController *destViewController = segue.destinationViewController;
-//        destViewController.needUpdateDisplayRegion = true;
-//        destViewController.needUpdateAnnotations = true;
-//    }
-//}
-
--(void) viewWillDisappear:(BOOL)animated {
-    if (self.needUpdateDisplayRegion)
-    {
-        iOSViewController *destViewController =
-        [self.navigationController.viewControllers objectAtIndex:0];
-        
-        //---------------
-        // iPad case (because we use modal dialog)
-        //---------------
-        if (destViewController == nil){
-            UINavigationController *temp;
-            temp = (UINavigationController*)
-            self.presentingViewController;
-            destViewController = [[temp viewControllers] objectAtIndex:0];
-        }
-        
-        destViewController.needUpdateDisplayRegion = true;
-        destViewController.needUpdateAnnotations = true;
-    }
-    [super viewWillDisappear:animated];
-}
-
 
 //--------------
 // Data source selector
@@ -225,7 +199,7 @@
         [self initPickerData];
         [self.dataPicker reloadAllComponents];
         [self selectDefaultLocationFromPicker];
-        self.needUpdateDisplayRegion = true;
+        self.rootViewController.needUpdateDisplayRegion = true;
     }
     
 }

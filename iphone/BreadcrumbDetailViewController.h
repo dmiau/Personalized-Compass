@@ -22,5 +22,6 @@
 - (IBAction)doneEditing:(id)sender;
 
 - (IBAction)clickedSaveButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *dataCount;
 
 @end

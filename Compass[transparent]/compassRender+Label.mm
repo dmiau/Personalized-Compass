@@ -2,11 +2,11 @@
 #include <cmath>
 #include <algorithm>
 #include "compassRender.h"
+//#import "Texture2D.h"
 
 #ifdef __IPHONE__
 typedef UIFont NSFont;
 typedef UIColor NSColor;
-#import "Texture2D.h"
 #endif
 
 #pragma mark ---------drawing labels---------
@@ -19,7 +19,7 @@ void compassRender::drawLabel(float rotation, float height, string name)
     // Font generation
     //--------------
     // Set font size
-	NSFont * font =[NSFont fontWithName:@"Helvetica"
+	NSFont * font =[NSFont fontWithName:@"Helvetica-Bold"
                                    size:
                     [model->configurations[@"font_size"] floatValue]];
     NSString * string = [NSString stringWithFormat:@"%@\n",
@@ -31,18 +31,15 @@ void compassRender::drawLabel(float rotation, float height, string name)
     //--------------
     // Render labels, different rendering methods depending on the platform
     //--------------
+    NSAttributedString *attr_str =
+    [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
+    CGSize str_size = makeGLFrameSize(attr_str);
+    
 #ifndef __IPHONE__
     //--------------
     // OSX
     //--------------
-    [label_string setString:string withAttributes:stringAttrib];
-#else
-    //--------------
-    // iOS
-    //--------------
-    NSAttributedString *attr_str =
-    [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
-    CGSize str_size = makeGLFrameSize(attr_str);
+    [label_string setString:attr_str];
 #endif
     
     
@@ -64,18 +61,9 @@ void compassRender::drawLabel(float rotation, float height, string name)
     //--------------
     // Render labels, different rendering methods depending on the platform
     //--------------
-#ifndef __IPHONE__
-    //--------------
-    // OSX
-    //--------------
-    glRotatef(-model->tilt, 1, 0, 0);    
-    glRotatef(180, 1, 0, 0);
-    [label_string drawAtPoint:NSMakePoint (0, 0)];
-#else
-    //--------------
-    // iOS
-    //--------------
     glRotatef(model->camera_pos.orientation, 0, 0, 1);
+
+
     rotation = rotation + model->camera_pos.orientation;
     
     if (rotation < 0)
@@ -86,10 +74,22 @@ void compassRender::drawLabel(float rotation, float height, string name)
     
     //--------------------
     //text tilting still needs to be fixed
-//    glTranslatef(0, str_size.height/2, 0);
     glRotatef(-model->tilt, 1, 0, 0);
-//    glTranslatef(0, -str_size.height/2, 0);
     //--------------------
+    
+#ifndef __IPHONE__
+    //--------------
+    // OSX
+    //--------------
+
+    glRotatef(180, 1, 0, 0);
+    [label_string drawAtPoint:NSMakePoint (0, 0)];
+//    [label_string drawWithBounds:
+//     NSMakeRect(0, 0, str_size.width, str_size.height)];
+#else
+    //--------------
+    // iOS
+    //--------------
     glScalef(0.25, 0.25, 0);
     drawiOSText(string, 4*[model->configurations[@"font_size"] floatValue],
                 4*str_size.width,
@@ -98,14 +98,14 @@ void compassRender::drawLabel(float rotation, float height, string name)
     glPopMatrix();
 }
 
-//--------------
-// iOS related tools
-//--------------
-#ifdef __IPHONE__
 CGSize compassRender::makeGLFrameSize(NSAttributedString *attr_str){
     CGSize t_size = [attr_str size];
+
+    NSRange whiteSpaceRange = [attr_str.string
+                               rangeOfCharacterFromSet:
+                               [NSCharacterSet whitespaceCharacterSet]];
     
-    if (t_size.width > half_canvas_size/5){
+    if (whiteSpaceRange.location != NSNotFound){
         t_size.width = t_size.width /2;
         t_size.height = t_size.height * 2;
     }
@@ -115,6 +115,10 @@ CGSize compassRender::makeGLFrameSize(NSAttributedString *attr_str){
     return t_size;
 }
 
+//--------------
+// iOS related tools
+//--------------
+#ifdef __IPHONE__
 void compassRender::drawiOSText(NSString *string, int font_size,
                                 CGFloat width, CGFloat height){
     width = width;
@@ -123,7 +127,9 @@ void compassRender::drawiOSText(NSString *string, int font_size,
     glColor4f(0, 0, 0, 1.0);
     glEnable(GL_TEXTURE_2D);
     // Set up texture
-    Texture2D* statusTexture = [[Texture2D alloc] initWithString:string dimensions:CGSizeMake(width, height) alignment:UITextAlignmentLeft fontName:@"Helvetica-Bold" fontSize:font_size];
+    Texture2D* statusTexture = [[Texture2D alloc] initWithString:string dimensions:CGSizeMake(width, height) alignment: 0                                                        fontName:@"Helvetica-Bold" fontSize:font_size];
+    
+    //UITextAlignmentLeft
     
     // Bind texture
     glBindTexture(GL_TEXTURE_2D, [statusTexture name]);

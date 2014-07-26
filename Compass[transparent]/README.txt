@@ -1250,4 +1250,18 @@ Maybe we will need to add user location into indices_for_rendering for data clus
 - added code to list and load history files
 - adding a detail pane for history files
 
+-------------------------------------------------------------------
+7.25.2014
+-------------------------------------------------------------------
+- it might be a good idea to think about the smart watch mode
+
+- calculate distance from a point to a polyline
+http://programmizm.sourceforge.net/blog/2012/distance-from-a-point-to-a-polyline
+
+-------------------------------------------------------------------
+7.26.2014
+-------------------------------------------------------------------
+- add notes filed to history files
+
+
 

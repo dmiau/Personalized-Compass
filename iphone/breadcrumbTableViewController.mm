@@ -140,7 +140,7 @@
     
     if (section_id == 0){
         cell.textLabel.text = history_file_array[i];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", starting_index + i];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
     }else{
         // Configure Cell
         cell.textLabel.text = @"Breadcrumb";
@@ -156,19 +156,7 @@
     int row_id = [path row];
     
     if (section_id == 0){
-        NSString* old_history_filename = self.model->history_filename;
-        self.model->history_filename = history_file_array[row_id];
-        if (readHistoryKml(self.model)!= EXIT_SUCCESS){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
-                                                            message:@"Fail to read the history file."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            self.model->history_filename = old_history_filename;
-        }else{
-            [self.myTableView reloadData];
-        }
+        [self loadHistoryWithIndex: row_id];
     }else{
 
         self.rootViewController.breadcrumb_id_toshow = row_id;
@@ -187,11 +175,27 @@
     int section_id = [indexPath section];
 
     if (section_id == 0){
+        [self loadHistoryWithIndex: i];
         dirty_flag = true;
         selected_filename = history_file_array[i];
         // Perform segue
         [self performSegueWithIdentifier:@"ToBreadcrumbDetailView"
                                   sender:nil];
+    }
+}
+
+- (void)loadHistoryWithIndex: (int) row_id{
+    self.model->history_filename = history_file_array[row_id];
+    if (readHistoryKml(self.model)!= EXIT_SUCCESS){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+                                                        message:@"Fail to read the history file."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }else{
+        [self.myTableView reloadData];
     }
 }
 
@@ -220,7 +224,7 @@
                           stringWithFormat:@"history%d.kml", counter];
     
     bool hasError = false;
-    NSString *content = genHistoryString(self.model->breadcrumb_array);
+    NSString *content = genHistoryString(self.model);
     
     if (self.model->filesys_type == DROPBOX){
         if (![self.model->dbFilesystem
