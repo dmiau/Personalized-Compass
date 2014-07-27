@@ -77,6 +77,7 @@
                                             <action selector="toggleWatchPanel:" destination="RyZ-6E-Ee0" id="IM4-Fh-nNb"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zs8-1R-bEh"/>
                                     <barButtonItem title="Debug" id="ujH-hy-25C">
                                         <connections>
                                             <action selector="toggleDebugView:" destination="RyZ-6E-Ee0" id="F4S-KA-N0x"/>
@@ -400,12 +401,12 @@
                                 <rect key="frame" x="0.0" y="525" width="540" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="SelectAll" id="7Sf-Nb-mk2">
+                                    <barButtonItem title="[All]" id="7Sf-Nb-mk2">
                                         <connections>
                                             <action selector="toggleLandmakrSelection:" destination="06K-e6-nHH" id="iSE-Di-ds4"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="DeselectAll" id="UrQ-hc-5na">
+                                    <barButtonItem title="[None]" id="UrQ-hc-5na">
                                         <connections>
                                             <action selector="toggleLandmakrSelection:" destination="06K-e6-nHH" id="nar-CB-ZSK"/>
                                         </connections>

@@ -126,7 +126,13 @@ void compassRender::drawiOSText(NSString *string, int font_size,
     width = width;
     height = height;
     // Use black
-    glColor4f(0, 0, 0, 1.0);
+    
+    if (mapView.mapType == MKMapTypeStandard){
+        glColor4f(0, 0, 0, 1.0);
+    }else{
+        glColor4f(255.0/255.0, 54.0/255.0, 96.0/255.0, 1.0);
+    }
+
     glEnable(GL_TEXTURE_2D);
     // Set up texture
     Texture2D* statusTexture = [[Texture2D alloc]
@@ -145,6 +151,7 @@ void compassRender::drawiOSText(NSString *string, int font_size,
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
+
     // Draw
     [statusTexture drawInRect:CGRectMake(0, 0, width, height)];
     

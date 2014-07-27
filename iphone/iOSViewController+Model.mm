@@ -34,5 +34,7 @@
         // Manual
         self.model->configurations[@"filter_type"] = @"MANUAL";
     }
+    self.model->updateMdl();
+    [self.glkView setNeedsDisplay];
 }
 @end

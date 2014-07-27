@@ -130,7 +130,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         
         if (watchMode){
                 max_aperture =
-            acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2 * 0.8;
+            acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2 * 0.95;
         }
         
         

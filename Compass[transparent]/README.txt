@@ -1265,4 +1265,10 @@ http://programmizm.sourceforge.net/blog/2012/distance-from-a-point-to-a-polyline
 Goals of today:
 - add labels for wedges. done @ 10:41PM
 
+text outline: http://stackoverflow.com/questions/10036671/how-could-i-outline-text-font
+
+-------------------------------------------------------------------
+7.27.2014
+-------------------------------------------------------------------
+- should focus on user study today
 

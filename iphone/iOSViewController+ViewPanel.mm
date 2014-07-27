@@ -116,6 +116,7 @@
     }else{
         self.mapView.mapType = MKMapTypeSatellite;
     }
+    [self.glkView setNeedsDisplay];
 }
 
 //------------------

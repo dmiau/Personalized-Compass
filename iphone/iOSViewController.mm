@@ -22,7 +22,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     
-    
+    self.model->updateMdl();
     //---------------
     // Unwind actions
     //---------------
@@ -48,7 +48,6 @@
         [self toggleLocationService:1];
         self.needToggleLocationService = false;
     }
-    
     
     //---------------
     // Snapshot and history stuff
