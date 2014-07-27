@@ -64,6 +64,7 @@ int compassRender::initRenderMdl(){
     label_flag = true;
     watchMode = false;
     trainingMode = false;
+    wedgeMode = false;
     isOverviewMapEnabled = false;
     
     // Initialize all four corners to 0 first
@@ -295,20 +296,15 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //--------------
     NSString* wedge_status = model->configurations[@"wedge_status"];
     if ([wedge_status isEqualToString:@"on"]){
-        bool orig_label_flag = label_flag;
-        label_flag = false;
+        wedgeMode = true;
         renderParamStruct.style_type =
         hashStyleStr(@"WEDGE");
         glPushMatrix();
         drawWayfindingAid(renderParamStruct);
+        wedgeMode = false;
         glPopMatrix();
-        label_flag = orig_label_flag;
     }
-    
-//    if (watchMode){
-//        drawWatchMask();
-//    }
-    
+
     glDisableClientState(GL_VERTEX_ARRAY);
     
     // glFlush is called in OpenGLView

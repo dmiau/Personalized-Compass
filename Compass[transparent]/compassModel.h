@@ -95,6 +95,24 @@ public:
 };
 
 //--------------
+// label info
+//--------------
+class label_info{
+public:
+    CGPoint centroid;
+    double distance;
+    float orientation;
+    int data_id;
+public:
+    label_info(){
+        distance = 0;
+        centroid = CGPointMake(0, 0);
+        orientation = 0;
+        data_id = 0;
+    }
+};
+
+//--------------
 // filter types
 //--------------
 enum filter_enum{
@@ -149,6 +167,7 @@ public:
     // indices of the filtered locations, for rendering
     vector<int> indices_for_rendering;
     vector<double> mode_max_dist_array;
+    vector<label_info> label_info_array;
     vector<int *> color_map;
     
     //-----------------

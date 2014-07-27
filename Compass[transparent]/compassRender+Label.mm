@@ -52,9 +52,11 @@ void compassRender::drawLabel(float rotation, float height, string name)
     glTranslatef(0, height, 0); //central_disk_radius
     glRotatef(-rotation, 0, 0, -1);
     
-    // Fix text size
-    float scale = 1/ (compass_scale); // glDrawingCorrectionRatio *
-    glScalef(scale, scale, 1);
+    if (!wedgeMode){
+        // Fix text size
+        float scale = 1/ (compass_scale); // glDrawingCorrectionRatio *
+        glScalef(scale, scale, 1);
+    }
     
     // This line seems to make the text darker for some reason
     glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
@@ -62,17 +64,16 @@ void compassRender::drawLabel(float rotation, float height, string name)
     //--------------
     // Render labels, different rendering methods depending on the platform
     //--------------
-    glRotatef(model->camera_pos.orientation, 0, 0, 1);
-
-
     rotation = rotation + model->camera_pos.orientation;
     
     if (rotation < 0)
         rotation = rotation + 360;
     
-    if ((rotation > 180) && (rotation < 360))
-        glTranslatef(-str_size.width, 0, 0);
-    
+    if (!wedgeMode){
+        glRotatef(model->camera_pos.orientation, 0, 0, 1);
+        if ((rotation > 180) && (rotation < 360))
+            glTranslatef(-str_size.width, 0, 0);
+    }
     //--------------------
     //text tilting still needs to be fixed
     glRotatef(-model->tilt, 1, 0, 0);

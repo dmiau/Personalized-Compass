@@ -55,25 +55,40 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
     // draw the labels
     // ---------------
     if (label_flag){
+        glPushMatrix();        
+        //-------------------
+        // Check wedge status
+        //-------------------
+        
         vector<double> orientation_array;
         orientation_array.clear();
         
-        glPushMatrix();
+
         glTranslatef(0, 0, 1);
         for (int i = 0; i < model->indices_for_rendering.size(); ++i){
             int j = model->indices_for_rendering[i];
             data data_ = model->data_array[j];
             
-            double distance;
-            distance = half_canvas_size * 0.9;
-            drawLabel(data_.orientation, distance, data_.name);
+            double distance, orientation;
+            if (!wedgeMode){
+                orientation = data_.orientation;
+                distance = half_canvas_size * 0.9;
+            }else{
+                orientation = model->label_info_array[i]
+                .orientation;
+                distance =  model->label_info_array[i]
+                .distance;
+            }
+            drawLabel(orientation, distance, data_.name);
             orientation_array.push_back(data_.orientation);
         }
 
         //--------------
         // Draw scale indicator
         //--------------
-        if (model->mode_max_dist_array.size() > 1){
+        if (model->mode_max_dist_array.size() > 1
+            && !wedgeMode)
+        {
             double best_orientation = findBestEmptyOrienation(orientation_array);
             
             // Generate the string

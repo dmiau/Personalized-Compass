@@ -76,6 +76,7 @@ public:
     // Parameters for compass drawing
     //----------------
     // Indicates whether the watch mode is on or not
+    bool wedgeMode;
     bool watchMode;
     bool trainingMode;
     

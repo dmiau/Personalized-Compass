@@ -23,8 +23,9 @@ void calculateDistInBox(double width, double height, CGPoint aPoint,
 void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){    
     ostringstream db_stream;
     
-    // Assume indices_for_rendering stores sorted distances
+    model->label_info_array.clear();
     
+    // Assume indices_for_rendering stores sorted distances
     if (indices_for_rendering.size() <= 0 &&
         !(model->user_pos.isEnabled && !model->user_pos.isVisible))
     {
@@ -175,6 +176,22 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         glDrawArrays(GL_LINE_STRIP, 0,4);
         
         glPopMatrix();
+        
+        //---------------------
+        // Populate label_info_array
+        //---------------------
+        label_info myLabelinfo;
+        
+        double label_radius = leg * cos(aperture/2);
+        double label_orientation = atan2(y_diff, x_diff);
+        myLabelinfo.distance = dist - label_radius;
+        myLabelinfo.centroid = CGPointMake
+        (label_radius * cos(label_orientation),
+         label_radius * sin(label_orientation));
+        myLabelinfo.data_id = indices_for_rendering[i];
+        myLabelinfo.orientation =
+        -label_orientation / M_PI * 180 + 90;
+        model->label_info_array.push_back(myLabelinfo);
     }
     
     db_stream << "Done!" << endl;

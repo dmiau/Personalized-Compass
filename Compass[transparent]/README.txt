@@ -1262,6 +1262,7 @@ http://programmizm.sourceforge.net/blog/2012/distance-from-a-point-to-a-polyline
 7.26.2014
 -------------------------------------------------------------------
 - add notes filed to history files
-
+Goals of today:
+- add labels for wedges. done @ 10:41PM
 
 
