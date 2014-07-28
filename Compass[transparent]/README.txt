@@ -1275,4 +1275,13 @@ text outline: http://stackoverflow.com/questions/10036671/how-could-i-outline-te
 http://stackoverflow.com/questions/19095161/force-landscape-ios-7
 
 working on device rotation
+- implemented a rotating screen!
 
+
+-------------------------------------------------------------------
+7.28.2014
+-------------------------------------------------------------------
+http://stackoverflow.com/questions/18969248/how-to-draw-a-transparent-uitoolbar-or-uinavigationbar-in-ios7
+
+lock rotation:
+http://stackoverflow.com/questions/7081221/how-does-one-add-uibutton-to-uitoolbar-programmatically

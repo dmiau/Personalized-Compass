@@ -294,6 +294,8 @@
 		9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */; };
 		9ABB96B51957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */; };
 		9ACCED0018EF5425006E9CA4 /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
+		9ACD80D61986982B00AAB052 /* UINavigationController+rotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */; };
+		9ACD80D71986982B00AAB052 /* UINavigationController+rotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */; };
 		9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
 		9AE020B2198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE020B3198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
@@ -525,6 +527,8 @@
 		9ABB96B21957C94A00D7296A /* iOSViewController+ViewPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+ViewPanel.h"; sourceTree = "<group>"; };
 		9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+ViewPanel.mm"; sourceTree = "<group>"; };
 		9ACCECFF18EF5425006E9CA4 /* london.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = london.kml; sourceTree = "<group>"; };
+		9ACD80D41986982B00AAB052 /* UINavigationController+rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+rotation.h"; sourceTree = "<group>"; };
+		9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UINavigationController+rotation.mm"; sourceTree = "<group>"; };
 		9ACF5D8618EB572100F03872 /* DesktopViewController+TableAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+TableAddition.h"; sourceTree = "<group>"; };
 		9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+TableAddition.mm"; sourceTree = "<group>"; };
 		9AE020B0198152DC00381C5C /* BreadcrumbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreadcrumbDetailViewController.h; sourceTree = "<group>"; };
@@ -754,6 +758,8 @@
 				9AFD8F68197F3DC80099BD88 /* SnapshotDetailViewController.mm */,
 				9AE020B0198152DC00381C5C /* BreadcrumbDetailViewController.h */,
 				9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */,
+				9ACD80D41986982B00AAB052 /* UINavigationController+rotation.h */,
+				9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1458,6 +1464,7 @@
 				9A75720E197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9A95CCB3194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 				9AFD8F65197C612B0099BD88 /* genHistoryString.mm in Sources */,
+				9ACD80D61986982B00AAB052 /* UINavigationController+rotation.mm in Sources */,
 				9A49A5F61954A8BB00937961 /* myTableViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1503,6 +1510,7 @@
 				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
 				9A2E42E3196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AFD8F66197C612B0099BD88 /* genHistoryString.mm in Sources */,
+				9ACD80D71986982B00AAB052 /* UINavigationController+rotation.mm in Sources */,
 				9A3240DD197AB083008E929D /* iOSViewController+History.mm in Sources */,
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
 				9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,

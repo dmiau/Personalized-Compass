@@ -50,6 +50,7 @@ enum findMe_enum{
 @property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
 @property (weak, nonatomic) IBOutlet UIButton *findMeButton;
 @property (weak, nonatomic) IBOutlet UILabel *scaleIndicator;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 
 @property compassMdl* model;

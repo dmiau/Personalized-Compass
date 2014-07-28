@@ -124,8 +124,6 @@
 {
     self = [super initWithCoder:aDecoder];
     if(self) {
-        // Do something
-        
         self.model = compassMdl::shareCompassMdl();
         self.renderer = compassRender::shareCompassRender();
         if (self.model == NULL)
@@ -148,8 +146,15 @@
         
         // These two properties are used by snapshot and history
         self.snapshot_id_toshow     = -1;
-        self.breadcrumb_id_toshow      = -1;
+        self.breadcrumb_id_toshow   = -1;
         self.landmark_id_toshow     = -1;
+        
+        
+        //--------------------
+        // Initialize a list of UI configurations
+        //--------------------
+        [self.model->configurations setObject:[NSNumber numberWithBool:false]
+                                       forKey:@"UIRotationLock"];
     }
     return self;
 }
@@ -230,8 +235,17 @@
     
 }
 
+#pragma mark -------Interface rotation stuff------
+
 - (void) didInterfaceRotate:(NSNotification *)notification
 {
+
+    // Only need to proceed if the rotation lock is off
+    if ([self.model->configurations[@"UIRotationLock"] boolValue]){
+        return;
+    }
+    
+    
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     double width = self.mapView.frame.size.width;
     double height = self.mapView.frame.size.height;
@@ -250,12 +264,68 @@
     
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
-    if (orientation == UIDeviceOrientationLandscapeLeft){
+    
+    NSMutableArray* toolbar_items =
+    [NSMutableArray arrayWithArray:self.toolbar.items];
+    
+    if (orientation == UIDeviceOrientationLandscapeLeft ||
+        orientation == UIDeviceOrientationLandscapeRight)
+    {
         screenWidth = screenRect.size.height;
         screenHeight = screenRect.size.width;
+        
+#ifdef __IPHONE__
+        if ([toolbar_items count] ==5){
+            // Modifying toolbar
+            UIBarButtonItem *flexiableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                           target:nil action:nil];
+            [toolbar_items insertObject:flexiableItem atIndex:3];
+            
+            UIBarButtonItem *lockRotationItem = [[UIBarButtonItem alloc]
+                                                 initWithTitle:@"[Lock]"
+                                                 style:UIBarButtonItemStyleBordered
+                                                 target:self
+                                                 action:@selector(rotationLockClicked:)];
+            [toolbar_items insertObject:lockRotationItem atIndex:4];
+            
+            
+            [self.toolbar setItems: toolbar_items];
+            [self.toolbar setBarStyle:UIBarStyleDefault];
+            self.toolbar.backgroundColor = [UIColor clearColor];
+            self.toolbar.opaque = NO;
+            [self.toolbar setTranslucent:YES];
+            
+            [self.toolbar setBackgroundImage:[UIImage new]
+                          forToolbarPosition:UIBarPositionAny
+                                  barMetrics:UIBarMetricsDefault];
+            [self.toolbar setShadowImage:[UIImage new]
+                      forToolbarPosition:UIToolbarPositionAny];
+            [self.toolbar setNeedsDisplay];
+        }
+#endif
+    }else if(orientation == UIDeviceOrientationPortrait){
+#ifdef __IPHONE__
+        // Modifying toolbar
+        if ([toolbar_items count] >5){
+            
+            [toolbar_items removeObjectAtIndex:4];
+            [toolbar_items removeObjectAtIndex:3];
+            [self.toolbar setItems: toolbar_items];
+            
+            [self.toolbar setBarStyle:UIBarStyleDefault];
+            self.toolbar.backgroundColor = [UIColor clearColor];
+            self.toolbar.opaque = NO;
+            [self.toolbar setTranslucent:YES];
+            
+            [self.toolbar setBackgroundImage:[UIImage new]
+                          forToolbarPosition:UIBarPositionAny
+                                  barMetrics:UIBarMetricsDefault];
+            [self.toolbar setShadowImage:[UIImage new]
+                      forToolbarPosition:UIToolbarPositionAny];
+            [self.toolbar setNeedsDisplay];
+        }
+#endif
     }
-    
-    
     for (int i = 0; i < [view_array count]; ++i){
         UIView *aView = view_array[i];
         double view_width = view_size_vector[i].width;
@@ -267,6 +337,23 @@
     [self.glkView setNeedsDisplay];
 }
 
+- (void)rotationLockClicked:(id)sender {
+    
+    UIBarButtonItem* button = (UIBarButtonItem*) sender;
+    
+    bool lock_status = [self.model->configurations[@"UIRotationLock"]
+                        boolValue];
+    
+    if (lock_status){
+        button.title = @"[Lock]";
+    }else{
+        button.title = @"[Unlock]";
+    }
+    
+    self.model->configurations[@"UIRotationLock"] =
+    [NSNumber numberWithBool:
+     ![self.model->configurations[@"UIRotationLock"] boolValue]];
+}
 
 - (void) doSingleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer
 {

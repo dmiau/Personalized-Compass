@@ -46,7 +46,7 @@
                                     <segue destination="9xM-YS-8bl" kind="push" identifier="settingSegue" id="dqm-u3-uK4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-jM-ph6" userLabel="Locate Button">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-jM-ph6" userLabel="Locate Button">
                                 <rect key="frame" x="264" y="468" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="location.png">
@@ -90,18 +90,20 @@
                             <constraint firstAttribute="trailing" secondItem="MuN-zz-sjI" secondAttribute="trailing" constant="7" id="1QL-O9-B2J"/>
                             <constraint firstItem="eEI-mU-khp" firstAttribute="top" secondItem="RNx-RU-M1b" secondAttribute="bottom" id="DCg-Wz-jpA"/>
                             <constraint firstItem="we6-xT-3ZG" firstAttribute="top" secondItem="YGn-3v-wZY" secondAttribute="top" constant="21" id="Dgl-es-oow"/>
+                            <constraint firstAttribute="trailing" secondItem="xmf-jM-ph6" secondAttribute="trailing" constant="16" id="EoV-Ib-toj"/>
                             <constraint firstAttribute="trailing" secondItem="w6C-r0-bI1" secondAttribute="trailing" id="Jhb-uH-Js9"/>
                             <constraint firstItem="Nfb-xm-KgJ" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="PE4-BJ-Hls"/>
                             <constraint firstItem="w6C-r0-bI1" firstAttribute="top" secondItem="we6-xT-3ZG" secondAttribute="bottom" id="WkB-hV-dHw"/>
                             <constraint firstItem="MuN-zz-sjI" firstAttribute="leading" secondItem="we6-xT-3ZG" secondAttribute="trailing" id="XFC-rC-i49"/>
-                            <constraint firstItem="eEI-mU-khp" firstAttribute="top" secondItem="Nfb-xm-KgJ" secondAttribute="bottom" id="Xp1-R1-0kH"/>
+                            <constraint firstItem="eEI-mU-khp" firstAttribute="bottom" secondItem="Nfb-xm-KgJ" secondAttribute="bottom" id="Xp1-R1-0kH"/>
                             <constraint firstItem="Nfb-xm-KgJ" firstAttribute="top" secondItem="we6-xT-3ZG" secondAttribute="bottom" id="YNr-6w-eWv"/>
                             <constraint firstItem="MuN-zz-sjI" firstAttribute="top" secondItem="YGn-3v-wZY" secondAttribute="top" constant="27" id="ZNM-he-gY2"/>
                             <constraint firstItem="w6C-r0-bI1" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="bbx-lT-f6G"/>
                             <constraint firstAttribute="trailing" secondItem="RNx-RU-M1b" secondAttribute="trailing" id="dX8-HO-Ntb"/>
                             <constraint firstItem="RNx-RU-M1b" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="dY8-pU-Avc"/>
+                            <constraint firstItem="RNx-RU-M1b" firstAttribute="top" secondItem="xmf-jM-ph6" secondAttribute="bottom" constant="16" id="fOJ-Hw-VD5"/>
                             <constraint firstItem="we6-xT-3ZG" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" constant="6" id="hAc-mC-kbg"/>
-                            <constraint firstItem="eEI-mU-khp" firstAttribute="top" secondItem="w6C-r0-bI1" secondAttribute="bottom" id="rtM-3g-9o7"/>
+                            <constraint firstItem="eEI-mU-khp" firstAttribute="bottom" secondItem="w6C-r0-bI1" secondAttribute="bottom" id="rtM-3g-9o7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rL1-an-vSn"/>
@@ -112,6 +114,7 @@
                         <outlet property="mapView" destination="Nfb-xm-KgJ" id="zfv-nH-uVh"/>
                         <outlet property="overviewMapView" destination="u8M-kf-lHS" id="txA-tO-WaT"/>
                         <outlet property="searchDisplayController" destination="Rqg-Uh-RXs" id="TnG-zy-1n9"/>
+                        <outlet property="toolbar" destination="RNx-RU-M1b" id="7kl-Zi-qik"/>
                         <segue destination="CAm-Aa-yYX" kind="push" identifier="DetailVC" id="WS4-yg-Oj7"/>
                     </connections>
                 </viewController>
