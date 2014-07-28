@@ -43,6 +43,10 @@
     self.renderer->model->configurations[@"font_size"] =
     cache_configurations[@"font_size"];
     
+    UITextField *searchField =
+    [self.ibSearchBar valueForKey:@"_searchField"];
+    searchField.textColor = [UIColor blackColor];
+    
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
             //-----------
@@ -82,12 +86,14 @@
             //-----------
             // Watch Mode
             //-----------
+            
             self.renderer->watchMode = true;
             // Change compass ctr
             [self changeCompassLocationTo: @"Center"];
             self.renderer->model->configurations[@"compass_scale"] =
             [NSNumber numberWithFloat:0.3];
-
+            
+            searchField.textColor = [UIColor whiteColor];
             break;
         case 3:
             //-----------

@@ -348,7 +348,7 @@
 	UIGraphicsPushContext(context);
     //    [string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:alignment];
     
-        
+    
     // Draw outlined text.
     CGContextSetTextDrawingMode(context, kCGTextFillStroke);
     // Make the thickness of the outline a function of the font size in use.

@@ -1271,4 +1271,8 @@ text outline: http://stackoverflow.com/questions/10036671/how-could-i-outline-te
 7.27.2014
 -------------------------------------------------------------------
 - should focus on user study today
+- rotating the view:
+http://stackoverflow.com/questions/19095161/force-landscape-ios-7
+
+working on device rotation
 

@@ -42,11 +42,6 @@
     self.renderer = compassRender::shareCompassRender();
     self.renderer->initRenderView(frame.size.width,
                                   frame.size.height);
-    
-//    NSLog(@"width: %f", frame.size.width);
-//    NSLog(@"height: %f", frame.size.height);
-    
-    //[self setNeedsDisplay];
     return self;
 }
 

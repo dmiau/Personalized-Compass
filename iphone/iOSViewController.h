@@ -29,6 +29,8 @@ enum findMe_enum{
     MKLocalSearch *localSearch;
     MKLocalSearchResponse *results;
     CALayer *mapMask;
+    NSArray *view_array;
+    vector<CGSize> view_size_vector;
 }
 
 //----------------

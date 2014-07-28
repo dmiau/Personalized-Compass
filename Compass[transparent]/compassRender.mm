@@ -155,6 +155,7 @@ void compassRender::updateViewport
 {
     glDrawingCorrectionRatio = orig_height / height;
     glViewport (x, y, width, height);
+    
     updateProjection((float)width/(float)height);  // update projection matrix
 }
 
@@ -163,8 +164,8 @@ void compassRender::updateProjection(GLfloat aspect_ratio){
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     
-    cout << "camera z: " << camera.viewPos.z << endl;
-    cout << "aspect ratio: " << camera.fov << endl;
+//    cout << "camera z: " << camera.viewPos.z << endl;
+//    cout << "aspect ratio: " << camera.fov << endl;
     
     //fovy, asepect, zNear, zFar
     myGluPerspective(camera.fov, aspect_ratio, 1, 3 * camera.viewPos.z);

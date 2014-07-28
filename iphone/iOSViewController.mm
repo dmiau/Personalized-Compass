@@ -8,7 +8,6 @@
 
 #import "iOSViewController.h"
 
-
 @interface iOSViewController ()
 
 @end
@@ -17,6 +16,7 @@
 @synthesize model;
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     // Make navigation bar disappeared
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
     [self.navigationController setNavigationBarHidden:YES animated:animated];
@@ -186,16 +186,18 @@
     //-------------------
     
     // Note this method needs to be here
-    NSArray *view_array =
+    view_array =
     [[NSBundle mainBundle] loadNibNamed:@"ExtraPanels"
                                   owner:self options:nil];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+
     for (UIView *aView in view_array){
         [aView setHidden:YES];
+        view_size_vector.push_back(aView.frame.size);
         // iphone's screen size: 568x320
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGFloat screenWidth = screenRect.size.width;
-        CGFloat screenHeight = screenRect.size.height;
-        
         aView.frame = CGRectMake(0, screenHeight - 44 - aView.frame.size.height,
                                  aView.frame.size.width, aView.frame.size.height);
         if ([[aView restorationIdentifier] isEqualToString:@"ViewPanel"]){
@@ -220,6 +222,49 @@
     UITapGestureRecognizer *doubleTapFindMe = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doDoubleTapFindMe:)];
     doubleTapFindMe.numberOfTapsRequired = 2;
     [self.findMeButton addGestureRecognizer:doubleTapFindMe];
+    
+    //-------------------
+    // Add gesture recognizer to the FindMe button
+    //-------------------
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didInterfaceRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
+}
+
+- (void) didInterfaceRotate:(NSNotification *)notification
+{
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    double width = self.mapView.frame.size.width;
+    double height = self.mapView.frame.size.height;
+
+    // Update the viewport
+    
+    // This line is important.
+    // In order to maintain 1-1 OpenGL and screen pixel mapping,
+    // the following line is necessary!
+    self.renderer->initRenderView(width, height);
+    self.renderer->updateViewport(0, 0, width, height);
+    
+    // Update the frames of views
+    // iphone's screen size: 568x320
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    if (orientation == UIDeviceOrientationLandscapeLeft){
+        screenWidth = screenRect.size.height;
+        screenHeight = screenRect.size.width;
+    }
+    
+    
+    for (int i = 0; i < [view_array count]; ++i){
+        UIView *aView = view_array[i];
+        double view_width = view_size_vector[i].width;
+        double view_height = view_size_vector[i].height;
+        aView.frame = CGRectMake(0, screenHeight - 44 - view_height,
+                                 view_width, view_height);
+    }
+    
+    [self.glkView setNeedsDisplay];
 }
 
 
