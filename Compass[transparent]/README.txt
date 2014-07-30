@@ -1293,7 +1293,14 @@ fonts chage sizes after rotation, need to fix this.
 -------------------------------------------------------------------
 - call initRenderView before updateViewport
 
+created a property called UIConfigurations
 
+need to update the following two:
+[self.model->configurations setObject:[NSNumber numberWithBool:false]
+                               forKey:@"UIRotationLock"];
+[self.model->configurations setObject:[NSNumber numberWithBool:false]
+                               forKey:@"UIBreadcrumbDisplay"];
+done!
 
 
 

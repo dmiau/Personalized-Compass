@@ -17,6 +17,8 @@
 @property compassMdl* model;
 @property  NSString* filename;
 @property (weak, nonatomic) IBOutlet UITextField *filenameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
 @property (weak, nonatomic) IBOutlet UITextView *noteTextField;
 
 - (IBAction)doneEditing:(id)sender;

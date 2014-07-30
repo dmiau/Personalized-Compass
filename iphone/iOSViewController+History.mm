@@ -18,14 +18,11 @@
     NSLog(@"%@",dateString);
     
     breadcrumb myBreadcrumb;
-    myBreadcrumb.name = dateString;
+//    myBreadcrumb.name = ;
     myBreadcrumb.coord2D = coord2D;
+    myBreadcrumb.date_str = dateString;
     self.model->breadcrumb_array.push_back(myBreadcrumb);
     
-//    if (self.model->breadcrumb_array.size() > 100){
-//        self.model->breadcrumb_array.erase(
-//        self.model->breadcrumb_array.begin());
-//    }
     return true;
 }
 

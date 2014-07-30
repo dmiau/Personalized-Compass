@@ -84,6 +84,42 @@
     
 }
 
+-(void) constructDemoToolbar:(NSString*)mode{
+    NSArray* title_list = @[@"[Pre.]", @"[Next]", @"[Wedge]"];
+//    NSArray* selector_list =
+//    @[@"toggleViewPanel:", @"toggleModelPanel:",
+//      @"toggleWatchPanel:", @"toggleDebugView:"];
+    
+    NSMutableArray* toolbar_items =[[NSMutableArray alloc] init];
+    
+    //--------------
+    // Add buttons
+    //--------------
+    for (int i = 0; i < [title_list count]; ++i){
+        UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
+                                   initWithTitle:title_list[i]
+                                   style:UIBarButtonItemStyleBordered                                             target:self
+                                   action:@selector(runDemoAction:)];
+        [toolbar_items addObject:anItem];
+    }
+    
+    //--------------
+    // Set toolboar style
+    //--------------
+    
+    [self.toolbar setItems: toolbar_items];
+    //            [self.toolbar setBarStyle:UIBarStyleDefault];
+    self.toolbar.backgroundColor = [UIColor clearColor];
+    self.toolbar.opaque = NO;
+    [self.toolbar setTranslucent:YES];
+    
+    [self.toolbar setBackgroundImage:[UIImage new]
+                  forToolbarPosition:UIBarPositionAny
+                          barMetrics:UIBarMetricsDefault];
+    //            [self.toolbar setShadowImage:[UIImage new]
+    //                      forToolbarPosition:UIToolbarPositionAny];
+    [self.toolbar setNeedsDisplay];
+}
 
 #pragma mark ------Toolbar Items------
 - (void) setFactoryCompassHidden: (BOOL) flag {
@@ -150,6 +186,33 @@
     [self performSegueWithIdentifier:@"Go2TabBarController" sender:nil];
 }
 
+#pragma mark ------Demo actions------
+- (void)runDemoAction:(UIBarButtonItem*) bar_button{
+
+    NSString* label = bar_button.title;
+    static int snapshot_id = 0;
+    
+    
+    if ([label isEqualToString:@"[Pre.]"]){
+        snapshot_id = max(snapshot_id-1, 0);
+        [self displaySnapshot:snapshot_id];
+    }else if ([label isEqualToString:@"[Next]"]){
+        snapshot_id = min(snapshot_id+1,
+                          (int)self.model->snapshot_array.size()-1);
+        [self displaySnapshot:snapshot_id];
+    }else if ([label isEqualToString:@"[Wedge]"]){
+        self.model->configurations[@"personalized_compass_status"] = @"off";
+        self.model->configurations[@"wedge_status"] = @"on";
+        self.model->configurations[@"wedge_style"] = @"modified";
+        bar_button.title = @"[PCompass]";
+        [self.glkView setNeedsDisplay];
+    }else if ([label isEqualToString:@"[PCompass]"]){
+        self.model->configurations[@"wedge_status"] = @"off";
+        self.model->configurations[@"personalized_compass_status"] = @"on";
+        bar_button.title = @"[Wedge]";
+        [self.glkView setNeedsDisplay];
+    }
+}
 
 #pragma mark -----Rotation related stuff-----
 
@@ -157,7 +220,7 @@
     
     UIBarButtonItem* button = (UIBarButtonItem*) sender;
     
-    bool lock_status = [self.model->configurations[@"UIRotationLock"]
+    bool lock_status = [self.UIConfigurations[@"UIRotationLock"]
                         boolValue];
     
     if (lock_status){
@@ -166,9 +229,9 @@
         button.title = @"[Unlock]";
     }
     
-    self.model->configurations[@"UIRotationLock"] =
+    self.UIConfigurations[@"UIRotationLock"] =
     [NSNumber numberWithBool:
-     ![self.model->configurations[@"UIRotationLock"] boolValue]];
+     ![self.UIConfigurations[@"UIRotationLock"] boolValue]];
 }
 
 @end

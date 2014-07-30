@@ -82,6 +82,13 @@
     else
         self.dataSource.selectedSegmentIndex = 2;
     
+    // Initialize toolbar indicator
+    NSString* toolbar_mode = self.rootViewController.UIConfigurations[@"UIToolbarMode"];
+    if ([toolbar_mode isEqualToString:@"Development"]){
+        self.toolbarSegmentControl.selectedSegmentIndex = 0;
+    }else{
+        self.toolbarSegmentControl.selectedSegmentIndex = 1;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -224,5 +231,22 @@
     
     // reload
     readConfigurations(self.model);
+}
+- (IBAction)toogleToolbarMode:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    int index = [segmentedControl selectedSegmentIndex];
+    
+    switch (index) {
+        case 0:
+            self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+            = @"Development";
+            break;
+        case 1:
+            self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+            = @"Demo";
+            break;
+    }
+    self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
+    = [NSNumber numberWithBool:true];
 }
 @end

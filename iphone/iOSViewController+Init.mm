@@ -70,10 +70,16 @@
         //--------------------
         // Initialize a list of UI configurations
         //--------------------
-        [self.model->configurations setObject:[NSNumber numberWithBool:false]
+        self.UIConfigurations = [[NSMutableDictionary alloc] init];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                        forKey:@"UIRotationLock"];
-        [self.model->configurations setObject:[NSNumber numberWithBool:false]
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                        forKey:@"UIBreadcrumbDisplay"];
+        [self.UIConfigurations setObject:@"Development"
+                                  forKey:@"UIToolbarMode"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UIToolbarNeedsUpdate"];
+
     }
     return self;
 }
@@ -155,11 +161,10 @@
     //-------------------
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didInterfaceRotate:)
                                                  name:UIDeviceOrientationDidChangeNotification object:nil];
-    //-------------------
-    // Build a toolboar
-    //-------------------
+    //---------------
+    // Construct a default toolbar
+    //---------------
     [self constructDebugToolbar: @"Portrait"];
-    
 }
 
 @end

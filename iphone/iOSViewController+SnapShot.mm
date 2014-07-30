@@ -44,11 +44,12 @@
     // Not sure why, but the following lines are needed for iPad
     self.model->camera_pos.latitude = mySnapshot.coordinateRegion.center.latitude;
     self.model->camera_pos.longitude = mySnapshot.coordinateRegion.center.longitude;
-    [self updateMapDisplayRegion];
 #else
     [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];
 #endif
-    
+    [self updateMapDisplayRegion];
+    [self updateLocationVisibility];
+    self.model->updateMdl();
     self.mapView.camera.heading = -mySnapshot.orientation;
     return true;
 }

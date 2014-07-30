@@ -33,6 +33,8 @@ enum findMe_enum{
     vector<CGSize> view_size_vector;
 }
 
+@property NSMutableDictionary* UIConfigurations;
+
 //----------------
 // Views
 //----------------
@@ -126,7 +128,8 @@ enum findMe_enum{
 
 - (void) setFactoryCompassHidden: (BOOL) flag;
 - (void) removeCompass;
-- (void)constructDebugToolbar:(NSString*) mode;
+- (void) constructDebugToolbar:(NSString*) mode;
+- (void) constructDemoToolbar:(NSString*)mode;
 
 //----------------
 // Update and initialization functions
@@ -137,6 +140,7 @@ enum findMe_enum{
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
 -(void)updateOverviewMap;
 -(bool)updateModelCompassCenterXY;
+-(void) updateLocationVisibility;
 
 //----------------
 // Annotations related methods

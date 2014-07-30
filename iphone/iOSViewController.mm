@@ -23,6 +23,25 @@
     [super viewWillAppear:animated];
     
     self.model->updateMdl();
+    
+    
+    //-------------------
+    // Build a toolboar
+    //-------------------
+    
+    if ([self.UIConfigurations[@"UIToolbarNeedsUpdate"]
+         boolValue]){
+        
+        if ([self.UIConfigurations[@"UIToolbarMode"]
+             isEqualToString:@"Development"]){
+            [self constructDebugToolbar: @"Portrait"];
+        }else if ([self.UIConfigurations[@"UIToolbarMode"]
+                   isEqualToString:@"Demo"]){
+            [self constructDemoToolbar: @"Portrait"];
+        }
+        self.UIConfigurations[@"UIToolbarNeedsUpdate"]
+        = [NSNumber numberWithBool:false];
+    }
     //---------------
     // Unwind actions
     //---------------
@@ -78,6 +97,7 @@
         self.landmark_id_toshow = -1;
         [self updateMapDisplayRegion];
     }
+    
     [self.glkView setNeedsDisplay];
 }
 
@@ -92,7 +112,7 @@
 {
 
     // Only need to proceed if the rotation lock is off
-    if ([self.model->configurations[@"UIRotationLock"] boolValue]){
+    if ([self.UIConfigurations[@"UIRotationLock"] boolValue]){
         return;
     }
     

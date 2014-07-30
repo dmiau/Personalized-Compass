@@ -33,6 +33,8 @@
     self.dataCount.text =
     [NSString stringWithFormat:@"%lu",
      self.model->breadcrumb_array.size()];
+    self.dateLabel.text =
+    self.model->breadcrumb_array.back().date_str;
     // Do any additional setup after loading the view.
 }
 
@@ -69,6 +71,7 @@
     //-------------
     if (self.model->filesys_type == DROPBOX){
         rename_status = [self.model->dbFilesystem writeFileWithName:old_name Content:genHistoryString(self.model)];
+        
         rename_status = [self.model->dbFilesystem renameFilename:old_name withName:new_name];
     }else{
         rename_status = [self.model->docFilesystem writeFileWithName:old_name Content:genHistoryString(self.model)];
