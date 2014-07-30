@@ -221,5 +221,8 @@
         [self.model->docFilesystem
          copyBundleConfigurations];
     }
+    
+    // reload
+    readConfigurations(self.model);
 }
 @end

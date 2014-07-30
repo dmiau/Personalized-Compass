@@ -126,6 +126,8 @@ enum findMe_enum{
 
 - (void) setFactoryCompassHidden: (BOOL) flag;
 - (void) removeCompass;
+- (void)constructDebugToolbar:(NSString*) mode;
+
 //----------------
 // Update and initialization functions
 //----------------

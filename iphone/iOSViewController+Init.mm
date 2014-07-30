@@ -155,6 +155,11 @@
     //-------------------
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didInterfaceRotate:)
                                                  name:UIDeviceOrientationDidChangeNotification object:nil];
+    //-------------------
+    // Build a toolboar
+    //-------------------
+    [self constructDebugToolbar: @"Portrait"];
+    
 }
 
 @end

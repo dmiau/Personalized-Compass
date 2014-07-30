@@ -60,33 +60,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNx-RU-M1b">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="[View]" style="plain" id="4gf-EJ-v22">
-                                        <connections>
-                                            <action selector="toggleViewPanel:" destination="RVv-fy-219" id="mox-LM-BE8"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="[Mdl]" id="O8V-7Z-YW9">
-                                        <connections>
-                                            <action selector="toggleModelPanel:" destination="RVv-fy-219" id="8At-di-duY"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="[Compass]" id="3FE-5S-7JP">
-                                        <connections>
-                                            <action selector="toggleWatchPanel:" destination="RVv-fy-219" id="3RN-w0-EgG"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="[Debug]" id="J0x-2f-WyJ">
-                                        <connections>
-                                            <action selector="toggleDebugView:" destination="RVv-fy-219" id="rIm-yr-UNm"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="bookmarks" id="Ey4-ip-hP9">
-                                        <connections>
-                                            <segue destination="6fH-EG-ulz" kind="push" id="NZu-LE-j9p"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                             </toolbar>
                         </subviews>
                         <constraints>
@@ -120,6 +94,7 @@
                         <outlet property="searchDisplayController" destination="Rqg-Uh-RXs" id="TnG-zy-1n9"/>
                         <outlet property="toolbar" destination="RNx-RU-M1b" id="7kl-Zi-qik"/>
                         <segue destination="CAm-Aa-yYX" kind="push" identifier="DetailVC" id="WS4-yg-Oj7"/>
+                        <segue destination="6fH-EG-ulz" kind="push" identifier="Go2TabBarController" id="YQ2-RL-Kpb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6t-MK-lm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
