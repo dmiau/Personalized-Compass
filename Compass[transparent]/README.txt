@@ -1285,3 +1285,30 @@ http://stackoverflow.com/questions/18969248/how-to-draw-a-transparent-uitoolbar-
 
 lock rotation:
 http://stackoverflow.com/questions/7081221/how-does-one-add-uibutton-to-uitoolbar-programmatically
+
+fonts chage sizes after rotation, need to fix this.
+
+-------------------------------------------------------------------
+7.30.2014
+-------------------------------------------------------------------
+- call initRenderView before updateViewport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

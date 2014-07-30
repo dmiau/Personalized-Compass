@@ -202,6 +202,8 @@
     {
 		viewHeight = bounds.size.height;
 		viewWidth = bounds.size.width;
+        
+        renderer->initRenderView(bounds.size.width, bounds.size.height);
         renderer->updateViewport(bounds.origin.x, bounds.origin.y,
                                  bounds.size.width, bounds.size.height);
     }
@@ -269,6 +271,7 @@
     {
 		viewHeight = bounds.size.height;
 		viewWidth = bounds.size.width;
+        renderer->initRenderView(bounds.size.width, bounds.size.height);
         renderer->updateViewport(bounds.origin.x, bounds.origin.y,
                                  bounds.size.width, bounds.size.height);
     }

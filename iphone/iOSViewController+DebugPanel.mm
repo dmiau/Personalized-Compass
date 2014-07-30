@@ -24,12 +24,18 @@
             //-----------
             self.sprinkleBreadCrumbMode = false;
             [self.mapView removeOverlays: self.mapView.overlays];
+            
+            self.model->configurations[@"UIBreadcrumbDisplay"] =
+            [NSNumber numberWithBool:false];
+            
             break;
         case 1:
             //-----------
             // Show
             //-----------
             self.sprinkleBreadCrumbMode = false;
+            self.model->configurations[@"UIBreadcrumbDisplay"] =
+            [NSNumber numberWithBool:true];
             [self displayBreadcrumb];
             break;
         case 2:

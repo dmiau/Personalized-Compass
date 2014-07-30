@@ -9,6 +9,12 @@
 #import "iOSViewController+Toolbar.h"
 #import "iOSSettingViewController.h"
 
+@interface iOSViewController () {
+    // I should look into this
+}
+@end
+
+
 @implementation iOSViewController (Toolbar)
 #pragma mark ------Toolbar Items------
 - (void) setFactoryCompassHidden: (BOOL) flag {
