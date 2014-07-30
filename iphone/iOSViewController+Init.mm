@@ -79,7 +79,8 @@
                                   forKey:@"UIToolbarMode"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                   forKey:@"UIToolbarNeedsUpdate"];
-
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
+                                  forKey:@"UIAcceptsPinCreation"];
     }
     return self;
 }

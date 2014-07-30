@@ -31,6 +31,9 @@ enum findMe_enum{
     CALayer *mapMask;
     NSArray *view_array;
     vector<CGSize> view_size_vector;
+    
+    // For toolbar
+    UIBarButtonItem *counter_button;
 }
 
 @property NSMutableDictionary* UIConfigurations;

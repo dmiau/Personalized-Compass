@@ -246,6 +246,10 @@
     // UIGestureRecognizerStateBegan
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
         return;
+
+    // No pin creation is the option is off
+    if (![self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue])
+        return;
     
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D touchMapCoordinate =

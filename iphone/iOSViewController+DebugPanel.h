@@ -13,6 +13,7 @@
 - (IBAction)breadcrumbSegmentControl:(id)sender;
 
 - (IBAction)pinSegmentControl:(id)sender;
-- (IBAction)removeDroppedPins:(id)sender;
+- (IBAction)createPinSegmentControl:(id)sender;
+
 
 @end

@@ -1301,7 +1301,8 @@ need to update the following two:
 [self.model->configurations setObject:[NSNumber numberWithBool:false]
                                forKey:@"UIBreadcrumbDisplay"];
 done!
-
+- added the demo mode
+- add pin creation control
 
 
 

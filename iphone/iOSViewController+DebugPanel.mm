@@ -70,15 +70,6 @@
 //-----------------
 // Pins
 //-----------------
-- (IBAction)removeDroppedPins:(id)sender {
-    NSArray* annotation_array = self.mapView.annotations;
-    for (CustomPointAnnotation* annotation in annotation_array){
-        if (annotation.point_type == dropped){
-            [self.mapView removeAnnotation:annotation];
-        }
-    }
-}
-
 
 - (IBAction)pinSegmentControl:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
@@ -113,6 +104,31 @@
             [[self.mapView viewForAnnotation:annotation] setHidden:YES];
         }
     }
+}
+
+- (IBAction)createPinSegmentControl:
+(UISegmentedControl*) segmentedControl{
+    int idx = [segmentedControl selectedSegmentIndex];
+    switch (idx) {
+        case 0:
+            self.UIConfigurations[@"UIAcceptsPinCreation"]=
+            [NSNumber numberWithBool:true];
+            break;
+        case 1:
+            self.UIConfigurations[@"UIAcceptsPinCreation"]=
+            [NSNumber numberWithBool:false];
+            break;
+        case 2:
+            NSArray* annotation_array = self.mapView.annotations;
+            for (CustomPointAnnotation* annotation in annotation_array){
+                if (annotation.point_type == dropped){
+                    [self.mapView removeAnnotation:annotation];
+                }
+            }
+            break;
+    }
+    
+    
 }
 
 @end

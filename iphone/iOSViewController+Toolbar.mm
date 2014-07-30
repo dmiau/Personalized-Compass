@@ -9,11 +9,6 @@
 #import "iOSViewController+Toolbar.h"
 #import "iOSSettingViewController.h"
 
-@interface iOSViewController () {
-    // I should look into this
-}
-@end
-
 
 @implementation iOSViewController (Toolbar)
 
@@ -85,10 +80,8 @@
 }
 
 -(void) constructDemoToolbar:(NSString*)mode{
+    
     NSArray* title_list = @[@"[Pre.]", @"[Next]", @"[Wedge]"];
-//    NSArray* selector_list =
-//    @[@"toggleViewPanel:", @"toggleModelPanel:",
-//      @"toggleWatchPanel:", @"toggleDebugView:"];
     
     NSMutableArray* toolbar_items =[[NSMutableArray alloc] init];
     
@@ -102,6 +95,15 @@
                                    action:@selector(runDemoAction:)];
         [toolbar_items addObject:anItem];
     }
+    
+    
+    NSString* counter_str = [NSString stringWithFormat:
+                         @"1/%lu", self.model->snapshot_array.size()];
+    counter_button = [[UIBarButtonItem alloc]
+                               initWithTitle:counter_str
+                               style:UIBarButtonItemStyleBordered                                             target:self
+                               action:nil];
+    [toolbar_items addObject:counter_button];
     
     //--------------
     // Set toolboar style
@@ -212,6 +214,9 @@
         bar_button.title = @"[Wedge]";
         [self.glkView setNeedsDisplay];
     }
+    counter_button.title = [NSString stringWithFormat:
+                     @"%d/%lu", snapshot_id+1,
+                     self.model->snapshot_array.size()];
 }
 
 #pragma mark -----Rotation related stuff-----
