@@ -56,34 +56,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6q-wo-nON">
                                 <rect key="frame" x="0.0" y="980" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="[View]" id="vQq-9H-se9" userLabel="[View]">
-                                        <connections>
-                                            <action selector="toggleViewPanel:" destination="RyZ-6E-Ee0" id="A2c-33-CTR"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="[Model]" id="Ch5-cZ-f7I" userLabel="[Model]">
-                                        <connections>
-                                            <action selector="toggleModelPanel:" destination="RyZ-6E-Ee0" id="jTY-JS-Lz3"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="[Compass]" id="mxF-na-g3J">
-                                        <connections>
-                                            <action selector="toggleWatchPanel:" destination="RyZ-6E-Ee0" id="IM4-Fh-nNb"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zs8-1R-bEh"/>
-                                    <barButtonItem title="Debug" id="ujH-hy-25C">
-                                        <connections>
-                                            <action selector="toggleDebugView:" destination="RyZ-6E-Ee0" id="F4S-KA-N0x"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="bookmarks" id="YYx-uF-oAz" userLabel="Locations">
-                                        <connections>
-                                            <segue destination="gEt-Nl-vrl" kind="modal" modalPresentationStyle="formSheet" id="qbG-B6-MOL"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -98,6 +71,7 @@
                         <outlet property="searchDisplayController" destination="nBK-W2-8Vc" id="EAp-sF-OsM"/>
                         <outlet property="toolbar" destination="i6q-wo-nON" id="kia-BS-ygs"/>
                         <segue destination="qko-YN-4d6" kind="modal" identifier="DetailVC" modalPresentationStyle="formSheet" id="kiM-aJ-Axz"/>
+                        <segue destination="gEt-Nl-vrl" kind="modal" identifier="Go2TabBarController" modalPresentationStyle="formSheet" id="d1a-J1-geh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xvz-aD-KmM" userLabel="First Responder" sceneMemberID="firstResponder"/>

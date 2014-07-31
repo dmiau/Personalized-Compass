@@ -54,6 +54,14 @@
     //--------------
     // Add the bookmark button
     //--------------
+    
+#ifdef __IPAD__
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                 target:nil action:nil];
+    [toolbar_items addObject:flexItem];
+#endif
+    
     UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
                                          initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
                                target:self
