@@ -118,8 +118,8 @@
     
     
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    double width = self.mapView.frame.size.width;
-    double height = self.mapView.frame.size.height;
+    double width = self.glkView.frame.size.width;
+    double height = self.glkView.frame.size.height;
 
     // Update the viewport
     
