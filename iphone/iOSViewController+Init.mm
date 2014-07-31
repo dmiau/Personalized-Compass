@@ -109,6 +109,7 @@
     self.renderer->mapView = [self mapView];
     [self initMapView];
     mapMask = [CALayer layer];
+    
     // Recognize long-press gesture
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleGesture:)];

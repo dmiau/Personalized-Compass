@@ -20,16 +20,12 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;
 @property iOSViewController* rootViewController;
+@property (weak, nonatomic) IBOutlet UIToolbar *saveButton;
 
 - (IBAction)toggleLandmakrSelection:(id)sender;
 - (IBAction)toggleEditing:(id)sender;
 - (IBAction)saveKML:(id)sender;
 - (IBAction)saveKMLAs:(id)sender;
-- (IBAction)go2Landmark:(id)sender;
 
 - (IBAction)dismissModalVC:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UIToolbar *saveButton;
-
-
 @end

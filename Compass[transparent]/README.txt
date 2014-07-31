@@ -1308,9 +1308,12 @@ renderAnnotations
 zoom level, and the selected landmarks, etc.
 
 - did a big merge job
+Did a lot of work today. Merged to the master (that I detached on 6.30, a month ago!). 
+Good job!
 
-
-
+-------------------------------------------------------------------
+7.31.2014
+-------------------------------------------------------------------
 
 
 

@@ -89,7 +89,7 @@
 
 -(void) constructDemoToolbar:(NSString*)mode{
     
-    NSArray* title_list = @[@"[Pre.]", @"[Next]", @"[Wedge]"];
+    NSArray* title_list = @[@"[Pre.]", @"[Next]", @"[Wedge]", @"[Mask]"];
     
     NSMutableArray* toolbar_items =[[NSMutableArray alloc] init];
     
@@ -218,7 +218,7 @@
 
     NSString* label = bar_button.title;
     static int snapshot_id = 0;
-    
+    static bool mask_status = false;
     
     if ([label isEqualToString:@"[Pre.]"]){
         snapshot_id = max(snapshot_id-1, 0);
@@ -231,13 +231,27 @@
         self.model->configurations[@"personalized_compass_status"] = @"off";
         self.model->configurations[@"wedge_status"] = @"on";
         self.model->configurations[@"wedge_style"] = @"modified";
-        bar_button.title = @"[PCompass]";
+        bar_button.title = @"[PComp]";
         [self.glkView setNeedsDisplay];
-    }else if ([label isEqualToString:@"[PCompass]"]){
+    }else if ([label isEqualToString:@"[PComp]"]){
         self.model->configurations[@"wedge_status"] = @"off";
         self.model->configurations[@"personalized_compass_status"] = @"on";
         bar_button.title = @"[Wedge]";
         [self.glkView setNeedsDisplay];
+    }else if ([label isEqualToString:@"[Mask]"]){
+        
+        if (mask_status){
+            [mapMask removeFromSuperlayer];
+        }else{
+            mapMask.backgroundColor = [[UIColor whiteColor] CGColor];
+            mapMask.frame = CGRectMake(0, 0,
+                                       self.mapView.frame.size.width,
+                                       self.mapView.frame.size.height);
+            mapMask.opacity = 1;
+            
+            [self.mapView.layer addSublayer:mapMask];
+        }
+        mask_status = !mask_status;
     }
     counter_button.title = [NSString stringWithFormat:
                      @"%d/%lu", snapshot_id+1,

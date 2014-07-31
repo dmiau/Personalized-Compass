@@ -128,7 +128,6 @@
     int i = [indexPath row];
     data *data_ptr;
     
-    
     if (section_id == 0){
         cell.textLabel.text = @"My Location";
 
@@ -142,12 +141,13 @@
         data_ptr = &(self.model->data_array[i]);
     }
     
-    if (data_ptr->isEnabled){
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }else{
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
+    // Create an UISwitch
+    UISwitch *onoff = [[UISwitch alloc]
+                       initWithFrame:CGRectMake(262, 6, 51, 31)];
+    [onoff addTarget: self action: @selector(flipSingleLandmark:) forControlEvents:UIControlEventValueChanged];
+    onoff.on = data_ptr->isEnabled;
+    [cell addSubview:onoff];
+
     return cell;
 }
 
@@ -189,16 +189,68 @@
         data_ptr = &(self.model->data_array[row_id]);
     }
     
-    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        data_ptr->isEnabled = false;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    self.rootViewController.needUpdateAnnotations = true;
+    
+    
+    // Go to landmarks
+    if (section_id == 1){
+        self.rootViewController.landmark_id_toshow = row_id;
+        [self.navigationController popViewControllerAnimated:NO];
+        
+        //--------------
+        // We might need to do something for iPad
+        //--------------
+#ifdef __IPAD__
+        self.rootViewController.needUpdateDisplayRegion = true;
+        iOSViewController* parentVC = self.rootViewController;
+        [self dismissViewControllerAnimated:YES completion:^{
+            // call your completion method:
+            [parentVC viewWillAppear:YES];
+        }];
+#endif
+    }
+}
+
+- (UIView *) superviewOfType:(Class)paramSuperviewClass
+                     forView:(UIView*) paramView
+{
+    if (paramView.superview != nil){
+        if ([paramView.superview isKindOfClass:paramSuperviewClass]){
+            return paramView.superview;
+        }else{
+            return [self superviewOfType:paramSuperviewClass
+                                 forView:paramView.superview];
+        }
+    }
+    return nil;
+}
+
+
+- (void) flipSingleLandmark:(UISwitch*)sender{
+    UITableViewCell* cell = (UITableViewCell*)
+    [self superviewOfType:[UITableViewCell class] forView:sender];
+    NSIndexPath *path = [self.myTableView indexPathForCell:cell];
+    
+    int row_id = [path row];
+    int section_id = [path section];
+    data *data_ptr;
+    
+    if (section_id == 0){
+        data_ptr = &(self.model->user_pos);
+        self.rootViewController.needToggleLocationService = true;
+    }else{
+        data_ptr = &(self.model->data_array[row_id]);
+    }
+    
+    if (sender.isOn) {
         data_ptr->isEnabled = true;
+    } else {
+        data_ptr->isEnabled = false;
     }
     
     self.rootViewController.needUpdateAnnotations = true;
 }
+
 
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return YES;
@@ -287,29 +339,6 @@
     [alertView show];
 }
 
-- (IBAction)go2Landmark:(id)sender {
-    NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
-    if ([indexPath section] == 1){
-        self.rootViewController.landmark_id_toshow = [indexPath row];
-        
-
-        [self.navigationController popViewControllerAnimated:NO];
-        
-        //--------------
-        // We might need to do something for iPad
-        //--------------
-#ifdef __IPAD__
-        self.rootViewController.needUpdateDisplayRegion = true;
-        iOSViewController* parentVC = self.rootViewController;
-        [self dismissViewControllerAnimated:YES completion:^{
-            // call your completion method:
-            [parentVC viewWillAppear:YES];
-        }];
-#endif
-        
-    }
-}
-
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
@@ -390,4 +419,5 @@
         [parentVC viewWillAppear:YES];
     }];
 }
+
 @end
