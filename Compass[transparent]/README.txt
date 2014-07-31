@@ -1304,6 +1304,9 @@ done!
 - added the demo mode
 - add pin creation control
 
+renderAnnotations
+zoom level, and the selected landmarks, etc.
+
 
 
 

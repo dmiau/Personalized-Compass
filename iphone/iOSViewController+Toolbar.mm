@@ -85,9 +85,20 @@
     
     NSMutableArray* toolbar_items =[[NSMutableArray alloc] init];
     
+    // Add the counter
+    NSString* counter_str = [NSString stringWithFormat:
+                             @"1/%lu", self.model->snapshot_array.size()];
+    counter_button = [[UIBarButtonItem alloc]
+                      initWithTitle:counter_str
+                      style:UIBarButtonItemStyleBordered                                             target:self
+                      action:nil];
+    [toolbar_items addObject:counter_button];
+    
+    
     //--------------
     // Add buttons
     //--------------
+    
     for (int i = 0; i < [title_list count]; ++i){
         UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
                                    initWithTitle:title_list[i]
@@ -96,14 +107,20 @@
         [toolbar_items addObject:anItem];
     }
     
+    //--------------
+    // Add the bookmark button
+    //--------------
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                 target:nil action:nil];
+    [toolbar_items addObject:flexItem];
     
-    NSString* counter_str = [NSString stringWithFormat:
-                         @"1/%lu", self.model->snapshot_array.size()];
-    counter_button = [[UIBarButtonItem alloc]
-                               initWithTitle:counter_str
-                               style:UIBarButtonItemStyleBordered                                             target:self
-                               action:nil];
-    [toolbar_items addObject:counter_button];
+    UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
+                               initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
+                               target:self
+                               action:@selector(segueToTabController:)];
+    [toolbar_items addObject:anItem];
+
     
     //--------------
     // Set toolboar style

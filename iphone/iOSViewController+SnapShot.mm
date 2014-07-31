@@ -39,15 +39,20 @@
     self.model->location_filename = mySnapshot.kmlFilename;
     self.model->reloadFiles();
     
-    
-#ifdef __IPAD__
     // Not sure why, but the following lines are needed for iPad
     self.model->camera_pos.latitude = mySnapshot.coordinateRegion.center.latitude;
     self.model->camera_pos.longitude = mySnapshot.coordinateRegion.center.longitude;
-#else
-    [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];
-#endif
+
     [self updateMapDisplayRegion];
+    self.mapView.region = mySnapshot.coordinateRegion;
+    
+    // Not sure why setRegion does not work well...
+//    [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];    
+    
+    // Render annotation
+    [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
+    [self renderAnnotations];
+    
     [self updateLocationVisibility];
     self.model->updateMdl();
     self.mapView.camera.heading = -mySnapshot.orientation;
