@@ -62,21 +62,17 @@ int compassRender::initRenderMdl(){
     resetCamera();     // Initialize the camera
     compass_scale = [model->configurations[@"compass_scale"] floatValue];
     label_flag = true;
-    watchMode = false;
-    trainingMode = false;
-    wedgeMode = false;
     isOverviewMapEnabled = false;
     
-    // Initialize all four corners to 0 first
-    box4Corners[0].x = 0; box4Corners[0].y = 0;
-    box4Corners[1].x = 0; box4Corners[1].y = 0;
-    box4Corners[2].x = 0; box4Corners[2].y = 0;
-    box4Corners[3].x = 0; box4Corners[3].y = 0;
+//    // Initialize all four corners to 0 first
+//    box4Corners[0].x = 0; box4Corners[0].y = 0;
+//    box4Corners[1].x = 0; box4Corners[1].y = 0;
+//    box4Corners[2].x = 0; box4Corners[2].y = 0;
+//    box4Corners[3].x = 0; box4Corners[3].y = 0;
     
     glDrawingCorrectionRatio = 1;
     
-//    compass_centroid = glOrigin;
-    loadParametersFromModelConfiguration();
+    compass_centroid = glOrigin;
     
     //--------------------
     // Initialize string parameters
@@ -101,18 +97,6 @@ int compassRender::initRenderMdl(){
     
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
-}
-
-//---------------
-// Load parameters from configuration files
-//---------------
-void compassRender::loadParametersFromModelConfiguration(){
-    compass_scale = [model->configurations[@"compass_scale"] floatValue];
-    
-    compass_centroid.x =
-    [model->configurations[@"compass_centroid"][0] floatValue];
-    compass_centroid.y =
-    [model->configurations[@"compass_centroid"][1] floatValue];
 }
 
 //---------------
@@ -155,7 +139,6 @@ void compassRender::updateViewport
 {
     glDrawingCorrectionRatio = orig_height / height;
     glViewport (x, y, width, height);
-    
     updateProjection((float)width/(float)height);  // update projection matrix
 }
 
@@ -164,8 +147,8 @@ void compassRender::updateProjection(GLfloat aspect_ratio){
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     
-//    cout << "camera z: " << camera.viewPos.z << endl;
-//    cout << "aspect ratio: " << camera.fov << endl;
+    cout << "camera z: " << camera.viewPos.z << endl;
+    cout << "aspect ratio: " << camera.fov << endl;
     
     //fovy, asepect, zNear, zFar
     myGluPerspective(camera.fov, aspect_ratio, 1, 3 * camera.viewPos.z);
@@ -212,11 +195,13 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //    glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
     //    glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST);
     //    glEnable(GL_MULTISAMPLE);
-
+    
 #ifdef __IPHONE__
-    //-------------
-    // The following is needed for iOS to initialize OpenGL correctly.
-    //-------------
+    compass_scale = [model->configurations[@"compass_scale"] floatValue];
+    
+    compass_centroid.x = [model->configurations[@"compass_centroid"][0] floatValue];
+    compass_centroid.y = [model->configurations[@"compass_centroid"][1] floatValue];
+    
     static bool once = FALSE;
     if (!once){
         //--------------
@@ -234,78 +219,50 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         once = TRUE;
     }
 #endif
-
+    
+    NSString* render_style =
+    this->model->configurations[@"style_type"];
+    
     glMatrixMode(GL_MODELVIEW);
-    
-    
-
-    //--------------
-    // Draw overview box
-    //--------------
-    // This is strange, I couldn't place this block below the draw compass code...
     glPushMatrix();
-    if (isOverviewMapEnabled &&
-        model->tilt > -0.0001)
-    {
-        // Note UIView's coordinate system is diffrent than OpenGL's
-        
-        glTranslatef(-orig_width/2, orig_height/2, 0);
-        glRotatef(180, 1, 0, 0);
-        drawOverviewBox();
-    }
-    glPopMatrix();
 
-
-    //--------------
-    // Draw compass
-    //--------------
-    NSString* personalized_compass_status =
-    model->configurations[@"personalized_compass_status"];
-    
-    if ([personalized_compass_status isEqualToString:@"on"]){
-        glPushMatrix();
-        // Do NOT do the following for wedge
-        
+    // Do NOT do the following for wedge
+    if (![render_style isEqualToString:@"WEDGE"]){
         // Translate the compass to the desired screen location
         glTranslatef(compass_centroid.x, compass_centroid.y, 0);
-        
-        // [todo] Careful! Potential bug here...
-        // tilt
+    }
+    
+    // [todo] Careful! Potential bug here...
+    // tilt
+    glRotatef(model->tilt, 1, 0, 0);
+    
 
-#ifdef __IPHONE__
-        if (model->tilt < -45){
-            model->tilt = -45;
-        }
-#endif
-        glRotatef(model->tilt, 1, 0, 0);
-        
-        glRotatef(model->camera_pos.orientation, 0, 0, -1);
+    // Do NOT do the following for wedge
+    if (![render_style isEqualToString:@"WEDGE"]){
+        glRotatef(model->current_pos.orientation, 0, 0, -1);
         // scaling only applies to non-wedge styles
         float scale = glDrawingCorrectionRatio * compass_scale;
         glScalef(scale, scale, 1);
-        
-        drawWayfindingAid(renderParamStruct);
-        glPopMatrix();
-    }else if (watchMode){
-        drawClearWatch();
     }
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_VERTEX_ARRAY);
     
     //--------------
-    // Draw wedge
+    // Draw compass
     //--------------
-    NSString* wedge_status = model->configurations[@"wedge_status"];
-    if ([wedge_status isEqualToString:@"on"]){
-        wedgeMode = true;
-        renderParamStruct.style_type =
-        hashStyleStr(@"WEDGE");
-        glPushMatrix();
-        drawWayfindingAid(renderParamStruct);
-        wedgeMode = false;
-        glPopMatrix();
-    }
-
+    drawCompass(renderParamStruct);
+    
+//    //--------------
+//    // Draw the overview box
+//    //--------------
+//    if (isOverviewMapEnabled){
+//        drawOverviewBox();
+//        
+//        for (int i = 0; i < 4; ++i){
+//            cout << "point " << i << ": " <<
+//            box4Corners[i].x << " " << box4Corners[i].y << endl;
+//        }
+//    }
+    
+    glPopMatrix();
     glDisableClientState(GL_VERTEX_ARRAY);
     
     // glFlush is called in OpenGLView

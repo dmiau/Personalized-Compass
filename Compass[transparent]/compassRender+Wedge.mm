@@ -23,14 +23,20 @@ void calculateDistInBox(double width, double height, CGPoint aPoint,
 void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){    
     ostringstream db_stream;
     
-    model->label_info_array.clear();
-    
     // Assume indices_for_rendering stores sorted distances
-    if (indices_for_rendering.size() <= 0 &&
-        !(model->user_pos.isEnabled && !model->user_pos.isVisible))
-    {
-        // Nothing to be drawn, return
-        return;
+    
+    // Cache all the distance candidates into a vector
+    vector <double> filtered_dist_list;
+    for (int i = 0; i < indices_for_rendering.size(); ++i){
+        int j = indices_for_rendering[i];
+        filtered_dist_list.push_back(model->data_array[j].distance);
+    }
+    
+    int landmark_n = filtered_dist_list.size();
+    
+    if (landmark_n <= 1){
+        // In rare cases we may ended up with a single landmark?
+        throw(runtime_error("Only single landmark!!"));
     }
     
     // Declarations
@@ -39,28 +45,17 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     center_pt.x = orig_width/2;
     center_pt.y = orig_height/2;
     double screen_dist, off_screen_dist, max_aperture, leg, aperture;
-    double rotation, x_diff, y_diff, dist;
+    double rotation, x_diff, y_diff;
     
     if (this->mapView == nil)
         throw(runtime_error("mapView is uninitialized."));
     
-    for (int i = -1; i < (int)indices_for_rendering.size(); ++i){
+    for (int i = 0; i < indices_for_rendering.size(); ++i){
+        int j = indices_for_rendering[i];
         
-        if (i == -1){
-            if (model->user_pos.isEnabled && !model->user_pos.isVisible){
-                myCoord.latitude = model->user_pos.latitude;
-                myCoord.longitude = model->user_pos.longitude;
-            }else{
-                continue;
-            }
-        }else{
-            int j = indices_for_rendering[i];
-            // Calculate the screen coordinates
-            myCoord.latitude = model->data_array[j].latitude;
-            myCoord.longitude = model->data_array[j].longitude;
-        }
-        
-        
+        // Calculate the screen coordinates
+        myCoord.latitude = model->data_array[j].latitude;
+        myCoord.longitude = model->data_array[j].longitude;
         screen_pt =
         [this->mapView convertCoordinate:myCoord toPointToView:this->mapView];
         
@@ -76,28 +71,19 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         // construction
         db_stream << "-----------------" << endl;
 
+//#ifndef __IPHONE__
+//        NSLog(@"Map frame: %@", NSStringFromRect(this->mapView.frame));
+//#else
+//        NSLog(@"Map frame: %@", NSStringFromCGRect(this->mapView.frame));
+//#endif
         
-        dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2));
-        
-        cout << "orig_width: " << this->orig_width
-        << "orig_height: " << this->orig_height << endl;
+        db_stream << "landmark: " << model->data_array[j].name << endl;
+        db_stream << "x: " << x_diff << " y:" << y_diff << endl;
         
         calculateDistInBox(this->orig_width, this->orig_height,
                            CGPointMake(x_diff, y_diff),
                            &screen_dist, &rotation, &max_aperture);
-
-        // We will use rotation and max_aperture from calculateDistInBox
-        if (watchMode){
-//            float outer_disk_radius =
-//            half_canvas_size *
-//            [model->configurations[@"outer_disk_ratio"] floatValue];
-//            float scale = glDrawingCorrectionRatio * compass_scale;
-//            screen_dist = outer_disk_radius * scale;
-            
-            screen_dist = [model->configurations[@"watch_radius"] floatValue];
-        }
-        off_screen_dist = dist - screen_dist;
-        
+        off_screen_dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2)) - screen_dist;
         // distance needs to be corrected
         
         // -----------------------
@@ -132,16 +118,9 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         
         aperture = (5+corrected_off_screen_dist*0.3)/leg;
         
-        if (watchMode){
-                max_aperture =
-            acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2 * 0.95;
-        }
-        
-        
-        if (aperture > max_aperture &&
-            [model->configurations[@"wedge_style"] isEqualToString:@"modified"])
-        {
+        if (aperture > max_aperture){
             aperture = max_aperture;
+//            NSLog(@"Aperture is bigger than max_apertue!");
         }
         
         leg = leg / correction_x;
@@ -155,13 +134,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         // v1
         //        v3
         glLineWidth(4);
-        
-        if (i == -1){
-            glColor4f(0, 1, 0, 1);
-        }else{
-            glColor4f(1, 0, 0, 1);
-        }
-
+        glColor4f(1, 0, 0, 1);
         glPushMatrix();
         // Plot the triangle first, then rotate and translate
         glTranslatef(x_diff, y_diff, 0);
@@ -180,22 +153,6 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         glDrawArrays(GL_LINE_STRIP, 0,4);
         
         glPopMatrix();
-        
-        //---------------------
-        // Populate label_info_array
-        //---------------------
-        label_info myLabelinfo;
-        
-        double label_radius = leg * cos(aperture/2);
-        double label_orientation = atan2(y_diff, x_diff);
-        myLabelinfo.distance = dist - label_radius;
-        myLabelinfo.centroid = CGPointMake
-        (label_radius * cos(label_orientation),
-         label_radius * sin(label_orientation));
-        myLabelinfo.data_id = indices_for_rendering[i];
-        myLabelinfo.orientation =
-        -label_orientation / M_PI * 180 + 90;
-        model->label_info_array.push_back(myLabelinfo);
     }
     
     db_stream << "Done!" << endl;
@@ -204,7 +161,6 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     {
         cout << db_stream.str() << endl;
     }
-
 }
 
 //--------------

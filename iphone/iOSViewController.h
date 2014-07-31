@@ -14,49 +14,25 @@
 #include <iostream>
 #import "iOSGLKView.h"
 
-
-enum findMe_enum{
-    LOCATION_ON,
-    LOCATION_OFF,
-    MOVE2LOCATION
-};
-
-
 @interface iOSViewController : UIViewController
-<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate>
+<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate,
+MKMapViewDelegate>
 {
     NSTimer *_updateUITimer;
+    CLLocationManager *locationManager;
     MKLocalSearch *localSearch;
     MKLocalSearchResponse *results;
-    CALayer *mapMask;
-    NSArray *view_array;
-    vector<CGSize> view_size_vector;
-    
-    // For toolbar
-    UIBarButtonItem *counter_button;
 }
 
-@property NSMutableDictionary* UIConfigurations;
-
-//----------------
-// Views
-//----------------
 @property (weak) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet MKMapView *overviewMapView;
+
 @property (weak, nonatomic) IBOutlet GLKView *glkView;
-@property UIView *viewPanel;
-@property UIView *modelPanel;
-@property UIView *watchPanel;
-@property UIView *debugPanel;
-
-//----------------
-// UI Components
-//----------------
 @property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
-@property (weak, nonatomic) IBOutlet UIButton *findMeButton;
-@property (weak, nonatomic) IBOutlet UILabel *scaleIndicator;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
-
+@property (weak, nonatomic) IBOutlet UIView *menuView;
+@property (weak, nonatomic) IBOutlet UIView *typeSelectorView;
+@property UIView *debugView;
+@property UITextView *debugTextView;
 
 @property compassMdl* model;
 @property compassRender* renderer;
@@ -64,50 +40,10 @@ enum findMe_enum{
 @property NSNumber *mapUpdateFlag;
 @property bool conventionalCompassVisible;
 
-//----------------
-// Segue communication related stuff
-//----------------
+
 // This is used for communication via segue
 @property bool needUpdateDisplayRegion;
-@property bool needUpdateAnnotations;
-@property int snapshot_id_toshow;
-@property int breadcrumb_id_toshow;
-@property int landmark_id_toshow;
-
-//----------------
-// Snapshot related stuff
-//----------------
-- (bool)takeSnapshot;
-- (bool)displaySnapshot: (int) id;
-- (bool)saveSnapshotArray;
-- (bool)loadSanpshotArray;
-
-//----------------
-// History related stuff
-//----------------
-- (bool) addBreadcrumb: (CLLocationCoordinate2D) coord2D;
-- (bool) displayBreadcrumb;
-- (bool) saveBreadcrumbArray;
-- (bool) loadBreadkcrumbArray;
-@property bool sprinkleBreadCrumbMode;
-
-//----------------
-// Location service related stuff
-//----------------
-@property bool move2UpdatedLocation;
-@property bool needToggleLocationService;
-//- (void) doSingleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer;
-//- (void) doDoubleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer;
-- (void)toggleLocationService:(int)tapNumber;
-
-// this flag indicates whether the FindMe mode is turned on or not
-@property CLLocationManager *locationManager;
--(void)updateFindMeView;
-
-//----------------
-// Compass related stuff
-//----------------
-- (void) changeCompassLocationTo: (NSString*) label;
+- (IBAction)getCurrentLocation:(id)sender;
 
 
 //----------------
@@ -123,16 +59,16 @@ enum findMe_enum{
 //----------------
 // Toolbar and menu related functions
 //----------------
-- (IBAction)toggleWatchPanel:(id)sender;
-- (IBAction)toggleDebugView:(id)sender;
-- (IBAction)toggleViewPanel:(id)sender;
-- (IBAction)toggleModelPanel:(id)sender;
+- (IBAction)toggleExplrMode:(id)sender;
+
+- (void) removeCompass;
+- (IBAction)toggleMenu:(id)sender;
+- (IBAction)toggleTypeMenu:(id)sender;
 - (IBAction)refreshApp:(id)sender;
+- (IBAction)openIPADSettings:(id)sender;
+- (IBAction)toggleDebugView:(id)sender;
 
 - (void) setFactoryCompassHidden: (BOOL) flag;
-- (void) removeCompass;
-- (void) constructDebugToolbar:(NSString*) mode;
-- (void) constructDemoToolbar:(NSString*)mode;
 
 //----------------
 // Update and initialization functions
@@ -141,12 +77,12 @@ enum findMe_enum{
 - (void) updateMapDisplayRegion;
 //- (void) updateMapDisplayRegion(CLLocationCoordinate2D coord);
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
--(void)updateOverviewMap;
--(bool)updateModelCompassCenterXY;
--(void) updateLocationVisibility;
+- (void)updateOverviewMap;
 
 //----------------
 // Annotations related methods
 //----------------
 - (void) renderAnnotations;
+
+- (void) drawAnnotations;
 @end

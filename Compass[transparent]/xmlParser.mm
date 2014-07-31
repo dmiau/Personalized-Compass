@@ -7,7 +7,6 @@
 //
 
 #import "xmlParser.h"
-#import "CustomPointAnnotation.h"
 #include <stdexcept>
 
 
@@ -15,6 +14,33 @@ int readLocationKml(compassMdl* mdl){
     NSString* filename = mdl->location_filename;
     xmlParser *myParser;
 #ifdef __IPHONE__
+//    //-----------------
+//    // Check if an online version exist
+//    //-----------------
+//    NSString *dropbox_root = mdl->configurations[@"dropbox_root"];
+//    NSURL *url = [NSURL URLWithString:
+//                  [dropbox_root stringByAppendingString:[filename lastPathComponent]]];
+//    
+//    // Check if the URL is valid
+//    NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:1.0];
+//    NSHTTPURLResponse* response = nil;
+//    NSError* error = nil;
+//    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//    
+//
+//    if ([response statusCode] == 200){
+//        // need to append "?dl=1" to access the file directly
+//        myParser = [[xmlParser alloc]
+//                    initWithFileURL:
+//                    [NSURL URLWithString:[[url absoluteString] stringByAppendingString:@"?dl=1"]]
+//                    ];
+//    }else{
+//        myParser = [[xmlParser alloc]
+//                    initWithFileURL: [NSURL fileURLWithPath: filename]];
+//    };
+    
+    
+
     NSData* data = nil;
     if (mdl->dbFilesystem.isReady &&
         mdl->filesys_type == DROPBOX){
@@ -23,15 +49,10 @@ int readLocationKml(compassMdl* mdl){
     }
     
     if (!data){
+        //        data = [NSData dataWithContentsOfFile:jsonPath];
         data = [mdl->docFilesystem readFileFromName:
                 [filename lastPathComponent]];
         mdl->filesys_type = IOS_DOC;
-    }
-
-    if (!data){
-        data = [mdl->docFilesystem readBundleFileFromName:
-                [filename lastPathComponent]];
-        mdl->filesys_type = BUNDLE;
     }
     
     if (!data){
@@ -49,11 +70,21 @@ int readLocationKml(compassMdl* mdl){
     
     myParser.parseFile;
     
-    mdl->camera_pos.name = myParser.data_array[0].name;
+    mdl->current_pos.name = myParser.data_array[0].name;
     // Set the initial orientation to 0
-    mdl->camera_pos.orientation = 0;
-    mdl->camera_pos.latitude = myParser.data_array[0].latitude;
-    mdl->camera_pos.longitude = myParser.data_array[0].longitude;
+    mdl->current_pos.orientation = 0;
+    mdl->current_pos.latitude = myParser.data_array[0].latitude;
+    mdl->current_pos.longitude = myParser.data_array[0].longitude;
+    
+    // Remove the first data (since it is the current location)
+//    cout << myParser.data_array.begin()->name << endl;
+//    myParser.data_array[0].name = "paris";
+//    cout << myParser.data_array[0].name << endl;
+//    cout << myParser.data_array.begin()->name << endl;
+
+//    vector<data>::iterator it = myParser.data_array.begin();
+//    it->name = "paris";
+//    cout << myParser.data_array.begin()->name << endl;
     
     mdl->data_array = myParser.data_array;
     
@@ -98,18 +129,42 @@ int readLocationKml(compassMdl* mdl){
     BOOL success = [parser parse];
     
     // test the result
-    if (!success){
+    if (success){
+        
+    }else{
         throw(std::runtime_error("Failed to parse the document!"));
     }
+    
+#ifdef DM_DEBUG
+    // Need to check the result here
+    NSLog(@"done!");
+    cout << data_array.size() << endl;
+#endif
+    
     return success;
 }
 
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
+#ifdef DM_DEBUG
+    NSLog(@"Started Element %@", elementName);
+#endif
+//    // initialize element?
+//    element = [NSMutableString string];
+    
     
     if ([elementName isEqualToString:@"Placemark"]) {
+#ifdef DM_DEBUG
+        NSLog(@"Placemark block found – create a new instance of data class...");
+#endif
         data _data;
-
+        _data.name = "";
+        _data.latitude = 0;
+        _data.longitude = 0;
+        _data.distance = 0;
+        _data.orientation = 0;
+        _data.isEnabled = YES;
+        _data.annotation = [[MKPointAnnotation alloc] init];
         data_array.push_back(_data);
         place_flag = true;
     }else if ([elementName isEqualToString:@"name"]){
@@ -125,9 +180,6 @@ int readLocationKml(compassMdl* mdl){
             data_array[data_array.size()-1].name = [string UTF8String];
             data_array[data_array.size()-1].annotation.title
             = string;
-            data_array[data_array.size()-1].annotation.point_type = landmark;
-            data_array[data_array.size()-1].annotation.data_id =
-            data_array.size()-1;
         }else if (coord_flag){
             // Need to somehow split the sting
             
@@ -147,6 +199,9 @@ int readLocationKml(compassMdl* mdl){
 
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
+#ifdef DM_DEBUG
+    NSLog(@"Found an element named: %@ with a value of: %@", elementName, element);
+#endif
     if ([elementName isEqualToString:@"Placemark"]) {
         place_flag = false;
     }else if ([elementName isEqualToString:@"name"]) {

@@ -8,6 +8,7 @@
 
 #import "iOSViewController.h"
 
+
 @interface iOSViewController ()
 
 @end
@@ -15,173 +16,88 @@
 @implementation iOSViewController
 @synthesize model;
 
-- (void)viewWillAppear:(BOOL)animated {
+#pragma mark ----Initialization----
+- (void) awakeFromNib
+{
+    [self addObserver:self forKeyPath:@"mapUpdateFlag"
+              options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
     
-    // Make navigation bar disappeared
-    // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
+    //http://stackoverflow.com/questions/10796058/is-it-possible-to-continuously-track-the-mkmapview-region-while-scrolling-zoomin?lq=1
     
-    self.model->updateMdl();
+#ifndef __IPAD__
+    float timer_interval = 0.03;
+#else
+    float timer_interval = 0.06;
+#endif
     
+    _updateUITimer = [NSTimer timerWithTimeInterval:timer_interval
+                                             target:self
+                                           selector:@selector(vcTimerFired)
+                                           userInfo:nil
+                                            repeats:YES];
     
-    //-------------------
-    // Build a toolboar
-    //-------------------
-    
-    if ([self.UIConfigurations[@"UIToolbarNeedsUpdate"]
-         boolValue]){
-        
-        if ([self.UIConfigurations[@"UIToolbarMode"]
-             isEqualToString:@"Development"]){
-            [self constructDebugToolbar: @"Portrait"];
-        }else if ([self.UIConfigurations[@"UIToolbarMode"]
-                   isEqualToString:@"Demo"]){
-            [self constructDemoToolbar: @"Portrait"];
-        }
-        self.UIConfigurations[@"UIToolbarNeedsUpdate"]
-        = [NSNumber numberWithBool:false];
+    [[NSRunLoop mainRunLoop] addTimer:_updateUITimer forMode:NSRunLoopCommonModes];
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
     }
-    //---------------
-    // Unwind actions
-    //---------------
-    // There is a bug here. There seems to be an extra shift component.
-    if (self.needUpdateDisplayRegion){
-        [self updateMapDisplayRegion];
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder*)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if(self) {
+        // Do something
+        self.model = compassMdl::shareCompassMdl();
+        self.renderer = compassRender::shareCompassRender();
+        if (self.model == NULL)
+            throw(runtime_error("compassModel is uninitialized"));
+        
+        [self.searchDisplayController setDelegate:self];
+        [self.ibSearchBar setDelegate:self];
+        
+        self.debugView = nil;
+        self.debugTextView = nil;
+        
         self.needUpdateDisplayRegion = false;
     }
-    
-    
-    if (self.needUpdateAnnotations){
-        self.needUpdateAnnotations = false;
-        [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
-        [self renderAnnotations];
-    }
-    
-    // This may be an iPad only thing
-    // (dismissing the modal dialog)
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    
-    if ([self needToggleLocationService]){
-        [self toggleLocationService:1];
-        self.needToggleLocationService = false;
-    }
-    
-    //---------------
-    // Snapshot and history stuff
-    //---------------
-    if (self.snapshot_id_toshow >= 0){
-        [self displaySnapshot:self.snapshot_id_toshow];
-        self.snapshot_id_toshow = -1;
-    }
-
-    if (self.breadcrumb_id_toshow >= 0){
-        [self displayBreadcrumb];
-        breadcrumb myBreadcrumb =
-        self.model->breadcrumb_array[self.breadcrumb_id_toshow];
-        
-        [self.mapView setCenterCoordinate:myBreadcrumb.coord2D animated:YES];
-        self.breadcrumb_id_toshow = -1;
-    }
-    
-    //---------------
-    // Goto the selected location
-    //---------------
-    if (self.landmark_id_toshow >= 0){
-        int id = self.landmark_id_toshow;
-        self.model->camera_pos.latitude =
-        self.model->data_array[id].latitude;
-        self.model->camera_pos.longitude =
-        self.model->data_array[id].longitude;
-        self.landmark_id_toshow = -1;
-        [self updateMapDisplayRegion];
-    }
-    
-    [self.glkView setNeedsDisplay];
+    return self;
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
-}
-
-#pragma mark -------Interface rotation stuff------
-
-- (void) didInterfaceRotate:(NSNotification *)notification
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    //-------------------
+    // Initialize OpenGL ES
+    //-------------------
+    
+    // Create an OpenGL ES context and assign it to the view loaded from storyboard
+    [self.glkView initWithFrame:self.glkView.frame
+                context:
+     [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1]];
+    
+    //-------------------
+    // Initialize Map View
+    //-------------------
+    self.mapView.delegate = self;
+    self.renderer->mapView = [self mapView];
+    [self initMapView];
 
-    // Only need to proceed if the rotation lock is off
-    if ([self.UIConfigurations[@"UIRotationLock"] boolValue]){
-        return;
-    }
-    
-    
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    double width = self.glkView.frame.size.width;
-    double height = self.glkView.frame.size.height;
 
-    // Update the viewport
+    //-------------------
+    // Add a debug view
+    //-------------------
+    [self addDebugView];
+    [self.debugView setHidden:YES];
     
-    // This line is important.
-    // In order to maintain 1-1 OpenGL and screen pixel mapping,
-    // the following line is necessary!
-    self.renderer->initRenderView(width, height);
-    self.renderer->updateViewport(0, 0, width, height);
-    
-    // Update the frames of views
-    // iphone's screen size: 568x320
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-    
-    NSMutableArray* toolbar_items =
-    [NSMutableArray arrayWithArray:self.toolbar.items];
-    
-    if (orientation == UIDeviceOrientationLandscapeLeft ||
-        orientation == UIDeviceOrientationLandscapeRight)
-    {
-        screenWidth = screenRect.size.height;
-        screenHeight = screenRect.size.width;
-        
-#ifdef __IPHONE__
-        [self constructDebugToolbar:@"Landscape"];
-    }else if(orientation == UIDeviceOrientationPortrait){
-                [self constructDebugToolbar:@"Portrait"];
-#endif
-    }
-
-    for (int i = 0; i < [view_array count]; ++i){
-        UIView *aView = view_array[i];
-        double view_width = view_size_vector[i].width;
-        double view_height = view_size_vector[i].height;
-        aView.frame = CGRectMake(0, screenHeight - 44 - view_height,
-                                 view_width, view_height);
-    }
-    
-    [self.glkView setNeedsDisplay];
 }
-
-
-
-- (void) doSingleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer
-{
-    [self toggleLocationService:1];
-    NSLog(@"Single tap!");
-}
-
-- (void) doDoubleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer
-{
-    [self toggleLocationService:2];
-    
-    if([self.model->configurations[@"UIBreadcrumbDisplay"] boolValue]){
-        [self.mapView removeOverlays: self.mapView.overlays];
-        [self displayBreadcrumb];
-    }
-    NSLog(@"Double tap!");
-}
-
 
 //-----------------
 // initMapView may be called whenever configurations.json is reloaded
@@ -190,8 +106,12 @@
     [self updateMapDisplayRegion];
     
     // Provide the centroid of compass to the model
-    [self updateModelCompassCenterXY];
-
+    self.model->compassCenterXY =
+    [self.mapView convertPoint: CGPointMake(self.glkView.frame.size.width/2
+                                            + [self.model->configurations[@"compass_centroid"][0] floatValue],
+                                            self.glkView.frame.size.height/2+
+                                            - [self.model->configurations[@"compass_centroid"][1] floatValue])
+                      fromView:self.glkView];
     // Add pin annotations
     [self renderAnnotations];
     
@@ -200,11 +120,66 @@
 
 }
 
+//-----------------
+// initialize debug view
+//-----------------
+- (void) addDebugView{
+    
+    self.debugView = [[UIView alloc] initWithFrame:
+                      CGRectMake(0, self.view.frame.size.height - 144,
+                                 320, 100)];
+    self.debugView.backgroundColor = [UIColor redColor];
+    self.debugView.alpha = 0.6;
+    [self.view addSubview:self.debugView];
+    
+    
+    // add a textview to the debug view
+    UITextView *textView = [[UITextView alloc] initWithFrame:
+                            self.debugView.bounds];
+    textView.text = @"Hello World!\n";
+    [textView setFont:[UIFont systemFontOfSize:25]];
+    textView.editable = NO;
+    self.debugTextView = textView;
+    [self.debugView addSubview:textView];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark ------update------
+
+
+-(IBAction)unwindToRootVC:(UIStoryboardSegue *)segue
+{
+    
+    // Can I know which segue it is?
+//    NSLog(@"Segue id: %@", segue.identifier);
+    
+    // There is a bug here. There seems to be an extra shift component.
+    if (self.needUpdateDisplayRegion){
+        [self updateMapDisplayRegion];
+        self.needUpdateDisplayRegion = false;
+    }
+
+    // This may be an iPad only thing
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
@@ -220,54 +195,6 @@
     // pass touch event to super
     [super touchesBegan:touches withEvent:event];
     
-    
-    
-    //------------------
-    // Perform hitTest to dismiss dialogs
-    //------------------
-    NSArray* dialog_array = @[self.viewPanel, self.modelPanel
-                              , self.watchPanel, self.debugPanel];
-    
-    for (UIView* aView in dialog_array){
-
-        UIView* hitView = [aView
-                   hitTest:[touch locationInView:aView]
-                   withEvent:event];
-        if ([aView isHidden] == NO &&
-            hitView == nil){
-            [aView setHidden:YES];
-        }
-    }
-}
-
-- (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
-{
-    // UIGestureRecognizerStateEnded
-    // UIGestureRecognizerStateBegan
-    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
-        return;
-
-    // No pin creation is the option is off
-    if (![self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue])
-        return;
-    
-    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D touchMapCoordinate =
-    [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-    
-    CustomPointAnnotation *pa = [[CustomPointAnnotation alloc] init];
-    pa.coordinate = touchMapCoordinate;
-    pa.title = @"Dropped Pin";
-    pa.point_type = dropped;
-    
-    if (self.sprinkleBreadCrumbMode){
-        [self addBreadcrumb:touchMapCoordinate];
-    }
-    
-    [self.mapView addAnnotation:pa];
-    
-//    // this line displays the callout
-//    [self.mapView selectAnnotation:pa animated:YES];
 }
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "iOSViewController.h"
-#import "CustomPointAnnotation.h"
 
 @interface iOSViewController (Search)
 

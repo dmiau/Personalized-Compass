@@ -25,21 +25,8 @@
 #include <GL/glu.h>
 #endif
 
-
-using namespace std;
-
-inline bool compareAscending(const pair<float, int> &l,
-                             const pair<float, int> &r)
-{
-    return(l.first < r.first);
-}
-
-inline bool compareDecending(const pair<float, int> &l,
-                             const pair<float, int> &r)
-{
-    return(l.first > r.first);
-}
-
+bool compareAscending
+(const std::pair<float, int> &l, const std::pair<float, int> &r);
 
 struct Vertex3D{
     GLfloat x;

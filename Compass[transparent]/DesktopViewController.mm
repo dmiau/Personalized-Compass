@@ -50,9 +50,6 @@
             {
                 [tableCellCache addObject:[NSNull null]];
             }
-         
-            
-            
             
         }
     }
@@ -164,11 +161,11 @@
     [[self currentCoord] setStringValue: latlon_str];
     
     //[todo] this is too heavy
-    model->camera_pos.orientation = heading_deg;
+    model->current_pos.orientation = heading_deg;
     model->tilt = tilt_deg;
     
-    model->camera_pos.latitude = lat_float;
-    model->camera_pos.longitude = lon_float;
+    model->current_pos.latitude = lat_float;
+    model->current_pos.longitude = lon_float;
     model->updateMdl();
     
     // Update distances on the table
@@ -260,12 +257,12 @@ static NSComparisonResult myCustomViewAboveSiblingViewsComparator(id view1, id v
         mycamera.heading = cur_heading - 2;
         // Update the compassModel's orientation
         //[todo] need to fix orientation
-        model->camera_pos.orientation = model->camera_pos.orientation +2;
+        model->current_pos.orientation = model->current_pos.orientation +2;
     }else{
         mycamera.heading = cur_heading + 2;
-        model->camera_pos.orientation = model->camera_pos.orientation -2;
+        model->current_pos.orientation = model->current_pos.orientation -2;
     }
-    cout << "Orientation: " << model->camera_pos.orientation << endl;
+    cout << "Orientation: " << model->current_pos.orientation << endl;
     [self.mapView setCamera:mycamera animated:YES];
 }
 
@@ -283,8 +280,8 @@ static NSComparisonResult myCustomViewAboveSiblingViewsComparator(id view1, id v
     static int once = 0;
     if (once==0){
         MKCoordinateRegion region;
-        region.center.latitude = model->camera_pos.latitude;
-        region.center.longitude = model->camera_pos.longitude;
+        region.center.latitude = model->current_pos.latitude;
+        region.center.longitude = model->current_pos.longitude;
         
         region.span.longitudeDelta = model->latitudedelta;
         region.span.latitudeDelta = model->longitudedelta;
@@ -293,8 +290,8 @@ static NSComparisonResult myCustomViewAboveSiblingViewsComparator(id view1, id v
     }
     
     CLLocationCoordinate2D coord;
-    coord.latitude = model->camera_pos.latitude;
-    coord.longitude = model->camera_pos.longitude;
+    coord.latitude = model->current_pos.latitude;
+    coord.longitude = model->current_pos.longitude;
     [self.mapView setCenterCoordinate:coord animated:YES];
 }
 

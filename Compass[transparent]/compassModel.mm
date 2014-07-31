@@ -11,7 +11,6 @@
 #include <unistd.h>
 #import <CoreLocation/CoreLocation.h>
 #include "xmlParser.h"
-#import "snapshotParser.h"
 
 // http://stackoverflow.com/questions/3277121/include-objective-c-header-in-c-file
 
@@ -73,50 +72,6 @@ int compassMdl::initMdl(){
     //------------
     reloadFiles();
     watchConfigurationFile();
-
-    //------------
-    // Load snapshot if the file is available
-    //------------
-    
-#ifdef __IPHONE__
-    // [todo] need to think about the OSX case
-    
-    bool snapshotFileExists = false;
-    // Check if a snapshot file exists
-    if (filesys_type == DROPBOX){
-        snapshotFileExists = [dbFilesystem fileExists:@"snapshot.kml"];
-    }else{
-        snapshotFileExists = [docFilesystem fileExists:@"snapshot.kml"];
-    }
-    
-    if (snapshotFileExists){
-        snapshot_filename = @"snapshot.kml";
-        if (readSnapshotKml(this) != EXIT_SUCCESS){
-            throw(runtime_error("Failed to load snapshot files"));
-        }
-    }
-    history_filename = @"";
-    history_notes = @"";
-#endif
-    
-    //------------
-    // Initialize user position
-    //------------
-    user_heading_deg = 0;
-    user_pos.orientation = 0.0;
-    user_pos.isEnabled = false;
-    
-    // At this point the latitude and longitude in user_pos
-    // are just place holders
-    user_pos.latitude = data_array[0].latitude;
-    user_pos.longitude = data_array[0].longitude;
-    user_pos.annotation = [[CustomPointAnnotation alloc] init];
-    CLLocationCoordinate2D coord;
-    coord.latitude = user_pos.latitude;
-    coord.longitude = user_pos.longitude;
-    user_pos.annotation.coordinate = coord;
-    
-    user_pos.annotation.point_type = heading;
     
     return 0;
 }
@@ -150,9 +105,9 @@ int compassMdl::updateMdl(){
 
     
     for (int i = 0; i < data_array.size(); ++i){
-        double distance = camera_pos.computeDistanceFromLocation
+        double distance = current_pos.computeDistanceFromLocation
         (data_array[i]);
-        double orientation = camera_pos.computeOrientationFromLocation
+        double orientation = current_pos.computeOrientationFromLocation
         (data_array[i]);
         data_array[i].distance = distance;
         data_array[i].orientation = orientation;
@@ -163,20 +118,6 @@ int compassMdl::updateMdl(){
         location_pair.push_back(make_pair(distance, i));
     }
     
-    
-    //---------------
-    // Calculate the distance and orientation to the user's
-    // current location
-    //---------------    
-    if (user_pos.isEnabled){
-        double distance = camera_pos.computeDistanceFromLocation
-        (user_pos);
-        double orientation = camera_pos.computeOrientationFromLocation
-        (user_pos);
-        user_pos.distance = distance;
-        user_pos.orientation = orientation;
-    }
-
     sort(location_pair.begin(), location_pair.end(), compareAscending);
     for (int i = 0; i < location_pair.size(); ++i){
         indices_sorted_by_distance.push_back(location_pair[i].second);
@@ -281,4 +222,50 @@ void compassMdl::watchConfigurationFile(){
     dispatch_source_set_event_handler(source, eventHandler);
     dispatch_source_set_cancel_handler(source, cancelHandler);
     dispatch_resume(source);
+}
+
+
+#pragma mark ----------location distance/orientation tools----------
+//===================
+// tools for distance and orientation calculation
+//===================
+double DegreesToRadians(double degrees) {return degrees * M_PI / 180.0;};
+double RadiansToDegrees(double radians) {return radians * 180.0/M_PI;};
+// calculate bearing
+// http://stackoverflow.com/questions/3925942/cllocation-category-for-calculating-bearing-w-haversine-function
+//
+
+double data::computeDistanceFromLocation(data& another_data){
+
+    // Take advantage of OSX's foundation class
+    CLLocation *cur_location = [[CLLocation alloc]
+                                initWithLatitude: this->latitude
+                                longitude: this->longitude];
+    
+    
+    CLLocation *target_location = [[CLLocation alloc]
+                                   initWithLatitude:
+                                   another_data.latitude
+                                   longitude:
+                                   another_data.longitude];
+    CLLocationDistance distnace = [cur_location distanceFromLocation: target_location];
+    return distnace;
+}
+
+
+double data::computeOrientationFromLocation(data &another_data){
+    
+    double lat1 = DegreesToRadians(this->latitude);
+    double lon1 = DegreesToRadians(this->longitude);
+    
+    double lat2 = DegreesToRadians(another_data.latitude);
+    double lon2 = DegreesToRadians(another_data.longitude);
+    
+    double dLon = lon2 - lon1;
+    
+    double y = sin(dLon) * cos(lat2);
+    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+    double radiansBearing = atan2(y, x);
+    
+    return RadiansToDegrees(radiansBearing);
 }
