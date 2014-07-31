@@ -51,11 +51,19 @@
         CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
                                                   self.model->compassCenterXY
                                                    toCoordinateFromView:self.mapView];
+        //        dispatch_queue_t concurrentQueue =
+        //        dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+        //        dispatch_async(concurrentQueue,
+        //                       ^{
+        //
+        //                       });
         
         [self feedModelLatitude: compassCtrCoord.latitude
                       longitude: compassCtrCoord.longitude
                         heading: [self calculateCameraHeading]
                            tilt: -self.mapView.camera.pitch];
+
+        [self updateLocationVisibility];
         
         // [todo] This code should be put into the gesture recognizer
         // Disable the compass
@@ -70,19 +78,12 @@
         dispatch_async(mainQueue,
                        ^{
                            // Redraw the compass
+                           // Update GUI components
                            [self updateOverviewMap];
                            [self.glkView setNeedsDisplay];
+                           [self updateFindMeView];
                        });
         
-        
-//        dispatch_async(mainQueue,
-//                       ^{
-//                           // Update the debug message
-//                           if (self.debugTextView){
-//                               self.debugTextView.text =
-//                               self.renderer->debugString;
-//                           }
-//                       });
     }
 }
 
@@ -96,11 +97,17 @@
                       tilt: (float) tilt_deg
 {
     //[todo] this is too heavy
-    self.model->current_pos.orientation = -camera_heading;
+    
+    if (self.model->tilt == 0 && tilt_deg !=0){
+        [self changeCompassLocationTo:@"BL"];
+    }
+    
+    
+    self.model->camera_pos.orientation = -camera_heading;
     self.model->tilt = tilt_deg; // no tilt changes on iOS
     
-    self.model->current_pos.latitude = lat_float;
-    self.model->current_pos.longitude = lon_float;
+    self.model->camera_pos.latitude = lat_float;
+    self.model->camera_pos.longitude = lon_float;
     self.model->updateMdl();
 }
 
@@ -132,8 +139,8 @@
     static int once = 0;
     if (once==0){
         MKCoordinateRegion region;
-        region.center.latitude = self.model->current_pos.latitude;
-        region.center.longitude = self.model->current_pos.longitude;
+        region.center.latitude = self.model->camera_pos.latitude;
+        region.center.longitude = self.model->camera_pos.longitude;
         
         region.span.longitudeDelta = self.model->latitudedelta;
         region.span.latitudeDelta = self.model->longitudedelta;
@@ -142,8 +149,8 @@
     }
     
     CLLocationCoordinate2D coord;
-    coord.latitude = self.model->current_pos.latitude;
-    coord.longitude = self.model->current_pos.longitude;
+    coord.latitude = self.model->camera_pos.latitude;
+    coord.longitude = self.model->camera_pos.longitude;
     
     
     //    // The compass may be off-center, thus we need to calculate the
@@ -157,6 +164,18 @@
     [self.mapView setCenterCoordinate:coord animated:YES];
 }
 
+//------------------
+// This function should be called after the user moves the compass
+//------------------
+-(bool)updateModelCompassCenterXY{
+    self.model->compassCenterXY =
+    [self.mapView convertPoint: CGPointMake(self.glkView.frame.size.width/2
+                                            + [self.model->configurations[@"compass_centroid"][0] floatValue],
+                                            self.glkView.frame.size.height/2+
+                                            - [self.model->configurations[@"compass_centroid"][1] floatValue])
+                      fromView:self.glkView];
+    return true;
+}
 //------------------
 // Tools
 //------------------
@@ -177,4 +196,61 @@
     
     return RadiansToDegrees(radiansBearing);
 }
+
+-(void) updateLocationVisibility{
+    
+    CLLocationCoordinate2D orig_coord2d =
+    [self.mapView convertPoint:CGPointMake(self.mapView.frame.size.width/2,
+                                           self.mapView.frame.size.height/2)
+          toCoordinateFromView:self.mapView];
+    CLLocation* orig_location = [[CLLocation alloc]
+                                 initWithLatitude:orig_coord2d.latitude
+                                 longitude:orig_coord2d.longitude];
+    
+    
+    double true_radius_dist = self.renderer->getMapWidthInMeters() *
+    [self.model->configurations[@"watch_radius"] floatValue] /
+    self.mapView.frame.size.width;
+    
+    for (int i = -1; i < (int)self.model->data_array.size(); ++i){
+        
+        data *data_ptr;
+        if (i == -1 && !self.model->user_pos.isEnabled){
+            continue;
+        }else if (i == -1 && self.model->user_pos.isEnabled){
+            data_ptr = &(self.model->user_pos);
+        }else{
+            data_ptr = &(self.model->data_array[i]);
+        }
+        
+        CLLocationCoordinate2D coord2d =
+        data_ptr->annotation.coordinate;
+        CGRect myRect = [self.mapView frame];
+        
+        if (self.renderer->watchMode){
+            
+            
+            CLLocation *point_location = [[CLLocation alloc]
+                                          initWithLatitude:coord2d.latitude
+                                          longitude:coord2d.longitude];
+           CLLocationDistance dist = [orig_location distanceFromLocation:point_location];
+            
+            if (dist <= true_radius_dist)
+                data_ptr->isVisible= true;
+            else
+                data_ptr->isVisible = false;
+        }else{
+            // testing if someLocation is on rotating mapView
+            CGPoint screenP = [self.mapView convertCoordinate:
+                               coord2d toPointToView:self.mapView];            
+            if (screenP.x > 0 && screenP.x < myRect.size.width
+                && screenP.y > 0 && screenP.y < myRect.size.height){
+                data_ptr->isVisible = true;
+            }else{
+                data_ptr->isVisible = false;
+            }
+        }
+    }
+}
+
 @end

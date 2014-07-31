@@ -98,6 +98,6 @@ int readConfigurations(compassMdl* mdl_instance){
     }
     
 //    NSLog(@"%@", mdl_instance->configurations);
-    
+    mdl_instance->configurationFileReadFlag = [NSNumber numberWithInt:1];
     return EXIT_SUCCESS;
 }

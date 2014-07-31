@@ -18,19 +18,19 @@
 
 #pragma mark ---- Accept External Command ----
 //[todo]
-- (BOOL)acceptsFirstResponder
-{
-    return YES;
-}
-
-- (BOOL)becomeFirstResponder
-{
-    return  YES;
-}
-
-//- (BOOL)resignFirstResponder
+//- (BOOL)acceptsFirstResponder
 //{
 //    return NO;
+//}
+//
+//- (BOOL)becomeFirstResponder
+//{
+//    return  NO;
+//}
+//
+//- (BOOL)resignFirstResponder
+//{
+//    return YES;
 //}
 
 -(void)flagsChanged:(NSEvent*)theEvent {
@@ -164,44 +164,17 @@
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable( GL_DEPTH_TEST);
 
-    //-----------------
-    // Draw Personalized Compass
-    //-----------------
-    NSString* personalized_compass_status =
-    self.renderer->model->configurations[@"personalized_compass_status"];
     
-    if ([personalized_compass_status isEqualToString:@"on"]){
-        // Need two drawing routines
-        if ([[[self window] title] rangeOfString:@"Style"]
-            .location == NSNotFound)
-        {
-            [self drawMainWindow:bounds];
-        }else{
-            [self drawStyleWindow:bounds];
-        }
-    }
-
-    //-----------------
-    // Draw Wedge
-    //-----------------
-    NSString* original_style = self.renderer->model->configurations[@"style_type"];
-    NSString* wedge_status = self.renderer->model->configurations[@"wedge_status"];
-    
-    if ([wedge_status isEqualToString:@"on"]){
-        // call twice for debug pruposes
-        bool original_label_flag = self.renderer->label_flag;
-        self.renderer->label_flag = false;
-        self.renderer->model->configurations[@"style_type"] = @"WEDGE";
-        // Need two drawing routines
-        if ([[[self window] title] rangeOfString:@"Style"]
-            .location == NSNotFound)
-        {
-            [self drawMainWindow:bounds];
-        }else{
-            [self drawStyleWindow:bounds];
-        }
-        self.renderer->label_flag = original_label_flag;
-        self.renderer->model->configurations[@"style_type"] = original_style;
+    // Need two drawing routines
+    if ([[[self window] title] rangeOfString:@"Style"]
+        .location == NSNotFound)
+    {
+        [self drawMainWindow:bounds];
+    }else{
+//        NSString* original_style = self.renderer->model->configurations[@"style_type"];
+//        self.renderer->model->configurations[@"style_type"] = @"WEDGE";
+        [self drawStyleWindow:bounds];
+//        self.renderer->model->configurations[@"style_type"] = original_style;
     }
     
     //-----------------
@@ -229,6 +202,8 @@
     {
 		viewHeight = bounds.size.height;
 		viewWidth = bounds.size.width;
+        
+        renderer->initRenderView(bounds.size.width, bounds.size.height);
         renderer->updateViewport(bounds.origin.x, bounds.origin.y,
                                  bounds.size.width, bounds.size.height);
     }
@@ -296,6 +271,7 @@
     {
 		viewHeight = bounds.size.height;
 		viewWidth = bounds.size.width;
+        renderer->initRenderView(bounds.size.width, bounds.size.height);
         renderer->updateViewport(bounds.origin.x, bounds.origin.y,
                                  bounds.size.width, bounds.size.height);
     }
@@ -424,4 +400,21 @@ GLenum glReportError (void)
     [super mouseDown:theEvent];
 }
 
+
+- (void)magnifyWithEvent:(NSEvent *)event {
+    NSLog(@"happy");
+//    if ([event magnification] > 0)
+//    {
+//        self.renderer->compass_scale = self.renderer->compass_scale + 0.1;        
+//    }
+//    else if ([event magnification] < 0)
+//    {
+//        self.renderer->compass_scale = self.renderer->compass_scale - 0.1;
+//    }    
+}
+
+- (void)rotateWithEvent:(NSEvent *)event {
+    NSLog(@"happy");
+
+}
 @end

@@ -28,11 +28,9 @@ int readLocationKml(compassMdl* mdl);
     BOOL place_flag;
     BOOL name_flag;
     BOOL coord_flag;
-    // data_array stores the data of each location
 }
-
+// data_array stores the data of each location
 @property std::vector<data> data_array;
-
 - (id)initWithFileURL: (NSURL*) in_fileurl;
 - (id)initWithData: (NSData*) in_data;
 - (int) parseFile;

@@ -62,14 +62,33 @@
             NSError* error;
 //            NSString* sourcePath = [bundlePath stringByAppendingString:filename];
             
-            [[NSFileManager defaultManager]
+            bool succeed = [[NSFileManager defaultManager]
              copyItemAtPath:[self.bundle_path stringByAppendingPathComponent:filename]
              toPath:[self.document_path stringByAppendingPathComponent:filename]
              error:&error];
+            if (!succeed){
+                NSLog(@"!!!Failed to copy file");
+            }
         }
     }
     
     return self;
+}
+
+
+- (void) copyBundleConfigurations{
+    NSString * filename = @"configurations.json";
+//    NSError* error;    
+//    bool succeed = [[NSFileManager defaultManager]
+//     copyItemAtPath:[self.bundle_path stringByAppendingPathComponent:filename]
+//     toPath:[self.document_path stringByAppendingPathComponent:filename]
+//     error:&error];
+    NSData *myData = [self readBundleFileFromName:filename];
+    bool succeed = [myData writeToFile:[self.document_path stringByAppendingPathComponent:filename] atomically:YES];
+    
+    if (!succeed){
+        NSLog(@"!!!Failed to copy configurations.json");
+    }    
 }
 
 - (id) initDROPBOX{
@@ -180,6 +199,36 @@
 }
 
 //----------------
+// check existence
+//----------------
+- (bool) fileExists:(NSString *)filename{
+    bool fileStatus;
+    NSString *path;
+    
+    switch (self.filesys_type) {
+        case BUNDLE:
+            path = [self.bundle_path stringByAppendingPathComponent:filename];
+            fileStatus = [[NSFileManager defaultManager] fileExistsAtPath:path];
+            break;
+        case IOS_DOC:
+            path = [self.document_path stringByAppendingPathComponent:filename];
+            fileStatus = [[NSFileManager defaultManager] fileExistsAtPath:path];
+            break;
+        case DROPBOX:
+            DBPath *path = [[DBPath root] childPath:filename];
+            DBError *error = nil;
+            DBFileInfo *info = [self.db_filesystem fileInfoForPath:path error:&error];
+            if (!info)
+                fileStatus = false;
+            else
+                fileStatus = true;
+            break;
+    }
+    return fileStatus;
+}
+
+
+//----------------
 // read files
 //----------------
 - (NSData*) readFileFromName: (NSString*) filename{
@@ -201,13 +250,13 @@
 
 - (NSData*) readBundleFileFromName: (NSString*) filename{
     NSString *path = [self.bundle_path stringByAppendingPathComponent:filename];
-    NSData* fileContents = [[NSFileManager defaultManager] contentsAtPath:path];;
+    NSData* fileContents = [[NSFileManager defaultManager] contentsAtPath:path];
     return fileContents;
 }
 
 - (NSData*) readDocFileFromName: (NSString*) filename{
     NSString *path = [self.document_path stringByAppendingPathComponent:filename];
-    NSData* fileContents = [[NSFileManager defaultManager] contentsAtPath:path];;
+    NSData* fileContents = [[NSFileManager defaultManager] contentsAtPath:path];
     return fileContents;
 }
 
@@ -240,6 +289,81 @@
         [file close];
         return fileContents;
     }
+}
+
+//----------------
+// write files
+//----------------
+- (BOOL) writeFileWithName: (NSString*) filename
+                   Content: (NSString*) content
+{
+    NSError* error;
+    NSString *doc_path = [self.document_path stringByAppendingPathComponent:filename];
+
+    if (![content writeToFile:doc_path
+                   atomically:YES encoding: NSASCIIStringEncoding
+                        error:&error])
+    {
+        NSLog(@"KML write failed");
+        return false;
+    }
+    
+    // Always write to the Documentation folder first
+    if (self.filesys_type == DROPBOX)
+    {
+        // Dropbox case
+        DBError *error = nil;
+        DBPath *path = [[DBPath root] childPath:filename];
+        
+        DBFileInfo *info = [self.db_filesystem fileInfoForPath:path error:&error];
+
+        DBFile *file;
+        // Check whether the file exists or not
+        if (!info){
+            file = [self.db_filesystem createFile:path error:&error];
+        }else{
+            file = [[DBFilesystem sharedFilesystem]
+               openFile:path error:&error];
+        }
+        
+        if (!file){
+            [self.error_str appendString:@"Error opening file."];
+            return nil;
+        }else{
+            if (![file writeString:content error:&error]){
+            [self.error_str appendString:@"Failed to write file to dropbox."];
+                return nil;
+            }
+        }
+    }
+    return true;
+}
+
+//----------------
+// Rename a file
+//----------------
+- (BOOL) renameFilename: (NSString*) old_name
+               withName: (NSString*) new_name
+{
+    bool rename_status;
+    NSString *old_doc_path = [self.document_path
+                              stringByAppendingPathComponent:old_name];
+    NSString *new_doc_path = [self.document_path
+                              stringByAppendingPathComponent:new_name];
+
+    
+    rename_status = [[NSFileManager defaultManager] moveItemAtPath:old_doc_path
+                                            toPath:new_doc_path
+                                             error:nil];
+    if (self.filesys_type == DROPBOX)
+    {
+        DBError *error = nil;
+        DBPath *old_path = [[DBPath root] childPath:old_name];
+        DBPath *new_path = [[DBPath root] childPath:new_name];
+        rename_status = [self.db_filesystem movePath:old_path toPath:new_path error:&error];
+    }
+    
+    return rename_status;
 }
 
 #pragma mark ----Dropbox related stuff----

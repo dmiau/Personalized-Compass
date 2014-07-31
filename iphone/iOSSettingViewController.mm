@@ -8,6 +8,7 @@
 
 #import "iOSSettingViewController.h"
 #import "iOSViewController.h"
+#import "AppDelegate.h"
 
 @interface iOSSettingViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -22,8 +23,6 @@
     if(self = [super initWithCoder:aDecoder]) {
         // Do something
         
-        self.mainViewController = (iOSViewController*)self.parentViewController;
-        
         model = compassMdl::shareCompassMdl();
         if (model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
@@ -36,7 +35,19 @@
         
         [self initPickerData];
         
-        self.needUpdateDisplayRegion = false;
+        // Connect to the parent view controller to update its
+        // properties directly
+        
+        //-------------------
+        // Set the rootViewController
+        //-------------------
+        AppDelegate *app = [[UIApplication sharedApplication] delegate];
+        
+        UINavigationController *myNavigationController =
+        app.window.rootViewController;
+        
+        self.rootViewController =
+        [myNavigationController.viewControllers objectAtIndex:0];
         
     }
     return self;
@@ -55,6 +66,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     [self selectDefaultLocationFromPicker];
     
@@ -65,9 +77,18 @@
     // Initialize data source indicator
     if (model->filesys_type == IOS_DOC)
         self.dataSource.selectedSegmentIndex = 0;
-    else
+    else if (model->filesys_type == DROPBOX)
         self.dataSource.selectedSegmentIndex = 1;
+    else
+        self.dataSource.selectedSegmentIndex = 2;
     
+    // Initialize toolbar indicator
+    NSString* toolbar_mode = self.rootViewController.UIConfigurations[@"UIToolbarMode"];
+    if ([toolbar_mode isEqualToString:@"Development"]){
+        self.toolbarSegmentControl.selectedSegmentIndex = 0;
+    }else{
+        self.toolbarSegmentControl.selectedSegmentIndex = 1;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,8 +108,10 @@
         dirFiles = [model->docFilesystem listFiles];
     }else{
         dirFiles = [model->dbFilesystem listFiles];
-        //            dirFiles = [model->docFilesystem listFiles];
     }
+    
+    dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'snapshot.kml')"]];
+    dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'history')"]];
     
     kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
 }
@@ -130,26 +153,22 @@
 {
     model->location_filename = [kml_files objectAtIndex:row];
     model->reloadFiles();
-    self.needUpdateDisplayRegion = true;
-    // updateMapDisplayRegion will be called in unwindSegue
-
+    
+    
+    //--------------
+    // new.kml is a speical location file used to creating new data,
+    // it is therefore not necessary to go to the first location
+    //--------------
+    if (![model->location_filename
+         isEqualToString:@"new.kml"])
+    {
+        self.rootViewController.needUpdateDisplayRegion = true;
+        // updateMapDisplayRegion will be called in unwindSegue
+    }
+    self.rootViewController.needUpdateAnnotations = true;
 }
-
 
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if (self.needUpdateDisplayRegion)
-    {
-        iOSViewController *destViewController = segue.destinationViewController;
-        destViewController.needUpdateDisplayRegion = true;
-    }
-}
 
 //--------------
 // Data source selector
@@ -181,14 +200,52 @@
     }
     
     if (refreshPicker){
-        model->reloadFiles();
+        readConfigurations(model);
         model->location_filename = model->configurations[@"default_location_filename"];
+        model->reloadFiles();
         [self initPickerData];
         [self.dataPicker reloadAllComponents];
         [self selectDefaultLocationFromPicker];
-        self.needUpdateDisplayRegion = true;
+        self.rootViewController.needUpdateDisplayRegion = true;
     }
     
 }
 
+- (IBAction)dismissModalVC:(id)sender {
+    
+    iOSViewController* parentVC = self.rootViewController;
+    [self dismissViewControllerAnimated:YES completion:^{
+        // call your completion method:
+        [parentVC viewWillAppear:YES];
+    }];
+}
+
+- (IBAction)refreshConfiguraitons:(id)sender {
+    if (self.model->filesys_type == DROPBOX){
+        
+    }else{
+        [self.model->docFilesystem
+         copyBundleConfigurations];
+    }
+    
+    // reload
+    readConfigurations(self.model);
+}
+- (IBAction)toogleToolbarMode:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    int index = [segmentedControl selectedSegmentIndex];
+    
+    switch (index) {
+        case 0:
+            self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+            = @"Development";
+            break;
+        case 1:
+            self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+            = @"Demo";
+            break;
+    }
+    self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
+    = [NSNumber numberWithBool:true];
+}
 @end

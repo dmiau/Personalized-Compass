@@ -16,6 +16,7 @@
 
 #import "iOSViewController.h"
 
+
 @interface iOSSettingViewController : UIViewController
 {
     BOOL pinVisible;
@@ -24,13 +25,21 @@
 
 @property compassMdl* model;
 @property compassRender* renderer;
-@property iOSViewController* mainViewController;
-@property bool needUpdateDisplayRegion;
+@property iOSViewController* rootViewController;
+
+//@property bool needUpdateDisplayRegion;
 @property (weak, nonatomic) IBOutlet UIPickerView *dataPicker;
 - (IBAction)toggleDataSource:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dataSource;
+- (IBAction)toogleToolbarMode:(id)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *toolbarSegmentControl;
+
+
+
 @property (weak, nonatomic) IBOutlet UITextView *systemMessage;
 
+- (IBAction)dismissModalVC:(id)sender;
+- (IBAction)refreshConfiguraitons:(id)sender;
 
 @end

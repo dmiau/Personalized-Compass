@@ -20,7 +20,7 @@ typedef UIColor NSColor;
 //-------------
 // drawCompass
 //-------------
-void compassRender::drawCompass(RenderParamStruct renderParamStruct){
+void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
     /*
      By the time this funciton is called,
      model->indices_for_rendering shold have been updated by the model
@@ -34,11 +34,15 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
         int j = model->indices_for_rendering[i];
         t_dist_list.push_back(model->data_array[j].distance);
     }
-    std::vector<double>::iterator result =
-    std::max_element(t_dist_list.begin(),
-                     t_dist_list.end());
-    max_dist = *result;
-        
+    
+    if (t_dist_list.size() >= 1){
+        std::vector<double>::iterator result =
+        std::max_element(t_dist_list.begin(),
+                         t_dist_list.end());
+        max_dist = *result;
+    }else{
+        max_dist = INFINITY;
+    }
     // ---------------
     // Render triangles and the background disks
     // based on the specified style
@@ -51,14 +55,47 @@ void compassRender::drawCompass(RenderParamStruct renderParamStruct){
     // draw the labels
     // ---------------
     if (label_flag){
-        glPushMatrix();
+        glPushMatrix();        
+        //-------------------
+        // Check wedge status
+        //-------------------
+        
+        vector<double> orientation_array;
+        orientation_array.clear();
+        
+
         glTranslatef(0, 0, 1);
         for (int i = 0; i < model->indices_for_rendering.size(); ++i){
             int j = model->indices_for_rendering[i];
             data data_ = model->data_array[j];
             
-            double distance = data_.distance / max_dist * half_canvas_size * 0.9;
-            drawLabel(data_.orientation, distance, data_.name);
+            double distance, orientation;
+            if (!wedgeMode){
+                orientation = data_.orientation;
+                distance = half_canvas_size * 0.9;
+            }else{
+                orientation = model->label_info_array[i]
+                .orientation;
+                distance =  model->label_info_array[i]
+                .distance;
+            }
+            drawLabel(orientation, distance, data_.name);
+            orientation_array.push_back(data_.orientation);
+        }
+
+        //--------------
+        // Draw scale indicator
+        //--------------
+        if (model->mode_max_dist_array.size() > 1
+            && !wedgeMode)
+        {
+            double best_orientation = findBestEmptyOrienation(orientation_array);
+            
+            // Generate the string
+            char buff[10];
+            sprintf(buff, "1:%2.1f",
+                    model->mode_max_dist_array[1]/model->mode_max_dist_array[0]);
+            drawLabel(best_orientation, half_canvas_size * 0.3, string(buff));
         }
         glPopMatrix();
     }
@@ -89,9 +126,10 @@ void compassRender::drawTriangle(int central_disk_radius, float rotation, float 
 // coreCircle
 // http://slabode.exofire.net/circle_draw.shtml
 //-------------
-void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
+void compassRender::drawCircle(float cx, float cy, float r,
+                               int num_segments, bool isSolid)
 {
-    float* p_vertex_array = new float[num_segments * 2];
+    float* p_vertex_array = new float[num_segments * 2 + 2];
     
     // draw a filled circle
     for(int ii = 0; ii < num_segments; ii++)
@@ -106,15 +144,51 @@ void compassRender::drawCircle(float cx, float cy, float r, int num_segments)
     }
     
     glVertexPointer(2, GL_FLOAT, 0, p_vertex_array);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, num_segments);
+    
+    if (isSolid)
+        glDrawArrays(GL_TRIANGLE_FAN, 0, num_segments);
+    else{
+        // Need to
+        p_vertex_array[num_segments*2] = p_vertex_array[0];
+        p_vertex_array[num_segments*2 + 1] = p_vertex_array[1];
+        glDrawArrays(GL_LINE_STRIP, 0,num_segments + 1);
+    }
+    
     delete[] p_vertex_array;
+}
+
+
+void compassRender::drawClearWatch(){
+    
+    glPushMatrix();
+    glTranslatef(0, 0, -1);
+    // ---------------
+    // draw the background (transparent) disk
+    // ---------------
+    float outer_disk_radius =
+    half_canvas_size *
+    [model->configurations[@"outer_disk_ratio"] floatValue];
+    
+    // Translate the compass to the desired screen location
+    glTranslatef(compass_centroid.x, compass_centroid.y, 0);
+    
+    glColor4f(0, 0, 0, 0);
+
+    float scale = glDrawingCorrectionRatio * compass_scale;
+    glScalef(scale, scale, 1);
+    drawCircle(0, 0, outer_disk_radius, 50, true);
+
+    glPopMatrix();
 }
 
 //-------------
 // draws the mini box to signify scale
 //-------------
-void compassRender::drawBox(double renderD2realDRatio)
+BOOL compassRender::drawBox(double renderD2realDRatio)
 {
+    // drawBox returns true when the box is successfully drawn
+    // drawBox returns false when the box is too small to be drawn
+    
     // calculate the parameters needed to draw the box
     
     CLLocationDistance box_width = getMapWidthInMeters();
@@ -125,6 +199,11 @@ void compassRender::drawBox(double renderD2realDRatio)
     
     double render_width = box_width * renderD2realDRatio;
     double render_height = box_height * renderD2realDRatio;
+    
+    if (render_width <= central_disk_radius ||
+        render_height <= central_disk_radius){
+        return false;
+    }
     
     // Then the origin
     double x, y;
@@ -169,6 +248,32 @@ void compassRender::drawBox(double renderD2realDRatio)
     glDrawArrays(GL_LINE_STRIP, 0,5);
     
     glPopMatrix();
+    return true;
+}
+
+BOOL compassRender::drawBoundaryCircle(double renderD2realDRatio)
+{
+    // drawBoundaryCircle returns true when the circle is successfully drawn
+    // drawBoundaryCircle returns false when the circle is too small to be drawn
+    
+    // calculate the parameters needed to draw the box
+    
+    CLLocationDistance box_width = getMapWidthInMeters();
+    float radius = [model->configurations[@"watch_radius"] floatValue];
+    
+    double boundary_radius = box_width * renderD2realDRatio
+    * radius / mapView.frame.size.width;
+
+    if (boundary_radius <= central_disk_radius)
+    {
+        return false;
+    }
+    
+    // Draw the circle
+    glLineWidth(2);
+    glColor4f(1, 0, 0, 0.5);
+    drawCircle(0, 0, boundary_radius, 20, false);
+    return true;
 }
 
 void compassRender::drawOverviewBox(){
@@ -178,21 +283,15 @@ void compassRender::drawOverviewBox(){
     glPushMatrix();
     // Plot the triangle first, then rotate and translate
     
-//    Vertex3D    vertex1 = Vertex3DMake(box4Corners[0].x, box4Corners[0].y, 0);
-//    Vertex3D    vertex2 = Vertex3DMake(box4Corners[1].x, box4Corners[1].y, 0);
-//    Vertex3D    vertex3 = Vertex3DMake(box4Corners[2].x, box4Corners[2].y, 0);
-//    Vertex3D    vertex4 = Vertex3DMake(box4Corners[3].x, box4Corners[3].y, 0);
-
-//    Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
-//    Vertex3D    vertex2 = Vertex3DMake(20, 0, 0);
-//    Vertex3D    vertex3 = Vertex3DMake(20, 20, 0);
-//    Vertex3D    vertex4 = Vertex3DMake(0, 20, 0);
-    
-    
-//    RectangleLine3D  rectangle = RectangleLine3DMake(vertex1, vertex2,
-//                                                     vertex3, vertex4);
-//    glVertexPointer(3, GL_FLOAT, 0, &rectangle);
-//    glDrawArrays(GL_LINE_STRIP, 0,5);
+    Vertex3D    vertex1 = Vertex3DMake(box4Corners[0].x, box4Corners[0].y, 0);
+    Vertex3D    vertex2 = Vertex3DMake(box4Corners[1].x, box4Corners[1].y, 0);
+    Vertex3D    vertex3 = Vertex3DMake(box4Corners[2].x, box4Corners[2].y, 0);
+    Vertex3D    vertex4 = Vertex3DMake(box4Corners[3].x, box4Corners[3].y, 0);
+        
+    RectangleLine3D  rectangle = RectangleLine3DMake(vertex1, vertex2,
+                                                     vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &rectangle);
+    glDrawArrays(GL_LINE_STRIP, 0,5);
     
     glPopMatrix();
 }
@@ -232,8 +331,48 @@ double compassRender::getMapHeightInMeters(){
     return [top_left_loc distanceFromLocation:bottom_left_loc];
 }
 
+double compassRender::findBestEmptyOrienation(vector<double> orientation_array){
+    
+    vector<double> debug_array = orientation_array;
+    double empty_orientation;
+    vector<pair<double, int>> diff_array;
+    // sort by ascending order
+    sort(orientation_array.begin(), orientation_array.end());
+    
+    
+    //---------------
+    // Calculate the differences
+    //---------------
+    for (int i = 0; i < orientation_array.size(); ++i){
+        if (i == 0 ){
+            diff_array.push_back
+            (make_pair(360 - orientation_array.back() + orientation_array[0], i));
+        }else{
+            diff_array.push_back
+            (make_pair(orientation_array[i] - orientation_array[i-1], i));
+        }
+    }
+    
+    //---------------
+    // Find the max difference
+    //---------------
+    // Figure out the data is unimodal or bimodal?
+    std::vector<pair<double, int>>::iterator result =
+    std::max_element(diff_array.begin(),
+                     diff_array.end(), compareAscending);
+    int idx = result->second;
 
-
+    //---------------
+    // Decide the empty orientation
+    //---------------
+    if (idx == 0){
+        empty_orientation = orientation_array.back() + diff_array[0].first/2;
+        empty_orientation = fmod(empty_orientation, 360);
+    }else{
+        empty_orientation = 0.5*(orientation_array[idx] + orientation_array[idx-1]);
+    }
+    return empty_orientation;
+}
 
 
 

@@ -8,11 +8,28 @@
 
 #import <UIKit/UIKit.h>
 #include "compassModel.h"
+#import "iOSViewController.h"
 
 @interface myTableViewController : UIViewController
-<UITableViewDelegate>
+<UITableViewDelegate, UIAlertViewDelegate>{
+    int selected_id;
+    bool data_dirty_flag;
+}
 
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;
+@property iOSViewController* rootViewController;
+
+- (IBAction)toggleLandmakrSelection:(id)sender;
+- (IBAction)toggleEditing:(id)sender;
+- (IBAction)saveKML:(id)sender;
+- (IBAction)saveKMLAs:(id)sender;
+- (IBAction)go2Landmark:(id)sender;
+
+- (IBAction)dismissModalVC:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIToolbar *saveButton;
+
+
 @end

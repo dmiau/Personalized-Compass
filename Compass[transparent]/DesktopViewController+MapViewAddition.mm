@@ -18,20 +18,10 @@
     //--------------
     CLLocationCoordinate2D coord;
     
-//    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-//    coord.latitude = self.model->current_pos.latitude;
-//    coord.longitude = self.model->current_pos.longitude;
-//    annotation.coordinate = coord;
-//    annotation.title      = [NSString stringWithCString:self.model->current_pos.name.c_str() encoding:[NSString defaultCStringEncoding]];
-//    
-//    [self.mapView addAnnotation:annotation];
-//    
-//    [self.mapView selectAnnotation:annotation animated:YES];
-    
     for (int i = 0; i < self.model->data_array.size(); ++i){
         
         // [todo] need to reuse annotation
-        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
         coord.latitude = self.model->data_array[i].latitude;
         coord.longitude = self.model->data_array[i].longitude;
         annotation.coordinate = coord;
@@ -39,8 +29,7 @@
         //        annotation.subtitle   = @"Paris Test";
         
         [self.mapView addAnnotation:annotation];
-//        [self.mapView deselectAnnotation:annotation animated:NO];
-//        [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+
         if (pinVisible)
             [self.mapView selectAnnotation:annotation animated:YES];
     }
@@ -63,7 +52,7 @@
     
     NSSet *nearbySet = [self.mapView annotationsInMapRect:self.mapView.visibleMapRect];
     
-    for (MKPointAnnotation *item in nearbySet){
+    for (CustomPointAnnotation *item in nearbySet){
         if (!pinVisible){
             //http://stackoverflow.com/questions/2918154/how-to-hide-mkannotationview-callout
 

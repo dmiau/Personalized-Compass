@@ -27,6 +27,16 @@
   {
   "property": "separator",
   "value": "==================================================",
+  "comment": "overview map related stuff"
+  },
+  {
+  "property": "overview_map_scale",
+  "value": 10,
+  "comment": "This is a comment"
+  },
+  {
+  "property": "separator",
+  "value": "==================================================",
   "comment": "wedge related stuff"
   },
   {
@@ -40,6 +50,11 @@
   "comment": "float"
   },
   {
+  "property": "wedge_style",
+  "value": "modified",
+  "comment": "original, modified"
+  },
+  {
   "property": "separator",
   "value": "==================================================",
   "comment": "compass related stuff"
@@ -47,11 +62,6 @@
   {
   "property": "traslation_step",
   "value": 1,
-  "comment": "This is a comment"
-  },
-  {
-  "property": "radius",
-  "value": 5,
   "comment": "This is a comment"
   },
   {
@@ -70,18 +80,23 @@
   "comment": "the color of the compass disk"
   },
   {
-  "property": "inner_disk_color",
-  "value": [150, 150, 150, 150],
-  "comment": "the color of the inner compass disk"
+  "property": "outer_disk_ratio",
+  "value": 0.7,
+  "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },
   {
-  "property": "outer_disk_ratio",
+  "property": "label_dist_ratio",
   "value": 0.9,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },
   {
+  "property": "north_indicator_ratio",
+  "value": 1.0,
+  "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
+  },
+  {
   "property": "compass_scale",
-  "value": 1
+  "value": 0.5
   },
   {
   "property": "iOS_compass_scale",
@@ -104,6 +119,15 @@
   "value": [80, 100]
   },
   {
+  "property": "separator",
+  "value": "==================================================",
+  "comment": "watch related stuff"
+  },
+  {
+  "property": "watch_radius",
+  "value": 114
+  },
+  {
   "property": "font_color",
   "value": [255, 255, 255]
   },
@@ -114,12 +138,12 @@
   },
   {
   "property": "iOS_font_size",
-  "value": 9,
+  "value": 10,
   "comment": "the scale needs to be redisgned."
   },
   {
   "property": "iPad_font_size",
-  "value": 9,
+  "value": 14,
   "comment": "the scale needs to be redisgned."
   },
   {
@@ -130,7 +154,7 @@
   {
   "property": "filter_type",
   "value": "K_ORIENTATIONS",
-      "comment": "Available types: DEFAULT_FILTER, NONE, K_NEARESTLOCATIONS, K_ORIENTATIONS, FORCE_EQUILIBRIUM"
+      "comment": "Available types: DEFAULT_FILTER, NONE, K_NEARESTLOCATIONS, K_ORIENTATIONS, FORCE_EQUILIBRIUM, MANUAL"
   },
   {
   "property": "style_type",
@@ -145,12 +169,10 @@
   {
   "property": "color_map",
   "value":      [
-                 [255, 0, 0],
-                 [255, 0, 0],
-                 [255, 0, 0],
-                 [255, 0, 0],
-                 [255, 0, 0],
-                 [255, 0, 0],
+                 [217, 48, 62],
+                 [217, 64, 48],
+                 [217, 91, 48],
+                 [230, 140, 37],
                  [255, 0, 0],
                  [255, 0, 0],
                  [255, 0, 0],

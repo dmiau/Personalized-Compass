@@ -3,6 +3,7 @@
 #include <algorithm>
 #include "compassRender.h"
 
+
 #ifdef __IPHONE__
 typedef UIFont NSFont;
 typedef UIColor NSColor;
@@ -15,31 +16,11 @@ typedef UIColor NSColor;
 //-------------
 void compassRender::drawLabel(float rotation, float height, string name)
 {
-    glPushMatrix();
-    
-
-    glRotatef(rotation, 0, 0, -1);
-    
-    glTranslatef(0, half_canvas_size * 0.9, 0); //central_disk_radius
-
-    // Keep the text level
-    glRotatef(-rotation, 0, 0, -1);
-    
-    //text tilting still needs to be fixed
-//    glRotatef(-model->tilt, 1, 0, 0);    
-    // Fix text size
-    float scale = 1/ ( compass_scale); // glDrawingCorrectionRatio *
-    glScalef(scale, scale, scale);
-    
-    // This line seems to make the text darker for some reason
-    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
-    glPushMatrix();
-    
     //--------------
     // Font generation
     //--------------
     // Set font size
-	NSFont * font =[NSFont fontWithName:@"Helvetica"
+	NSFont * font =[NSFont fontWithName:@"Helvetica-Bold"
                                    size:
                     [model->configurations[@"font_size"] floatValue]];
     NSString * string = [NSString stringWithFormat:@"%@\n",
@@ -47,57 +28,86 @@ void compassRender::drawLabel(float rotation, float height, string name)
     
 	stringAttrib = [NSMutableDictionary dictionary];
 	[stringAttrib setObject:font forKey:NSFontAttributeName];
-
-    
     
     //--------------
     // Render labels, different rendering methods depending on the platform
     //--------------
+    NSAttributedString *attr_str =
+    [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
+    CGSize str_size = makeGLFrameSize(attr_str);
+    
 #ifndef __IPHONE__
     //--------------
     // OSX
     //--------------
-    [label_string setString:string withAttributes:stringAttrib];
-    glRotatef(180, 1, 0, 0);
+    [label_string setString:attr_str];
+#endif
     
-    [label_string drawAtPoint:NSMakePoint (0, 0)];
-#else
+    
+    glPushMatrix();
+    //--------------------
+    // Keep the text level (rotate->translate->rotate)
+    //--------------------
+    glRotatef(rotation, 0, 0, -1);
+    glTranslatef(0, height, 0); //central_disk_radius
+    glRotatef(-rotation, 0, 0, -1);
+    
+    if (!wedgeMode){
+        // Fix text size
+        float scale = 1/ (compass_scale); // glDrawingCorrectionRatio *
+        glScalef(scale, scale, 1);
+    }
+    
+    // This line seems to make the text darker for some reason
+    glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
+    
     //--------------
-    // iOS
+    // Render labels, different rendering methods depending on the platform
     //--------------
-    NSAttributedString *attr_str =
-    [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
-    
-    CGSize str_size = makeGLFrameSize(attr_str);
-    
-    glRotatef(model->current_pos.orientation, 0, 0, 1);
-    
-    rotation = rotation + model->current_pos.orientation;
+    rotation = rotation + model->camera_pos.orientation;
     
     if (rotation < 0)
         rotation = rotation + 360;
     
-    if ((rotation > 180) && (rotation < 360))
-        glTranslatef(-str_size.width, 0, 0);
+    if (!wedgeMode){
+        glRotatef(model->camera_pos.orientation, 0, 0, 1);
+        if ((rotation > 180) && (rotation < 360))
+            glTranslatef(-str_size.width, 0, 0);
+    }
+    //--------------------
+    //text tilting still needs to be fixed
+    glRotatef(-model->tilt, 1, 0, 0);
+    //--------------------
     
+#ifndef __IPHONE__
+    //--------------
+    // OSX
+    //--------------
+
+    glRotatef(180, 1, 0, 0);
+    [label_string drawAtPoint:NSMakePoint (0, 0)];
+//    [label_string drawWithBounds:
+//     NSMakeRect(0, 0, str_size.width, str_size.height)];
+#else
+    //--------------
+    // iOS
+    //--------------
     glScalef(0.25, 0.25, 0);
     drawiOSText(string, 4*[model->configurations[@"font_size"] floatValue],
                 4*str_size.width,
                 4*str_size.height);
 #endif
     glPopMatrix();
-    
-    glPopMatrix();
 }
 
-//--------------
-// iOS related tools
-//--------------
-#ifdef __IPHONE__
 CGSize compassRender::makeGLFrameSize(NSAttributedString *attr_str){
     CGSize t_size = [attr_str size];
+
+    NSRange whiteSpaceRange = [attr_str.string
+                               rangeOfCharacterFromSet:
+                               [NSCharacterSet whitespaceCharacterSet]];
     
-    if (t_size.width > half_canvas_size/5){
+    if (whiteSpaceRange.location != NSNotFound){
         t_size.width = t_size.width /2;
         t_size.height = t_size.height * 2;
     }
@@ -107,15 +117,29 @@ CGSize compassRender::makeGLFrameSize(NSAttributedString *attr_str){
     return t_size;
 }
 
+//--------------
+// iOS related tools
+//--------------
+#ifdef __IPHONE__
 void compassRender::drawiOSText(NSString *string, int font_size,
                                 CGFloat width, CGFloat height){
     width = width;
     height = height;
     // Use black
-    glColor4f(0, 0, 0, 1.0);
+    
+    if (mapView.mapType == MKMapTypeStandard){
+        glColor4f(0, 0, 0, 1.0);
+    }else{
+        glColor4f(255.0/255.0, 54.0/255.0, 96.0/255.0, 1.0);
+    }
+
     glEnable(GL_TEXTURE_2D);
     // Set up texture
-    Texture2D* statusTexture = [[Texture2D alloc] initWithString:string dimensions:CGSizeMake(width, height) alignment:UITextAlignmentLeft fontName:@"Helvetica-Bold" fontSize:font_size];
+    Texture2D* statusTexture = [[Texture2D alloc]
+                                initWithString:string
+                                dimensions:CGSizeMake(width, height)
+                                alignment: UITextAlignmentLeft
+                                fontName:@"Helvetica-Bold" fontSize:font_size];
     
     // Bind texture
     glBindTexture(GL_TEXTURE_2D, [statusTexture name]);
@@ -127,6 +151,7 @@ void compassRender::drawiOSText(NSString *string, int font_size,
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
+
     // Draw
     [statusTexture drawInRect:CGRectMake(0, 0, width, height)];
     

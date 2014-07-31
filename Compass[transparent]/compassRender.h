@@ -54,16 +54,31 @@ typedef struct{
 
 RenderParamStruct makeRenderParams(filter_enum filter_type, style_enum style_type);
 
-//-------------
+//----------------------------------
+// compassRender class
+//----------------------------------
 class compassRender
 {
-    
     //----------------
     // Properties
     //----------------
 public:
+    
+    //----------------
+    // References to external objects
+    //----------------
     // need to include MapView for wedge drawing
     MKMapView *mapView;
+    compassMdl* model;
+
+    
+    //----------------
+    // Parameters for compass drawing
+    //----------------
+    // Indicates whether the watch mode is on or not
+    bool wedgeMode;
+    bool watchMode;
+    bool trainingMode;
     
     // Compass presenation parameters
     float glDrawingCorrectionRatio;
@@ -71,22 +86,24 @@ public:
     float compass_scale;
     int half_canvas_size; // Specify the boundary of orthographic projection
     float central_disk_radius;
-    recVec compass_centroid;
-    compassMdl* model;
-    
+    recVec compass_centroid; // Specify the centroid of the compass *in OpenGL frame*
+
+
+    //----------------
+    // Parameters for setting up perspective projection, etc.
+    //----------------
     // Parameters for perspective projection
     float orig_width;
     float orig_height;
     float fov;
     
+    //----------------
+    // Lable related stuff
+    //----------------
     // String parameters
-    bool label_flag;
-    float label_size;
+    bool label_flag; // Indicates whether labels to be drawn or not
 	NSMutableDictionary *stringAttrib; // Text attributes
-    
-    // Debug string
-    NSString* debugString;
-   
+       
 #ifndef __IPHONE__
 	GLString *label_string;
 #endif
@@ -96,7 +113,7 @@ public:
     
     // Overview map stuff
     bool isOverviewMapEnabled;
-//    CGPoint box4Corners[4];
+    CGPoint box4Corners[4];
     
 private:
     // Compass rendering intermediate parameters
@@ -123,14 +140,25 @@ public:
     void resetCamera();
     void updateViewport(GLint x, GLint y, GLsizei width, GLsizei height);
     void updateProjection(GLfloat aspect_ratio);
+    void loadParametersFromModelConfiguration();
+
+    //-----------------
+    // Tools
+    //-----------------
+    double getMapWidthInMeters();
+    double getMapHeightInMeters();
+    double findBestEmptyOrienation(vector<double> orientation_array);
 private:
     // Drawing routines
-    void drawCompass(RenderParamStruct renderParamStruct);
+    void drawWayfindingAid(RenderParamStruct renderParamStruct);
     void drawTriangle(int central_disk_radius, float rotation, float height);
     void drawLabel(float rotation, float height, string name);
-    void drawCircle(float cx, float cy, float r, int num_segments);
-    void drawBox(double renderD2realDRatio);
+    void drawCircle(float cx, float cy, float r, int num_segments, bool isSolid);
+    
+    BOOL drawBox(double renderD2realDRatio);
+    BOOL drawBoundaryCircle(double renderD2realDRatio);
     void drawOverviewBox();
+    void drawClearWatch();
     
     //-----------------
     // style related methods
@@ -142,19 +170,18 @@ private:
     
     void renderStyleRealRatio(vector<int> &indices_for_rendering);
     void renderStyleBimodal(vector<int> &indices_for_rendering);
+    
+    
+    
     void renderStyleThresholdSticks(vector<int> &indices_for_rendering);
     void renderStyleWedge(vector<int> &indices_for_rendering);
-    
+    void renderBareboneCompass();
+
+    CGSize makeGLFrameSize(NSAttributedString *attr_str);
 #ifdef __IPHONE__
     void drawiOSText(NSString *string, int font_size,
                      CGFloat width, CGFloat height);
-    CGSize makeGLFrameSize(NSAttributedString *attr_str);
 #endif
-    //-----------------
-    // Map tools
-    //-----------------
-    double getMapWidthInMeters();
-    double getMapHeightInMeters();
 };
 
 //-------------------------

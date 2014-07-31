@@ -80,7 +80,7 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
     glPushMatrix();
     // Translate to the front to avoid broken polygon
     glTranslatef(0, 0, 1);
-    drawCircle(0, 0, central_disk_radius, 50);
+    drawCircle(0, 0, central_disk_radius, 50, true);
     glPopMatrix();
     
     // ---------------
@@ -109,7 +109,7 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
               [model->configurations[@"disk_color"][1] floatValue]/255,
               [model->configurations[@"disk_color"][2] floatValue]/255,
               [model->configurations[@"disk_color"][3] floatValue]/255);
-    drawCircle(0, 0, half_canvas_size, 50);
+    drawCircle(0, 0, half_canvas_size, 50, true);
 }
 
 //------------------------------------
@@ -117,4 +117,55 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
 //------------------------------------
 void compassRender::renderStyleThresholdSticks(vector<int> &indices_for_rendering){
     
+}
+
+void compassRender::renderBareboneCompass(){
+    // ---------------
+    // Draw the center circle
+    // ---------------
+    glColor4f([model->configurations[@"circle_color"][0] floatValue]/255,
+              [model->configurations[@"circle_color"][1] floatValue]/255,
+              [model->configurations[@"circle_color"][2] floatValue]/255,
+              1);
+    
+    // draw the center circle
+    glPushMatrix();
+    // Translate to the front to avoid broken polygon
+    glTranslatef(0, 0, 1);
+    drawCircle(0, 0, central_disk_radius, 50, true);
+    glPopMatrix();
+    
+    
+    // ---------------
+    // draw the north indicator
+    // ---------------
+    glColor4f(50/256,
+              50/256,
+              50/256, 0.5);
+    drawTriangle(central_disk_radius/6, 0,
+                 half_canvas_size *
+                 [model->configurations[@"north_indicator_ratio"] floatValue]);
+    
+    // ---------------
+    // draw the background (transparent) disk
+    // ---------------
+    float alpha = 0;
+        
+    glPushMatrix();
+    if (model->tilt == 0)
+        alpha = [model->configurations[@"disk_color"][3] floatValue]/255;
+    else
+        alpha = 1;
+    glColor4f([model->configurations[@"disk_color"][0] floatValue]/255,
+              [model->configurations[@"disk_color"][1] floatValue]/255,
+              [model->configurations[@"disk_color"][2] floatValue]/255,
+              alpha);
+    glTranslatef(0, 0, -1);
+    // the radius of the outer disk
+    float outer_disk_radius =
+    half_canvas_size *
+    [model->configurations[@"outer_disk_ratio"] floatValue];
+    drawCircle(0, 0, outer_disk_radius, 50, true);
+    
+    glPopMatrix();
 }
