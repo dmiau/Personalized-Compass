@@ -206,6 +206,7 @@
                         <outlet property="dataPicker" destination="Fhc-s3-l6X" id="QwN-lN-BiP"/>
                         <outlet property="dataSource" destination="B2u-Zp-sZD" id="zUP-3R-tOp"/>
                         <outlet property="systemMessage" destination="Xd7-gx-PpC" id="Klu-n7-Aku"/>
+                        <outlet property="toolbarSegmentControl" destination="FIu-lm-N3a" id="CR0-Z7-95w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FF-be-GOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
