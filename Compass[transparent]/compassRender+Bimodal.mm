@@ -168,6 +168,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                     // Draw the circle
                     glLineWidth(2);
                     glColor4f(1, 0, 0, 0.5);
+                    glRotatef(-model->camera_pos.orientation, 0, 0, -1);
                     drawCircle(-compass_centroid.x/radius * boundary_radius,
                                -compass_centroid.y/radius * boundary_radius,
                                boundary_radius, 20, false);

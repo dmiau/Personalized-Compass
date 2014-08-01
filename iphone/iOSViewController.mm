@@ -279,14 +279,8 @@
         return;
     }
 
-    //----------------------------
-    // Do nothing when the creation mode is off
-    //----------------------------
-    if (![self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue])
-        return;
-    
     //--------------------
-    // Move the compass
+    // Check if the compass is pressed
     //--------------------
     recVec compassXY = self.renderer->compass_centroid;
     compassXY.x = compassXY.x + self.glkView.frame.size.width/2;
@@ -303,6 +297,13 @@
         [self.glkView setNeedsDisplay];
         return;
     };
+
+    //----------------------------
+    // Do nothing when the creation mode is off
+    //----------------------------
+    if (![self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue])
+        return;
+    
     
     CLLocationCoordinate2D touchMapCoordinate =
     [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
