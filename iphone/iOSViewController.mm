@@ -54,7 +54,7 @@
     
     if (self.needUpdateAnnotations){
         self.needUpdateAnnotations = false;
-        [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
+
         [self renderAnnotations];
     }
     

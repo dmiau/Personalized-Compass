@@ -48,4 +48,10 @@
                  longitude: (float) lon_float
                    heading: (float) heading_deg
                       tilt: (float) tilt_deg;
+
+
+//----------------
+//Annotation category
+//----------------
+-(void) renderAnnotations;
 @end

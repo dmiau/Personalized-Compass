@@ -102,6 +102,10 @@
 		9A4808A1198BF1F70001E188 /* general.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A480897198BF1F70001E188 /* general.png */; };
 		9A4808A2198BF1F70001E188 /* general.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A480897198BF1F70001E188 /* general.png */; };
 		9A4808A3198BF1F70001E188 /* general.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A480897198BF1F70001E188 /* general.png */; };
+		9A4808A7198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4808A6198C2D2D0001E188 /* DesktopViewController+Annotations.mm */; };
+		9A4808A8198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4808A6198C2D2D0001E188 /* DesktopViewController+Annotations.mm */; };
+		9A4808A9198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4808A6198C2D2D0001E188 /* DesktopViewController+Annotations.mm */; };
+		9A4808AA198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4808A6198C2D2D0001E188 /* DesktopViewController+Annotations.mm */; };
 		9A49A5F2195491CF00937961 /* iOSViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */; };
 		9A49A5F3195491CF00937961 /* iOSViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */; };
 		9A49A5F61954A8BB00937961 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F51954A8BB00937961 /* myTableViewController.mm */; };
@@ -474,6 +478,8 @@
 		9A48088F198BE79D0001E188 /* DebugSettingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DebugSettingViewController.mm; sourceTree = "<group>"; };
 		9A480896198BF1F70001E188 /* debug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = debug.png; path = icons/debug.png; sourceTree = "<group>"; };
 		9A480897198BF1F70001E188 /* general.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = general.png; path = icons/general.png; sourceTree = "<group>"; };
+		9A4808A5198C2D2D0001E188 /* DesktopViewController+Annotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Annotations.h"; sourceTree = "<group>"; };
+		9A4808A6198C2D2D0001E188 /* DesktopViewController+Annotations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Annotations.mm"; sourceTree = "<group>"; };
 		9A49A5F0195491CF00937961 /* iOSViewController+Annotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Annotations.h"; sourceTree = "<group>"; };
 		9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Annotations.mm"; sourceTree = "<group>"; };
 		9A49A5F41954A8BB00937961 /* myTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTableViewController.h; sourceTree = "<group>"; };
@@ -934,6 +940,8 @@
 				9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */,
 				9A6F53F61910073F00F35FED /* DebugWindowController.h */,
 				9A6F53F71910073F00F35FED /* DebugWindowController.mm */,
+				9A4808A5198C2D2D0001E188 /* DesktopViewController+Annotations.h */,
+				9A4808A6198C2D2D0001E188 /* DesktopViewController+Annotations.mm */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1646,6 +1654,7 @@
 				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */,
 				9A03736C198AF8A500258E95 /* TestManager.mm in Sources */,
+				9A4808AA198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
 				9A2E42E1196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A75720D197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
@@ -1661,6 +1670,7 @@
 			files = (
 				9A998C921949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9AECA768196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
+				9A4808A7198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
 				9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */,
 				9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */,
 				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
@@ -1711,6 +1721,7 @@
 				9A9701DB19083B26007C3C19 /* main.mm in Sources */,
 				9A9701CF19083B19007C3C19 /* xmlParser.mm in Sources */,
 				9A9701D019083B19007C3C19 /* compassModel.mm in Sources */,
+				9A4808A9198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
 				9A9701D219083B19007C3C19 /* locationFilter.mm in Sources */,
 				9A03736B198AF8A500258E95 /* TestManager.mm in Sources */,
 				9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */,
@@ -1738,6 +1749,7 @@
 				9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */,
 				9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */,
 				9A998C931949F32800778DFC /* compassRender+Components.mm in Sources */,
+				9A4808A8198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
 				9A2E42DF196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AB90B95194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9AFD8F62197C612B0099BD88 /* genHistoryString.mm in Sources */,
