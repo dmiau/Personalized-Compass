@@ -68,6 +68,9 @@ public:
     vector<param> visualization_vector;
     vector<param> device_vector;
     
+    NSArray* visualization_strings;
+    NSArray* device_strings;
+    
     vector<CPVisualizationType> visualization_for_test;
     vector<CPDeviceType> device_vector_for_test;
     map<CPVisualizationType, NSString*> visualizationEnum2String;
@@ -75,7 +78,7 @@ public:
 public:
     static TestManager* shareTestManager();
     int initTestManager();
-    int generateTests;
+    int generateTests();
 };
 
 

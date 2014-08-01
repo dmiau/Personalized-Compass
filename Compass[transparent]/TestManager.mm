@@ -30,7 +30,7 @@ int TestManager::initTestManager(){
     
     vector<CPVisualizationType> visualization_names
     = {CPNone, CPPCompass, CPWedge, CPOverview};
-    NSArray* visualization_strings =
+    visualization_strings =
     @[@"None", @"PComp", @"Wedge", @"OverV"];
     
     visualization_for_test = visualization_names;
@@ -45,7 +45,7 @@ int TestManager::initTestManager(){
     
     vector<CPDeviceType> device_names = {CPPhone, CPWatch};
     device_vector_for_test = device_names;
-    NSArray* device_strings =
+    device_strings =
     @[@"Phone", @"Watch"];
     for (int i = 0; i < device_names.size(); ++i){
         param myParam;
@@ -54,5 +54,25 @@ int TestManager::initTestManager(){
         device_vector.push_back(myParam);
         deviceEnum2String[device_names[i]] = device_strings[i];
     }    
+    return 0;
+}
+
+int TestManager::generateTests(){
+    visualization_for_test.clear();
+    for (int i = 0; i < visualization_vector.size(); ++i){
+        if (visualization_vector[i].isEnabled){
+            visualization_for_test.push_back
+            ((CPVisualizationType)visualization_vector[i].type);
+        }
+    }
+
+    device_vector_for_test.clear();
+    for (int i = 0; i < device_vector.size(); ++i){
+        if (device_vector[i].isEnabled){
+            device_vector_for_test.push_back
+            ((CPDeviceType)device_vector[i].type);
+        }
+    }
+    
     return 0;
 }
