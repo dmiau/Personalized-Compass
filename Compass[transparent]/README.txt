@@ -1314,6 +1314,14 @@ Good job!
 -------------------------------------------------------------------
 7.31.2014
 -------------------------------------------------------------------
+- add UISwitch to the landmark table
+
+Todos:
+- snapshot should contain landmark IDs
+- need to implement tester class
+
+
+
 
 
 

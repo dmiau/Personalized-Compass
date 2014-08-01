@@ -89,7 +89,7 @@
 
 -(void) constructDemoToolbar:(NSString*)mode{
     
-    NSArray* title_list = @[@"[Pre.]", @"[Next]", @"[Wedge]", @"[Mask]"];
+    NSArray* title_list = @[@"[Pre.]", @"[Next]"];
     
     NSMutableArray* toolbar_items =[[NSMutableArray alloc] init];
     
@@ -115,6 +115,31 @@
         [toolbar_items addObject:anItem];
     }
     
+    UIBarButtonItem *anItem;
+    //--------------
+    // Add visualization buttons
+    //--------------
+    NSString *visTitle = [NSString stringWithFormat:@"[%@]",
+    self.testManager->visualizationEnum2String
+    [self.testManager->visualization_for_test[0]]];
+    anItem = [[UIBarButtonItem alloc]
+                               initWithTitle:visTitle
+                               style:UIBarButtonItemStyleBordered                                             target:self
+                               action:@selector(loopVisualizations:)];
+    [toolbar_items addObject:anItem];
+
+    // Set the visualization to the first
+    [self loopVisualizations:anItem];
+    
+    //--------------
+    // Add the mask buttons
+    //--------------
+    anItem = [[UIBarButtonItem alloc]
+                               initWithTitle:@"[Mask]"
+                               style:UIBarButtonItemStyleBordered                                             target:self
+                               action:@selector(runDemoAction:)];
+    [toolbar_items addObject:anItem];
+    
     //--------------
     // Add the bookmark button
     //--------------
@@ -123,7 +148,7 @@
                                  target:nil action:nil];
     [toolbar_items addObject:flexItem];
     
-    UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
+    anItem = [[UIBarButtonItem alloc]
                                initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
                                target:self
                                action:@selector(segueToTabController:)];
@@ -256,6 +281,47 @@
     counter_button.title = [NSString stringWithFormat:
                      @"%d/%lu", snapshot_id+1,
                      self.model->snapshot_array.size()];
+}
+
+- (void)loopVisualizations:(UIBarButtonItem*) bar_button{
+    static int idx = 0;
+    
+    CPVisualizationType current_type =
+    self.testManager->visualization_for_test[idx];
+    
+    switch (current_type) {
+        case CPNone:
+            [self toggleOverviewMap:NO];
+            [self togglePCompass:NO];
+            [self toggleWedge:NO];
+            break;
+        case CPPCompass:
+            [self toggleOverviewMap:NO];
+            [self toggleWedge:NO];
+            [self togglePCompass:YES];
+            break;
+        case CPWedge:
+            [self toggleOverviewMap:NO];
+            [self togglePCompass:NO];
+            [self toggleWedge:YES];
+            break;
+        case CPOverview:
+            [self togglePCompass:NO];
+            [self toggleWedge:NO];
+            [self toggleOverviewMap:YES];
+            break;
+        default:
+            break;
+    }
+    
+    // Calculat the next type
+    idx = idx + 1;
+    idx = idx % self.testManager->visualization_for_test.size();
+    
+    // Update the title
+    bar_button.title = [NSString stringWithFormat:@"[%@]",
+    self.testManager->visualizationEnum2String
+    [self.testManager->visualization_for_test[idx]]];
 }
 
 #pragma mark -----Rotation related stuff-----

@@ -10,6 +10,14 @@
 #include "compassModel.h"
 #import "iOSViewController.h"
 
+@interface landmarkCell :UITableViewCell
+@property UISwitch* mySwitch;
+@property iOSViewController* rootViewController;
+@property data* data_ptr;
+@property bool isUserLocation;
+@end
+
+
 @interface myTableViewController : UIViewController
 <UITableViewDelegate, UIAlertViewDelegate>{
     int selected_id;

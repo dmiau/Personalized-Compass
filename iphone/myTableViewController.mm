@@ -14,6 +14,68 @@
 
 @end
 
+@implementation landmarkCell
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]))
+    {
+        //-------------------
+        // Create an UISwitch
+        //-------------------
+        UISwitch *onoff = [[UISwitch alloc]
+                           initWithFrame:CGRectMake(262, 6, 51, 31)];
+        [onoff addTarget: self action: @selector(flipSingleLandmark:) forControlEvents:UIControlEventValueChanged];
+        onoff.on = false;
+        self.mySwitch = onoff;
+        [self addSubview:onoff];
+        
+        //-------------------
+        // Set the rootViewController
+        //-------------------
+        AppDelegate *app = [[UIApplication sharedApplication] delegate];
+        
+        UINavigationController *myNavigationController =
+        app.window.rootViewController;
+        
+        self.rootViewController =
+        [myNavigationController.viewControllers objectAtIndex:0];
+        
+    }
+    return self;
+}
+
+- (void) flipSingleLandmark:(UISwitch*)sender{
+    if (sender.isOn) {
+        self.data_ptr->isEnabled = true;
+    } else {
+        self.data_ptr->isEnabled = false;
+    }
+    
+    if (self.isUserLocation){
+        self.rootViewController.needToggleLocationService = true;
+    }else{
+        self.rootViewController.needUpdateAnnotations = true;
+    }
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animate{
+
+    if (editing){
+        [self.mySwitch setHidden:YES];
+        [self setEditingAccessoryType: UITableViewCellAccessoryDetailButton];
+    }else{
+        [self.mySwitch setHidden:NO];
+        self.mySwitch.on = self.data_ptr->isEnabled;
+        [self setEditingAccessoryType: UITableViewCellAccessoryNone];
+    }
+
+    [super setEditing:editing animated:animate];
+}
+
+
+@end
+
+
 @implementation myTableViewController
 
 #pragma mark -----Initialization-----
@@ -55,9 +117,10 @@
     
     
     //-----------------
-    // Initialize the Save and SaveAs button
+    // Register the custom cell
     //-----------------
-    
+    [self.myTableView registerClass:[landmarkCell class]
+             forCellReuseIdentifier:@"myTableCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -118,7 +181,7 @@
 // Populate each row of the table
 //----------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = (UITableViewCell *)[tableView                                                dequeueReusableCellWithIdentifier:@"myTableCell"];
+    landmarkCell *cell = (landmarkCell *)[tableView                                                dequeueReusableCellWithIdentifier:@"myTableCell"];
     
     if (cell == nil){
         NSLog(@"Something wrong...");
@@ -130,24 +193,18 @@
     
     if (section_id == 0){
         cell.textLabel.text = @"My Location";
-
+        cell.isUserLocation = true;
         data_ptr = &(self.model->user_pos);
     }else{
         // Configure Cell
         cell.textLabel.text =
         [NSString stringWithUTF8String:self.model->data_array[i].name.c_str()];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
-
+        cell.isUserLocation = false;
         data_ptr = &(self.model->data_array[i]);
     }
-    
-    // Create an UISwitch
-    UISwitch *onoff = [[UISwitch alloc]
-                       initWithFrame:CGRectMake(262, 6, 51, 31)];
-    [onoff addTarget: self action: @selector(flipSingleLandmark:) forControlEvents:UIControlEventValueChanged];
-    onoff.on = data_ptr->isEnabled;
-    [cell addSubview:onoff];
-
+    cell.data_ptr = data_ptr;
+    cell.mySwitch.on = data_ptr->isEnabled;    
     return cell;
 }
 
@@ -224,33 +281,6 @@
     }
     return nil;
 }
-
-
-- (void) flipSingleLandmark:(UISwitch*)sender{
-    UITableViewCell* cell = (UITableViewCell*)
-    [self superviewOfType:[UITableViewCell class] forView:sender];
-    NSIndexPath *path = [self.myTableView indexPathForCell:cell];
-    
-    int row_id = [path row];
-    int section_id = [path section];
-    data *data_ptr;
-    
-    if (section_id == 0){
-        data_ptr = &(self.model->user_pos);
-        self.rootViewController.needToggleLocationService = true;
-    }else{
-        data_ptr = &(self.model->data_array[row_id]);
-    }
-    
-    if (sender.isOn) {
-        data_ptr->isEnabled = true;
-    } else {
-        data_ptr->isEnabled = false;
-    }
-    
-    self.rootViewController.needUpdateAnnotations = true;
-}
-
 
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return YES;

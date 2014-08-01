@@ -25,6 +25,12 @@
 		9A02D0FF195C5D4900A64987 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0EF195C5CB200A64987 /* SystemConfiguration.framework */; };
 		9A02D100195C5D4F00A64987 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F1195C5CB800A64987 /* Security.framework */; };
 		9A02D101195C5D5500A64987 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F3195C5CBE00A64987 /* CFNetwork.framework */; };
+		9A037369198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
+		9A03736A198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
+		9A03736B198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
+		9A03736C198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
+		9A03736D198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
+		9A03736E198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
 		9A239EDD196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
 		9A239EDE196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
 		9A239EDF196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
@@ -426,6 +432,8 @@
 		9A02D0F5195C5CE800A64987 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = iphone/Dropbox.framework; sourceTree = "<group>"; };
 		9A02D0F8195C5D0C00A64987 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		9A02D0FA195C5D1700A64987 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
+		9A037367198AF8A500258E95 /* TestManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestManager.mm; sourceTree = "<group>"; };
+		9A037368198AF8A500258E95 /* TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManager.h; sourceTree = "<group>"; };
 		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
 		9A239EDC196EFF410064BDC9 /* new.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = new.kml; sourceTree = "<group>"; };
 		9A28368A1900C0850041D22E /* readConfiguration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = readConfiguration.mm; sourceTree = "<group>"; };
@@ -817,6 +825,8 @@
 				9AFD8F55197C20000099BD88 /* genSnapshotString.mm */,
 				9AECA766196A0269008ADAEC /* CustomPointAnnotation.h */,
 				9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */,
+				9A037367198AF8A500258E95 /* TestManager.mm */,
+				9A037368198AF8A500258E95 /* TestManager.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1458,6 +1468,7 @@
 				9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */,
 				9A75715C197D804100C23AEE /* historyParser.mm in Sources */,
 				9AB90B98194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
+				9A03736D198AF8A500258E95 /* TestManager.mm in Sources */,
 				9AFD8F5A197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A3240D8197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */,
 				9A998D75194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
@@ -1491,6 +1502,7 @@
 				9A82B6321941518900534A5F /* compassModel.mm in Sources */,
 				9A49A5FB1954A90E00937961 /* bottomUpSegue.m in Sources */,
 				9A998C901949F29500778DFC /* compassRender+Label.mm in Sources */,
+				9A03736E198AF8A500258E95 /* TestManager.mm in Sources */,
 				9A3DA0CF19683235009E0073 /* DetailViewController.mm in Sources */,
 				9A82B6331941518900534A5F /* locationFilter.mm in Sources */,
 				9A4A44781979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */,
@@ -1557,6 +1569,7 @@
 				9AA789191909FE3000A26C66 /* main.mm in Sources */,
 				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9A03736C198AF8A500258E95 /* TestManager.mm in Sources */,
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
 				9A2E42E1196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A75720D197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
@@ -1592,6 +1605,7 @@
 				9AB90B9B194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9AEA582918D9ED350028B80C /* OpenGLView.mm in Sources */,
 				9A757150197D6C1500C23AEE /* snapshotParser.mm in Sources */,
+				9A037369198AF8A500258E95 /* TestManager.mm in Sources */,
 				9A75720A197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */,
 				9AEA57DD18D9EBB20028B80C /* main.mm in Sources */,
@@ -1622,6 +1636,7 @@
 				9A9701CF19083B19007C3C19 /* xmlParser.mm in Sources */,
 				9A9701D019083B19007C3C19 /* compassModel.mm in Sources */,
 				9A9701D219083B19007C3C19 /* locationFilter.mm in Sources */,
+				9A03736B198AF8A500258E95 /* TestManager.mm in Sources */,
 				9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */,
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */,
@@ -1659,6 +1674,7 @@
 				9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9AFD8F57197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A75720B197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
+				9A03736A198AF8A500258E95 /* TestManager.mm in Sources */,
 				9AB90B9C194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,
 				9A3DA0A51964F5E3009E0073 /* genKMLString.mm in Sources */,
