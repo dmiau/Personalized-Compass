@@ -455,6 +455,11 @@
                                             <action selector="saveKML:" destination="UAp-Pt-p2J" id="Kxi-aS-Y4j"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="[SaveAs]" id="YQg-iO-mas">
+                                        <connections>
+                                            <action selector="saveSnspahotAs:" destination="UAp-Pt-p2J" id="qc2-i1-pZh"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="[Reload]" id="AHZ-7o-gyp">
                                         <connections>
                                             <action selector="reloadSnapshotFile:" destination="UAp-Pt-p2J" id="Lgz-My-ddt"/>

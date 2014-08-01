@@ -36,7 +36,25 @@
     self.rootViewController =
     [myNavigationController.viewControllers objectAtIndex:0];
     selected_snapshot_id = -1;
+    
+    [self updateSnapshotFileList];
 }
+
+- (void)updateSnapshotFileList{
+    //-------------------
+    // Collect a list of history files
+    //-------------------
+    // Collect a list of kml files
+    NSArray *dirFiles;
+    if (self.model->filesys_type == IOS_DOC){
+        dirFiles = [self.model->docFilesystem listFiles];
+    }else{
+        dirFiles = [self.model->dbFilesystem listFiles];
+    }
+    
+    snapshot_file_array = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS 'snapshot'"]];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -73,14 +91,34 @@
 
 #pragma mark -----Table View Data Source Methods-----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return self.model->snapshot_array.size();
+    if (section ==0){
+        return [snapshot_file_array count];
+    }else{
+        return self.model->snapshot_array.size();
+    }
 }
 
+
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSArray *list = @[@"Snapshot files",
+                      [self.model->snapshot_filename lastPathComponent]];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
+    /* Create custom view to display section header... */
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
+    [label setFont:[UIFont boldSystemFontOfSize:12]];
+    NSString *string =[list objectAtIndex:section];
+    /* Section header is in 0th index... */
+    [label setText:string];
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
+    return view;
+}
 
 //----------------
 // Populate each row of the table
@@ -93,12 +131,17 @@
         NSLog(@"Something wrong...");
     }
     // Get the row ID
-    
+    int section_id = [indexPath section];
     int i = [indexPath row];
     
-    // Configure Cell
-    cell.textLabel.text = self.model->snapshot_array[i].name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
+    if (section_id == 0){
+        cell.textLabel.text = snapshot_file_array[i];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
+    }else{
+        // Configure Cell
+        cell.textLabel.text = self.model->snapshot_array[i].name;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
+    }
     return cell;
 }
 
@@ -106,31 +149,43 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path {
 
     int row_id = [path row];
-    self.rootViewController.snapshot_id_toshow = row_id;
+    int section_id = [path section];
     
-    //--------------
-    // We might need to do something for iPad
-    //--------------
-    [self.navigationController popViewControllerAnimated:NO];
     
+    if (section_id == 0){
+        [self loadSnapshotWithName:
+         snapshot_file_array[row_id]];
+    }else{
+        self.rootViewController.snapshot_id_toshow = row_id;
+        
+        //--------------
+        // We might need to do something for iPad
+        //--------------
+        [self.navigationController popViewControllerAnimated:NO];
+        
 #ifdef __IPAD__
-    iOSViewController* parentVC = self.rootViewController;
-    [self dismissViewControllerAnimated:YES completion:^{
-        // call your completion method:
-        [parentVC viewWillAppear:YES];
-    }];
+        iOSViewController* parentVC = self.rootViewController;
+        [self dismissViewControllerAnimated:YES completion:^{
+            // call your completion method:
+            [parentVC viewWillAppear:YES];
+        }];
 #endif
+    }
 }
 
 - (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
 //    // Get the row ID
     int i = [indexPath row];
-//    int section_id = [indexPath section];
-    selected_snapshot_id = i;
-    // Perform segue
-    [self performSegueWithIdentifier:@"ToSnapshotDetailView"
-                              sender:nil];
+    int section_id = [indexPath section];
+    
+    if (section_id ==0){
+    }else{
+        selected_snapshot_id = i;
+        // Perform segue
+        [self performSegueWithIdentifier:@"ToSnapshotDetailView"
+                                  sender:nil];
+    }
 }
 
 #pragma mark - Navigation
@@ -222,7 +277,7 @@
     //------------
     // Load snapshot if the file is available
     //------------
-    NSString* filename = @"snapshot.kml";
+    NSString* filename = self.model->snapshot_filename;
     bool snapshotFileExists = false;
     // Check if a snapshot file exists
     if (self.model->filesys_type == DROPBOX){
@@ -239,6 +294,116 @@
     }
     [self.myTableView reloadData];
 }
+
+- (void)loadSnapshotWithName: (NSString*) filename{
+    NSString* filename_cache = self.model->snapshot_filename;
+    self.model->snapshot_filename = filename;
+    if (readSnapshotKml(self.model)!= EXIT_SUCCESS){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+                                                        message:@"Fail to read the snapshot file."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        self.model->snapshot_filename = filename_cache;
+        [alert show];
+    }else{
+        [self.myTableView reloadData];
+    }
+}
+
+
+
+
+
+
+
+
+
+- (IBAction)saveSnspahotAs:(id)sender {
+    // Prompt a dialog box to get the filename
+    UIAlertView *alertView =
+    [[UIAlertView alloc] initWithTitle:@"File Name"
+                               message:@"Please enter a filename"
+                              delegate:self
+                     cancelButtonTitle:@"Cancel"
+                     otherButtonTitles:@"OK", nil];
+    
+    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    [alertView show];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if ([buttonTitle isEqualToString:@"OK"]){
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        NSString *filename = textField.text;
+        
+        if ([filename rangeOfString:@".kml"].location == NSNotFound) {
+            filename = [filename stringByAppendingString:@".kml"];
+        }
+        [self saveSnapshotWithFilename:filename];
+        
+        // There are some more works to do at the point
+        
+        // At this point we are operating on the new file
+        self.model->location_filename = filename;
+        
+        // Need to update the section header too
+        [self.myTableView reloadData];
+    }
+}
+
+- (BOOL) saveSnapshotWithFilename:(NSString*) filename{
+    bool hasError = false;
+    NSString *content = genSnapshotString(self.model->snapshot_array);
+    
+    if (self.model->filesys_type == DROPBOX){
+        if (![self.model->dbFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }else{
+        if (![self.model->docFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }
+    
+    if (hasError){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+                                                        message:@"Fail to save the file."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        NSLog(@"Failed to write file.");
+        return false;
+    }
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma mark -----Exit-----
 - (IBAction)dismissModalVC:(id)sender {

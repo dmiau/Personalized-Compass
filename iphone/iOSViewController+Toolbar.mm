@@ -9,7 +9,6 @@
 #import "iOSViewController+Toolbar.h"
 #import "iOSSettingViewController.h"
 
-
 @implementation iOSViewController (Toolbar)
 
 #pragma mark ------Toolbar construction------
@@ -119,13 +118,7 @@
     //--------------
     // Add visualization buttons
     //--------------
-    NSString *visTitle = [NSString stringWithFormat:@"[%@]",
-    self.testManager->visualizationEnum2String
-    [self.testManager->visualization_for_test[0]]];
-    anItem = [[UIBarButtonItem alloc]
-                               initWithTitle:visTitle
-                               style:UIBarButtonItemStyleBordered                                             target:self
-                               action:@selector(loopVisualizations:)];
+    anItem = [self resetVisualizationButton];
     [toolbar_items addObject:anItem];
 
     // Set the visualization to the first
@@ -168,8 +161,6 @@
     [self.toolbar setBackgroundImage:[UIImage new]
                   forToolbarPosition:UIBarPositionAny
                           barMetrics:UIBarMetricsDefault];
-    //            [self.toolbar setShadowImage:[UIImage new]
-    //                      forToolbarPosition:UIToolbarPositionAny];
     [self.toolbar setNeedsDisplay];
 }
 
@@ -248,21 +239,15 @@
     if ([label isEqualToString:@"[Pre.]"]){
         snapshot_id = max(snapshot_id-1, 0);
         [self displaySnapshot:snapshot_id];
+        // Set the visualization to the first
+        [self loopVisualizations:[self resetVisualizationButton]];
     }else if ([label isEqualToString:@"[Next]"]){
         snapshot_id = min(snapshot_id+1,
                           (int)self.model->snapshot_array.size()-1);
         [self displaySnapshot:snapshot_id];
-    }else if ([label isEqualToString:@"[Wedge]"]){
-        self.model->configurations[@"personalized_compass_status"] = @"off";
-        self.model->configurations[@"wedge_status"] = @"on";
-        self.model->configurations[@"wedge_style"] = @"modified";
-        bar_button.title = @"[PComp]";
-        [self.glkView setNeedsDisplay];
-    }else if ([label isEqualToString:@"[PComp]"]){
-        self.model->configurations[@"wedge_status"] = @"off";
-        self.model->configurations[@"personalized_compass_status"] = @"on";
-        bar_button.title = @"[Wedge]";
-        [self.glkView setNeedsDisplay];
+        // Set the visualization to the first
+        [self loopVisualizations:[self resetVisualizationButton]];
+        
     }else if ([label isEqualToString:@"[Mask]"]){
         
         if (mask_status){
@@ -283,8 +268,21 @@
                      self.model->snapshot_array.size()];
 }
 
+- (UIBarButtonItem*) resetVisualizationButton{
+    self.testManager->visualization_counter = 0;
+    NSString *visTitle = [NSString stringWithFormat:@"[%@]",
+                          self.testManager->visualizationEnum2String
+                          [self.testManager->visualization_for_test[0]]];
+    static UIBarButtonItem* anItem = [[UIBarButtonItem alloc]
+              initWithTitle:visTitle
+              style:UIBarButtonItemStyleBordered                                             target:self
+              action:@selector(loopVisualizations:)];
+    anItem.title = visTitle;
+    return anItem;
+}
+
 - (void)loopVisualizations:(UIBarButtonItem*) bar_button{
-    static int idx = 0;
+    int idx = self.testManager->visualization_counter;
     
     CPVisualizationType current_type =
     self.testManager->visualization_for_test[idx];
@@ -317,7 +315,7 @@
     // Calculat the next type
     idx = idx + 1;
     idx = idx % self.testManager->visualization_for_test.size();
-    
+    self.testManager->visualization_counter = idx;
     // Update the title
     bar_button.title = [NSString stringWithFormat:@"[%@]",
     self.testManager->visualizationEnum2String

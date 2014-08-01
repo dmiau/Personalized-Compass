@@ -1325,7 +1325,7 @@ Todos:
 8.1.2014
 -------------------------------------------------------------------
 - added the debug control
-
+- added the saveas capability to snapshot
 
 
 

@@ -47,6 +47,11 @@
     [self.ibSearchBar valueForKey:@"_searchField"];
     searchField.textColor = [UIColor blackColor];
     
+    
+    [self toggleWedge:NO];
+    [self toggleOverviewMap:NO];
+    [self togglePCompass:YES];
+    
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
             //-----------

@@ -75,6 +75,8 @@ public:
     vector<CPDeviceType> device_vector_for_test;
     map<CPVisualizationType, NSString*> visualizationEnum2String;
     map<CPDeviceType, NSString*> deviceEnum2String;
+        
+    int visualization_counter;
 public:
     static TestManager* shareTestManager();
     int initTestManager();

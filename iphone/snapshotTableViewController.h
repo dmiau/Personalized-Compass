@@ -12,6 +12,9 @@
 
 @interface snapshotTableViewController : UIViewController<UITableViewDelegate, UIAlertViewDelegate>{
     int selected_snapshot_id;
+    
+    NSArray* snapshot_file_array;
+    bool dirty_flag;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -19,6 +22,7 @@
 @property iOSViewController* rootViewController;
 
 - (IBAction)saveKML:(id)sender;
+- (IBAction)saveSnspahotAs:(id)sender;
 - (IBAction)reloadSnapshotFile:(id)sender;
 
 //---------------

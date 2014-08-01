@@ -27,6 +27,8 @@ TestManager* TestManager::shareTestManager(){
 int TestManager::initTestManager(){
     visualization_vector.clear();
     device_vector.clear();
+    visualization_counter = 0;
+    
     
     vector<CPVisualizationType> visualization_names
     = {CPNone, CPPCompass, CPWedge, CPOverview};
