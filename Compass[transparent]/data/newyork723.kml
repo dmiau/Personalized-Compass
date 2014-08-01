@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+<Document>
+<Placemark>
+<name>NYC Public Library</name>
+<Point>
+<coordinates>-73.982,40.753,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>United Nations</name>
+<Point>
+<coordinates>-73.968,40.7493,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Empire State Building </name>
+<Point>
+<coordinates>-73.9858,40.7478,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Time Square</name>
+<Point>
+<coordinates>-73.9855,40.7579,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Washington Sq.</name>
+<Point>
+<coordinates>-73.9971,40.7307,0.0</coordinates>
+</Point>
+</Placemark>
+
+</Document>
+</kml>

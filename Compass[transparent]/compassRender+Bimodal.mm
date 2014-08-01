@@ -142,8 +142,42 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     if (fabs(model->tilt - 0) < 0.1 ){
         
         if (watchMode){
-            isBoundaryIndicatorDrawn = drawBoundaryCircle
-            (outer_disk_radius/mode_max_dist_array[0]);
+            
+            // May need to shift the disk if the compass is not at the center
+            
+            
+            if (compass_centroid.x != 0 || compass_centroid.y != 0){
+                
+                //[todo] need to clean up this part
+                
+                glPushMatrix();
+                
+                double renderD2realDRatio =
+                (outer_disk_radius/mode_max_dist_array[0]);
+                
+                CLLocationDistance box_width = getMapWidthInMeters();
+                float radius = [model->configurations[@"watch_radius"] floatValue];
+                
+                double boundary_radius = box_width * renderD2realDRatio
+                * radius / mapView.frame.size.width;
+                
+                if (boundary_radius <= central_disk_radius)
+                {
+                    isBoundaryIndicatorDrawn = false;
+                }else{
+                    // Draw the circle
+                    glLineWidth(2);
+                    glColor4f(1, 0, 0, 0.5);
+                    drawCircle(-compass_centroid.x/radius * boundary_radius,
+                               -compass_centroid.y/radius * boundary_radius,
+                               boundary_radius, 20, false);
+                    isBoundaryIndicatorDrawn = true;
+                }
+                glPopMatrix();
+            }else{
+                isBoundaryIndicatorDrawn = drawBoundaryCircle
+                (outer_disk_radius/mode_max_dist_array[0]);
+            }
         }else{
             glPushMatrix();
             glRotatef(-model->camera_pos.orientation, 0, 0, -1);

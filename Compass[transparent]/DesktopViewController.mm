@@ -331,6 +331,7 @@ static NSComparisonResult myCustomViewAboveSiblingViewsComparator(id view1, id v
     }
     
     [self updateMapDisplayRegion];
+    [self renderAnnotations];
     [self.locationTableView reloadData];
 }
 

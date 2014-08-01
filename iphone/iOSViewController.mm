@@ -242,16 +242,68 @@
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
-    // UIGestureRecognizerStateEnded
-    // UIGestureRecognizerStateBegan
-    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
+    static bool compassTouched = false;
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+    
+    
+    if (compassTouched){
+        //-------------------------
+        // When the compass is pressed,
+        // enter here to continuously update the compass's position
+        //-------------------------
+        
+        // update compass location
+        recVec compassXY = self.renderer->compass_centroid;
+        compassXY.x = touchPoint.x - self.glkView.frame.size.width/2;
+        compassXY.y = self.glkView.frame.size.height/2 - touchPoint.y;
+        
+        self.model->configurations[@"compass_centroid"][0] =
+        [NSNumber numberWithInt:compassXY.x];
+        self.model->configurations[@"compass_centroid"][1] =
+        [NSNumber numberWithInt:compassXY.y];
+        
+        if (gestureRecognizer.state == UIGestureRecognizerStateEnded){
+            model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:150];
+            compassTouched = false;
+        }
+        // The order is important
+        self.renderer->loadParametersFromModelConfiguration();
+        [self updateModelCompassCenterXY];
+        [self.glkView setNeedsDisplay];
         return;
+    }else if (gestureRecognizer.state != UIGestureRecognizerStateBegan){
+        //----------------
+        // Do nothing is the compress is not pressed
+        // and the recognition mode is not begin
+        //----------------
+        return;
+    }
 
-    // No pin creation is the option is off
+    //----------------------------
+    // Do nothing when the creation mode is off
+    //----------------------------
     if (![self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue])
         return;
     
-    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+    //--------------------
+    // Move the compass
+    //--------------------
+    recVec compassXY = self.renderer->compass_centroid;
+    compassXY.x = compassXY.x + self.glkView.frame.size.width/2;
+    compassXY.y = self.glkView.frame.size.height/2 - compassXY.y;
+    double dist = sqrt(pow((touchPoint.x - compassXY.x), 2) +
+                       pow((touchPoint.y - compassXY.y), 2));
+    double radius = self.renderer->half_canvas_size
+    * [self.model->configurations[@"outer_disk_ratio"] floatValue]
+    * [self.model->configurations[@"compass_scale"] floatValue];
+    if (dist <= radius)
+    {
+        compassTouched = true;
+        model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:255];
+        [self.glkView setNeedsDisplay];
+        return;
+    };
+    
     CLLocationCoordinate2D touchMapCoordinate =
     [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
@@ -265,9 +317,6 @@
     }
     
     [self.mapView addAnnotation:pa];
-    
-//    // this line displays the callout
-//    [self.mapView selectAnnotation:pa animated:YES];
 }
 
 @end

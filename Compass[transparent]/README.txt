@@ -1327,7 +1327,7 @@ Todos:
 - added the debug control
 - added the saveas capability to snapshot
 
-
+- added the capability to move the compass
 
 
 
