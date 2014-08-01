@@ -1308,23 +1308,10 @@ renderAnnotations
 zoom level, and the selected landmarks, etc.
 
 - did a big merge job
-Did a lot of work today. Merged to the master (that I detached on 6.30, a month ago!). 
-Good job!
-
--------------------------------------------------------------------
-7.31.2014
--------------------------------------------------------------------
-- add UISwitch to the landmark table
-
-Todos:
-- snapshot should contain landmark IDs
-- need to implement tester class
 
 
--------------------------------------------------------------------
-8.1.2014
--------------------------------------------------------------------
-- added the debug control
+
+
 
 
 

@@ -10,14 +10,6 @@
 #include "compassModel.h"
 #import "iOSViewController.h"
 
-@interface landmarkCell :UITableViewCell
-@property UISwitch* mySwitch;
-@property iOSViewController* rootViewController;
-@property data* data_ptr;
-@property bool isUserLocation;
-@end
-
-
 @interface myTableViewController : UIViewController
 <UITableViewDelegate, UIAlertViewDelegate>{
     int selected_id;
@@ -28,12 +20,16 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;
 @property iOSViewController* rootViewController;
-@property (weak, nonatomic) IBOutlet UIToolbar *saveButton;
 
 - (IBAction)toggleLandmakrSelection:(id)sender;
 - (IBAction)toggleEditing:(id)sender;
 - (IBAction)saveKML:(id)sender;
 - (IBAction)saveKMLAs:(id)sender;
+- (IBAction)go2Landmark:(id)sender;
 
 - (IBAction)dismissModalVC:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIToolbar *saveButton;
+
+
 @end

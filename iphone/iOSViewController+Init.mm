@@ -43,8 +43,6 @@
     if(self) {
         self.model = compassMdl::shareCompassMdl();
         self.renderer = compassRender::shareCompassRender();
-        self.testManager = TestManager::shareTestManager();
-        
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
         
@@ -111,7 +109,6 @@
     self.renderer->mapView = [self mapView];
     [self initMapView];
     mapMask = [CALayer layer];
-    
     // Recognize long-press gesture
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleGesture:)];

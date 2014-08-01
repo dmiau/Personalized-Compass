@@ -78,7 +78,10 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
 
         
         dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2));
-                
+        
+        cout << "orig_width: " << this->orig_width
+        << "orig_height: " << this->orig_height << endl;
+        
         calculateDistInBox(this->orig_width, this->orig_height,
                            CGPointMake(x_diff, y_diff),
                            &screen_dist, &rotation, &max_aperture);

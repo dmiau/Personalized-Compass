@@ -66,18 +66,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    // Do any additional setup after loading the view.
+    [self selectDefaultLocationFromPicker];
+    
     // Initialize system message
     self.systemMessage.text = @"OK";
     self.systemMessage.editable = NO;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-
-    // Do any additional setup after loading the view.
-    [self selectDefaultLocationFromPicker];
     
     // Initialize data source indicator
     if (model->filesys_type == IOS_DOC)
@@ -90,13 +85,11 @@
     // Initialize toolbar indicator
     NSString* toolbar_mode = self.rootViewController.UIConfigurations[@"UIToolbarMode"];
     if ([toolbar_mode isEqualToString:@"Development"]){
-        [self.toolbarSegmentControl setSelectedSegmentIndex:0];
+        self.toolbarSegmentControl.selectedSegmentIndex = 0;
     }else{
-
-        [self.toolbarSegmentControl setSelectedSegmentIndex:1];
+        self.toolbarSegmentControl.selectedSegmentIndex = 1;
     }
 }
-
 
 - (void)didReceiveMemoryWarning
 {

@@ -221,26 +221,14 @@
     // The pin is a custom pin
     //------------------
     UIButton *myButton = (UIButton *)control;
-    if(myButton.tag == 0){
-        // Left buttton tapped
-        if ([pinView pinColor] == MKPinAnnotationColorPurple){
-            // if it is a dropped pin, remove the pin
-            [self.mapView removeAnnotation:view.annotation];
-        }else{
-            // if it is a landmark pin, flip the enable status
-            CustomPointAnnotation* myCustomAnnotation =
-            (CustomPointAnnotation*) view.annotation;
-            int idx = myCustomAnnotation.data_id;
-            data* data_ptr = &(self.model->data_array[idx]);
-            
-            data_ptr->isEnabled = !data_ptr->isEnabled;
-            
-            pinView = [self configureLandmarkPinView:pinView];
-            
-        }
+    if([pinView pinColor] == MKPinAnnotationColorPurple &&
+       myButton.tag == 0){
+        // Left buttton tapped - remove the pin
+        [self.mapView removeAnnotation:view.annotation];
     }else if (myButton.tag == 1){
         [self performSegueWithIdentifier:@"DetailVC" sender:view];
     }
+    
 }
 
 //------------------

@@ -90,8 +90,7 @@ public:
     NSString* date_str;
 public:
     breadcrumb(){
-        date_str    = @"";
-        name        = @"";
+        date_str    = @"";        
     }
 };
 
