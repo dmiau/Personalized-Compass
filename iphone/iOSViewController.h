@@ -13,6 +13,7 @@
 #include "compassRender.h"
 #include <iostream>
 #import "iOSGLKView.h"
+#import "TestManager.h"
 
 
 enum findMe_enum{
@@ -49,6 +50,13 @@ enum findMe_enum{
 @property UIView *watchPanel;
 @property UIView *debugPanel;
 
+
+// Toggle various components
+- (void)toggleOverviewMap: (bool) state;
+- (void)togglePCompass: (bool) state;
+- (void)toggleConventionalCompass: (bool)state;
+- (void)toggleWedge: (bool)state;
+
 //----------------
 // UI Components
 //----------------
@@ -60,6 +68,7 @@ enum findMe_enum{
 
 @property compassMdl* model;
 @property compassRender* renderer;
+@property TestManager* testManager;
 
 @property NSNumber *mapUpdateFlag;
 @property bool conventionalCompassVisible;

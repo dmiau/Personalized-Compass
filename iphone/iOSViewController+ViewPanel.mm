@@ -62,44 +62,78 @@
             //------------
             // None
             //------------
-            [[self overviewMapView] setHidden:YES];
-            self.renderer->isOverviewMapEnabled = false;
-            self.model->configurations[@"personalized_compass_status"] = @"off";
+            [self toggleOverviewMap:NO];
+            [self togglePCompass:NO];
             break;
         case 1:
             //------------
             // Overview
             //------------
-            self.model->configurations[@"personalized_compass_status"] = @"off";
-#ifdef __IPAD__
-            self.glkView.frame = CGRectMake(0, 0, cache_rect.size.width, cache_rect.size.height);
-#endif
-            [[self overviewMapView] setHidden:NO];
-            
-            self.overviewMapView.layer.borderColor = [UIColor blackColor].CGColor;
-            self.overviewMapView.layer.borderWidth = 2.0f;
-            self.renderer->isOverviewMapEnabled = true;
-            [self updateOverviewMap];
+            [self togglePCompass:NO];
+            [self toggleOverviewMap:YES];
             break;
         case 2:
             //------------
             // PCompass
             //------------
-            [[self overviewMapView] setHidden:YES];
-            self.renderer->isOverviewMapEnabled = false;
-            self.conventionalCompassVisible = NO;
-            self.model->configurations[@"personalized_compass_status"] = @"on";
-            [self setFactoryCompassHidden:YES];
+            [self toggleOverviewMap:NO];
+            [self togglePCompass:YES];
+            [self toggleConventionalCompass:YES];
             break;
         default:
             break;
     }
-    
-    NSLog(@"cached: %@", NSStringFromCGRect(cache_rect));
-    NSLog(@"glkview: %@", NSStringFromCGRect(self.glkView.frame));
+//    [self.glkView setNeedsDisplay];
+}
+
+//------------------
+// Controlling the state of diffrent views
+//------------------
+- (void)toggleOverviewMap: (bool) state{
+    if (state){
+#ifdef __IPAD__
+        self.glkView.frame = CGRectMake(0, 0, cache_rect.size.width, cache_rect.size.height);
+#endif
+        [[self overviewMapView] setHidden:NO];
+        
+        self.overviewMapView.layer.borderColor = [UIColor blackColor].CGColor;
+        self.overviewMapView.layer.borderWidth = 2.0f;
+        self.renderer->isOverviewMapEnabled = true;
+        [self updateOverviewMap];
+    }else{
+        [[self overviewMapView] setHidden:YES];
+        self.renderer->isOverviewMapEnabled = false;
+    }
+}
+
+- (void)togglePCompass: (bool) state{
+    if (state){
+        self.model->configurations[@"personalized_compass_status"] = @"on";
+    }else{
+        self.model->configurations[@"personalized_compass_status"] = @"off";
+    }
     [self.glkView setNeedsDisplay];
 }
 
+
+- (void)toggleConventionalCompass: (bool)state{
+    if (state){
+        self.conventionalCompassVisible = YES;
+        [self setFactoryCompassHidden:NO];
+    }else{
+        self.conventionalCompassVisible = NO;
+        [self setFactoryCompassHidden:YES];
+    }
+}
+
+- (void)toggleWedge: (bool)state{
+    if (state){
+        self.model->configurations[@"wedge_status"] = @"on";
+    }else{
+        self.model->configurations[@"wedge_status"] = @"off";
+    }
+    [self.glkView setNeedsDisplay];
+}
 
 //------------------
 // Select map style
