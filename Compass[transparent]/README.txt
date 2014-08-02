@@ -1329,8 +1329,17 @@ Todos:
 
 - added the capability to move the compass
 
+-------------------------------------------------------------------
+8.2.2014
+-------------------------------------------------------------------
+Here is the trick to modify mapview
+http://stackoverflow.com/questions/18263359/setting-the-frame-of-an-uiview-does-not-work
 
+How to detect pinch gesture simultaneously?
+http://stackoverflow.com/questions/6747427/why-would-uipinchgesturerecognizer-not-be-called-while-scrollviewdidendzooming
 
+Detect two points in gesture recognizer
+http://stackoverflow.com/questions/17657553/get-uipinchgesturerecognizer-finger-positions
 
 
 

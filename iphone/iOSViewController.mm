@@ -42,6 +42,7 @@
         self.UIConfigurations[@"UIToolbarNeedsUpdate"]
         = [NSNumber numberWithBool:false];
     }
+    
     //---------------
     // Unwind actions
     //---------------
@@ -99,6 +100,21 @@
     }
     
     [self.glkView setNeedsDisplay];
+}
+
+-(void)viewDidLayoutSubviews{
+    //-------------------
+    // Configure a small view (experimental)
+    //-------------------
+    if ([self.UIConfigurations[@"UIToolbarMode"]
+         isEqualToString:@"Web"]){
+        
+        [self.mapView setFrame:
+         CGRectMake(0, 0,
+                    200, 200)];
+        
+        NSLog(@"done!");
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -164,25 +180,6 @@
 }
 
 
-
-- (void) doSingleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer
-{
-    [self toggleLocationService:1];
-    NSLog(@"Single tap!");
-}
-
-- (void) doDoubleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer
-{
-    [self toggleLocationService:2];
-    
-    if([self.model->configurations[@"UIBreadcrumbDisplay"] boolValue]){
-        [self.mapView removeOverlays: self.mapView.overlays];
-        [self displayBreadcrumb];
-    }
-    NSLog(@"Double tap!");
-}
-
-
 //-----------------
 // initMapView may be called whenever configurations.json is reloaded
 //-----------------
@@ -205,120 +202,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    UITouch* touch = [touches anyObject];
-    CGPoint pos = [touch locationInView:self.mapView];
-    NSLog(@"****Touch detected");
-    NSLog(@"Display Coordinates: %@", NSStringFromCGPoint(pos));
-    
-    // Convert it to the real coordinate
-    CLLocationCoordinate2D myCoord = [self.mapView convertPoint:pos toCoordinateFromView:self.mapView];
-    NSLog(@"Map latitude: %f, longitude: %f", myCoord.latitude, myCoord.longitude);
-    
-    // pass touch event to super
-    [super touchesBegan:touches withEvent:event];
-    
-    
-    
-    //------------------
-    // Perform hitTest to dismiss dialogs
-    //------------------
-    NSArray* dialog_array = @[self.viewPanel, self.modelPanel
-                              , self.watchPanel, self.debugPanel];
-    
-    for (UIView* aView in dialog_array){
-
-        UIView* hitView = [aView
-                   hitTest:[touch locationInView:aView]
-                   withEvent:event];
-        if ([aView isHidden] == NO &&
-            hitView == nil){
-            [aView setHidden:YES];
-        }
-    }
-}
-
-- (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
-{
-    static bool compassTouched = false;
-    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
-    
-    
-    if (compassTouched){
-        //-------------------------
-        // When the compass is pressed,
-        // enter here to continuously update the compass's position
-        //-------------------------
-        
-        // update compass location
-        recVec compassXY = self.renderer->compass_centroid;
-        compassXY.x = touchPoint.x - self.glkView.frame.size.width/2;
-        compassXY.y = self.glkView.frame.size.height/2 - touchPoint.y;
-        
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:compassXY.x];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:compassXY.y];
-        
-        if (gestureRecognizer.state == UIGestureRecognizerStateEnded){
-            model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:150];
-            compassTouched = false;
-        }
-        // The order is important
-        self.renderer->loadParametersFromModelConfiguration();
-        [self updateModelCompassCenterXY];
-        [self.glkView setNeedsDisplay];
-        return;
-    }else if (gestureRecognizer.state != UIGestureRecognizerStateBegan){
-        //----------------
-        // Do nothing is the compress is not pressed
-        // and the recognition mode is not begin
-        //----------------
-        return;
-    }
-
-    //--------------------
-    // Check if the compass is pressed
-    //--------------------
-    recVec compassXY = self.renderer->compass_centroid;
-    compassXY.x = compassXY.x + self.glkView.frame.size.width/2;
-    compassXY.y = self.glkView.frame.size.height/2 - compassXY.y;
-    double dist = sqrt(pow((touchPoint.x - compassXY.x), 2) +
-                       pow((touchPoint.y - compassXY.y), 2));
-    double radius = self.renderer->half_canvas_size
-    * [self.model->configurations[@"outer_disk_ratio"] floatValue]
-    * [self.model->configurations[@"compass_scale"] floatValue];
-    if (dist <= radius)
-    {
-        compassTouched = true;
-        model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:255];
-        [self.glkView setNeedsDisplay];
-        return;
-    };
-
-    //----------------------------
-    // Do nothing when the creation mode is off
-    //----------------------------
-    if (![self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue])
-        return;
-    
-    
-    CLLocationCoordinate2D touchMapCoordinate =
-    [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-    
-    CustomPointAnnotation *pa = [[CustomPointAnnotation alloc] init];
-    pa.coordinate = touchMapCoordinate;
-    pa.title = @"Dropped Pin";
-    pa.point_type = dropped;
-    
-    if (self.sprinkleBreadCrumbMode){
-        [self addBreadcrumb:touchMapCoordinate];
-    }
-    
-    [self.mapView addAnnotation:pa];
-}
-
 @end
 

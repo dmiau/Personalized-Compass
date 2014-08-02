@@ -24,7 +24,7 @@ enum findMe_enum{
 
 
 @interface iOSViewController : UIViewController
-<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate>
+<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate>
 {
     NSTimer *_updateUITimer;
     MKLocalSearch *localSearch;

@@ -251,6 +251,10 @@
             self.rootViewController.UIConfigurations[@"UIToolbarMode"]
             = @"Demo";
             break;
+        case 2:
+            self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+            = @"Web";
+            break;
     }
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];

@@ -83,6 +83,8 @@
                                   forKey:@"UIToolbarNeedsUpdate"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
                                   forKey:@"UIAcceptsPinCreation"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UICompassTouched"];
     }
     return self;
 }
@@ -117,6 +119,13 @@
                                           initWithTarget:self action:@selector(handleGesture:)];
     lpgr.minimumPressDuration = 0.5;
     [self.mapView addGestureRecognizer:lpgr];
+    
+    
+    UIPinchGestureRecognizer *pgr = [[UIPinchGestureRecognizer alloc]
+                                     initWithTarget:self
+                                     action:@selector(pinchGesture:)];
+    pgr.delegate = self;
+    [self.mapView addGestureRecognizer:pgr];
     
     //-------------------
     // Add View, Model, Watch and Debug Panels

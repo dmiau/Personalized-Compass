@@ -193,6 +193,7 @@
                                 <segments>
                                     <segment title="Dev"/>
                                     <segment title="Demo"/>
+                                    <segment title="Web"/>
                                 </segments>
                                 <connections>
                                     <action selector="toogleToolbarMode:" destination="9xM-YS-8bl" eventType="valueChanged" id="bco-Ut-V1O"/>

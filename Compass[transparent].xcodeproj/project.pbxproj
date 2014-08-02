@@ -173,6 +173,8 @@
 		9A5681B01944A57A0021DA97 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9A577E1F1943F060002243B1 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
+		9A60F8A0198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A60F89F198D75C000E60ABD /* iOSViewController+Interactions.mm */; };
+		9A60F8A1198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A60F89F198D75C000E60ABD /* iOSViewController+Interactions.mm */; };
 		9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
 		9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
 		9A6F53F21910069F00F35FED /* DebugInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */; };
@@ -551,6 +553,8 @@
 		9A5681AF1944A57A0021DA97 /* SundayTest.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SundayTest.kml; sourceTree = "<group>"; };
 		9A5F3FBF18EE5A5000953336 /* Compass[transparent] copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compass[transparent] copy.entitlements"; sourceTree = "<group>"; };
 		9A5F3FC518EE606200953336 /* tabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = tabView.xib; path = "Compass[transparent]/tabView.xib"; sourceTree = "<group>"; };
+		9A60F89E198D75C000E60ABD /* iOSViewController+Interactions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Interactions.h"; sourceTree = "<group>"; };
+		9A60F89F198D75C000E60ABD /* iOSViewController+Interactions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Interactions.mm"; sourceTree = "<group>"; };
 		9A6A74A218E4A45D00C7A9D5 /* LocationCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCellView.h; sourceTree = "<group>"; };
 		9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCellView.m; sourceTree = "<group>"; };
 		9A6EC77E19004BCB00C3815F /* locationFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = locationFilter.mm; sourceTree = "<group>"; };
@@ -821,6 +825,8 @@
 			children = (
 				9A4F0F7A193E306A00CF32DE /* iOSViewController.h */,
 				9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */,
+				9A60F89E198D75C000E60ABD /* iOSViewController+Interactions.h */,
+				9A60F89F198D75C000E60ABD /* iOSViewController+Interactions.mm */,
 				9ACD80D81986CB8900AAB052 /* iOSViewController+Init.h */,
 				9ACD80D91986CB8900AAB052 /* iOSViewController+Init.mm */,
 				9A6FB7F21958FFC20020355A /* iOSViewController+Updates.h */,
@@ -1643,6 +1649,7 @@
 				9A998D71194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9A757154197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A75720E197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
+				9A60F8A0198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */,
 				9A95CCB3194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 				9AFD8F65197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9ACD80D61986982B00AAB052 /* UINavigationController+rotation.mm in Sources */,
@@ -1702,6 +1709,7 @@
 				9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9A3DA0A91964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9ABB96B51957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
+				9A60F8A1198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */,
 				9ABB382F19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
