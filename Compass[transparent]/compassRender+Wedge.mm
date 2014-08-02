@@ -11,6 +11,7 @@
 #include <numeric>
 #include <iostream>
 #include <sstream>
+#include <Box2D/Box2D.h>
 using namespace std;
 
 // Forward declaration
