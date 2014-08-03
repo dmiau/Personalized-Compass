@@ -160,6 +160,10 @@ private:
     void drawOverviewBox();
     void drawClearWatch();
     
+    // Wedge drawing routines
+    void drawOneSide(double rotation, double width, double height,
+                     double tx, double ty, double *out_leg, double *out_aperture);
+    
     //-----------------
     // style related methods
     //-----------------

@@ -639,6 +639,7 @@
 		9ABB382F19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB382D19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm */; };
 		9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */; };
 		9ABB96B51957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */; };
+		9ABFC0F0198EDBA500898978 /* wedgeTemp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABFC0EF198EDBA500898978 /* wedgeTemp.mm */; };
 		9ACCED0018EF5425006E9CA4 /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
 		9ACD80D61986982B00AAB052 /* UINavigationController+rotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */; };
 		9ACD80D71986982B00AAB052 /* UINavigationController+rotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */; };
@@ -987,6 +988,7 @@
 		9ABB382D19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+CompassPanel.mm"; sourceTree = "<group>"; };
 		9ABB96B21957C94A00D7296A /* iOSViewController+ViewPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+ViewPanel.h"; sourceTree = "<group>"; };
 		9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+ViewPanel.mm"; sourceTree = "<group>"; };
+		9ABFC0EF198EDBA500898978 /* wedgeTemp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wedgeTemp.mm; sourceTree = "<group>"; };
 		9ACCECFF18EF5425006E9CA4 /* london.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = london.kml; sourceTree = "<group>"; };
 		9ACD80D41986982B00AAB052 /* UINavigationController+rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+rotation.h"; sourceTree = "<group>"; };
 		9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UINavigationController+rotation.mm"; sourceTree = "<group>"; };
@@ -1499,6 +1501,7 @@
 				9A998C911949F32800778DFC /* compassRender+Components.mm */,
 				9AB90B93194F383A0030BF5B /* compassRender+Bimodal.mm */,
 				9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */,
+				9ABFC0EF198EDBA500898978 /* wedgeTemp.mm */,
 				9AAE13D819046975003BF9B7 /* renderStyles.mm */,
 				9AEA582718D9ED350028B80C /* OpenGLView.h */,
 				9AEA582818D9ED350028B80C /* OpenGLView.mm */,
@@ -2177,6 +2180,7 @@
 				9A0375D9198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A0375AF198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A0375CD198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
+				9ABFC0F0198EDBA500898978 /* wedgeTemp.mm in Sources */,
 				9A3DA0A81964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A480890198BE79E0001E188 /* DebugSettingViewController.mm in Sources */,
 				9A0375FD198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,

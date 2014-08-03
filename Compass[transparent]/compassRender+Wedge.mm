@@ -15,7 +15,14 @@
 using namespace std;
 
 // Forward declaration
-void calculateDistInBox(double width, double height, CGPoint aPoint,
+void applyCoordTransform(double x_diff, double y_diff,
+                         double width, double height,
+                         double *rotation,
+                         double *tx, double *ty,
+                         double *new_width, double *new_height);
+
+void calculateDistInBox(double width, double height, 
+                        double tx, double ty,
                         double* dist, double* rotation, double* max_aperture);
 
 //------------------------------------
@@ -39,8 +46,6 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     CGPoint screen_pt, center_pt;
     center_pt.x = orig_width/2;
     center_pt.y = orig_height/2;
-    double screen_dist, off_screen_dist, max_aperture, leg, aperture;
-    double rotation, x_diff, y_diff, dist;
     
     if (this->mapView == nil)
         throw(runtime_error("mapView is uninitialized."));
@@ -54,130 +59,36 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             }else{
                 continue;
             }
+            glColor4f(0, 1, 0, 1);
         }else{
             int j = indices_for_rendering[i];
             // Calculate the screen coordinates
             myCoord.latitude = model->data_array[j].latitude;
             myCoord.longitude = model->data_array[j].longitude;
+            glColor4f(1, 0, 0, 1);
         }
-        
-        
+                
         screen_pt =
         [this->mapView convertCoordinate:myCoord toPointToView:this->mapView];
         
         screen_pt.y = -screen_pt.y + orig_height; //b/c the coordinate sys is flipped...
         
         // Calculate the parameters to draw a wedge
-        x_diff = screen_pt.x - center_pt.x;
-        y_diff = screen_pt.y - center_pt.y;
+        double x_diff = screen_pt.x - center_pt.x;
+        double y_diff = screen_pt.y - center_pt.y;
+        double dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2));
         
-        // isFlipped is undefined in iOS
-//        BOOL flag = [this->mapView isFlipped];
+        //---------------------
+        // Draw a single wedge
+        //---------------------
+        double rotation, tx, ty, new_width, new_height;
+        applyCoordTransform(x_diff, y_diff,
+                            orig_width, orig_height,
+                            &rotation, &tx, &ty,
+                            &new_width, &new_height);
         
-        // construction
-        db_stream << "-----------------" << endl;
-
-        
-        dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2));
-                
-        calculateDistInBox(this->orig_width, this->orig_height,
-                           CGPointMake(x_diff, y_diff),
-                           &screen_dist, &rotation, &max_aperture);
-
-        // We will use rotation and max_aperture from calculateDistInBox
-        if (watchMode){
-//            float outer_disk_radius =
-//            half_canvas_size *
-//            [model->configurations[@"outer_disk_ratio"] floatValue];
-//            float scale = glDrawingCorrectionRatio * compass_scale;
-//            screen_dist = outer_disk_radius * scale;
-            
-            screen_dist = [model->configurations[@"watch_radius"] floatValue];
-        }
-        off_screen_dist = dist - screen_dist;
-        
-        // distance needs to be corrected
-        
-        // -----------------------
-        // The parameters here may need to be tweeked)
-        // -----------------------
-        
-        // I believe the parameters from the paper was based the following
-        // parameters:
-        //
-        // Here are the specs of an Compag iPad:
-        // 3"x4" (x 1.33), dpi: 105
-        //
-        // However, the interface was emulated on a computer monitor,
-        // and the paper indicates the screen is 33% larger than the original
-        // screen.
-        // A typical screen's resolution is 72-96 dpi
-        // 3"x4" x 1.33 x 72 = 287.28 x 374
-        
-        // This means that I need to apply a scale parameter before using
-        // the orignal formula to calculate the leg and aperture
-        
-        //-----------------
-        // Calculate the scale parameter
-        //-----------------
-
-        float correction_x = [this->model->configurations[@"wedge_correction_x"]
-                               floatValue];
-        double corrected_off_screen_dist = off_screen_dist * correction_x;
-        
-        
-        leg = corrected_off_screen_dist + log((corrected_off_screen_dist + 20)/12)*10;
-        
-        aperture = (5+corrected_off_screen_dist*0.3)/leg;
-        
-        if (watchMode){
-                max_aperture =
-            acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2 * 0.95;
-        }
-        
-        
-        if (aperture > max_aperture &&
-            [model->configurations[@"wedge_style"] isEqualToString:@"modified"])
-        {
-            aperture = max_aperture;
-        }
-        
-        leg = leg / correction_x;
-
-        db_stream << "leg: " << leg << endl;
-        db_stream << "rotation (deg): " << rotation << endl;
-        db_stream << "-----------------" << endl;
-        
-        // Draw the wedge
-        //        v2
-        // v1
-        //        v3
-        glLineWidth(4);
-        
-        if (i == -1){
-            glColor4f(0, 1, 0, 1);
-        }else{
-            glColor4f(1, 0, 0, 1);
-        }
-
-        glPushMatrix();
-        // Plot the triangle first, then rotate and translate
-        glTranslatef(x_diff, y_diff, 0);
-
-        glRotatef(rotation, 0, 0, 1);
-        
-        Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
-        Vertex3D    vertex2 = Vertex3DMake(leg * cos(aperture/2),
-                                           leg * sin(aperture/2), 0);
-        
-        Vertex3D    vertex3 = Vertex3DMake(leg * cos(aperture/2),
-                                           -leg * sin(aperture/2), 0);
-        
-        TriangleLine3D  triangle = TriangleLine3DMake(vertex1, vertex2, vertex3);
-        glVertexPointer(3, GL_FLOAT, 0, &triangle);
-        glDrawArrays(GL_LINE_STRIP, 0,4);
-        
-        glPopMatrix();
+        double aperture, leg;
+        drawOneSide(rotation, new_width, new_height, tx, ty, &leg, &aperture);
         
         //---------------------
         // Populate label_info_array
@@ -208,99 +119,179 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
 //--------------
 // Tools
 //--------------
-
-// Calculate the length of the line segment within the box
-void calculateDistInBox(double width, double height, CGPoint aPoint,
-                          double* dist, double* rotation, double* max_aperture){
-    // Assume the origin is at (0,0),
-    // aPoint are the coordinates of the landamrk wrt to the origin (0,0)
-    //
-    // The three outputs are distance and rotation (in degrees),
-    // and maximal allowable aperture (in radians)
+void applyCoordTransform(double x_diff, double y_diff,
+                         double width, double height,
+                         double *rotation,
+                         double *tx, double *ty,
+                         double *new_width, double *new_height)
+{
+    double orientation = atan2(y_diff, x_diff);
+    double critical_angle = atan2(height, width);
+    // The output of atan2 is [-pi, pi]
+    // So the first angle check should be ok
     
-    // Coordinate system
-    // yy
-    // |
-    // |
-    // |
-    // __________xx
+    *new_width = width; *new_height = height;
     
-    double m1 = height/width, f1, f2;
-    CGFloat x = aPoint.x, y = aPoint.y;
-    double xx, yy, theta;
-    double a2, b2, c, c2; // three sides of the triangle
-    
-    // calculate the signs of f1 and f2
-    // f1 and f2 are two lines that divice the space into 4 quadrants
-    f1 = m1 * x - y;
-    f2 = -m1 * x - y;
-    // Four cases
-    //      c2  [f1]
-    //  c3       c1
-    //      c4  [f2]
-    
-    // Use law of cosine to calculate max allowable aperture
-    double k = 0.8;
-
-    if ((f1 >0) && (f2 <= 0)){
-        // c1
-        xx = width/2;
-        yy = aPoint.y/aPoint.x * xx;
-        *dist = sqrt(pow(xx, 2) + pow(yy, 2));
-        *rotation = atan2(aPoint.y, aPoint.x) * 180/M_PI + 180;
-        
-        // calculate maximal alloable aperture
-        c = height/2*k - fabs(yy); c2 = pow(c, 2);
-        if (aPoint.y >=0){
-            b2 = (pow(x-xx, 2) + pow(y-height/2*k, 2));
-        }else{
-            b2 = (pow(x-xx, 2) + pow(y+height/2*k, 2));
-        }
-    }else if ((f1 <= 0) && (f2 <0)){
-        // c2
-        yy = height/2;
-        xx = aPoint.x / aPoint.y * yy;
-        *dist = sqrt(pow(xx, 2) + pow(yy, 2));
-        *rotation = atan2(aPoint.y, aPoint.x) * 180/M_PI - 180;
-        
-        // calculate maximal alloable aperture
-        c = width/2*k - fabs(xx); c2 = pow(c, 2);
-        if (aPoint.y >=0){
-            b2 = (pow(x-width/2*k, 2) + pow(y-yy, 2));
-        }else{
-            b2 = (pow(x+width/2*k, 2) + pow(y-yy, 2));
-        }
-    }else if ((f1 <= 0) && (f2 >0)){
-        // c3
-        xx = -width/2;
-        yy = aPoint.y/aPoint.x * xx;
-        *dist = sqrt(pow(xx, 2) + pow(yy, 2));
-        *rotation = atan2(aPoint.y, aPoint.x) * 180/M_PI - 180;
-
-        // calculate maximal alloable aperture
-        c = height/2*k - fabs(yy); c2 = pow(c, 2);
-        if (aPoint.y >=0){
-            b2 = (pow(x-xx, 2) + pow(y-height/2*k, 2));
-        }else{
-            b2 = (pow(x-xx, 2) + pow(y+height/2*k, 2));
-        }
+    // Test four quadrant
+    if (orientation < critical_angle
+        && orientation >= - critical_angle)
+    {
+        *rotation = 0;
+        *tx = x_diff; *ty = y_diff;
     }else{
-        // c4
-        yy = -height/2;
-        xx = aPoint.x/aPoint.y  * yy;
-        *dist = sqrt(pow(xx, 2) + pow(yy, 2));
-        *rotation = 180 + atan2(aPoint.y, aPoint.x) * 180/M_PI;
 
-        // calculate maximal alloable aperture
-        c = width/2*k - fabs(xx); c2 = pow(c, 2);
-        if (aPoint.y >=0){
-            b2 = (pow(x-width/2*k, 2) + pow(y-yy, 2));
+        // Make sure orientation is always positive
+        // The output of atan2 is [-pi, pi]
+        if (orientation < 0) orientation += M_PI * 2;
+        
+        if (orientation < (M_PI - critical_angle)
+            && orientation >= critical_angle)
+        {
+            *rotation = M_PI_2;
+            *tx = y_diff; *ty = -x_diff;
+            *new_width = height; *new_height = width;
+        }else  if (orientation < (M_PI + critical_angle)
+                   && orientation >= (M_PI - critical_angle))
+        {
+            *rotation = M_PI;
+            *tx = -x_diff; *ty = -y_diff;
         }else{
-            b2 = (pow(x+width/2*k, 2) + pow(y-yy, 2));
+            *rotation = M_PI * 3/2;
+            *tx = -y_diff; *ty = x_diff;
+            *new_width = height; *new_height = width;
         }
+        
     }
+    *rotation = *rotation / M_PI * 180; // convert to degree
+}
 
-    a2 = pow(x-xx, 2) + pow(y-yy, 2);
+
+void compassRender::drawOneSide(double rotation, double width, double height,
+                 double tx, double ty,
+                 double *out_leg, double *out_aperture)
+{
+    double dist = sqrt(pow(tx, 2) + pow(ty, 2));
+ 
+    // parameters:
+    // screen_dist is the distance from the center to the poitn where the
+    // the line that connects the center and the landmark intersect with
+    // the screen border.
+    double screen_dist, wedge_rotation, max_aperture;
+    calculateDistInBox(height, width,
+                       tx, ty,
+                       &screen_dist, &wedge_rotation, &max_aperture);
+    
+    // We will use rotation and max_aperture from calculateDistInBox
+    if (watchMode){
+        screen_dist = [model->configurations[@"watch_radius"] floatValue];
+    }
+    double off_screen_dist = dist - screen_dist;
+    
+    // distance needs to be corrected
+    
+    // -----------------------
+    // The parameters here may need to be tweeked)
+    // -----------------------
+    
+    // I believe the parameters from the paper was based the following
+    // parameters:
+    //
+    // Here are the specs of an Compag iPad:
+    // 3"x4" (x 1.33), dpi: 105
+    //
+    // However, the interface was emulated on a computer monitor,
+    // and the paper indicates the screen is 33% larger than the original
+    // screen.
+    // A typical screen's resolution is 72-96 dpi
+    // 3"x4" x 1.33 x 72 = 287.28 x 374
+    
+    // This means that I need to apply a scale parameter before using
+    // the orignal formula to calculate the leg and aperture
+    
+    //-----------------
+    // Calculate the scale parameter
+    //-----------------
+    
+    float correction_x = [this->model->configurations[@"wedge_correction_x"]
+                          floatValue];
+    double corrected_off_screen_dist = off_screen_dist * correction_x;
+    
+    
+    double leg = corrected_off_screen_dist + log((corrected_off_screen_dist + 20)/12)*10;
+    
+    double aperture = (5+corrected_off_screen_dist*0.3)/leg;
+    
+    if (watchMode){
+        max_aperture =
+        acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2 * 0.95;
+    }
+    
+    
+    if (aperture > max_aperture &&
+        [model->configurations[@"wedge_style"] isEqualToString:@"modified"])
+    {
+        aperture = max_aperture;
+    }
+    
+    leg = leg / correction_x;
+    
+    *out_aperture = aperture; *out_leg = leg;
+    
+    //-----------------
+    // Draw the wedge
+    //-----------------
+    //        v2
+    // v1
+    //        v3
+    glLineWidth(4);
+    
+    glPushMatrix();
+    
+    
+    // Plot the triangle first, then rotate and translate
+    glRotatef(rotation, 0, 0, 1);
+    
+    glTranslatef(tx, ty, 0);
+    glRotatef(wedge_rotation, 0, 0, 1);
+    
+    Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(leg * cos(aperture/2),
+                                       leg * sin(aperture/2), 0);
+    
+    Vertex3D    vertex3 = Vertex3DMake(leg * cos(aperture/2),
+                                       -leg * sin(aperture/2), 0);
+    
+    TriangleLine3D  triangle = TriangleLine3DMake(vertex1, vertex2, vertex3);
+    glVertexPointer(3, GL_FLOAT, 0, &triangle);
+    glDrawArrays(GL_LINE_STRIP, 0,4);
+    
+    glPopMatrix();
+}
+
+void calculateDistInBox(double height, double width,
+                        double tx, double ty,
+                        double* dist, double* rotation, double* max_aperture)
+{
+ 
+    double xx, yy, theta, a2, b2, c, c2;
+    // (xx, yy) is the intersection point
+    xx = width/2;
+    yy = ty/tx * xx;
+    // dist is the distance from the centroid to the intersection point
+    *dist = sqrt(pow(xx, 2) + pow(yy, 2));
+    *rotation = atan2(ty, tx) * 180/M_PI + 180;
+    
+    // calculate maximal alloable aperture
+    // k denotes how close the wedge can touch the boundary
+    double k = 0.8;
+    c = height/2*k - fabs(yy); c2 = pow(c, 2);
+    if (ty >=0){
+        b2 = (pow(tx-xx, 2) + pow(ty-height/2*k, 2));
+    }else{
+        b2 = (pow(tx-xx, 2) + pow(ty+height/2*k, 2));
+    }
+    
+    a2 = pow(tx-xx, 2) + pow(ty-yy, 2);
     theta = acos((a2 + b2 -c2)/(2*sqrt(a2*b2)));
     *max_aperture = 2 * theta;
 }
