@@ -146,8 +146,7 @@
         CLLocationCoordinate2D compassCtrCoord = [_mapView convertPoint:
         model->compassCenterXY
     toCoordinateFromView:_mapView];
-        // [_mapView centerCoordinate].latitude
-        // [_mapView centerCoordinate].longitude
+
         [self feedModelLatitude: compassCtrCoord.latitude
                       longitude: compassCtrCoord.longitude
                         heading: -_mapView.camera.heading

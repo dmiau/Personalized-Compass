@@ -166,9 +166,10 @@
     // new.kml is a speical location file used to creating new data,
     // it is therefore not necessary to go to the first location
     //--------------
-    if (![model->location_filename
-         isEqualToString:@"new.kml"])
+    if ([model->location_filename isEqualToString:@"new.kml"])
     {
+        self.rootViewController.needUpdateDisplayRegion = false;
+    }else{
         self.rootViewController.needUpdateDisplayRegion = true;
         // updateMapDisplayRegion will be called in unwindSegue
     }

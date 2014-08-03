@@ -235,4 +235,6 @@ double RadiansToDegrees(double radians);
 NSString* genKMLString(vector<data> my_data_array);
 NSString* genSnapshotString(vector<snapshot> my_snapshot_array);
 NSString* genHistoryString(compassMdl* mdl_instance);
+double computeOrientationFromA2B
+(CLLocationCoordinate2D A, CLLocationCoordinate2D B);
 #endif /* defined(__Exploration__model__) */

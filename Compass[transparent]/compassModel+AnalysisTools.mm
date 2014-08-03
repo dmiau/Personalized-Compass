@@ -155,17 +155,39 @@ double data::computeDistanceFromLocation(data& another_data){
 
 double data::computeOrientationFromLocation(data &another_data){
     
-    double lat1 = DegreesToRadians(this->latitude);
-    double lon1 = DegreesToRadians(this->longitude);
+//    double lat1 = DegreesToRadians(this->latitude);
+//    double lon1 = DegreesToRadians(this->longitude);
+//    
+//    double lat2 = DegreesToRadians(another_data.latitude);
+//    double lon2 = DegreesToRadians(another_data.longitude);
+//    
+//    double dLon = lon2 - lon1;
+//    
+//    double y = sin(dLon) * cos(lat2);
+//    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+//    double radiansBearing = atan2(y, x);
+//    
+//    double degree = RadiansToDegrees(radiansBearing);
     
-    double lat2 = DegreesToRadians(another_data.latitude);
-    double lon2 = DegreesToRadians(another_data.longitude);
+    //---------------
+    // New orientation calculation based on mappoint
+    //---------------
+    double degree = computeOrientationFromA2B
+    (CLLocationCoordinate2DMake (this->latitude, this->longitude),
+     CLLocationCoordinate2DMake (another_data.latitude, another_data.longitude));
+    return degree;
+}
+
+
+double computeOrientationFromA2B
+(CLLocationCoordinate2D A, CLLocationCoordinate2D B)
+{
+    MKMapPoint ref_mappoint = MKMapPointForCoordinate(A);
     
-    double dLon = lon2 - lon1;
+    MKMapPoint measured_mappoint = MKMapPointForCoordinate(B);
     
-    double y = sin(dLon) * cos(lat2);
-    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
-    double radiansBearing = atan2(y, x);
+    double radiansBearing = atan2(measured_mappoint.x - ref_mappoint.x,
+                                  -(measured_mappoint.y - ref_mappoint.y));
     
     double degree = RadiansToDegrees(radiansBearing);
     

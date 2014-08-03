@@ -78,7 +78,7 @@
             //------------
             [self toggleOverviewMap:NO];
             [self togglePCompass:YES];
-            [self toggleConventionalCompass:YES];
+            [self toggleConventionalCompass:NO];
             break;
         default:
             break;
@@ -92,7 +92,9 @@
 - (void)toggleOverviewMap: (bool) state{
     if (state){
 #ifdef __IPAD__
-        self.glkView.frame = CGRectMake(0, 0, cache_rect.size.width, cache_rect.size.height);
+        self.glkView.frame = CGRectMake(0, 0,
+        self.glkView.frame.size.width,
+        self.glkView.frame.size.height);
 #endif
         [[self overviewMapView] setHidden:NO];
         

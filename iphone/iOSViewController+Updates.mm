@@ -129,8 +129,8 @@
     
     CLLocationCoordinate2D map_n_pt = [self.mapView convertPoint:CGPointMake(width/2, height/2-30) toCoordinateFromView:self.mapView];
     
-    true_north_wrt_up = [self computeOrientationFromLocation:(CLLocationCoordinate2D) map_s_pt
-                                                  toLocation: (CLLocationCoordinate2D) map_n_pt];
+    true_north_wrt_up = computeOrientationFromA2B(map_s_pt, map_n_pt);
+    
     return true_north_wrt_up;
 }
 
@@ -179,23 +179,6 @@
 //------------------
 // Tools
 //------------------
--(double) computeOrientationFromLocation:(CLLocationCoordinate2D) refPt
-                              toLocation: (CLLocationCoordinate2D) destPt{
-    
-    double lat1 = DegreesToRadians(refPt.latitude);
-    double lon1 = DegreesToRadians(refPt.longitude);
-    
-    double lat2 = DegreesToRadians(destPt.latitude);
-    double lon2 = DegreesToRadians(destPt.longitude);
-    
-    double dLon = lon2 - lon1;
-    
-    double y = sin(dLon) * cos(lat2);
-    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
-    double radiansBearing = atan2(y, x);
-    
-    return RadiansToDegrees(radiansBearing);
-}
 
 -(void) updateLocationVisibility{
     

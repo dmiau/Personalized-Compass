@@ -1341,6 +1341,22 @@ http://stackoverflow.com/questions/6747427/why-would-uipinchgesturerecognizer-no
 Detect two points in gesture recognizer
 http://stackoverflow.com/questions/17657553/get-uipinchgesturerecognizer-finger-positions
 
+-adding Box2D to the code base
+-looks like box2d is good to go!
+
+-------------------------------------------------------------------
+8.3.2014
+-------------------------------------------------------------------
+- upgrade orientation computation
+
+
+
+
+
+
+
+
+
 
 
 

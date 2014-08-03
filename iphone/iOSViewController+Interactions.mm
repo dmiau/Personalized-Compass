@@ -20,7 +20,11 @@
     
     // Convert it to the real coordinate
     CLLocationCoordinate2D myCoord = [self.mapView convertPoint:pos toCoordinateFromView:self.mapView];
+    
+    
     NSLog(@"Map latitude: %f, longitude: %f", myCoord.latitude, myCoord.longitude);
+    MKMapPoint mappoint = MKMapPointForCoordinate(myCoord);
+    NSLog(@"Mappoint X: %f, Y: %f", mappoint.x, mappoint.y);
     
     // pass touch event to super
     [super touchesBegan:touches withEvent:event];
