@@ -253,32 +253,19 @@
     //---------------
     // iPad case
     //---------------
+    default_rect = CGRectMake(425, -43,
+                              default_rect.size.width, default_rect.size.height);
     if ([label isEqualToString:@"Default"]){
         self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
         self.glkView.frame = default_rect;
     }else if ([label isEqualToString:@"UR"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:80];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:100];
         self.glkView.frame = default_rect;
-        
     }else if ([label isEqualToString:@"Center"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:0];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:0];
-        
         self.glkView.frame = CGRectMake(176, 314,
                                         default_rect.size.width,
                                         default_rect.size.height);
     }else if ([label isEqualToString:@"BL"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:-70];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:-150];
-        
-        self.glkView.frame = CGRectMake(0, 514,
+        self.glkView.frame = CGRectMake(13, 644,
                                         default_rect.size.width,
                                         default_rect.size.height);
     }

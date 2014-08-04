@@ -116,7 +116,7 @@
   },
   {
   "property": "iPad_compass_centroid",
-  "value": [80, 100]
+  "value": [0, 0]
   },
   {
   "property": "separator",

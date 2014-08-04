@@ -25,7 +25,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <glkView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" drawableDepthFormat="16" drawableMultisample="4X" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-oC-5JL" customClass="iOSGLKView">
-                                <rect key="frame" x="346" y="76" width="416" height="465"/>
+                                <rect key="frame" x="425" y="-43" width="416" height="465"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </glkView>
                             <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-7A-1wb">
@@ -869,6 +869,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hMT-KF-uad"/>
+        <segue reference="kiM-aJ-Axz"/>
     </inferredMetricsTieBreakers>
 </document>

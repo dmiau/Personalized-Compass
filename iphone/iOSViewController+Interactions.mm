@@ -68,12 +68,15 @@
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+    CGPoint glkTouchPoint = [gestureRecognizer locationInView:self.glkView];
     if ([self.UIConfigurations[@"UICompassTouched"] boolValue]){
         //-------------------------
         // When the compass is pressed,
         // enter here to continuously update the compass's position
         //-------------------------
         
+        
+#ifndef __IPAD__
         // update compass location
         recVec compassXY = self.renderer->compass_centroid;
         compassXY.x = touchPoint.x - self.glkView.frame.size.width/2;
@@ -83,6 +86,24 @@
         [NSNumber numberWithInt:compassXY.x];
         self.model->configurations[@"compass_centroid"][1] =
         [NSNumber numberWithInt:compassXY.y];
+#endif
+        
+#ifdef __IPAD__
+        CGPoint new_centroid;
+        new_centroid.x = glkTouchPoint.x - self.glkView.frame.size.width/2;
+        new_centroid.y = self.glkView.frame.size.height/2 - glkTouchPoint.y;
+
+        recVec compassXY = self.renderer->compass_centroid;
+
+        
+        CGRect orig_frame = self.glkView.frame;
+        self.glkView.frame = CGRectMake
+        (orig_frame.origin.x + new_centroid.x - compassXY.x,
+         orig_frame.origin.y + compassXY.y - new_centroid.y,
+         orig_frame.size.width, orig_frame.size.height);
+        
+        NSLog(@"glkframe: %@", NSStringFromCGRect(self.glkView.frame));
+#endif
         
         if (gestureRecognizer.state == UIGestureRecognizerStateEnded){
             [self compassSelectedMode:NO];
@@ -104,7 +125,7 @@
     //--------------------
     // Check if the compass is pressed
     //--------------------
-    if ([self isCompassTouched:touchPoint]){
+    if ([self isCompassTouched:glkTouchPoint]){
         [self compassSelectedMode:YES];
         [self.glkView setNeedsDisplay];
         return;
