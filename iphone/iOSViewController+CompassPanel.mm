@@ -281,8 +281,6 @@
     [self.glkView setNeedsDisplay];
 }
 
-
-
 //------------------
 // Label Control
 //------------------

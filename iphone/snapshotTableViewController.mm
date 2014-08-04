@@ -70,17 +70,28 @@
         [self.myTableView reloadData];
     }
     
-//    //-------------------
-//    // Change navigation bar color
-//    //-------------------
-//    AppDelegate *app = [[UIApplication sharedApplication] delegate];
-//    
-//    UINavigationController *myNavigationController =
-//    app.window.rootViewController;
-//    
-//    myNavigationController.navigationBar.barTintColor =
-//    [UIColor redColor];
-//    myNavigationController.navigationBar.topItem.title = @"Snapshot";
+    //-------------------
+    // Change navigation bar color
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    
+    NSDictionary *navbarTitleTextAttributes =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+            [UIColor whiteColor],UITextAttributeTextColor,
+            [UIColor blackColor], UITextAttributeTextShadowColor,nil];
+    
+    
+    [myNavigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
+    myNavigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    myNavigationController.navigationBar.barTintColor =
+    [UIColor colorWithRed:78.0/255 green:199.0/255 blue:40.0/255 alpha:1];
+    myNavigationController.navigationBar.topItem.title = @"Snapshot";
+
 }
 
 - (void)didReceiveMemoryWarning

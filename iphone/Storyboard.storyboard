@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FF-be-GOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400" y="-663"/>
+            <point key="canvasLocation" x="2362" y="-250"/>
         </scene>
         <!--Detail View Controller - Detail View-->
         <scene sceneID="TIU-OB-Aod">
@@ -431,7 +431,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iam-fF-Gx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2172" y="600"/>
+            <point key="canvasLocation" x="2263" y="452"/>
         </scene>
         <!--Snapshot Table View Controller - Snapshot-->
         <scene sceneID="ggx-Tg-iKG">
@@ -812,7 +812,13 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6fH-EG-ulz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Landmarks + Snapshots" id="kdQ-Ew-4jD"/>
+                    <navigationItem key="navigationItem" title="Landmarks + Snapshots" id="kdQ-Ew-4jD">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="GVv-fb-aW2">
+                            <connections>
+                                <segue destination="mLN-0F-F1n" kind="push" id="RPw-7c-HIa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="TzB-Ak-cRl">
                         <autoresizingMask key="autoresizingMask"/>
@@ -826,7 +832,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12B-YL-7kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1752" y="600"/>
+            <point key="canvasLocation" x="1765" y="446"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Hb4-Et-Kmc">
@@ -928,6 +934,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="1kj-WH-Qa8"/>
         <segue reference="WS4-yg-Oj7"/>
     </inferredMetricsTieBreakers>
 </document>

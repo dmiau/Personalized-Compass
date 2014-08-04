@@ -114,6 +114,23 @@
     [super viewWillDisappear:animated];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+
+    //-------------------
+    // Change navigation bar color
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    myNavigationController.navigationBar.barTintColor =
+    [UIColor whiteColor];
+    myNavigationController.navigationBar.topItem.title = @"Debug";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

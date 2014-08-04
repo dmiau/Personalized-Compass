@@ -125,6 +125,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.myTableView reloadData];
     if (selected_id > -1){
         UITableViewCell* cell = [self.myTableView
                                  cellForRowAtIndexPath:
@@ -134,8 +135,31 @@
         [NSString stringWithUTF8String:
          self.model->data_array[selected_id].name.c_str()];
         selected_id = -1;
-        [self.myTableView reloadData];
+ 
     }
+    
+    //-------------------
+    // Change navigation bar color
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    
+    NSDictionary *navbarTitleTextAttributes =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     [UIColor whiteColor],UITextAttributeTextColor,
+     [UIColor blackColor], UITextAttributeTextShadowColor,nil];
+    
+    
+    [myNavigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
+    myNavigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    myNavigationController.navigationBar.barTintColor =
+    [UIColor colorWithRed:213.0/255 green:108.0/255 blue:46.0/255 alpha:1];
+    myNavigationController.navigationBar.topItem.title = @"Bookmarks";
+    
 }
 
 

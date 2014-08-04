@@ -95,6 +95,27 @@
 
         [self.toolbarSegmentControl setSelectedSegmentIndex:1];
     }
+    
+    //-------------------
+    // Change navigation bar color
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    NSDictionary *navbarTitleTextAttributes =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     [UIColor blackColor],UITextAttributeTextColor,
+     [UIColor blackColor], UITextAttributeTextShadowColor,nil];
+    
+    
+    [myNavigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
+    myNavigationController.navigationBar.tintColor = [UIColor blackColor];
+    
+    myNavigationController.navigationBar.barTintColor =
+    [UIColor whiteColor];
+    myNavigationController.navigationBar.topItem.title = @"General";
 }
 
 

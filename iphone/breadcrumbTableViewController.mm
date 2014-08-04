@@ -75,6 +75,29 @@
         [self.myTableView reloadData];
         dirty_flag = false;
     }
+    
+    //-------------------
+    // Change navigation bar color
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    
+    NSDictionary *navbarTitleTextAttributes =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     [UIColor whiteColor],UITextAttributeTextColor,
+     [UIColor blackColor], UITextAttributeTextShadowColor,nil];
+    
+    
+    [myNavigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
+    myNavigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    
+    myNavigationController.navigationBar.barTintColor =
+    [UIColor colorWithRed:46.0/255 green:154.0/255 blue:213.0/255 alpha:1];
+    myNavigationController.navigationBar.topItem.title = @"Breadcrumbs";
 }
 
 - (void)didReceiveMemoryWarning
