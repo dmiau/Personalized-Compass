@@ -91,7 +91,10 @@
             //-----------
             // Watch Mode
             //-----------
-            
+            for (int i = 0; i<4; ++i){
+                self.renderer->model->configurations[@"bg_color"][i] =
+                cache_configurations[@"bg_color"][i];
+            }
             self.renderer->watchMode = true;
             // Change compass ctr
             [self changeCompassLocationTo: @"Center"];

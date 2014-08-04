@@ -134,6 +134,7 @@
         [NSString stringWithUTF8String:
          self.model->data_array[selected_id].name.c_str()];
         selected_id = -1;
+        [self.myTableView reloadData];
     }
 }
 

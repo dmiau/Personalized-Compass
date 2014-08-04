@@ -54,8 +54,11 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     center_pt.x = orig_width/2;
     center_pt.y = orig_height/2;
     
-    if (this->mapView == nil)
-        throw(runtime_error("mapView is uninitialized."));
+    if (this->mapView == nil){
+        NSLog(@"***********mapView is uninitialized");
+        return;
+//        throw(runtime_error("mapView is uninitialized."));
+    }
     
     for (int i = -1; i < (int)indices_for_rendering.size(); ++i){
         

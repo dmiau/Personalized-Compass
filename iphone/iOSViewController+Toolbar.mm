@@ -199,8 +199,9 @@
 // Show pcomass in big size
 //------------------
 - (IBAction)toggleWatchPanel:(id)sender {
-    [self hideAllPanels];
+
     if ([[self watchPanel] isHidden]){
+        [self hideAllPanels];
         [[self watchPanel] setHidden:NO];
     }else{
         [[self watchPanel] setHidden:YES];
@@ -211,8 +212,9 @@
 // Show the menu view
 //------------------
 - (IBAction)toggleModelPanel:(id)sender {
-    [self hideAllPanels];
+
     if ([[self modelPanel] isHidden]){
+        [self hideAllPanels];
         [[self modelPanel] setHidden:NO];
     }else{
         [[self modelPanel] setHidden:YES];
@@ -223,8 +225,9 @@
 }
 
 - (IBAction)toggleViewPanel:(id)sender {
-    [self hideAllPanels];
+
     if ([[self viewPanel] isHidden]){
+        [self hideAllPanels];
         [[self viewPanel] setHidden:NO];
     }else
         [[self viewPanel] setHidden:YES];
@@ -232,8 +235,8 @@
 
 
 - (IBAction)toggleDebugView:(id)sender {
-    [self hideAllPanels];
     if ([[self debugPanel] isHidden]){
+        [self hideAllPanels];
         [[self debugPanel] setHidden:NO];
     }else{
         [[self debugPanel] setHidden:YES];

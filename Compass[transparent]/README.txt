@@ -1352,9 +1352,12 @@ http://stackoverflow.com/questions/17657553/get-uipinchgesturerecognizer-finger-
 - organize the wedge code
 - squash some small bugs (hide all panels before launching a new one)
 
-
-
-
+-------------------------------------------------------------------
+8.4.2014
+-------------------------------------------------------------------
+- looks like I can customize the navigation bar
+http://stackoverflow.com/questions/18177010/how-to-change-navigation-bar-color-in-ios-7-or-6
+http://stackoverflow.com/questions/3680805/uinavigationbar-set-title-programatically-iphone-sdk-4
 
 
 

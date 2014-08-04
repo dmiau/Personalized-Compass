@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <MapKit/MapKit.h>
+#import "compassModel.h"
 
 //static NSComparisonResult myCustomViewAboveSiblingViewsComparator(id view1, id view2, void * context )
 //{
@@ -119,9 +120,13 @@
         debugWindowController =
         [[DebugWindowController alloc] initWithWindowNibName:@"DebugInfoWindow"];
     }
-    [debugWindowController showWindow:nil];
-    [[debugWindowController window] setIsVisible:YES];
-//    [[debugWindowController debugTextOutlet] setString:@"Happy Birthday!"];
+//    [debugWindowController showWindow:nil];
+//    [[debugWindowController window] setIsVisible:YES];
+    
+    compassMdl *model = compassMdl::shareCompassMdl();
+    
+    NSLog(@"configuration file: ");
+    NSLog(@"%@", model->configuration_filename);
 }
 
 #pragma mark -------- Style selector window

@@ -67,7 +67,20 @@
         cell.textLabel.text =
         self.model->snapshot_array[selected_snapshot_id].name;
         selected_snapshot_id = -1;
+        [self.myTableView reloadData];
     }
+    
+//    //-------------------
+//    // Change navigation bar color
+//    //-------------------
+//    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+//    
+//    UINavigationController *myNavigationController =
+//    app.window.rootViewController;
+//    
+//    myNavigationController.navigationBar.barTintColor =
+//    [UIColor redColor];
+//    myNavigationController.navigationBar.topItem.title = @"Snapshot";
 }
 
 - (void)didReceiveMemoryWarning
@@ -310,13 +323,6 @@
         [self.myTableView reloadData];
     }
 }
-
-
-
-
-
-
-
 
 
 - (IBAction)saveSnspahotAs:(id)sender {
