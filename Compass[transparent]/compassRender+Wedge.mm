@@ -30,6 +30,13 @@ void calculateDistInBox(double width, double height,
 //------------------------------------
 void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){    
     ostringstream db_stream;
+
+    
+    //-------------------
+    // Cluster the data
+    //-------------------
+    vector<double> mode_max_dist_array =
+    model->clusterData(indices_for_rendering);
     
     model->label_info_array.clear();
     
@@ -65,9 +72,15 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             // Calculate the screen coordinates
             myCoord.latitude = model->data_array[j].latitude;
             myCoord.longitude = model->data_array[j].longitude;
-            glColor4f(1, 0, 0, 1);
+            
+            if (model->data_array[j].distance > mode_max_dist_array[0])
+            {
+                glColor4f(186.0/255, 54.0/255, 235.0/255, 1);
+            }else{
+                glColor4f(1, 0, 0, 1);
+            }
         }
-                
+        
         screen_pt =
         [this->mapView convertCoordinate:myCoord toPointToView:this->mapView];
         
@@ -88,23 +101,27 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
                             &new_width, &new_height);
         
         double aperture, leg;
-        drawOneSide(rotation, new_width, new_height, tx, ty, &leg, &aperture);
+        drawOneSide(rotation, new_width, new_height, tx, ty,
+                    &leg, &aperture);
         
-        //---------------------
-        // Populate label_info_array
-        //---------------------
-        label_info myLabelinfo;
-        
-        double label_radius = leg * cos(aperture/2);
-        double label_orientation = atan2(y_diff, x_diff);
-        myLabelinfo.distance = dist - label_radius;
-        myLabelinfo.centroid = CGPointMake
-        (label_radius * cos(label_orientation),
-         label_radius * sin(label_orientation));
-        myLabelinfo.data_id = indices_for_rendering[i];
-        myLabelinfo.orientation =
-        -label_orientation / M_PI * 180 + 90;
-        model->label_info_array.push_back(myLabelinfo);
+        if (i != -1){
+            //---------------------
+            // Populate label_info_array
+            //---------------------
+            label_info myLabelinfo;
+            double label_radius = leg * cos(aperture/2);
+            double label_orientation = atan2(y_diff, x_diff);
+            myLabelinfo.aperture = aperture;
+            myLabelinfo.leg = leg;
+            myLabelinfo.distance = dist - label_radius;
+            myLabelinfo.centroid = CGPointMake
+            (label_radius * cos(label_orientation),
+             label_radius * sin(label_orientation));
+            myLabelinfo.data_id = indices_for_rendering[i];
+            myLabelinfo.orientation =
+            -label_orientation / M_PI * 180 + 90;
+            model->label_info_array.push_back(myLabelinfo);
+        }
     }
     
     db_stream << "Done!" << endl;
@@ -225,16 +242,25 @@ void compassRender::drawOneSide(double rotation, double width, double height,
         max_aperture =
         acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2 * 0.95;
     }
-    
-    
-    if (aperture > max_aperture &&
-        [model->configurations[@"wedge_style"] isEqualToString:@"modified"])
-    {
-        aperture = max_aperture;
-    }
-    
+
     leg = leg / correction_x;
     
+    //-------------------
+    // Apply constraints
+    //-------------------
+    if ([model->configurations[@"wedge_style"] isEqualToString:@"modified"]){
+        
+        if (aperture > max_aperture)
+        {
+            // Calculate the distance of base
+            double base = leg*tan(max_aperture/2)*2;
+            if (base < 100)
+                aperture = atan2(50, leg) * 2;
+            else
+                aperture = max_aperture;
+        }
+    }
+
     *out_aperture = aperture; *out_leg = leg;
     
     //-----------------
@@ -283,7 +309,7 @@ void calculateDistInBox(double height, double width,
     
     // calculate maximal alloable aperture
     // k denotes how close the wedge can touch the boundary
-    double k = 0.8;
+    double k = 0.9;
     c = height/2*k - fabs(yy); c2 = pow(c, 2);
     if (ty >=0){
         b2 = (pow(tx-xx, 2) + pow(ty-height/2*k, 2));

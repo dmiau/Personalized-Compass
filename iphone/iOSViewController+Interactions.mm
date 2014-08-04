@@ -138,7 +138,7 @@
 
 - (void)pinchGesture:(UIPinchGestureRecognizer *)recognizer
 {
-    NSLog(@"****Pinch gesture detected!");
+//    NSLog(@"****Pinch gesture detected!");
 
     static float starting_scale = 1;
     if(recognizer.state == UIGestureRecognizerStateBegan){

@@ -1350,7 +1350,7 @@ http://stackoverflow.com/questions/17657553/get-uipinchgesturerecognizer-finger-
 - upgrade orientation computation
 - ready to modify wedge
 - organize the wedge code
-
+- squash some small bugs (hide all panels before launching a new one)
 
 
 

@@ -104,12 +104,18 @@ public:
     double distance;
     float orientation;
     int data_id;
+    
+    // Wedge related info
+    double aperture;
+    double leg;
 public:
     label_info(){
         distance = 0;
         centroid = CGPointMake(0, 0);
         orientation = 0;
         data_id = 0;
+        aperture = 0.0;
+        leg = 0.0;
     }
 };
 

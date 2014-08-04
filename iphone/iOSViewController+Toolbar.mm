@@ -177,12 +177,30 @@
         }
     }
 }
+
+
+
+
+
+//------------------
+// Close all panels
+//------------------
+
+- (void) hideAllPanels{
+    NSArray* dialog_array = @[self.viewPanel, self.modelPanel
+                              , self.watchPanel, self.debugPanel];
+    for (UIView* aView in dialog_array){
+        [aView setHidden:YES];
+        
+    }
+}
+
 //------------------
 // Show pcomass in big size
 //------------------
 - (IBAction)toggleWatchPanel:(id)sender {
+    [self hideAllPanels];
     if ([[self watchPanel] isHidden]){
-        [[self viewPanel] setHidden:YES];
         [[self watchPanel] setHidden:NO];
     }else{
         [[self watchPanel] setHidden:YES];
@@ -193,8 +211,8 @@
 // Show the menu view
 //------------------
 - (IBAction)toggleModelPanel:(id)sender {
+    [self hideAllPanels];
     if ([[self modelPanel] isHidden]){
-        [[self viewPanel] setHidden:YES];
         [[self modelPanel] setHidden:NO];
     }else{
         [[self modelPanel] setHidden:YES];
@@ -205,8 +223,8 @@
 }
 
 - (IBAction)toggleViewPanel:(id)sender {
+    [self hideAllPanels];
     if ([[self viewPanel] isHidden]){
-        [[self modelPanel] setHidden:YES];        
         [[self viewPanel] setHidden:NO];
     }else
         [[self viewPanel] setHidden:YES];
@@ -214,6 +232,7 @@
 
 
 - (IBAction)toggleDebugView:(id)sender {
+    [self hideAllPanels];
     if ([[self debugPanel] isHidden]){
         [[self debugPanel] setHidden:NO];
     }else{
