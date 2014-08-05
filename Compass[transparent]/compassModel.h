@@ -74,12 +74,16 @@ public:
     NSString* date_str;
     NSString* notes;
     NSString* address;
+    // This stores the ids of the selected landmarks
+    // i.e., indices for rendering
+    vector<int> selected_ids;
 public:
     snapshot(){
         kmlFilename = @"";
         address     = @"";
         notes       = @"";
         date_str    = @"";
+        selected_ids.clear();
     }
 };
 

@@ -40,7 +40,7 @@ enum findMe_enum{
 @property NSMutableDictionary* UIConfigurations;
 
 //----------------
-// Views
+// Views in ExtraPanels.xib
 //----------------
 @property (weak) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet MKMapView *overviewMapView;
@@ -56,6 +56,20 @@ enum findMe_enum{
 - (void)togglePCompass: (bool) state;
 - (void)toggleConventionalCompass: (bool)state;
 - (void)toggleWedge: (bool)state;
+
+
+// View panel
+@property (weak, nonatomic) IBOutlet UISegmentedControl *overviewSegmentControl;
+
+// Model panel
+@property (weak, nonatomic) IBOutlet UISegmentedControl *filterSegmentControl;
+
+// Compass panel
+@property (weak, nonatomic) IBOutlet UISegmentedControl *compassSegmentControl;
+
+
+// Debug panel
+
 
 //----------------
 // UI Components

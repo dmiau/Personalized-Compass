@@ -266,7 +266,7 @@
 //-------------
 - (IBAction)saveKML:(id)sender {
     
-    NSString *filename = @"snapshot.kml";
+    NSString *filename = self.model->snapshot_filename;
     
     bool hasError = false;
     NSString *content = genSnapshotString(self.model->snapshot_array);

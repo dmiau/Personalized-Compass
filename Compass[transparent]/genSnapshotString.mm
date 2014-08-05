@@ -3,6 +3,20 @@
 #include <sstream>
 
 using namespace std;
+string genSelectedIDStr(vector<int> id_list){
+    string temp_str;
+    if (id_list.size() == 0){
+        return temp_str;
+    }else{
+        temp_str = to_string(id_list[0]);
+    }
+    
+    for (int i = 1; i < id_list.size(); ++i){
+        temp_str = temp_str + ", " + to_string(id_list[i]);
+    }
+    return temp_str;
+}
+
 NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
 {
     
@@ -107,6 +121,15 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         temp_str = temp_str +
         string([my_snapshot_array[i].address UTF8String]);
         temp_str = temp_str + "</address>\n";
+
+        //-----------------
+        // selected_ids
+        //-----------------
+        temp_str = temp_str + "<selected_ids>";
+        temp_str = temp_str +
+        genSelectedIDStr(my_snapshot_array[i].selected_ids);
+        temp_str = temp_str + "</selected_ids>\n";
+        
         
         //-----------------
         // Notes

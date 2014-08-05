@@ -203,6 +203,20 @@
     if ([[self watchPanel] isHidden]){
         [self hideAllPanels];
         [[self watchPanel] setHidden:NO];
+        
+        //--------------
+        // Reconfigure the panel
+        //--------------
+        if ([self.model->configurations[@"personalized_compass_status"]
+             isEqualToString:@"on"])
+        {
+            self.compassSegmentControl.selectedSegmentIndex = 1;
+        }else if (self.conventionalCompassVisible){
+            self.compassSegmentControl.selectedSegmentIndex = 0;
+        }else{
+            self.compassSegmentControl.selectedSegmentIndex = 2;
+        }
+        
     }else{
         [[self watchPanel] setHidden:YES];
     }
@@ -216,6 +230,21 @@
     if ([[self modelPanel] isHidden]){
         [self hideAllPanels];
         [[self modelPanel] setHidden:NO];
+        
+        //--------------
+        // Reconfigure the panel
+        //--------------
+        if ([self.model->configurations[@"filter_type"]
+             isEqualToString:@"K_ORIENTATIONS"])
+        {
+            self.filterSegmentControl.selectedSegmentIndex = 0;
+        }else if ([self.model->configurations[@"filter_type"]
+                   isEqualToString:@"NONE"]){
+            self.filterSegmentControl.selectedSegmentIndex = 1;
+        }else{
+            self.filterSegmentControl.selectedSegmentIndex = 2;
+        }
+                
     }else{
         [[self modelPanel] setHidden:YES];
         
@@ -229,6 +258,21 @@
     if ([[self viewPanel] isHidden]){
         [self hideAllPanels];
         [[self viewPanel] setHidden:NO];
+        
+        
+        //--------------
+        // Reconfigure the panel
+        //--------------
+        if ([self.model->configurations[@"personalized_compass_status"]
+             isEqualToString:@"on"])
+        {
+            self.overviewSegmentControl.selectedSegmentIndex = 2;
+        }else if (![self.overviewMapView isHidden]){
+            self.overviewSegmentControl.selectedSegmentIndex = 1;
+        }else{
+            self.overviewSegmentControl.selectedSegmentIndex = 0;
+        }
+        
     }else
         [[self viewPanel] setHidden:YES];
 }

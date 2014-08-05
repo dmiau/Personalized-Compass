@@ -28,6 +28,7 @@
     [NSDateFormatter localizedStringFromDate:[NSDate date]
                                    dateStyle:NSDateFormatterShortStyle
                                    timeStyle:NSDateFormatterFullStyle];
+    mySnapshot.selected_ids = self.model->indices_for_rendering;
     self.model->snapshot_array.push_back(mySnapshot);
     return true;
 }
@@ -38,6 +39,25 @@
     
     self.model->location_filename = mySnapshot.kmlFilename;
     self.model->reloadFiles();
+
+
+    
+    if (mySnapshot.selected_ids.size() == 0){
+        self.model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
+    }else{
+        //-----------------
+        // Reload landmark selection status
+        //-----------------
+        for (int i = 0; i < self.model->data_array.size(); ++i){
+            self.model->data_array[i].isEnabled = false;
+        }
+        for(vector<int>::iterator it = mySnapshot.selected_ids.begin();
+            it != mySnapshot.selected_ids.end(); ++it)
+        {
+            self.model->data_array[*it].isEnabled = true;
+        }
+        self.model->configurations[@"filter_type"] = @"MANUAL";
+    }
     
     // Not sure why, but the following lines are needed for iPad
     self.model->camera_pos.latitude = mySnapshot.coordinateRegion.center.latitude;
@@ -49,12 +69,18 @@
     // Not sure why setRegion does not work well...
 //    [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];    
     
+    self.model->updateMdl();
+
+    
     // Render annotation
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
     [self renderAnnotations];
     
     [self updateLocationVisibility];
-    self.model->updateMdl();
+    
+    
+    
+
     self.mapView.camera.heading = -mySnapshot.orientation;
     return true;
 }

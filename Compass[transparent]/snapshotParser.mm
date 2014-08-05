@@ -129,6 +129,8 @@ int readSnapshotKml(compassMdl* mdl){
         notes_flag = true;
     }else if ([elementName isEqualToString:@"date"]){
         date_flag = true;
+    }else if ([elementName isEqualToString:@"selected_id"]){
+        selected_id_flag = true;
     }
 }
 
@@ -169,6 +171,13 @@ int readSnapshotKml(compassMdl* mdl){
             snapshot_array[snapshot_array.size()-1].notes = string;
         }else if (date_flag){
             snapshot_array[snapshot_array.size()-1].date_str = string;
+        }else if (selected_id_flag){
+            // Need to somehow split the sting
+            NSArray *id_array = [string componentsSeparatedByString:@","];
+            for (NSString *anItem in id_array){
+                snapshot_array[snapshot_array.size()-1].
+                selected_ids.push_back([anItem integerValue]);
+            }
         }
     }
 }
@@ -195,6 +204,8 @@ int readSnapshotKml(compassMdl* mdl){
         notes_flag = false;
     }else if ([elementName isEqualToString:@"date"]){
         date_flag = false;
+    }else if ([elementName isEqualToString:@"selected_id"]){
+        selected_id_flag = false;
     }
 }
 @end
