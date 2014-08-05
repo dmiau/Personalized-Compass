@@ -1359,6 +1359,12 @@ http://stackoverflow.com/questions/17657553/get-uipinchgesturerecognizer-finger-
 http://stackoverflow.com/questions/18177010/how-to-change-navigation-bar-color-in-ios-7-or-6
 http://stackoverflow.com/questions/3680805/uinavigationbar-set-title-programatically-iphone-sdk-4
 
+-------------------------------------------------------------------
+8.5.2014
+-------------------------------------------------------------------
+- modified the ratio sum fomula
+
+
 
 
 

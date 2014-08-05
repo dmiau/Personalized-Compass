@@ -79,13 +79,13 @@ vector<double> compassMdl::clusterData(vector<int> indices_for_rendering){
     double min_d = filtered_dist_list[0];
     double max_d = filtered_dist_list[filtered_dist_list.size()-1];
     double ratio_sum = 0;
-    double lamda = 2;
+//    double lamda = 2;
     vector<pair<double, int>>  ratio_sum_list;
     for (int a_end = 0; a_end < filtered_dist_list.size(); ++a_end){
         ratio_sum = filtered_dist_list[a_end]/min_d;
         if (a_end < (filtered_dist_list.size()-1)){
             ratio_sum += max_d / filtered_dist_list[a_end + 1];
-            ratio_sum += lamda;
+//            ratio_sum += lamda;
         }
         ratio_sum_list.push_back(make_pair(ratio_sum, a_end));
     }

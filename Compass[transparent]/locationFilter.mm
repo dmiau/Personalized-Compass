@@ -196,8 +196,7 @@ vector<int> compassMdl::prefilterDataByDistance(vector<int> qualified_id_list)
             }
         }
         
-        if (temp_list.size() > 1){
-            
+        if (temp_list.size() > 5){            
             qualified_id_list = temp_list;
         }else{
             // Sometimes the cluster code only returns 1 item in the first cluster...
