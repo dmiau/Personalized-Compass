@@ -131,7 +131,7 @@ vector<int> compassMdl::filter_kOrientations(int k){
     for (int i = 0; i < orient_diff_list.size(); ++i){
         //[todo] need to remove the far landmark
         //not just a random one!
-        if (orient_diff_list[i].first > 30){
+        if (orient_diff_list[i].first > 40){
             qualified_id_list.push_back(orient_diff_list[i].second);
         }
     }

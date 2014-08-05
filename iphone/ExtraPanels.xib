@@ -7,7 +7,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="iOSViewController">
             <connections>
                 <outlet property="compassSegmentControl" destination="gdc-No-bBu" id="Ajg-Nj-mvp"/>
+                <outlet property="dataSegmentControl" destination="h43-e5-7WU" id="zO1-Zz-mVF"/>
                 <outlet property="filterSegmentControl" destination="koe-mY-dSr" id="vO4-tg-uqO"/>
+                <outlet property="landmarkLock" destination="0So-s1-ohR" id="LFG-T0-HJo"/>
                 <outlet property="overviewSegmentControl" destination="VF8-nw-5JM" id="Wwh-w9-0fX"/>
                 <outlet property="scaleIndicator" destination="VBb-4f-jm8" id="SOP-WS-1mq"/>
             </connections>
@@ -276,7 +278,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NxM-du-Rcc">
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="NxM-du-Rcc">
                     <rect key="frame" x="99" y="101" width="156" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>

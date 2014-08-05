@@ -221,10 +221,16 @@
     if (!cached_flag){
         defaultCentroidParams =
         [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations[@"compass_centroid"]]];
-        
         default_rect = self.glkView.frame;
         cached_flag = true;
     }
+    
+    float cached_scale =
+    [self.model->cache_configurations[@"compass_scale"] floatValue];
+    
+    self.model->configurations[@"compass_scale"] =
+    [NSNumber numberWithFloat:cached_scale];
+    
     //---------------
     // iPhone case
     //---------------

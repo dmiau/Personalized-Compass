@@ -234,6 +234,17 @@
         //--------------
         // Reconfigure the panel
         //--------------
+        if ([self.model->configurations[@"prefilter_param"]
+             isEqualToString:@"NONE"])
+        {
+            self.dataSegmentControl.selectedSegmentIndex = 0;
+        }else if ([self.model->configurations[@"prefilter_param"]
+                   isEqualToString:@"CLUSTER"]){
+            self.dataSegmentControl.selectedSegmentIndex = 1;
+        }else{
+            self.dataSegmentControl.selectedSegmentIndex = 2;
+        }
+        
         if ([self.model->configurations[@"filter_type"]
              isEqualToString:@"K_ORIENTATIONS"])
         {

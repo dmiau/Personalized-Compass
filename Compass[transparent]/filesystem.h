@@ -40,6 +40,8 @@ typedef enum{
                    Content: (NSString*) content;
 - (BOOL) renameFilename: (NSString*) old_name
                withName: (NSString*) new_name;
+- (BOOL) deleteFilename: (NSString*) filename;
+
 - (BOOL) fileExists: (NSString*) filename;
 
 - (void) copyBundleConfigurations;

@@ -155,6 +155,7 @@ public:
     //-----------------
     NSNumber *configurationFileReadFlag;
     NSMutableDictionary *configurations;
+    NSMutableDictionary *cache_configurations;
         
     NSString* configuration_filename;
     NSString* location_filename;

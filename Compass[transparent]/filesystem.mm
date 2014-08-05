@@ -366,6 +366,27 @@
     return rename_status;
 }
 
+//----------------
+// Delete a file
+//----------------
+- (BOOL) deleteFilename: (NSString*) old_name
+{
+    bool delete_status;
+    NSString *doc_path = [self.document_path
+                              stringByAppendingPathComponent:old_name];
+    
+    
+    delete_status = [[NSFileManager defaultManager]
+                     removeItemAtPath:doc_path error:nil];
+    if (self.filesys_type == DROPBOX)
+    {
+        DBError *error = nil;
+        DBPath *db_path = [[DBPath root] childPath:old_name];
+        delete_status = [self.db_filesystem deletePath:db_path error:&error];
+    }
+    return delete_status;
+}
+
 #pragma mark ----Dropbox related stuff----
 
 - (BOOL)initDropboxWithAccount:(DBAccount *)account

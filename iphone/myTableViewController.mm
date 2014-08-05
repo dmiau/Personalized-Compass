@@ -367,6 +367,7 @@
         }
     }
     [self.myTableView reloadData];
+    self.rootViewController.needUpdateAnnotations = true;
 }
 
 //-------------

@@ -251,12 +251,32 @@
 {
     //https://developer.apple.com/library/ios/documentation/userexperience/conceptual/tableview_iphone/ManageInsertDeleteRow/ManageInsertDeleteRow.html
     
-    // If row is deleted, remove it from the list.
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    int section_id = [indexPath section];
+    
+    if (section_id == 0){
+        
         int i = [indexPath row];
-        self.model->snapshot_array.erase(
-            self.model->snapshot_array.begin() + i );
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        if (i ==0)
+            return;
+        
+        if (self.model->filesys_type == DROPBOX){
+            [self.model->dbFilesystem
+             deleteFilename:snapshot_file_array[i]];
+
+        }else{
+            [self.model->docFilesystem
+             deleteFilename:snapshot_file_array[i]];
+        }
+        [self updateSnapshotFileList];
+        [self.myTableView reloadData];
+    }else{
+        // If row is deleted, remove it from the list.
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            int i = [indexPath row];
+            self.model->snapshot_array.erase(
+                                             self.model->snapshot_array.begin() + i );
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
     }
 }
 
@@ -364,12 +384,13 @@
         [self saveSnapshotWithFilename:filename];
         
         // There are some more works to do at the point
+        [self updateSnapshotFileList];
         
         // At this point we are operating on the new file
-        self.model->location_filename = filename;
-        
+        self.model->snapshot_filename = filename;
         // Need to update the section header too
         [self.myTableView reloadData];
+        
     }
 }
 
@@ -403,24 +424,6 @@
     }
     return true;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma mark -----Exit-----
 - (IBAction)dismissModalVC:(id)sender {

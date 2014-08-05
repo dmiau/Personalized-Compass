@@ -81,7 +81,7 @@
                                   forKey:@"UIToolbarMode"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                   forKey:@"UIToolbarNeedsUpdate"];
-        [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                   forKey:@"UIAcceptsPinCreation"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                   forKey:@"UICompassTouched"];
