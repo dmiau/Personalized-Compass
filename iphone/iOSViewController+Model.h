@@ -13,4 +13,8 @@
 
 - (IBAction)toggleLandmarkLock:(id)sender;
 - (IBAction)filterTypeSegmentControl:(id)sender;
+- (IBAction)dataPrefilterSegmentControl:(id)sender;
+
+
+
 @end

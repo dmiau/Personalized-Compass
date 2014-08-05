@@ -217,10 +217,17 @@ public:
     void watchConfigurationFile();
     int cleanMdl();
 
+    
+    //--------------
+    // Filter and analysis tools
+    //--------------
+    
     filter_enum hashFilterStr (NSString *inString);
     
     vector<int>
     applyFilter(filter_enum filter_type, int filter_param);
+    
+    vector<int> prefilterDataByDistance(vector<int> id_list);
     
     vector<int> filter_none();
     vector<int> filter_kNearestLocations(int k);
@@ -232,6 +239,9 @@ public:
     vector<double> clusterData(vector<int> indices_for_rendering);
     vector<pair<double, int>> generateOrientDiffList
     (vector<int> id_list);
+    
+    
+    
 private:
     compassMdl(){}; // Private so that it can not be called
 };

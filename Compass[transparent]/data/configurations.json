@@ -152,6 +152,16 @@
   "comment": "Specify a font name"
   },
   {
+  "property": "prefilter_param",
+  "value": "NONE",
+  "comment": "CLUSTER, CLOSEST, NONE"
+  },
+  {
+  "property": "prefilter_value",
+  "value": 0.5,
+  "comment": "float"
+  },
+  {
   "property": "filter_type",
   "value": "K_ORIENTATIONS",
       "comment": "Available types: DEFAULT_FILTER, NONE, K_NEARESTLOCATIONS, K_ORIENTATIONS, FORCE_EQUILIBRIUM, MANUAL"

@@ -7,6 +7,29 @@
 #include "compassModel.h"
 #include "commonInclude.h"
 
+// This function sorts ID by distance (in ascending order)
+vector<int> compassMdl::sortIDByDistance(vector<int> id_list){
+    
+    vector<pair<double, int>> dist_id_pair_list;
+    vector<int> output_list;
+    dist_id_pair_list.clear();
+    for (int i = 0; i<id_list.size(); ++i) {
+        int j = id_list[i];
+        dist_id_pair_list
+        .push_back(make_pair(data_array[j].distance, j));
+    }
+    
+    // **indices_for_rendering should be sorted by distance
+    sort(dist_id_pair_list.begin(), dist_id_pair_list.end(), compareAscending);
+    
+    output_list.clear();
+    for (int i = 0; i < dist_id_pair_list.size(); ++i)
+    {
+        output_list.push_back(dist_id_pair_list[i].second);
+    }
+    return output_list;
+}
+
 vector<double> compassMdl::clusterData(vector<int> indices_for_rendering){
     mode_max_dist_array.clear();
     

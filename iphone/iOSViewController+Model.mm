@@ -37,4 +37,29 @@
     self.model->updateMdl();
     [self.glkView setNeedsDisplay];
 }
+
+- (IBAction)dataPrefilterSegmentControl:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    
+    int idx = [segmentedControl selectedSegmentIndex];
+    switch (idx) {
+        case 0:
+            self.model->configurations[@"prefilter_param"] =
+            @"NONE";
+            break;
+        case 1:
+            self.model->configurations[@"prefilter_param"] =
+            @"CLUSTER";
+            break;
+        case 2:
+            self.model->configurations[@"prefilter_param"] =
+            @"CLOSEST";
+            break;
+        default:
+            
+            break;
+    }
+    self.model->updateMdl();
+    [self.glkView setNeedsDisplay];
+}
 @end

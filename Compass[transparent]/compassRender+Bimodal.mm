@@ -112,8 +112,8 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         
         // Need to draw on different depth to avoid broken polygon
         glTranslatef(0, 0, 0.0001);
-        drawTriangle(base_radius, data_.orientation, distance);
-        // + central_disk_radius/2
+        drawTriangle(base_radius, data_.orientation,
+                     distance);
     }
     glPopMatrix();
     

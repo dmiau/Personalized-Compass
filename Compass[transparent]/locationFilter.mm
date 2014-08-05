@@ -92,6 +92,13 @@ vector<int> compassMdl::filter_kOrientations(int k){
         }
     }
 
+    //-----------------
+    // Apply prefilter
+    //-----------------
+    qualified_id_list = prefilterDataByDistance(qualified_id_list);
+    
+    
+    
     // Only need to eliminate if the # of landmarks > k
     if (qualified_id_list.size() > k){
         
@@ -164,27 +171,60 @@ vector<int> compassMdl::filter_manual(int k){
     return out_list;
 }
 
-#pragma mark ---------tool
 
-// This function sorts ID by distance (in ascending order)
-vector<int> compassMdl::sortIDByDistance(vector<int> id_list){
+#pragma mark ---------apply data prefilter
+vector<int> compassMdl::prefilterDataByDistance(vector<int> qualified_id_list)
+{
+    
+    if ([configurations[@"prefilter_param"] isEqualToString: @"CLUSTER"]){
+        //-----------------
+        // Choose the close landmark if possible
+        //-----------------
+        qualified_id_list = sortIDByDistance(qualified_id_list);
+        indices_sorted_by_distance = qualified_id_list;
+        
+        vector<double> mode_dist_list = clusterData(qualified_id_list);
+        vector<int> temp_list;
+        if (mode_dist_list.size() > 1){
 
-    vector<pair<double, int>> dist_id_pair_list;
-    vector<int> output_list;
-    dist_id_pair_list.clear();
-    for (int i = 0; i<id_list.size(); ++i) {
-        int j = id_list[i];
-        dist_id_pair_list
-        .push_back(make_pair(data_array[j].distance, j));
-    }
-    
-    // **indices_for_rendering should be sorted by distance
-    sort(dist_id_pair_list.begin(), dist_id_pair_list.end(), compareAscending);
-    
-    output_list.clear();
-    for (int i = 0; i < dist_id_pair_list.size(); ++i)
+            for(int i = 0; i < qualified_id_list.size(); ++i){
+                int j = qualified_id_list[i];
+                if (data_array[j].distance <= mode_dist_list[0])
+                {
+                    temp_list.push_back(j);
+                }
+            }
+        }
+        
+        if (temp_list.size() > 1){
+            
+            qualified_id_list = temp_list;
+        }else{
+            // Sometimes the cluster code only returns 1 item in the first cluster...
+            
+            double value = [configurations[@"prefilter_value"] floatValue];
+            qualified_id_list = filter_kNearestLocations
+            (ceil( value * qualified_id_list.size()));
+        }
+        
+    }else if ([configurations[@"prefilter_param"] isEqualToString: @"CLOSEST"])
     {
-        output_list.push_back(dist_id_pair_list[i].second);
+        qualified_id_list = sortIDByDistance(qualified_id_list);
+        indices_sorted_by_distance = qualified_id_list;
+        double value = [configurations[@"prefilter_value"] floatValue];
+        qualified_id_list = filter_kNearestLocations
+        (ceil( value * qualified_id_list.size()));
     }
-    return output_list;
+    
+    return qualified_id_list;
 }
+
+
+
+
+
+
+
+
+
+
