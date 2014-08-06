@@ -29,7 +29,7 @@ int TestManager::initTestManager(){
     visualization_vector.clear();
     device_vector.clear();
     visualization_counter = 0;
-    test_counter = 0;
+    test_counter = -1; //-1 means initialization
     
     vector<CPVisualizationType> visualization_enums
     = {CPNone, CPPCompass, CPWedge, CPOverview};
@@ -100,5 +100,8 @@ int TestManager::generateTests(){
 //        }
         
     }
+    
+    // Reset the test counter
+    test_counter = -1;
     return 0;
 }

@@ -23,6 +23,8 @@
 @property TestManager* testManager;
 
 @property iOSViewController* rootViewController;
+- (IBAction)generateTests:(id)sender;
+
 
 - (IBAction)dismissModalVC:(id)sender;
 @end

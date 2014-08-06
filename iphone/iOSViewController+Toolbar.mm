@@ -217,6 +217,14 @@
             self.compassSegmentControl.selectedSegmentIndex = 2;
         }
         
+        //Configure mode
+        if (self.renderer->watchMode == false)
+        {
+            self.compassModeSegmentControl.selectedSegmentIndex = 0;
+        }else if (self.renderer->watchMode == true){
+            self.compassModeSegmentControl.selectedSegmentIndex = 2;
+        }
+        
     }else{
         [[self watchPanel] setHidden:YES];
     }
@@ -310,14 +318,19 @@
 - (void)runDemoAction:(UIBarButtonItem*) bar_button{
 
     NSString* label = bar_button.title;
-    static int snapshot_id = -1;
+    static int snapshot_id = 0;
     static bool mask_status = false;
     
+    if (self.testManager->test_counter ==-1){
+        snapshot_id = 0;
+        self.testManager->test_counter = 0;
+        [self setupEnvForTest:self.testManager->test_vector[0]];
+    }
+        
     if ([label isEqualToString:@"[Pre.]"]){
         snapshot_id = snapshot_id-1;
         if (snapshot_id < 0)
         {
-            
             if (self.testManager->test_counter != 0){
                 // Set up the environment
                 snapshot_id = self.model->snapshot_array.size() -1;

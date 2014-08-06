@@ -110,7 +110,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    self.testManager->generateTests();
+//    self.testManager->generateTests();
     [super viewWillDisappear:animated];
 }
 
@@ -154,20 +154,22 @@
 //-------------------
 #pragma mark -----Table View Data Source Methods-----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0)
         return self.testManager->visualization_vector.size();
-    else
+    else if (section == 1)
         return self.testManager->device_vector.size();
+    else
+        return self.testManager->test_vector.size();
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSArray *list = @[@"VisualizationTypes", @"DeviceTypes"];
+    NSArray *list = @[@"VisualizationTypes", @"DeviceTypes", @"Tests"];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
     /* Create custom view to display section header... */
@@ -202,16 +204,23 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
         
         param_ptr = &(self.testManager->visualization_vector[i]);
-    }else{
+        cell.param_ptr = param_ptr;
+        cell.mySwitch.on = param_ptr->isEnabled;
+    }else if (section_id == 1){
         // Configure Cell
         cell.textLabel.text =
         self.testManager->device_vector[i].name;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
 
         param_ptr = &(self.testManager->device_vector[i]);
+        cell.param_ptr = param_ptr;
+        cell.mySwitch.on = param_ptr->isEnabled;
+    }else if (section_id == 2){
+        cell.textLabel.text = @"Test";
+//        self.testManager->test_vector[i].name;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
+        cell.mySwitch.on = true;
     }
-    cell.param_ptr = param_ptr;
-    cell.mySwitch.on = param_ptr->isEnabled;
     return cell;
 }
 
@@ -229,5 +238,9 @@
         myButton.title = @"Done";
     }
     
+}
+- (IBAction)generateTests:(id)sender {
+    self.testManager->generateTests();
+    [self.myTableView reloadData];
 }
 @end

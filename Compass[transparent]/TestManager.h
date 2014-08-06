@@ -58,8 +58,10 @@ public:
     CPDeviceType device;
     int test_id;
     int snapshot_id;
+    NSString *name;
     NSString *instructions;
     NSString *sectionMsg;
+    bool isEnabled;
 public:
     test(){
         visualization = CPPCompass;

@@ -522,6 +522,12 @@
 		9A82B64A1941518900534A5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F58193E2A8900CF32DE /* Images.xcassets */; };
 		9A82B64B1941518900534A5F /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */; };
 		9A82B6541941528600534A5F /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A82B6531941528600534A5F /* iPad.storyboard */; };
+		9A94820D1991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
+		9A94820E1991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
+		9A94820F1991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
+		9A9482101991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
+		9A9482111991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
+		9A9482121991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
 		9A95CCB3194B4146008E520F /* iOSSettingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */; };
 		9A95CCB4194B4146008E520F /* iOSSettingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */; };
 		9A9701CB19083B10007C3C19 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
@@ -961,6 +967,7 @@
 		9A82B64F1941518900534A5F /* iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
 		9A82B6531941528600534A5F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		9A94820C1991D46A0036249C /* setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setup.png; path = icons/setup.png; sourceTree = "<group>"; };
 		9A95CCB0194AC5A2008E520F /* iphone copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "iphone copy.entitlements"; sourceTree = "<group>"; };
 		9A95CCB1194B4146008E520F /* iOSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSSettingViewController.h; sourceTree = "<group>"; };
 		9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSSettingViewController.mm; sourceTree = "<group>"; };
@@ -1555,6 +1562,7 @@
 		9A998D66194B716800778DFC /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				9A94820C1991D46A0036249C /* setup.png */,
 				9A480896198BF1F70001E188 /* debug.png */,
 				9A480897198BF1F70001E188 /* general.png */,
 				9AF2730A1982865C00C0195B /* snapshotDefault.png */,
@@ -1925,6 +1933,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */,
+				9A9482111991D46A0036249C /* setup.png in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
 				9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */,
 				9A239EE1196EFF410064BDC9 /* new.kml in Resources */,
@@ -1974,6 +1983,7 @@
 				9A82B6451941518900534A5F /* New York City [many].kml in Resources */,
 				9A998D69194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A037562198DA31800258E95 /* Box2DConfig.cmake in Resources */,
+				9A9482121991D46A0036249C /* setup.png in Resources */,
 				9A82B6461941518900534A5F /* london.kml in Resources */,
 				9A998D7E194BCB0900778DFC /* setup.jpg in Resources */,
 				9A3DA09C1964E9B1009E0073 /* add.png in Resources */,
@@ -2015,6 +2025,7 @@
 				9AA789291909FE3000A26C66 /* london.kml in Resources */,
 				9AA7892A1909FE3000A26C66 /* montreal.kml in Resources */,
 				9A4808D2198C2FA30001E188 /* wedge723.kml in Resources */,
+				9A9482101991D46A0036249C /* setup.png in Resources */,
 				9A3DA09A1964E9B1009E0073 /* add.png in Resources */,
 				9A4808CA198C2FA30001E188 /* tokyo.kml in Resources */,
 				9A037560198DA31800258E95 /* Box2DConfig.cmake in Resources */,
@@ -2047,6 +2058,7 @@
 				9A4808CB198C2FA30001E188 /* training.kml in Resources */,
 				9AECA76F196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A239EDD196EFF410064BDC9 /* new.kml in Resources */,
+				9A94820D1991D46A0036249C /* setup.png in Resources */,
 				9A3DA0971964E9B1009E0073 /* add.png in Resources */,
 				9A037563198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9A480898198BF1F70001E188 /* debug.png in Resources */,
@@ -2116,6 +2128,7 @@
 				9AEC5CEF18F3956F00A29F75 /* montreal.kml in Resources */,
 				9A6F53F41910069F00F35FED /* DebugInfoWindow.xib in Resources */,
 				9AECA771196AEAB7008ADAEC /* UKLondon.kml in Resources */,
+				9A94820F1991D46A0036249C /* setup.png in Resources */,
 				9AEC5CF218F3956F00A29F75 /* newyork.kml in Resources */,
 				9A4808CD198C2FA30001E188 /* training.kml in Resources */,
 				9A3DA09F1964E9B1009E0073 /* remove.png in Resources */,
@@ -2151,6 +2164,7 @@
 				9A03755E198DA31800258E95 /* Box2DConfig.cmake in Resources */,
 				9AB2A719196372AA0001E96F /* selected.png in Resources */,
 				9AECA770196AEAB7008ADAEC /* UKLondon.kml in Resources */,
+				9A94820E1991D46A0036249C /* setup.png in Resources */,
 				9AFB14B518EE639A00063632 /* newyork.kml in Resources */,
 				9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9AF273131982865C00C0195B /* snapshotSelected.png in Resources */,

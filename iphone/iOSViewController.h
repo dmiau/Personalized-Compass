@@ -70,6 +70,8 @@ enum findMe_enum{
 
 // Compass panel
 @property (weak, nonatomic) IBOutlet UISegmentedControl *compassSegmentControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *compassModeSegmentControl;
+
 
 - (void) setupPhoneViewMode;
 - (void) setupWatchViewMode;

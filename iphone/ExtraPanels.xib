@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="iOSViewController">
             <connections>
+                <outlet property="compassModeSegmentControl" destination="JZD-YD-lpV" id="Zdv-Me-rcR"/>
                 <outlet property="compassSegmentControl" destination="gdc-No-bBu" id="Ajg-Nj-mvp"/>
                 <outlet property="dataSegmentControl" destination="h43-e5-7WU" id="zO1-Zz-mVF"/>
                 <outlet property="filterSegmentControl" destination="koe-mY-dSr" id="vO4-tg-uqO"/>
