@@ -162,9 +162,13 @@
         screenHeight = screenRect.size.width;
         
 #ifdef __IPHONE__
-        [self constructDebugToolbar:@"Landscape"];
+        if ([self.UIConfigurations[@"UIToolbarMode"]
+             isEqualToString: @"Development"])
+            [self constructDebugToolbar:@"Landscape"];
     }else if(orientation == UIDeviceOrientationPortrait){
-                [self constructDebugToolbar:@"Portrait"];
+        if ([self.UIConfigurations[@"UIToolbarMode"]
+             isEqualToString: @"Development"])
+            [self constructDebugToolbar:@"Portrait"];
 #endif
     }
 

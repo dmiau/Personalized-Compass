@@ -125,6 +125,14 @@
     [self loopVisualizations:anItem];
     
     //--------------
+    // Add a flexible separator
+    //--------------
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                 target:nil action:nil];
+    [toolbar_items addObject:flexItem];
+    
+    //--------------
     // Add the mask buttons
     //--------------
     anItem = [[UIBarButtonItem alloc]
@@ -136,11 +144,6 @@
     //--------------
     // Add the bookmark button
     //--------------
-    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                 target:nil action:nil];
-    [toolbar_items addObject:flexItem];
-    
     anItem = [[UIBarButtonItem alloc]
                                initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
                                target:self
@@ -196,7 +199,7 @@
 }
 
 //------------------
-// Show pcomass in big size
+// Compass (Watch) Panel
 //------------------
 - (IBAction)toggleWatchPanel:(id)sender {
 
@@ -224,14 +227,13 @@
         }else if (self.renderer->watchMode == true){
             self.compassModeSegmentControl.selectedSegmentIndex = 2;
         }
-        
     }else{
         [[self watchPanel] setHidden:YES];
     }
 }
 
 //------------------
-// Show the menu view
+// Model Panel
 //------------------
 - (IBAction)toggleModelPanel:(id)sender {
 
@@ -263,7 +265,9 @@
         }else{
             self.filterSegmentControl.selectedSegmentIndex = 2;
         }
-                
+        
+        //Configure lock
+        self.landmarkLockSwitch.on = self.model->lockLandmarks;
     }else{
         [[self modelPanel] setHidden:YES];
         
@@ -271,6 +275,10 @@
             [self updateMapDisplayRegion];
     }
 }
+
+//------------------
+// View Panel
+//------------------
 
 - (IBAction)toggleViewPanel:(id)sender {
 
@@ -290,6 +298,16 @@
             self.overviewSegmentControl.selectedSegmentIndex = 1;
         }else{
             self.overviewSegmentControl.selectedSegmentIndex = 0;
+        }
+        
+        // Configure wedge status
+        if (self.renderer->wedgeMode) {
+            if ([self.model->configurations[@"wedge_style"] isEqualToString:@"modified"])
+                self.wedgeSegmentControl.selectedSegmentIndex = 2;
+            else
+                self.wedgeSegmentControl.selectedSegmentIndex = 1;
+        }else{
+            self.wedgeSegmentControl.selectedSegmentIndex = 0;
         }
         
     }else
@@ -328,6 +346,7 @@
     }
         
     if ([label isEqualToString:@"[Pre.]"]){
+        self.model->lockLandmarks = false;
         snapshot_id = snapshot_id-1;
         if (snapshot_id < 0)
         {
@@ -342,10 +361,12 @@
             }
         }
         [self displaySnapshot:snapshot_id];
+        self.model->lockLandmarks = true;
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
         
     }else if ([label isEqualToString:@"[Next]"]){
+        self.model->lockLandmarks = false;
         snapshot_id = snapshot_id+1;
         // Set up the environment
         if (snapshot_id == (int)self.model->snapshot_array.size())
@@ -362,6 +383,7 @@
         }
         
         [self displaySnapshot:snapshot_id];
+        self.model->lockLandmarks = true;
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
     }else if ([label isEqualToString:@"[Mask]"]){

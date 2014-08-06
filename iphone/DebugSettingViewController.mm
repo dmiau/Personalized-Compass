@@ -110,7 +110,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-//    self.testManager->generateTests();
+    self.testManager->generateTests();
     [super viewWillDisappear:animated];
 }
 

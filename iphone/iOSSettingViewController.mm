@@ -268,10 +268,21 @@
         case 0:
             self.rootViewController.UIConfigurations[@"UIToolbarMode"]
             = @"Development";
+            self.rootViewController.mapView.layer.borderWidth
+            = 0.0f;
+            self.rootViewController.mapView.layer.borderColor =
+            [UIColor clearColor].CGColor;
+
+            
             break;
         case 1:
             self.rootViewController.UIConfigurations[@"UIToolbarMode"]
             = @"Demo";
+            self.rootViewController.mapView.layer.borderColor =
+            [UIColor blueColor].CGColor;
+            self.rootViewController.mapView.layer.borderWidth
+            = 2.0f;
+            
             break;
         case 2:
             self.rootViewController.UIConfigurations[@"UIToolbarMode"]

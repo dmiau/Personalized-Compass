@@ -1364,6 +1364,17 @@ http://stackoverflow.com/questions/3680805/uinavigationbar-set-title-programatic
 -------------------------------------------------------------------
 - modified the ratio sum fomula
 
+-------------------------------------------------------------------
+8.6.2014
+-------------------------------------------------------------------
+- need to do something for wedge on the watch mode
+used this recipe to rotte the screen:
+http://stackoverflow.com/questions/20987249/how-do-i-programmatically-set-device-orientation-in-ios7
+
+- successfully added rotation code
+
+
+
 
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "iOSViewController+CompassPanel.h"
+#import <objc/message.h>
 
 @implementation iOSViewController (WatchPanel)
 
@@ -15,6 +16,10 @@
     //-----------
     // Normal
     //-----------
+    
+    // rotate the screen
+    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationPortrait);
+    
     self.renderer->model->configurations[@"font_size"] =
     self.model->cache_configurations[@"font_size"];
     
@@ -40,6 +45,10 @@
 
 
 - (void)setupWatchViewMode{
+    
+    // rotate the screen
+    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationLandscapeLeft );
+    
     self.renderer->model->configurations[@"font_size"] =
     self.model->cache_configurations[@"font_size"];
     

@@ -240,27 +240,54 @@ void compassRender::drawOneSide(double rotation, double width, double height,
     double leg = corrected_off_screen_dist + log((corrected_off_screen_dist + 20)/12)*10;
     
     double aperture = (5+corrected_off_screen_dist*0.3)/leg;
-    
-    if (watchMode){
-        max_aperture =
-        acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2 * 0.95;
-    }
-
     leg = leg / correction_x;
-    
+   
+//    if (watchMode){
+////        max_aperture =
+////        acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2
+////        * 0.95;
+//        
+//        // This part can be optimized later
+//        float radius = [model->configurations[@"watch_radius"] floatValue];
+//        
+//        float max_intrusion = radius * 0.25;
+//        
+//        float max_half_base = sqrt(pow(radius, 2) - pow(radius * 0.75, 2)) * 0.75;
+//        max_aperture = atan2(max_half_base, dist - radius * 0.75);
+//        max_leg = sqrt(pow(dist - radius*0.75, 2) + pow(max_half_base, 2));
+//    }
+
     //-------------------
     // Apply constraints
     //-------------------
     if ([model->configurations[@"wedge_style"] isEqualToString:@"modified"]){
         
-        if (aperture > max_aperture)
-        {
-            // Calculate the distance of base
-            double base = leg*tan(max_aperture/2)*2;
-            if (base < 100)
-                aperture = atan2(50, leg) * 2;
-            else
+        if (!watchMode){
+            if (aperture > max_aperture)
+            {
+                // Calculate the distance of base
+                double base = leg*tan(max_aperture/2)*2;
+                if (base < 100)
+                    aperture = atan2(50, leg) * 2;
+                else
+                    aperture = max_aperture;
+            }
+        }else{
+             double max_leg = 0.0;
+            
+            // This part can be optimized later
+            float radius = [model->configurations[@"watch_radius"] floatValue];
+            
+            float max_intrusion = radius * 0.25;
+            
+            float max_half_base = sqrt(pow(radius, 2) - pow(radius * 0.75, 2)) * 0.90;
+            max_aperture = atan2(max_half_base, dist - radius * 0.75);
+            max_leg = sqrt(pow(dist - radius*0.75, 2) + pow(max_half_base, 2));
+            
+            if (aperture > max_aperture){
                 aperture = max_aperture;
+                leg = max_leg;
+            }
         }
     }
 

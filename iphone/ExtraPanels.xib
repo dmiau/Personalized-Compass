@@ -10,9 +10,11 @@
                 <outlet property="compassSegmentControl" destination="gdc-No-bBu" id="Ajg-Nj-mvp"/>
                 <outlet property="dataSegmentControl" destination="h43-e5-7WU" id="zO1-Zz-mVF"/>
                 <outlet property="filterSegmentControl" destination="koe-mY-dSr" id="vO4-tg-uqO"/>
-                <outlet property="landmarkLock" destination="0So-s1-ohR" id="LFG-T0-HJo"/>
+                <outlet property="landmarkLock" destination="0So-s1-ohR" id="aSU-OI-n5a"/>
+                <outlet property="landmarkLockSwitch" destination="0So-s1-ohR" id="0sS-pe-MJI"/>
                 <outlet property="overviewSegmentControl" destination="VF8-nw-5JM" id="Wwh-w9-0fX"/>
                 <outlet property="scaleIndicator" destination="VBb-4f-jm8" id="SOP-WS-1mq"/>
+                <outlet property="wedgeSegmentControl" destination="r2q-F1-87a" id="1IK-3G-lLG"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
