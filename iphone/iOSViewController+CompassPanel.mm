@@ -10,18 +10,65 @@
 
 @implementation iOSViewController (WatchPanel)
 
+
+- (void)setupPhoneViewMode{
+    //-----------
+    // Normal
+    //-----------
+    self.renderer->model->configurations[@"font_size"] =
+    self.model->cache_configurations[@"font_size"];
+    
+    self.renderer->watchMode = false;
+    for (int i = 0; i<4; ++i){
+        // deep copy
+        self.renderer->model->configurations[@"bg_color"][i] =
+        [NSNumber numberWithFloat:
+         [self.model->cache_configurations[@"bg_color"][i] floatValue]];
+    }
+    // revert
+    // Change compass ctr
+    [self changeCompassLocationTo: @"Default"];
+    
+    self.renderer->model->configurations[@"compass_scale"] =
+    self.model->cache_configurations[@"compass_scale"];
+    
+    UITextField *searchField =
+    [self.ibSearchBar valueForKey:@"_searchField"];
+    searchField.textColor = [UIColor blackColor];
+    [self toggleWatchMask];
+}
+
+
+- (void)setupWatchViewMode{
+    self.renderer->model->configurations[@"font_size"] =
+    self.model->cache_configurations[@"font_size"];
+    
+    self.renderer->watchMode = true;
+    for (int i = 0; i<4; ++i){
+        self.renderer->model->configurations[@"bg_color"][i] =
+        self.model->cache_configurations[@"bg_color"][i];
+    }
+
+    // Change compass ctr
+    [self changeCompassLocationTo: @"Center"];
+    self.renderer->model->configurations[@"compass_scale"] =
+    [NSNumber numberWithFloat:0.3];
+    
+    UITextField *searchField =
+    [self.ibSearchBar valueForKey:@"_searchField"];
+    searchField.textColor = [UIColor whiteColor];
+    [self toggleWatchMask];
+}
+
+
 - (IBAction)watchModeSegmentControl:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     
     // need to do a deep copy
     // http://www.cocoanetics.com/2009/09/deep-copying-dictionaries/
-    static NSDictionary* cache_configurations =
-    [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations]];
 
     self.renderer->watchMode = false;
     self.renderer->trainingMode = false;
-    
-    
     
     // Initialization
     static BOOL once = false;
@@ -41,7 +88,7 @@
     }
     [slider removeFromSuperview];
     self.renderer->model->configurations[@"font_size"] =
-    cache_configurations[@"font_size"];
+    self.model->cache_configurations[@"font_size"];
     
     UITextField *searchField =
     [self.ibSearchBar valueForKey:@"_searchField"];
@@ -57,19 +104,7 @@
             //-----------
             // Normal
             //-----------
-            for (int i = 0; i<4; ++i){
-                self.renderer->model->configurations[@"bg_color"][i] =
-                cache_configurations[@"bg_color"][i];
-            }
-            
-            // revert
-            // Change compass ctr
-            for (int i = 0; i<2; ++i){
-                self.renderer->model->configurations[@"compass_centroid"][i] =
-                cache_configurations[@"compass_centroid"][i];
-            }
-            self.renderer->model->configurations[@"compass_scale"] =
-            cache_configurations[@"compass_scale"];
+            [self setupPhoneViewMode];
             break;
         case 1:
             //-----------
@@ -91,17 +126,7 @@
             //-----------
             // Watch Mode
             //-----------
-            for (int i = 0; i<4; ++i){
-                self.renderer->model->configurations[@"bg_color"][i] =
-                cache_configurations[@"bg_color"][i];
-            }
-            self.renderer->watchMode = true;
-            // Change compass ctr
-            [self changeCompassLocationTo: @"Center"];
-            self.renderer->model->configurations[@"compass_scale"] =
-            [NSNumber numberWithFloat:0.3];
-            
-            searchField.textColor = [UIColor whiteColor];
+            [self setupWatchViewMode];
             break;
         case 3:
             //-----------

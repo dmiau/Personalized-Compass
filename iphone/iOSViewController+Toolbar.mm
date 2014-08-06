@@ -94,7 +94,7 @@
     
     // Add the counter
     NSString* counter_str = [NSString stringWithFormat:
-                             @"1/%lu", self.model->snapshot_array.size()];
+                             @"*/%lu", self.model->snapshot_array.size()];
     counter_button = [[UIBarButtonItem alloc]
                       initWithTitle:counter_str
                       style:UIBarButtonItemStyleBordered                                             target:self
@@ -310,21 +310,47 @@
 - (void)runDemoAction:(UIBarButtonItem*) bar_button{
 
     NSString* label = bar_button.title;
-    static int snapshot_id = 0;
+    static int snapshot_id = -1;
     static bool mask_status = false;
     
     if ([label isEqualToString:@"[Pre.]"]){
-        snapshot_id = max(snapshot_id-1, 0);
-        [self displaySnapshot:snapshot_id];
-        // Set the visualization to the first
-        [self loopVisualizations:[self resetVisualizationButton]];
-    }else if ([label isEqualToString:@"[Next]"]){
-        snapshot_id = min(snapshot_id+1,
-                          (int)self.model->snapshot_array.size()-1);
+        snapshot_id = snapshot_id-1;
+        if (snapshot_id < 0)
+        {
+            
+            if (self.testManager->test_counter != 0){
+                // Set up the environment
+                snapshot_id = self.model->snapshot_array.size() -1;
+                [self setupEnvForTest:self.
+                 testManager->test_vector
+                 [--self.testManager->test_counter]];
+            }else{
+                snapshot_id = 0;
+            }
+        }
         [self displaySnapshot:snapshot_id];
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
         
+    }else if ([label isEqualToString:@"[Next]"]){
+        snapshot_id = snapshot_id+1;
+        // Set up the environment
+        if (snapshot_id == (int)self.model->snapshot_array.size())
+        {
+            if (self.testManager->test_counter !=
+                self.testManager->test_vector.size()-1)
+            {
+                snapshot_id =0;
+                [self setupEnvForTest:self.testManager->
+                 test_vector[++self.testManager->test_counter]];
+            }else{
+                --snapshot_id;
+            }
+        }
+        
+        [self displaySnapshot:snapshot_id];
+        // Set the visualization to the first
+        [self loopVisualizations:[self resetVisualizationButton]];
     }else if ([label isEqualToString:@"[Mask]"]){
         
         if (mask_status){
@@ -345,11 +371,20 @@
                      self.model->snapshot_array.size()];
 }
 
+
+- (void)setupEnvForTest:(test) myTest{
+    if (myTest.device == CPPhone){
+        [self setupPhoneViewMode];
+    }else{
+        [self setupWatchViewMode];
+    }
+}
+
 - (UIBarButtonItem*) resetVisualizationButton{
     self.testManager->visualization_counter = 0;
     NSString *visTitle = [NSString stringWithFormat:@"[%@]",
-                          self.testManager->visualizationEnum2String
-                          [self.testManager->visualization_for_test[0]]];
+                          self.testManager->
+                          enabled_visualization_vector[0].name];
     static UIBarButtonItem* anItem = [[UIBarButtonItem alloc]
               initWithTitle:visTitle
               style:UIBarButtonItemStyleBordered                                             target:self
@@ -361,8 +396,8 @@
 - (void)loopVisualizations:(UIBarButtonItem*) bar_button{
     int idx = self.testManager->visualization_counter;
     
-    CPVisualizationType current_type =
-    self.testManager->visualization_for_test[idx];
+    CPVisualizationType current_type = (CPVisualizationType)
+    self.testManager->enabled_visualization_vector[idx].type;
     
     switch (current_type) {
         case CPNone:
@@ -391,12 +426,11 @@
     
     // Calculat the next type
     idx = idx + 1;
-    idx = idx % self.testManager->visualization_for_test.size();
+    idx = idx % self.testManager->enabled_visualization_vector.size();
     self.testManager->visualization_counter = idx;
     // Update the title
     bar_button.title = [NSString stringWithFormat:@"[%@]",
-    self.testManager->visualizationEnum2String
-    [self.testManager->visualization_for_test[idx]]];
+    self.testManager->enabled_visualization_vector[idx].name];
 }
 
 #pragma mark -----Rotation related stuff-----

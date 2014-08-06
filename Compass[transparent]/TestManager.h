@@ -42,17 +42,24 @@ class param{
 public:
     int type;
     bool  isEnabled;
+    NSString *name;
 public:
     param(){
         type = nil;
         isEnabled = false;
+        name = @"";
     };
 };
 
 class test{
 public:
+    
     CPVisualizationType visualization;
     CPDeviceType device;
+    int test_id;
+    int snapshot_id;
+    NSString *instructions;
+    NSString *sectionMsg;
 public:
     test(){
         visualization = CPPCompass;
@@ -68,15 +75,13 @@ public:
     vector<param> visualization_vector;
     vector<param> device_vector;
     
-    NSArray* visualization_strings;
-    NSArray* device_strings;
+    vector<param> enabled_visualization_vector;
+    vector<param> enabled_device_vector;
     
-    vector<CPVisualizationType> visualization_for_test;
-    vector<CPDeviceType> device_vector_for_test;
-    map<CPVisualizationType, NSString*> visualizationEnum2String;
-    map<CPDeviceType, NSString*> deviceEnum2String;
-        
+    vector<test> test_vector;
+    
     int visualization_counter;
+    int test_counter;
 public:
     static TestManager* shareTestManager();
     int initTestManager();

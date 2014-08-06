@@ -7,6 +7,7 @@
 //
 
 #include "TestManager.h"
+#import "compassModel.h"
 
 //--------------
 // Test Manager singleton initializations
@@ -28,53 +29,76 @@ int TestManager::initTestManager(){
     visualization_vector.clear();
     device_vector.clear();
     visualization_counter = 0;
+    test_counter = 0;
     
-    
-    vector<CPVisualizationType> visualization_names
+    vector<CPVisualizationType> visualization_enums
     = {CPNone, CPPCompass, CPWedge, CPOverview};
-    visualization_strings =
+    NSArray* visualization_strings =
     @[@"None", @"PComp", @"Wedge", @"OverV"];
     
-    visualization_for_test = visualization_names;
-    for (int i = 0; i < visualization_names.size(); ++i){
+    for (int i = 0; i < visualization_enums.size(); ++i){
         param myParam;
-        myParam.type = visualization_names[i];
+        myParam.type = visualization_enums[i];
         myParam.isEnabled = true;
+        myParam.name = visualization_strings[i];
         visualization_vector.push_back(myParam);
-        visualizationEnum2String[visualization_names[i]] =
-        visualization_strings[i];
     }
     
-    vector<CPDeviceType> device_names = {CPPhone, CPWatch};
-    device_vector_for_test = device_names;
-    device_strings =
-    @[@"Phone", @"Watch"];
-    for (int i = 0; i < device_names.size(); ++i){
+    vector<CPDeviceType> device_enums = {CPPhone, CPWatch};
+
+    NSArray* device_strings = @[@"Phone", @"Watch"];
+    for (int i = 0; i < device_enums.size(); ++i){
         param myParam;
-        myParam.type = device_names[i];
+        myParam.type = device_enums[i];
         myParam.isEnabled = true;
+        myParam.name = device_strings[i];
         device_vector.push_back(myParam);
-        deviceEnum2String[device_names[i]] = device_strings[i];
-    }    
+    }
+    
+    // Generate a set of inti tests
+    generateTests();
     return 0;
 }
 
 int TestManager::generateTests(){
-    visualization_for_test.clear();
+    compassMdl* model = compassMdl::shareCompassMdl();
+    enabled_visualization_vector.clear();
     for (int i = 0; i < visualization_vector.size(); ++i){
         if (visualization_vector[i].isEnabled){
-            visualization_for_test.push_back
-            ((CPVisualizationType)visualization_vector[i].type);
+            enabled_visualization_vector.push_back
+            (visualization_vector[i]);
         }
     }
 
-    device_vector_for_test.clear();
+    enabled_device_vector.clear();
     for (int i = 0; i < device_vector.size(); ++i){
         if (device_vector[i].isEnabled){
-            device_vector_for_test.push_back
-            ((CPDeviceType)device_vector[i].type);
+            enabled_device_vector.push_back
+            (device_vector[i]);
         }
     }
     
+    //---------------------
+    // Generate a list of tests
+    //---------------------
+    int test_id_counter = 0;
+    test_vector.clear();
+    for (int i = 0; i < enabled_device_vector.size(); ++i){
+    
+//        for (int j = 0; j < enabled_visualization_vector.size(); ++j){
+        
+//            for (int k =0; k < model->snapshot_array.size(); ++k){
+                test myTest;
+                
+//                myTest.visualization = (CPVisualizationType)enabled_visualization_vector[j].type;
+                myTest.device = (CPDeviceType)enabled_device_vector[i].type;
+//                myTest.snapshot_id = k;
+                myTest.test_id = test_id_counter;
+                test_vector.push_back(myTest);
+                test_id_counter += test_id_counter;
+//            }
+//        }
+        
+    }
     return 0;
 }
