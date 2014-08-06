@@ -171,7 +171,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                     glRotatef(-model->camera_pos.orientation, 0, 0, -1);
                     drawCircle(-compass_centroid.x/radius * boundary_radius,
                                -compass_centroid.y/radius * boundary_radius,
-                               boundary_radius, 20, false);
+                               boundary_radius, 100, false);
                     isBoundaryIndicatorDrawn = true;
                 }
                 glPopMatrix();

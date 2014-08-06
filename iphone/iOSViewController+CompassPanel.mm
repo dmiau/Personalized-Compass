@@ -41,6 +41,8 @@
     [self.ibSearchBar valueForKey:@"_searchField"];
     searchField.textColor = [UIColor blackColor];
     [self toggleWatchMask];
+        
+    [self.watchSidebar setHidden:YES];
 }
 
 
@@ -67,6 +69,15 @@
     [self.ibSearchBar valueForKey:@"_searchField"];
     searchField.textColor = [UIColor whiteColor];
     [self toggleWatchMask];
+    
+    
+    //-------------------
+    // Create an UISwitch
+    //-------------------
+    self.watchLandmrkLockSwitch.on =self.model->lockLandmarks;
+    self.watchCompassInteractionSwitch.on =
+    [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue];
+    [self.watchSidebar setHidden:NO];
 }
 
 
@@ -350,6 +361,18 @@
             throw(runtime_error("Undefined control, update needed"));
             break;
             
+    }
+    [self.glkView setNeedsDisplay];
+}
+
+- (IBAction)toggleCompassInteraction:(UISwitch*)sender {
+    
+    if (sender.on){
+        self.UIConfigurations[@"UICompassInteractionEnabled"] =
+        [NSNumber numberWithBool:true];
+    }else{
+        self.UIConfigurations[@"UICompassInteractionEnabled"] =
+        [NSNumber numberWithBool:false];
     }
 }
 

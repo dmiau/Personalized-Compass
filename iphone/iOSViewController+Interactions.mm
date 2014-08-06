@@ -159,7 +159,8 @@
 
 - (void)pinchGesture:(UIPinchGestureRecognizer *)recognizer
 {
-//    NSLog(@"****Pinch gesture detected!");
+    if (![self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue])
+        return;
 
     static float starting_scale = 1;
     if(recognizer.state == UIGestureRecognizerStateBegan){

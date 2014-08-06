@@ -27,6 +27,14 @@
     for (int i = 0; i < [title_list count]; ++i){
         SEL my_selector = NSSelectorFromString(selector_list[i]);
         
+        if ([title_list[i] isEqualToString:@"[Debug]"]){
+            UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
+                                         initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                         target:nil action:nil];
+            [toolbar_items addObject:flexItem];
+        }
+        
+        
         UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
                                              initWithTitle:title_list[i]
                                              style:UIBarButtonItemStyleBordered                                             target:self
@@ -38,10 +46,7 @@
     // Landscape mode
     //--------------
     if ([mode isEqualToString:@"Landscape"]){
-        UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
-                                     initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                     target:nil action:nil];
-        [toolbar_items addObject:flexItem];
+
         
         UIBarButtonItem *lockItem = [[UIBarButtonItem alloc]
                                      initWithTitle:@"[Lock]"
@@ -49,6 +54,7 @@
                                      action:@selector(rotationLockClicked:)];
         [toolbar_items addObject:lockItem];
     }
+    
     
     //--------------
     // Add the bookmark button
@@ -227,6 +233,10 @@
         }else if (self.renderer->watchMode == true){
             self.compassModeSegmentControl.selectedSegmentIndex = 2;
         }
+        
+        self.compassInteractionSwitch.on =
+        [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue];
+        
     }else{
         [[self watchPanel] setHidden:YES];
     }
@@ -267,7 +277,7 @@
         }
         
         //Configure lock
-        self.landmarkLockSwitch.on = self.model->lockLandmarks;
+        self.landmarkLock.on = self.model->lockLandmarks;
     }else{
         [[self modelPanel] setHidden:YES];
         

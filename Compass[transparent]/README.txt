@@ -1372,7 +1372,7 @@ used this recipe to rotte the screen:
 http://stackoverflow.com/questions/20987249/how-do-i-programmatically-set-device-orientation-in-ios7
 
 - successfully added rotation code
-
+- did some work on the demo mode and rotation mode
 
 
 

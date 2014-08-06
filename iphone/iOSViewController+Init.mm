@@ -85,6 +85,8 @@
                                   forKey:@"UIAcceptsPinCreation"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                   forKey:@"UICompassTouched"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
+                                  forKey:@"UICompassInteractionEnabled"];
     }
     return self;
 }
@@ -154,9 +156,18 @@
             self.watchPanel = aView;
         }else if ([[aView restorationIdentifier] isEqualToString:@"DebugPanel"]){
             self.debugPanel = aView;
+        }else if ([[aView restorationIdentifier] isEqualToString:@"WatchSidebar"]){
+            self.watchSidebar = aView;
         }
-        [self.view addSubview:aView];
     }
+    [self.view addSubview:self.watchSidebar];
+    [self.view addSubview:self.debugPanel];
+    [self.view addSubview:self.watchPanel];
+    [self.view addSubview:self.modelPanel];
+    [self.view addSubview:self.viewPanel];
+    
+//    [self.watchPanel removeFromSuperview];
+//    [self.view insertSubview:self.watchPanel aboveSubview:self.watchSidebar];
     
     //-------------------
     // Add gesture recognizer to the FindMe button

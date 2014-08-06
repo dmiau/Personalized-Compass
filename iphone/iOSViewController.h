@@ -49,7 +49,7 @@ enum findMe_enum{
 @property UIView *modelPanel;
 @property UIView *watchPanel;
 @property UIView *debugPanel;
-
+@property UIView *watchSidebar;
 
 // Toggle various components
 - (void)toggleOverviewMap: (bool) state;
@@ -72,15 +72,18 @@ enum findMe_enum{
 // Compass panel
 @property (weak, nonatomic) IBOutlet UISegmentedControl *compassSegmentControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *compassModeSegmentControl;
-@property (weak, nonatomic) IBOutlet UISwitch *landmarkLockSwitch;
-
-
+@property (weak, nonatomic) IBOutlet UISwitch *compassInteractionSwitch;
 
 
 - (void) setupPhoneViewMode;
 - (void) setupWatchViewMode;
 
 // Debug panel
+
+
+// watch sidebar
+@property (weak, nonatomic) IBOutlet UISwitch *watchLandmrkLockSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *watchCompassInteractionSwitch;
 
 
 //----------------
