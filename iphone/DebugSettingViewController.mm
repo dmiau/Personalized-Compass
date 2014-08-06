@@ -198,14 +198,14 @@
     
     if (section_id == 0){
         cell.textLabel.text =
-        self.testManager->enabled_visualization_vector[i].name;
+        self.testManager->visualization_vector[i].name;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
         
         param_ptr = &(self.testManager->visualization_vector[i]);
     }else{
         // Configure Cell
         cell.textLabel.text =
-        self.testManager->enabled_device_vector[i].name;
+        self.testManager->device_vector[i].name;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
 
         param_ptr = &(self.testManager->device_vector[i]);
