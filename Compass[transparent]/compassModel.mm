@@ -128,8 +128,16 @@ int compassMdl::initMdl(){
 int compassMdl::reloadFiles(){
     // Read the configuration data
     readConfigurations(this);
+    
     // Read the location data
-    readLocationKml(this);
+    data_array = readLocationKml(this, location_filename);
+    
+    camera_pos.name = data_array[0].name;
+    // Set the initial orientation to 0
+    camera_pos.orientation = 0;
+    camera_pos.latitude = data_array[0].latitude;
+    camera_pos.longitude = data_array[0].longitude;
+
     updateMdl();
     return 0;
 }

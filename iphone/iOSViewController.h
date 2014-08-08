@@ -79,6 +79,7 @@ enum findMe_enum{
 - (void) setupWatchViewMode;
 
 // Debug panel
+@property (weak, nonatomic) IBOutlet UITextView *snapshotStatusTextView;
 
 
 // watch sidebar

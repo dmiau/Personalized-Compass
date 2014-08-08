@@ -11,9 +11,11 @@
 #include <stdexcept>
 
 
-int readLocationKml(compassMdl* mdl){
-    NSString* filename = mdl->location_filename;
+vector<data> readLocationKml(compassMdl* mdl, NSString* filename){
     xmlParser *myParser;
+    vector<data> data_array;
+    data_array.clear();
+    
 #ifdef __IPHONE__
     NSData* data = nil;
     if (mdl->dbFilesystem.isReady &&
@@ -36,7 +38,7 @@ int readLocationKml(compassMdl* mdl){
     
     if (!data){
         throw(runtime_error("Failed to read the location file."));
-        return EXIT_FAILURE;
+        return data_array;
     }else{
         myParser = [[xmlParser alloc] initWithData: data];
     }
@@ -49,15 +51,16 @@ int readLocationKml(compassMdl* mdl){
     
     myParser.parseFile;
     
-    mdl->camera_pos.name = myParser.data_array[0].name;
-    // Set the initial orientation to 0
-    mdl->camera_pos.orientation = 0;
-    mdl->camera_pos.latitude = myParser.data_array[0].latitude;
-    mdl->camera_pos.longitude = myParser.data_array[0].longitude;
-    
-    mdl->data_array = myParser.data_array;
-    
-    return EXIT_SUCCESS;
+//    mdl->camera_pos.name = myParser.data_array[0].name;
+//    // Set the initial orientation to 0
+//    mdl->camera_pos.orientation = 0;
+//    mdl->camera_pos.latitude = myParser.data_array[0].latitude;
+//    mdl->camera_pos.longitude = myParser.data_array[0].longitude;
+//    
+//    mdl->data_array = myParser.data_array;
+
+    data_array = myParser.data_array;
+    return data_array;
 }
 
 

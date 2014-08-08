@@ -13,7 +13,8 @@
 
 using namespace std;
 
-int readLocationKml(compassMdl* mdl);
+vector<data> readLocationKml(compassMdl* mdl,
+                             NSString *filename);
 
 @interface xmlParser : NSObject <NSXMLParserDelegate>
 {

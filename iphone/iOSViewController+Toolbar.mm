@@ -323,11 +323,18 @@
         [[self viewPanel] setHidden:YES];
 }
 
-
+//-----------------
+// Debug panel
+//-----------------
 - (IBAction)toggleDebugView:(id)sender {
     if ([[self debugPanel] isHidden]){
         [self hideAllPanels];
         [[self debugPanel] setHidden:NO];
+        
+        self.snapshotStatusTextView.text =
+        [NSString stringWithFormat:@"%@\n %lu",
+         [self.model->location_filename lastPathComponent],
+         self.model->snapshot_array.size()];
     }else{
         [[self debugPanel] setHidden:YES];
     }

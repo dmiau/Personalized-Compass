@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "compassModel.h"
 
-@interface SnapshotDetailViewController : UIViewController
+@interface SnapshotDetailViewController : UIViewController{
+    NSString *cache_kml_filename;
+    vector<data> cache_data_array;
+}
+
 @property compassMdl* model;
 @property snapshot* mySnapshot;
 @property int snapshot_id;
@@ -20,4 +24,8 @@
 
 - (IBAction)doneEditing:(id)sender;
 - (IBAction)dismissModalVC:(id)sender;
+- (IBAction)go2LocationView:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *selectedIDTextView;
+
+
 @end

@@ -94,6 +94,11 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [self saveKML:nil];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -256,7 +261,7 @@
     if (section_id == 0){
         
         int i = [indexPath row];
-        if (i ==0)
+        if ([snapshot_file_array[i] isEqualToString:@"snapshot.kml"])
             return;
         
         if (self.model->filesys_type == DROPBOX){

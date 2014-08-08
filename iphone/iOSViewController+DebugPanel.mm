@@ -12,6 +12,10 @@
 
 - (IBAction)takeSnapshot:(id)sender {
     [self takeSnapshot];
+    self.snapshotStatusTextView.text =
+    [NSString stringWithFormat:@"%@\n %lu",
+     [self.model->location_filename lastPathComponent],
+     self.model->snapshot_array.size()];
 }
 
 - (IBAction)breadcrumbSegmentControl:(id)sender {
