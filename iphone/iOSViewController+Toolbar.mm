@@ -12,6 +12,9 @@
 @implementation iOSViewController (Toolbar)
 
 #pragma mark ------Toolbar construction------
+//-----------------------
+// Construct Debug toolbar
+//-----------------------
 - (void)constructDebugToolbar:(NSString*) mode{
     
     NSArray* title_list = @[@"[View]", @"[Mdl]", @"[Compass]", @"[Debug]"];
@@ -41,20 +44,6 @@
                                              action:my_selector];
         [toolbar_items addObject:anItem];
     }
-
-    //--------------
-    // Landscape mode
-    //--------------
-    if ([mode isEqualToString:@"Landscape"]){
-
-        
-        UIBarButtonItem *lockItem = [[UIBarButtonItem alloc]
-                                     initWithTitle:@"[Lock]"
-                                     style:UIBarButtonItemStyleBordered                                             target:self
-                                     action:@selector(rotationLockClicked:)];
-        [toolbar_items addObject:lockItem];
-    }
-    
     
     //--------------
     // Add the bookmark button
@@ -92,6 +81,9 @@
     
 }
 
+//-----------------------
+// Construct Demo toolbar
+//-----------------------
 -(void) constructDemoToolbar:(NSString*)mode{
     
     NSArray* title_list = @[@"[Pre.]", @"[Next]"];
@@ -187,10 +179,6 @@
     }
 }
 
-
-
-
-
 //------------------
 // Close all panels
 //------------------
@@ -277,7 +265,16 @@
         }
         
         //Configure lock
+        if (self.model->lockLandmarks){
+            // Disable controls if the lock is on
+            self.dataSegmentControl.enabled = false;
+            self.filterSegmentControl.enabled = false;
+        }else{
+            self.dataSegmentControl.enabled = true;
+            self.filterSegmentControl.enabled = true;
+        }
         self.landmarkLock.on = self.model->lockLandmarks;
+        
     }else{
         [[self modelPanel] setHidden:YES];
         
@@ -311,7 +308,9 @@
         }
         
         // Configure wedge status
-        if (self.renderer->wedgeMode) {
+        if ([self.model->configurations[@"wedge_status"]
+             isEqualToString:@"on"])
+        {
             if ([self.model->configurations[@"wedge_style"] isEqualToString:@"modified"])
                 self.wedgeSegmentControl.selectedSegmentIndex = 2;
             else
@@ -477,25 +476,4 @@
     bar_button.title = [NSString stringWithFormat:@"[%@]",
     self.testManager->enabled_visualization_vector[idx].name];
 }
-
-#pragma mark -----Rotation related stuff-----
-
-- (void)rotationLockClicked:(id)sender {
-    
-    UIBarButtonItem* button = (UIBarButtonItem*) sender;
-    
-    bool lock_status = [self.UIConfigurations[@"UIRotationLock"]
-                        boolValue];
-    
-    if (lock_status){
-        button.title = @"[Lock]";
-    }else{
-        button.title = @"[Unlock]";
-    }
-    
-    self.UIConfigurations[@"UIRotationLock"] =
-    [NSNumber numberWithBool:
-     ![self.UIConfigurations[@"UIRotationLock"] boolValue]];
-}
-
 @end

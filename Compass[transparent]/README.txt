@@ -1374,6 +1374,24 @@ http://stackoverflow.com/questions/20987249/how-do-i-programmatically-set-device
 - successfully added rotation code
 - did some work on the demo mode and rotation mode
 
+-------------------------------------------------------------------
+8.8.2014
+-------------------------------------------------------------------
+- remove rotation control
+- modify readLocationKml
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

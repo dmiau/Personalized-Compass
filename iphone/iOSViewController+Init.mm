@@ -73,7 +73,7 @@
         // Initialize a list of UI configurations
         //--------------------
         self.UIConfigurations = [[NSMutableDictionary alloc] init];
-        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
                                        forKey:@"UIRotationLock"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                        forKey:@"UIBreadcrumbDisplay"];

@@ -167,6 +167,8 @@ enum findMe_enum{
 - (IBAction)toggleModelPanel:(id)sender;
 - (IBAction)refreshApp:(id)sender;
 
+- (void) hideAllPanels;
+
 - (void) setFactoryCompassHidden: (BOOL) flag;
 - (void) removeCompass;
 - (void) constructDebugToolbar:(NSString*) mode;

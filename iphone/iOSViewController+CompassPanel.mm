@@ -17,11 +17,18 @@
     // Normal
     //-----------
     
+    self.UIConfigurations[@"UIRotationLock"] =
+    [NSNumber numberWithBool:NO];
+    
     // rotate the screen
     objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationPortrait);
+
+    self.UIConfigurations[@"UIRotationLock"] =
+    [NSNumber numberWithBool:YES];
     
     self.renderer->model->configurations[@"font_size"] =
     self.model->cache_configurations[@"font_size"];
+
     
     self.renderer->watchMode = false;
     for (int i = 0; i<4; ++i){
@@ -47,9 +54,12 @@
 
 
 - (void)setupWatchViewMode{
-    
+    self.UIConfigurations[@"UIRotationLock"] =
+    [NSNumber numberWithBool:NO];
     // rotate the screen
     objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationLandscapeLeft );
+    self.UIConfigurations[@"UIRotationLock"] =
+    [NSNumber numberWithBool:YES];
     
     self.renderer->model->configurations[@"font_size"] =
     self.model->cache_configurations[@"font_size"];
@@ -78,6 +88,9 @@
     self.watchCompassInteractionSwitch.on =
     [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue];
     [self.watchSidebar setHidden:NO];
+    
+    //Hide all panels
+    [self hideAllPanels];
 }
 
 

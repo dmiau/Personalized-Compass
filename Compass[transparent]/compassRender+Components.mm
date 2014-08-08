@@ -272,7 +272,7 @@ BOOL compassRender::drawBoundaryCircle(double renderD2realDRatio)
     // Draw the circle
     glLineWidth(2);
     glColor4f(1, 0, 0, 0.5);
-    drawCircle(0, 0, boundary_radius, 20, false);
+    drawCircle(0, 0, boundary_radius, 50, false);
     return true;
 }
 
