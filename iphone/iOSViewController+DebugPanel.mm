@@ -14,7 +14,7 @@
     [self takeSnapshot];
     self.snapshotStatusTextView.text =
     [NSString stringWithFormat:@"%@\n %lu",
-     [self.model->location_filename lastPathComponent],
+     [self.model->snapshot_filename lastPathComponent],
      self.model->snapshot_array.size()];
 }
 

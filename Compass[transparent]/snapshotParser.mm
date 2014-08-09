@@ -129,7 +129,7 @@ int readSnapshotKml(compassMdl* mdl){
         notes_flag = true;
     }else if ([elementName isEqualToString:@"date"]){
         date_flag = true;
-    }else if ([elementName isEqualToString:@"selected_id"]){
+    }else if ([elementName isEqualToString:@"selected_ids"]){
         selected_id_flag = true;
     }
 }
@@ -204,7 +204,7 @@ int readSnapshotKml(compassMdl* mdl){
         notes_flag = false;
     }else if ([elementName isEqualToString:@"date"]){
         date_flag = false;
-    }else if ([elementName isEqualToString:@"selected_id"]){
+    }else if ([elementName isEqualToString:@"selected_ids"]){
         selected_id_flag = false;
     }
 }

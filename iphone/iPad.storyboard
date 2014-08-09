@@ -50,7 +50,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bsL-PH-kKP" kind="modal" modalPresentationStyle="formSheet" id="pu3-4Z-xsR"/>
+                                    <segue destination="bsL-PH-kKP" kind="modal" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="pu3-4Z-xsR"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6q-wo-nON">
@@ -656,6 +656,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="formSheet" id="gEt-Nl-vrl" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="540" height="620"/>
