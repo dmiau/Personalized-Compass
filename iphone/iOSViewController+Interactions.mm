@@ -65,6 +65,9 @@
     NSLog(@"Double tap!");
 }
 
+//--------------------
+// This controls how the compass is moved
+//--------------------
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
@@ -111,7 +114,11 @@
         }
         // The order is important
         self.renderer->loadParametersFromModelConfiguration();
-        [self updateModelCompassCenterXY];
+        
+        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
+            [self updateModelCompassCenterXY];
+        }
+        
         [self.glkView setNeedsDisplay];
         return;
     }else if (gestureRecognizer.state != UIGestureRecognizerStateBegan){
@@ -157,6 +164,10 @@
     return YES;
 }
 
+
+//--------------------
+// This controls how the compass is zoomed
+//--------------------
 - (void)pinchGesture:(UIPinchGestureRecognizer *)recognizer
 {
     if (![self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue])

@@ -1380,13 +1380,25 @@ http://stackoverflow.com/questions/20987249/how-do-i-programmatically-set-device
 - remove rotation control
 - modify readLocationKml
 
+-------------------------------------------------------------------
+8.9.2014
+-------------------------------------------------------------------
+tutorial to add directions to map:
 
+Apple's doc:
+https://developer.apple.com/library/ios/documentation/userexperience/Conceptual/LocationAwarenessPG/ProvidingDirections/ProvidingDirections.html
 
+Stackoverflow-add interaction to polylines:
+http://stackoverflow.com/questions/11713788/how-to-detect-taps-on-mkpolylines-overlays-like-maps-app
 
+A tutorial:
+http://www.techotopia.com/index.php/Using_MKDirections_to_get_iOS_7_Map_Directions_and_Routes
 
-
-
-
+-------------------------------------------------------------------
+8.10.2014
+-------------------------------------------------------------------
+- fixing the locking panel bug
+- added a switch to lock the center
 
 
 

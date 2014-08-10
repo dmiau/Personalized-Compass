@@ -57,7 +57,7 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+//    [super viewWillAppear:animated];
     if (selected_snapshot_id > -1){
         UITableViewCell* cell = [self.myTableView
                                  cellForRowAtIndexPath:

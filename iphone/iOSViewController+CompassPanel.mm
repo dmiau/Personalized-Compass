@@ -389,4 +389,16 @@
     }
 }
 
+- (IBAction)toggleCompassCenterLock:(UISwitch*)sender {
+    
+    if (sender.on){
+        self.UIConfigurations[@"UICompassCenterLocked"] =
+        [NSNumber numberWithBool:true];
+    }else{
+        self.UIConfigurations[@"UICompassCenterLocked"] =
+        [NSNumber numberWithBool:false];
+    }
+    
+}
+
 @end

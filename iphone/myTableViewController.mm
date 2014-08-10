@@ -124,7 +124,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+//    [super viewWillAppear:animated];
     [self.myTableView reloadData];
     if (selected_id > -1){
         UITableViewCell* cell = [self.myTableView
@@ -159,7 +159,12 @@
     myNavigationController.navigationBar.barTintColor =
     [UIColor colorWithRed:213.0/255 green:108.0/255 blue:46.0/255 alpha:1];
     myNavigationController.navigationBar.topItem.title = @"Bookmarks";
-    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    // Save kml before exiting
+    [self saveKML:nil];
+    [super viewWillDisappear:animated];
 }
 
 

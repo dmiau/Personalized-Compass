@@ -15,8 +15,12 @@
     UISwitch* mySwitch = (UISwitch*) sender;
     if ([mySwitch isOn] == YES){
         self.model->lockLandmarks = true;
+        self.dataSegmentControl.enabled = false;
+        self.filterSegmentControl.enabled = false;
     }else{
         self.model->lockLandmarks = false;
+        self.dataSegmentControl.enabled = true;
+        self.filterSegmentControl.enabled = true;
     }
 
 }

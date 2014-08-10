@@ -68,7 +68,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+//    [super viewWillAppear:animated];
     
     if (dirty_flag){
         [self updateHistoryFileList];

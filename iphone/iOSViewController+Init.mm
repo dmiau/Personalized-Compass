@@ -87,6 +87,8 @@
                                   forKey:@"UICompassTouched"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
                                   forKey:@"UICompassInteractionEnabled"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UICompassCenterLocked"];
     }
     return self;
 }

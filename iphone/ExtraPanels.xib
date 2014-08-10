@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="iOSViewController">
             <connections>
+                <outlet property="compassCenterLockSwitch" destination="Yeq-1i-rae" id="2Tu-Wl-8Ic"/>
                 <outlet property="compassInteractionSwitch" destination="rvI-31-UeQ" id="Rig-dd-mYM"/>
                 <outlet property="compassModeSegmentControl" destination="JZD-YD-lpV" id="Zdv-Me-rcR"/>
                 <outlet property="compassSegmentControl" destination="gdc-No-bBu" id="Ajg-Nj-mvp"/>
@@ -237,12 +238,26 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvI-31-UeQ">
-                    <rect key="frame" x="136" y="5" width="51" height="31"/>
+                    <rect key="frame" x="104" y="5" width="51" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <connections>
                         <action selector="toggleCompassInteraction:" destination="-1" eventType="valueChanged" id="g9K-Vw-j2F"/>
                     </connections>
                 </switch>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yeq-1i-rae">
+                    <rect key="frame" x="256" y="5" width="51" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <action selector="toggleCompassCenterLock:" destination="-1" eventType="valueChanged" id="RD2-F1-EaZ"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lock Ctr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hr-bv-8fm">
+                    <rect key="frame" x="174" y="10" width="69" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

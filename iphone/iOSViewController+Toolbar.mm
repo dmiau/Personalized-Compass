@@ -225,6 +225,8 @@
         self.compassInteractionSwitch.on =
         [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue];
         
+        self.compassCenterLockSwitch.on =
+        [self.UIConfigurations[@"UICompassCenterLocked"] boolValue];
     }else{
         [[self watchPanel] setHidden:YES];
     }

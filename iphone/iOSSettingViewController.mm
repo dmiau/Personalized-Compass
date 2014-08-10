@@ -74,7 +74,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    [super viewWillAppear:animated];
+//    [super viewWillAppear:animated];
 
     // Do any additional setup after loading the view.
     [self selectDefaultLocationFromPicker];

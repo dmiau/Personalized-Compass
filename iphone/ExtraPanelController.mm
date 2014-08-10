@@ -31,8 +31,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    NSLog(@"extra panel controller viewWillAppear called");
+//    [super viewWillAppear:animated];
+//    NSLog(@"extra panel controller viewWillAppear called");
 }
 
 

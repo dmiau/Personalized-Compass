@@ -8,6 +8,7 @@
 
 #import "SnapshotDetailViewController.h"
 #import "xmlParser.h"
+#import "AppDelegate.h"
 
 @interface SnapshotDetailViewController ()
 
@@ -27,7 +28,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+//    [super viewWillAppear:animated];
     if (cache_kml_filename != nil){
         self.mySnapshot->selected_ids.clear();
         
@@ -47,6 +48,29 @@
     // Generated selected ID string
     self.selectedIDTextView.text =
     [NSString stringWithFormat:@"%lu selected", self.mySnapshot->selected_ids.size()];
+    
+    
+    //-------------------
+    // Change navigation bar color
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    NSDictionary *navbarTitleTextAttributes =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     [UIColor blueColor],UITextAttributeTextColor,
+     [UIColor blackColor], UITextAttributeTextShadowColor,nil];
+    
+    [myNavigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
+    myNavigationController.navigationBar.tintColor = [UIColor blueColor];
+    
+    myNavigationController.navigationBar.barTintColor =
+    [UIColor whiteColor];
+    myNavigationController.navigationBar.topItem.title = @"Snapshot Detail";
+    
+    
 }
 
 

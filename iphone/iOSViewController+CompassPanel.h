@@ -17,5 +17,6 @@
 - (IBAction)labelSegmentControl:(id)sender;
 
 - (IBAction)toggleCompassInteraction:(id)sender;
+- (IBAction)toggleCompassCenterLock:(id)sender;
 
 @end

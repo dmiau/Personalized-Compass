@@ -20,10 +20,14 @@
     // Make navigation bar disappeared
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
+//    [super viewWillAppear:animated];
     
     self.model->updateMdl();
     
+    //-------------------
+    // Hide all panels
+    //-------------------
+    [self hideAllPanels];
     
     //-------------------
     // Build a toolboar

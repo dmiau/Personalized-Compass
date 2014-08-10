@@ -73,6 +73,7 @@ enum findMe_enum{
 @property (weak, nonatomic) IBOutlet UISegmentedControl *compassSegmentControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *compassModeSegmentControl;
 @property (weak, nonatomic) IBOutlet UISwitch *compassInteractionSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *compassCenterLockSwitch;
 
 
 - (void) setupPhoneViewMode;
