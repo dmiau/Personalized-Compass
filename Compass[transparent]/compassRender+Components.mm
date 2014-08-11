@@ -227,7 +227,7 @@ BOOL compassRender::drawBox(double renderD2realDRatio)
 //    NSLog(@"-------------");
     
     // Draw the box
-    glLineWidth(2);
+    glLineWidth(3);
     glColor4f(1, 0, 0, 0.5);
     glPushMatrix();
     // Plot the triangle first, then rotate and translate

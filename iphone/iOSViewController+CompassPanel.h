@@ -18,5 +18,6 @@
 
 - (IBAction)toggleCompassInteraction:(id)sender;
 - (IBAction)toggleCompassCenterLock:(id)sender;
+- (IBAction)resetUICompass:(id)sender;
 
 @end

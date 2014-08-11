@@ -209,9 +209,9 @@
         {
             self.compassSegmentControl.selectedSegmentIndex = 1;
         }else if (self.conventionalCompassVisible){
-            self.compassSegmentControl.selectedSegmentIndex = 0;
-        }else{
             self.compassSegmentControl.selectedSegmentIndex = 2;
+        }else{
+            self.compassSegmentControl.selectedSegmentIndex = 0;
         }
         
         //Configure mode

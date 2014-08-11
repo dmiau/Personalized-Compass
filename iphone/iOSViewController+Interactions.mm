@@ -202,9 +202,20 @@
     if ( [self.UIConfigurations[@"UICompassTouched"] boolValue]
         && recognizer.state == UIGestureRecognizerStateChanged)
     {
-        double scale = recognizer.scale;
-        self.model->configurations[@"compass_scale"] =
-        [NSNumber numberWithFloat: starting_scale * scale];
+        double scale = starting_scale * recognizer.scale;
+        double limit;
+        
+        if (self.renderer->watchMode){
+            limit = 0.15;
+        }else{
+            limit = 0.2;
+        }
+                
+        if (scale > limit){
+            // Set a limit to the scale
+            self.model->configurations[@"compass_scale"] =
+            [NSNumber numberWithFloat: scale];
+        }
         
         self.renderer->loadParametersFromModelConfiguration();
         [self updateModelCompassCenterXY];

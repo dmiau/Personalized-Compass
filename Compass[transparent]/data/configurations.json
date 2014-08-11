@@ -71,8 +71,8 @@
   },
   {
   "property": "circle_color",
-  "value": [255, 0, 0],
-  "comment": "old: [46, 100, 213]"
+  "value": [40, 202, 252],
+  "comment": "old: [70, 161, 251]"
   },
   {
   "property": "disk_color",

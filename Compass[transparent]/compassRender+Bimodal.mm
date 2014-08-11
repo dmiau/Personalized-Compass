@@ -192,14 +192,22 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // draw the hollow indicator
     // (to indicate that there is a boudary indicator
     // ---------------
-    if (isBoundaryIndicatorDrawn){
+    if (!isBoundaryIndicatorDrawn){
+////        glPushMatrix();
+//        glColor4f(1, 1, 1, 1);
+////        glTranslatef(0, 0, 2);
+////        drawCircle(0, 0, central_disk_radius/1.5, 50, true);
+////        glPopMatrix();
+//    }else{
+        glColor4f(1, 0, 0, 1);
         glPushMatrix();
-        glColor4f(0, 0, 0, 0);
         glTranslatef(0, 0, 2);
-        drawCircle(0, 0, central_disk_radius/1.5, 50, true);
+        drawCircle(0, 0, central_disk_radius/2, 50, true);
         glPopMatrix();
     }
 
+    
+    
     // ---------------
     // draw the scale indicator
     // ---------------

@@ -261,6 +261,18 @@
 }
 
 
+//-----------------------
+// Compass Lcoation Control
+//-----------------------
+- (IBAction)resetUICompass:(id)sender {
+    
+    if (self.renderer->watchMode){
+            [self changeCompassLocationTo:@"Center"];
+    }else{
+            [self changeCompassLocationTo:@"UR"];
+    }
+}
+
 - (IBAction)compassLocationSegmentControl:(id)sender {
     
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
@@ -392,6 +404,8 @@
 - (IBAction)toggleCompassCenterLock:(UISwitch*)sender {
     
     if (sender.on){
+        [self changeCompassLocationTo:@"Center"];
+    
         self.UIConfigurations[@"UICompassCenterLocked"] =
         [NSNumber numberWithBool:true];
     }else{

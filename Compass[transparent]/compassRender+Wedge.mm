@@ -241,21 +241,6 @@ void compassRender::drawOneSide(double rotation, double width, double height,
     
     double aperture = (5+corrected_off_screen_dist*0.3)/leg;
     leg = leg / correction_x;
-   
-//    if (watchMode){
-////        max_aperture =
-////        acos((pow(dist, 2) + pow(leg, 2) - pow(screen_dist, 2))/(2*leg*dist))*2
-////        * 0.95;
-//        
-//        // This part can be optimized later
-//        float radius = [model->configurations[@"watch_radius"] floatValue];
-//        
-//        float max_intrusion = radius * 0.25;
-//        
-//        float max_half_base = sqrt(pow(radius, 2) - pow(radius * 0.75, 2)) * 0.75;
-//        max_aperture = atan2(max_half_base, dist - radius * 0.75);
-//        max_leg = sqrt(pow(dist - radius*0.75, 2) + pow(max_half_base, 2));
-//    }
 
     //-------------------
     // Apply constraints
