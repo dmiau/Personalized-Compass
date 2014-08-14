@@ -51,6 +51,29 @@
             break;
             
     }
+    
+#ifdef __IPAD__
+    // cache glkView size
+    static CGRect cacheGlkSize = self.glkView.frame;
+    
+    if ([self.model->configurations[@"wedge_status"] isEqualToString: @"on"]){
+        self.glkView.frame = self.mapView.frame;
+    }else{
+        self.glkView.frame = cacheGlkSize;
+    }
+    
+    double width = self.glkView.frame.size.width;
+    double height = self.glkView.frame.size.height;
+    
+    // Update the viewport
+    
+    // This line is important.
+    // In order to maintain 1-1 OpenGL and screen pixel mapping,
+    // the following line is necessary!
+    self.renderer->initRenderView(width, height);
+    self.renderer->updateViewport(0, 0, width, height);
+#endif
+    
     [self.glkView setNeedsDisplay];
 }
 
@@ -61,9 +84,9 @@
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     
     // Need to cache glkview's inital location:
-    static CGRect cache_rect =  self.glkView.frame;
-    
-    self.glkView.frame = cache_rect;
+//    static CGRect cache_rect =  self.glkView.frame;
+//    
+//    self.glkView.frame = cache_rect;
     switch ([segmentedControl selectedSegmentIndex]) {
         case 0:
             //------------

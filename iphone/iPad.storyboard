@@ -307,13 +307,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdx-Ye-iGG">
+                                <rect key="frame" x="0.0" y="529" width="540" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="[All]" id="7Sf-Nb-mk2">
+                                        <connections>
+                                            <action selector="toggleLandmakrSelection:" destination="06K-e6-nHH" id="iSE-Di-ds4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="[None]" id="UrQ-hc-5na">
+                                        <connections>
+                                            <action selector="toggleLandmakrSelection:" destination="06K-e6-nHH" id="nar-CB-ZSK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="[Save]" id="Hz8-l4-C72">
+                                        <connections>
+                                            <action selector="saveKML:" destination="06K-e6-nHH" id="mjH-08-SWx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="[SaveAs]" id="5Zv-9l-CsO">
+                                        <connections>
+                                            <action selector="saveKMLAs:" destination="06K-e6-nHH" id="8SN-w0-Wt6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-2a-KPk">
-                                <rect key="frame" x="0.0" y="107" width="540" height="421"/>
+                                <rect key="frame" x="0.0" y="74" width="540" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myTableCell" editingAccessoryType="detailDisclosureButton" textLabel="oNK-1L-dSv" detailTextLabel="a1y-EE-quq" style="IBUITableViewCellStyleSubtitle" id="qf3-d4-nwl" customClass="landmarkCell">
-                                        <rect key="frame" x="0.0" y="66" width="540" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qf3-d4-nwl" id="A78-eO-12L">
                                             <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
@@ -342,34 +368,8 @@
                                     <outlet property="delegate" destination="06K-e6-nHH" id="wSc-yt-mDW"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdx-Ye-iGG">
-                                <rect key="frame" x="0.0" y="529" width="540" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="[All]" id="7Sf-Nb-mk2">
-                                        <connections>
-                                            <action selector="toggleLandmakrSelection:" destination="06K-e6-nHH" id="iSE-Di-ds4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="[None]" id="UrQ-hc-5na">
-                                        <connections>
-                                            <action selector="toggleLandmakrSelection:" destination="06K-e6-nHH" id="nar-CB-ZSK"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="[Save]" id="Hz8-l4-C72">
-                                        <connections>
-                                            <action selector="saveKML:" destination="06K-e6-nHH" id="mjH-08-SWx"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="[SaveAs]" id="5Zv-9l-CsO">
-                                        <connections>
-                                            <action selector="saveKMLAs:" destination="06K-e6-nHH" id="8SN-w0-Wt6"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKG-Sq-1Rk">
-                                <rect key="frame" x="435" y="73" width="30" height="30"/>
+                                <rect key="frame" x="494" y="47" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -952,7 +952,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="9p9-iU-aHD"/>
-        <segue reference="8zP-rM-KBw"/>
         <segue reference="BgQ-4a-n31"/>
+        <segue reference="o1W-f4-fus"/>
     </inferredMetricsTieBreakers>
 </document>

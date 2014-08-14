@@ -66,7 +66,9 @@
 }
 
 //--------------------
-// This controls how the compass is moved
+// handleGesture detects long pauses, which triggers the following events
+// - drop pin
+// - move the compass
 //--------------------
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
@@ -171,7 +173,9 @@
 - (void)pinchGesture:(UIPinchGestureRecognizer *)recognizer
 {
     if (![self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue]
-        || [self.glkView isHidden])
+        || [self.glkView isHidden]
+        || [self.model->configurations[@"personalized_compass_status"]
+         isEqualToString:@"off"])
         return;
 
     static float starting_scale = 1;
@@ -219,7 +223,11 @@
         }
         
         self.renderer->loadParametersFromModelConfiguration();
-        [self updateModelCompassCenterXY];
+        
+        
+        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
+            [self updateModelCompassCenterXY];
+        }
         [self.glkView setNeedsDisplay];
     }
     

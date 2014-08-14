@@ -1412,6 +1412,23 @@ http://www.techotopia.com/index.php/Using_MKDirections_to_get_iOS_7_Map_Directio
 -------------------------------------------------------------------
 - modified wedge style
 - need to fix label info
+- there are bugs in interaction
+need to check this "personalized_compass_status" too
+- lock center mode gets disabled after the compass is moved
+- consider change color scheme
+- consider adding background for labels
+- improve perspective projection
+- improve overview map to make a fair comparison
+
+- enabling wedge on iPad, text renderin is the performance bottleneck
+
+
+
+
+
+
+
+
 
 
 
