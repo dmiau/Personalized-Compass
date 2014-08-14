@@ -325,12 +325,12 @@
 		9A239EE0196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
 		9A239EE1196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
 		9A239EE2196EFF410064BDC9 /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A239EDC196EFF410064BDC9 /* new.kml */; };
-		9A259D5C199AF8A300FDDD7F /* wedgeClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* wedgeClass.mm */; };
-		9A259D5D199AF8A300FDDD7F /* wedgeClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* wedgeClass.mm */; };
-		9A259D5E199AF8A300FDDD7F /* wedgeClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* wedgeClass.mm */; };
-		9A259D5F199AF8A300FDDD7F /* wedgeClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* wedgeClass.mm */; };
-		9A259D60199AF8A300FDDD7F /* wedgeClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* wedgeClass.mm */; };
-		9A259D61199AF8A300FDDD7F /* wedgeClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* wedgeClass.mm */; };
+		9A259D5C199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* Wedge+Ortho.mm */; };
+		9A259D5D199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* Wedge+Ortho.mm */; };
+		9A259D5E199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* Wedge+Ortho.mm */; };
+		9A259D5F199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* Wedge+Ortho.mm */; };
+		9A259D60199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* Wedge+Ortho.mm */; };
+		9A259D61199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A259D5A199AF8A300FDDD7F /* Wedge+Ortho.mm */; };
 		9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
 		9A2E42DE196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
 		9A2E42DF196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */; };
@@ -662,6 +662,12 @@
 		9AE020B2198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE020B3198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE093D118ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
+		9AE57281199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
+		9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
+		9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
+		9AE57284199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
+		9AE57285199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
+		9AE57286199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AEA57D118D9EBB20028B80C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
 		9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
 		9AEA57DD18D9EBB20028B80C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
@@ -885,8 +891,8 @@
 		9A03755C198DA31800258E95 /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
 		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
 		9A239EDC196EFF410064BDC9 /* new.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = new.kml; sourceTree = "<group>"; };
-		9A259D5A199AF8A300FDDD7F /* wedgeClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wedgeClass.mm; sourceTree = "<group>"; };
-		9A259D5B199AF8A300FDDD7F /* wedgeClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wedgeClass.h; sourceTree = "<group>"; };
+		9A259D5A199AF8A300FDDD7F /* Wedge+Ortho.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Wedge+Ortho.mm"; sourceTree = "<group>"; };
+		9A259D5B199AF8A300FDDD7F /* Wedge+Ortho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wedge+Ortho.h"; sourceTree = "<group>"; };
 		9A28368A1900C0850041D22E /* readConfiguration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = readConfiguration.mm; sourceTree = "<group>"; };
 		9A2E42DC196C8A2800CF8862 /* HeadingAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadingAnnotationView.h; sourceTree = "<group>"; };
 		9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadingAnnotationView.m; sourceTree = "<group>"; };
@@ -1018,6 +1024,8 @@
 		9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BreadcrumbDetailViewController.mm; sourceTree = "<group>"; };
 		9AE093CF18ECA56400DFC16F /* DesktopViewController+MapViewAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+MapViewAddition.h"; sourceTree = "<group>"; };
 		9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+MapViewAddition.mm"; sourceTree = "<group>"; };
+		9AE5727F199CF8D60055799F /* Wedge+Radial.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Wedge+Radial.mm"; sourceTree = "<group>"; };
+		9AE57280199CF8D60055799F /* Wedge+Radial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wedge+Radial.h"; sourceTree = "<group>"; };
 		9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compass[transparent].app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEA57D018D9EBB20028B80C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AEA57D318D9EBB20028B80C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -1529,8 +1537,10 @@
 				9A998C911949F32800778DFC /* compassRender+Components.mm */,
 				9AB90B93194F383A0030BF5B /* compassRender+Bimodal.mm */,
 				9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */,
-				9A259D5A199AF8A300FDDD7F /* wedgeClass.mm */,
-				9A259D5B199AF8A300FDDD7F /* wedgeClass.h */,
+				9AE5727F199CF8D60055799F /* Wedge+Radial.mm */,
+				9AE57280199CF8D60055799F /* Wedge+Radial.h */,
+				9A259D5A199AF8A300FDDD7F /* Wedge+Ortho.mm */,
+				9A259D5B199AF8A300FDDD7F /* Wedge+Ortho.h */,
 				9AAE13D819046975003BF9B7 /* renderStyles.mm */,
 				9AEA582718D9ED350028B80C /* OpenGLView.h */,
 				9AEA582818D9ED350028B80C /* OpenGLView.mm */,
@@ -2270,10 +2280,11 @@
 				9A03766F198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
 				9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */,
 				9A037609198DA31900258E95 /* b2CircleContact.cpp in Sources */,
-				9A259D60199AF8A300FDDD7F /* wedgeClass.mm in Sources */,
+				9A259D60199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A75715C197D804100C23AEE /* historyParser.mm in Sources */,
 				9AB90B98194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A0375A3198DA31800258E95 /* b2CircleShape.cpp in Sources */,
+				9AE57285199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A03736D198AF8A500258E95 /* TestManager.mm in Sources */,
 				9AFD8F5A197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A03762D198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
@@ -2344,6 +2355,7 @@
 				9AFD8F6A197F3DC80099BD88 /* SnapshotDetailViewController.mm in Sources */,
 				9A82B6351941518900534A5F /* compassRender.mm in Sources */,
 				9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */,
+				9AE57286199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A480891198BE79E0001E188 /* DebugSettingViewController.mm in Sources */,
 				9A75715D197D804100C23AEE /* historyParser.mm in Sources */,
 				9AFD8F5B197C20000099BD88 /* genSnapshotString.mm in Sources */,
@@ -2398,7 +2410,7 @@
 				9A037646198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A037628198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A3DA0A91964F5E3009E0073 /* genKMLString.mm in Sources */,
-				9A259D61199AF8A300FDDD7F /* wedgeClass.mm in Sources */,
+				9A259D61199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9ABB96B51957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
 				9A0375AA198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
 				9A60F8A1198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */,
@@ -2440,6 +2452,7 @@
 				9A037584198DA31800258E95 /* b2Collision.cpp in Sources */,
 				9AA7890F1909FE3000A26C66 /* DesktopViewController+TableAddition.mm in Sources */,
 				9A0375BA198DA31800258E95 /* b2Draw.cpp in Sources */,
+				9AE57284199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9AA789101909FE3000A26C66 /* xmlParser.mm in Sources */,
 				9A0375D2198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9AA789111909FE3000A26C66 /* compassModel.mm in Sources */,
@@ -2481,7 +2494,7 @@
 				9A037650198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
 				9A0375C0198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A75720D197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
-				9A259D5F199AF8A300FDDD7F /* wedgeClass.mm in Sources */,
+				9A259D5F199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A037572198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A03766E198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
@@ -2511,7 +2524,7 @@
 				9A037569198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
 				9A03764D198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
 				9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */,
-				9A259D5C199AF8A300FDDD7F /* wedgeClass.mm in Sources */,
+				9A259D5C199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A03756F198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A0375BD198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A0375A5198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
@@ -2522,6 +2535,7 @@
 				9AFD8F61197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A03760B198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A037605198DA31900258E95 /* b2CircleContact.cpp in Sources */,
+				9AE57281199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A0375E1198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A0375CF198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A037629198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
@@ -2608,7 +2622,7 @@
 				9A0375BF198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A998C941949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A9701D919083B26007C3C19 /* DesktopViewController+MapViewAddition.mm in Sources */,
-				9A259D5E199AF8A300FDDD7F /* wedgeClass.mm in Sources */,
+				9A259D5E199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A0375AD198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A9701DA19083B26007C3C19 /* DesktopViewController+CompassAddition.mm in Sources */,
 				9A0375C5198DA31900258E95 /* b2Settings.cpp in Sources */,
@@ -2634,6 +2648,7 @@
 				9A0375FB198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A03758F198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
+				9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A03756B198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
 				9A0375E3198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A0375E9198DA31900258E95 /* b2Island.cpp in Sources */,
@@ -2682,7 +2697,7 @@
 				9A4808A8198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
 				9A0375B8198DA31800258E95 /* b2Draw.cpp in Sources */,
 				9A037588198DA31800258E95 /* b2Distance.cpp in Sources */,
-				9A259D5D199AF8A300FDDD7F /* wedgeClass.mm in Sources */,
+				9A259D5D199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A2E42DF196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A037600198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
 				9A037594198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
@@ -2740,6 +2755,7 @@
 				9A0375CA198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9AECA769196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9AFB14A618EE639A00063632 /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9AFB14A718EE639A00063632 /* GLString.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

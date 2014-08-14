@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="tMe-Ri-yIE" userLabel="Map Style">
-                    <rect key="frame" x="94" y="17" width="203" height="29"/>
+                    <rect key="frame" x="83" y="18" width="213" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="None"/>
@@ -54,12 +54,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r2q-F1-87a">
-                    <rect key="frame" x="94" y="68" width="183" height="29"/>
+                    <rect key="frame" x="73" y="68" width="238" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="None"/>
                         <segment title="Original"/>
-                        <segment title="Modified"/>
+                        <segment title="[M]Ortho"/>
+                        <segment title="[M]Radial"/>
                     </segments>
                     <connections>
                         <action selector="wedgeSegmentControl:" destination="-1" eventType="valueChanged" id="8Qg-y8-9vl"/>

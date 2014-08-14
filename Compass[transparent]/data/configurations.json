@@ -51,8 +51,8 @@
   },
   {
   "property": "wedge_style",
-  "value": "modified",
-  "comment": "original, modified"
+  "value": "modified-orthographic",
+  "comment": "original, modified-orthographic, modified-perspective"
   },
   {
   "property": "separator",

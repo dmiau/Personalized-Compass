@@ -34,10 +34,17 @@
             break;
         case 2:
             //-----------
-            // Modified
+            // Modified-Orthographic
             //-----------
             self.model->configurations[@"wedge_status"] = @"on";
-            self.model->configurations[@"wedge_style"] = @"modified";
+            self.model->configurations[@"wedge_style"] = @"modified-orthographic";
+            break;
+        case 3:
+            //-----------
+            // Modified-Perspctive
+            //-----------
+            self.model->configurations[@"wedge_status"] = @"on";
+            self.model->configurations[@"wedge_style"] = @"modified-perspective";
             break;
         default:
             throw(runtime_error("Undefined control, update needed"));

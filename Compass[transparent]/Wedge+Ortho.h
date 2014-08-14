@@ -1,5 +1,5 @@
 //
-//  wedgeClass.h
+//  Wedge+Ortho.h
 //  Compass[transparent]
 //
 //  Created by dmiau on 8/12/14.
@@ -73,9 +73,7 @@ void applyCoordTransform(double x_diff, double y_diff,
                          double *tx, double *ty,
                          double *new_width, double *new_height);
 
-void calculateDistInBox(double width, double height,
-                        double tx, double ty,
-                        double* dist, double* rotation, double* max_aperture);
+
 
 
 #endif /* defined(__Compass_transparent___wedgeClass__) */

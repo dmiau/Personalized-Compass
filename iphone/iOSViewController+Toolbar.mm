@@ -313,7 +313,11 @@
         if ([self.model->configurations[@"wedge_status"]
              isEqualToString:@"on"])
         {
-            if ([self.model->configurations[@"wedge_style"] isEqualToString:@"modified"])
+            if ([self.model->configurations[@"wedge_style"]
+                 isEqualToString:@"modified-perspective"])
+                self.wedgeSegmentControl.selectedSegmentIndex = 3;
+            else if ([self.model->configurations[@"wedge_style"]
+                      isEqualToString:@"modified-orthographic"])
                 self.wedgeSegmentControl.selectedSegmentIndex = 2;
             else
                 self.wedgeSegmentControl.selectedSegmentIndex = 1;
