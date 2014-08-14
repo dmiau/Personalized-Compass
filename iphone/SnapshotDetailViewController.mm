@@ -139,10 +139,7 @@
 }
 
 #pragma mark -----Exit-----
-- (IBAction)dismissModalVC:(id)sender {
 
-    [self dismissViewControllerAnimated:YES completion:^{}];
-}
 
 - (IBAction)go2LocationView:(id)sender {
     // Temporay swap out some data

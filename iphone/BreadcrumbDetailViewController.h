@@ -25,5 +25,5 @@
 
 - (IBAction)clickedSaveButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *dataCount;
-- (IBAction)dismissModalVC:(id)sender;
+
 @end

@@ -23,11 +23,4 @@
 @property iOSViewController* rootViewController;
 
 - (IBAction)saveKML:(id)sender;
-
-//---------------
-// iPad
-//---------------
-- (IBAction)dismissModalVC:(id)sender;
-
-
 @end

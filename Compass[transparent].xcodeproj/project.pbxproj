@@ -659,6 +659,8 @@
 		9ACD80DA1986CB8900AAB052 /* iOSViewController+Init.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D91986CB8900AAB052 /* iOSViewController+Init.mm */; };
 		9ACD80DB1986CB8900AAB052 /* iOSViewController+Init.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D91986CB8900AAB052 /* iOSViewController+Init.mm */; };
 		9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
+		9AD5AB0E199D1C3900B351FA /* iPadTabBarController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5AB0D199D1C3900B351FA /* iPadTabBarController.mm */; };
+		9AD5AB11199D202700B351FA /* iPadNavigationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5AB10199D202700B351FA /* iPadNavigationViewController.mm */; };
 		9AE020B2198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE020B3198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE093D118ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
@@ -1020,6 +1022,10 @@
 		9ACD80D91986CB8900AAB052 /* iOSViewController+Init.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Init.mm"; sourceTree = "<group>"; };
 		9ACF5D8618EB572100F03872 /* DesktopViewController+TableAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+TableAddition.h"; sourceTree = "<group>"; };
 		9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+TableAddition.mm"; sourceTree = "<group>"; };
+		9AD5AB0C199D1C3900B351FA /* iPadTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadTabBarController.h; sourceTree = "<group>"; };
+		9AD5AB0D199D1C3900B351FA /* iPadTabBarController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iPadTabBarController.mm; sourceTree = "<group>"; };
+		9AD5AB0F199D202700B351FA /* iPadNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadNavigationViewController.h; sourceTree = "<group>"; };
+		9AD5AB10199D202700B351FA /* iPadNavigationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iPadNavigationViewController.mm; sourceTree = "<group>"; };
 		9AE020B0198152DC00381C5C /* BreadcrumbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreadcrumbDetailViewController.h; sourceTree = "<group>"; };
 		9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BreadcrumbDetailViewController.mm; sourceTree = "<group>"; };
 		9AE093CF18ECA56400DFC16F /* DesktopViewController+MapViewAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+MapViewAddition.h"; sourceTree = "<group>"; };
@@ -1371,6 +1377,7 @@
 		9A2ED70C19646B0200CA385E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9AD5AB0B199D1BF400B351FA /* iPad */,
 				9A480893198BE7BE0001E188 /* Root */,
 				9A480892198BE7AE0001E188 /* Debug */,
 				9A480894198BE7DB0001E188 /* Settings */,
@@ -1608,6 +1615,17 @@
 				9AA789361909FE5A00A26C66 /* browser.xib */,
 			);
 			name = WebBrowser;
+			sourceTree = "<group>";
+		};
+		9AD5AB0B199D1BF400B351FA /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				9AD5AB0C199D1C3900B351FA /* iPadTabBarController.h */,
+				9AD5AB0D199D1C3900B351FA /* iPadTabBarController.mm */,
+				9AD5AB0F199D202700B351FA /* iPadNavigationViewController.h */,
+				9AD5AB10199D202700B351FA /* iPadNavigationViewController.mm */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		9AEA57C418D9EBB20028B80C = {
@@ -2387,6 +2405,7 @@
 				9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */,
 				9A95CCB4194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 				9A037652198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
+				9AD5AB11199D202700B351FA /* iPadNavigationViewController.mm in Sources */,
 				9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */,
 				9A03767C198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9A2E42E3196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
@@ -2401,6 +2420,7 @@
 				9A0375E0198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
+				9AD5AB0E199D1C3900B351FA /* iPadTabBarController.mm in Sources */,
 				9A037664198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A0375B6198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A037598198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,

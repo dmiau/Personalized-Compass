@@ -275,15 +275,6 @@
     
 }
 
-#pragma mark -----Exit-----
-- (IBAction)dismissModalVC:(id)sender {
-    iOSViewController* parentVC = self.rootViewController;
-    [self dismissViewControllerAnimated:YES completion:^{
-        // call your completion method:
-        [parentVC viewWillAppear:YES];
-    }];
-}
-
 
 #pragma mark - Navigation
 //------------------

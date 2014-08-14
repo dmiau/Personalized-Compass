@@ -25,11 +25,6 @@
 - (IBAction)saveSnspahotAs:(id)sender;
 - (IBAction)reloadSnapshotFile:(id)sender;
 
-//---------------
-// iPad
-//---------------
-- (IBAction)dismissModalVC:(id)sender;
-
 
 //---------------
 // Parking lot

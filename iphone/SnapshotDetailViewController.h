@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *dateTextField;
 
 - (IBAction)doneEditing:(id)sender;
-- (IBAction)dismissModalVC:(id)sender;
+
 - (IBAction)go2LocationView:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *selectedIDTextView;
 
