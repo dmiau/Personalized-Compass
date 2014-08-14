@@ -145,11 +145,21 @@
     NSString *label = [segmentedControl
                        titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
     
-    if ([label isEqualToString:@"Standard"]){
+    if ([label isEqualToString:@"None"]){
+        mapMask.backgroundColor = [[UIColor whiteColor] CGColor];
+        mapMask.frame = CGRectMake(0, 0,
+                                   self.mapView.frame.size.width,
+                                   self.mapView.frame.size.height);
+        mapMask.opacity = 1;
+        [self.mapView.layer addSublayer:mapMask];
+    }else if ([label isEqualToString:@"Standard"]){
+        [mapMask removeFromSuperlayer];
         self.mapView.mapType = MKMapTypeStandard;
     }else if ([label isEqualToString:@"Hybrid"]){
+        [mapMask removeFromSuperlayer];
         self.mapView.mapType = MKMapTypeHybrid;
-    }else{
+    }else if ([label isEqualToString:@"Satellite"]){
+        [mapMask removeFromSuperlayer];
         self.mapView.mapType = MKMapTypeSatellite;
     }
     [self.glkView setNeedsDisplay];

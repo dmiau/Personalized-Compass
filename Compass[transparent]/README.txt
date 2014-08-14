@@ -1401,8 +1401,11 @@ http://www.techotopia.com/index.php/Using_MKDirections_to_get_iOS_7_Map_Directio
 - added a switch to lock the center
 
 
-
-
+-------------------------------------------------------------------
+8.13.2014
+-------------------------------------------------------------------
+- implemented yet another version of wedge
+- prototype does help. the better you prototype, the better you understand the problem
 
 
 

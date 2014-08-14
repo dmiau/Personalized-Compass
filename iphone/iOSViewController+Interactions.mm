@@ -170,7 +170,8 @@
 //--------------------
 - (void)pinchGesture:(UIPinchGestureRecognizer *)recognizer
 {
-    if (![self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue])
+    if (![self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue]
+        || [self.glkView isHidden])
         return;
 
     static float starting_scale = 1;
@@ -203,15 +204,15 @@
         && recognizer.state == UIGestureRecognizerStateChanged)
     {
         double scale = starting_scale * recognizer.scale;
-        double limit;
-        
+        double min_limit, max_limit;
+        max_limit = 1.0;
         if (self.renderer->watchMode){
-            limit = 0.15;
+            min_limit = 0.15;
         }else{
-            limit = 0.2;
+            min_limit = 0.2;
         }
                 
-        if (scale > limit){
+        if ((scale >= min_limit) && (scale <= max_limit)){
             // Set a limit to the scale
             self.model->configurations[@"compass_scale"] =
             [NSNumber numberWithFloat: scale];
@@ -249,6 +250,10 @@
 
 
 - (bool)isCompassTouched: (CGPoint) touchPoint{
+    
+    if ([self.glkView isHidden])
+        return false;    
+    
     //--------------------
     // Check if the compass is pressed
     //--------------------
