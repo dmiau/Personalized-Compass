@@ -54,6 +54,8 @@ public:
     double base;
     double min_base;
     double visible_leg;
+    
+    label_info wedgeLabelinfo;
 public:
     wedge(compassMdl* myMdl, box screen_box, CGPoint diff_xy);
     wedgeParams calculateRegionOneParams(double tx, double ty);

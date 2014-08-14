@@ -1411,7 +1411,7 @@ http://www.techotopia.com/index.php/Using_MKDirections_to_get_iOS_7_Map_Directio
 8.14.2014
 -------------------------------------------------------------------
 - modified wedge style
-
+- need to fix label info
 
 
 

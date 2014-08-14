@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#import <CoreGraphics/CGGeometry.h>
 
 #ifdef __IPHONE__
 
@@ -40,6 +41,14 @@ inline bool compareDecending(const pair<float, int> &l,
     return(l.first > r.first);
 }
 
+
+inline CGPoint rotateCCW(CGPoint xy, double deg){
+    CGPoint out_xy;
+    double theta = deg/180 * M_PI; // in radians
+    out_xy.x = cos(theta)*xy.x - sin(theta)*xy.y;
+    out_xy.y = sin(theta)*xy.x + cos(theta)*xy.y;
+    return out_xy;
+}
 
 struct Vertex3D{
     GLfloat x;

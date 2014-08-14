@@ -93,7 +93,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
 
         
         double aperture, leg;
-        
+        label_info myLabelinfo;
         if ([model->configurations[@"wedge_style"]
              isEqualToString:@"modified-orthographic"]){
           
@@ -102,7 +102,10 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             my_wedge.render();
             leg = my_wedge.leg;
             aperture = my_wedge.aperture;
- 
+            //---------------------
+            // Populate label_info_array
+            //---------------------
+            myLabelinfo = my_wedge.wedgeLabelinfo;
         }else{
              double rotation, tx, ty, new_width, new_height;
             applyCoordTransform(x_diff, y_diff,
@@ -113,14 +116,9 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             
             drawOneSide(rotation, new_width, new_height, tx, ty,
                         &leg, &aperture);
-        
-        }
-        
-        if (i != -1){
             //---------------------
             // Populate label_info_array
             //---------------------
-            label_info myLabelinfo;
             double label_radius = leg * cos(aperture/2);
             double label_orientation = atan2(y_diff, x_diff);
             myLabelinfo.aperture = aperture;
@@ -129,9 +127,13 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             myLabelinfo.centroid = CGPointMake
             (label_radius * cos(label_orientation),
              label_radius * sin(label_orientation));
-            myLabelinfo.data_id = indices_for_rendering[i];
             myLabelinfo.orientation =
             -label_orientation / M_PI * 180 + 90;
+        
+        }
+        
+        if (i != -1){
+            myLabelinfo.data_id = indices_for_rendering[i];
             model->label_info_array.push_back(myLabelinfo);
         }
     }
