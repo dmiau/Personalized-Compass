@@ -165,7 +165,7 @@
         screenWidth = screenRect.size.height;
         screenHeight = screenRect.size.width;
         
-#ifdef __IPHONE__
+//#ifdef __IPHONE__
         if ([self.UIConfigurations[@"UIToolbarMode"]
              isEqualToString: @"Development"])
             [self constructDebugToolbar:@"Landscape"];
@@ -173,7 +173,7 @@
         if ([self.UIConfigurations[@"UIToolbarMode"]
              isEqualToString: @"Development"])
             [self constructDebugToolbar:@"Portrait"];
-#endif
+//#endif
     }
 
     for (int i = 0; i < [view_array count]; ++i){

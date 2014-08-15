@@ -13,17 +13,16 @@
 @implementation UINavigationController (rotation)
 
 -(BOOL)shouldAutorotate {
-    
-#ifndef __IPAD__
-    // Can I get a handle of the iOSViewController?    
-    iOSViewController* rootViewController =
-    [self.viewControllers objectAtIndex:0];
-    
-    return ![rootViewController.
-             UIConfigurations[@"UIRotationLock"] boolValue];
-#else
-    return false;
-#endif
+    if ([[self.viewControllers objectAtIndex:0] isKindOfClass:
+         [iOSViewController class]])
+    {
+        iOSViewController* rootViewController =
+        [self.viewControllers objectAtIndex:0];
+        return ![rootViewController.
+                 UIConfigurations[@"UIRotationLock"] boolValue];
+    }else{
+        return false;
+    }
 }
 
 @end

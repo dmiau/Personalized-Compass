@@ -1421,7 +1421,7 @@ need to check this "personalized_compass_status" too
 - improve overview map to make a fair comparison
 
 - enabling wedge on iPad, text renderin is the performance bottleneck
-
+- default positions (center, UR, BL) need to support rotation mode
 
 
 
