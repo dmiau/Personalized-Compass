@@ -1423,7 +1423,27 @@ need to check this "personalized_compass_status" too
 - enabling wedge on iPad, text renderin is the performance bottleneck
 - default positions (center, UR, BL) need to support rotation mode
 
+dropbox: need to observe file changes
+- (BOOL)addObserver:(id)observer forPath:(DBPath *)path block:(DBObserver)block
 
+How can I make a fair comparison to overview map?
+Can I implement an autozoom?
+
+- add in place search
+
+-------------------------------------------------------------------
+8.15.2014
+-------------------------------------------------------------------
+- add smart scale for the overview map
+modifying updateOverviewMap
+
+maybe I can use this function:
+
+MKCoordinateRegion MKCoordinateRegionMakeWithDistance(
+   CLLocationCoordinate2D centerCoordinate,
+   CLLocationDistance latitudinalMeters,
+   CLLocationDistance longitudinalMeters
+);
 
 
 

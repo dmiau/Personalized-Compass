@@ -61,6 +61,9 @@ enum findMe_enum{
 // View panel
 @property (weak, nonatomic) IBOutlet UISegmentedControl *overviewSegmentControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *wedgeSegmentControl;
+@property (weak, nonatomic) IBOutlet UILabel *scaleIndicator;
+@property (weak, nonatomic) IBOutlet UISlider *scaleSlider;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *overviewScaleSegmentControl;
 
 
 // Model panel
@@ -93,7 +96,7 @@ enum findMe_enum{
 //----------------
 @property (weak, nonatomic) IBOutlet UISearchBar *ibSearchBar;
 @property (weak, nonatomic) IBOutlet UIButton *findMeButton;
-@property (weak, nonatomic) IBOutlet UILabel *scaleIndicator;
+
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 

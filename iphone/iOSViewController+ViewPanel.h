@@ -20,5 +20,6 @@
 
 - (IBAction)scaleSlider:(id)sender;
 
+- (IBAction)toggleOverviewScaleSegmentControl:(id)sender;
 
 @end

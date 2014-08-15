@@ -94,6 +94,7 @@
             //------------
             [self toggleOverviewMap:NO];
             [self togglePCompass:NO];
+            [self toggleConventionalCompass:YES];
             break;
         case 1:
             //------------
@@ -101,12 +102,21 @@
             //------------
             [self togglePCompass:NO];
             [self toggleOverviewMap:YES];
+            [self toggleConventionalCompass:YES];
             break;
         case 2:
             //------------
             // PCompass
             //------------
             [self toggleOverviewMap:NO];
+            [self togglePCompass:YES];
+            [self toggleConventionalCompass:NO];
+            break;
+        case 3:
+            //------------
+            // Both
+            //------------
+            [self toggleOverviewMap:YES];
             [self togglePCompass:YES];
             [self toggleConventionalCompass:NO];
             break;
@@ -132,6 +142,13 @@
         self.overviewMapView.layer.borderWidth = 2.0f;
         self.renderer->isOverviewMapEnabled = true;
         [self updateOverviewMap];
+        
+        // Configure the scale slider
+        float scale = [self.model->configurations[@"overview_map_scale"]
+                       floatValue];
+        self.scaleSlider.value = scale;
+        self.scaleIndicator.text = [NSString stringWithFormat:@"%2.1f",
+                                    scale];
     }else{
         [[self overviewMapView] setHidden:YES];
         self.renderer->isOverviewMapEnabled = false;
@@ -195,6 +212,19 @@
     [self.glkView setNeedsDisplay];
 }
 
+- (IBAction)toggleOverviewScaleSegmentControl:(UISegmentedControl *)sender{
+    int idx = [sender selectedSegmentIndex];
+    switch (idx) {
+        case 0:
+            self.UIConfigurations[@"UIOverviewScaleMode"] = @"Auto";
+            break;
+        case 1:
+            self.UIConfigurations[@"UIOverviewScaleMode"] = @"Fixed";
+            break;
+    }
+    [self updateOverviewMap];
+}
+
 //------------------
 // Update Overview map
 //------------------
@@ -204,16 +234,40 @@
         // Don't need to update if it is hidden
         return;
     }
-    
-    float scale = [self.model->configurations[@"overview_map_scale"]
-                   floatValue];
+
     MKCoordinateRegion region;
-    region.center.latitude = self.mapView.region.center.latitude;
-    region.center.longitude = self.mapView.region.center.longitude;
-
-    region.span.latitudeDelta = self.mapView.region.span.latitudeDelta * scale;
-    region.span.longitudeDelta = self.mapView.region.span.longitudeDelta * scale;
-
+    if ([self.UIConfigurations[@"UIOverviewScaleMode"]
+         isEqualToString:@"Auto"])
+    {
+        // Set the scale to match the compass scale instead
+        
+        // convert max dist to longitude and latitude
+        double max_dist = self.model->data_array
+        [self.model->findMaxDistIdx(self.model->indices_for_rendering)].distance
+        *1.5;
+        
+        double aspect_ratio = self.overviewMapView.frame.size.width/
+        self.overviewMapView.frame.size.height;
+        
+        region = MKCoordinateRegionMakeWithDistance
+        (self.mapView.region.center, max_dist, max_dist * aspect_ratio);
+        
+        // Update the scale
+        float scale = region.span.latitudeDelta/
+        self.mapView.region.span.latitudeDelta;
+        
+        self.model->configurations[@"overview_map_scale"] =
+        [NSNumber numberWithFloat:scale];
+    }else{
+        float scale = [self.model->configurations[@"overview_map_scale"]
+                       floatValue];
+        
+        region.center.latitude = self.mapView.region.center.latitude;
+        region.center.longitude = self.mapView.region.center.longitude;
+        
+        region.span.latitudeDelta = self.mapView.region.span.latitudeDelta * scale;
+        region.span.longitudeDelta = self.mapView.region.span.longitudeDelta * scale;
+    }
     
     // Check if the data is within the range
     if (region.span.latitudeDelta > 90) region.span.latitudeDelta = 90;
@@ -228,7 +282,6 @@
         [self.overviewMapView setCenterCoordinate:region.center];
     
     self.overviewMapView.camera.heading = -self.model->camera_pos.orientation;
-    
     
     //-------------
     // Disable overview map's compass

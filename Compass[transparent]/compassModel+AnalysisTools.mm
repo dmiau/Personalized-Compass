@@ -7,6 +7,20 @@
 #include "compassModel.h"
 #include "commonInclude.h"
 
+int compassMdl::findMaxDistIdx(vector<int> id_list){
+    int max_idx = 0;
+    double max_dist = 0;
+    // Not optimized
+    for (int i = 0; i < id_list.size(); ++i){
+        int j = id_list[i];
+        if (data_array[j].distance >= max_dist){
+            max_dist = data_array[j].distance;
+            max_idx = j;
+        }
+    }
+    return max_idx;
+}
+
 // This function sorts ID by distance (in ascending order)
 vector<int> compassMdl::sortIDByDistance(vector<int> id_list){
     

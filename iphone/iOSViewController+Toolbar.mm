@@ -324,7 +324,13 @@
         }else{
             self.wedgeSegmentControl.selectedSegmentIndex = 0;
         }
-        
+
+        // Configure the scale slider
+        float scale = [self.model->configurations[@"overview_map_scale"]
+                        floatValue];
+        self.scaleSlider.value = scale;
+        self.scaleIndicator.text = [NSString stringWithFormat:@"%2.1f",
+                                    scale];
     }else
         [[self viewPanel] setHidden:YES];
 }

@@ -13,8 +13,10 @@
                 <outlet property="dataSegmentControl" destination="h43-e5-7WU" id="zO1-Zz-mVF"/>
                 <outlet property="filterSegmentControl" destination="koe-mY-dSr" id="vO4-tg-uqO"/>
                 <outlet property="landmarkLock" destination="0So-s1-ohR" id="aSU-OI-n5a"/>
+                <outlet property="overviewScaleSegmentControl" destination="Efc-AO-Jdq" id="nHY-t9-9u7"/>
                 <outlet property="overviewSegmentControl" destination="VF8-nw-5JM" id="Wwh-w9-0fX"/>
                 <outlet property="scaleIndicator" destination="VBb-4f-jm8" id="SOP-WS-1mq"/>
+                <outlet property="scaleSlider" destination="q0u-q7-bxI" id="ybW-uj-DI5"/>
                 <outlet property="snapshotStatusTextView" destination="sOS-OQ-fcR" id="mns-8e-eFa"/>
                 <outlet property="watchCompassInteractionSwitch" destination="6oY-Vi-dja" id="eZx-nE-A1v"/>
                 <outlet property="watchLandmrkLockSwitch" destination="Uxd-e5-rhu" id="hoI-aO-IwY"/>
@@ -23,11 +25,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="ViewPanel" id="iN0-l3-epB" userLabel="ViewPanel">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="tMe-Ri-yIE" userLabel="Map Style">
-                    <rect key="frame" x="83" y="18" width="213" height="29"/>
+                    <rect key="frame" x="83" y="13" width="213" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="None"/>
@@ -40,21 +42,28 @@
                     </connections>
                 </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wedge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUh-QC-NJP">
-                    <rect key="frame" x="11" y="71" width="54" height="21"/>
+                    <rect key="frame" x="11" y="59" width="54" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgF-RI-wQ2">
-                    <rect key="frame" x="11" y="115" width="72" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Others" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgF-RI-wQ2">
+                    <rect key="frame" x="11" y="100" width="52" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overview Scale" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wY6-3k-BFj">
+                    <rect key="frame" x="11" y="140" width="119" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r2q-F1-87a">
-                    <rect key="frame" x="73" y="68" width="238" height="29"/>
+                    <rect key="frame" x="73" y="56" width="238" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="None"/>
@@ -67,37 +76,49 @@
                     </connections>
                 </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0l-yN-qO8">
-                    <rect key="frame" x="11" y="21" width="35" height="21"/>
+                    <rect key="frame" x="11" y="16" width="35" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="VF8-nw-5JM">
-                    <rect key="frame" x="93" y="112" width="218" height="29"/>
+                    <rect key="frame" x="73" y="97" width="238" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="None"/>
                         <segment title="Overview"/>
                         <segment title="PCompass"/>
+                        <segment title="Both"/>
                     </segments>
                     <connections>
                         <action selector="overviewSegmentControl:" destination="-1" eventType="valueChanged" id="563-Tb-9ml"/>
                     </connections>
                 </segmentedControl>
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="2" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="q0u-q7-bxI">
-                    <rect key="frame" x="9" y="155" width="251" height="31"/>
+                    <rect key="frame" x="9" y="176" width="251" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <connections>
                         <action selector="scaleSlider:" destination="-1" eventType="valueChanged" id="5db-bP-e0g"/>
                     </connections>
                 </slider>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBb-4f-jm8">
-                    <rect key="frame" x="266" y="159" width="45" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="??" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBb-4f-jm8">
+                    <rect key="frame" x="266" y="180" width="45" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Efc-AO-Jdq">
+                    <rect key="frame" x="151" y="137" width="123" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="Auto"/>
+                        <segment title="Fixed"/>
+                    </segments>
+                    <connections>
+                        <action selector="toggleOverviewScaleSegmentControl:" destination="-1" eventType="valueChanged" id="H3U-Yz-d6A"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

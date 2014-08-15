@@ -236,6 +236,7 @@ public:
     vector<int> filter_forceEquilibrium(int k);
     vector<int> filter_manual(int k);
     vector<int> sortIDByDistance(vector<int> id_list);
+    int findMaxDistIdx(vector<int> id_list);
     
     vector<double> clusterData(vector<int> indices_for_rendering);
     vector<pair<double, int>> generateOrientDiffList

@@ -50,10 +50,6 @@
             {
                 [tableCellCache addObject:[NSNull null]];
             }
-         
-            
-            
-            
         }
     }
     return self;
@@ -97,8 +93,6 @@
     [self.mapView convertPoint: NSMakePoint(self.compassView.frame.size.width/2,
                                             self.compassView.frame.size.height/2)
           fromView:self.compassView];
-    
-    
     //-----------------
     // Add annotation to the map
     //-----------------
