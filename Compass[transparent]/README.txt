@@ -1453,7 +1453,8 @@ MKCoordinateRegion MKCoordinateRegionMakeWithDistance(
 -------------------------------------------------------------------
 8.19.2014
 -------------------------------------------------------------------
-
+- let's fix the dropbox syncing capability (dropbox syncing may not be that important at the point)
+- 
 
 
 

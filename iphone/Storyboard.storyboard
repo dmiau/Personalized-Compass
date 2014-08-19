@@ -29,7 +29,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <mapView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8M-kf-lHS" userLabel="Overview Map">
-                                <rect key="frame" x="10" y="80" width="130" height="98"/>
+                                <rect key="frame" x="0.0" y="66" width="150" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <glkView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" drawableDepthFormat="16" drawableMultisample="4X" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6C-r0-bI1" customClass="iOSGLKView">

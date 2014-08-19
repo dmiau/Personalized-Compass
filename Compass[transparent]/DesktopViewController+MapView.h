@@ -1,5 +1,5 @@
 //
-//  DesktopViewController+MapViewAddition.h
+//  DesktopViewController+MapView.h
 //  Compass[transparent]
 //
 //  Created by Daniel Miau on 4/2/14.
@@ -8,7 +8,7 @@
 
 #import "DesktopViewController.h"
 
-@interface DesktopViewController (MapViewAddition)
+@interface DesktopViewController (MapView)
 
 - (IBAction)togglePins:(id)sender;
 

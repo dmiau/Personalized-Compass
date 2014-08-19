@@ -352,6 +352,14 @@
 		9A3240DD197AB083008E929D /* iOSViewController+History.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240DB197AB083008E929D /* iOSViewController+History.mm */; };
 		9A32852C199116FA0016E8A2 /* ExtraPanelController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A32852B199116FA0016E8A2 /* ExtraPanelController.mm */; };
 		9A32852D199116FA0016E8A2 /* ExtraPanelController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A32852B199116FA0016E8A2 /* ExtraPanelController.mm */; };
+		9A36618119A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618019A3E80400DC0D15 /* DesktopViewController+Init.mm */; };
+		9A36618219A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618019A3E80400DC0D15 /* DesktopViewController+Init.mm */; };
+		9A36618319A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618019A3E80400DC0D15 /* DesktopViewController+Init.mm */; };
+		9A36618419A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618019A3E80400DC0D15 /* DesktopViewController+Init.mm */; };
+		9A36618719A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */; };
+		9A36618819A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */; };
+		9A36618919A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */; };
+		9A36618A19A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */; };
 		9A3DA0971964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
 		9A3DA0981964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
 		9A3DA0991964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
@@ -546,9 +554,9 @@
 		9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
 		9A9701D619083B26007C3C19 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
 		9A9701D719083B26007C3C19 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
-		9A9701D819083B26007C3C19 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
-		9A9701D919083B26007C3C19 /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
-		9A9701DA19083B26007C3C19 /* DesktopViewController+CompassAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */; };
+		9A9701D819083B26007C3C19 /* DesktopViewController+Table.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+Table.mm */; };
+		9A9701D919083B26007C3C19 /* DesktopViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */; };
+		9A9701DA19083B26007C3C19 /* DesktopViewController+Compass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+Compass.mm */; };
 		9A9701DB19083B26007C3C19 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
 		9A9701DC19083BCF007C3C19 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
 		9A9701DD19083C9B007C3C19 /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
@@ -590,17 +598,17 @@
 		9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
 		9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
 		9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
-		9AA7890F1909FE3000A26C66 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
+		9AA7890F1909FE3000A26C66 /* DesktopViewController+Table.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+Table.mm */; };
 		9AA789101909FE3000A26C66 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9AA789111909FE3000A26C66 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
-		9AA789121909FE3000A26C66 /* DesktopViewController+CompassAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */; };
+		9AA789121909FE3000A26C66 /* DesktopViewController+Compass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+Compass.mm */; };
 		9AA789131909FE3000A26C66 /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
 		9AA789141909FE3000A26C66 /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
 		9AA789151909FE3000A26C66 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
 		9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
 		9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
 		9AA789191909FE3000A26C66 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
-		9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
+		9AA7891A1909FE3000A26C66 /* DesktopViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */; };
 		9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
 		9AA7891D1909FE3000A26C66 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582518D9EC9F0028B80C /* GLUT.framework */; };
 		9AA7891E1909FE3000A26C66 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
@@ -658,12 +666,12 @@
 		9ACD80D71986982B00AAB052 /* UINavigationController+rotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */; };
 		9ACD80DA1986CB8900AAB052 /* iOSViewController+Init.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D91986CB8900AAB052 /* iOSViewController+Init.mm */; };
 		9ACD80DB1986CB8900AAB052 /* iOSViewController+Init.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D91986CB8900AAB052 /* iOSViewController+Init.mm */; };
-		9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
+		9ACF5D8818EB572100F03872 /* DesktopViewController+Table.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+Table.mm */; };
 		9AD5AB0E199D1C3900B351FA /* iPadTabBarController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5AB0D199D1C3900B351FA /* iPadTabBarController.mm */; };
 		9AD5AB11199D202700B351FA /* iPadNavigationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5AB10199D202700B351FA /* iPadNavigationViewController.mm */; };
 		9AE020B2198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE020B3198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
-		9AE093D118ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
+		9AE093D118ECA56400DFC16F /* DesktopViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */; };
 		9AE57281199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
@@ -737,10 +745,10 @@
 		9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9AF523BB18DC8E95005823A2 /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
 		9AF523BC18DC8E95005823A2 /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B818DC8E95005823A2 /* montreal.kml */; };
-		9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */; };
+		9AF5D20518EF2E8B00AC671E /* DesktopViewController+Compass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+Compass.mm */; };
 		9AF7EB2E190175F900983C2F /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
 		9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
-		9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */; };
+		9AFB149E18EE639A00063632 /* DesktopViewController+Table.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+Table.mm */; };
 		9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9AFB14A018EE639A00063632 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
 		9AFB14A118EE639A00063632 /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
@@ -748,7 +756,7 @@
 		9AFB14A318EE639A00063632 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
 		9AFB14A418EE639A00063632 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
 		9AFB14A518EE639A00063632 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
-		9AFB14A618EE639A00063632 /* DesktopViewController+MapViewAddition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */; };
+		9AFB14A618EE639A00063632 /* DesktopViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */; };
 		9AFB14A718EE639A00063632 /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
 		9AFB14A918EE639A00063632 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582518D9EC9F0028B80C /* GLUT.framework */; };
 		9AFB14AA18EE639A00063632 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
@@ -908,6 +916,10 @@
 		9A3240DB197AB083008E929D /* iOSViewController+History.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+History.mm"; sourceTree = "<group>"; };
 		9A32852A199116FA0016E8A2 /* ExtraPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraPanelController.h; sourceTree = "<group>"; };
 		9A32852B199116FA0016E8A2 /* ExtraPanelController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ExtraPanelController.mm; sourceTree = "<group>"; };
+		9A36617F19A3E80400DC0D15 /* DesktopViewController+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Init.h"; sourceTree = "<group>"; };
+		9A36618019A3E80400DC0D15 /* DesktopViewController+Init.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Init.mm"; sourceTree = "<group>"; };
+		9A36618519A3E89000DC0D15 /* DesktopViewController+Updates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Updates.h"; sourceTree = "<group>"; };
+		9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Updates.mm"; sourceTree = "<group>"; };
 		9A3DA0951964E9B1009E0073 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = icons/add.png; sourceTree = "<group>"; };
 		9A3DA0961964E9B1009E0073 /* remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remove.png; path = icons/remove.png; sourceTree = "<group>"; };
 		9A3DA0A31964F5E3009E0073 /* genKMLString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genKMLString.mm; sourceTree = "<group>"; };
@@ -1020,16 +1032,16 @@
 		9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UINavigationController+rotation.mm"; sourceTree = "<group>"; };
 		9ACD80D81986CB8900AAB052 /* iOSViewController+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Init.h"; sourceTree = "<group>"; };
 		9ACD80D91986CB8900AAB052 /* iOSViewController+Init.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Init.mm"; sourceTree = "<group>"; };
-		9ACF5D8618EB572100F03872 /* DesktopViewController+TableAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+TableAddition.h"; sourceTree = "<group>"; };
-		9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+TableAddition.mm"; sourceTree = "<group>"; };
+		9ACF5D8618EB572100F03872 /* DesktopViewController+Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Table.h"; sourceTree = "<group>"; };
+		9ACF5D8718EB572100F03872 /* DesktopViewController+Table.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Table.mm"; sourceTree = "<group>"; };
 		9AD5AB0C199D1C3900B351FA /* iPadTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadTabBarController.h; sourceTree = "<group>"; };
 		9AD5AB0D199D1C3900B351FA /* iPadTabBarController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iPadTabBarController.mm; sourceTree = "<group>"; };
 		9AD5AB0F199D202700B351FA /* iPadNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadNavigationViewController.h; sourceTree = "<group>"; };
 		9AD5AB10199D202700B351FA /* iPadNavigationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iPadNavigationViewController.mm; sourceTree = "<group>"; };
 		9AE020B0198152DC00381C5C /* BreadcrumbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreadcrumbDetailViewController.h; sourceTree = "<group>"; };
 		9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BreadcrumbDetailViewController.mm; sourceTree = "<group>"; };
-		9AE093CF18ECA56400DFC16F /* DesktopViewController+MapViewAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+MapViewAddition.h"; sourceTree = "<group>"; };
-		9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+MapViewAddition.mm"; sourceTree = "<group>"; };
+		9AE093CF18ECA56400DFC16F /* DesktopViewController+MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+MapView.h"; sourceTree = "<group>"; };
+		9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+MapView.mm"; sourceTree = "<group>"; };
 		9AE5727F199CF8D60055799F /* Wedge+Radial.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Wedge+Radial.mm"; sourceTree = "<group>"; };
 		9AE57280199CF8D60055799F /* Wedge+Radial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wedge+Radial.h"; sourceTree = "<group>"; };
 		9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compass[transparent].app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1082,8 +1094,8 @@
 		9AF523B218DC83BF005823A2 /* xmlParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = xmlParser.mm; sourceTree = "<group>"; };
 		9AF523B718DC8E95005823A2 /* newyork.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = newyork.kml; sourceTree = "<group>"; };
 		9AF523B818DC8E95005823A2 /* montreal.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = montreal.kml; sourceTree = "<group>"; };
-		9AF5D20318EF2E8B00AC671E /* DesktopViewController+CompassAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+CompassAddition.h"; sourceTree = "<group>"; };
-		9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+CompassAddition.mm"; sourceTree = "<group>"; };
+		9AF5D20318EF2E8B00AC671E /* DesktopViewController+Compass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Compass.h"; sourceTree = "<group>"; };
+		9AF5D20418EF2E8B00AC671E /* DesktopViewController+Compass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Compass.mm"; sourceTree = "<group>"; };
 		9AF7EB2D190175F900983C2F /* configurations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configurations.json; sourceTree = "<group>"; };
 		9AFB14BC18EE639A00063632 /* tabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AFB14BD18EE639A00063632 /* tabView.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = tabView.plist; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/tabView.plist"; sourceTree = "<absolute>"; };
@@ -1572,12 +1584,16 @@
 				9AEA57E318D9EBB20028B80C /* AppDelegate.mm */,
 				9AEA583318DA35E50028B80C /* DesktopViewController.h */,
 				9AEA583418DA35E50028B80C /* DesktopViewController.mm */,
-				9ACF5D8618EB572100F03872 /* DesktopViewController+TableAddition.h */,
-				9ACF5D8718EB572100F03872 /* DesktopViewController+TableAddition.mm */,
-				9AE093CF18ECA56400DFC16F /* DesktopViewController+MapViewAddition.h */,
-				9AE093D018ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm */,
-				9AF5D20318EF2E8B00AC671E /* DesktopViewController+CompassAddition.h */,
-				9AF5D20418EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm */,
+				9A36617F19A3E80400DC0D15 /* DesktopViewController+Init.h */,
+				9A36618019A3E80400DC0D15 /* DesktopViewController+Init.mm */,
+				9A36618519A3E89000DC0D15 /* DesktopViewController+Updates.h */,
+				9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */,
+				9ACF5D8618EB572100F03872 /* DesktopViewController+Table.h */,
+				9ACF5D8718EB572100F03872 /* DesktopViewController+Table.mm */,
+				9AE093CF18ECA56400DFC16F /* DesktopViewController+MapView.h */,
+				9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */,
+				9AF5D20318EF2E8B00AC671E /* DesktopViewController+Compass.h */,
+				9AF5D20418EF2E8B00AC671E /* DesktopViewController+Compass.mm */,
 				9A6F53F61910073F00F35FED /* DebugWindowController.h */,
 				9A6F53F71910073F00F35FED /* DebugWindowController.mm */,
 				9A4808A5198C2D2D0001E188 /* DesktopViewController+Annotations.h */,
@@ -2454,6 +2470,7 @@
 				9A03757E198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */,
 				9A03767A198DA31900258E95 /* b2Rope.cpp in Sources */,
+				9A36618A19A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
 				9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */,
 				9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */,
 				9A037638198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
@@ -2470,7 +2487,7 @@
 				9A03761A198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9A037602198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
 				9A037584198DA31800258E95 /* b2Collision.cpp in Sources */,
-				9AA7890F1909FE3000A26C66 /* DesktopViewController+TableAddition.mm in Sources */,
+				9AA7890F1909FE3000A26C66 /* DesktopViewController+Table.mm in Sources */,
 				9A0375BA198DA31800258E95 /* b2Draw.cpp in Sources */,
 				9AE57284199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9AA789101909FE3000A26C66 /* xmlParser.mm in Sources */,
@@ -2480,7 +2497,7 @@
 				9A03759C198DA31800258E95 /* b2ChainShape.cpp in Sources */,
 				9A03764A198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
 				9A0375D8198DA31900258E95 /* b2Body.cpp in Sources */,
-				9AA789121909FE3000A26C66 /* DesktopViewController+CompassAddition.mm in Sources */,
+				9AA789121909FE3000A26C66 /* DesktopViewController+Compass.mm in Sources */,
 				9A037656198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
 				9AA789131909FE3000A26C66 /* locationFilter.mm in Sources */,
 				9A037590198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
@@ -2491,11 +2508,12 @@
 				9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */,
 				9A037626198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */,
+				9A36618419A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
 				9A0375A8198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
 				9AA789191909FE3000A26C66 /* main.mm in Sources */,
 				9A037632198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
-				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapView.mm in Sources */,
 				9A037620198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				9A0375CC198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A037608198DA31900258E95 /* b2CircleContact.cpp in Sources */,
@@ -2560,11 +2578,13 @@
 				9A0375CF198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A037629198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A037659198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
-				9ACF5D8818EB572100F03872 /* DesktopViewController+TableAddition.mm in Sources */,
+				9ACF5D8818EB572100F03872 /* DesktopViewController+Table.mm in Sources */,
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
 				9A2E42DE196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A037617198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
+				9A36618119A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
+				9A36618719A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
 				9A037665198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A037641198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A0375F9198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
@@ -2575,7 +2595,7 @@
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A0375D5198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A757158197D804100C23AEE /* historyParser.mm in Sources */,
-				9AF5D20518EF2E8B00AC671E /* DesktopViewController+CompassAddition.mm in Sources */,
+				9AF5D20518EF2E8B00AC671E /* DesktopViewController+Compass.mm in Sources */,
 				9A0375ED198DA31900258E95 /* b2World.cpp in Sources */,
 				9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */,
 				9AFD8F56197C20000099BD88 /* genSnapshotString.mm in Sources */,
@@ -2603,7 +2623,7 @@
 				9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */,
 				9A03763B198DA31900258E95 /* b2GearJoint.cpp in Sources */,
 				9AEA57DD18D9EBB20028B80C /* main.mm in Sources */,
-				9AE093D118ECA56400DFC16F /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9AE093D118ECA56400DFC16F /* DesktopViewController+MapView.mm in Sources */,
 				9A037593198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A3DA0A41964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A0375DB198DA31900258E95 /* b2ContactManager.cpp in Sources */,
@@ -2634,17 +2654,18 @@
 				9A037637198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9A75715A197D804100C23AEE /* historyParser.mm in Sources */,
 				9A03764F198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
-				9A9701D819083B26007C3C19 /* DesktopViewController+TableAddition.mm in Sources */,
+				9A9701D819083B26007C3C19 /* DesktopViewController+Table.mm in Sources */,
+				9A36618919A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
 				9A037601198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
 				9A0375A1198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A037583198DA31800258E95 /* b2Collision.cpp in Sources */,
 				9AB90B96194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A0375BF198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A998C941949F32800778DFC /* compassRender+Components.mm in Sources */,
-				9A9701D919083B26007C3C19 /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9A9701D919083B26007C3C19 /* DesktopViewController+MapView.mm in Sources */,
 				9A259D5E199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A0375AD198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
-				9A9701DA19083B26007C3C19 /* DesktopViewController+CompassAddition.mm in Sources */,
+				9A9701DA19083B26007C3C19 /* DesktopViewController+Compass.mm in Sources */,
 				9A0375C5198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A9701DB19083B26007C3C19 /* main.mm in Sources */,
 				9A9701CF19083B19007C3C19 /* xmlParser.mm in Sources */,
@@ -2668,6 +2689,7 @@
 				9A0375FB198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A03758F198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
+				9A36618319A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
 				9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A03756B198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
 				9A0375E3198DA31900258E95 /* b2Fixture.cpp in Sources */,
@@ -2709,9 +2731,10 @@
 				9A0375D0198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A757159197D804100C23AEE /* historyParser.mm in Sources */,
 				9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */,
+				9A36618819A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
 				9A03763C198DA31900258E95 /* b2GearJoint.cpp in Sources */,
 				9A037570198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
-				9AFB149E18EE639A00063632 /* DesktopViewController+TableAddition.mm in Sources */,
+				9AFB149E18EE639A00063632 /* DesktopViewController+Table.mm in Sources */,
 				9A037618198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9A998C931949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A4808A8198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
@@ -2745,6 +2768,7 @@
 				9A03761E198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				9A0375F4198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A0375C4198DA31900258E95 /* b2Settings.cpp in Sources */,
+				9A36618219A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
 				9AFB14A218EE639A00063632 /* LocationCellView.m in Sources */,
 				9A0375DC198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9A037612198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
@@ -2774,7 +2798,7 @@
 				9A037630198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A0375CA198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9AECA769196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
-				9AFB14A618EE639A00063632 /* DesktopViewController+MapViewAddition.mm in Sources */,
+				9AFB14A618EE639A00063632 /* DesktopViewController+MapView.mm in Sources */,
 				9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9AFB14A718EE639A00063632 /* GLString.mm in Sources */,
 			);

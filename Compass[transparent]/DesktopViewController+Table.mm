@@ -1,15 +1,15 @@
 //
-//  DesktopViewController+TableAddition.m
+//  DesktopViewController+Table.m
 //  Compass[transparent]
 //
 //  Created by dmiau on 4/1/14.
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
 
-#import "DesktopViewController+TableAddition.h"
+#import "DesktopViewController+Table.h"
 #import "LocationCellView.h"
 
-@implementation DesktopViewController (TableAddition)
+@implementation DesktopViewController (Table)
 
 
 #pragma mark table

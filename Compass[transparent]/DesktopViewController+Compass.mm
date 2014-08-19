@@ -1,14 +1,14 @@
 //
-//  DesktopViewController+CompassAddition.m
+//  DesktopViewController+Compass.m
 //  Compass[transparent]
 //
 //  Created by Daniel Miau on 4/4/14.
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
 
-#import "DesktopViewController+CompassAddition.h"
+#import "DesktopViewController+Compass.h"
 
-@implementation DesktopViewController (CompassAddition)
+@implementation DesktopViewController (Compass)
 
 - (IBAction)zoomCompass:(id)sender {
     // Get the sender title

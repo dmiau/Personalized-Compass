@@ -1,14 +1,14 @@
 //
-//  DesktopViewController+MapViewAddition.m
+//  DesktopViewController+MapView.m
 //  Compass[transparent]
 //
 //  Created by Daniel Miau on 4/2/14.
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
 
-#import "DesktopViewController+MapViewAddition.h"
+#import "DesktopViewController+MapView.h"
 
-@implementation DesktopViewController (MapViewAddition)
+@implementation DesktopViewController (MapView)
 
 #pragma mark map annotation
 

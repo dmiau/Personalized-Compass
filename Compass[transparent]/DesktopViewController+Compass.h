@@ -1,5 +1,5 @@
 //
-//  DesktopViewController+CompassAddition.h
+//  DesktopViewController+Compass.h
 //  Compass[transparent]
 //
 //  Created by Daniel Miau on 4/4/14.
@@ -8,7 +8,7 @@
 
 #import "DesktopViewController.h"
 
-@interface DesktopViewController (CompassAddition)
+@interface DesktopViewController (Compass)
 - (IBAction)zoomCompass:(id)sender;
 - (IBAction)moveCompass:(id)sender;
 - (IBAction)toggleLabel:(id)sender;
