@@ -76,6 +76,10 @@
 
 - (void) awakeFromNib
 {
+    //http://stackoverflow.com/questions/20061052/how-to-add-nsviewcontroller-to-a-responder-chain
+    [self setNextResponder:self.view];
+    [self.view.subviews enumerateObjectsUsingBlock:^(NSView *subview, NSUInteger idx, BOOL *stop) { [subview setNextResponder:self]; }];
+    
     // Insert code here to initialize your application
     
     [[self mapView] setScrollEnabled:YES];

@@ -96,7 +96,7 @@
   },
   {
   "property": "compass_scale",
-  "value": 0.5
+  "value": 0.3
   },
   {
   "property": "iOS_compass_scale",
@@ -108,7 +108,7 @@
   },
   {
   "property": "compass_centroid",
-  "value": [0, 0]
+  "value": [-164, -155]
   },
   {
   "property": "iOS_compass_centroid",

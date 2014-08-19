@@ -364,6 +364,10 @@
 		9A36618E19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */; };
 		9A36618F19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */; };
 		9A36619019A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */; };
+		9A36619319A3FE4E00DC0D15 /* myMapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36619219A3FE4E00DC0D15 /* myMapView.mm */; };
+		9A36619419A3FE4E00DC0D15 /* myMapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36619219A3FE4E00DC0D15 /* myMapView.mm */; };
+		9A36619519A3FE4E00DC0D15 /* myMapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36619219A3FE4E00DC0D15 /* myMapView.mm */; };
+		9A36619619A3FE4E00DC0D15 /* myMapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36619219A3FE4E00DC0D15 /* myMapView.mm */; };
 		9A3DA0971964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
 		9A3DA0981964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
 		9A3DA0991964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
@@ -926,6 +930,8 @@
 		9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Updates.mm"; sourceTree = "<group>"; };
 		9A36618B19A3F15500DC0D15 /* DesktopViewController+Interactions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Interactions.h"; sourceTree = "<group>"; };
 		9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Interactions.mm"; sourceTree = "<group>"; };
+		9A36619119A3FE4E00DC0D15 /* myMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myMapView.h; sourceTree = "<group>"; };
+		9A36619219A3FE4E00DC0D15 /* myMapView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = myMapView.mm; sourceTree = "<group>"; };
 		9A3DA0951964E9B1009E0073 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = icons/add.png; sourceTree = "<group>"; };
 		9A3DA0961964E9B1009E0073 /* remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remove.png; path = icons/remove.png; sourceTree = "<group>"; };
 		9A3DA0A31964F5E3009E0073 /* genKMLString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genKMLString.mm; sourceTree = "<group>"; };
@@ -1579,6 +1585,8 @@
 				9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */,
 				9A2E42DC196C8A2800CF8862 /* HeadingAnnotationView.h */,
 				9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */,
+				9A36619119A3FE4E00DC0D15 /* myMapView.h */,
+				9A36619219A3FE4E00DC0D15 /* myMapView.mm */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2513,6 +2521,7 @@
 				9AA789141909FE3000A26C66 /* compassRender.mm in Sources */,
 				9A037596198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A037614198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
+				9A36619619A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9AA789151909FE3000A26C66 /* LocationCellView.m in Sources */,
 				9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */,
 				9A037626198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
@@ -2614,6 +2623,7 @@
 				9AB90B94194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A03759F198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A0375C3198DA31900258E95 /* b2Settings.cpp in Sources */,
+				9A36619319A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9A03765F198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */,
 				9A0375E7198DA31900258E95 /* b2Island.cpp in Sources */,
@@ -2698,6 +2708,7 @@
 				9A037595198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A037667198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A0375FB198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
+				9A36619519A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A03758F198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A36618319A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
@@ -2810,6 +2821,7 @@
 				9A037630198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A0375CA198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9AECA769196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
+				9A36619419A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9AFB14A618EE639A00063632 /* DesktopViewController+MapView.mm in Sources */,
 				9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9AFB14A718EE639A00063632 /* GLString.mm in Sources */,
