@@ -360,6 +360,10 @@
 		9A36618819A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */; };
 		9A36618919A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */; };
 		9A36618A19A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */; };
+		9A36618D19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */; };
+		9A36618E19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */; };
+		9A36618F19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */; };
+		9A36619019A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */; };
 		9A3DA0971964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
 		9A3DA0981964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
 		9A3DA0991964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
@@ -920,6 +924,8 @@
 		9A36618019A3E80400DC0D15 /* DesktopViewController+Init.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Init.mm"; sourceTree = "<group>"; };
 		9A36618519A3E89000DC0D15 /* DesktopViewController+Updates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Updates.h"; sourceTree = "<group>"; };
 		9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Updates.mm"; sourceTree = "<group>"; };
+		9A36618B19A3F15500DC0D15 /* DesktopViewController+Interactions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Interactions.h"; sourceTree = "<group>"; };
+		9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Interactions.mm"; sourceTree = "<group>"; };
 		9A3DA0951964E9B1009E0073 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = icons/add.png; sourceTree = "<group>"; };
 		9A3DA0961964E9B1009E0073 /* remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remove.png; path = icons/remove.png; sourceTree = "<group>"; };
 		9A3DA0A31964F5E3009E0073 /* genKMLString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genKMLString.mm; sourceTree = "<group>"; };
@@ -1584,6 +1590,8 @@
 				9AEA57E318D9EBB20028B80C /* AppDelegate.mm */,
 				9AEA583318DA35E50028B80C /* DesktopViewController.h */,
 				9AEA583418DA35E50028B80C /* DesktopViewController.mm */,
+				9A36618B19A3F15500DC0D15 /* DesktopViewController+Interactions.h */,
+				9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */,
 				9A36617F19A3E80400DC0D15 /* DesktopViewController+Init.h */,
 				9A36618019A3E80400DC0D15 /* DesktopViewController+Init.mm */,
 				9A36618519A3E89000DC0D15 /* DesktopViewController+Updates.h */,
@@ -2462,6 +2470,7 @@
 			files = (
 				9AFD8F64197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9AECA76B196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
+				9A36619019A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
 				9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A757153197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9AFD8F59197C20000099BD88 /* genSnapshotString.mm in Sources */,
@@ -2556,6 +2565,7 @@
 				9A037599198DA31800258E95 /* b2ChainShape.cpp in Sources */,
 				9A037623198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A4808A7198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
+				9A36618D19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
 				9A03762F198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */,
 				9A0375F3198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
@@ -2671,6 +2681,7 @@
 				9A9701CF19083B19007C3C19 /* xmlParser.mm in Sources */,
 				9A9701D019083B19007C3C19 /* compassModel.mm in Sources */,
 				9A03763D198DA31900258E95 /* b2GearJoint.cpp in Sources */,
+				9A36618F19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
 				9A0375DD198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9A037571198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A4808A9198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
@@ -2762,6 +2773,7 @@
 				9A0375BE198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A03757C198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9AFB14A118EE639A00063632 /* compassRender.mm in Sources */,
+				9A36618E19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
 				9A037660198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A0375D6198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A03765A198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,

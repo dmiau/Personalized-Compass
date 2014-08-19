@@ -14,7 +14,6 @@
     // Get the sender title
     NSString *title = [(NSMenuItem *)sender title];
     
-    
     if ([title rangeOfString:@"Out"].location == NSNotFound){
         // Zoom In case
         self.renderer->compass_scale = self.renderer->compass_scale + 0.1;
@@ -22,6 +21,8 @@
         // Zoom In case
         self.renderer->compass_scale = self.renderer->compass_scale - 0.1;
     }
+    self.model->configurations[@"compass_scale"] =
+    [NSNumber numberWithFloat:self.renderer->compass_scale];
 }
 
 - (IBAction)moveCompass:(id)sender {
@@ -30,30 +31,30 @@
     float step_size =
     [self.model->configurations[@"traslation_step"] floatValue];
     
+    recVec compassXY = self.renderer->compass_centroid;
+
     if ([title rangeOfString:@"Right"].location != NSNotFound){
-        // Zoom In case
-        self.renderer->compass_centroid.x =
-        self.renderer->compass_centroid.x + step_size;
+        compassXY.x = compassXY.x + step_size;
     }else if ([title rangeOfString:@"Left"].location != NSNotFound){
-        // Zoom In case
-        self.renderer->compass_centroid.x =
-        self.renderer->compass_centroid.x - step_size;
+        compassXY.x = compassXY.x - step_size;
     }else if ([title rangeOfString:@"Up"].location != NSNotFound){
-        // Zoom In case
-        self.renderer->compass_centroid.y =
-        self.renderer->compass_centroid.y + step_size;
+        compassXY.y = compassXY.y + step_size;
     }else if ([title rangeOfString:@"Down"].location != NSNotFound){
-        // Zoom In case
-        self.renderer->compass_centroid.y =
-        self.renderer->compass_centroid.y - step_size;
+        compassXY.y = compassXY.y - step_size;
     }
+
+    self.model->configurations[@"compass_centroid"][0] =
+    [NSNumber numberWithInt:compassXY.x];
+    self.model->configurations[@"compass_centroid"][1] =
+    [NSNumber numberWithInt:compassXY.y];
+
+    // The order is important
+    self.renderer->loadParametersFromModelConfiguration();
     
-    // Provide the centroid of compass to the model
-    self.model->compassCenterXY =
-    [self.mapView convertPoint: NSMakePoint(self.compassView.frame.size.width/2,
-                                            self.compassView.frame.size.height/2)
-                      fromView:self.compassView];
-    
+    if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
+        [self updateModelCompassCenterXY];
+    }
+    [self.compassView setNeedsDisplay:YES];
 }
 
 - (IBAction)toggleLabel:(id)sender {

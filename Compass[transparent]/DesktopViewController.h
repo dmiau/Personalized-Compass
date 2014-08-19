@@ -31,11 +31,14 @@
 
 @property NSNumber *mapUpdateFlag;
 
+@property NSMutableDictionary* UIConfigurations;
+
 - (IBAction)toggleMap:(id)sender;
 - (IBAction)toggleCompass:(id)sender;
 
 - (IBAction)rotate:(id)sender;
 - (void) updateMapDisplayRegion;
+-(bool)updateModelCompassCenterXY;
 - (IBAction)refreshConfigurations:(id)sender;
 
 // KML combo box

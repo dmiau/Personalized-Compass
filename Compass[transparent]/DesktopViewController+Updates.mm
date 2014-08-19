@@ -11,6 +11,16 @@
 #include <cmath>
 
 @implementation DesktopViewController (Updates)
+
+
+- (IBAction)refreshConfigurations:(id)sender {
+    
+    // [todo] update code can be refactored
+    self.model->reloadFiles();
+    [self updateMapDisplayRegion];
+    [self.locationTableView reloadData];
+}
+
 //-----------
 // Pooling function
 // This function keeps watching latitude, longitude and pitch.
@@ -80,6 +90,7 @@
     
     self.model->camera_pos.latitude = lat_float;
     self.model->camera_pos.longitude = lon_float;
+    [self updateLocationVisibility];
     self.model->updateMdl();
     
     // Update distances on the table
@@ -117,5 +128,79 @@
     coord.latitude = self.model->camera_pos.latitude;
     coord.longitude = self.model->camera_pos.longitude;
     [self.mapView setCenterCoordinate:coord animated:YES];
+}
+
+
+//------------------
+// This function should be called after the user moves the compass
+//------------------
+-(bool)updateModelCompassCenterXY{
+    self.model->compassCenterXY =
+    [self.mapView convertPoint:
+     CGPointMake(self.compassView.frame.size.width/2
+                 + [self.model->configurations[@"compass_centroid"][0] floatValue],
+                 self.compassView.frame.size.height/2
+                 + [self.model->configurations[@"compass_centroid"][1] floatValue])
+                      fromView:self.compassView];
+    return true;
+}
+//------------------
+// Tools
+//------------------
+
+-(void) updateLocationVisibility{
+    
+    CLLocationCoordinate2D orig_coord2d =
+    [self.mapView convertPoint:CGPointMake(self.mapView.frame.size.width/2,
+                                           self.mapView.frame.size.height/2)
+          toCoordinateFromView:self.mapView];
+    CLLocation* orig_location = [[CLLocation alloc]
+                                 initWithLatitude:orig_coord2d.latitude
+                                 longitude:orig_coord2d.longitude];
+    
+    
+    double true_radius_dist = self.renderer->getMapWidthInMeters() *
+    [self.model->configurations[@"watch_radius"] floatValue] /
+    self.mapView.frame.size.width;
+    
+    for (int i = -1; i < (int)self.model->data_array.size(); ++i){
+        
+        data *data_ptr;
+        if (i == -1 && !self.model->user_pos.isEnabled){
+            continue;
+        }else if (i == -1 && self.model->user_pos.isEnabled){
+            data_ptr = &(self.model->user_pos);
+        }else{
+            data_ptr = &(self.model->data_array[i]);
+        }
+        
+        CLLocationCoordinate2D coord2d =
+        data_ptr->annotation.coordinate;
+        CGRect myRect = [self.mapView frame];
+        
+        if (self.renderer->watchMode){
+            
+            
+            CLLocation *point_location = [[CLLocation alloc]
+                                          initWithLatitude:coord2d.latitude
+                                          longitude:coord2d.longitude];
+            CLLocationDistance dist = [orig_location distanceFromLocation:point_location];
+            
+            if (dist <= true_radius_dist)
+                data_ptr->isVisible= true;
+            else
+                data_ptr->isVisible = false;
+        }else{
+            // testing if someLocation is on rotating mapView
+            CGPoint screenP = [self.mapView convertCoordinate:
+                               coord2d toPointToView:self.mapView];
+            if (screenP.x > 0 && screenP.x < myRect.size.width
+                && screenP.y > 0 && screenP.y < myRect.size.height){
+                data_ptr->isVisible = true;
+            }else{
+                data_ptr->isVisible = false;
+            }
+        }
+    }
 }
 @end

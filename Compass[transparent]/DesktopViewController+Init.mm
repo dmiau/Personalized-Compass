@@ -43,7 +43,30 @@
             for (int i = 0; i < self.model->data_array.size(); ++i)
             {
                 [tableCellCache addObject:[NSNull null]];
-            }
+            }                        
+            
+            //--------------------
+            // Initialize a list of UI configurations
+            //--------------------
+            self.UIConfigurations = [[NSMutableDictionary alloc] init];
+            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                      forKey:@"UIRotationLock"];
+            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                      forKey:@"UIBreadcrumbDisplay"];
+            [self.UIConfigurations setObject:@"Development"
+                                      forKey:@"UIToolbarMode"];
+            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                      forKey:@"UIToolbarNeedsUpdate"];
+            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                      forKey:@"UIAcceptsPinCreation"];
+            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                      forKey:@"UICompassTouched"];
+            [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
+                                      forKey:@"UICompassInteractionEnabled"];
+            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                      forKey:@"UICompassCenterLocked"];
+            [self.UIConfigurations setObject:@"Auto"
+                                      forKey:@"UIOverviewScaleMode"];
         }
     }
     return self;
@@ -91,6 +114,11 @@
     // Add annotation to the map
     //-----------------
     [self renderAnnotations];
+    
+    //-----------------
+    // Provide compassXY to the model
+    //-----------------
+    [self updateModelCompassCenterXY];
 }
 
 @end
