@@ -36,7 +36,8 @@
     
     // http://stackoverflow.com/questions/6590763/mouse-events-bleeding-through-nsview
     // I want the event to bleed.
-    [self.superview mouseDown:theEvent];
+    [super mouseDown:theEvent];
+//    [self.superview mouseDown:theEvent];
     [super.nextResponder mouseDown:theEvent];
 }
 @end
