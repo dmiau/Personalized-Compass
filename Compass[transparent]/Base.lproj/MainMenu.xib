@@ -26,6 +26,7 @@
                 <outlet property="kmlComboBox" destination="Zbz-i8-ZYC" id="fZS-PB-L24"/>
                 <outlet property="locationTableView" destination="sA2-ri-dei" id="Mij-xV-5lj"/>
                 <outlet property="mapView" destination="mWq-Lx-RbY" id="1w7-uy-mYl"/>
+                <outlet property="toolbarSearchField" destination="AxC-dk-J1g" id="Gsp-TB-GBF"/>
                 <outlet property="view" destination="EiT-Mj-1SZ" id="BKl-Ab-Cbt"/>
             </connections>
         </viewController>
@@ -784,7 +785,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="820" height="528"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="820" height="528"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -803,7 +804,7 @@
                     <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="62" horizontalPageScroll="10" verticalLineScroll="62" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuI-5c-mA4">
                         <rect key="frame" x="632" y="10" width="177" height="512"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="fFu-K9-Eqy">
+                        <clipView key="contentView" misplaced="YES" drawsBackground="NO" copiesOnScroll="NO" id="fFu-K9-Eqy">
                             <rect key="frame" x="1" y="17" width="175" height="494"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -898,8 +899,8 @@
                     <constraint firstItem="mWq-Lx-RbY" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="6" id="HGq-gT-oeX"/>
                     <constraint firstAttribute="trailing" secondItem="DuI-5c-mA4" secondAttribute="trailing" constant="10" id="HmX-iV-9Oh"/>
                     <constraint firstItem="mWq-Lx-RbY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="6" id="IpB-n8-T7A"/>
+                    <constraint firstItem="DuI-5c-mA4" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="10" id="Jio-R9-Wge"/>
                     <constraint firstItem="DuI-5c-mA4" firstAttribute="leading" secondItem="mWq-Lx-RbY" secondAttribute="trailing" constant="8" id="QqU-Tq-cRU"/>
-                    <constraint firstItem="DuI-5c-mA4" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="6" id="StU-lz-Ebf"/>
                     <constraint firstItem="UCa-0f-w4g" firstAttribute="width" secondItem="mWq-Lx-RbY" secondAttribute="width" id="WE5-R0-Mug"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mWq-Lx-RbY" secondAttribute="bottom" constant="10" id="atF-Zy-ngg"/>
                     <constraint firstItem="UCa-0f-w4g" firstAttribute="height" secondItem="mWq-Lx-RbY" secondAttribute="height" id="bV9-Ji-kaB"/>
@@ -910,24 +911,10 @@
                     <constraint firstItem="DuI-5c-mA4" firstAttribute="leading" secondItem="mWq-Lx-RbY" secondAttribute="trailing" constant="10" id="wuS-gs-wjG"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="A96491C4-4A9E-4D25-9D96-25DB88C6B8B0" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="h5s-ri-hIN">
+            <toolbar key="toolbar" implicitIdentifier="7A70C49E-1BCC-49B9-808F-AB2342C56521" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="h5s-ri-hIN">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="kQb-08-INq"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="y9U-0u-VQ8"/>
-                    <toolbarItem implicitItemIdentifier="C47BC27F-3CB5-4E26-9543-29C04021121C" label="Search" paletteLabel="Search" id="mZZ-aL-o8a">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="96" height="22"/>
-                        <size key="maxSize" width="96" height="22"/>
-                        <searchField key="view" verticalHuggingPriority="750" id="or3-8A-Fls">
-                            <rect key="frame" x="0.0" y="14" width="96" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" borderStyle="bezel" placeholderString="**disabled**" usesSingleLineMode="YES" bezelStyle="round" id="Z2c-u9-x2c">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </searchFieldCell>
-                        </searchField>
-                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="65A5E827-9B67-4C2A-BD4D-4E9640D9C06A" label="kml" paletteLabel="kml" id="chN-qg-9eH">
                         <nil key="toolTip"/>
                         <size key="minSize" width="99" height="26"/>
@@ -1000,6 +987,23 @@
                             </connections>
                         </matrix>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="7E70B8C3-1DE3-4092-A19F-2EABE1F7219B" label="Search" paletteLabel="Search" id="qF0-mf-HJg" userLabel="Toolbar Item - Search">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="96" height="22"/>
+                        <size key="maxSize" width="150" height="22"/>
+                        <searchField key="view" verticalHuggingPriority="750" id="AxC-dk-J1g">
+                            <rect key="frame" x="0.0" y="14" width="150" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="hjU-aZ-6zn">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </searchFieldCell>
+                            <connections>
+                                <outlet property="delegate" destination="3Bp-Mg-e5g" id="jSY-Ss-eoZ"/>
+                            </connections>
+                        </searchField>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="y9U-0u-VQ8"/>
@@ -1008,7 +1012,7 @@
                     <toolbarItem reference="y9U-0u-VQ8"/>
                     <toolbarItem reference="chN-qg-9eH"/>
                     <toolbarItem reference="y9U-0u-VQ8"/>
-                    <toolbarItem reference="mZZ-aL-o8a"/>
+                    <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
         </window>
