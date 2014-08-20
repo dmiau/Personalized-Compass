@@ -123,49 +123,6 @@
     // Provide compassXY to the model
     //-----------------
     [self updateModelCompassCenterXY];
-    
-    //-------------------
-    // Add the setting panel
-    //-------------------
-    
-    // Note this method needs to be here
-    NSArray *view_array;
-    
-//    [[NSBundle mainBundle] loadNibNamed:@"settingsView"
-//                                  owner:self
-//                        topLevelObjects:&view_array];
-//    
-//    NSLog(@"done!");
-//    CGRect screenRect = [[NSScreen mainScreen] bounds];
-//    CGFloat screenWidth = screenRect.size.width;
-//    CGFloat screenHeight = screenRect.size.height;
-//    
-//    for (UIView *aView in view_array){
-//        [aView setHidden:YES];
-//        view_size_vector.push_back(aView.frame.size);
-//        // iphone's screen size: 568x320
-//        aView.frame = CGRectMake(0, screenHeight - 44 - aView.frame.size.height,
-//                                 aView.frame.size.width, aView.frame.size.height);
-//        if ([[aView restorationIdentifier] isEqualToString:@"ViewPanel"]){
-//            self.viewPanel = aView;
-//        }else if ([[aView restorationIdentifier] isEqualToString:@"ModelPanel"]){
-//            self.modelPanel = aView;
-//        }else if ([[aView restorationIdentifier] isEqualToString:@"WatchPanel"]){
-//            self.watchPanel = aView;
-//        }else if ([[aView restorationIdentifier] isEqualToString:@"DebugPanel"]){
-//            self.debugPanel = aView;
-//        }else if ([[aView restorationIdentifier] isEqualToString:@"WatchSidebar"]){
-//            self.watchSidebar = aView;
-//        }
-//    }
-//    [self.view addSubview:self.watchSidebar];
-//    [self.view addSubview:self.debugPanel];
-//    [self.view addSubview:self.watchPanel];
-//    [self.view addSubview:self.modelPanel];
-//    [self.view addSubview:self.viewPanel];
-//    
-//    //    [self.watchPanel removeFromSuperview];
-//    //    [self.view insertSubview:self.watchPanel aboveSubview:self.watchSidebar];
 }
 
 @end

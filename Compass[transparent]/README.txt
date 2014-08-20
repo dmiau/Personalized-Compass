@@ -1461,12 +1461,9 @@ http://stackoverflow.com/questions/20061052/how-to-add-nsviewcontroller-to-a-res
 - need to figure out how to configure annotation and how to do search
 - check regionThatFits
 
--------------------------------------------------------------------
-8.20.2014
--------------------------------------------------------------------
-- add custom annotation to the desktop map
-- experimenting adding a subview
-- made some progress on the callout experiment!
+
+
+
 
 
 

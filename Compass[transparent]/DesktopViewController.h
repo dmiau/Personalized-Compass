@@ -18,14 +18,6 @@
     BOOL pinVisible;
     NSMutableArray *tableCellCache;
     NSArray *kml_files;
-    
-    //------------------
-    // Search related stuff
-    //------------------
-	BOOL					completePosting;
-    BOOL					commandHandling;
-    MKLocalSearch *localSearch;
-    MKLocalSearchResponse *results;
 }
 
 @property (weak) IBOutlet MKMapView *mapView;
@@ -33,8 +25,6 @@
 @property (weak) IBOutlet NSTextField *currentCoord;
 @property (weak) IBOutlet NSComboBox *kmlComboBox;
 @property (weak) IBOutlet NSTableView *locationTableView;
-@property (weak) IBOutlet NSSearchField *searchField;
-@property (weak) IBOutlet NSSearchField *toolbarSearchField;
 
 @property compassMdl* model;
 @property compassRender* renderer;

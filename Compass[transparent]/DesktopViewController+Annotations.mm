@@ -7,7 +7,6 @@
 //
 
 #import "DesktopViewController+Annotations.h"
-#import "OSXPinAnnotationView.h"
 
 @implementation DesktopViewController (Annotations)
 -(void) renderAnnotations{
@@ -37,12 +36,12 @@
         // try to dequeue an existing pin view first
         static NSString *landmarkAnnotationID = @"landmarkAnnotationID";
         
-        OSXPinAnnotationView *pinView =
-        (OSXPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:landmarkAnnotationID];
+        MKPinAnnotationView *pinView =
+        (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:landmarkAnnotationID];
         
         if (pinView == nil)
         {
-            pinView = [[OSXPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
         }else{
             pinView.annotation = annotation;
         }
@@ -53,7 +52,7 @@
             [pinView setAnimatesDrop:YES];
         }
         
-        [pinView setCanShowCallout:NO];
+        [pinView setCanShowCallout:YES];
         
         
         if ([annotation point_type] == dropped){
@@ -158,40 +157,39 @@
 //---------------
 - (MKPinAnnotationView *) configureLandmarkPinView: (MKPinAnnotationView *) pinView
 {
-    NSImage *btnImage;
-    CustomPointAnnotation *myAnnotation =
-    (CustomPointAnnotation *) pinView.annotation;
-    
-    int i = [myAnnotation data_id];
-    if (self.model->data_array[i].isEnabled){
-        pinView.pinColor = MKPinAnnotationColorRed;
-        btnImage = [NSImage imageNamed:@"selected.png"];
-    }else{
-        pinView.pinColor = MKPinAnnotationColorGreen;
-        btnImage = [NSImage imageNamed:@"unselected.png"];
-    }
-
-    //---------------
-    // Constructing a left button (tag: 0)
-    //---------------
-    NSButton *leftButton = [[NSButton alloc] init];
-    [leftButton setImage:btnImage];
-    leftButton.frame = CGRectMake(0, 0,
-                                  btnImage.size.width, btnImage.size.height);
-    [leftButton setTarget:self];
-    [leftButton setAction:@selector(leftButtonAction:)];
+//    UIImage *btnImage;
+//    CustomPointAnnotation *myAnnotation =
+//    (CustomPointAnnotation *) pinView.annotation;
+//    
+//    int i = [myAnnotation data_id];
+//    if (self.model->data_array[i].isEnabled){
+//        pinView.pinColor = MKPinAnnotationColorRed;
+//        btnImage = [UIImage imageNamed:@"selected.png"];
+//    }else{
+//        pinView.pinColor = MKPinAnnotationColorGreen;
+//        btnImage = [UIImage imageNamed:@"unselected.png"];
+//    }
+//    
+//    //---------------
+//    // Constructing a left button (tag: 0)
+//    //---------------
+//    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [leftButton setImage:btnImage forState:UIControlStateNormal];
+//    leftButton.frame = CGRectMake(0, 0,
+//                                  btnImage.size.width, btnImage.size.height);
+//    [leftButton setBackgroundColor: [UIColor redColor]];
 //    [leftButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
-
-    leftButton.tag = 0;  //right button has tag 0
-    pinView.leftCalloutAccessoryView = leftButton;
-
-    //---------------
-    // Constructing a right button (tag: 1)
-    //---------------
-    
-    NSButton *rightButton = [[NSButton alloc] init];
-    rightButton.tag = 1;  //right button has tag 1
-    pinView.rightCalloutAccessoryView = rightButton;
+//    
+//    
+//    leftButton.tag = 0;  //right button has tag 0
+//    pinView.leftCalloutAccessoryView = leftButton;
+//    
+//    //---------------
+//    // Constructing a right button (tag: 1)
+//    //---------------
+//    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//    rightButton.tag = 1;  //right button has tag 1
+//    pinView.rightCalloutAccessoryView = rightButton;
     
     return pinView;
 }
@@ -209,40 +207,35 @@
 //------------------
 // When the callout of a pin is tapped
 //------------------
-
-- (void)leftButtonAction:(NSControl*) control{
-    NSLog(@"Button clicked");
-}
-
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(NSControl *)control
 {
     
     NSLog(@"Do something");
-    MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
-    //------------------
-    // The pin is a custom pin
-    //------------------
-    NSButton *myButton = (NSButton *)control;
-    if(myButton.tag == 0){
-        // Left buttton tapped
-        if ([pinView pinColor] == MKPinAnnotationColorPurple){
-            // if it is a dropped pin, remove the pin
-            [self.mapView removeAnnotation:view.annotation];
-        }else{
-            // if it is a landmark pin, flip the enable status
-            CustomPointAnnotation* myCustomAnnotation =
-            (CustomPointAnnotation*) view.annotation;
-            int idx = myCustomAnnotation.data_id;
-            data* data_ptr = &(self.model->data_array[idx]);
-            
-            data_ptr->isEnabled = !data_ptr->isEnabled;
-            
-            pinView = [self configureLandmarkPinView:pinView];
-            
-        }
-    }else if (myButton.tag == 1){
+//    MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
+//    //------------------
+//    // The pin is a custom pin
+//    //------------------
+//    UIButton *myButton = (UIButton *)control;
+//    if(myButton.tag == 0){
+//        // Left buttton tapped
+//        if ([pinView pinColor] == MKPinAnnotationColorPurple){
+//            // if it is a dropped pin, remove the pin
+//            [self.mapView removeAnnotation:view.annotation];
+//        }else{
+//            // if it is a landmark pin, flip the enable status
+//            CustomPointAnnotation* myCustomAnnotation =
+//            (CustomPointAnnotation*) view.annotation;
+//            int idx = myCustomAnnotation.data_id;
+//            data* data_ptr = &(self.model->data_array[idx]);
+//            
+//            data_ptr->isEnabled = !data_ptr->isEnabled;
+//            
+//            pinView = [self configureLandmarkPinView:pinView];
+//            
+//        }
+//    }else if (myButton.tag == 1){
 //        [self performSegueWithIdentifier:@"DetailVC" sender:view];
-    }
+//    }
 }
 
 //------------------
@@ -260,7 +253,6 @@
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
     // do nothing
-    NSLog(@"Deselect annoation");
 }
 
 ////------------------

@@ -10,5 +10,4 @@
 
 @interface DesktopViewController (Annotations)
 
-
 @end
