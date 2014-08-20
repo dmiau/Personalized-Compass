@@ -1458,6 +1458,8 @@ MKCoordinateRegion MKCoordinateRegionMakeWithDistance(
 // Add viewcontroller to the responding chain
 http://stackoverflow.com/questions/20061052/how-to-add-nsviewcontroller-to-a-responder-chain
 
+- need to figure out how to configure annotation and how to do search
+- check regionThatFits
 
 
 

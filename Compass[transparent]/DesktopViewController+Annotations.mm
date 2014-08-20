@@ -20,7 +20,6 @@
     }
 }
 
-
 //------------------
 // This function is called to prepare a view for an annotation
 //------------------
@@ -249,6 +248,11 @@
     //    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
     //    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
     //    pinView.rightCalloutAccessoryView = rightButton;
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    // do nothing
 }
 
 ////------------------
