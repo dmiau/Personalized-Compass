@@ -54,5 +54,4 @@ static NSComparisonResult myCustomViewAboveSiblingViewsComparator(id view1, id v
     // I want the event to bleed.
     [super mouseDown:theEvent];
 }
-
 @end

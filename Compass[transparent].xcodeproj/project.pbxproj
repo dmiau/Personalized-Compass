@@ -408,6 +408,10 @@
 		9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */; };
 		9A3DA0CE19683235009E0073 /* DetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0CD19683235009E0073 /* DetailViewController.mm */; };
 		9A3DA0CF19683235009E0073 /* DetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0CD19683235009E0073 /* DetailViewController.mm */; };
+		9A429FFE19A5817E00BB0101 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */; };
+		9A429FFF19A5817E00BB0101 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */; };
+		9A42A00019A5817E00BB0101 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */; };
+		9A42A00119A5817E00BB0101 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */; };
 		9A469E0F19A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
 		9A469E1019A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
 		9A469E1119A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
@@ -964,6 +968,8 @@
 		9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myPinAnnotationViewIOS.xib; sourceTree = "<group>"; };
 		9A3DA0CC19683235009E0073 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9A3DA0CD19683235009E0073 /* DetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DetailViewController.mm; sourceTree = "<group>"; };
+		9A429FFC19A5817E00BB0101 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsViewController.mm; sourceTree = "<group>"; };
 		9A469E0D19A4FEC100EB88C0 /* OSXPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXPinAnnotationView.h; sourceTree = "<group>"; };
 		9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OSXPinAnnotationView.mm; sourceTree = "<group>"; };
 		9A469E1319A5183400EB88C0 /* OSXCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSXCalloutView.xib; sourceTree = "<group>"; };
@@ -1411,6 +1417,19 @@
 			name = Archive;
 			sourceTree = "<group>";
 		};
+		9A176DAA19A58F250032DE3F /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				9AEA57E518D9EBB20028B80C /* MainMenu.xib */,
+				9AEECFF51910599B0031BAAE /* StyleWindow.xib */,
+				9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */,
+				9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */,
+				9A469E1319A5183400EB88C0 /* OSXCalloutView.xib */,
+				9A176D9F19A436DA0032DE3F /* settingsView.xib */,
+			);
+			name = xib;
+			sourceTree = "<group>";
+		};
 		9A2ED70B19646AF600CA385E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1451,6 +1470,15 @@
 				9A32852B199116FA0016E8A2 /* ExtraPanelController.mm */,
 			);
 			name = Panels;
+			sourceTree = "<group>";
+		};
+		9A42A00219A5819700BB0101 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9A429FFC19A5817E00BB0101 /* SettingsViewController.h */,
+				9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		9A480892198BE7AE0001E188 /* Debug */ = {
@@ -1603,22 +1631,17 @@
 				9AAE13D819046975003BF9B7 /* renderStyles.mm */,
 				9AEA582718D9ED350028B80C /* OpenGLView.h */,
 				9AEA582818D9ED350028B80C /* OpenGLView.mm */,
-				9AEA57E518D9EBB20028B80C /* MainMenu.xib */,
 				9A6A74A218E4A45D00C7A9D5 /* LocationCellView.h */,
 				9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */,
-				9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */,
-				9AEECFF51910599B0031BAAE /* StyleWindow.xib */,
-				9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */,
 				9A3DA0C11966E563009E0073 /* CustomAnnotationView.h */,
 				9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */,
 				9A2E42DC196C8A2800CF8862 /* HeadingAnnotationView.h */,
 				9A2E42DD196C8A2800CF8862 /* HeadingAnnotationView.m */,
 				9A36619119A3FE4E00DC0D15 /* myMapView.h */,
 				9A36619219A3FE4E00DC0D15 /* myMapView.mm */,
-				9A176D9F19A436DA0032DE3F /* settingsView.xib */,
 				9A469E0D19A4FEC100EB88C0 /* OSXPinAnnotationView.h */,
 				9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */,
-				9A469E1319A5183400EB88C0 /* OSXCalloutView.xib */,
+				9A176DAA19A58F250032DE3F /* xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1630,10 +1653,10 @@
 				9AEA57E318D9EBB20028B80C /* AppDelegate.mm */,
 				9AEA583318DA35E50028B80C /* DesktopViewController.h */,
 				9AEA583418DA35E50028B80C /* DesktopViewController.mm */,
-				9A36618B19A3F15500DC0D15 /* DesktopViewController+Interactions.h */,
-				9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */,
 				9A36617F19A3E80400DC0D15 /* DesktopViewController+Init.h */,
 				9A36618019A3E80400DC0D15 /* DesktopViewController+Init.mm */,
+				9A36618B19A3F15500DC0D15 /* DesktopViewController+Interactions.h */,
+				9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */,
 				9A36618519A3E89000DC0D15 /* DesktopViewController+Updates.h */,
 				9A36618619A3E89000DC0D15 /* DesktopViewController+Updates.mm */,
 				9ACF5D8618EB572100F03872 /* DesktopViewController+Table.h */,
@@ -1650,6 +1673,7 @@
 				9A469E1919A53DA200EB88C0 /* DesktopViewController+Search.mm */,
 				9A6F53F61910073F00F35FED /* DebugWindowController.h */,
 				9A6F53F71910073F00F35FED /* DebugWindowController.mm */,
+				9A42A00219A5819700BB0101 /* Settings */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2559,6 +2583,7 @@
 				9A03764A198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
 				9A0375D8198DA31900258E95 /* b2Body.cpp in Sources */,
 				9AA789121909FE3000A26C66 /* DesktopViewController+Compass.mm in Sources */,
+				9A42A00119A5817E00BB0101 /* SettingsViewController.mm in Sources */,
 				9A037656198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
 				9AA789131909FE3000A26C66 /* locationFilter.mm in Sources */,
 				9A037590198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
@@ -2692,6 +2717,7 @@
 				9A75720A197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */,
 				9A03763B198DA31900258E95 /* b2GearJoint.cpp in Sources */,
+				9A429FFE19A5817E00BB0101 /* SettingsViewController.mm in Sources */,
 				9AEA57DD18D9EBB20028B80C /* main.mm in Sources */,
 				9AE093D118ECA56400DFC16F /* DesktopViewController+MapView.mm in Sources */,
 				9A037593198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
@@ -2724,6 +2750,7 @@
 				9A0375B3198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A037637198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9A75715A197D804100C23AEE /* historyParser.mm in Sources */,
+				9A42A00019A5817E00BB0101 /* SettingsViewController.mm in Sources */,
 				9A03764F198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
 				9A9701D819083B26007C3C19 /* DesktopViewController+Table.mm in Sources */,
 				9A36618919A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
@@ -2831,6 +2858,7 @@
 				9A03758E198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A0375EE198DA31900258E95 /* b2World.cpp in Sources */,
 				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,
+				9A429FFF19A5817E00BB0101 /* SettingsViewController.mm in Sources */,
 				9A037666198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A037672198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A0375A0198DA31800258E95 /* b2CircleShape.cpp in Sources */,

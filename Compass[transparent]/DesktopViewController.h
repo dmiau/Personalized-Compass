@@ -11,6 +11,7 @@
 #include "compassModel.h"
 #include "compassRender.h"
 #include <iostream>
+#import "SettingsViewController.h"
 
 @interface DesktopViewController : NSViewController
 <NSTableViewDataSource, NSTableViewDelegate, MKMapViewDelegate>{
@@ -43,6 +44,15 @@
 
 @property NSMutableDictionary* UIConfigurations;
 
+//-------------------
+// Settings View
+//-------------------
+@property SettingsViewController* settingsViewController;
+@property NSView *settingsView;
+
+//-------------------
+// Interactions
+//-------------------
 - (IBAction)toggleMap:(id)sender;
 - (IBAction)toggleCompass:(id)sender;
 
@@ -50,6 +60,9 @@
 - (void) updateMapDisplayRegion;
 -(bool)updateModelCompassCenterXY;
 - (IBAction)refreshConfigurations:(id)sender;
+- (IBAction)showSettings:(id)sender;
+
+
 
 // KML combo box
 - (IBAction)didChangeKMLCombo:(id)sender;

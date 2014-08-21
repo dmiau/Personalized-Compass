@@ -1467,7 +1467,7 @@ http://stackoverflow.com/questions/20061052/how-to-add-nsviewcontroller-to-a-res
 - add custom annotation to the desktop map
 - experimenting adding a subview
 - made some progress on the callout experiment!
-
+- adding a settings view
 
 
 

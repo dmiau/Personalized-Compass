@@ -19,7 +19,7 @@
     
     NSEvent *event =  [NSEvent otherEventWithType: NSApplicationDefined
                                          location:
-                                CGPointMake(self.view.window.frame.size.width -150,
+                                CGPointMake(self.view.window.frame.size.width -200,
                                             self.view.window.frame.size.height -55)
                                     modifierFlags: 0
                                         timestamp: 0
