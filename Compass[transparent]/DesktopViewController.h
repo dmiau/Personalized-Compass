@@ -11,7 +11,10 @@
 #include "compassModel.h"
 #include "compassRender.h"
 #include <iostream>
-#import "SettingsViewController.h"
+//#import "SettingsViewController.h"
+#import "TestManager.h"
+
+@class SettingsViewController; //Forward declaration
 
 @interface DesktopViewController : NSViewController
 <NSTableViewDataSource, NSTableViewDelegate, MKMapViewDelegate>{
@@ -39,15 +42,29 @@
 
 @property compassMdl* model;
 @property compassRender* renderer;
-
+@property TestManager* testManager;
 @property NSNumber *mapUpdateFlag;
+@property bool conventionalCompassVisible;
 
 @property NSMutableDictionary* UIConfigurations;
+
+//----------------
+// Update and initialization functions
+//----------------
+- (void)initMapView;
+- (void)updateMapDisplayRegion;
+-(bool)updateModelCompassCenterXY;
+
+//----------------
+// Compass related stuff
+//----------------
+- (void) changeCompassLocationTo: (NSString*) label;
+- (void) setFactoryCompassHidden: (BOOL) flag;
 
 //-------------------
 // Settings View
 //-------------------
-@property SettingsViewController* settingsViewController;
+@property SettingsViewController *settingsViewController;
 @property NSView *settingsView;
 
 //-------------------
@@ -55,10 +72,7 @@
 //-------------------
 - (IBAction)toggleMap:(id)sender;
 - (IBAction)toggleCompass:(id)sender;
-
 - (IBAction)rotate:(id)sender;
-- (void) updateMapDisplayRegion;
--(bool)updateModelCompassCenterXY;
 - (IBAction)refreshConfigurations:(id)sender;
 - (IBAction)showSettings:(id)sender;
 

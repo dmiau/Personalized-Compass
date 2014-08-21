@@ -10,6 +10,21 @@
 
 @implementation myMapView
 
+//- (BOOL)acceptsFirstResponder
+//{
+//    return NO;
+//}
+//
+//- (BOOL)becomeFirstResponder
+//{
+//    return  NO;
+//}
+//
+//- (BOOL)resignFirstResponder
+//{
+//    return YES;
+//}
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];

@@ -7,6 +7,7 @@
 //
 
 #import "DesktopViewController+Init.h"
+#import "SettingsViewController.h"
 
 @implementation DesktopViewController (Init)
 
@@ -80,7 +81,6 @@
     [self setNextResponder:self.view];
     [self.view.subviews enumerateObjectsUsingBlock:^(NSView *subview, NSUInteger idx, BOOL *stop) { [subview setNextResponder:self]; }];
     
-    // Insert code here to initialize your application
     
     [[self mapView] setScrollEnabled:YES];
     [self mapView].showsZoomControls =YES;
@@ -106,23 +106,11 @@
     [self.kmlComboBox setStringValue:
      [self.model->location_filename
       lastPathComponent]];
-    
-    [self updateMapDisplayRegion];
-    
-    // Provide the compass centroid information to the model
-    self.model->compassCenterXY =
-    [self.mapView convertPoint: NSMakePoint(self.compassView.frame.size.width/2,
-                                            self.compassView.frame.size.height/2)
-                      fromView:self.compassView];
-    //-----------------
-    // Add annotation to the map
-    //-----------------
-    [self renderAnnotations];
-    
-    //-----------------
-    // Provide compassXY to the model
-    //-----------------
-    [self updateModelCompassCenterXY];
+
+    //-------------------
+    // Initialized the mapView
+    //-------------------
+    [self initMapView];
     
     //-------------------
     // Add the setting panel
@@ -130,24 +118,40 @@
     
     self.settingsViewController = [[SettingsViewController alloc]
                                    initWithNibName:@"settingsView" bundle:nil];
+    
+    self.settingsViewController.rootViewController = self;
     self.settingsView = self.settingsViewController.view;
     
     CALayer *viewLayer = [CALayer layer];
-    [viewLayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 0.0, 1)]; //RGB plus Alpha Channel
+    [viewLayer setBackgroundColor:CGColorCreateGenericRGB(1.0, 1.0, 1.0, 1)]; //RGB plus Alpha Channel
     [self.settingsView setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
     [self.settingsView setLayer:viewLayer];
     
-    [self.compassView addSubview:self.settingsView positioned: NSWindowAbove
+    [self.mapView addSubview:self.settingsView positioned: NSWindowAbove
                       relativeTo:nil];
     self.settingsView.frame =
-    CGRectMake(100, 100,
+    CGRectMake(50, 50,
                self.settingsView.frame.size.width,
                self.settingsView.frame.size.height);
-    int count = self.view.subviews.count;
-    
+    [self.settingsView becomeFirstResponder];
     [self.settingsView setHidden:YES];
 }
 
-
+//-----------------
+// initMapView may be called whenever configurations.json is reloaded
+//-----------------
+- (void) initMapView{
+    [self updateMapDisplayRegion];
+    
+    // Provide the centroid of compass to the model
+    [self updateModelCompassCenterXY];
+    
+    // Add pin annotations
+    [self renderAnnotations];
+    
+    // Set the conventional compass to be invisible
+    self.conventionalCompassVisible = false;
+    
+}
 
 @end

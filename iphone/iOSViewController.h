@@ -151,7 +151,7 @@ enum findMe_enum{
 // Compass related stuff
 //----------------
 - (void) changeCompassLocationTo: (NSString*) label;
-
+- (void) setFactoryCompassHidden: (BOOL) flag;
 
 //----------------
 // Functions attached to the timer
@@ -173,9 +173,6 @@ enum findMe_enum{
 - (IBAction)refreshApp:(id)sender;
 
 - (void) hideAllPanels;
-
-- (void) setFactoryCompassHidden: (BOOL) flag;
-- (void) removeCompass;
 - (void) constructDebugToolbar:(NSString*) mode;
 - (void) constructDemoToolbar:(NSString*)mode;
 

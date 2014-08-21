@@ -81,4 +81,8 @@
         self.model->tilt = self.model->tilt - 1;
     }
 }
+
+- (void) setFactoryCompassHidden: (BOOL) flag {
+    [self mapView].showsCompass =!flag;
+}
 @end

@@ -73,6 +73,7 @@
 }
 
 - (IBAction)showSettings:(id)sender {
+    
     [self.settingsView setHidden:!self.settingsView.isHidden];
 }
 
