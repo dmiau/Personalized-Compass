@@ -73,31 +73,7 @@
 }
 
 - (IBAction)showSettings:(id)sender {
-
-    static bool once = false;
-    
-    if (!once){
-        //-------------------
-        // Add the setting panel
-        //-------------------
-        
-        self.settingsViewController = [[SettingsViewController alloc]
-                                       initWithNibName:@"settingsView" bundle:nil];
-        self.settingsView = self.settingsViewController.view;
-
-        [self.view addSubview:self.settingsView positioned: NSWindowAbove
-                   relativeTo:nil];
-        self.settingsView.frame =
-        CGRectMake(100, 100,
-                   self.settingsView.frame.size.width,
-                   self.settingsView.frame.size.height);
-        int count = self.view.subviews.count;
-        
-        [self.settingsView setHidden:NO];
-        once = true;
-    }else{
-        [self.settingsView setHidden:!self.settingsView.isHidden];
-    }
+    [self.settingsView setHidden:!self.settingsView.isHidden];
 }
 
 #pragma mark ------------- User Interface -------------

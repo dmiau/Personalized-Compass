@@ -124,7 +124,28 @@
     //-----------------
     [self updateModelCompassCenterXY];
     
-    self.settingsView = nil;
+    //-------------------
+    // Add the setting panel
+    //-------------------
+    
+    self.settingsViewController = [[SettingsViewController alloc]
+                                   initWithNibName:@"settingsView" bundle:nil];
+    self.settingsView = self.settingsViewController.view;
+    
+    CALayer *viewLayer = [CALayer layer];
+    [viewLayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 0.0, 1)]; //RGB plus Alpha Channel
+    [self.settingsView setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
+    [self.settingsView setLayer:viewLayer];
+    
+    [self.compassView addSubview:self.settingsView positioned: NSWindowAbove
+                      relativeTo:nil];
+    self.settingsView.frame =
+    CGRectMake(100, 100,
+               self.settingsView.frame.size.width,
+               self.settingsView.frame.size.height);
+    int count = self.view.subviews.count;
+    
+    [self.settingsView setHidden:YES];
 }
 
 

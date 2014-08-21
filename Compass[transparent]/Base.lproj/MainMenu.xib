@@ -800,7 +800,7 @@
                         <rect key="frame" x="58" y="22" width="490" height="490"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </openGLView>
-                    <mapView hidden="YES" canDrawConcurrently="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWq-Lx-RbY" customClass="myMapView">
+                    <mapView canDrawConcurrently="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWq-Lx-RbY" customClass="myMapView">
                         <rect key="frame" x="6" y="10" width="618" height="514"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <connections>
