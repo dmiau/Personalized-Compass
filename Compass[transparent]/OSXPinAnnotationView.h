@@ -8,7 +8,16 @@
 
 #import <MapKit/MapKit.h>
 
+
+@interface CalloutViewController : NSViewController
+@property (weak) IBOutlet NSView *detailView;
+@end
+
+
 @interface OSXPinAnnotationView : MKPinAnnotationView{
-    NSViewController *calloutViewController;
+    CalloutViewController *calloutViewController;
 }
+
+-(void)showCustomCallout:(bool)status;
+-(void)showDetailCallout:(bool)status;
 @end

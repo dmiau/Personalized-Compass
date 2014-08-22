@@ -53,7 +53,7 @@
             [pinView setAnimatesDrop:YES];
         }
         
-        [pinView setCanShowCallout:NO];
+        [pinView setCanShowCallout:YES];
         
         
         if ([annotation point_type] == dropped){
@@ -191,6 +191,7 @@
     
     NSButton *rightButton = [[NSButton alloc] init];
     rightButton.tag = 1;  //right button has tag 1
+    [rightButton setAction:@selector(rightButtonAction:)];
     pinView.rightCalloutAccessoryView = rightButton;
     
     return pinView;
@@ -211,6 +212,10 @@
 //------------------
 
 - (void)leftButtonAction:(NSControl*) control{
+    NSLog(@"Button clicked");
+}
+
+- (void)rightButtonAction:(NSControl*) control{
     NSLog(@"Button clicked");
 }
 
@@ -248,8 +253,12 @@
 //------------------
 // When a pin is selected
 //------------------
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:
+(OSXPinAnnotationView *)pinView{
     NSLog(@"Annotation clicked");
+    
+    if(!pinView.canShowCallout)
+        [pinView showCustomCallout:YES];
     //    MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
     ////    pinView.pinColor = MKPinAnnotationColorPurple;
     //    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -257,10 +266,13 @@
     //    pinView.rightCalloutAccessoryView = rightButton;
 }
 
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:
+(OSXPinAnnotationView *)pinView
 {
-    // do nothing
-    NSLog(@"Deselect annoation");
+//    // do nothing
+//    NSLog(@"Deselect annoation");
+//    if(!pinView.canShowCallout)
+//        [pinView showCustomCallout:NO];
 }
 
 ////------------------

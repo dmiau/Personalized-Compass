@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "OSXPinAnnotationView.h"
 
 @interface SettingsViewController ()
 
@@ -88,5 +89,36 @@
             
     }
     [self.rootViewController.compassView setNeedsDisplay:YES];
+}
+
+//-----------------
+// annotationNumberSegmentControl controls whether multiple callouts
+// can be shown at the same time or not.
+//-----------------
+- (IBAction)annotationNumberSegmentControl:(NSSegmentedControl*)sender {
+    
+    bool canShowCallout = false;
+    
+    switch (sender.selectedSegment) {
+        case 0:
+            canShowCallout = YES;
+            break;
+        case 1:
+            canShowCallout = NO;
+            break;
+    }
+    
+    for (id<MKAnnotation> annotation in
+         self.rootViewController.mapView.annotations){
+        OSXPinAnnotationView* pinView =
+        (OSXPinAnnotationView*)
+        [self.rootViewController.mapView
+                                    viewForAnnotation: annotation];
+        pinView.canShowCallout = canShowCallout;
+        
+        if (canShowCallout){
+            [pinView showCustomCallout:NO];
+        }
+    }
 }
 @end

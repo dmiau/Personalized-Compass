@@ -1469,6 +1469,15 @@ http://stackoverflow.com/questions/20061052/how-to-add-nsviewcontroller-to-a-res
 - made some progress on the callout experiment!
 - adding a settings view
 
+-------------------------------------------------------------------
+8.22.2014
+-------------------------------------------------------------------
+- enhance annotation control
+- had a quite a day yesterday
+
+
+
+
 
 
 

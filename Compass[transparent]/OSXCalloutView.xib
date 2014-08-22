@@ -4,8 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NSViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="CalloutViewController">
             <connections>
+                <outlet property="detailView" destination="d6X-th-HCO" id="4tZ-Vi-dRL"/>
                 <outlet property="view" destination="c22-O7-iKe" id="gvt-nK-Sid"/>
             </connections>
         </customObject>
@@ -22,6 +23,21 @@
                         <font key="font" metaFont="system" size="20"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="d6X-th-HCO">
+            <rect key="frame" x="0.0" y="0.0" width="194" height="255"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQs-qg-0PL">
+                    <rect key="frame" x="23" y="211" width="54" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Address" id="961-TE-4t9">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>

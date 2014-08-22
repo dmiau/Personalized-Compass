@@ -20,6 +20,7 @@
 //-------------
 - (IBAction)compassSegmentControl:(id)sender;
 - (IBAction)wedgeSegmentControl:(id)sender;
+- (IBAction)annotationNumberSegmentControl:(id)sender;
 
 
 @end

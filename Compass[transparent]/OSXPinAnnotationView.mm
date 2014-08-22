@@ -22,21 +22,41 @@
 }
 
 //http://stackoverflow.com/questions/1565828/how-to-customize-the-callout-bubble-for-mkannotationview
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-    
-    if(selected)
-    {
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+//{
+//    [super setSelected:selected animated:animated];
+//    
+//    if(selected && !self.canShowCallout)
+//    {
+//
+//        
+//    }
+//    else
+//    {
+////        [calloutViewController.view removeFromSuperview];
+//    }
+//}
 
+-(void)showCustomCallout:(bool)status{
+    if (status) {
         [self addSubview:calloutViewController.view];
-    }
-    else
-    {
+    }else{
         //Remove your custom view...
-//        [calloutViewController.view removeFromSuperview];
+        [calloutViewController.view removeFromSuperview];
     }
 }
 
-
+//---------------
+// showDetailCallout toggles detail view
+//---------------
+-(void)showDetailCallout:(bool)status{
+    [self showCustomCallout:NO];
+    
+    if (status) {
+        [self addSubview:calloutViewController.detailView];
+    }else{
+        //Remove your custom view...
+        [calloutViewController.detailView removeFromSuperview];
+    }
+}
 @end
