@@ -7,6 +7,11 @@
 //
 
 #import "DesktopViewController.h"
+#import "OSXPinAnnotationView.h"
+
+
+
+
 
 @interface DesktopViewController (Annotations)
 

@@ -14,6 +14,7 @@
 
 @property compassMdl *model;
 @property DesktopViewController *rootViewController;
+@property (weak) IBOutlet NSTextField *serverPort;
 
 //-------------
 // Controls
@@ -21,6 +22,7 @@
 - (IBAction)compassSegmentControl:(id)sender;
 - (IBAction)wedgeSegmentControl:(id)sender;
 - (IBAction)annotationNumberSegmentControl:(id)sender;
+- (IBAction)toggleServer:(id)sender;
 
 
 @end

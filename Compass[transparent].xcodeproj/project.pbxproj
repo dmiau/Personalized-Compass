@@ -416,6 +416,136 @@
 		9A42A00619A63D7A00BB0101 /* OSXSettingsView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00419A63D7A00BB0101 /* OSXSettingsView.mm */; };
 		9A42A00719A63D7A00BB0101 /* OSXSettingsView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00419A63D7A00BB0101 /* OSXSettingsView.mm */; };
 		9A42A00819A63D7A00BB0101 /* OSXSettingsView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00419A63D7A00BB0101 /* OSXSettingsView.mm */; };
+		9A42A03219A79C3200BB0101 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00D19A79C3200BB0101 /* DDData.m */; };
+		9A42A03319A79C3200BB0101 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00D19A79C3200BB0101 /* DDData.m */; };
+		9A42A03419A79C3200BB0101 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00D19A79C3200BB0101 /* DDData.m */; };
+		9A42A03519A79C3200BB0101 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00D19A79C3200BB0101 /* DDData.m */; };
+		9A42A03619A79C3200BB0101 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00F19A79C3200BB0101 /* DDNumber.m */; };
+		9A42A03719A79C3200BB0101 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00F19A79C3200BB0101 /* DDNumber.m */; };
+		9A42A03819A79C3200BB0101 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00F19A79C3200BB0101 /* DDNumber.m */; };
+		9A42A03919A79C3200BB0101 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00F19A79C3200BB0101 /* DDNumber.m */; };
+		9A42A03A19A79C3200BB0101 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01119A79C3200BB0101 /* DDRange.m */; };
+		9A42A03B19A79C3200BB0101 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01119A79C3200BB0101 /* DDRange.m */; };
+		9A42A03C19A79C3200BB0101 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01119A79C3200BB0101 /* DDRange.m */; };
+		9A42A03D19A79C3200BB0101 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01119A79C3200BB0101 /* DDRange.m */; };
+		9A42A03E19A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01319A79C3200BB0101 /* HTTPAuthenticationRequest.m */; };
+		9A42A03F19A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01319A79C3200BB0101 /* HTTPAuthenticationRequest.m */; };
+		9A42A04019A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01319A79C3200BB0101 /* HTTPAuthenticationRequest.m */; };
+		9A42A04119A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01319A79C3200BB0101 /* HTTPAuthenticationRequest.m */; };
+		9A42A04219A79C3200BB0101 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01519A79C3200BB0101 /* HTTPConnection.m */; };
+		9A42A04319A79C3200BB0101 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01519A79C3200BB0101 /* HTTPConnection.m */; };
+		9A42A04419A79C3200BB0101 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01519A79C3200BB0101 /* HTTPConnection.m */; };
+		9A42A04519A79C3200BB0101 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01519A79C3200BB0101 /* HTTPConnection.m */; };
+		9A42A04619A79C3200BB0101 /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01819A79C3200BB0101 /* HTTPMessage.m */; };
+		9A42A04719A79C3200BB0101 /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01819A79C3200BB0101 /* HTTPMessage.m */; };
+		9A42A04819A79C3200BB0101 /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01819A79C3200BB0101 /* HTTPMessage.m */; };
+		9A42A04919A79C3200BB0101 /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01819A79C3200BB0101 /* HTTPMessage.m */; };
+		9A42A04A19A79C3200BB0101 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01B19A79C3200BB0101 /* HTTPServer.m */; };
+		9A42A04B19A79C3200BB0101 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01B19A79C3200BB0101 /* HTTPServer.m */; };
+		9A42A04C19A79C3200BB0101 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01B19A79C3200BB0101 /* HTTPServer.m */; };
+		9A42A04D19A79C3200BB0101 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01B19A79C3200BB0101 /* HTTPServer.m */; };
+		9A42A04E19A79C3200BB0101 /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01E19A79C3200BB0101 /* MultipartFormDataParser.m */; };
+		9A42A04F19A79C3200BB0101 /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01E19A79C3200BB0101 /* MultipartFormDataParser.m */; };
+		9A42A05019A79C3200BB0101 /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01E19A79C3200BB0101 /* MultipartFormDataParser.m */; };
+		9A42A05119A79C3200BB0101 /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A01E19A79C3200BB0101 /* MultipartFormDataParser.m */; };
+		9A42A05219A79C3200BB0101 /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02019A79C3200BB0101 /* MultipartMessageHeader.m */; };
+		9A42A05319A79C3200BB0101 /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02019A79C3200BB0101 /* MultipartMessageHeader.m */; };
+		9A42A05419A79C3200BB0101 /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02019A79C3200BB0101 /* MultipartMessageHeader.m */; };
+		9A42A05519A79C3200BB0101 /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02019A79C3200BB0101 /* MultipartMessageHeader.m */; };
+		9A42A05619A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02219A79C3200BB0101 /* MultipartMessageHeaderField.m */; };
+		9A42A05719A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02219A79C3200BB0101 /* MultipartMessageHeaderField.m */; };
+		9A42A05819A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02219A79C3200BB0101 /* MultipartMessageHeaderField.m */; };
+		9A42A05919A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02219A79C3200BB0101 /* MultipartMessageHeaderField.m */; };
+		9A42A05A19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02519A79C3200BB0101 /* HTTPAsyncFileResponse.m */; };
+		9A42A05B19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02519A79C3200BB0101 /* HTTPAsyncFileResponse.m */; };
+		9A42A05C19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02519A79C3200BB0101 /* HTTPAsyncFileResponse.m */; };
+		9A42A05D19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02519A79C3200BB0101 /* HTTPAsyncFileResponse.m */; };
+		9A42A05E19A79C3200BB0101 /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02719A79C3200BB0101 /* HTTPDataResponse.m */; };
+		9A42A05F19A79C3200BB0101 /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02719A79C3200BB0101 /* HTTPDataResponse.m */; };
+		9A42A06019A79C3200BB0101 /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02719A79C3200BB0101 /* HTTPDataResponse.m */; };
+		9A42A06119A79C3200BB0101 /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02719A79C3200BB0101 /* HTTPDataResponse.m */; };
+		9A42A06219A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02919A79C3200BB0101 /* HTTPDynamicFileResponse.m */; };
+		9A42A06319A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02919A79C3200BB0101 /* HTTPDynamicFileResponse.m */; };
+		9A42A06419A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02919A79C3200BB0101 /* HTTPDynamicFileResponse.m */; };
+		9A42A06519A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02919A79C3200BB0101 /* HTTPDynamicFileResponse.m */; };
+		9A42A06619A79C3200BB0101 /* HTTPErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02B19A79C3200BB0101 /* HTTPErrorResponse.m */; };
+		9A42A06719A79C3200BB0101 /* HTTPErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02B19A79C3200BB0101 /* HTTPErrorResponse.m */; };
+		9A42A06819A79C3200BB0101 /* HTTPErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02B19A79C3200BB0101 /* HTTPErrorResponse.m */; };
+		9A42A06919A79C3200BB0101 /* HTTPErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02B19A79C3200BB0101 /* HTTPErrorResponse.m */; };
+		9A42A06A19A79C3200BB0101 /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02D19A79C3200BB0101 /* HTTPFileResponse.m */; };
+		9A42A06B19A79C3200BB0101 /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02D19A79C3200BB0101 /* HTTPFileResponse.m */; };
+		9A42A06C19A79C3200BB0101 /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02D19A79C3200BB0101 /* HTTPFileResponse.m */; };
+		9A42A06D19A79C3200BB0101 /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02D19A79C3200BB0101 /* HTTPFileResponse.m */; };
+		9A42A06E19A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02F19A79C3200BB0101 /* HTTPRedirectResponse.m */; };
+		9A42A06F19A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02F19A79C3200BB0101 /* HTTPRedirectResponse.m */; };
+		9A42A07019A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02F19A79C3200BB0101 /* HTTPRedirectResponse.m */; };
+		9A42A07119A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A02F19A79C3200BB0101 /* HTTPRedirectResponse.m */; };
+		9A42A07219A79C3200BB0101 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A03119A79C3200BB0101 /* WebSocket.m */; };
+		9A42A07319A79C3200BB0101 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A03119A79C3200BB0101 /* WebSocket.m */; };
+		9A42A07419A79C3200BB0101 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A03119A79C3200BB0101 /* WebSocket.m */; };
+		9A42A07519A79C3200BB0101 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A03119A79C3200BB0101 /* WebSocket.m */; };
+		9A42A08D19A79CA200BB0101 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A07819A79CA200BB0101 /* About.txt */; };
+		9A42A08E19A79CA200BB0101 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A07819A79CA200BB0101 /* About.txt */; };
+		9A42A08F19A79CA200BB0101 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A07819A79CA200BB0101 /* About.txt */; };
+		9A42A09019A79CA200BB0101 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A07819A79CA200BB0101 /* About.txt */; };
+		9A42A09119A79CA200BB0101 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A07A19A79CA200BB0101 /* GCDAsyncSocket.m */; };
+		9A42A09219A79CA200BB0101 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A07A19A79CA200BB0101 /* GCDAsyncSocket.m */; };
+		9A42A09319A79CA200BB0101 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A07A19A79CA200BB0101 /* GCDAsyncSocket.m */; };
+		9A42A09419A79CA200BB0101 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A07A19A79CA200BB0101 /* GCDAsyncSocket.m */; };
+		9A42A09519A79CA200BB0101 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A07C19A79CA200BB0101 /* About.txt */; };
+		9A42A09619A79CA200BB0101 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A07C19A79CA200BB0101 /* About.txt */; };
+		9A42A09719A79CA200BB0101 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A07C19A79CA200BB0101 /* About.txt */; };
+		9A42A09819A79CA200BB0101 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A07C19A79CA200BB0101 /* About.txt */; };
+		9A42A09919A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A07E19A79CA200BB0101 /* DDAbstractDatabaseLogger.m */; };
+		9A42A09A19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A07E19A79CA200BB0101 /* DDAbstractDatabaseLogger.m */; };
+		9A42A09B19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A07E19A79CA200BB0101 /* DDAbstractDatabaseLogger.m */; };
+		9A42A09C19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A07E19A79CA200BB0101 /* DDAbstractDatabaseLogger.m */; };
+		9A42A09D19A79CA200BB0101 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08019A79CA200BB0101 /* DDASLLogger.m */; };
+		9A42A09E19A79CA200BB0101 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08019A79CA200BB0101 /* DDASLLogger.m */; };
+		9A42A09F19A79CA200BB0101 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08019A79CA200BB0101 /* DDASLLogger.m */; };
+		9A42A0A019A79CA200BB0101 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08019A79CA200BB0101 /* DDASLLogger.m */; };
+		9A42A0A119A79CA200BB0101 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08219A79CA200BB0101 /* DDFileLogger.m */; };
+		9A42A0A219A79CA200BB0101 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08219A79CA200BB0101 /* DDFileLogger.m */; };
+		9A42A0A319A79CA200BB0101 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08219A79CA200BB0101 /* DDFileLogger.m */; };
+		9A42A0A419A79CA200BB0101 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08219A79CA200BB0101 /* DDFileLogger.m */; };
+		9A42A0A519A79CA200BB0101 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08419A79CA200BB0101 /* DDLog.m */; };
+		9A42A0A619A79CA200BB0101 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08419A79CA200BB0101 /* DDLog.m */; };
+		9A42A0A719A79CA200BB0101 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08419A79CA200BB0101 /* DDLog.m */; };
+		9A42A0A819A79CA200BB0101 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08419A79CA200BB0101 /* DDLog.m */; };
+		9A42A0A919A79CA200BB0101 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08619A79CA200BB0101 /* DDTTYLogger.m */; };
+		9A42A0AA19A79CA200BB0101 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08619A79CA200BB0101 /* DDTTYLogger.m */; };
+		9A42A0AB19A79CA200BB0101 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08619A79CA200BB0101 /* DDTTYLogger.m */; };
+		9A42A0AC19A79CA200BB0101 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08619A79CA200BB0101 /* DDTTYLogger.m */; };
+		9A42A0AD19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08919A79CA200BB0101 /* ContextFilterLogFormatter.m */; };
+		9A42A0AE19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08919A79CA200BB0101 /* ContextFilterLogFormatter.m */; };
+		9A42A0AF19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08919A79CA200BB0101 /* ContextFilterLogFormatter.m */; };
+		9A42A0B019A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08919A79CA200BB0101 /* ContextFilterLogFormatter.m */; };
+		9A42A0B119A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08B19A79CA200BB0101 /* DispatchQueueLogFormatter.m */; };
+		9A42A0B219A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08B19A79CA200BB0101 /* DispatchQueueLogFormatter.m */; };
+		9A42A0B319A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08B19A79CA200BB0101 /* DispatchQueueLogFormatter.m */; };
+		9A42A0B419A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A08B19A79CA200BB0101 /* DispatchQueueLogFormatter.m */; };
+		9A42A0B519A79CA200BB0101 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A08C19A79CA200BB0101 /* README.txt */; };
+		9A42A0B619A79CA200BB0101 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A08C19A79CA200BB0101 /* README.txt */; };
+		9A42A0B719A79CA200BB0101 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A08C19A79CA200BB0101 /* README.txt */; };
+		9A42A0B819A79CA200BB0101 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A08C19A79CA200BB0101 /* README.txt */; };
+		9A42A0BA19A79CCB00BB0101 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A42A0B919A79CCB00BB0101 /* Security.framework */; };
+		9A42A0BB19A79CDB00BB0101 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D518D9EBB20028B80C /* Foundation.framework */; };
+		9A42A0BF19A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0BE19A8049F00BB0101 /* DesktopViewController+Server.mm */; };
+		9A42A0C019A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0BE19A8049F00BB0101 /* DesktopViewController+Server.mm */; };
+		9A42A0C119A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0BE19A8049F00BB0101 /* DesktopViewController+Server.mm */; };
+		9A42A0C219A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0BE19A8049F00BB0101 /* DesktopViewController+Server.mm */; };
+		9A42A0C819ABADC800BB0101 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */; };
+		9A42A0C919ABADC800BB0101 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */; };
+		9A42A0CA19ABADC800BB0101 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */; };
+		9A42A0CB19ABADC800BB0101 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */; };
+		9A42A0CC19ABADC800BB0101 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.m */; };
+		9A42A0CD19ABADC800BB0101 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.m */; };
+		9A42A0CE19ABADC800BB0101 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.m */; };
+		9A42A0CF19ABADC800BB0101 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.m */; };
+		9A42A0E119ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
+		9A42A0E219ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
+		9A42A0E319ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
+		9A42A0E419ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
 		9A469E0F19A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
 		9A469E1019A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
 		9A469E1119A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
@@ -976,6 +1106,69 @@
 		9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsViewController.mm; sourceTree = "<group>"; };
 		9A42A00319A63D7A00BB0101 /* OSXSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXSettingsView.h; sourceTree = "<group>"; };
 		9A42A00419A63D7A00BB0101 /* OSXSettingsView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OSXSettingsView.mm; sourceTree = "<group>"; };
+		9A42A00C19A79C3200BB0101 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
+		9A42A00D19A79C3200BB0101 /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
+		9A42A00E19A79C3200BB0101 /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
+		9A42A00F19A79C3200BB0101 /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNumber.m; sourceTree = "<group>"; };
+		9A42A01019A79C3200BB0101 /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRange.h; sourceTree = "<group>"; };
+		9A42A01119A79C3200BB0101 /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRange.m; sourceTree = "<group>"; };
+		9A42A01219A79C3200BB0101 /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
+		9A42A01319A79C3200BB0101 /* HTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAuthenticationRequest.m; sourceTree = "<group>"; };
+		9A42A01419A79C3200BB0101 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPConnection.h; sourceTree = "<group>"; };
+		9A42A01519A79C3200BB0101 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPConnection.m; sourceTree = "<group>"; };
+		9A42A01619A79C3200BB0101 /* HTTPLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPLogging.h; sourceTree = "<group>"; };
+		9A42A01719A79C3200BB0101 /* HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPMessage.h; sourceTree = "<group>"; };
+		9A42A01819A79C3200BB0101 /* HTTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPMessage.m; sourceTree = "<group>"; };
+		9A42A01919A79C3200BB0101 /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponse.h; sourceTree = "<group>"; };
+		9A42A01A19A79C3200BB0101 /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPServer.h; sourceTree = "<group>"; };
+		9A42A01B19A79C3200BB0101 /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPServer.m; sourceTree = "<group>"; };
+		9A42A01D19A79C3200BB0101 /* MultipartFormDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartFormDataParser.h; sourceTree = "<group>"; };
+		9A42A01E19A79C3200BB0101 /* MultipartFormDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartFormDataParser.m; sourceTree = "<group>"; };
+		9A42A01F19A79C3200BB0101 /* MultipartMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeader.h; sourceTree = "<group>"; };
+		9A42A02019A79C3200BB0101 /* MultipartMessageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeader.m; sourceTree = "<group>"; };
+		9A42A02119A79C3200BB0101 /* MultipartMessageHeaderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeaderField.h; sourceTree = "<group>"; };
+		9A42A02219A79C3200BB0101 /* MultipartMessageHeaderField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeaderField.m; sourceTree = "<group>"; };
+		9A42A02419A79C3200BB0101 /* HTTPAsyncFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAsyncFileResponse.h; sourceTree = "<group>"; };
+		9A42A02519A79C3200BB0101 /* HTTPAsyncFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAsyncFileResponse.m; sourceTree = "<group>"; };
+		9A42A02619A79C3200BB0101 /* HTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDataResponse.h; sourceTree = "<group>"; };
+		9A42A02719A79C3200BB0101 /* HTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDataResponse.m; sourceTree = "<group>"; };
+		9A42A02819A79C3200BB0101 /* HTTPDynamicFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDynamicFileResponse.h; sourceTree = "<group>"; };
+		9A42A02919A79C3200BB0101 /* HTTPDynamicFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDynamicFileResponse.m; sourceTree = "<group>"; };
+		9A42A02A19A79C3200BB0101 /* HTTPErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPErrorResponse.h; sourceTree = "<group>"; };
+		9A42A02B19A79C3200BB0101 /* HTTPErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPErrorResponse.m; sourceTree = "<group>"; };
+		9A42A02C19A79C3200BB0101 /* HTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPFileResponse.h; sourceTree = "<group>"; };
+		9A42A02D19A79C3200BB0101 /* HTTPFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPFileResponse.m; sourceTree = "<group>"; };
+		9A42A02E19A79C3200BB0101 /* HTTPRedirectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRedirectResponse.h; sourceTree = "<group>"; };
+		9A42A02F19A79C3200BB0101 /* HTTPRedirectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRedirectResponse.m; sourceTree = "<group>"; };
+		9A42A03019A79C3200BB0101 /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
+		9A42A03119A79C3200BB0101 /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocket.m; sourceTree = "<group>"; };
+		9A42A07819A79CA200BB0101 /* About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = About.txt; sourceTree = "<group>"; };
+		9A42A07919A79CA200BB0101 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		9A42A07A19A79CA200BB0101 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		9A42A07C19A79CA200BB0101 /* About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = About.txt; sourceTree = "<group>"; };
+		9A42A07D19A79CA200BB0101 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		9A42A07E19A79CA200BB0101 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		9A42A07F19A79CA200BB0101 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		9A42A08019A79CA200BB0101 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		9A42A08119A79CA200BB0101 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		9A42A08219A79CA200BB0101 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		9A42A08319A79CA200BB0101 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		9A42A08419A79CA200BB0101 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		9A42A08519A79CA200BB0101 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		9A42A08619A79CA200BB0101 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		9A42A08819A79CA200BB0101 /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		9A42A08919A79CA200BB0101 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		9A42A08A19A79CA200BB0101 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		9A42A08B19A79CA200BB0101 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		9A42A08C19A79CA200BB0101 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		9A42A0B919A79CCB00BB0101 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9A42A0BD19A8049F00BB0101 /* DesktopViewController+Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Server.h"; sourceTree = "<group>"; };
+		9A42A0BE19A8049F00BB0101 /* DesktopViewController+Server.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Server.mm"; sourceTree = "<group>"; };
+		9A42A0C419ABADC800BB0101 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHTTPConnection.h; sourceTree = "<group>"; };
+		9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHTTPConnection.m; sourceTree = "<group>"; };
+		9A42A0C619ABADC800BB0101 /* MyWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebSocket.h; sourceTree = "<group>"; };
+		9A42A0C719ABADC800BB0101 /* MyWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebSocket.m; sourceTree = "<group>"; };
+		9A42A0E019ABB12D00BB0101 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
 		9A469E0D19A4FEC100EB88C0 /* OSXPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXPinAnnotationView.h; sourceTree = "<group>"; };
 		9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OSXPinAnnotationView.mm; sourceTree = "<group>"; };
 		9A469E1319A5183400EB88C0 /* OSXCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSXCalloutView.xib; sourceTree = "<group>"; };
@@ -1218,6 +1411,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A42A0BB19A79CDB00BB0101 /* Foundation.framework in Frameworks */,
+				9A42A0BA19A79CCB00BB0101 /* Security.framework in Frameworks */,
 				9AEA582618D9EC9F0028B80C /* GLUT.framework in Frameworks */,
 				9AEA582418D9EC940028B80C /* MapKit.framework in Frameworks */,
 				9AEA582218D9EC8F0028B80C /* CoreLocation.framework in Frameworks */,
@@ -1487,6 +1682,144 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		9A42A00919A79C1200BB0101 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A07619A79CA100BB0101 /* Vendor */,
+				9A42A00A19A79C3200BB0101 /* Core */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		9A42A00A19A79C3200BB0101 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A00B19A79C3200BB0101 /* Categories */,
+				9A42A01219A79C3200BB0101 /* HTTPAuthenticationRequest.h */,
+				9A42A01319A79C3200BB0101 /* HTTPAuthenticationRequest.m */,
+				9A42A01419A79C3200BB0101 /* HTTPConnection.h */,
+				9A42A01519A79C3200BB0101 /* HTTPConnection.m */,
+				9A42A01619A79C3200BB0101 /* HTTPLogging.h */,
+				9A42A01719A79C3200BB0101 /* HTTPMessage.h */,
+				9A42A01819A79C3200BB0101 /* HTTPMessage.m */,
+				9A42A01919A79C3200BB0101 /* HTTPResponse.h */,
+				9A42A01A19A79C3200BB0101 /* HTTPServer.h */,
+				9A42A01B19A79C3200BB0101 /* HTTPServer.m */,
+				9A42A01C19A79C3200BB0101 /* Mime */,
+				9A42A02319A79C3200BB0101 /* Responses */,
+				9A42A03019A79C3200BB0101 /* WebSocket.h */,
+				9A42A03119A79C3200BB0101 /* WebSocket.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		9A42A00B19A79C3200BB0101 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A00C19A79C3200BB0101 /* DDData.h */,
+				9A42A00D19A79C3200BB0101 /* DDData.m */,
+				9A42A00E19A79C3200BB0101 /* DDNumber.h */,
+				9A42A00F19A79C3200BB0101 /* DDNumber.m */,
+				9A42A01019A79C3200BB0101 /* DDRange.h */,
+				9A42A01119A79C3200BB0101 /* DDRange.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		9A42A01C19A79C3200BB0101 /* Mime */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A01D19A79C3200BB0101 /* MultipartFormDataParser.h */,
+				9A42A01E19A79C3200BB0101 /* MultipartFormDataParser.m */,
+				9A42A01F19A79C3200BB0101 /* MultipartMessageHeader.h */,
+				9A42A02019A79C3200BB0101 /* MultipartMessageHeader.m */,
+				9A42A02119A79C3200BB0101 /* MultipartMessageHeaderField.h */,
+				9A42A02219A79C3200BB0101 /* MultipartMessageHeaderField.m */,
+			);
+			path = Mime;
+			sourceTree = "<group>";
+		};
+		9A42A02319A79C3200BB0101 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A02419A79C3200BB0101 /* HTTPAsyncFileResponse.h */,
+				9A42A02519A79C3200BB0101 /* HTTPAsyncFileResponse.m */,
+				9A42A02619A79C3200BB0101 /* HTTPDataResponse.h */,
+				9A42A02719A79C3200BB0101 /* HTTPDataResponse.m */,
+				9A42A02819A79C3200BB0101 /* HTTPDynamicFileResponse.h */,
+				9A42A02919A79C3200BB0101 /* HTTPDynamicFileResponse.m */,
+				9A42A02A19A79C3200BB0101 /* HTTPErrorResponse.h */,
+				9A42A02B19A79C3200BB0101 /* HTTPErrorResponse.m */,
+				9A42A02C19A79C3200BB0101 /* HTTPFileResponse.h */,
+				9A42A02D19A79C3200BB0101 /* HTTPFileResponse.m */,
+				9A42A02E19A79C3200BB0101 /* HTTPRedirectResponse.h */,
+				9A42A02F19A79C3200BB0101 /* HTTPRedirectResponse.m */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		9A42A07619A79CA100BB0101 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A07719A79CA100BB0101 /* CocoaAsyncSocket */,
+				9A42A07B19A79CA200BB0101 /* CocoaLumberjack */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		9A42A07719A79CA100BB0101 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A07819A79CA200BB0101 /* About.txt */,
+				9A42A07919A79CA200BB0101 /* GCDAsyncSocket.h */,
+				9A42A07A19A79CA200BB0101 /* GCDAsyncSocket.m */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		9A42A07B19A79CA200BB0101 /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A07C19A79CA200BB0101 /* About.txt */,
+				9A42A07D19A79CA200BB0101 /* DDAbstractDatabaseLogger.h */,
+				9A42A07E19A79CA200BB0101 /* DDAbstractDatabaseLogger.m */,
+				9A42A07F19A79CA200BB0101 /* DDASLLogger.h */,
+				9A42A08019A79CA200BB0101 /* DDASLLogger.m */,
+				9A42A08119A79CA200BB0101 /* DDFileLogger.h */,
+				9A42A08219A79CA200BB0101 /* DDFileLogger.m */,
+				9A42A08319A79CA200BB0101 /* DDLog.h */,
+				9A42A08419A79CA200BB0101 /* DDLog.m */,
+				9A42A08519A79CA200BB0101 /* DDTTYLogger.h */,
+				9A42A08619A79CA200BB0101 /* DDTTYLogger.m */,
+				9A42A08719A79CA200BB0101 /* Extensions */,
+			);
+			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		9A42A08719A79CA200BB0101 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A08819A79CA200BB0101 /* ContextFilterLogFormatter.h */,
+				9A42A08919A79CA200BB0101 /* ContextFilterLogFormatter.m */,
+				9A42A08A19A79CA200BB0101 /* DispatchQueueLogFormatter.h */,
+				9A42A08B19A79CA200BB0101 /* DispatchQueueLogFormatter.m */,
+				9A42A08C19A79CA200BB0101 /* README.txt */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9A42A0C319ABAD7500BB0101 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A0E019ABB12D00BB0101 /* Web */,
+				9A42A0C419ABADC800BB0101 /* MyHTTPConnection.h */,
+				9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */,
+				9A42A0C619ABADC800BB0101 /* MyWebSocket.h */,
+				9A42A0C719ABADC800BB0101 /* MyWebSocket.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
 		9A480892198BE7AE0001E188 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -1681,6 +2014,9 @@
 				9A469E1919A53DA200EB88C0 /* DesktopViewController+Search.mm */,
 				9A6F53F61910073F00F35FED /* DebugWindowController.h */,
 				9A6F53F71910073F00F35FED /* DebugWindowController.mm */,
+				9A42A0BD19A8049F00BB0101 /* DesktopViewController+Server.h */,
+				9A42A0BE19A8049F00BB0101 /* DesktopViewController+Server.mm */,
+				9A42A0C319ABAD7500BB0101 /* Server */,
 				9A42A00219A5819700BB0101 /* Settings */,
 			);
 			name = Controller;
@@ -1761,6 +2097,7 @@
 		9AEA57CF18D9EBB20028B80C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A42A0B919A79CCB00BB0101 /* Security.framework */,
 				9A02D0FA195C5D1700A64987 /* libc++.dylib */,
 				9A02D0F8195C5D0C00A64987 /* libz.dylib */,
 				9A02D0F5195C5CE800A64987 /* Dropbox.framework */,
@@ -1799,6 +2136,7 @@
 		9AEA57D618D9EBB20028B80C /* Compass[transparent] */ = {
 			isa = PBXGroup;
 			children = (
+				9A42A00919A79C1200BB0101 /* Server */,
 				9A998D66194B716800778DFC /* icons */,
 				9A0A14E91907581300C89634 /* Archive */,
 				9A8E9B2E18DE4C0200C53010 /* Model */,
@@ -2149,19 +2487,23 @@
 			files = (
 				9A3DA0BE1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9A4808C2198C2FA30001E188 /* snapshot2.kml in Resources */,
+				9A42A0B819A79CA200BB0101 /* README.txt in Resources */,
 				9AB90B90194DED0B0030BF5B /* Taiwan.kml in Resources */,
 				9AA1DB921948B30A0082BABC /* SundayTest.kml in Resources */,
 				9A239EE0196EFF410064BDC9 /* new.kml in Resources */,
 				9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */,
+				9A42A09019A79CA200BB0101 /* About.txt in Resources */,
 				9AA789251909FE3000A26C66 /* InfoPlist.strings in Resources */,
 				9AA789261909FE3000A26C66 /* moto360_bikemap.png in Resources */,
 				9A4808BA198C2FA30001E188 /* newyork723.kml in Resources */,
 				9AB2A721196372AA0001E96F /* unselected.png in Resources */,
 				9AA789271909FE3000A26C66 /* Images.xcassets in Resources */,
+				9A42A09819A79CA200BB0101 /* About.txt in Resources */,
 				9AA789281909FE3000A26C66 /* configurations.json in Resources */,
 				9A037566198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9AA789291909FE3000A26C66 /* london.kml in Resources */,
 				9AA7892A1909FE3000A26C66 /* montreal.kml in Resources */,
+				9A42A0E419ABB12D00BB0101 /* Web in Resources */,
 				9A4808D2198C2FA30001E188 /* wedge723.kml in Resources */,
 				9A9482101991D46A0036249C /* setup.png in Resources */,
 				9A3DA09A1964E9B1009E0073 /* add.png in Resources */,
@@ -2201,9 +2543,11 @@
 				9A94820D1991D46A0036249C /* setup.png in Resources */,
 				9A3DA0971964E9B1009E0073 /* add.png in Resources */,
 				9A176DA019A436DA0032DE3F /* settingsView.xib in Resources */,
+				9A42A0B519A79CA200BB0101 /* README.txt in Resources */,
 				9A037563198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9A480898198BF1F70001E188 /* debug.png in Resources */,
 				9A9701E319083EB9007C3C19 /* MainMenu.xib in Resources */,
+				9A42A09519A79CA200BB0101 /* About.txt in Resources */,
 				9AF273121982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */,
 				9A3DA0BB1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
@@ -2213,6 +2557,7 @@
 				9A4808B7198C2FA30001E188 /* newyork723.kml in Resources */,
 				9A469E1419A5183400EB88C0 /* OSXCalloutView.xib in Resources */,
 				9AF7EB2E190175F900983C2F /* configurations.json in Resources */,
+				9A42A0E119ABB12D00BB0101 /* Web in Resources */,
 				9AF089FD1921390700E118D5 /* New York City [many].kml in Resources */,
 				9A2E42E5196C9D2C00CF8862 /* heading.png in Resources */,
 				9A3DA09D1964E9B1009E0073 /* remove.png in Resources */,
@@ -2233,6 +2578,7 @@
 				9A4808CF198C2FA30001E188 /* wedge723.kml in Resources */,
 				9AEA57E118D9EBB20028B80C /* Credits.rtf in Resources */,
 				9AF2730C1982865C00C0195B /* snapshotDefault.png in Resources */,
+				9A42A08D19A79CA200BB0101 /* About.txt in Resources */,
 				9AEA581D18D9EC680028B80C /* README.txt in Resources */,
 				9A48089E198BF1F70001E188 /* general.png in Resources */,
 				9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */,
@@ -2248,8 +2594,10 @@
 				9AA1DB911948B2C60082BABC /* SundayTest.kml in Resources */,
 				9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */,
 				9AF273141982865C00C0195B /* snapshotSelected.png in Resources */,
+				9A42A08F19A79CA200BB0101 /* About.txt in Resources */,
 				9A2E42E7196C9D2C00CF8862 /* heading.png in Resources */,
 				9AB2A720196372AA0001E96F /* unselected.png in Resources */,
+				9A42A09719A79CA200BB0101 /* About.txt in Resources */,
 				9A4808C1198C2FA30001E188 /* snapshot2.kml in Resources */,
 				9A48089A198BF1F70001E188 /* debug.png in Resources */,
 				9A9701DD19083C9B007C3C19 /* configurations.json in Resources */,
@@ -2262,6 +2610,7 @@
 				9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */,
 				9A4808B9198C2FA30001E188 /* newyork723.kml in Resources */,
 				9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */,
+				9A42A0B719A79CA200BB0101 /* README.txt in Resources */,
 				9AEC5CED18F3956F00A29F75 /* Images.xcassets in Resources */,
 				9A3DA0991964E9B1009E0073 /* add.png in Resources */,
 				9AB2A71A196372AA0001E96F /* selected.png in Resources */,
@@ -2283,6 +2632,7 @@
 				9AB90B8F194DED0B0030BF5B /* Taiwan.kml in Resources */,
 				9A239EDF196EFF410064BDC9 /* new.kml in Resources */,
 				9A4808B5198C2FA30001E188 /* london711.kml in Resources */,
+				9A42A0E319ABB12D00BB0101 /* Web in Resources */,
 				9AEC5CF418F3956F00A29F75 /* README.txt in Resources */,
 				9A4808C9198C2FA30001E188 /* tokyo.kml in Resources */,
 			);
@@ -2308,8 +2658,10 @@
 				9A037564198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9A03755E198DA31800258E95 /* Box2DConfig.cmake in Resources */,
 				9AB2A719196372AA0001E96F /* selected.png in Resources */,
+				9A42A0B619A79CA200BB0101 /* README.txt in Resources */,
 				9AECA770196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A94820E1991D46A0036249C /* setup.png in Resources */,
+				9A42A08E19A79CA200BB0101 /* About.txt in Resources */,
 				9AFB14B518EE639A00063632 /* newyork.kml in Resources */,
 				9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9AF273131982865C00C0195B /* snapshotSelected.png in Resources */,
@@ -2317,6 +2669,8 @@
 				9A4808C4198C2FA30001E188 /* StAndrews723.kml in Resources */,
 				9AB90B8E194DED0B0030BF5B /* Taiwan.kml in Resources */,
 				9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */,
+				9A42A0E219ABB12D00BB0101 /* Web in Resources */,
+				9A42A09619A79CA200BB0101 /* About.txt in Resources */,
 				9A480899198BF1F70001E188 /* debug.png in Resources */,
 				9A4808BC198C2FA30001E188 /* snapshot.kml in Resources */,
 				9A4808B4198C2FA30001E188 /* london711.kml in Resources */,
@@ -2568,16 +2922,25 @@
 				9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */,
 				9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */,
 				9A037638198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
+				9A42A03D19A79C3200BB0101 /* DDRange.m in Sources */,
+				9A42A05D19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
 				9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */,
 				9A037644198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A037674198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A03763E198DA31900258E95 /* b2GearJoint.cpp in Sources */,
 				9AB90B97194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A998C951949F32800778DFC /* compassRender+Components.mm in Sources */,
+				9A42A0C219A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */,
+				9A42A04919A79C3200BB0101 /* HTTPMessage.m in Sources */,
+				9A42A06919A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
 				9A03762C198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
+				9A42A09C19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
 				9A0375DE198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9A03760E198DA31900258E95 /* b2Contact.cpp in Sources */,
+				9A42A06519A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
 				9A0375F0198DA31900258E95 /* b2World.cpp in Sources */,
+				9A42A0B419A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
+				9A42A0A419A79CA200BB0101 /* DDFileLogger.m in Sources */,
 				9A03761A198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9A037602198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
 				9A037584198DA31800258E95 /* b2Collision.cpp in Sources */,
@@ -2590,17 +2953,23 @@
 				9A03756C198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
 				9A03759C198DA31800258E95 /* b2ChainShape.cpp in Sources */,
 				9A03764A198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
+				9A42A04119A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
+				9A42A03919A79C3200BB0101 /* DDNumber.m in Sources */,
+				9A42A0CF19ABADC800BB0101 /* MyWebSocket.m in Sources */,
 				9A0375D8198DA31900258E95 /* b2Body.cpp in Sources */,
 				9AA789121909FE3000A26C66 /* DesktopViewController+Compass.mm in Sources */,
 				9A42A00119A5817E00BB0101 /* SettingsViewController.mm in Sources */,
 				9A037656198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
 				9AA789131909FE3000A26C66 /* locationFilter.mm in Sources */,
+				9A42A04519A79C3200BB0101 /* HTTPConnection.m in Sources */,
 				9A037590198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9AA789141909FE3000A26C66 /* compassRender.mm in Sources */,
+				9A42A06D19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9A037596198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A037614198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A36619619A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9AA789151909FE3000A26C66 /* LocationCellView.m in Sources */,
+				9A42A0A819A79CA200BB0101 /* DDLog.m in Sources */,
 				9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */,
 				9A037626198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */,
@@ -2609,6 +2978,10 @@
 				9AA789191909FE3000A26C66 /* main.mm in Sources */,
 				9A469E1219A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */,
 				9A037632198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
+				9A42A09419A79CA200BB0101 /* GCDAsyncSocket.m in Sources */,
+				9A42A0A019A79CA200BB0101 /* DDASLLogger.m in Sources */,
+				9A42A0B019A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
+				9A42A07119A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapView.mm in Sources */,
 				9A037620198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
@@ -2620,23 +2993,32 @@
 				9A4808AA198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
 				9A037662198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
+				9A42A03519A79C3200BB0101 /* DDData.m in Sources */,
 				9A2E42E1196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A03758A198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037668198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
+				9A42A06119A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
 				9A0375FC198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A0375AE198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A0375EA198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A037650198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
+				9A42A05119A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
+				9A42A05519A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
 				9A0375C0198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A75720D197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9A259D5F199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
+				9A42A04D19A79C3200BB0101 /* HTTPServer.m in Sources */,
 				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A037572198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A03766E198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
 				9A037578198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
+				9A42A0AC19A79CA200BB0101 /* DDTTYLogger.m in Sources */,
 				9A0375E4198DA31900258E95 /* b2Fixture.cpp in Sources */,
+				9A42A05919A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
 				9A469E1D19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */,
 				9A176DA919A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
+				9A42A07519A79C3200BB0101 /* WebSocket.m in Sources */,
+				9A42A0CB19ABADC800BB0101 /* MyHTTPConnection.m in Sources */,
 				9A75715B197D804100C23AEE /* historyParser.mm in Sources */,
 				9AB90B9E194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A0375F6198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
@@ -2649,20 +3031,29 @@
 			files = (
 				9A998C921949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A0375B7198DA31800258E95 /* b2Draw.cpp in Sources */,
+				9A42A05E19A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
 				9AECA768196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
+				9A42A06619A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
+				9A42A05A19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
+				9A42A05219A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
 				9A037671198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A037587198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037599198DA31800258E95 /* b2ChainShape.cpp in Sources */,
 				9A037623198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A4808A7198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
+				9A42A05619A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
+				9A42A07219A79C3200BB0101 /* WebSocket.m in Sources */,
 				9A36618D19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
+				9A42A0BF19A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */,
 				9A03762F198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9AAE13DA19046975003BF9B7 /* renderStyles.mm in Sources */,
 				9A0375F3198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A037569198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
 				9A03764D198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
+				9A42A0A519A79CA200BB0101 /* DDLog.m in Sources */,
 				9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */,
 				9A259D5C199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
+				9A42A0AD19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
 				9A03756F198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A0375BD198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A0375A5198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
@@ -2675,7 +3066,10 @@
 				9A03760B198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A037605198DA31900258E95 /* b2CircleContact.cpp in Sources */,
 				9AE57281199CF8D60055799F /* Wedge+Radial.mm in Sources */,
+				9A42A09919A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
 				9A0375E1198DA31900258E95 /* b2Fixture.cpp in Sources */,
+				9A42A03219A79C3200BB0101 /* DDData.m in Sources */,
+				9A42A09D19A79CA200BB0101 /* DDASLLogger.m in Sources */,
 				9A0375CF198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A037629198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A037659198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
@@ -2683,6 +3077,7 @@
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
 				9A469E1A19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */,
 				9A2E42DE196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
+				9A42A06E19A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A037617198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
 				9A36618119A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
@@ -2692,45 +3087,60 @@
 				9A0375F9198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A03757B198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9A998C8B1949F29500778DFC /* compassRender+Label.mm in Sources */,
+				9A42A0CC19ABADC800BB0101 /* MyWebSocket.m in Sources */,
 				9A037653198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
 				9A0375FF198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
+				9A42A06219A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A0375D5198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A757158197D804100C23AEE /* historyParser.mm in Sources */,
+				9A42A0A119A79CA200BB0101 /* DDFileLogger.m in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+Compass.mm in Sources */,
+				9A42A04619A79C3200BB0101 /* HTTPMessage.m in Sources */,
 				9A0375ED198DA31900258E95 /* b2World.cpp in Sources */,
 				9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */,
 				9AFD8F56197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A037647198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
 				9AEA582C18D9ED600028B80C /* compassRender.mm in Sources */,
+				9A42A06A19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9AB90B94194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A03759F198DA31800258E95 /* b2CircleShape.cpp in Sources */,
+				9A42A0C819ABADC800BB0101 /* MyHTTPConnection.m in Sources */,
+				9A42A03619A79C3200BB0101 /* DDNumber.m in Sources */,
 				9A0375C3198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A36619319A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9A03765F198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */,
 				9A0375E7198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A037581198DA31800258E95 /* b2Collision.cpp in Sources */,
+				9A42A0B119A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
 				9A03761D198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
+				9A42A0A919A79CA200BB0101 /* DDTTYLogger.m in Sources */,
 				9A037677198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9AB90B9B194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A0375AB198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A03766B198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
+				9A42A04219A79C3200BB0101 /* HTTPConnection.m in Sources */,
 				9AEA582918D9ED350028B80C /* OpenGLView.mm in Sources */,
 				9A757150197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A037369198AF8A500258E95 /* TestManager.mm in Sources */,
 				9A176DA619A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
+				9A42A03A19A79C3200BB0101 /* DDRange.m in Sources */,
 				9A037635198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9A037611198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A037575198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9A75720A197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */,
 				9A03763B198DA31900258E95 /* b2GearJoint.cpp in Sources */,
+				9A42A04A19A79C3200BB0101 /* HTTPServer.m in Sources */,
 				9A429FFE19A5817E00BB0101 /* SettingsViewController.mm in Sources */,
 				9AEA57DD18D9EBB20028B80C /* main.mm in Sources */,
+				9A42A09119A79CA200BB0101 /* GCDAsyncSocket.m in Sources */,
 				9AE093D118ECA56400DFC16F /* DesktopViewController+MapView.mm in Sources */,
 				9A037593198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
+				9A42A04E19A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
 				9A42A00519A63D7A00BB0101 /* OSXSettingsView.mm in Sources */,
+				9A42A03E19A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
 				9A3DA0A41964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A0375DB198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9AF01B7318ECE5FC0029A860 /* GLString.mm in Sources */,
@@ -2744,11 +3154,13 @@
 				9A9701DC19083BCF007C3C19 /* LocationCellView.m in Sources */,
 				9AFD8F58197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A037577198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
+				9A42A03419A79C3200BB0101 /* DDData.m in Sources */,
 				9A0375EF198DA31900258E95 /* b2World.cpp in Sources */,
 				9AECA76A196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A037619198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9A037589198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A03761F198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
+				9A42A07419A79C3200BB0101 /* WebSocket.m in Sources */,
 				9A6F53FA1910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A037655198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
 				9A9701D619083B26007C3C19 /* AppDelegate.mm in Sources */,
@@ -2758,19 +3170,28 @@
 				9A9701E619085002007C3C19 /* watchNSView.m in Sources */,
 				9A03760D198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A0375B3198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
+				9A42A0CE19ABADC800BB0101 /* MyWebSocket.m in Sources */,
 				9A037637198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
+				9A42A09F19A79CA200BB0101 /* DDASLLogger.m in Sources */,
 				9A75715A197D804100C23AEE /* historyParser.mm in Sources */,
 				9A42A00019A5817E00BB0101 /* SettingsViewController.mm in Sources */,
+				9A42A03C19A79C3200BB0101 /* DDRange.m in Sources */,
 				9A03764F198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
 				9A9701D819083B26007C3C19 /* DesktopViewController+Table.mm in Sources */,
 				9A36618919A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
+				9A42A04419A79C3200BB0101 /* HTTPConnection.m in Sources */,
 				9A037601198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
+				9A42A0AF19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
+				9A42A05419A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
 				9A0375A1198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A037583198DA31800258E95 /* b2Collision.cpp in Sources */,
 				9AB90B96194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
+				9A42A0AB19A79CA200BB0101 /* DDTTYLogger.m in Sources */,
+				9A42A04C19A79C3200BB0101 /* HTTPServer.m in Sources */,
 				9A0375BF198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A998C941949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A9701D919083B26007C3C19 /* DesktopViewController+MapView.mm in Sources */,
+				9A42A0CA19ABADC800BB0101 /* MyHTTPConnection.m in Sources */,
 				9A259D5E199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A0375AD198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A9701DA19083B26007C3C19 /* DesktopViewController+Compass.mm in Sources */,
@@ -2791,16 +3212,21 @@
 				9A037631198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A03736B198AF8A500258E95 /* TestManager.mm in Sources */,
 				9A03757D198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
+				9A42A05C19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
+				9A42A06419A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
 				9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */,
+				9A42A06019A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
 				9A037643198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A037661198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A037595198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A037667198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
+				9A42A0B319A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
 				9A0375FB198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A36619519A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A03758F198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A36618319A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
+				9A42A07019A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A03756B198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
 				9A0375E3198DA31900258E95 /* b2Fixture.cpp in Sources */,
@@ -2809,27 +3235,39 @@
 				9A0375F5198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */,
 				9A0375D1198DA31900258E95 /* b2Timer.cpp in Sources */,
+				9A42A05019A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
 				9A757152197D6C1500C23AEE /* snapshotParser.mm in Sources */,
+				9A42A0C119A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */,
+				9A42A04819A79C3200BB0101 /* HTTPMessage.m in Sources */,
 				9A3DA0C51966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A3DA0A61964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
 				9A176DA819A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9A037679198DA31900258E95 /* b2Rope.cpp in Sources */,
+				9A42A09B19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
+				9A42A06C19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
+				9A42A0A319A79CA200BB0101 /* DDFileLogger.m in Sources */,
 				9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */,
+				9A42A05819A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
 				9A03766D198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
+				9A42A04019A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
 				9A0375B9198DA31800258E95 /* b2Draw.cpp in Sources */,
 				9A03765B198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
+				9A42A09319A79CA200BB0101 /* GCDAsyncSocket.m in Sources */,
 				9A42A00719A63D7A00BB0101 /* OSXSettingsView.mm in Sources */,
 				9A9701CE19083B10007C3C19 /* renderStyles.mm in Sources */,
+				9A42A0A719A79CA200BB0101 /* DDLog.m in Sources */,
 				9A75720C197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9A037613198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A037625198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A2E42E0196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9AFD8F63197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9AB90B9D194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
+				9A42A03819A79C3200BB0101 /* DDNumber.m in Sources */,
 				9A037649198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
 				9A037673198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A03759B198DA31800258E95 /* b2ChainShape.cpp in Sources */,
+				9A42A06819A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2843,9 +3281,11 @@
 				9A037678198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9A0375D0198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A757159197D804100C23AEE /* historyParser.mm in Sources */,
+				9A42A03B19A79C3200BB0101 /* DDRange.m in Sources */,
 				9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */,
 				9A36618819A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
 				9A03763C198DA31900258E95 /* b2GearJoint.cpp in Sources */,
+				9A42A09A19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
 				9A037570198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9AFB149E18EE639A00063632 /* DesktopViewController+Table.mm in Sources */,
 				9A037618198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
@@ -2860,27 +3300,43 @@
 				9AB90B95194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9AFD8F62197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A037648198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
+				9A42A03319A79C3200BB0101 /* DDData.m in Sources */,
 				9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */,
 				9A03766C198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
+				9A42A05319A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
 				9A0375A6198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
 				9A42A00619A63D7A00BB0101 /* OSXSettingsView.mm in Sources */,
+				9A42A05B19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
 				9A037642198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A037606198DA31900258E95 /* b2CircleContact.cpp in Sources */,
+				9A42A0C019A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */,
+				9A42A0A619A79CA200BB0101 /* DDLog.m in Sources */,
 				9A037636198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9A03758E198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A0375EE198DA31900258E95 /* b2World.cpp in Sources */,
 				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,
 				9A429FFF19A5817E00BB0101 /* SettingsViewController.mm in Sources */,
+				9A42A0B219A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
+				9A42A06F19A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A037666198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
+				9A42A04719A79C3200BB0101 /* HTTPMessage.m in Sources */,
+				9A42A06B19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9A037672198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A0375A0198DA31800258E95 /* b2CircleShape.cpp in Sources */,
+				9A42A07319A79C3200BB0101 /* WebSocket.m in Sources */,
 				9A0375BE198DA31900258E95 /* b2Math.cpp in Sources */,
+				9A42A04319A79C3200BB0101 /* HTTPConnection.m in Sources */,
 				9A03757C198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
+				9A42A03719A79C3200BB0101 /* DDNumber.m in Sources */,
+				9A42A0CD19ABADC800BB0101 /* MyWebSocket.m in Sources */,
 				9AFB14A118EE639A00063632 /* compassRender.mm in Sources */,
 				9A36618E19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
 				9A037660198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
+				9A42A04B19A79C3200BB0101 /* HTTPServer.m in Sources */,
 				9A0375D6198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A03765A198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
+				9A42A03F19A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
+				9A42A0AA19A79CA200BB0101 /* DDTTYLogger.m in Sources */,
 				9A03761E198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				9A0375F4198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A0375C4198DA31900258E95 /* b2Settings.cpp in Sources */,
@@ -2896,31 +3352,41 @@
 				9A03760C198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A037624198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
+				9A42A06319A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
 				9A03762A198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A037576198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9AFD8F57197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A0375FA198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
+				9A42A0C919ABADC800BB0101 /* MyHTTPConnection.m in Sources */,
 				9A0375E8198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A75720B197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9A0375B2198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
+				9A42A05719A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
 				9A03756A198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
 				9A176DA719A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
+				9A42A06719A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
 				9A03736A198AF8A500258E95 /* TestManager.mm in Sources */,
 				9AB90B9C194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,
 				9A3DA0A51964F5E3009E0073 /* genKMLString.mm in Sources */,
+				9A42A09E19A79CA200BB0101 /* DDASLLogger.m in Sources */,
 				9A0375E2198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A757151197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A469E1019A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */,
+				9A42A09219A79CA200BB0101 /* GCDAsyncSocket.m in Sources */,
 				9A037654198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
+				9A42A0A219A79CA200BB0101 /* DDFileLogger.m in Sources */,
+				9A42A05F19A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
 				9A998C8C1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A037630198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A0375CA198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9AECA769196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A36619419A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9AFB14A618EE639A00063632 /* DesktopViewController+MapView.mm in Sources */,
+				9A42A04F19A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
 				9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9AFB14A718EE639A00063632 /* GLString.mm in Sources */,
+				9A42A0AE19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

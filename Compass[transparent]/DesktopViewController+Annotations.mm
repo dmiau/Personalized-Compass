@@ -7,7 +7,18 @@
 //
 
 #import "DesktopViewController+Annotations.h"
-#import "OSXPinAnnotationView.h"
+
+//---------------
+// CalloutButton
+//---------------
+@interface CalloutButton :NSButton
+@property OSXPinAnnotationView *pinView;
+@end
+
+
+@implementation CalloutButton
+
+@end
 
 @implementation DesktopViewController (Annotations)
 -(void) renderAnnotations{
@@ -174,12 +185,19 @@
     //---------------
     // Constructing a left button (tag: 0)
     //---------------
-    NSButton *leftButton = [[NSButton alloc] init];
+    CalloutButton *leftButton;
+    if (pinView.leftCalloutAccessoryView == nil){
+        leftButton = [[CalloutButton alloc] init];
+    }else{
+        leftButton = pinView.leftCalloutAccessoryView;
+    }
+    
     [leftButton setImage:btnImage];
     leftButton.frame = CGRectMake(0, 0,
                                   btnImage.size.width, btnImage.size.height);
     [leftButton setTarget:self];
     [leftButton setAction:@selector(leftButtonAction:)];
+    leftButton.pinView = pinView;
 //    [leftButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
 
     leftButton.tag = 0;  //right button has tag 0
@@ -189,9 +207,10 @@
     // Constructing a right button (tag: 1)
     //---------------
     
-    NSButton *rightButton = [[NSButton alloc] init];
+    CalloutButton *rightButton = [[CalloutButton alloc] init];
     rightButton.tag = 1;  //right button has tag 1
     [rightButton setAction:@selector(rightButtonAction:)];
+    rightButton.pinView = pinView;
     pinView.rightCalloutAccessoryView = rightButton;
     
     return pinView;
@@ -211,12 +230,30 @@
 // When the callout of a pin is tapped
 //------------------
 
-- (void)leftButtonAction:(NSControl*) control{
-    NSLog(@"Button clicked");
+- (void)leftButtonAction:(CalloutButton*) control{
+    NSLog(@"Left button clicked");
+    OSXPinAnnotationView *pinView = control.pinView;
+    
+    // Left buttton tapped
+    if ([pinView pinColor] == MKPinAnnotationColorPurple){
+        // if it is a dropped pin, remove the pin
+        [self.mapView removeAnnotation:pinView.annotation];
+    }else{
+        // if it is a landmark pin, flip the enable status
+        CustomPointAnnotation* myCustomAnnotation =
+        (CustomPointAnnotation*) pinView.annotation;
+        int idx = myCustomAnnotation.data_id;
+        data* data_ptr = &(self.model->data_array[idx]);
+        
+        data_ptr->isEnabled = !data_ptr->isEnabled;
+        pinView = [self configureLandmarkPinView:pinView];
+        
+    }
+    
 }
 
 - (void)rightButtonAction:(NSControl*) control{
-    NSLog(@"Button clicked");
+    NSLog(@"Right button clicked");
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(NSControl *)control

@@ -8,6 +8,8 @@
 
 #import "SettingsViewController.h"
 #import "OSXPinAnnotationView.h"
+#import "HTTPServer.h"
+#import "GCDAsyncSocket.h"
 
 @interface SettingsViewController ()
 
@@ -120,5 +122,17 @@
             [pinView showCustomCallout:NO];
         }
     }
+}
+
+- (IBAction)toggleServer:(id)sender {
+    [self.rootViewController startServer];
+    
+    //---------------
+    // Display port information
+    //---------------
+    int port = [[self.rootViewController.httpServer asyncSocket] localPort];
+
+    self.serverPort.stringValue =
+    [NSString stringWithFormat:@"%d", port];
 }
 @end

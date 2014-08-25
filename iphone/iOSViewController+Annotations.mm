@@ -177,7 +177,15 @@
     //---------------
     // Constructing a left button (tag: 0)
     //---------------
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    UIButton *leftButton;
+    if (pinView.leftCalloutAccessoryView == nil){
+        leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    }else{
+        leftButton = pinView.leftCalloutAccessoryView;
+    }
+    
+//    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftButton setImage:btnImage forState:UIControlStateNormal];
     leftButton.frame = CGRectMake(0, 0,
                                    btnImage.size.width, btnImage.size.height);

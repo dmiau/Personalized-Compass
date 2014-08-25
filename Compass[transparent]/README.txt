@@ -1475,6 +1475,27 @@ http://stackoverflow.com/questions/20061052/how-to-add-nsviewcontroller-to-a-res
 - enhance annotation control
 - had a quite a day yesterday
 
+goals of today:
+- networking
+* should look into SimpleWebSocketServer
+
+-------------------------------------------------------------------
+8.25.2014
+-------------------------------------------------------------------
+Goals of today:
+- implement web socket communications
+- implement test case generator (to prepare a table for discussion)
+- do you want to put all the cases into a web table?
+- how do you organize/integrate all the fragmented knowledge?
+
+- adding server code the code base
+- successfully hook up the server
+
+
+
+
+
+
 
 
 

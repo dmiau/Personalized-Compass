@@ -14,6 +14,11 @@
 //#import "SettingsViewController.h"
 #import "TestManager.h"
 
+#import "HTTPServer.h"
+#import "MyHTTPConnection.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
+
 @class SettingsViewController; //Forward declaration
 
 @interface DesktopViewController : NSViewController
@@ -30,6 +35,7 @@
     BOOL					commandHandling;
     MKLocalSearch *localSearch;
     MKLocalSearchResponse *results;
+    HTTPServer *httpServer;
 }
 
 @property (weak) IBOutlet MKMapView *mapView;
@@ -47,6 +53,7 @@
 @property bool conventionalCompassVisible;
 
 @property NSMutableDictionary* UIConfigurations;
+@property HTTPServer *httpServer; // expose the iv
 
 //----------------
 // Update and initialization functions
@@ -94,4 +101,11 @@
 //Annotation category
 //----------------
 -(void) renderAnnotations;
+
+
+//----------------
+//Server
+//----------------
+-(void)startServer;
+
 @end
