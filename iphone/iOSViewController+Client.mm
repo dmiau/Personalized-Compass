@@ -53,8 +53,8 @@
     [_webSocket close];
     
     _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:
-        [NSString stringWithFormat:@"ws://localhost:%d/service",
-         self.port_number]]]];
+        [NSString stringWithFormat:@"ws://%@:%d/service",
+         self.ip_string, self.port_number]]]];
     
     _webSocket.delegate = self;
     

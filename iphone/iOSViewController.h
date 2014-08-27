@@ -202,6 +202,7 @@ enum findMe_enum{
 // Communication
 //----------------
 @property int port_number;
+@property NSString* ip_string;
 @property NSNumber *socket_status;
 - (void) toggleServerConnection: (bool) status;
 @end

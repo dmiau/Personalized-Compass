@@ -304,6 +304,8 @@
             [self.rootViewController toggleServerConnection:NO];
             break;
         case 1:
+            self.rootViewController.ip_string =
+            self.ipTextField.text;
             self.rootViewController.port_number =
             [self.portTextfield.text intValue];
             
@@ -334,6 +336,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.portTextfield resignFirstResponder];
+    [self.ipTextField resignFirstResponder];
 }
 
 @end

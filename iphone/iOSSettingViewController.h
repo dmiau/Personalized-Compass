@@ -45,6 +45,8 @@
 // Communication
 //--------------
 @property (weak, nonatomic) IBOutlet UITextField *portTextfield;
+@property (weak, nonatomic) IBOutlet UITextField *ipTextField;
+
 - (IBAction)toggleServerConnection:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *serverSegmentControl;
