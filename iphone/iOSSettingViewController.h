@@ -35,11 +35,20 @@
 - (IBAction)toogleToolbarMode:(id)sender;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *toolbarSegmentControl;
 
-
-
 @property (weak, nonatomic) IBOutlet UITextView *systemMessage;
 
 - (IBAction)dismissModalVC:(id)sender;
 - (IBAction)refreshConfiguraitons:(id)sender;
+
+
+//--------------
+// Communication
+//--------------
+@property (weak, nonatomic) IBOutlet UITextField *portTextfield;
+- (IBAction)toggleServerConnection:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *serverSegmentControl;
+
+
 
 @end

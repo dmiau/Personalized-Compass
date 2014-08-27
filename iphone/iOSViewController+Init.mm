@@ -68,6 +68,7 @@
         self.breadcrumb_id_toshow   = -1;
         self.landmark_id_toshow     = -1;
         
+        self.socket_status = [NSNumber numberWithBool:false];
         
         //--------------------
         // Initialize a list of UI configurations
@@ -193,6 +194,11 @@
     // Construct a default toolbar
     //---------------
     [self constructDebugToolbar: @"Portrait"];
+    
+    //---------------
+    // Initilize socket message array
+    //---------------
+    _messages = [[NSMutableArray alloc] init];
 }
 
 @end

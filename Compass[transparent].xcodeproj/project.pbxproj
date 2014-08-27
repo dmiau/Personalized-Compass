@@ -546,6 +546,8 @@
 		9A42A0E219ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
 		9A42A0E319ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
 		9A42A0E419ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
+		9A42A0E719ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0E619ABCD9F00BB0101 /* iOSViewController+Client.mm */; };
+		9A42A0E819ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0E619ABCD9F00BB0101 /* iOSViewController+Client.mm */; };
 		9A469E0F19A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
 		9A469E1019A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
 		9A469E1119A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
@@ -838,6 +840,10 @@
 		9AE020B2198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE020B3198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE093D118ECA56400DFC16F /* DesktopViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */; };
+		9AE2FC7819AE43810015E2B6 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC7719AE43810015E2B6 /* SRWebSocket.m */; };
+		9AE2FC7919AE43810015E2B6 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC7719AE43810015E2B6 /* SRWebSocket.m */; };
+		9AE2FC7C19AE43EF0015E2B6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */; };
+		9AE2FC7D19AE43FE0015E2B6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */; };
 		9AE57281199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
@@ -1169,6 +1175,8 @@
 		9A42A0C619ABADC800BB0101 /* MyWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebSocket.h; sourceTree = "<group>"; };
 		9A42A0C719ABADC800BB0101 /* MyWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebSocket.m; sourceTree = "<group>"; };
 		9A42A0E019ABB12D00BB0101 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
+		9A42A0E519ABCD9F00BB0101 /* iOSViewController+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Client.h"; sourceTree = "<group>"; };
+		9A42A0E619ABCD9F00BB0101 /* iOSViewController+Client.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Client.mm"; sourceTree = "<group>"; };
 		9A469E0D19A4FEC100EB88C0 /* OSXPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXPinAnnotationView.h; sourceTree = "<group>"; };
 		9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OSXPinAnnotationView.mm; sourceTree = "<group>"; };
 		9A469E1319A5183400EB88C0 /* OSXCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSXCalloutView.xib; sourceTree = "<group>"; };
@@ -1287,6 +1295,10 @@
 		9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BreadcrumbDetailViewController.mm; sourceTree = "<group>"; };
 		9AE093CF18ECA56400DFC16F /* DesktopViewController+MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+MapView.h"; sourceTree = "<group>"; };
 		9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+MapView.mm"; sourceTree = "<group>"; };
+		9AE2FC7619AE43810015E2B6 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		9AE2FC7719AE43810015E2B6 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		9AE2FC7A19AE43890015E2B6 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		9AE5727F199CF8D60055799F /* Wedge+Radial.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Wedge+Radial.mm"; sourceTree = "<group>"; };
 		9AE57280199CF8D60055799F /* Wedge+Radial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wedge+Radial.h"; sourceTree = "<group>"; };
 		9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compass[transparent].app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1359,6 +1371,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE2FC7C19AE43EF0015E2B6 /* libicucore.dylib in Frameworks */,
 				9A02D0FB195C5D1700A64987 /* libc++.dylib in Frameworks */,
 				9A02D0F9195C5D0C00A64987 /* libz.dylib in Frameworks */,
 				9A02D0F4195C5CBE00A64987 /* CFNetwork.framework in Frameworks */,
@@ -1379,6 +1392,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE2FC7D19AE43FE0015E2B6 /* libicucore.dylib in Frameworks */,
 				9A02D101195C5D5500A64987 /* CFNetwork.framework in Frameworks */,
 				9A02D100195C5D4F00A64987 /* Security.framework in Frameworks */,
 				9A02D0FF195C5D4900A64987 /* SystemConfiguration.framework in Frameworks */,
@@ -1820,6 +1834,15 @@
 			name = Server;
 			sourceTree = "<group>";
 		};
+		9A42A0E919ABCDA900BB0101 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				9A42A0E519ABCD9F00BB0101 /* iOSViewController+Client.h */,
+				9A42A0E619ABCD9F00BB0101 /* iOSViewController+Client.mm */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
 		9A480892198BE7AE0001E188 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -1860,6 +1883,7 @@
 				9A3240D7197AB06F008E929D /* iOSViewController+SnapShot.mm */,
 				9A3240DA197AB083008E929D /* iOSViewController+History.h */,
 				9A3240DB197AB083008E929D /* iOSViewController+History.mm */,
+				9A42A0E919ABCDA900BB0101 /* Client */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -1902,6 +1926,7 @@
 		9A4F0F4C193E2A8900CF32DE /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				9AE2FC7019AE424A0015E2B6 /* SocketRocket */,
 				9A2ED70C19646B0200CA385E /* Controller */,
 				9A2ED70B19646AF600CA385E /* View */,
 				9A998D6A194B90ED00778DFC /* iphone.entitlements */,
@@ -2064,6 +2089,16 @@
 			name = iPad;
 			sourceTree = "<group>";
 		};
+		9AE2FC7019AE424A0015E2B6 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				9AE2FC7A19AE43890015E2B6 /* SocketRocket-Prefix.pch */,
+				9AE2FC7619AE43810015E2B6 /* SRWebSocket.h */,
+				9AE2FC7719AE43810015E2B6 /* SRWebSocket.m */,
+			);
+			name = SocketRocket;
+			sourceTree = "<group>";
+		};
 		9AEA57C418D9EBB20028B80C = {
 			isa = PBXGroup;
 			children = (
@@ -2097,6 +2132,7 @@
 		9AEA57CF18D9EBB20028B80C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */,
 				9A42A0B919A79CCB00BB0101 /* Security.framework */,
 				9A02D0FA195C5D1700A64987 /* libc++.dylib */,
 				9A02D0F8195C5D0C00A64987 /* libz.dylib */,
@@ -2763,6 +2799,7 @@
 				9A259D60199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A75715C197D804100C23AEE /* historyParser.mm in Sources */,
 				9AB90B98194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
+				9AE2FC7819AE43810015E2B6 /* SRWebSocket.m in Sources */,
 				9A0375A3198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9AE57285199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A03736D198AF8A500258E95 /* TestManager.mm in Sources */,
@@ -2778,6 +2815,7 @@
 				9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
 				9A037669198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
+				9A42A0E719ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */,
 				9A037645198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A998D71194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9A757154197D6C1500C23AEE /* snapshotParser.mm in Sources */,
@@ -2809,6 +2847,7 @@
 				9A6FB7F51958FFC20020355A /* iOSViewController+Updates.mm in Sources */,
 				9A0375A4198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A577E1F1943F060002243B1 /* GLString.mm in Sources */,
+				9A42A0E819ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */,
 				9A02D0EC195C5C8700A64987 /* filesystem.mm in Sources */,
 				9A998C971949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A82B6311941518900534A5F /* xmlParser.mm in Sources */,
@@ -2841,6 +2880,7 @@
 				9AFD8F5B197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A757155197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A0375BC198DA31800258E95 /* b2Draw.cpp in Sources */,
+				9AE2FC7919AE43810015E2B6 /* SRWebSocket.m in Sources */,
 				9A0375C2198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A0375F2198DA31900258E95 /* b2World.cpp in Sources */,
 				9A03765E198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,

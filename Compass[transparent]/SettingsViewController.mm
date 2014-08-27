@@ -126,7 +126,6 @@
 
 - (IBAction)toggleServer:(id)sender {
     [self.rootViewController startServer];
-    
     //---------------
     // Display port information
     //---------------

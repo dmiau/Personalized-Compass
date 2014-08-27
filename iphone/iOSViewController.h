@@ -15,6 +15,8 @@
 #import "iOSGLKView.h"
 #import "TestManager.h"
 
+// SocketRocket
+#import "SRWebSocket.h"
 
 enum findMe_enum{
     LOCATION_ON,
@@ -24,7 +26,7 @@ enum findMe_enum{
 
 
 @interface iOSViewController : UIViewController
-<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate>
+<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate, SRWebSocketDelegate>
 {
     NSTimer *_updateUITimer;
     MKLocalSearch *localSearch;
@@ -35,6 +37,10 @@ enum findMe_enum{
     
     // For toolbar
     UIBarButtonItem *counter_button;
+    
+    // Coummunication
+    SRWebSocket *_webSocket;
+    NSMutableArray *_messages;
 }
 
 @property NSMutableDictionary* UIConfigurations;
@@ -191,4 +197,11 @@ enum findMe_enum{
 // Annotations related methods
 //----------------
 - (void) renderAnnotations;
+
+//----------------
+// Communication
+//----------------
+@property int port_number;
+@property NSNumber *socket_status;
+- (void) toggleServerConnection: (bool) status;
 @end

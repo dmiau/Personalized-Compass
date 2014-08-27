@@ -796,11 +796,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="827" height="530"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <openGLView canDrawConcurrently="YES" misplaced="YES" depthSize="16bit" samplingRate="8" useAuxiliaryDepthBufferStencil="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCa-0f-w4g" customClass="OpenGLView">
+                    <openGLView misplaced="YES" depthSize="16bit" samplingRate="8" useAuxiliaryDepthBufferStencil="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCa-0f-w4g" customClass="OpenGLView">
                         <rect key="frame" x="58" y="22" width="490" height="490"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </openGLView>
-                    <mapView canDrawConcurrently="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWq-Lx-RbY" customClass="myMapView">
+                    <mapView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWq-Lx-RbY" customClass="myMapView">
                         <rect key="frame" x="6" y="10" width="618" height="514"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <connections>

@@ -70,6 +70,12 @@
     // Initialize system message
     self.systemMessage.text = @"OK";
     self.systemMessage.editable = NO;
+    
+    
+    // Insert code here to initialize your application
+    [self.rootViewController addObserver:self forKeyPath:@"socket_status"
+              options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -292,4 +298,42 @@
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];
 }
+- (IBAction)toggleServerConnection:(UISegmentedControl*) segmentedControl {
+    switch ([segmentedControl selectedSegmentIndex]) {
+        case 0:
+            [self.rootViewController toggleServerConnection:NO];
+            break;
+        case 1:
+            self.rootViewController.port_number =
+            [self.portTextfield.text intValue];
+            
+            [self.rootViewController toggleServerConnection:YES];
+            break;
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    
+    // [todo] In the browser mode,
+    // updates should not come from map! Need to fix this
+    if ([keyPath isEqual:@"socket_status"]) {
+        bool socket_status = [self.rootViewController.socket_status boolValue];
+        if (socket_status){
+            [self.serverSegmentControl setSelectedSegmentIndex:1];
+        }else{
+            [self.serverSegmentControl setSelectedSegmentIndex:0];
+            self.portTextfield.text = @"xxxx";
+        }
+    }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.portTextfield resignFirstResponder];
+}
+
 @end

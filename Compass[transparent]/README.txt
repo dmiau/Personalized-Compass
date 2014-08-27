@@ -1490,13 +1490,20 @@ Goals of today:
 
 - adding server code the code base
 - successfully hook up the server
+let's figure out iOS communication
 
+-------------------------------------------------------------------
+8.26.2014
+-------------------------------------------------------------------
+Goals of today:
+- implement iOS client code
+- investigate how to programmatically generate test cases
 
-
-
-
-
-
+-------------------------------------------------------------------
+8.27.2014
+-------------------------------------------------------------------
+- implement iOS client code (I want to wrap up this today)
+- I should switch to SocketRocket
 
 
 
