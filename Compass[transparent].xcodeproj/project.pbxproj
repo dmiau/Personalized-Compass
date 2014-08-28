@@ -850,6 +850,12 @@
 		9AE2FC8719AF860F0015E2B6 /* compassRender+Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8219AF860F0015E2B6 /* compassRender+Tools.mm */; };
 		9AE2FC8819AF860F0015E2B6 /* compassRender+Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8219AF860F0015E2B6 /* compassRender+Tools.mm */; };
 		9AE2FC8919AF860F0015E2B6 /* compassRender+Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8219AF860F0015E2B6 /* compassRender+Tools.mm */; };
+		9AE2FC8B19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */; };
+		9AE2FC8C19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */; };
+		9AE2FC8D19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */; };
+		9AE2FC8E19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */; };
+		9AE2FC8F19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */; };
+		9AE2FC9019AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */; };
 		9AE57281199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
@@ -1306,6 +1312,7 @@
 		9AE2FC7A19AE43890015E2B6 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		9AE2FC8219AF860F0015E2B6 /* compassRender+Tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Tools.mm"; sourceTree = "<group>"; };
+		9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassModel+tools.mm"; sourceTree = "<group>"; };
 		9AE5727F199CF8D60055799F /* Wedge+Radial.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Wedge+Radial.mm"; sourceTree = "<group>"; };
 		9AE57280199CF8D60055799F /* Wedge+Radial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wedge+Radial.h"; sourceTree = "<group>"; };
 		9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compass[transparent].app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1969,6 +1976,7 @@
 				9A757157197D804100C23AEE /* historyParser.mm */,
 				9AEA580518D9EC440028B80C /* compassModel.h */,
 				9AEA580618D9EC440028B80C /* compassModel.mm */,
+				9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */,
 				9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */,
 				9AEA580418D9EC440028B80C /* commonInclude.h */,
 				9A6EC77E19004BCB00C3815F /* locationFilter.mm */,
@@ -2823,6 +2831,7 @@
 				9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */,
 				9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
+				9AE2FC8F19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9A037669198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A0E719ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */,
 				9A037645198DA31900258E95 /* b2Joint.cpp in Sources */,
@@ -2900,6 +2909,7 @@
 				9A037658198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
 				9A03762E198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A03766A198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
+				9AE2FC9019AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9A82B6381941518900534A5F /* AppDelegate.m in Sources */,
 				9AECA76D196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A49A5F3195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
@@ -3008,6 +3018,7 @@
 				9A42A03919A79C3200BB0101 /* DDNumber.m in Sources */,
 				9A42A0CF19ABADC800BB0101 /* MyWebSocket.m in Sources */,
 				9A0375D8198DA31900258E95 /* b2Body.cpp in Sources */,
+				9AE2FC8E19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9AA789121909FE3000A26C66 /* DesktopViewController+Compass.mm in Sources */,
 				9A42A00119A5817E00BB0101 /* SettingsViewController.mm in Sources */,
 				9A037656198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
@@ -3090,6 +3101,7 @@
 				9A037671198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A037587198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037599198DA31800258E95 /* b2ChainShape.cpp in Sources */,
+				9AE2FC8B19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9AE2FC8419AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
 				9A037623198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A4808A7198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
@@ -3223,6 +3235,7 @@
 				9A03760D198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A0375B3198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A42A0CE19ABADC800BB0101 /* MyWebSocket.m in Sources */,
+				9AE2FC8D19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9A037637198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9A42A09F19A79CA200BB0101 /* DDASLLogger.m in Sources */,
 				9A75715A197D804100C23AEE /* historyParser.mm in Sources */,
@@ -3440,6 +3453,7 @@
 				9A42A04F19A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
 				9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9AFB14A718EE639A00063632 /* GLString.mm in Sources */,
+				9AE2FC8C19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9A42A0AE19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

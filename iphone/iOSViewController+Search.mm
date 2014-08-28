@@ -173,6 +173,8 @@
     myData.longitude =  annotation.coordinate.longitude;
     
     myData.annotation.data_id = self.model->data_array.size();
+    myData.my_texture_info = self.model->generateTextureInfo
+    ([NSString stringWithUTF8String:myData.name.c_str()]);
     // Add the new data to data_array
     self.model->data_array.push_back(myData);
     

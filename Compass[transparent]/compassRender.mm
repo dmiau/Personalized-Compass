@@ -77,12 +77,6 @@ int compassRender::initRenderMdl(){
     
     loadParametersFromModelConfiguration();
     
-    
-    //---------------
-    // Generate and cache textures
-    //---------------
-    initTextureArray();
-    
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
 }

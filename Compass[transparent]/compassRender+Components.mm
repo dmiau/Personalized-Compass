@@ -75,7 +75,8 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
                 distance =  label_info_array[i]
                 .distance;
             }
-            drawLabel(orientation, distance, data_.name);
+            drawLabel(orientation, distance,
+                      model->data_array[j].my_texture_info);
             orientation_array.push_back(data_.orientation);
         }
 
@@ -91,7 +92,11 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             char buff[10];
             sprintf(buff, "1:%2.1f",
                     model->mode_max_dist_array[1]/model->mode_max_dist_array[0]);
-            drawLabel(best_orientation, half_canvas_size * 0.3, string(buff));
+            
+            texture_info my_texture_info = model->generateTextureInfo
+            ([NSString stringWithUTF8String:buff]);
+            
+            drawLabel(best_orientation, half_canvas_size * 0.3, my_texture_info);
         }
         glPopMatrix();
     }

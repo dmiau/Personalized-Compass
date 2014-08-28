@@ -132,6 +132,11 @@ int compassMdl::reloadFiles(){
     // Read the location data
     data_array = readLocationKml(this, location_filename);
     
+    //---------------
+    // Generate and cache textures
+    //---------------
+    initTextureArray();
+    
     camera_pos.name = data_array[0].name;
     // Set the initial orientation to 0
     camera_pos.orientation = 0;

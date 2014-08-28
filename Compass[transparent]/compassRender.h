@@ -18,6 +18,9 @@
 #else
 #import "GLString.h"
 #import <GLKit/GLKit.h>
+typedef UIFont NSFont;
+typedef UIColor NSColor;
+#import "Texture2D.h"
 #endif
 
 
@@ -79,13 +82,6 @@ public:
     }
 };
 
-class texture_info{
-public:
-    CGSize size;
-    uint texture_id;
-    NSAttributedString *attr_str; // for debug purposes
-};
-
 //----------------------------------
 // compassRender class
 //----------------------------------
@@ -136,10 +132,9 @@ public:
     bool label_flag; // Indicates whether labels to be drawn or not
 
     vector<label_info> label_info_array;
-    vector<texture_info> label_texture_array;
     
     void initTextureArray();
-    texture_info generateTexture(NSString *label);
+    texture_info generateTextureInfo(NSString *label);
     
 #ifndef __IPHONE__
 	GLString *label_string;
@@ -190,7 +185,8 @@ private:
     // Drawing routines
     void drawWayfindingAid(RenderParamStruct renderParamStruct);
     void drawTriangle(int central_disk_radius, float rotation, float height);
-    void drawLabel(float rotation, float height, string name);
+    void drawLabel(float rotation, float height,
+                   texture_info my_texture_info);
     void drawCircle(float cx, float cy, float r, int num_segments, bool isSolid);
     
     BOOL drawBox(double renderD2realDRatio);
@@ -219,10 +215,10 @@ private:
     void renderStyleWedge(vector<int> &indices_for_rendering);
     void renderBareboneCompass();
 
-    CGSize makeGLFrameSize(NSAttributedString *attr_str);
 #ifdef __IPHONE__
     void drawiOSText(NSString *string, int font_size,
                      CGFloat width, CGFloat height);
+//    void drawiOSText(texture_info my_texture_info);
 #endif
 };
 

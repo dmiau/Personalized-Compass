@@ -21,10 +21,13 @@
 #import <UIKit/UIKit.h>
 #import "filesystem.h"
 #endif
-
-
-
 using namespace std;
+
+class texture_info{
+public:
+    CGSize size;
+    NSAttributedString *attr_str; // for debug purposes
+};
 
 //--------------
 // landmark object
@@ -41,6 +44,12 @@ public:
     bool isEnabled; // indicates wheather the landmark is enabled or not
     bool isVisible; // indicates the locaiton is within the current
                     // visible region or not.
+    
+    //-------------
+    // label related stuff
+    //-------------
+    texture_info my_texture_info;
+    
 public:    
     // Methods
     double computeDistanceFromLocation(data& another_data);
@@ -217,7 +226,11 @@ public:
     vector<pair<double, int>> generateOrientDiffList
     (vector<int> id_list);
     
-    
+    //---------------
+    // Label related stuff
+    //---------------
+    texture_info generateTextureInfo(NSString *label);
+    void initTextureArray();
     
 private:
     compassMdl(){}; // Private so that it can not be called
