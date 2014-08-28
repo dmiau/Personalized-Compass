@@ -99,7 +99,10 @@
     
     dispatch_queue_t concurrentQueue =
     dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
-    dispatch_async(concurrentQueue,
+    
+    //concurrentQueue
+    // UI update needs to be on main queue?
+    dispatch_async(dispatch_get_main_queue(),
                    ^{
                        NSRange range = [self.locationTableView rowsInRect:visibleRect];
                        for (int i = range.location; i < range.location + range.length; ++i){

@@ -148,6 +148,7 @@ public:
     double getMapWidthInMeters();
     double getMapHeightInMeters();
     double findBestEmptyOrienation(vector<double> orientation_array);
+    CGPoint convertCompassPointToMapUV(CGPoint point);
 private:
     // Drawing routines
     void drawWayfindingAid(RenderParamStruct renderParamStruct);

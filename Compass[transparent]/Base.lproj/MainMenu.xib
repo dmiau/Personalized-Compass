@@ -791,7 +791,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="827" height="530"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" canDrawConcurrently="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="827" height="530"/>
                 <autoresizingMask key="autoresizingMask"/>

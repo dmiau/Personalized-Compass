@@ -8,6 +8,19 @@
 
 #import "iOSViewController+Search.h"
 
+
+//------------------
+// AddInPlaceButton
+//------------------
+@interface AddInPlaceButton : UIButton
+@property int mapItemId;
+@end
+
+@implementation AddInPlaceButton
+
+@end
+
+
 @implementation iOSViewController (Search)
 #pragma mark ------Search Related Stuff-----
 
@@ -70,6 +83,24 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:IDENTIFIER];
+        
+        NSLog(@"Cell creation.");
+        //-------------
+        // Add a button to the cell
+        //-------------
+        AddInPlaceButton *myButton = [[AddInPlaceButton alloc] initWithFrame:
+                              CGRectMake(cell.frame.size.width - 100, 0,
+                                         100, cell.frame.size.height)];
+        myButton.backgroundColor = [UIColor grayColor];
+        [myButton setTitle:@"AddInPlace" forState: UIControlStateNormal];
+        [myButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        myButton.mapItemId = indexPath.row;
+
+        [myButton addTarget:self
+                   action:@selector(addLocationInPlace:)
+           forControlEvents:UIControlEventTouchDown];
+        
+        [cell addSubview:myButton];
     }
     
     MKMapItem *item = results.mapItems[indexPath.row];
@@ -105,5 +136,63 @@
     [self.mapView setCenterCoordinate:item.placemark.location.coordinate animated:YES];
     
 //    [self.mapView setUserTrackingMode:MKUserTrackingModeNone];    
+}
+
+- (void)addLocationInPlace:(AddInPlaceButton*) sender{
+    [self.searchDisplayController setActive:NO animated:YES];
+    
+    MKMapItem *item = results.mapItems[sender.mapItemId];
+    
+    //-------------
+    // Construct the annotation
+    //-------------
+    
+    //http://stackoverflow.com/questions/17682834/mapview-with-local-search
+    CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
+    annotation.coordinate = item.placemark.coordinate;
+    annotation.title      = item.name;
+    annotation.subtitle   = item.placemark.title;
+    annotation.point_type = search_result;
+    
+    [self.mapView addAnnotation:annotation];
+    
+    //-------------
+    // Add the location to the model
+    //-------------
+    // Right buttton tapped - add the pin to data_array
+    data myData;
+    myData.name = [annotation.title UTF8String];
+    myData.annotation = annotation;
+    myData.annotation.point_type = landmark;
+    
+    myData.annotation.subtitle =
+    [NSString stringWithFormat:@"%lu",
+     self.model->data_array.size()];
+    
+    myData.latitude =  annotation.coordinate.latitude;
+    myData.longitude =  annotation.coordinate.longitude;
+    
+    myData.annotation.data_id = self.model->data_array.size();
+    // Add the new data to data_array
+    self.model->data_array.push_back(myData);
+    
+    //-------------
+    // Add the location to the model
+    //-------------
+    
+    for (int i = 0; i < self.model->data_array.size(); ++i){
+        self.model->data_array[i].isEnabled = false;
+    }
+
+    self.model->indices_for_rendering.
+    push_back(self.model->data_array.size()-1);
+    for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
+        self.model->data_array[self.model->indices_for_rendering[i]]
+        .isEnabled = true;
+    }
+    
+    self.model->configurations[@"filter_type"] = @"MANUAL";
+    self.model->updateMdl();
+    [self.glkView setNeedsDisplay];
 }
 @end

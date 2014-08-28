@@ -52,14 +52,10 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
     applyStyle(renderParamStruct.style_type, model->indices_for_rendering);
     
     // ---------------
-    // draw the labels
+    // draw labels
     // ---------------
     if (label_flag){
-        glPushMatrix();        
-        //-------------------
-        // Check wedge status
-        //-------------------
-        
+        glPushMatrix();
         vector<double> orientation_array;
         orientation_array.clear();
         
@@ -72,7 +68,7 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             double distance, orientation;
             if (!wedgeMode){
                 orientation = data_.orientation;
-                distance = half_canvas_size * 0.9;
+                distance = half_canvas_size * 0.9;                            
             }else{
                 orientation = model->label_info_array[i]
                 .orientation;

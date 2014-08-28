@@ -105,6 +105,7 @@ public:
 class label_info{
 public:
     CGPoint centroid;
+    CGRect frame;
     double distance;
     float orientation;
     int data_id;

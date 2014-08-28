@@ -161,7 +161,7 @@
     
     
     
-    [self.mapView setCenterCoordinate:coord animated:YES];
+    [self.mapView setCenterCoordinate:coord animated:NO];
 }
 
 //------------------

@@ -26,6 +26,15 @@
 #include <GL/glu.h>
 #endif
 
+////---------------
+//// Needed for string conversion
+////---------------
+//#ifndef __IPHONE__
+//#import <Cocoa/Cocoa.h>
+//#else
+//#import <UIKit/UIKit.h>
+//#endif
+
 
 using namespace std;
 
@@ -41,6 +50,10 @@ inline bool compareDecending(const pair<float, int> &l,
     return(l.first > r.first);
 }
 
+inline string convert2CPPString(NSString *nsstring){
+    string out_str = string([nsstring UTF8String]);
+    return out_str;
+}
 
 inline CGPoint rotateCCW(CGPoint xy, double deg){
     CGPoint out_xy;

@@ -1504,6 +1504,19 @@ Goals of today:
 -------------------------------------------------------------------
 - implement iOS client code (I want to wrap up this today)
 - I should switch to SocketRocket
+- successfully added the server and client code
+- now need to add test case generation
+- should look into testCocoaGL for offline rendering example
+- implemented an "add in place" button
+look into components, label code
+
+I need to tool to convert coordinates in OpenGL to MapView
+- cache label texture
+
+
+
+
+
 
 
 
