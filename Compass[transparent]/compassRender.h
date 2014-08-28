@@ -54,6 +54,38 @@ typedef struct{
 
 RenderParamStruct makeRenderParams(filter_enum filter_type, style_enum style_type);
 
+
+//--------------
+// label info
+//--------------
+class label_info{
+public:
+    CGPoint centroid;
+    double distance;
+    float orientation;
+    int data_id;
+    
+    // Wedge related info
+    double aperture;
+    double leg;
+public:
+    label_info(){
+        distance = 0;
+        centroid = CGPointMake(0, 0);
+        orientation = 0;
+        data_id = 0;
+        aperture = 0.0;
+        leg = 0.0;
+    }
+};
+
+class texture_info{
+public:
+    CGSize size;
+    uint texture_id;
+    NSAttributedString *attr_str; // for debug purposes
+};
+
 //----------------------------------
 // compassRender class
 //----------------------------------
@@ -102,8 +134,13 @@ public:
     //----------------
     // String parameters
     bool label_flag; // Indicates whether labels to be drawn or not
-	NSMutableDictionary *stringAttrib; // Text attributes
-       
+
+    vector<label_info> label_info_array;
+    vector<texture_info> label_texture_array;
+    
+    void initTextureArray();
+    texture_info generateTexture(NSString *label);
+    
 #ifndef __IPHONE__
 	GLString *label_string;
 #endif

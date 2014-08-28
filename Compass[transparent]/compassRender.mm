@@ -75,29 +75,13 @@ int compassRender::initRenderMdl(){
     
     glDrawingCorrectionRatio = 1;
     
-//    compass_centroid = glOrigin;
     loadParametersFromModelConfiguration();
     
-    //--------------------
-    // Initialize string parameters
-    //--------------------
     
-    // init fonts for use with strings
-	NSFont * font =[NSFont fontWithName:@"Helvetica" size:18.0];
-    
-	stringAttrib = [NSMutableDictionary dictionary];
-	[stringAttrib setObject:font forKey:NSFontAttributeName];
-    //	[stringAttrib setObject:[NSColor blackColor] forKey:NSForegroundColorAttributeName];
-	[stringAttrib setObject:
-     [NSColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]
-                     forKey:NSForegroundColorAttributeName];
-    
-#ifndef __IPHONE__
-    label_string = [[GLString alloc] initWithString:@"" withAttributes:stringAttrib
-                                      withTextColor:[NSColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:1.0f]
-                                       withBoxColor:[NSColor colorWithRed:0.5f green:0.5f blue:0.5f alpha:0.0f]
-                                    withBorderColor:[NSColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
-#endif
+    //---------------
+    // Generate and cache textures
+    //---------------
+    initTextureArray();
     
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;

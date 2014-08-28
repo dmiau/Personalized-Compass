@@ -23,10 +23,10 @@ void compassRender::drawLabel(float rotation, float height, string name)
 	NSFont * font =[NSFont fontWithName:@"Helvetica-Bold"
                                    size:
                     [model->configurations[@"font_size"] floatValue]];
-    NSString * string = [NSString stringWithFormat:@"%@\n",
+    NSString * string = [NSString stringWithFormat:@"%@",
                          [NSString stringWithUTF8String:name.c_str()]];
     
-	stringAttrib = [NSMutableDictionary dictionary];
+	NSMutableDictionary *stringAttrib = [NSMutableDictionary dictionary];
 	[stringAttrib setObject:font forKey:NSFontAttributeName];
     
     //--------------
@@ -36,13 +36,8 @@ void compassRender::drawLabel(float rotation, float height, string name)
     [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
     CGSize str_size = makeGLFrameSize(attr_str);
     
-#ifndef __IPHONE__
-    //--------------
-    // OSX
-    //--------------
-    [label_string setString:attr_str];
-#endif
-    
+
+    //------------------
     
     glPushMatrix();
     //--------------------
@@ -85,9 +80,8 @@ void compassRender::drawLabel(float rotation, float height, string name)
     //--------------
 
     glRotatef(180, 1, 0, 0);
+    label_string = [[GLString alloc] initWithAttributedString:attr_str];
     [label_string drawAtPoint:NSMakePoint (0, 0)];
-//    [label_string drawWithBounds:
-//     NSMakeRect(0, 0, str_size.width, str_size.height)];
 #else
     //--------------
     // iOS
@@ -123,10 +117,7 @@ CGSize compassRender::makeGLFrameSize(NSAttributedString *attr_str){
 #ifdef __IPHONE__
 void compassRender::drawiOSText(NSString *string, int font_size,
                                 CGFloat width, CGFloat height){
-    width = width;
-    height = height;
     // Use black
-    
     if (mapView.mapType == MKMapTypeStandard){
         glColor4f(0, 0, 0, 1.0);
     }else{
@@ -163,3 +154,82 @@ void compassRender::drawiOSText(NSString *string, int font_size,
     
 }
 #endif
+
+//---------------------
+// Initialize label_texture_array
+//---------------------
+void compassRender::initTextureArray(){
+    
+    for (int i = 0; i < label_texture_array.size(); ++i){
+        glDeleteTextures(1, &(label_texture_array[i].texture_id));
+    }
+    
+    label_texture_array.clear();
+    for (int i = 0; i < model->data_array.size(); ++i){
+        texture_info my_texture_info =
+        generateTexture(
+        [NSString stringWithUTF8String: model->data_array[i].name.c_str()]);
+        label_texture_array.push_back(my_texture_info);
+    }
+}
+
+texture_info compassRender::generateTexture(NSString *label){
+    texture_info my_texture_info;
+    
+    //--------------
+    // Font generation
+    //--------------
+    // Set font size
+	NSFont * font =[NSFont fontWithName:@"Helvetica-Bold"
+                                   size:
+                    [model->configurations[@"font_size"] floatValue]];
+    NSString * string = [NSString stringWithFormat:@"%@", label];
+    
+	NSMutableDictionary *stringAttrib = [NSMutableDictionary dictionary];
+	[stringAttrib setObject:font forKey:NSFontAttributeName];
+    
+    //--------------
+    // Render labels, different rendering methods depending on the platform
+    //--------------
+    NSAttributedString *attr_str =
+    [[NSAttributedString alloc] initWithString:string attributes:stringAttrib];
+    CGSize str_size = makeGLFrameSize(attr_str);
+    
+    // Use black
+    if (mapView.mapType == MKMapTypeStandard){
+        glColor4f(0, 0, 0, 1.0);
+    }else{
+        glColor4f(255.0/255.0, 54.0/255.0, 96.0/255.0, 1.0);
+    }
+    
+    glEnable(GL_TEXTURE_2D);
+    // Set up texture
+    Texture2D* statusTexture = [[Texture2D alloc]
+                                initWithString:label
+                                dimensions:CGSizeMake(str_size.width*4,
+                                                      str_size.height*4)
+                                alignment: UITextAlignmentLeft
+                                fontName:@"Helvetica-Bold"
+                                fontSize:4*[model->configurations[@"font_size"] floatValue]];
+    
+    my_texture_info.size = str_size;
+    my_texture_info.attr_str = attr_str;
+    my_texture_info.texture_id = [statusTexture name];
+    return my_texture_info;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

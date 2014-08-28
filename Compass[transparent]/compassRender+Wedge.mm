@@ -28,7 +28,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     vector<double> mode_max_dist_array =
     model->clusterData(indices_for_rendering);
     
-    model->label_info_array.clear();
+    label_info_array.clear();
     
     // Assume indices_for_rendering stores sorted distances
     if (indices_for_rendering.size() <= 0 &&
@@ -134,7 +134,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         
         if (i != -1){
             myLabelinfo.data_id = indices_for_rendering[i];
-            model->label_info_array.push_back(myLabelinfo);
+            label_info_array.push_back(myLabelinfo);
         }
     }
     

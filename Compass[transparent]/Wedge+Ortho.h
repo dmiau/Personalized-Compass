@@ -10,7 +10,7 @@
 #define __Compass_transparent___wedgeClass__
 
 #include <iostream>
-#include "compassModel.h"
+#include "compassRender.h"
 
 //----------------------------------
 // wedge related stuff

@@ -68,11 +68,11 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             double distance, orientation;
             if (!wedgeMode){
                 orientation = data_.orientation;
-                distance = half_canvas_size * 0.9;                            
+                distance = half_canvas_size * 0.9;
             }else{
-                orientation = model->label_info_array[i]
+                orientation = label_info_array[i]
                 .orientation;
-                distance =  model->label_info_array[i]
+                distance =  label_info_array[i]
                 .distance;
             }
             drawLabel(orientation, distance, data_.name);

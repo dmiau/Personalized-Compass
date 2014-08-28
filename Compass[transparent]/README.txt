@@ -1513,8 +1513,10 @@ look into components, label code
 I need to tool to convert coordinates in OpenGL to MapView
 - cache label texture
 
-
-
+-------------------------------------------------------------------
+8.28.2014
+-------------------------------------------------------------------
+- modifying label_info_array
 
 
 
