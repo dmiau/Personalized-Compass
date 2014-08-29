@@ -37,6 +37,8 @@
 // Disable/enable the server
 - (IBAction)toggleServer:(id)sender;
 
+// Disable/enable the landmark list
+- (IBAction)toggleLandmarkTableView:(id)sender;
 
 
 @end

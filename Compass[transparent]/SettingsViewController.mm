@@ -144,4 +144,14 @@
         [self.rootViewController.compassView setHidden:YES];
     }
 }
+- (IBAction)toggleLandmarkTableView:(NSButton*)sender {
+
+    if ([sender state] == NSOnState) {
+        [self.rootViewController.landmarkTable setHidden:NO];
+    }
+    else {
+        [self.rootViewController.landmarkTable setHidden:YES];
+        
+    }
+}
 @end

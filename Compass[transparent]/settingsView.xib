@@ -237,6 +237,17 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NcO-al-8uM">
+                    <rect key="frame" x="286" y="326" width="140" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Show Lanmark List" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Mtb-SG-2P9">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleLandmarkTableView:" target="-2" id="gdN-Jp-0m3"/>
+                    </connections>
+                </button>
             </subviews>
         </customView>
     </objects>

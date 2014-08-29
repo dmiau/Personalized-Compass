@@ -40,6 +40,8 @@
 
 @property (weak) IBOutlet MKMapView *mapView;
 @property (weak) IBOutlet NSOpenGLView *compassView;
+@property (weak) IBOutlet NSScrollView *landmarkTable;
+
 @property (weak) IBOutlet NSTextField *currentCoord;
 @property (weak) IBOutlet NSComboBox *kmlComboBox;
 @property (weak) IBOutlet NSTableView *locationTableView;
