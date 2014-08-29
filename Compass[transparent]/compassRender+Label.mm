@@ -7,7 +7,7 @@
 //-------------
 // draw label
 //-------------
-void compassRender::drawLabel(float rotation, float height,
+label_info compassRender::drawLabel(float rotation, float height,
                               texture_info my_texture_info)
 {    
     glPushMatrix();
@@ -35,10 +35,13 @@ void compassRender::drawLabel(float rotation, float height,
     if (rotation < 0)
         rotation = rotation + 360;
     
+    double label_shift_x = 0;
     if (!wedgeMode){
         glRotatef(model->camera_pos.orientation, 0, 0, 1);
-        if ((rotation > 180) && (rotation < 360))
+        if ((rotation > 180) && (rotation < 360)){
             glTranslatef(-my_texture_info.size.width, 0, 0);
+            label_shift_x = -my_texture_info.size.width;
+        }
     }
     //--------------------
     //text tilting still needs to be fixed
@@ -64,6 +67,32 @@ void compassRender::drawLabel(float rotation, float height,
                 4*my_texture_info.size.height);
 #endif
     glPopMatrix();
+    
+    label_info my_label_info;
+    //-----------------
+    // Populate label info here
+    //-----------------
+    my_label_info.orientation
+    = rotation;
+    my_label_info.distance
+    = height * compass_scale;
+    my_label_info.centroid.x
+    = height * compass_scale * sin(rotation/180*M_PI)
+    + label_shift_x;
+    my_label_info.centroid.y
+    = height * compass_scale * cos(rotation/180*M_PI);
+
+
+//    NSLog(@"==Render==");
+//    NSLog(@"Name: %@",
+//          [NSString stringWithUTF8String: model->data_array[j].name.c_str()]);
+//    NSLog(@"Dist: %f, Orienation: %f", height * compass_scale,
+//          rotation);
+//
+//    NSLog(@"Centroid: %@", NSStringFromCGPoint(model->data_array[j].my_label_info.centroid));
+//    NSLog(@"==Render==");
+    
+    return my_label_info;
 }
 
 //--------------
@@ -74,7 +103,7 @@ void compassRender::drawiOSText(NSString *string, int font_size,
                                 CGFloat width, CGFloat height){
     // Use black
     if (mapView.mapType == MKMapTypeStandard){
-        glColor4f(0, 0, 0, 1.0);
+        glColor4f(0, 0, 0, 1);
     }else{
         glColor4f(255.0/255.0, 54.0/255.0, 96.0/255.0, 1.0);
     }
@@ -96,7 +125,8 @@ void compassRender::drawiOSText(NSString *string, int font_size,
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
+
+//        glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
 
     // Draw
     [statusTexture drawInRect:CGRectMake(0, 0, width, height)];

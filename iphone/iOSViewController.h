@@ -186,8 +186,7 @@ enum findMe_enum{
 // Update and initialization functions
 //----------------
 - (void)initMapView;
-- (void) updateMapDisplayRegion;
-//- (void) updateMapDisplayRegion(CLLocationCoordinate2D coord);
+- (void) updateMapDisplayRegion: (bool) animated;
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
 -(void)updateOverviewMap;
 -(bool)updateModelCompassCenterXY;

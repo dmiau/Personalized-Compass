@@ -134,7 +134,7 @@
     return true_north_wrt_up;
 }
 
-- (void) updateMapDisplayRegion{
+- (void) updateMapDisplayRegion: (bool) animated{
     //http://stackoverflow.com/questions/14771197/ios-beginning-ios-tutorial-underscore-before-variable
     static int once = 0;
     if (once==0){
@@ -161,7 +161,7 @@
     
     
     
-    [self.mapView setCenterCoordinate:coord animated:NO];
+    [self.mapView setCenterCoordinate:coord animated:animated];
 }
 
 //------------------

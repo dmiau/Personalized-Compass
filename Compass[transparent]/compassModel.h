@@ -30,6 +30,27 @@ public:
 };
 
 //--------------
+// label info
+//--------------
+class label_info{
+public:
+    double distance;
+    float orientation;
+    CGPoint centroid;
+    // Wedge related info
+    double aperture;
+    double leg;
+public:
+    label_info(){
+        centroid = CGPointMake(0, 0);
+        distance = 0;
+        orientation = 0;
+        aperture = 0.0;
+        leg = 0.0;
+    }
+};
+
+//--------------
 // landmark object
 //--------------
 class data {
@@ -49,7 +70,7 @@ public:
     // label related stuff
     //-------------
     texture_info my_texture_info;
-    
+    label_info my_label_info;
 public:    
     // Methods
     double computeDistanceFromLocation(data& another_data);

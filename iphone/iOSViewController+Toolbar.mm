@@ -281,7 +281,7 @@
         [[self modelPanel] setHidden:YES];
         
         if (self.needUpdateDisplayRegion)
-            [self updateMapDisplayRegion];
+            [self updateMapDisplayRegion: NO];
     }
 }
 

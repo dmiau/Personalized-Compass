@@ -78,7 +78,7 @@
                       longitude: myLocation.coordinate.longitude
                         heading: 0
                            tilt: 0];
-        [self updateMapDisplayRegion];
+        [self updateMapDisplayRegion:YES];
         self.move2UpdatedLocation = false;
     }
     [self.mapView removeAnnotation:self.model->user_pos.annotation];

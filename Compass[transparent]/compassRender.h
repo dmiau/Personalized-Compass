@@ -58,29 +58,6 @@ typedef struct{
 RenderParamStruct makeRenderParams(filter_enum filter_type, style_enum style_type);
 
 
-//--------------
-// label info
-//--------------
-class label_info{
-public:
-    CGPoint centroid;
-    double distance;
-    float orientation;
-    int data_id;
-    
-    // Wedge related info
-    double aperture;
-    double leg;
-public:
-    label_info(){
-        distance = 0;
-        centroid = CGPointMake(0, 0);
-        orientation = 0;
-        data_id = 0;
-        aperture = 0.0;
-        leg = 0.0;
-    }
-};
 
 //----------------------------------
 // compassRender class
@@ -130,8 +107,6 @@ public:
     //----------------
     // String parameters
     bool label_flag; // Indicates whether labels to be drawn or not
-
-    vector<label_info> label_info_array;
     
     void initTextureArray();
     texture_info generateTextureInfo(NSString *label);
@@ -185,7 +160,7 @@ private:
     // Drawing routines
     void drawWayfindingAid(RenderParamStruct renderParamStruct);
     void drawTriangle(int central_disk_radius, float rotation, float height);
-    void drawLabel(float rotation, float height,
+    label_info drawLabel(float rotation, float height,
                    texture_info my_texture_info);
     void drawCircle(float cx, float cy, float r, int num_segments, bool isSolid);
     

@@ -1517,6 +1517,7 @@ I need to tool to convert coordinates in OpenGL to MapView
 8.28.2014
 -------------------------------------------------------------------
 - modifying label_info_array
+- 5:05PM 
 
 
 

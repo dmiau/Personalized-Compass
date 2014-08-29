@@ -282,15 +282,40 @@
 	
 	colorSpace = CGColorSpaceCreateDeviceGray();
 	data = calloc(height, width);
-	context = CGBitmapContextCreate(data, width, height, 8, width, colorSpace, kCGImageAlphaNone);
+	context = CGBitmapContextCreate(data, width, height, 8, width, colorSpace,
+                                    kCGImageAlphaNone);
+    
+
 	CGColorSpaceRelease(colorSpace);
 	CGContextSetGrayFillColor(context, 1.0, 1.0);
 
     
 	CGContextTranslateCTM(context, 0.0, height);
 	CGContextScaleCTM(context, 1.0, -1.0); //NOTE: NSString draws in UIKit referential i.e. renders upside-down compared to CGBitmapContext referential
+    
+//    CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),
+//                                  [UIColor whiteColor].CGColor);
+    
 	UIGraphicsPushContext(context);
+	CGContextSetGrayFillColor(context, 0.4, 1);
+    CGRect drawRect = CGRectMake(0, 0,width, height);
+    CGContextFillRect(context, drawRect);
+//
+//    
+//    
+//    CGContextSetTextDrawingMode(context, kCGTextFillStroke);
+//    // Make the thickness of the outline a function of the font size in use.
+//    CGContextSetLineWidth(context, 8);
+//	CGContextSetGrayFillColor(context, 0, 1);
+//    [string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:alignment];
+//    
+//    
+//    
+//    
+	CGContextSetGrayFillColor(context, 1, 1);
+//    CGContextSetTextDrawingMode(context, kCGTextFill);
     [string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:alignment];
+    
 
 	UIGraphicsPopContext();
 	

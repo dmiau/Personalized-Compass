@@ -52,7 +52,7 @@
     //---------------
     // There is a bug here. There seems to be an extra shift component.
     if (self.needUpdateDisplayRegion){
-        [self updateMapDisplayRegion];
+        [self updateMapDisplayRegion:YES];
         self.needUpdateDisplayRegion = false;
     }
     
@@ -100,7 +100,7 @@
         self.model->camera_pos.longitude =
         self.model->data_array[id].longitude;
         self.landmark_id_toshow = -1;
-        [self updateMapDisplayRegion];
+        [self updateMapDisplayRegion:NO];
     }
     
     [self.glkView setNeedsDisplay];
@@ -192,7 +192,7 @@
 // initMapView may be called whenever configurations.json is reloaded
 //-----------------
 - (void) initMapView{
-    [self updateMapDisplayRegion];
+    [self updateMapDisplayRegion:YES];
     
     // Provide the centroid of compass to the model
     [self updateModelCompassCenterXY];

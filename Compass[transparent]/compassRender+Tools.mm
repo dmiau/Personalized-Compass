@@ -20,6 +20,6 @@ CGPoint compassRender::convertCompassPointToMapUV(CGPoint point){
     
     CGPoint result_pt;
     result_pt.x = model->compassCenterXY.x + point.x;
-    result_pt.y = model->compassCenterXY.y + point.y;
+    result_pt.y = model->compassCenterXY.y - point.y;
     return result_pt;
 }

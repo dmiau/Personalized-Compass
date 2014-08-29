@@ -28,8 +28,6 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     vector<double> mode_max_dist_array =
     model->clusterData(indices_for_rendering);
     
-    label_info_array.clear();
-    
     // Assume indices_for_rendering stores sorted distances
     if (indices_for_rendering.size() <= 0 &&
         !(model->user_pos.isEnabled && !model->user_pos.isVisible))
@@ -124,17 +122,14 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             myLabelinfo.aperture = aperture;
             myLabelinfo.leg = leg;
             myLabelinfo.distance = dist - label_radius;
-            myLabelinfo.centroid = CGPointMake
-            (label_radius * cos(label_orientation),
-             label_radius * sin(label_orientation));
             myLabelinfo.orientation =
             -label_orientation / M_PI * 180 + 90;
         
         }
         
         if (i != -1){
-            myLabelinfo.data_id = indices_for_rendering[i];
-            label_info_array.push_back(myLabelinfo);
+            int j = indices_for_rendering[i];
+            model->data_array[j].my_label_info = myLabelinfo;
         }
     }
     

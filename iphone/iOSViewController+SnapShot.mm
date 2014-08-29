@@ -63,7 +63,7 @@
     self.model->camera_pos.latitude = mySnapshot.coordinateRegion.center.latitude;
     self.model->camera_pos.longitude = mySnapshot.coordinateRegion.center.longitude;
 
-    [self updateMapDisplayRegion];
+    [self updateMapDisplayRegion:NO];
     self.mapView.region = mySnapshot.coordinateRegion;
     
     // Not sure why setRegion does not work well...

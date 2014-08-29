@@ -67,16 +67,41 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             
             double distance, orientation;
             if (!wedgeMode){
+                
                 orientation = data_.orientation;
                 distance = half_canvas_size * 0.9;
+                
+//                //-----------------
+//                // Populate label info here
+//                //-----------------
+//                model->data_array[j].my_label_info.orientation
+//                = orientation;
+//                model->data_array[j].my_label_info.distance
+//                = distance * compass_scale;
+//                model->data_array[j].my_label_info.centroid.x
+//                = distance * compass_scale * sin(orientation/180*M_PI);
+//                model->data_array[j].my_label_info.centroid.y
+//                = distance * compass_scale * cos(orientation/180*M_PI);
+//
+//                
+//                NSLog(@"==Render==");
+//                NSLog(@"Name: %@",
+//                      [NSString stringWithUTF8String: model->data_array[j].name.c_str()]);
+//                NSLog(@"Dist: %f, Orienation: %f", distance * compass_scale,
+//                      orientation);
+//                
+//                NSLog(@"Centroid: %@", NSStringFromCGPoint(model->data_array[j].my_label_info.centroid));
+//                NSLog(@"==Render==");
             }else{
-                orientation = label_info_array[i]
-                .orientation;
-                distance =  label_info_array[i]
-                .distance;
+                orientation = data_.my_label_info.orientation;
+                distance = data_.my_label_info.distance;
             }
-            drawLabel(orientation, distance,
+            label_info my_label_info = drawLabel(orientation, distance,
                       model->data_array[j].my_texture_info);
+            if (!wedgeMode){
+                model->data_array[j].my_label_info = my_label_info;
+            }
+            
             orientation_array.push_back(data_.orientation);
         }
 
