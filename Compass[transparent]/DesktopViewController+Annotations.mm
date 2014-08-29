@@ -212,6 +212,7 @@
     //---------------
     
     CalloutButton *rightButton = [[CalloutButton alloc] init];
+    rightButton.title = @"Detail";
     rightButton.tag = 1;  //right button has tag 1
     [rightButton setAction:@selector(rightButtonAction:)];
     rightButton.pinView = pinView;
