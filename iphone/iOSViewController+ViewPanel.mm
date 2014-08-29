@@ -225,6 +225,16 @@
     [self updateOverviewMap];
 }
 
+- (IBAction)togglePOI:(UISwitch*)sender {
+    
+    if (sender.on){
+        self.mapView.showsPointsOfInterest = true;
+    }else{
+        self.mapView.showsPointsOfInterest = false;
+    }
+    
+}
+
 //------------------
 // Update Overview map
 //------------------

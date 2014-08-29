@@ -127,7 +127,7 @@
     [self.settingsView setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
     [self.settingsView setLayer:viewLayer];
     
-    [self.mapView addSubview:self.settingsView positioned: NSWindowAbove
+    [self.view addSubview:self.settingsView positioned: NSWindowAbove
                       relativeTo:nil];
     self.settingsView.frame =
     CGRectMake(50, 50,

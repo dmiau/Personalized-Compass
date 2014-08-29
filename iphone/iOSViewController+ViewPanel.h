@@ -22,4 +22,7 @@
 
 - (IBAction)toggleOverviewScaleSegmentControl:(id)sender;
 
+- (IBAction)togglePOI:(id)sender;
+
+
 @end

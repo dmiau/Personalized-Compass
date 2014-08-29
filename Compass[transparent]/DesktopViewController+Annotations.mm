@@ -252,8 +252,10 @@
     
 }
 
-- (void)rightButtonAction:(NSControl*) control{
+- (void)rightButtonAction:(CalloutButton*) control{
+    OSXPinAnnotationView *pinView = control.pinView;
     NSLog(@"Right button clicked");
+    [pinView showDetailCallout:YES];    
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(NSControl *)control
@@ -310,6 +312,7 @@
 //    NSLog(@"Deselect annoation");
 //    if(!pinView.canShowCallout)
 //        [pinView showCustomCallout:NO];
+    [pinView showDetailCallout:NO];
 }
 
 ////------------------

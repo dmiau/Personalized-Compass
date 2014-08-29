@@ -192,7 +192,8 @@ private:
 
 #ifdef __IPHONE__
     void drawiOSText(NSString *string, int font_size,
-                     CGFloat width, CGFloat height);
+                     CGFloat width, CGFloat height,
+                     bool box_flag);
 //    void drawiOSText(texture_info my_texture_info);
 #endif
 };

@@ -64,7 +64,8 @@ label_info compassRender::drawLabel(float rotation, float height,
     drawiOSText(my_texture_info.attr_str.string,
                 4*[model->configurations[@"font_size"] floatValue],
                 4*my_texture_info.size.width,
-                4*my_texture_info.size.height);
+                4*my_texture_info.size.height,
+                my_texture_info.box_flag);
 #endif
     glPopMatrix();
     
@@ -100,7 +101,8 @@ label_info compassRender::drawLabel(float rotation, float height,
 //--------------
 #ifdef __IPHONE__
 void compassRender::drawiOSText(NSString *string, int font_size,
-                                CGFloat width, CGFloat height){
+                                CGFloat width, CGFloat height,
+                                bool box_flag){
     // Use black
     if (mapView.mapType == MKMapTypeStandard){
         glColor4f(0, 0, 0, 1);
@@ -114,7 +116,9 @@ void compassRender::drawiOSText(NSString *string, int font_size,
                                 initWithString:string
                                 dimensions:CGSizeMake(width, height)
                                 alignment: UITextAlignmentLeft
-                                fontName:@"Helvetica-Bold" fontSize:font_size];
+                                fontName:@"Helvetica-Bold"
+                                fontSize:font_size
+                                withBox:box_flag];
     
     // Bind texture
     glBindTexture(GL_TEXTURE_2D, [statusTexture name]);

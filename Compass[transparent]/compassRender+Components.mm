@@ -120,7 +120,7 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             
             texture_info my_texture_info = model->generateTextureInfo
             ([NSString stringWithUTF8String:buff]);
-            
+            my_texture_info.box_flag = false;
             drawLabel(best_orientation, half_canvas_size * 0.3, my_texture_info);
         }
         glPopMatrix();

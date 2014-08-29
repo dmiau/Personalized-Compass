@@ -27,6 +27,11 @@ class texture_info{
 public:
     CGSize size;
     NSAttributedString *attr_str; // for debug purposes
+    bool box_flag;
+public:
+    texture_info(){
+        box_flag = true;
+    };
 };
 
 //--------------

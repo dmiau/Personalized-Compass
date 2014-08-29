@@ -1519,10 +1519,13 @@ I need to tool to convert coordinates in OpenGL to MapView
 - modifying label_info_array
 - 5:05PM 
 
-
-
-
-
+-------------------------------------------------------------------
+8.29.2014
+-------------------------------------------------------------------
+- work on test case generator
+- consider implementing a map selector (which allows me to use Google Maps)
+- color improvement
+- need to separate the dependency on a map, maybe I can create augmented reality type of app later
 
 
 
