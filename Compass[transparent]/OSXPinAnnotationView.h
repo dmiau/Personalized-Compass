@@ -16,9 +16,21 @@
 @property (weak) IBOutlet NSView *detailView;
 @property (weak) IBOutlet NSTextField *landmark_name;
 @property compassMdl* model;
+
+
+@property (weak, nonatomic) IBOutlet NSTextField *titleTextField;
+
+@property (weak, nonatomic) IBOutlet NSButton *addButton;
+@property (weak, nonatomic) IBOutlet NSButton *removeButton;
+@property BOOL needUpdateAnnotation;
 @property (weak) IBOutlet NSSegmentedControl *statusSegmentControl;
 
 
+@property (weak, nonatomic) IBOutlet NSTextField *addressView;
+@property (weak, nonatomic) IBOutlet NSTextField *noteTextField;
+
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBund
+           annotation: (CustomPointAnnotation*) annotation;
 - (IBAction)dismissDialog:(id)sender;
 - (IBAction)addLocation:(id)sender;
 - (IBAction)removeLocation:(id)sender;
@@ -32,7 +44,7 @@
     CalloutViewController *calloutViewController;
     bool detailViewVisible;
 }
-
+@property bool customCalloutStatus;
 -(void)showCustomCallout:(bool)status;
 -(void)showDetailCallout:(bool)status;
 @end

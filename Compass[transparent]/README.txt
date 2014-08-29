@@ -1527,6 +1527,25 @@ I need to tool to convert coordinates in OpenGL to MapView
 - color improvement
 - need to separate the dependency on a map, maybe I can create augmented reality type of app later
 
+detect mouse hold event:
+http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

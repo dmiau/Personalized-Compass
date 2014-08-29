@@ -10,7 +10,13 @@
 
 @implementation CustomPointAnnotation
 
-
-
-
+-(id)init{
+    
+    self = [super init];
+    self.notes = @"";
+    self.address = @"";
+    self.data_id = 0;
+    self.subtitle = @"";
+    return self;
+}
 @end

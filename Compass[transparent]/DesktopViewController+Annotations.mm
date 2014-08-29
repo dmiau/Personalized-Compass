@@ -58,15 +58,19 @@
             pinView.annotation = annotation;
         }
         
+        if([self.UIConfigurations[@"UIAllowMultipleAnnotations"] boolValue]){
+            [pinView setCanShowCallout:NO];
+        }else{
+            [pinView setCanShowCallout:YES];
+        }
+
         if (annotation.point_type == landmark){
             [pinView setAnimatesDrop:NO];
         }else{
             [pinView setAnimatesDrop:YES];
         }
         
-        [pinView setCanShowCallout:YES];
-        
-        
+
         if ([annotation point_type] == dropped){
             //---------------
             // User triggered drop pin
@@ -258,6 +262,10 @@
     [pinView showDetailCallout:YES];    
 }
 
+
+//------------------
+// This one might be useless for the desktop application
+//------------------
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(NSControl *)control
 {
     
@@ -295,9 +303,10 @@
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:
 (OSXPinAnnotationView *)pinView{
     NSLog(@"Annotation clicked");
+    if([self.UIConfigurations[@"UIAllowMultipleAnnotations"] boolValue]){
+        [pinView showCustomCallout:!pinView.customCalloutStatus];
+    }
     
-    if(!pinView.canShowCallout)
-        [pinView showCustomCallout:YES];
     //    MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
     ////    pinView.pinColor = MKPinAnnotationColorPurple;
     //    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -315,19 +324,4 @@
     [pinView showDetailCallout:NO];
 }
 
-////------------------
-//// Prepare for the detail view
-////------------------
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(MKAnnotationView *)sender
-//{
-//    if ([segue.identifier isEqualToString:@"DetailVC"])
-//    {
-//        DetailViewController *destinationViewController = segue.destinationViewController;
-//        
-//        // grab the annotation from the sender
-//        destinationViewController.annotation = sender.annotation;
-//    } else {
-//        NSLog(@"PFS:something else");
-//    }
-//}
 @end

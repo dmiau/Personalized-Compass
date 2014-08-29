@@ -105,10 +105,14 @@
     
     switch (sender.selectedSegment) {
         case 0:
-            canShowCallout = YES;
+            self.rootViewController.UIConfigurations
+            [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:NO];
+            canShowCallout = true;
             break;
         case 1:
-            canShowCallout = NO;
+            self.rootViewController.UIConfigurations
+            [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
+            canShowCallout = false;
             break;
     }
     

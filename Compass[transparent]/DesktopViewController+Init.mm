@@ -66,6 +66,8 @@
                                       forKey:@"UICompassInteractionEnabled"];
             [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                       forKey:@"UICompassCenterLocked"];
+            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                      forKey:@"UIAllowMultipleAnnotations"];
             [self.UIConfigurations setObject:@"Auto"
                                       forKey:@"UIOverviewScaleMode"];
         }
