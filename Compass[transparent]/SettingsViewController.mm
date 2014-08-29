@@ -51,7 +51,8 @@
             [self.rootViewController setFactoryCompassHidden:NO];
             break;
     }
-    [self.rootViewController.compassView setNeedsDisplay:YES];
+//    [self.rootViewController.compassView setNeedsDisplay:YES];
+    [self.rootViewController.compassView display];
 }
 
 - (IBAction)wedgeSegmentControl:(id)sender {
@@ -90,7 +91,8 @@
             break;
             
     }
-    [self.rootViewController.compassView setNeedsDisplay:YES];
+//    [self.rootViewController.compassView setNeedsDisplay:YES];
+    [self.rootViewController.compassView display];
 }
 
 //-----------------
@@ -133,5 +135,13 @@
 
     self.serverPort.stringValue =
     [NSString stringWithFormat:@"%d", port];
+}
+- (IBAction)toggleGLView:(NSButton*)sender {
+    if ([sender state] == NSOnState) {
+        [self.rootViewController.compassView setHidden:NO];
+    }
+    else {
+        [self.rootViewController.compassView setHidden:YES];
+    }
 }
 @end

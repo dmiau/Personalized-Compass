@@ -54,7 +54,8 @@
     if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
         [self updateModelCompassCenterXY];
     }
-    [self.compassView setNeedsDisplay:YES];
+//    [self.compassView setNeedsDisplay:YES];
+    [self.compassView display];
 }
 
 - (IBAction)toggleLabel:(id)sender {

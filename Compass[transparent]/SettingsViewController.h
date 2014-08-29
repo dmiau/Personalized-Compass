@@ -19,10 +19,24 @@
 //-------------
 // Controls
 //-------------
+
+// Control the visibility of OpenGL view
+- (IBAction)toggleGLView:(id)sender;
+
+
+// Control to show or hide the compass
 - (IBAction)compassSegmentControl:(id)sender;
+
+// Control to show or hide the wedge
 - (IBAction)wedgeSegmentControl:(id)sender;
+
+// Control whether multiple annotations can be displayed
+// simultaneously
 - (IBAction)annotationNumberSegmentControl:(id)sender;
+
+// Disable/enable the server
 - (IBAction)toggleServer:(id)sender;
+
 
 
 @end
