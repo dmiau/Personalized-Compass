@@ -81,24 +81,6 @@
 
 - (void) awakeFromNib{
     
-
-    
-    
-//    //-------------------
-//    // Set the rootViewController
-//    //-------------------
-//    AppDelegate *app = [[UIApplication sharedApplication] delegate];
-//    
-//    UINavigationController *myNavigationController =
-//    app.window.rootViewController;
-//    
-//    self.rootViewController =
-//    [myNavigationController.viewControllers objectAtIndex:0];
-    
-    
-}
-
-- (IBAction)dismissDialog:(id)sender {
 }
 
 - (IBAction)addLocation:(id)sender {

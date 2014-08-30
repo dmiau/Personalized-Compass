@@ -144,28 +144,39 @@
     
     pinView.pinColor = MKPinAnnotationColorPurple;
     
-//    //---------------
-//    //Configure the left button (tag: 0)
-//    //---------------
-//    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *btnLeftImage = [UIImage imageNamed:@"remove.png"];
-//    [leftButton setImage:btnLeftImage forState:UIControlStateNormal];
-//    leftButton.frame = CGRectMake(0, 0,
-//                                  btnLeftImage.size.width,
-//                                  btnLeftImage.size.height);
-//    [leftButton setBackgroundColor: [UIColor whiteColor]];
-//    [leftButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
-//    leftButton.tag = 0; //left button has tag 0
-//    
-//    pinView.leftCalloutAccessoryView = leftButton;
+    //---------------
+    //Configure the left button (tag: 0)
+    //---------------
+    CalloutButton *leftButton;
+    if (pinView.leftCalloutAccessoryView == nil){
+        leftButton = [[CalloutButton alloc] init];
+    }else{
+        leftButton = pinView.leftCalloutAccessoryView;
+    }
     
-//    //---------------
-//    // Constructing a right button (tag: 1)
-//    //---------------
-//    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//    rightButton.tag = 1;  //right button has tag 1
-//    pinView.rightCalloutAccessoryView = rightButton;
+    NSImage *btnLeftImage = [NSImage imageNamed:@"remove.png"];
+    [leftButton setImage:btnLeftImage];
+    leftButton.frame = CGRectMake(0, 0,
+                                  btnLeftImage.size.width,
+                                  btnLeftImage.size.height);
+//    [leftButton setAction:@selector(leftButtonAction:)];    
+    leftButton.tag = 0; //left button has tag 0
     
+    pinView.leftCalloutAccessoryView = leftButton;
+    
+    //---------------
+    // Constructing a right button (tag: 1)
+    //---------------
+    CalloutButton *rightButton;
+    rightButton = [[CalloutButton alloc] init];
+    rightButton.title = @"Detail";
+    rightButton.tag = 1;  //right button has tag 1
+    [rightButton setTarget:self];    
+    rightButton.action = nil;
+    [rightButton setAction:@selector(detailButtonAction:)];
+    rightButton.pinView = pinView;
+    pinView.rightCalloutAccessoryView = rightButton;
+        
     return pinView;
 }
 //---------------
@@ -200,6 +211,7 @@
     leftButton.frame = CGRectMake(0, 0,
                                   btnImage.size.width, btnImage.size.height);
     [leftButton setTarget:self];
+    leftButton.action = nil;
     [leftButton setAction:@selector(leftButtonAction:)];
     leftButton.pinView = pinView;
 //    [leftButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
@@ -210,13 +222,18 @@
     //---------------
     // Constructing a right button (tag: 1)
     //---------------
-    
-    CalloutButton *rightButton = [[CalloutButton alloc] init];
-    rightButton.title = @"Detail";
-    rightButton.tag = 1;  //right button has tag 1
-    [rightButton setAction:@selector(rightButtonAction:)];
-    rightButton.pinView = pinView;
-    pinView.rightCalloutAccessoryView = rightButton;
+
+    CalloutButton *rightButton;
+
+        rightButton = [[CalloutButton alloc] init];
+        rightButton.title = @"Detail";
+        rightButton.tag = 1;  //right button has tag 1
+    [rightButton setTarget:self];
+    [rightButton setAction:@selector(detailButtonAction:)];
+        rightButton.pinView = pinView;
+
+        pinView.rightCalloutAccessoryView = rightButton;
+
     
     return pinView;
 }
@@ -234,6 +251,11 @@
 //------------------
 // When the callout of a pin is tapped
 //------------------
+- (void)detailButtonAction:(CalloutButton*) control{
+    OSXPinAnnotationView *pinView = control.pinView;
+    NSLog(@"Right button clicked");
+    [pinView showDetailCallout:YES];
+}
 
 - (void)leftButtonAction:(CalloutButton*) control{
     NSLog(@"Left button clicked");
@@ -255,12 +277,6 @@
         
     }
     
-}
-
-- (void)rightButtonAction:(CalloutButton*) control{
-    OSXPinAnnotationView *pinView = control.pinView;
-    NSLog(@"Right button clicked");
-    [pinView showDetailCallout:YES];    
 }
 
 

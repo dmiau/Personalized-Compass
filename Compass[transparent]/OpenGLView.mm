@@ -60,7 +60,14 @@
     // it's the update routine for our C/C++ renderer
 //    renderer->updateProjection();
     //it sets the flag that windows has to be redrawn
-    [self setNeedsDisplay:YES];
+
+    //    [self setNeedsDisplay:YES];
+    
+    dispatch_queue_t q = dispatch_get_main_queue();
+    dispatch_async(q, ^{
+        [self setNeedsDisplay: YES];
+    });
+    
 }
 
 
