@@ -11,14 +11,8 @@
 		9A006CA319522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
 		9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
 		9A02D0EC195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
-		9A02D0EE195C5CA900A64987 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0ED195C5CA900A64987 /* QuartzCore.framework */; };
-		9A02D0F0195C5CB200A64987 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0EF195C5CB200A64987 /* SystemConfiguration.framework */; };
-		9A02D0F2195C5CB800A64987 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F1195C5CB800A64987 /* Security.framework */; };
-		9A02D0F4195C5CBE00A64987 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F3195C5CBE00A64987 /* CFNetwork.framework */; };
 		9A02D0F6195C5CE800A64987 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F5195C5CE800A64987 /* Dropbox.framework */; };
 		9A02D0F7195C5CE800A64987 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F5195C5CE800A64987 /* Dropbox.framework */; };
-		9A02D0F9195C5D0C00A64987 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F8195C5D0C00A64987 /* libz.dylib */; };
-		9A02D0FB195C5D1700A64987 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0FA195C5D1700A64987 /* libc++.dylib */; };
 		9A02D0FC195C5D2E00A64987 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0ED195C5CA900A64987 /* QuartzCore.framework */; };
 		9A02D0FD195C5D3700A64987 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F8195C5D0C00A64987 /* libz.dylib */; };
 		9A02D0FE195C5D4000A64987 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0FA195C5D1700A64987 /* libc++.dylib */; };
@@ -624,10 +618,7 @@
 		9A4F0F53193E2A8900CF32DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F52193E2A8900CF32DE /* main.m */; };
 		9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F56193E2A8900CF32DE /* AppDelegate.m */; };
 		9A4F0F59193E2A8900CF32DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F58193E2A8900CF32DE /* Images.xcassets */; };
-		9A4F0F73193E2ABE00CF32DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F72193E2ABE00CF32DE /* UIKit.framework */; };
 		9A4F0F75193E2AF500CF32DE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */; };
-		9A4F0F77193E2B7100CF32DE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F76193E2B7100CF32DE /* MapKit.framework */; };
-		9A4F0F79193E2B7800CF32DE /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F78193E2B7800CF32DE /* GLKit.framework */; };
 		9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */; };
 		9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */; };
 		9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
@@ -636,7 +627,6 @@
 		9A4F0F86193E331E00CF32DE /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
 		9A4F0F87193E331E00CF32DE /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
 		9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
-		9A4F0FAD193E70EA00CF32DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0FAC193E70EA00CF32DE /* CoreLocation.framework */; };
 		9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
 		9A4F0FAF193E745900CF32DE /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
 		9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
@@ -732,8 +722,6 @@
 		9A9701E319083EB9007C3C19 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E518D9EBB20028B80C /* MainMenu.xib */; };
 		9A9701E619085002007C3C19 /* watchNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9701E519085002007C3C19 /* watchNSView.m */; };
 		9A9701E8190851A3007C3C19 /* smartWatch.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A9701E7190851A3007C3C19 /* smartWatch.tif */; };
-		9A98AF31194289D6007166DE /* GLString.h in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7118ECE5FC0029A860 /* GLString.h */; };
-		9A98AF32194289D6007166DE /* GLString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF01B7218ECE5FC0029A860 /* GLString.mm */; };
 		9A998C8B1949F29500778DFC /* compassRender+Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C8A1949F29500778DFC /* compassRender+Label.mm */; };
 		9A998C8C1949F29500778DFC /* compassRender+Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C8A1949F29500778DFC /* compassRender+Label.mm */; };
 		9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A998C8A1949F29500778DFC /* compassRender+Label.mm */; };
@@ -842,7 +830,6 @@
 		9AE093D118ECA56400DFC16F /* DesktopViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */; };
 		9AE2FC7819AE43810015E2B6 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC7719AE43810015E2B6 /* SRWebSocket.m */; };
 		9AE2FC7919AE43810015E2B6 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC7719AE43810015E2B6 /* SRWebSocket.m */; };
-		9AE2FC7C19AE43EF0015E2B6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */; };
 		9AE2FC7D19AE43FE0015E2B6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */; };
 		9AE2FC8419AF860F0015E2B6 /* compassRender+Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8219AF860F0015E2B6 /* compassRender+Tools.mm */; };
 		9AE2FC8519AF860F0015E2B6 /* compassRender+Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8219AF860F0015E2B6 /* compassRender+Tools.mm */; };
@@ -911,6 +898,17 @@
 		9AF089FD1921390700E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
 		9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
 		9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
+		9AF1094A19CA052200EFBF4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1094919CA052200EFBF4E /* UIKit.framework */; };
+		9AF1094C19CA052D00EFBF4E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1094B19CA052D00EFBF4E /* MapKit.framework */; };
+		9AF1094E19CA053800EFBF4E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1094D19CA053800EFBF4E /* GLKit.framework */; };
+		9AF1095019CA054500EFBF4E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1094F19CA054500EFBF4E /* QuartzCore.framework */; };
+		9AF1095219CA055200EFBF4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095119CA055200EFBF4E /* CoreLocation.framework */; };
+		9AF1095419CA055E00EFBF4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095319CA055E00EFBF4E /* SystemConfiguration.framework */; };
+		9AF1095619CA056600EFBF4E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095519CA056600EFBF4E /* Security.framework */; };
+		9AF1095819CA056F00EFBF4E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095719CA056F00EFBF4E /* CFNetwork.framework */; };
+		9AF1095A19CA057800EFBF4E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095919CA057800EFBF4E /* libz.dylib */; };
+		9AF1095C19CA058200EFBF4E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095B19CA058200EFBF4E /* libc++.dylib */; };
+		9AF1095E19CA058F00EFBF4E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095D19CA058F00EFBF4E /* libicucore.dylib */; };
 		9AF1231C19843097004D4EFC /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
 		9AF2730C1982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
 		9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
@@ -1357,6 +1355,17 @@
 		9AF01B7118ECE5FC0029A860 /* GLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLString.h; sourceTree = "<group>"; };
 		9AF01B7218ECE5FC0029A860 /* GLString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLString.mm; sourceTree = "<group>"; };
 		9AF089FC1921390700E118D5 /* New York City [many].kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "New York City [many].kml"; sourceTree = "<group>"; };
+		9AF1094919CA052200EFBF4E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		9AF1094B19CA052D00EFBF4E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		9AF1094D19CA053800EFBF4E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
+		9AF1094F19CA054500EFBF4E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		9AF1095119CA055200EFBF4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		9AF1095319CA055E00EFBF4E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		9AF1095519CA056600EFBF4E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		9AF1095719CA056F00EFBF4E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		9AF1095919CA057800EFBF4E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
+		9AF1095B19CA058200EFBF4E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
+		9AF1095D19CA058F00EFBF4E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		9AF2730A1982865C00C0195B /* snapshotDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snapshotDefault.png; path = icons/snapshotDefault.png; sourceTree = "<group>"; };
 		9AF2730B1982865C00C0195B /* snapshotSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snapshotSelected.png; path = icons/snapshotSelected.png; sourceTree = "<group>"; };
 		9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moto360_bikemap.png; sourceTree = "<group>"; };
@@ -1385,18 +1394,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AE2FC7C19AE43EF0015E2B6 /* libicucore.dylib in Frameworks */,
-				9A02D0FB195C5D1700A64987 /* libc++.dylib in Frameworks */,
-				9A02D0F9195C5D0C00A64987 /* libz.dylib in Frameworks */,
-				9A02D0F4195C5CBE00A64987 /* CFNetwork.framework in Frameworks */,
-				9A02D0F2195C5CB800A64987 /* Security.framework in Frameworks */,
-				9A02D0F0195C5CB200A64987 /* SystemConfiguration.framework in Frameworks */,
+				9AF1095E19CA058F00EFBF4E /* libicucore.dylib in Frameworks */,
+				9AF1095C19CA058200EFBF4E /* libc++.dylib in Frameworks */,
+				9AF1095A19CA057800EFBF4E /* libz.dylib in Frameworks */,
+				9AF1095819CA056F00EFBF4E /* CFNetwork.framework in Frameworks */,
+				9AF1095619CA056600EFBF4E /* Security.framework in Frameworks */,
+				9AF1095419CA055E00EFBF4E /* SystemConfiguration.framework in Frameworks */,
+				9AF1095219CA055200EFBF4E /* CoreLocation.framework in Frameworks */,
+				9AF1095019CA054500EFBF4E /* QuartzCore.framework in Frameworks */,
+				9AF1094E19CA053800EFBF4E /* GLKit.framework in Frameworks */,
+				9AF1094C19CA052D00EFBF4E /* MapKit.framework in Frameworks */,
+				9AF1094A19CA052200EFBF4E /* UIKit.framework in Frameworks */,
 				9A02D0F6195C5CE800A64987 /* Dropbox.framework in Frameworks */,
-				9A02D0EE195C5CA900A64987 /* QuartzCore.framework in Frameworks */,
-				9A4F0FAD193E70EA00CF32DE /* CoreLocation.framework in Frameworks */,
-				9A4F0F79193E2B7800CF32DE /* GLKit.framework in Frameworks */,
-				9A4F0F77193E2B7100CF32DE /* MapKit.framework in Frameworks */,
-				9A4F0F73193E2ABE00CF32DE /* UIKit.framework in Frameworks */,
 				9A4F0F49193E2A8900CF32DE /* CoreGraphics.framework in Frameworks */,
 				9A4F0F47193E2A8900CF32DE /* Foundation.framework in Frameworks */,
 			);
@@ -2148,6 +2157,17 @@
 		9AEA57CF18D9EBB20028B80C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9AF1095D19CA058F00EFBF4E /* libicucore.dylib */,
+				9AF1095B19CA058200EFBF4E /* libc++.dylib */,
+				9AF1095919CA057800EFBF4E /* libz.dylib */,
+				9AF1095719CA056F00EFBF4E /* CFNetwork.framework */,
+				9AF1095519CA056600EFBF4E /* Security.framework */,
+				9AF1095319CA055E00EFBF4E /* SystemConfiguration.framework */,
+				9AF1095119CA055200EFBF4E /* CoreLocation.framework */,
+				9AF1094F19CA054500EFBF4E /* QuartzCore.framework */,
+				9AF1094D19CA053800EFBF4E /* GLKit.framework */,
+				9AF1094B19CA052D00EFBF4E /* MapKit.framework */,
+				9AF1094919CA052200EFBF4E /* UIKit.framework */,
 				9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */,
 				9A42A0B919A79CCB00BB0101 /* Security.framework */,
 				9A02D0FA195C5D1700A64987 /* libc++.dylib */,
@@ -2382,6 +2402,12 @@
 					9A4F0F44193E2A8800CF32DE = {
 						DevelopmentTeam = T8L89L97Z5;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -2754,7 +2780,6 @@
 				9A03761B198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9A037579198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9A3240DC197AB083008E929D /* iOSViewController+History.mm in Sources */,
-				9A98AF31194289D6007166DE /* GLString.h in Sources */,
 				9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
 				9A0375D9198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A0375AF198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
@@ -2766,7 +2791,6 @@
 				9AFD8F5E197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A0375E5198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A0375EB198DA31900258E95 /* b2Island.cpp in Sources */,
-				9A98AF32194289D6007166DE /* GLString.mm in Sources */,
 				9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9ACD80DA1986CB8900AAB052 /* iOSViewController+Init.mm in Sources */,
 				9A0375DF198DA31900258E95 /* b2ContactManager.cpp in Sources */,
@@ -3522,7 +3546,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -3553,7 +3577,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

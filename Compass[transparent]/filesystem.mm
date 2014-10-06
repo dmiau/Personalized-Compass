@@ -328,11 +328,11 @@
         
         if (!file){
             [self.error_str appendString:@"Error opening file."];
-            return nil;
+            return false;
         }else{
             if (![file writeString:content error:&error]){
             [self.error_str appendString:@"Failed to write file to dropbox."];
-                return nil;
+                return false;
             }
         }
     }

@@ -1530,15 +1530,23 @@ I need to tool to convert coordinates in OpenGL to MapView
 detect mouse hold event:
 http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
 
+-------------------------------------------------------------------
+9.5.2014
+-------------------------------------------------------------------
+- add scale indicator
+- multi-destination zoom
+- test case generator
+- write down the steps to perform each task
+- improve color scheme
 
+-------------------------------------------------------------------
+10.6.2014
+-------------------------------------------------------------------
+- let's try to fix the iOS8 bug (localization) issue today
 
+http://nevan.net/2014/09/core-location-manager-changes-in-ios-8/
 
-
-
-
-
-
-
+fixed the location service bug (two keys need to be added in plist)
 
 
 

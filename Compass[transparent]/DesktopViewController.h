@@ -84,6 +84,7 @@
 - (IBAction)rotate:(id)sender;
 - (IBAction)refreshConfigurations:(id)sender;
 - (IBAction)showSettings:(id)sender;
+- (IBAction)toggleLandmarkTable:(id)sender;
 
 
 

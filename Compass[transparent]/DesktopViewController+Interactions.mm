@@ -123,6 +123,10 @@
     return [kml_files indexOfObject: string];
 }
 
+- (IBAction)toggleLandmarkTable:(id)sender {
+    [self.landmarkTable setHidden:![self.landmarkTable isHidden]];
+}
+
 //--------------------
 // Mouse event
 //--------------------

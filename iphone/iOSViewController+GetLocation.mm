@@ -44,6 +44,23 @@
         self.mapView.showsUserLocation = NO;
         
         self.model->user_pos.isEnabled = true;
+        
+        
+        
+        // for iOS 8, specific user level permission is required,
+        // "when-in-use" authorization grants access to the user's location
+        //
+        // important: be sure to include NSLocationWhenInUseUsageDescription along with its
+        // explanation string in your Info.plist or startUpdatingLocation will not work.
+        //
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+        {
+            [self.locationManager requestWhenInUseAuthorization];
+        }
+        
+        
+        
+        
         [self.locationManager startUpdatingLocation];
         [self.locationManager startUpdatingHeading];
 

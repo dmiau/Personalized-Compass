@@ -11,6 +11,9 @@
 @interface LocationCellView : NSTableCellView{
     @private
     IBOutlet NSTextField *infoTextField;
+    
 }
+@property (weak, atomic) IBOutlet NSButton *checkbox;
+- (IBAction) toggleCheckbox: (id) sender;
 @property(assign) NSTextField *infoTextField;
 @end

@@ -45,7 +45,7 @@ public:
     NSString *name;
 public:
     param(){
-        type = nil;
+        type = NULL;
         isEnabled = false;
         name = @"";
     };
