@@ -1579,7 +1579,22 @@ Looks like the mouseDown problem might be releated to the nextReponder chain.
 
 http://prod.lists.apple.com/archives/cocoa-dev/2014/Sep/msg00397.html
 http://stackoverflow.com/questions/20061052/how-to-add-nsviewcontroller-to-a-responder-chain
+- Fixed issues for Yosemite 10.10 SDK!
 
+Feels good. I am back to build software again!
+
+Desktop application wishlist:
+- gesture interaction (long press to drop pin, or right-click to drop-pin,
+long-press to move the compass)
+- hyperlink mode
+
+
+Here are some of the tasks that I left-off:
+- need to improve color scheme
+- need to separate the dependency on a map, maybe I can create augmented reality type of app later
+
+detect mouse hold event:
+http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
 
 
 

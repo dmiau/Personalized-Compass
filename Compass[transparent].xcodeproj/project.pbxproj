@@ -848,6 +848,17 @@
 		9AE57284199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57285199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57286199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
+		9AEA4D471A4A08BE00E452C3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB311A0DB771000F3A23 /* libz.dylib */; };
+		9AEA4D481A4A08CD00E452C3 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB371A0DB791000F3A23 /* libc++.dylib */; };
+		9AEA4D491A4A08DA00E452C3 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB3B1A0DB7A9000F3A23 /* libicucore.dylib */; };
+		9AEA4D4A1A4A08EB00E452C3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB331A0DB77D000F3A23 /* CFNetwork.framework */; };
+		9AEA4D4B1A4A08F800E452C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB351A0DB787000F3A23 /* Security.framework */; };
+		9AEA4D4C1A4A090400E452C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB391A0DB79E000F3A23 /* SystemConfiguration.framework */; };
+		9AEA4D4D1A4A090D00E452C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB2D1A0DB75A000F3A23 /* CoreLocation.framework */; };
+		9AEA4D4E1A4A091600E452C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB2F1A0DB766000F3A23 /* QuartzCore.framework */; };
+		9AEA4D4F1A4A091E00E452C3 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB271A0DB73A000F3A23 /* GLKit.framework */; };
+		9AEA4D501A4A092600E452C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB291A0DB745000F3A23 /* MapKit.framework */; };
+		9AEA4D511A4A092E00E452C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB2B1A0DB74D000F3A23 /* UIKit.framework */; };
 		9AEA57D118D9EBB20028B80C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
 		9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
 		9AEA57DD18D9EBB20028B80C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
@@ -897,17 +908,6 @@
 		9AF089FD1921390700E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
 		9AF089FE192139EC00E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
 		9AF089FF192139F700E118D5 /* New York City [many].kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF089FC1921390700E118D5 /* New York City [many].kml */; };
-		9AF1094A19CA052200EFBF4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1094919CA052200EFBF4E /* UIKit.framework */; };
-		9AF1094C19CA052D00EFBF4E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1094B19CA052D00EFBF4E /* MapKit.framework */; };
-		9AF1094E19CA053800EFBF4E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1094D19CA053800EFBF4E /* GLKit.framework */; };
-		9AF1095019CA054500EFBF4E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1094F19CA054500EFBF4E /* QuartzCore.framework */; };
-		9AF1095219CA055200EFBF4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095119CA055200EFBF4E /* CoreLocation.framework */; };
-		9AF1095419CA055E00EFBF4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095319CA055E00EFBF4E /* SystemConfiguration.framework */; };
-		9AF1095619CA056600EFBF4E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095519CA056600EFBF4E /* Security.framework */; };
-		9AF1095819CA056F00EFBF4E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095719CA056F00EFBF4E /* CFNetwork.framework */; };
-		9AF1095A19CA057800EFBF4E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095919CA057800EFBF4E /* libz.dylib */; };
-		9AF1095C19CA058200EFBF4E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095B19CA058200EFBF4E /* libc++.dylib */; };
-		9AF1095E19CA058F00EFBF4E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF1095D19CA058F00EFBF4E /* libicucore.dylib */; };
 		9AF1231C19843097004D4EFC /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
 		9AF2730C1982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
 		9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AF2730A1982865C00C0195B /* snapshotDefault.png */; };
@@ -1404,17 +1404,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AF1095E19CA058F00EFBF4E /* libicucore.dylib in Frameworks */,
-				9AF1095C19CA058200EFBF4E /* libc++.dylib in Frameworks */,
-				9AF1095A19CA057800EFBF4E /* libz.dylib in Frameworks */,
-				9AF1095819CA056F00EFBF4E /* CFNetwork.framework in Frameworks */,
-				9AF1095619CA056600EFBF4E /* Security.framework in Frameworks */,
-				9AF1095419CA055E00EFBF4E /* SystemConfiguration.framework in Frameworks */,
-				9AF1095219CA055200EFBF4E /* CoreLocation.framework in Frameworks */,
-				9AF1095019CA054500EFBF4E /* QuartzCore.framework in Frameworks */,
-				9AF1094E19CA053800EFBF4E /* GLKit.framework in Frameworks */,
-				9AF1094C19CA052D00EFBF4E /* MapKit.framework in Frameworks */,
-				9AF1094A19CA052200EFBF4E /* UIKit.framework in Frameworks */,
+				9AEA4D511A4A092E00E452C3 /* UIKit.framework in Frameworks */,
+				9AEA4D501A4A092600E452C3 /* MapKit.framework in Frameworks */,
+				9AEA4D4F1A4A091E00E452C3 /* GLKit.framework in Frameworks */,
+				9AEA4D4E1A4A091600E452C3 /* QuartzCore.framework in Frameworks */,
+				9AEA4D4D1A4A090D00E452C3 /* CoreLocation.framework in Frameworks */,
+				9AEA4D4C1A4A090400E452C3 /* SystemConfiguration.framework in Frameworks */,
+				9AEA4D4B1A4A08F800E452C3 /* Security.framework in Frameworks */,
+				9AEA4D4A1A4A08EB00E452C3 /* CFNetwork.framework in Frameworks */,
+				9AEA4D491A4A08DA00E452C3 /* libicucore.dylib in Frameworks */,
+				9AEA4D481A4A08CD00E452C3 /* libc++.dylib in Frameworks */,
+				9AEA4D471A4A08BE00E452C3 /* libz.dylib in Frameworks */,
 				9A02D0F6195C5CE800A64987 /* Dropbox.framework in Frameworks */,
 				9A4F0F49193E2A8900CF32DE /* CoreGraphics.framework in Frameworks */,
 				9A4F0F47193E2A8900CF32DE /* Foundation.framework in Frameworks */,
