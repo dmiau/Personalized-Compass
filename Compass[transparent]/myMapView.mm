@@ -55,4 +55,12 @@
 //    [self.superview mouseDown:theEvent];
     [super.nextResponder mouseDown:theEvent];
 }
+
+- (void)mouseUp:(NSEvent *)theEvent{
+
+    // I want the event to bleed.
+    [super mouseUp:theEvent];
+    //    [self.superview mouseDown:theEvent];
+    [super.nextResponder mouseUp:theEvent];
+}
 @end

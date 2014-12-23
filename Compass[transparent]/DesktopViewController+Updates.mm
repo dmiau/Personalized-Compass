@@ -67,6 +67,11 @@
                       longitude: compassCtrCoord.longitude
                         heading: -self.mapView.camera.heading
                            tilt: -self.mapView.camera.pitch];
+        
+        // To invalidate the mouse-held timer,
+        // so we can distinguish hold-to-pan, and hold-to-long-press
+        [mouseTimer invalidate];
+        mouseTimer = nil;
     }
 }
 

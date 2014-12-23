@@ -409,7 +409,6 @@ GLenum glReportError (void)
     [super mouseDown:theEvent];
 }
 
-
 - (void)magnifyWithEvent:(NSEvent *)event {
     NSLog(@"happy");
 //    if ([event magnification] > 0)

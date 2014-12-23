@@ -36,6 +36,11 @@
     MKLocalSearch *localSearch;
     MKLocalSearchResponse *results;
     HTTPServer *httpServer;
+    
+    //------------------
+    // Interaction related stuff
+    //------------------
+    NSTimer *mouseTimer; // To indicate whether the mouse is held or not
 }
 
 @property (weak) IBOutlet MKMapView *mapView;

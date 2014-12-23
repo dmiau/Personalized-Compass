@@ -152,9 +152,42 @@
     // http://stackoverflow.com/questions/6590763/mouse-events-bleeding-through-nsview
     // I want the event to bleed.
     
+    // Detecting long mouse click
+    //http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
+    mouseTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                  target:self
+                                                selector:@selector(mouseWasHeld:)
+                                                userInfo:theEvent
+                                                 repeats:NO];
+    
     [super mouseDown:theEvent];
 }
 
 - (void)mouseUp:(NSEvent *)theEvent{
+    [mouseTimer invalidate];
+    mouseTimer = nil;
+}
+
+
+- (void)mouseWasHeld: (NSTimer *)tim {
+    // Long mouse held will lead to this function
+    
+    NSEvent * mouseDownEvent = [tim userInfo];
+    [mouseTimer invalidate];
+    mouseTimer = nil;
+    
+    NSPoint mouseLoc = [self.mapView convertPoint:[mouseDownEvent locationInWindow] fromView:nil];
+    
+    CLLocationCoordinate2D touchMapCoordinate =
+    [self.mapView convertPoint:mouseLoc toCoordinateFromView:self.mapView];
+    
+    // Add drop-pin here
+    CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
+    annotation.coordinate = touchMapCoordinate;
+    annotation.title      = @"Dropped Pin";
+    annotation.subtitle   = @"Dropped Pin";
+    annotation.point_type = dropped;
+    
+    [self.mapView addAnnotation:annotation];
 }
 @end
