@@ -976,13 +976,7 @@
 		9A006CA119522918009BB81C /* iOSViewController+Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Model.mm"; sourceTree = "<group>"; };
 		9A02D0E8195C5C8700A64987 /* filesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filesystem.h; sourceTree = "<group>"; };
 		9A02D0E9195C5C8700A64987 /* filesystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = filesystem.mm; sourceTree = "<group>"; };
-		9A02D0ED195C5CA900A64987 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		9A02D0EF195C5CB200A64987 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		9A02D0F1195C5CB800A64987 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		9A02D0F3195C5CBE00A64987 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9A02D0F5195C5CE800A64987 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = iphone/Dropbox.framework; sourceTree = "<group>"; };
-		9A02D0F8195C5D0C00A64987 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
-		9A02D0FA195C5D1700A64987 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
 		9A037367198AF8A500258E95 /* TestManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestManager.mm; sourceTree = "<group>"; };
 		9A037368198AF8A500258E95 /* TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManager.h; sourceTree = "<group>"; };
 		9A0374F7198DA31800258E95 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Box2D.h; path = "Compass[transparent]/Box2D/Box2D.h"; sourceTree = "<group>"; };
@@ -1216,7 +1210,6 @@
 		9A4F0F45193E2A8800CF32DE /* iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F0F46193E2A8900CF32DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9A4F0F4A193E2A8900CF32DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		9A4F0F4E193E2A8900CF32DE /* iphone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iphone-Info.plist"; sourceTree = "<group>"; };
 		9A4F0F50193E2A8900CF32DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9A4F0F52193E2A8900CF32DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1224,15 +1217,11 @@
 		9A4F0F55193E2A8900CF32DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9A4F0F56193E2A8900CF32DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9A4F0F58193E2A8900CF32DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9A4F0F72193E2ABE00CF32DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		9A4F0F76193E2B7100CF32DE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
-		9A4F0F78193E2B7800CF32DE /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
 		9A4F0F7A193E306A00CF32DE /* iOSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSViewController.h; sourceTree = "<group>"; };
 		9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSViewController.mm; sourceTree = "<group>"; };
 		9A4F0F7D193E308400CF32DE /* iOSGLKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSGLKView.h; sourceTree = "<group>"; };
 		9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSGLKView.mm; sourceTree = "<group>"; };
-		9A4F0FAC193E70EA00CF32DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		9A517566198F17390066BC21 /* scratch.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = scratch.mm; sourceTree = "<group>"; };
 		9A5681AF1944A57A0021DA97 /* SundayTest.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SundayTest.kml; sourceTree = "<group>"; };
 		9A5F3FBF18EE5A5000953336 /* Compass[transparent] copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compass[transparent] copy.entitlements"; sourceTree = "<group>"; };
@@ -1318,7 +1307,6 @@
 		9AE2FC7619AE43810015E2B6 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		9AE2FC7719AE43810015E2B6 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		9AE2FC7A19AE43890015E2B6 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
-		9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		9AE2FC8219AF860F0015E2B6 /* compassRender+Tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Tools.mm"; sourceTree = "<group>"; };
 		9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassModel+tools.mm"; sourceTree = "<group>"; };
 		9AE5727F199CF8D60055799F /* Wedge+Radial.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Wedge+Radial.mm"; sourceTree = "<group>"; };
@@ -1337,7 +1325,6 @@
 		9AEA57E318D9EBB20028B80C /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		9AEA57E618D9EBB20028B80C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9AEA57E818D9EBB20028B80C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9AEA57EF18D9EBB20028B80C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9AEA580418D9EC440028B80C /* commonInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commonInclude.h; sourceTree = "<group>"; };
 		9AEA580518D9EC440028B80C /* compassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compassModel.h; sourceTree = "<group>"; };
 		9AEA580618D9EC440028B80C /* compassModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = compassModel.mm; sourceTree = "<group>"; };
@@ -1365,17 +1352,6 @@
 		9AF01B7118ECE5FC0029A860 /* GLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLString.h; sourceTree = "<group>"; };
 		9AF01B7218ECE5FC0029A860 /* GLString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLString.mm; sourceTree = "<group>"; };
 		9AF089FC1921390700E118D5 /* New York City [many].kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "New York City [many].kml"; sourceTree = "<group>"; };
-		9AF1094919CA052200EFBF4E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		9AF1094B19CA052D00EFBF4E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
-		9AF1094D19CA053800EFBF4E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
-		9AF1094F19CA054500EFBF4E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		9AF1095119CA055200EFBF4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
-		9AF1095319CA055E00EFBF4E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		9AF1095519CA056600EFBF4E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		9AF1095719CA056F00EFBF4E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		9AF1095919CA057800EFBF4E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
-		9AF1095B19CA058200EFBF4E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
-		9AF1095D19CA058F00EFBF4E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		9AF2730A1982865C00C0195B /* snapshotDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snapshotDefault.png; path = icons/snapshotDefault.png; sourceTree = "<group>"; };
 		9AF2730B1982865C00C0195B /* snapshotSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snapshotSelected.png; path = icons/snapshotSelected.png; sourceTree = "<group>"; };
 		9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moto360_bikemap.png; sourceTree = "<group>"; };
@@ -2178,39 +2154,15 @@
 				9AAEDB2B1A0DB74D000F3A23 /* UIKit.framework */,
 				9AAEDB291A0DB745000F3A23 /* MapKit.framework */,
 				9AAEDB271A0DB73A000F3A23 /* GLKit.framework */,
-				9AF1095D19CA058F00EFBF4E /* libicucore.dylib */,
-				9AF1095B19CA058200EFBF4E /* libc++.dylib */,
-				9AF1095919CA057800EFBF4E /* libz.dylib */,
-				9AF1095719CA056F00EFBF4E /* CFNetwork.framework */,
-				9AF1095519CA056600EFBF4E /* Security.framework */,
-				9AF1095319CA055E00EFBF4E /* SystemConfiguration.framework */,
-				9AF1095119CA055200EFBF4E /* CoreLocation.framework */,
-				9AF1094F19CA054500EFBF4E /* QuartzCore.framework */,
-				9AF1094D19CA053800EFBF4E /* GLKit.framework */,
-				9AF1094B19CA052D00EFBF4E /* MapKit.framework */,
-				9AF1094919CA052200EFBF4E /* UIKit.framework */,
-				9AE2FC7B19AE43EF0015E2B6 /* libicucore.dylib */,
 				9A42A0B919A79CCB00BB0101 /* Security.framework */,
-				9A02D0FA195C5D1700A64987 /* libc++.dylib */,
-				9A02D0F8195C5D0C00A64987 /* libz.dylib */,
 				9A02D0F5195C5CE800A64987 /* Dropbox.framework */,
-				9A02D0F3195C5CBE00A64987 /* CFNetwork.framework */,
-				9A02D0F1195C5CB800A64987 /* Security.framework */,
-				9A02D0EF195C5CB200A64987 /* SystemConfiguration.framework */,
-				9A02D0ED195C5CA900A64987 /* QuartzCore.framework */,
-				9A4F0FAC193E70EA00CF32DE /* CoreLocation.framework */,
-				9A4F0F78193E2B7800CF32DE /* GLKit.framework */,
-				9A4F0F76193E2B7100CF32DE /* MapKit.framework */,
-				9A4F0F72193E2ABE00CF32DE /* UIKit.framework */,
 				9AEA582518D9EC9F0028B80C /* GLUT.framework */,
 				9AEA582318D9EC940028B80C /* MapKit.framework */,
 				9AEA582118D9EC8F0028B80C /* CoreLocation.framework */,
 				9AEA581F18D9EC890028B80C /* OpenGL.framework */,
 				9AEA57D018D9EBB20028B80C /* Cocoa.framework */,
-				9AEA57EF18D9EBB20028B80C /* XCTest.framework */,
 				9A4F0F46193E2A8900CF32DE /* Foundation.framework */,
 				9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */,
-				9A4F0F4A193E2A8900CF32DE /* UIKit.framework */,
 				9AEA57D218D9EBB20028B80C /* Other Frameworks */,
 			);
 			name = Frameworks;

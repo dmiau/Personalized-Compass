@@ -1596,7 +1596,7 @@ Here are some of the tasks that I left-off:
 detect mouse hold event:
 http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
 
-
+- fix the framework issues for 10.10
 
 
 
