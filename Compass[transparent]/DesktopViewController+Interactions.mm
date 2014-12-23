@@ -151,6 +151,7 @@
     
     // http://stackoverflow.com/questions/6590763/mouse-events-bleeding-through-nsview
     // I want the event to bleed.
+    
     [super mouseDown:theEvent];
 }
 

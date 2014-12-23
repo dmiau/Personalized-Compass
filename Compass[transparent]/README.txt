@@ -1548,6 +1548,39 @@ http://nevan.net/2014/09/core-location-manager-changes-in-ios-8/
 
 fixed the location service bug (two keys need to be added in plist)
 
+should look into how to use TestFlight
+https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/BetaTestingTheApp.html#//apple_ref/doc/uid/TP40011225-CH35-SW2
+
+https://developer.apple.com/app-store/testflight/
+
+-------------------------------------------------------------------
+12.20.2014
+-------------------------------------------------------------------
+- The desktop applicaiton does not work on the latest 10.10 SDK for unknown reasons
+
+What is this?
+2014-12-20 10:26:46.466 Compass[transparent][39797:4989346] Failed to connect (viewController) outlet from (AppDelegate) to (DesktopViewController): missing setter or instance variable
+
+- reverting the framework back to 10.9 solves the problem.
+- verified the server is still working!
+http://localhost:50862/
+- verified the code worked. 
+
+-------------------------------------------------------------------
+12.22.2014
+-------------------------------------------------------------------
+- Layout user study plan (before the real user studies, I will need to conduct pilots)
+
+-------------------------------------------------------------------
+12.23.2014
+-------------------------------------------------------------------
+- should figure out how to implement drop-pins
+Looks like the mouseDown problem might be releated to the nextReponder chain.
+
+http://prod.lists.apple.com/archives/cocoa-dev/2014/Sep/msg00397.html
+http://stackoverflow.com/questions/20061052/how-to-add-nsviewcontroller-to-a-responder-chain
+
+
 
 
 
