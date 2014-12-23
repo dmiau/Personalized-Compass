@@ -20,6 +20,9 @@
 
 @end
 
+//---------------
+// DesktopViewController (Annotations)
+//---------------
 @implementation DesktopViewController (Annotations)
 -(void) renderAnnotations{
     
@@ -159,24 +162,14 @@
     leftButton.frame = CGRectMake(0, 0,
                                   btnLeftImage.size.width,
                                   btnLeftImage.size.height);
-//    [leftButton setAction:@selector(leftButtonAction:)];    
+    [leftButton setAction:@selector(leftButtonAction:)];
+    leftButton.pinView = pinView;
     leftButton.tag = 0; //left button has tag 0
-    
     pinView.leftCalloutAccessoryView = leftButton;
     
-    //---------------
-    // Constructing a right button (tag: 1)
-    //---------------
-    CalloutButton *rightButton;
-    rightButton = [[CalloutButton alloc] init];
-    rightButton.title = @"Detail";
-    rightButton.tag = 1;  //right button has tag 1
-    [rightButton setTarget:self];    
-    rightButton.action = nil;
-    [rightButton setAction:@selector(detailButtonAction:)];
-    rightButton.pinView = pinView;
-    pinView.rightCalloutAccessoryView = rightButton;
-        
+    // Add a right button
+    [self addRightButton:pinView];
+    
     return pinView;
 }
 //---------------
@@ -207,35 +200,37 @@
         leftButton = pinView.leftCalloutAccessoryView;
     }
     
-    [leftButton setImage:btnImage];
+
     leftButton.frame = CGRectMake(0, 0,
                                   btnImage.size.width, btnImage.size.height);
+    [leftButton setImage:btnImage];    
     [leftButton setTarget:self];
-    leftButton.action = nil;
+
     [leftButton setAction:@selector(leftButtonAction:)];
     leftButton.pinView = pinView;
-//    [leftButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
 
     leftButton.tag = 0;  //right button has tag 0
     pinView.leftCalloutAccessoryView = leftButton;
 
+    // Add a right button
+    [self addRightButton:pinView];
+    
+    return pinView;
+}
+
+
+- (void) addRightButton: (MKPinAnnotationView *) pinView{
     //---------------
     // Constructing a right button (tag: 1)
     //---------------
-
     CalloutButton *rightButton;
-
-        rightButton = [[CalloutButton alloc] init];
-        rightButton.title = @"Detail";
-        rightButton.tag = 1;  //right button has tag 1
+    rightButton = [[CalloutButton alloc] init];
+    rightButton.title = @"Detail";
+    rightButton.tag = 1;  //right button has tag 1
     [rightButton setTarget:self];
     [rightButton setAction:@selector(detailButtonAction:)];
-        rightButton.pinView = pinView;
-
-        pinView.rightCalloutAccessoryView = rightButton;
-
-    
-    return pinView;
+    rightButton.pinView = pinView;
+    pinView.rightCalloutAccessoryView = rightButton;
 }
 
 - (MKPinAnnotationView *) configureSearchPinView: (MKPinAnnotationView *) pinView

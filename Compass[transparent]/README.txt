@@ -1598,6 +1598,34 @@ http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
 
 - fix the framework issues for 10.10
 
+- added the long-held to drop pin function
+- now need to fix button clicking and item updates
+
+In OSXPinAnnotationView, need to implement add and remove.
+
+I may need pin management too, but what are the most needed features at this point?
+Tomorrow's goals:
+- server-client communication
+- need to design a test manager
+- need to contact Carmine and Mengu to ask how they build a test manager?
+- the test manager needs to log lots of information
+- OpenGL performance issues
+- Location management pane
+- [desktop] dropbox support
+- [desktop] long-press to move the compass
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

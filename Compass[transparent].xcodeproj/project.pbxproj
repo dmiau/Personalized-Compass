@@ -389,7 +389,6 @@
 		9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0C41966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
-		9A3DA0C51966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */; };
@@ -663,6 +662,7 @@
 		9A75720E197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */; };
 		9A75720F197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */; };
 		9A7983E11A45C8D200F86108 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E518D9EBB20028B80C /* MainMenu.xib */; };
+		9A8284DF1A4A32A2000ED4AA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8284DE1A4A32A2000ED4AA /* WebKit.framework */; };
 		9A82B6311941518900534A5F /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9A82B6321941518900534A5F /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
 		9A82B6331941518900534A5F /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
@@ -1243,6 +1243,7 @@
 		9A757156197D804100C23AEE /* historyParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historyParser.h; sourceTree = "<group>"; };
 		9A757157197D804100C23AEE /* historyParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = historyParser.mm; sourceTree = "<group>"; };
 		9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassModel+AnalysisTools.mm"; sourceTree = "<group>"; };
+		9A8284DE1A4A32A2000ED4AA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9A82B64F1941518900534A5F /* iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
 		9A82B6531941528600534A5F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
@@ -1422,6 +1423,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8284DF1A4A32A2000ED4AA /* WebKit.framework in Frameworks */,
 				9AA7891D1909FE3000A26C66 /* GLUT.framework in Frameworks */,
 				9AA7891E1909FE3000A26C66 /* MapKit.framework in Frameworks */,
 				9AA7891F1909FE3000A26C66 /* CoreLocation.framework in Frameworks */,
@@ -2143,6 +2145,7 @@
 		9AEA57CF18D9EBB20028B80C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A8284DE1A4A32A2000ED4AA /* WebKit.framework */,
 				9AAEDB3B1A0DB7A9000F3A23 /* libicucore.dylib */,
 				9AAEDB391A0DB79E000F3A23 /* SystemConfiguration.framework */,
 				9AAEDB371A0DB791000F3A23 /* libc++.dylib */,
@@ -3300,7 +3303,6 @@
 				9A757152197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A42A0C119A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */,
 				9A42A04819A79C3200BB0101 /* HTTPMessage.m in Sources */,
-				9A3DA0C51966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A3DA0A61964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
 				9A176DA819A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
