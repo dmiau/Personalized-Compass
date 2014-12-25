@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6249" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6249"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="6249"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -33,9 +33,9 @@
         </viewController>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="Compass[v0.5]" id="1Xt-HY-uBw">
+                <menuItem title="Compass[v0.6]" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Compass[v0.5]" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="Compass[v0.6]" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
                             <menuItem title="About Compass[transparent]" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -650,10 +650,10 @@
                                     <action selector="showStyleSelector:" target="Voe-Tx-rLC" id="4zY-OP-Ds0"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show Settings" keyEquivalent="s" id="ozB-ZH-cbc">
+                            <menuItem title="Show Configurations Window" keyEquivalent="x" id="2Tb-7U-BGp">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
-                                    <action selector="showSettings:" target="3Bp-Mg-e5g" id="dLf-Mp-lWk"/>
+                                    <action selector="showConfigurationsWindow:" target="3Bp-Mg-e5g" id="DDm-CM-jut"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="V1A-Nn-ND8"/>
@@ -798,7 +798,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="827" height="530"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" canDrawConcurrently="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="827" height="530"/>
                 <autoresizingMask key="autoresizingMask"/>

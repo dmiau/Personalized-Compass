@@ -7,7 +7,7 @@
 //
 
 #import "DesktopViewController+Init.h"
-#import "SettingsViewController.h"
+//#import "SettingsViewController.h"
 
 @implementation DesktopViewController (Init)
 
@@ -117,29 +117,29 @@
     //-------------------
     [self initMapView];
     
-    //-------------------
-    // Add the setting panel
-    //-------------------
-    
-    self.settingsViewController = [[SettingsViewController alloc]
-                                   initWithNibName:@"settingsView" bundle:nil];
-    
-    self.settingsViewController.rootViewController = self;
-    self.settingsView = self.settingsViewController.view;
-    
-    CALayer *viewLayer = [CALayer layer];
-    [viewLayer setBackgroundColor:CGColorCreateGenericRGB(1.0, 1.0, 1.0, 1)]; //RGB plus Alpha Channel
-    [self.settingsView setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
-    [self.settingsView setLayer:viewLayer];
-    
-    [self.mapView addSubview:self.settingsView positioned: NSWindowAbove
-                      relativeTo:nil];
-    self.settingsView.frame =
-    CGRectMake(50, 50,
-               self.settingsView.frame.size.width,
-               self.settingsView.frame.size.height);
-    [self.settingsView becomeFirstResponder];
-    [self.settingsView setHidden:YES];
+//    //-------------------
+//    // Add the setting panel
+//    //-------------------
+//    
+//    self.settingsViewController = [[SettingsViewController alloc]
+//                                   initWithNibName:@"settingsView" bundle:nil];
+//    
+//    self.settingsViewController.rootViewController = self;
+//    self.settingsView = self.settingsViewController.view;
+//    
+//    CALayer *viewLayer = [CALayer layer];
+//    [viewLayer setBackgroundColor:CGColorCreateGenericRGB(1.0, 1.0, 1.0, 1)]; //RGB plus Alpha Channel
+//    [self.settingsView setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
+//    [self.settingsView setLayer:viewLayer];
+//    
+//    [self.mapView addSubview:self.settingsView positioned: NSWindowAbove
+//                      relativeTo:nil];
+//    self.settingsView.frame =
+//    CGRectMake(50, 50,
+//               self.settingsView.frame.size.width,
+//               self.settingsView.frame.size.height);
+//    [self.settingsView becomeFirstResponder];
+//    [self.settingsView setHidden:YES];
 }
 
 //-----------------

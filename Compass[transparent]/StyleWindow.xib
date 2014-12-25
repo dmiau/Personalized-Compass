@@ -35,6 +35,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="8XO-Ic-fAy"/>
             </connections>
+            <point key="canvasLocation" x="265" y="221"/>
         </window>
     </objects>
 </document>

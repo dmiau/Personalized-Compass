@@ -12,6 +12,7 @@
 #include "compassRender.h"
 #include <iostream>
 //#import "SettingsViewController.h"
+
 #import "TestManager.h"
 
 #import "HTTPServer.h"
@@ -19,7 +20,8 @@
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 
-@class SettingsViewController; //Forward declaration
+@class ConfigurationsWindowController; //Forward declaration
+//@class SettingsViewController; //Forward declaration
 
 @interface DesktopViewController : NSViewController
 <NSTableViewDataSource, NSTableViewDelegate, MKMapViewDelegate>{
@@ -62,6 +64,9 @@
 @property NSMutableDictionary* UIConfigurations;
 @property HTTPServer *httpServer; // expose the iv
 
+// For the configuration panel
+@property ConfigurationsWindowController *configurationWindowController;
+
 //----------------
 // Update and initialization functions
 //----------------
@@ -78,8 +83,8 @@
 //-------------------
 // Settings View
 //-------------------
-@property SettingsViewController *settingsViewController;
-@property NSView *settingsView;
+//@property SettingsViewController *settingsViewController;
+//@property NSView *settingsView;
 
 //-------------------
 // Interactions
@@ -88,13 +93,15 @@
 - (IBAction)toggleCompass:(id)sender;
 - (IBAction)rotate:(id)sender;
 - (IBAction)refreshConfigurations:(id)sender;
-- (IBAction)showSettings:(id)sender;
+//- (IBAction)showSettings:(id)sender;
 - (IBAction)toggleLandmarkTable:(id)sender;
-
 
 
 // KML combo box
 - (IBAction)didChangeKMLCombo:(id)sender;
+
+// Configuraiton dialog
+- (IBAction)showConfigurationsWindow:(id)sender;
 
 #pragma mark UI related stuff
 - (void) vcTimerFired;

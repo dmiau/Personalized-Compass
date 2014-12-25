@@ -120,8 +120,8 @@
         debugWindowController =
         [[DebugWindowController alloc] initWithWindowNibName:@"DebugInfoWindow"];
     }
-//    [debugWindowController showWindow:nil];
-//    [[debugWindowController window] setIsVisible:YES];
+    [debugWindowController showWindow:nil];
+    [[debugWindowController window] setIsVisible:YES];
     
     compassMdl *model = compassMdl::shareCompassMdl();
     

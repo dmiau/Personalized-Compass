@@ -72,10 +72,10 @@
     [self.mapView setCamera:mycamera animated:YES];
 }
 
-- (IBAction)showSettings:(id)sender {
-    
-    [self.settingsView setHidden:!self.settingsView.isHidden];
-}
+//- (IBAction)showSettings:(id)sender {
+//    
+//    [self.settingsView setHidden:!self.settingsView.isHidden];
+//}
 
 #pragma mark ------------- User Interface -------------
 

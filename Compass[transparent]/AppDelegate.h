@@ -20,4 +20,5 @@
 - (IBAction)showDebugInfo:(id)sender;
 
 - (IBAction)showStyleSelector:(id)sender;
+
 @end

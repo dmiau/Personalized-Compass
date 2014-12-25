@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ConfigurationsWindowController">
+            <connections>
+                <outlet property="serverPort" destination="zUJ-ry-l8C" id="PMO-A3-KVC"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="SOO-Ww-bDf"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Configurations" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="682" height="427"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <view key="contentView" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="-1" width="682" height="427"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAx-6T-Cu4">
+                        <rect key="frame" x="13" y="10" width="656" height="411"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="Configurations" identifier="1" id="nx7-Bc-yFc">
+                                <view key="view" id="nna-1c-K5N">
+                                    <rect key="frame" x="10" y="33" width="636" height="365"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9N-E5-dbb">
+                                            <rect key="frame" x="173" y="75" width="104" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="KQ2-n4-f9M">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment width="32"/>
+                                                    <segment width="32" selected="YES" tag="1"/>
+                                                    <segment width="32">
+                                                        <nil key="label"/>
+                                                    </segment>
+                                                </segments>
+                                            </segmentedCell>
+                                        </segmentedControl>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z11-fa-dPu">
+                                            <rect key="frame" x="15" y="79" width="87" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data Prefilter" id="5Zi-vo-bwk">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vx-BQ-EFN">
+                                            <rect key="frame" x="15" y="52" width="78" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="D-Selection" id="EuS-gB-7OV">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceG-YF-7mx">
+                                            <rect key="frame" x="15" y="225" width="67" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Show Pins" id="CII-gg-03i">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ei7-dU-Rpc">
+                                            <rect key="frame" x="96" y="219" width="297" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="yf2-9F-DtD">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment label="None" width="84"/>
+                                                    <segment label="Enabled" width="84" tag="1"/>
+                                                    <segment label="Dropped" width="83"/>
+                                                    <segment label="All" selected="YES"/>
+                                                </segments>
+                                            </segmentedCell>
+                                        </segmentedControl>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KwM-Cx-YDa">
+                                            <rect key="frame" x="248" y="333" width="140" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Show Lanmark List" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="get-qC-WT8">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="toggleLandmarkTableView:" target="-2" id="8RO-al-lvX"/>
+                                            </connections>
+                                        </button>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sp0-lE-LyV">
+                                            <rect key="frame" x="15" y="333" width="191" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Show OpenGL Changes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Cy7-aZ-x72">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="toggleGLView:" target="-2" id="gov-SM-8RV"/>
+                                            </connections>
+                                        </button>
+                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jGa-Mo-rnn">
+                                            <rect key="frame" x="96" y="293" width="292" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="APK-hX-Yjy">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment label="None" width="95"/>
+                                                    <segment label="Personalized" width="95" selected="YES" tag="1"/>
+                                                    <segment label="Conventional" width="94"/>
+                                                </segments>
+                                            </segmentedCell>
+                                            <connections>
+                                                <action selector="compassSegmentControl:" target="-2" id="Fyo-Bu-AHH"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2f3-4N-Rvh">
+                                            <rect key="frame" x="15" y="297" width="61" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Compass" id="OWp-Jw-EB5">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MfE-2A-V0r">
+                                            <rect key="frame" x="15" y="263" width="46" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Wedge" id="jAg-Mu-3ga">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjH-sm-kuZ">
+                                            <rect key="frame" x="96" y="259" width="428" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="jDL-kJ-Nf4">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment label="None" width="101" selected="YES"/>
+                                                    <segment label="Origninal" width="101" tag="1"/>
+                                                    <segment label="Modified-Ortho" width="100"/>
+                                                    <segment label="Modified-Persp"/>
+                                                </segments>
+                                            </segmentedCell>
+                                            <connections>
+                                                <action selector="wedgeSegmentControl:" target="-2" id="oKS-wR-yEF"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vpY-C6-3ty">
+                                            <rect key="frame" x="15" y="188" width="40" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="+Pins" id="W6x-jI-mV4">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGn-ah-z3K">
+                                            <rect key="frame" x="96" y="182" width="189" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="aX0-9b-v3x">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment label="Create" width="61"/>
+                                                    <segment label="Stop" width="60" selected="YES" tag="1"/>
+                                                    <segment label="Clear" width="60"/>
+                                                </segments>
+                                            </segmentedCell>
+                                        </segmentedControl>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wqn-5k-xyS">
+                                            <rect key="frame" x="15" y="151" width="80" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Annotations" id="d3M-02-sUF">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJl-VQ-Hma">
+                                            <rect key="frame" x="96" y="145" width="210" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="QNG-cQ-GlZ">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment label="Allow Single" width="102" selected="YES"/>
+                                                    <segment label="Allow Multiple" width="101" tag="1"/>
+                                                </segments>
+                                            </segmentedCell>
+                                            <connections>
+                                                <action selector="annotationNumberSegmentControl:" target="-2" id="AKP-1T-uOT"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eua-L7-1Sd">
+                                            <rect key="frame" x="15" y="109" width="118" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Landmark Lock" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TvN-CD-b6F">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-HR-OT0">
+                                            <rect key="frame" x="337" y="111" width="43" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Server" id="lme-0Y-f0A">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCY-8D-qgU">
+                                            <rect key="frame" x="404" y="107" width="71" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Lr2-fF-hcI">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment label="Off" width="32" selected="YES"/>
+                                                    <segment label="On" width="32" tag="1"/>
+                                                </segments>
+                                            </segmentedCell>
+                                            <connections>
+                                                <action selector="toggleServer:" target="-2" id="w6Y-Bu-2p5"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ui0-ym-9gQ">
+                                            <rect key="frame" x="173" y="48" width="104" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="BVE-Qc-tuX">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment width="32"/>
+                                                    <segment width="32" selected="YES" tag="1"/>
+                                                    <segment width="32">
+                                                        <nil key="label"/>
+                                                    </segment>
+                                                </segments>
+                                            </segmentedCell>
+                                        </segmentedControl>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCQ-aO-U6l">
+                                            <rect key="frame" x="337" y="70" width="30" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port" id="9Cx-HZ-LqK">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zUJ-ry-l8C">
+                                            <rect key="frame" x="404" y="70" width="90" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="???" id="FGh-qP-edj">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Locations" identifier="2" id="RmZ-Un-VhX">
+                                <view key="view" id="7dD-aM-g2O">
+                                    <rect key="frame" x="10" y="33" width="636" height="365"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
+            </connections>
+            <point key="canvasLocation" x="64" y="347.5"/>
+        </window>
+    </objects>
+</document>

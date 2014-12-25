@@ -1614,9 +1614,12 @@ Tomorrow's goals:
 - [desktop] dropbox support
 - [desktop] long-press to move the compass
 
+Multiple annotations: the signs of mutliple annotations can be shown simultaneously.
 
-
-
+-------------------------------------------------------------------
+12.24.2014
+-------------------------------------------------------------------
+- Let's move the configuration dialog to a separate window
 
 
 

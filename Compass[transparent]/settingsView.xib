@@ -118,19 +118,6 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0T9-VZ-alr">
-                    <rect key="frame" x="121" y="53" width="104" height="24"/>
-                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="ae7-rT-Zug">
-                        <font key="font" metaFont="system"/>
-                        <segments>
-                            <segment width="32"/>
-                            <segment width="32" selected="YES" tag="1"/>
-                            <segment width="32">
-                                <nil key="label"/>
-                            </segment>
-                        </segments>
-                    </segmentedCell>
-                </segmentedControl>
                 <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UxF-Zw-oFB">
                     <rect key="frame" x="121" y="11" width="104" height="24"/>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="FzQ-qX-DaT">
@@ -144,14 +131,6 @@
                         </segments>
                     </segmentedCell>
                 </segmentedControl>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mn-xe-GZd">
-                    <rect key="frame" x="20" y="57" width="87" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data Prefilter" id="7B2-0a-iHF">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pbq-Db-h2y">
                     <rect key="frame" x="22" y="15" width="78" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="D-Selection" id="rce-gi-zCf">
@@ -228,8 +207,29 @@
                         <action selector="toggleLandmarkTableView:" target="-2" id="gdN-Jp-0m3"/>
                     </connections>
                 </button>
+                <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0T9-VZ-alr">
+                    <rect key="frame" x="121" y="53" width="104" height="24"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="ae7-rT-Zug">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment width="32"/>
+                            <segment width="32" selected="YES" tag="1"/>
+                            <segment width="32">
+                                <nil key="label"/>
+                            </segment>
+                        </segments>
+                    </segmentedCell>
+                </segmentedControl>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mn-xe-GZd">
+                    <rect key="frame" x="20" y="57" width="87" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data Prefilter" id="7B2-0a-iHF">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
-            <point key="canvasLocation" x="299" y="218.5"/>
+            <point key="canvasLocation" x="87" y="239.5"/>
         </customView>
     </objects>
 </document>

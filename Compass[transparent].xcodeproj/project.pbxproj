@@ -395,6 +395,14 @@
 		9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */; };
 		9A3DA0CE19683235009E0073 /* DetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0CD19683235009E0073 /* DetailViewController.mm */; };
 		9A3DA0CF19683235009E0073 /* DetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0CD19683235009E0073 /* DetailViewController.mm */; };
+		9A3F1E821A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */; };
+		9A3F1E831A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */; };
+		9A3F1E841A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */; };
+		9A3F1E851A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */; };
+		9A3F1E881A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */; };
+		9A3F1E891A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */; };
+		9A3F1E8A1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */; };
+		9A3F1E8B1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */; };
 		9A429FFE19A5817E00BB0101 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */; };
 		9A429FFF19A5817E00BB0101 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */; };
 		9A42A00019A5817E00BB0101 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */; };
@@ -1111,6 +1119,9 @@
 		9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myPinAnnotationViewIOS.xib; sourceTree = "<group>"; };
 		9A3DA0CC19683235009E0073 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9A3DA0CD19683235009E0073 /* DetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DetailViewController.mm; sourceTree = "<group>"; };
+		9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurationsWindow.xib; sourceTree = "<group>"; };
+		9A3F1E861A4B247100D621A9 /* ConfigurationsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationsWindowController.h; sourceTree = "<group>"; };
+		9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConfigurationsWindowController.mm; sourceTree = "<group>"; };
 		9A429FFC19A5817E00BB0101 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsViewController.mm; sourceTree = "<group>"; };
 		9A42A00319A63D7A00BB0101 /* OSXSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXSettingsView.h; sourceTree = "<group>"; };
@@ -1652,6 +1663,7 @@
 				9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */,
 				9A469E1319A5183400EB88C0 /* OSXCalloutView.xib */,
 				9A176D9F19A436DA0032DE3F /* settingsView.xib */,
+				9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -1703,6 +1715,8 @@
 			children = (
 				9A429FFC19A5817E00BB0101 /* SettingsViewController.h */,
 				9A429FFD19A5817E00BB0101 /* SettingsViewController.mm */,
+				9A3F1E861A4B247100D621A9 /* ConfigurationsWindowController.h */,
+				9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2571,6 +2585,7 @@
 				9A4808B6198C2FA30001E188 /* london711.kml in Resources */,
 				9AA7892D1909FE3000A26C66 /* newyork.kml in Resources */,
 				9A4808C6198C2FA30001E188 /* StAndrews723.kml in Resources */,
+				9A3F1E851A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
 				9AA789371909FE5A00A26C66 /* browser.xib in Resources */,
@@ -2603,6 +2618,7 @@
 				9A480898198BF1F70001E188 /* debug.png in Resources */,
 				9A42A09519A79CA200BB0101 /* About.txt in Resources */,
 				9AF273121982865C00C0195B /* snapshotSelected.png in Resources */,
+				9A3F1E821A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */,
 				9A3DA0BB1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AF29F2918F4C90000A28AC3 /* moto360_bikemap.png in Resources */,
@@ -2687,6 +2703,7 @@
 				9A239EDF196EFF410064BDC9 /* new.kml in Resources */,
 				9A4808B5198C2FA30001E188 /* london711.kml in Resources */,
 				9A42A0E319ABB12D00BB0101 /* Web in Resources */,
+				9A3F1E841A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9AEC5CF418F3956F00A29F75 /* README.txt in Resources */,
 				9A4808C9198C2FA30001E188 /* tokyo.kml in Resources */,
 			);
@@ -2708,6 +2725,7 @@
 				9AFB14B218EE639A00063632 /* montreal.kml in Resources */,
 				9A6F53F31910069F00F35FED /* DebugInfoWindow.xib in Resources */,
 				9AB2A71F196372AA0001E96F /* unselected.png in Resources */,
+				9A3F1E831A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9A3DA0BC1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9A037564198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9A03755E198DA31800258E95 /* Box2DConfig.cmake in Resources */,
@@ -3060,6 +3078,7 @@
 				9A037668198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A06119A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
 				9A0375FC198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
+				9A3F1E8B1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9A0375AE198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A0375EA198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A037650198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
@@ -3140,6 +3159,7 @@
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
 				9A469E1A19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */,
 				9A2E42DE196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
+				9A3F1E881A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9A42A06E19A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A037617198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
@@ -3309,6 +3329,7 @@
 				9AE2FC8619AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
 				9A037679198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9A42A09B19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
+				9A3F1E8A1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9A42A06C19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9A42A0A319A79CA200BB0101 /* DDFileLogger.m in Sources */,
 				9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */,
@@ -3431,6 +3452,7 @@
 				9A176DA719A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9A42A06719A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
 				9A03736A198AF8A500258E95 /* TestManager.mm in Sources */,
+				9A3F1E891A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9AB90B9C194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,
 				9A3DA0A51964F5E3009E0073 /* genKMLString.mm in Sources */,

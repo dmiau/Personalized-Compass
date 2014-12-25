@@ -7,7 +7,22 @@
 //
 
 #import "DesktopViewController+Settings.h"
+#import "ConfigurationsWindowController.h"
 
 @implementation DesktopViewController (Settings)
+
+#pragma mark -------- Configuration Window
+- (IBAction)showConfigurationsWindow:(id)sender {
+    
+    if (!self.configurationWindowController){
+        self.configurationWindowController =
+        [[ConfigurationsWindowController alloc] initWithWindowNibName:@"ConfigurationsWindow"];
+        
+        self.configurationWindowController.rootViewController = self;
+    }
+    
+    [self.configurationWindowController showWindow:nil];
+    [[self.configurationWindowController window] setIsVisible:YES];
+}
 
 @end
