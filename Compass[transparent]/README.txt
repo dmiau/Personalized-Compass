@@ -1621,8 +1621,10 @@ Multiple annotations: the signs of mutliple annotations can be shown simultaneou
 -------------------------------------------------------------------
 - Let's move the configuration dialog to a separate window
 
-
-
+-------------------------------------------------------------------
+12.26.2014
+-------------------------------------------------------------------
+- Fixed the centroid lock bug
 
 
 

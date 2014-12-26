@@ -8,7 +8,8 @@
 
 #include "compassRender.h"
 
-CGPoint compassRender::convertCompassPointToMapUV(CGPoint point){
+CGPoint compassRender::convertCompassPointToMapUV(CGPoint point,
+                                                  CGFloat window_width, CGFloat window_height){
     // render compass_centroid
     // Compass center in OpenGL coordinate system
     
@@ -17,9 +18,14 @@ CGPoint compassRender::convertCompassPointToMapUV(CGPoint point){
     // (in terms of u, v, not in terms of latitude and longitude)
     
     // First convert compass point to the OpenGL View coordinates
-    
     CGPoint result_pt;
-    result_pt.x = model->compassCenterXY.x + point.x;
-    result_pt.y = model->compassCenterXY.y - point.y;
+    result_pt.x = compass_centroid.x + window_width/2 + point.x;
+    result_pt.y = window_height/2 - compass_centroid.y - point.y;
+    
+    // Note: Here I need to use compass_centroid, which reflect
+    // true compass centroid in the OpenGL coordinate system
+    // I cannot use model->compassCenterXY because when the compass center is
+    // locked, compassCenterXY remains to be zero
+        
     return result_pt;
 }

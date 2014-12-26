@@ -61,7 +61,9 @@
               [NSString stringWithUTF8String: self.model->data_array[j].name.c_str()]);
         NSLog(@"Centroid: %@", NSStringFromCGPoint(label_pt_compass));
         CGPoint label_pt = self.renderer->
-        convertCompassPointToMapUV(label_pt_compass);
+        convertCompassPointToMapUV(label_pt_compass,
+                                   self.glkView.frame.size.width,
+                                   self.glkView.frame.size.height);
         
         NSLog(@"%@", NSStringFromCGPoint(label_pt));
         double width = self.model->data_array[j].my_texture_info.size.width;

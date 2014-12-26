@@ -162,6 +162,8 @@
     leftButton.frame = CGRectMake(0, 0,
                                   btnLeftImage.size.width,
                                   btnLeftImage.size.height);
+    [leftButton setTarget:self];    
+    leftButton.action = nil;
     [leftButton setAction:@selector(leftButtonAction:)];
     leftButton.pinView = pinView;
     leftButton.tag = 0; //left button has tag 0
@@ -205,7 +207,7 @@
                                   btnImage.size.width, btnImage.size.height);
     [leftButton setImage:btnImage];    
     [leftButton setTarget:self];
-
+    leftButton.action = nil;
     [leftButton setAction:@selector(leftButtonAction:)];
     leftButton.pinView = pinView;
 

@@ -692,6 +692,12 @@
 		9A82B64A1941518900534A5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F58193E2A8900CF32DE /* Images.xcassets */; };
 		9A82B64B1941518900534A5F /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */; };
 		9A82B6541941528600534A5F /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A82B6531941528600534A5F /* iPad.storyboard */; };
+		9A8DF9281A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */; };
+		9A8DF9291A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */; };
+		9A8DF92A1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */; };
+		9A8DF92B1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */; };
+		9A8DF92C1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */; };
+		9A8DF92D1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */; };
 		9A94820D1991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
 		9A94820E1991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
 		9A94820F1991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
@@ -1258,6 +1264,7 @@
 		9A82B64F1941518900534A5F /* iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
 		9A82B6531941528600534A5F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DevelopmentNotes.txt; sourceTree = "<group>"; };
 		9A94820C1991D46A0036249C /* setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setup.png; path = icons/setup.png; sourceTree = "<group>"; };
 		9A95CCB0194AC5A2008E520F /* iphone copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "iphone copy.entitlements"; sourceTree = "<group>"; };
 		9A95CCB1194B4146008E520F /* iOSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSSettingViewController.h; sourceTree = "<group>"; };
@@ -2210,6 +2217,7 @@
 				9AEA57E818D9EBB20028B80C /* Images.xcassets */,
 				9AEA57D718D9EBB20028B80C /* Supporting Files */,
 				9A517566198F17390066BC21 /* scratch.mm */,
+				9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */,
 			);
 			path = "Compass[transparent]";
 			sourceTree = "<group>";
@@ -2490,6 +2498,7 @@
 				9A3DA09B1964E9B1009E0073 /* add.png in Resources */,
 				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
+				9A8DF92C1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A037567198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
@@ -2535,6 +2544,7 @@
 				9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AECA774196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A2E42EA196C9D2C00CF8862 /* heading.png in Resources */,
+				9A8DF92D1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A82B6471941518900534A5F /* newyork.kml in Resources */,
 				9A4808A3198BF1F70001E188 /* general.png in Resources */,
@@ -2587,6 +2597,7 @@
 				9A4808C6198C2FA30001E188 /* StAndrews723.kml in Resources */,
 				9A3F1E851A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
+				9A8DF92B1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
 				9AA789371909FE5A00A26C66 /* browser.xib in Resources */,
 				9A4808BE198C2FA30001E188 /* snapshot.kml in Resources */,
@@ -2638,6 +2649,7 @@
 				9A998D78194BC60C00778DFC /* location.png in Resources */,
 				9A4808BF198C2FA30001E188 /* snapshot2.kml in Resources */,
 				9AB2A71E196372AA0001E96F /* unselected.png in Resources */,
+				9A8DF9281A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9A5681B01944A57A0021DA97 /* SundayTest.kml in Resources */,
 				9AF523BB18DC8E95005823A2 /* newyork.kml in Resources */,
 				9AB2A718196372AA0001E96F /* selected.png in Resources */,
@@ -2697,6 +2709,7 @@
 				9A4808C5198C2FA30001E188 /* StAndrews723.kml in Resources */,
 				9AF2730E1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A03755F198DA31800258E95 /* Box2DConfig.cmake in Resources */,
+				9A8DF92A1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9A176DA219A436DA0032DE3F /* settingsView.xib in Resources */,
 				9AEC5CF318F3956F00A29F75 /* Credits.rtf in Resources */,
 				9AB90B8F194DED0B0030BF5B /* Taiwan.kml in Resources */,
@@ -2715,6 +2728,7 @@
 			files = (
 				9A469E1519A5183400EB88C0 /* OSXCalloutView.xib in Resources */,
 				9A48089F198BF1F70001E188 /* general.png in Resources */,
+				9A8DF9291A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9A4808C8198C2FA30001E188 /* tokyo.kml in Resources */,
 				9A4808D0198C2FA30001E188 /* wedge723.kml in Resources */,
 				9A4808C0198C2FA30001E188 /* snapshot2.kml in Resources */,

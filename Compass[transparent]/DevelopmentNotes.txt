@@ -1,0 +1,24 @@
+Coordinate system:
+
+OSX View (u, v):
+--------u
+|
+|
+|
+v
+
+OpenGL
+
+y
+|
+|
+------- x 
+|
+|
+-y
+
+
+These things are different:
+self.render->compass_centroid
+self.model->configurations[@"compass_centroid"]
+self.model->compassCenterXY
