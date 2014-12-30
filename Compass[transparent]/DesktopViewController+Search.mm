@@ -109,5 +109,7 @@
     [self.mapView selectAnnotation:annotation animated:YES];
     
     [self.mapView setCenterCoordinate:item.placemark.location.coordinate animated:YES];
+    
+    //    [self.mapView setUserTrackingMode:MKUserTrackingModeNone];
 }
 @end

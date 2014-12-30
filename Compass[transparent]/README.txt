@@ -1625,6 +1625,13 @@ Multiple annotations: the signs of mutliple annotations can be shown simultaneou
 12.26.2014
 -------------------------------------------------------------------
 - Fixed the centroid lock bug
+- Found out the iPad crash issue: snapshot array is empty (dropbox was not enabled...)
+- Performed websocket communication experiment
+Document root:
+/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/build/Debug/Compass[transparent].app/Contents/Resources/Web
+
+- I should experiment message passing
+- The iOS client is in iOSViewController+Client.mm
 
 
 
