@@ -10,12 +10,15 @@
 #include "compassModel.h"
 #include "DebugWindowController.h"
 
+@class DesktopViewController; //Forward declaration
+
 @interface AppDelegate : NSObject <NSApplicationDelegate>{
     DebugWindowController *debugWindowController;
     NSWindowController *styleWindowController;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property DesktopViewController* rootViewController;
 
 - (IBAction)showDebugInfo:(id)sender;
 

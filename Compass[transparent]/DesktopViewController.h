@@ -12,6 +12,7 @@
 #include "compassRender.h"
 #include <iostream>
 //#import "SettingsViewController.h"
+#import "AppDelegate.h"
 
 #import "TestManager.h"
 
@@ -19,6 +20,12 @@
 #import "MyHTTPConnection.h"
 #import "DDLog.h"
 #import "DDTTYLogger.h"
+
+
+// CLLocationDegress is typedef to double
+typedef struct{
+    double content[4][2];
+}Corners4x2;
 
 @class ConfigurationsWindowController; //Forward declaration
 //@class SettingsViewController; //Forward declaration

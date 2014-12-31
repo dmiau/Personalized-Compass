@@ -1633,6 +1633,33 @@ Document root:
 - I should experiment message passing
 - The iOS client is in iOSViewController+Client.mm
 
+-------------------------------------------------------------------
+12.30.2014
+-------------------------------------------------------------------
+iOS:
+- implement broadcasting current orientation and four corners
+
+OSX:
+- display a ractangle to match the iOS's orientation and view.
+
+Maybe I should implement KVO. 
+beefing up the communication code.
+
+How to put c-type struct in NSArray
+http://stackoverflow.com/questions/14328173/how-to-store-cllocationcoordinate2d
+
+How to include a c array as an object property (very important!)
+http://stackoverflow.com/questions/17548425/objective-c-property-for-c-array
+
+-------------------------------------------------------------------
+12.31.2014
+-------------------------------------------------------------------
+How to put struct in NSData
+http://stackoverflow.com/questions/5373545/structs-to-nsdata-to-structs
+
+
+
+
 
 
 

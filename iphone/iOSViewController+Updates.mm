@@ -48,15 +48,8 @@
     // updates should not come from map! Need to fix this
     if ([keyPath isEqual:@"mapUpdateFlag"]) {
         
-        CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
-                                                  self.model->compassCenterXY
-                                                   toCoordinateFromView:self.mapView];
-        //        dispatch_queue_t concurrentQueue =
-        //        dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
-        //        dispatch_async(concurrentQueue,
-        //                       ^{
-        //
-        //                       });
+        CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint: self.model->compassCenterXY
+            toCoordinateFromView:self.mapView];
         
         [self feedModelLatitude: compassCtrCoord.latitude
                       longitude: compassCtrCoord.longitude
@@ -64,6 +57,10 @@
                            tilt: -self.mapView.camera.pitch];
 
         [self updateLocationVisibility];
+        
+        [self updateCornerLatLon];
+        
+        [self sendData];
         
         // [todo] This code should be put into the gesture recognizer
         // Disable the compass
@@ -235,6 +232,48 @@
             }
         }
     }
+}
+
+//----------------------------
+// Update the (latitude, longitude) of the four corners
+// of MapView
+//----------------------------
+- (void) updateCornerLatLon{
+    //First we need to calculate the corners of the map so we get the points
+    CGPoint ulPoint = CGPointMake(self.mapView.bounds.origin.x,
+                                  self.mapView.bounds.origin.y);
+    CGPoint urPoint = CGPointMake(self.mapView.bounds.origin.x
+                                  + self.mapView.bounds.size.width
+                                  , self.mapView.bounds.origin.y);
+    CGPoint brPoint = CGPointMake(self.mapView.bounds.origin.x
+                                  + self.mapView.bounds.size.width,
+                                  self.mapView.bounds.origin.y+
+                                  self.mapView.bounds.size.height);
+    CGPoint blPoint = CGPointMake(self.mapView.bounds.origin.x,
+                                  self.mapView.bounds.origin.y+
+                                  self.mapView.bounds.size.height);
+    
+    //Then transform those points into lat,lng values
+    CLLocationCoordinate2D coord_array[4];
+    coord_array[0]
+    = [self.mapView convertPoint:ulPoint toCoordinateFromView:self.mapView];
+    coord_array[1]
+    = [self.mapView convertPoint:urPoint toCoordinateFromView:self.mapView];
+    
+    coord_array[2]
+    = [self.mapView convertPoint:brPoint toCoordinateFromView:self.mapView];
+    coord_array[3]
+    = [self.mapView convertPoint:blPoint toCoordinateFromView:self.mapView];
+    
+    //http://stackoverflow.com/questions/17548425/objective-c-property-for-c-array
+    
+    Corners4x2 temp;
+    
+    for (int i = 0; i <4; ++i){
+        temp.content[i][0] = coord_array[i].latitude;
+        temp.content[i][1] = coord_array[i].longitude;
+    }
+    self.corners4x2 = temp;
 }
 
 @end

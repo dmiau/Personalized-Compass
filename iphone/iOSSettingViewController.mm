@@ -48,7 +48,6 @@
         
         self.rootViewController =
         [myNavigationController.viewControllers objectAtIndex:0];
-        
     }
     return self;
 }
@@ -72,8 +71,12 @@
     self.systemMessage.editable = NO;
     
     
-    // Insert code here to initialize your application
+    // Watch socket status
     [self.rootViewController addObserver:self forKeyPath:@"socket_status"
+              options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
+    
+    // Watch the system_message variable
+    [self.rootViewController addObserver:self forKeyPath:@"system_message"
               options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
     
 }
@@ -314,6 +317,9 @@
     }
 }
 
+//---------------
+// KVO code
+//---------------
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
@@ -330,6 +336,13 @@
             [self.serverSegmentControl setSelectedSegmentIndex:0];
             self.portTextfield.text = @"xxxx";
         }
+    }else if ([keyPath isEqual:@"system_message"]){
+        
+        // Append the new message
+        self.systemMessage.text =
+        [self.systemMessage.text stringByAppendingString:
+         [NSString stringWithFormat:@"\n%@",
+          self.rootViewController.system_message]];
     }
 }
 

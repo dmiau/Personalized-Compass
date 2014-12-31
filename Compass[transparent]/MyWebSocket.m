@@ -8,6 +8,15 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN | HTTP_LOG_FLAG_TRACE;
 
 @implementation MyWebSocket
 
+//- (id) init{
+//    self = [super init];
+//    if(self){
+//        // Initialize self.
+////        self.rootViewController = 
+//    }
+//    return self;
+//}
+
 - (void)didOpen
 {
 	HTTPLogTrace();
@@ -35,10 +44,15 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN | HTTP_LOG_FLAG_TRACE;
     //Unpack the data
     NSDictionary *myDictionary = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
-    NSLog(@"Dictionary content:");
-    for (id key in myDictionary) {
-        NSLog(@"key: %@, value: %@ \n", key, [myDictionary objectForKey:key]);
-    }
+//    //Need to further unpack the dictionary content
+//    NSData *myData = myDictionary[@"corners4x2"];
+//    
+//    
+//    
+//    NSLog(@"Dictionary content:");
+//    for (id key in myDictionary) {
+//        NSLog(@"key: %@, value: %@ \n", key, [myDictionary objectForKey:key]);
+//    }
     
 //    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
 }

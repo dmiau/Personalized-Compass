@@ -25,6 +25,12 @@ enum findMe_enum{
 };
 
 
+// CLLocationDegress is typedef to double
+typedef struct{
+    double content[4][2];
+}Corners4x2;
+
+
 @interface iOSViewController : UIViewController
 <CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate, SRWebSocketDelegate>
 {
@@ -44,6 +50,13 @@ enum findMe_enum{
 }
 
 @property NSMutableDictionary* UIConfigurations;
+
+//----------------
+// Cache MapView parameters
+//----------------
+@property Corners4x2 corners4x2;
+- (void) updateCornerLatLon;
+
 
 //----------------
 // Views in ExtraPanels.xib
@@ -204,4 +217,11 @@ enum findMe_enum{
 @property NSString* ip_string;
 @property NSNumber *socket_status;
 - (void) toggleServerConnection: (bool) status;
+- (void) sendData;
+
+//----------------
+// System message
+//----------------
+@property NSString* system_message;
+
 @end

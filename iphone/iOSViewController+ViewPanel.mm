@@ -338,7 +338,7 @@
     
     
     // Covert the four coordinates (of the overview map)
-    // to the view points (of the mapview)
+    // to the view points (of the glkView)
     
     for (int i = 0; i < 4; ++i){
         self.renderer->box4Corners[i] =

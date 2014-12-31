@@ -58,6 +58,8 @@
     
     _webSocket.delegate = self;
     
+    
+    
 //    self.title = @"Opening Connection...";
     [_webSocket open];
     
@@ -80,20 +82,22 @@
 {
     NSLog(@"Websocket Connected");
     self.socket_status = [NSNumber numberWithBool:YES];
-//    self.title = @"Connected!";
+    
+    self.system_message = @"Connected!";
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;
 {
     NSLog(@":( Websocket Failed With Error %@", error);
     self.socket_status = [NSNumber numberWithBool:NO];
-//    self.title = @"Connection Failed! (see logs)";
+    self.system_message = @"Connection Failed! (see logs)";
     _webSocket = nil;
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;
 {
     NSLog(@"Received \"%@\"", message);
+    self.system_message = [NSString stringWithFormat:@"Received \"%@\"", message];
     [_messages addObject:[[TCMessage alloc] initWithMessage:message fromMe:NO]];
 }
 
@@ -101,9 +105,36 @@
 {
     self.socket_status = [NSNumber numberWithBool:NO];
     NSLog(@"WebSocket closed");
-//    self.title = @"Connection Closed! (see logs)";
+    self.system_message = @"Connection Closed! (see logs)";
     _webSocket = nil;
 }
+
+//--------------------
+// Send the parameters associated with the current display area
+//--------------------
+- (void) sendData
+{
+    // Do nothing is the connection is not established yet
+    if ([self.socket_status boolValue] == NO)
+        return;
+    
+    Corners4x2 temp = self.corners4x2;
+    
+    // Package the data
+    NSDictionary *myDict = @{@"ulurbrbl" :
+                        [NSData dataWithBytes:&(temp)
+                                       length:sizeof(temp)],
+                             @"latitude": [NSNumber numberWithDouble:
+                                           [self.mapView centerCoordinate].latitude],
+                             @"longitude": [NSNumber numberWithDouble:
+                                           [self.mapView centerCoordinate].longitude]};
+    
+    // Send the data (in the form of NSData)
+    //http://stackoverflow.com/questions/5513075/how-can-i-convert-nsdictionary-to-nsdata-and-vice-versa
+    NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:myDict];
+    [_webSocket send: myData];
+}
+
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 {

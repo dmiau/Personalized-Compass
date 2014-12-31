@@ -22,3 +22,7 @@ These things are different:
 self.render->compass_centroid
 self.model->configurations[@"compass_centroid"]
 self.model->compassCenterXY
+
+
+Map convention:
+(latitude, longitude)
