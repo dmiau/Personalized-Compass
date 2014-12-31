@@ -1,10 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "WebSocket.h"
-//#import "DesktopViewController.h"
+
+@class DesktopViewController;
 
 @interface MyWebSocket : WebSocket
 {
 	
 }
-//@property DesktopViewController* rootViewController;
+@property DesktopViewController* rootViewController;
 @end

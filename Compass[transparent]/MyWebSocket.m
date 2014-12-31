@@ -1,3 +1,4 @@
+//#import "DesktopViewController.h"
 #import "MyWebSocket.h"
 #import "HTTPLogging.h"
 
@@ -44,17 +45,17 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN | HTTP_LOG_FLAG_TRACE;
     //Unpack the data
     NSDictionary *myDictionary = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
-//    //Need to further unpack the dictionary content
-//    NSData *myData = myDictionary[@"corners4x2"];
-//    
-//    
-//    
-//    NSLog(@"Dictionary content:");
-//    for (id key in myDictionary) {
-//        NSLog(@"key: %@, value: %@ \n", key, [myDictionary objectForKey:key]);
-//    }
+    //Need to further unpack the dictionary content
+    NSData *myData = myDictionary[@"corners4x2"];
     
-//    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
+    
+    
+    NSLog(@"Dictionary content:");
+    for (id key in myDictionary) {
+        NSLog(@"key: %@, value: %@ \n", key, [myDictionary objectForKey:key]);
+    }
+    
+    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
 }
 
 - (void)didClose

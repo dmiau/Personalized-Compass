@@ -3819,6 +3819,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Compass[transparent]",
 				);
+				OTHER_CPLUSPLUSFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -3845,6 +3847,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Compass[transparent]",
 				);
+				OTHER_CPLUSPLUSFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

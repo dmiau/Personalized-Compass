@@ -8,9 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import <MapKit/MapKit.h>
-#include "compassModel.h"
-#include "compassRender.h"
-#include <iostream>
+#import "compassModel.h"
+#import "compassRender.h"
+#import <iostream>
 //#import "SettingsViewController.h"
 #import "AppDelegate.h"
 
