@@ -59,9 +59,7 @@
         [self updateLocationVisibility];
         
         [self updateCornerLatLon];
-        
         [self sendData];
-        
         // [todo] This code should be put into the gesture recognizer
         // Disable the compass
         

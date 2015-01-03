@@ -36,3 +36,36 @@ iOS/OSX data exchange:
                                            [self.mapView centerCoordinate].latitude],
                              @"longitude": [NSNumber numberWithDouble:
                                            [self.mapView centerCoordinate].longitude]};
+
+
+ 2015-01-02 23:20:21.492 Compass[transparent][43179:3338971] This application is modifying the autolayout engine from a background thread, which can lead to engine corruption and weird crashes.  This will cause an exception in a future release.
+ Stack:(
+	0   CoreFoundation                      0x00007fff98fea64c __exceptionPreprocess + 172
+	1   libobjc.A.dylib                     0x00007fff9aac56de objc_exception_throw + 43
+	2   CoreFoundation                      0x00007fff98fea4fd +[NSException raise:format:] + 205
+	3   Foundation                          0x00007fff98144be0 _AssertAutolayoutOnMainThreadOnly + 83
+	4   Foundation                          0x00007fff97f22c11 -[NSISEngine optimize] + 49
+	5   Foundation                          0x00007fff97f234ff -[NSISEngine withBehaviors:performModifications:] + 236
+	6   AppKit                              0x00007fff8bd267ea -[NSView(NSConstraintBasedLayout) _withAutomaticEngineOptimizationDisabled:] + 70
+	7   AppKit                              0x00007fff8bd27c20 -[NSView _setWindow:] + 1443
+	8   AppKit                              0x00007fff8bd29262 -[NSView removeFromSuperview] + 453
+	9   MapKit                              0x00007fff957365a2 -[MKAnnotationContainerView removeAnnotationView:] + 381
+	10  MapKit                              0x00007fff957363e8 -[MKMapView removeAnnotationRepresentation:] + 360
+	11  MapKit                              0x00007fff957360df -[MKAnnotationManager _removeRepresentationForAnnotation:fromCull:] + 150
+	12  MapKit                              0x00007fff9571eb28 -[MKAnnotationManager updateVisibleAnnotations] + 1262
+	13  MapKit                              0x00007fff957d416d -[MKMapView mapLayerDidChangeVisibleRegion:] + 308
+	14  VectorKit                           0x00007fff98815203 -[VKMapCameraController _animateToPosition:pitch:yaw:duration:timingCurve:completion:] + 3283
+	15  VectorKit                           0x00007fff98814490 -[VKMapCameraController animateToMapRegion:pitch:yaw:duration:completion:] + 688
+	16  MapKit                              0x00007fff9571cc33 -[MKMapView _setRegion:snapToZoomLevel:animated:completion:] + 1248
+	17  Compass[transparent]                0x000000010001a63e -[DesktopViewController(Server) syncWithiOS:] + 878
+	18  Compass[transparent]                0x0000000100060307 -[MyWebSocket didReceiveData:] + 295
+	19  Compass[transparent]                0x0000000100016f15 -[WebSocket socket:didReadData:withTag:] + 1893
+	20  Compass[transparent]                0x00000001000f1523 __37-[GCDAsyncSocket completeCurrentRead]_block_invoke + 83
+	21  libdispatch.dylib                   0x00000001002bc2bb _dispatch_call_block_and_release + 12
+	22  libdispatch.dylib                   0x00000001002b6d43 _dispatch_client_callout + 8
+	23  libdispatch.dylib                   0x00000001002bafb3 _dispatch_queue_drain + 1804
+	24  libdispatch.dylib                   0x00000001002bcfc0 _dispatch_queue_invoke + 223
+	25  libdispatch.dylib                   0x00000001002b9f5e _dispatch_root_queue_drain + 666
+	26  libdispatch.dylib                   0x00000001002cbcd0 _dispatch_worker_thread3 + 106
+	27  libsystem_pthread.dylib             0x00007fff967ec6cb _pthread_wqthread + 729
+	28  libsystem_pthread.dylib             0x00007fff967ea4a1 start_wqthread + 13

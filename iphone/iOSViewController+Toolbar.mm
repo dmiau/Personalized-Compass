@@ -432,6 +432,9 @@
     counter_button.title = [NSString stringWithFormat:
                      @"%d/%lu", snapshot_id+1,
                      self.model->snapshot_array.size()];
+    
+    //
+    [self sendData];
 }
 
 

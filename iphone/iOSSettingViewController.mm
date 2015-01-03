@@ -48,15 +48,6 @@
         
         self.rootViewController =
         [myNavigationController.viewControllers objectAtIndex:0];
-        
-        
-        // Watch socket status
-        [self.rootViewController addObserver:self forKeyPath:@"socket_status"
-            options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
-        
-        // Watch the system_message variable
-        [self.rootViewController addObserver:self forKeyPath:@"system_message"
-            options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
     }
     return self;
 }
@@ -109,6 +100,16 @@
 
         [self.toolbarSegmentControl setSelectedSegmentIndex:1];
     }
+    
+    
+    // Watch socket status
+    [self.rootViewController addObserver:self forKeyPath:@"socket_status"
+                                 options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
+    
+    // Watch the system_message variable
+    [self.rootViewController addObserver:self forKeyPath:@"system_message"
+                                 options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
+    
     
     //-------------------
     // Update the connection parameters
