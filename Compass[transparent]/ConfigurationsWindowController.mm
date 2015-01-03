@@ -145,6 +145,7 @@
             [self.rootViewController.httpServer stop];
             self.serverPort.stringValue =
             [NSString stringWithFormat:@"%@", @"????"];
+             self.server_ip = @"ip????";
             break;
         case 1:
             [self.rootViewController startServer];
@@ -155,6 +156,8 @@
             
             self.serverPort.stringValue =
             [NSString stringWithFormat:@"%d", port];
+            
+            self.server_ip = [[[NSHost currentHost] addresses] objectAtIndex:1];
             break;
     }
 }

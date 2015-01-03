@@ -133,6 +133,7 @@ typedef struct{
 //Server
 //----------------
 @property BOOL iOSSyncFlag;
+@property Corners4x2 corners4x2;
 -(void)startServer;
 -(void)syncWithiOS: (NSDictionary*) dict;
 @end

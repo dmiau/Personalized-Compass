@@ -72,6 +72,18 @@
         // so we can distinguish hold-to-pan, and hold-to-long-press
         [mouseTimer invalidate];
         mouseTimer = nil;
+        
+        // Update the screen cordinates corresponding to
+        // iOS screen's boundary, if isiOSBoxEnabled is on
+        if (self.renderer->isiOSBoxEnabled){
+            for (int i = 0; i < 4; ++i){
+                self.renderer->iOSFourCorners[i] =
+                [self.mapView convertCoordinate:
+                 CLLocationCoordinate2DMake(self.corners4x2.content[i][0],
+                                            self.corners4x2.content[i][1])
+                                  toPointToView:self.compassView];
+            }
+        }
     }
 }
 

@@ -192,27 +192,6 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-HR-OT0">
-                                            <rect key="frame" x="372" y="114" width="43" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Server" id="lme-0Y-f0A">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCY-8D-qgU">
-                                            <rect key="frame" x="483" y="110" width="71" height="24"/>
-                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Lr2-fF-hcI">
-                                                <font key="font" metaFont="system"/>
-                                                <segments>
-                                                    <segment label="Off" width="32" selected="YES"/>
-                                                    <segment label="On" width="32" tag="1"/>
-                                                </segments>
-                                            </segmentedCell>
-                                            <connections>
-                                                <action selector="toggleServer:" target="-2" id="w6Y-Bu-2p5"/>
-                                            </connections>
-                                        </segmentedControl>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ui0-ym-9gQ">
                                             <rect key="frame" x="173" y="48" width="104" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="BVE-Qc-tuX">
@@ -226,51 +205,91 @@
                                                 </segments>
                                             </segmentedCell>
                                         </segmentedControl>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCQ-aO-U6l">
-                                            <rect key="frame" x="372" y="73" width="30" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port" id="9Cx-HZ-LqK">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zUJ-ry-l8C">
-                                            <rect key="frame" x="483" y="73" width="90" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="???" id="FGh-qP-edj">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8R-2a-zvp">
-                                            <rect key="frame" x="372" y="39" width="91" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sync with iOS" id="mf9-Pd-OyE">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8F-Le-2s4">
-                                            <rect key="frame" x="483" y="35" width="71" height="24"/>
-                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Va1-3i-Lxe">
-                                                <font key="font" metaFont="system"/>
-                                                <segments>
-                                                    <segment label="Off" width="32" selected="YES"/>
-                                                    <segment label="On" width="32" tag="1"/>
-                                                </segments>
-                                            </segmentedCell>
-                                            <connections>
-                                                <action selector="toggleiOSSyncFlag:" target="-2" id="T1B-Ee-LJY"/>
-                                            </connections>
-                                        </segmentedControl>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Communicaiton with iOS" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="pUI-yr-MHn">
-                                            <rect key="frame" x="341" y="-2" width="268" height="163"/>
+                                            <rect key="frame" x="343" y="5" width="268" height="173"/>
                                             <view key="contentView">
-                                                <rect key="frame" x="1" y="1" width="266" height="147"/>
+                                                <rect key="frame" x="1" y="1" width="266" height="157"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-HR-OT0">
+                                                        <rect key="frame" x="31" y="129" width="43" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Server" id="lme-0Y-f0A">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCY-8D-qgU">
+                                                        <rect key="frame" x="139" y="124" width="71" height="24"/>
+                                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Lr2-fF-hcI">
+                                                            <font key="font" metaFont="system"/>
+                                                            <segments>
+                                                                <segment label="Off" width="32" selected="YES"/>
+                                                                <segment label="On" width="32" tag="1"/>
+                                                            </segments>
+                                                        </segmentedCell>
+                                                        <connections>
+                                                            <action selector="toggleServer:" target="-2" id="w6Y-Bu-2p5"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCQ-aO-U6l">
+                                                        <rect key="frame" x="34" y="74" width="30" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port" id="9Cx-HZ-LqK">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zUJ-ry-l8C">
+                                                        <rect key="frame" x="145" y="75" width="90" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="???" id="FGh-qP-edj">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8R-2a-zvp">
+                                                        <rect key="frame" x="33" y="47" width="91" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sync with iOS" id="mf9-Pd-OyE">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8F-Le-2s4">
+                                                        <rect key="frame" x="139" y="42" width="71" height="24"/>
+                                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Va1-3i-Lxe">
+                                                            <font key="font" metaFont="system"/>
+                                                            <segments>
+                                                                <segment label="Off" width="32" selected="YES"/>
+                                                                <segment label="On" width="32" tag="1"/>
+                                                            </segments>
+                                                        </segmentedCell>
+                                                        <connections>
+                                                            <action selector="toggleiOSSyncFlag:" target="-2" id="T1B-Ee-LJY"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srg-Hg-usC">
+                                                        <rect key="frame" x="33" y="104" width="17" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="IP" id="dma-Sw-n6t">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEe-97-M7w">
+                                                        <rect key="frame" x="70" y="102" width="191" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ip????" id="q1e-F3-qMD">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="-2" name="value" keyPath="self.server_ip" id="WfI-B9-4Kt"/>
+                                                        </connections>
+                                                    </textField>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebE-G7-EVb">
-                                                        <rect key="frame" x="31" y="8" width="145" height="18"/>
+                                                        <rect key="frame" x="32" y="17" width="145" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Show iOS boundary" bezelStyle="regularSquare" imagePosition="left" inset="2" id="iJ0-X1-H3t">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -300,7 +319,8 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="8" y="387.5"/>
+            <point key="canvasLocation" x="-274" y="367.5"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
     </objects>
 </document>

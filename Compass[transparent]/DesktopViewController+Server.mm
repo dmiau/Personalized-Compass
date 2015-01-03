@@ -98,7 +98,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     Corners4x2 temp_corner;
     [myData getBytes:&temp_corner length:sizeof(temp_corner)];
-    
+    self.corners4x2 = temp_corner;
     for (int i = 0; i < 4; ++i){
         self.renderer->iOSFourCorners[i] =
         [self.mapView convertCoordinate:

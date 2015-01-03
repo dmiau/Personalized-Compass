@@ -14,6 +14,7 @@
 
 @property compassMdl *model;
 @property DesktopViewController *rootViewController;
+@property NSString *server_ip;
 @property (weak) IBOutlet NSTextField *serverPort;
 
 //-------------

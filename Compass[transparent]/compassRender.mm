@@ -134,6 +134,8 @@ void compassRender::updateViewport
 {
     glDrawingCorrectionRatio = orig_height / height;
     glViewport (x, y, width, height);
+        
+    viewport_width = width; viewport_height = height;
     
     updateProjection((float)width/(float)height);  // update projection matrix
 }
@@ -225,7 +227,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         model->tilt > -0.0001)
     {
         // Note UIView's coordinate system is diffrent than OpenGL's
-        glTranslatef(-orig_width/2, orig_height/2, 0);
+        glTranslatef(-viewport_width/2, viewport_height/2, 0);
         glRotatef(180, 1, 0, 0);
         drawBoxInView(box4Corners);
     }
@@ -242,7 +244,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         model->tilt > -0.0001)
     {
         // Note UIView's coordinate system is diffrent than OpenGL's
-        glTranslatef(-orig_width/2, orig_height/2, 0);
+        glTranslatef(-viewport_width/2, viewport_height/2, 0);
         glRotatef(180, 1, 0, 0);
         drawBoxInView(iOSFourCorners);
     }

@@ -42,13 +42,16 @@
 
 - (IBAction)toggleCompass:(id)sender {
     // Toggle MapView status
-    if ([self.compassView isHidden] == NO){
-        [self.compassView setHidden:YES];
+    if (self.conventionalCompassVisible == YES){
+        self.conventionalCompassVisible = NO;
+        self.model->configurations[@"personalized_compass_status"] = @"off";
         [(NSMenuItem *)sender setTitle:@"Show Compass"];
     }else{
-        [self.compassView setHidden:NO];
+        self.conventionalCompassVisible = YES;
+        self.model->configurations[@"personalized_compass_status"] = @"on";
         [(NSMenuItem *)sender setTitle:@"Hide Compass"];
     }
+    [self.compassView display];
 }
 
 - (IBAction)rotate:(id)sender {
@@ -71,11 +74,6 @@
     cout << "Orientation: " << self.model->camera_pos.orientation << endl;
     [self.mapView setCamera:mycamera animated:YES];
 }
-
-//- (IBAction)showSettings:(id)sender {
-//    
-//    [self.settingsView setHidden:!self.settingsView.isHidden];
-//}
 
 #pragma mark ------------- User Interface -------------
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="w1l-tE-In0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="w1l-tE-In0">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--IOS View Controller-->
@@ -134,7 +134,7 @@
                                 </connections>
                             </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qUz-br-yTL">
-                                <rect key="frame" x="141" y="188" width="183" height="29"/>
+                                <rect key="frame" x="254" y="110" width="183" height="29"/>
                                 <segments>
                                     <segment title="Local"/>
                                     <segment title="Dropbox"/>
@@ -151,7 +151,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r0-c2-ds9">
-                                <rect key="frame" x="141" y="158" width="95" height="21"/>
+                                <rect key="frame" x="138" y="113" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -170,7 +170,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYT-hx-iBA">
-                                <rect key="frame" x="137" y="230" width="157" height="30"/>
+                                <rect key="frame" x="138" y="153" width="157" height="30"/>
                                 <state key="normal" title="Configuraitons Refresh">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -179,12 +179,12 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Toolbar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-te-DRR">
-                                <rect key="frame" x="137" y="69" width="57" height="21"/>
+                                <rect key="frame" x="134" y="69" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cMN-4s-fse">
-                                <rect key="frame" x="137" y="100" width="101" height="29"/>
+                                <rect key="frame" x="216" y="66" width="101" height="29"/>
                                 <segments>
                                     <segment title="Dev"/>
                                     <segment title="Demo"/>
@@ -203,6 +203,36 @@
                                     <action selector="dismissModalVC:" destination="bsL-PH-kKP" eventType="touchUpInside" id="amT-7z-scJ"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6VO-nz-VXb">
+                                <rect key="frame" x="303" y="235" width="123" height="29"/>
+                                <segments>
+                                    <segment title="Disconnect"/>
+                                    <segment title="Connect"/>
+                                </segments>
+                                <connections>
+                                    <action selector="toggleServerConnection:" destination="bsL-PH-kKP" eventType="valueChanged" id="LH1-dE-OCi"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Port" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfz-y2-Hzg">
+                                <rect key="frame" x="137" y="237" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q6T-Cw-v3M">
+                                <rect key="frame" x="187" y="233" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFD-Yq-bOQ">
+                                <rect key="frame" x="137" y="197" width="16" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="localhost" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6UJ-nH-Ka5">
+                                <rect key="frame" x="187" y="193" width="222" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -217,6 +247,9 @@
                     <connections>
                         <outlet property="dataPicker" destination="jSc-Ke-xt4" id="ADH-eK-fdj"/>
                         <outlet property="dataSource" destination="qUz-br-yTL" id="6mO-LT-9OM"/>
+                        <outlet property="ipTextField" destination="6UJ-nH-Ka5" id="hPd-iI-RCG"/>
+                        <outlet property="portTextfield" destination="Q6T-Cw-v3M" id="84z-5Q-Sh4"/>
+                        <outlet property="serverSegmentControl" destination="6VO-nz-VXb" id="hUp-u5-Z7H"/>
                         <outlet property="systemMessage" destination="ycR-nB-iuR" id="x80-LF-TFo"/>
                         <outlet property="toolbarSegmentControl" destination="cMN-4s-fse" id="Mmq-9v-SIW"/>
                     </connections>

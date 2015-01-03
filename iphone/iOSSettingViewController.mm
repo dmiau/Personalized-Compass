@@ -70,9 +70,8 @@
     
     // Append the new message
     self.systemMessage.text =
-    [self.systemMessage.text stringByAppendingString:
-     [NSString stringWithFormat:@"OK\n%@",
-      self.rootViewController.system_message]];
+    [self.rootViewController.system_message stringByAppendingString:
+     [NSString stringWithFormat:@"\n%@", self.systemMessage.text]];
     
     self.systemMessage.editable = NO;
 }
@@ -109,7 +108,6 @@
     // Watch the system_message variable
     [self.rootViewController addObserver:self forKeyPath:@"system_message"
                                  options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
-    
     
     //-------------------
     // Update the connection parameters
@@ -367,9 +365,9 @@
         
         // Append the new message
         self.systemMessage.text =
-        [self.systemMessage.text stringByAppendingString:
-         [NSString stringWithFormat:@"\n%@",
-          self.rootViewController.system_message]];
+        [self.rootViewController.system_message
+         stringByAppendingString:
+         [NSString stringWithFormat:@"\n%@",self.systemMessage.text]];
     }
 }
 
