@@ -36,6 +36,10 @@
 // does not have a viewDidLoad method
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
+    
+//    [[NSApplication sharedApplication] setDelegate:self];
+    
 //    [_window setBackgroundColor:[NSColor clearColor]];
 //    [_window setOpaque:NO];
 #ifdef WATCH

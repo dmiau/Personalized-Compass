@@ -51,4 +51,48 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.httpServer = httpServer;
 }
 
+//---------------------
+// Sync with iOS
+//---------------------
+-(void)syncWithiOS: (NSDictionary*) myDictionary
+{
+    //Unpack parameters of the four corners
+    NSData *myData = myDictionary[@"corners4x2"];
+    
+    Corners4x2 temp_corner;
+    [myData getBytes:&temp_corner length:sizeof(temp_corner)];
+    
+    //Unpack parameters of the map region
+    myData = myDictionary[@"map_region"];
+    MKCoordinateRegion temp_region;
+    [myData getBytes:&temp_region length:sizeof(temp_region)];
+    
+    // Update model parameters
+    self.model->camera_pos.latitude = temp_region.center.latitude;
+    self.model->camera_pos.longitude = temp_region.center.longitude;
+//    self.model->camera_pos.orientation =
+//    [myDictionary[@"mdl_orientation"] floatValue];
+//    self.model->tilt =
+//    [myDictionary[@"mdl_tilt"] floatValue];
+    
+    [self updateMapDisplayRegion];
+//    self.mapView.region = mySnapshot.coordinateRegion;
+    
+    // Not sure why setRegion does not work well...
+    //    [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];
+
+    
+    // Make the display region bigger than iOS's
+    MKCoordinateRegion expanded_region =
+    MKCoordinateRegionMake(temp_region.center,
+                           MKCoordinateSpanMake(temp_region.span.latitudeDelta, temp_region.span.longitudeDelta));
+    self.mapView.region = expanded_region;
+    
+    self.model->updateMdl();
+    
+    
+    self.mapView.camera.heading = -[myDictionary[@"mdl_orientation"] floatValue];
+
+}
+
 @end

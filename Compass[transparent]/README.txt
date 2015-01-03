@@ -1657,15 +1657,55 @@ http://stackoverflow.com/questions/17548425/objective-c-property-for-c-array
 How to put struct in NSData
 http://stackoverflow.com/questions/5373545/structs-to-nsdata-to-structs
 
+I guess I will need to turn the notification off. 
+
+- The connection pane (iOS) does not persist.
+
+-------------------------------------------------------------------
+1.1.2015
+-------------------------------------------------------------------
+- Display iOS display region
+
+-------------------------------------------------------------------
+1.2.2015
+-------------------------------------------------------------------
+Today's goals:
+- sync desktop with the mobile devices
+- adjust the desktop map size to include the iOS map
+3:53PM. The communication code works!
+
+Some bugs:
+iOS: 
+- the app crashes when the connection is dropped. To reproduce, 
+I can cut the connection from the OSX side. [fixed@10:06PM]
+- cannot turn off the connection. the segment control status 
+is not updated
+
+OSX:
+- the server cannot be really turned off [fixed@10:23PM]
+- updateMapDisplayRegion code needs to be refiend (so as the one iniOS)
+- when the table and the compass is on, the app is easy to crash...
+(so when working on the box drawing code, this part needs to be taken into account)
 
 
 
+self.model->camera_pos.orientation = heading_deg;
+self.model->tilt = tilt_deg;
+
+    heading: -self.mapView.camera.heading
+                           tilt: -self.mapView.camera.pitch];
 
 
-
-
-
-
+    NSDictionary *myDict = @{@"ulurbrbl" :
+                        [NSData dataWithBytes:&(temp)
+                                       length:sizeof(temp)],
+                             @"map_region":[NSData dataWithBytes:
+                                            &(temp_region)
+                                        length:sizeof(temp_region)],
+                             @"mdl_orientation":[NSNumber numberWithFloat:
+                                                 self.model->camera_pos.orientation],
+                             @"mdl_tilt":[NSNumber numberWithFloat:
+                                                 self.model->tilt]};
 
 
 

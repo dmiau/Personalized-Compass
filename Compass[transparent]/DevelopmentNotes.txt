@@ -26,3 +26,13 @@ self.model->compassCenterXY
 
 Map convention:
 (latitude, longitude)
+
+iOS/OSX data exchange:
+
+    NSDictionary *myDict = @{@"ulurbrbl" :
+                        [NSData dataWithBytes:&(temp)
+                                       length:sizeof(temp)],
+                             @"latitude": [NSNumber numberWithDouble:
+                                           [self.mapView centerCoordinate].latitude],
+                             @"longitude": [NSNumber numberWithDouble:
+                                           [self.mapView centerCoordinate].longitude]};

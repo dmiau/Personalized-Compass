@@ -30,6 +30,10 @@ typedef struct{
 @class ConfigurationsWindowController; //Forward declaration
 //@class SettingsViewController; //Forward declaration
 
+
+//---------------------------------------
+// DesktopViewController
+//---------------------------------------
 @interface DesktopViewController : NSViewController
 <NSTableViewDataSource, NSTableViewDelegate, MKMapViewDelegate>{
     NSTimer *_updateUITimer;
@@ -128,6 +132,7 @@ typedef struct{
 //----------------
 //Server
 //----------------
+@property BOOL iOSSyncFlag;
 -(void)startServer;
-
+-(void)syncWithiOS: (NSDictionary*) dict;
 @end

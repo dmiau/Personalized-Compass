@@ -119,6 +119,9 @@
 }
 
 - (void) updateMapDisplayRegion{
+    // updateMapDisplayRegion syncs parameters from the model to the
+    // display map
+    
     //http://stackoverflow.com/questions/14771197/ios-beginning-ios-tutorial-underscore-before-variable
     static int once = 0;
     if (once==0){
@@ -136,6 +139,9 @@
     coord.latitude = self.model->camera_pos.latitude;
     coord.longitude = self.model->camera_pos.longitude;
     [self.mapView setCenterCoordinate:coord animated:YES];
+    
+//    self.mapView.camera.pitch = -self.model->tilt;
+//    self.mapView.camera.heading = -self.model->camera_pos.orientation;
 }
 
 

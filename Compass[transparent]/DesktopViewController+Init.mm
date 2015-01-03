@@ -20,7 +20,7 @@
         if((self = [super init])) {
             self.model = compassMdl::shareCompassMdl();
             
-            // Get the pointer to render
+            // Get the pointer of render
             // At this point the render may not be fully initialized
             self.renderer = compassRender::shareCompassRender();
             
@@ -46,6 +46,9 @@
                 [tableCellCache addObject:[NSNull null]];
             }                        
             
+            // Initialize iOSSyncFlag
+            self.iOSSyncFlag = false;
+            
             //--------------------
             // Initialize a list of UI configurations
             //--------------------
@@ -70,10 +73,6 @@
                                       forKey:@"UIAllowMultipleAnnotations"];
             [self.UIConfigurations setObject:@"Auto"
                                       forKey:@"UIOverviewScaleMode"];
-            
-            // Inject to AppDelegate
-            AppDelegate *temp = [[NSApplication sharedApplication] delegate];
-            temp.rootViewController = self;
         }
     }
     return self;
@@ -120,6 +119,10 @@
     // Initialized the mapView
     //-------------------
     [self initMapView];
+    
+    // Inject to AppDelegate
+    AppDelegate *temp = [[NSApplication sharedApplication] delegate];
+    temp.rootViewController = self;    
 }
 
 //-----------------

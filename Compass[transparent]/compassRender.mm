@@ -215,8 +215,6 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
 
     glMatrixMode(GL_MODELVIEW);
     
-    
-
     //--------------
     // Draw overview box
     //--------------
@@ -232,7 +230,6 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         drawOverviewBox();
     }
     glPopMatrix();
-
 
     //--------------
     // Draw compass
@@ -284,6 +281,20 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         glPopMatrix();
     }
 
+    //--------------
+    // Draw iOS display region
+    //--------------
+    NSString* iOS_status = model->configurations[@"iOS_status"];
+    if ([iOS_status isEqualToString:@"on"]){
+//        wedgeMode = true;
+//        renderParamStruct.style_type =
+//        hashStyleStr(@"WEDGE");
+//        glPushMatrix();
+//        drawWayfindingAid(renderParamStruct);
+//        wedgeMode = false;
+//        glPopMatrix();
+    }
+    
     glDisableClientState(GL_VERTEX_ARRAY);
     
     // glFlush is called in OpenGLView

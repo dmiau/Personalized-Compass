@@ -121,6 +121,16 @@
   {
   "property": "separator",
   "value": "==================================================",
+  "comment": "iOS related stuff"
+  },
+  {
+  "property": "iOS_status",
+  "value": "off",
+  "comment": "on, off"
+  },
+  {
+  "property": "separator",
+  "value": "==================================================",
   "comment": "watch related stuff"
   },
   {

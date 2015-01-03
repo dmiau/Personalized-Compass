@@ -533,10 +533,10 @@
 		9A42A0C919ABADC800BB0101 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */; };
 		9A42A0CA19ABADC800BB0101 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */; };
 		9A42A0CB19ABADC800BB0101 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */; };
-		9A42A0CC19ABADC800BB0101 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.m */; };
-		9A42A0CD19ABADC800BB0101 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.m */; };
-		9A42A0CE19ABADC800BB0101 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.m */; };
-		9A42A0CF19ABADC800BB0101 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.m */; };
+		9A42A0CC19ABADC800BB0101 /* MyWebSocket.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.mm */; };
+		9A42A0CD19ABADC800BB0101 /* MyWebSocket.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.mm */; };
+		9A42A0CE19ABADC800BB0101 /* MyWebSocket.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.mm */; };
+		9A42A0CF19ABADC800BB0101 /* MyWebSocket.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0C719ABADC800BB0101 /* MyWebSocket.mm */; };
 		9A42A0E119ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
 		9A42A0E219ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
 		9A42A0E319ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
@@ -1193,7 +1193,7 @@
 		9A42A0C419ABADC800BB0101 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHTTPConnection.h; sourceTree = "<group>"; };
 		9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHTTPConnection.m; sourceTree = "<group>"; };
 		9A42A0C619ABADC800BB0101 /* MyWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebSocket.h; sourceTree = "<group>"; };
-		9A42A0C719ABADC800BB0101 /* MyWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebSocket.m; sourceTree = "<group>"; };
+		9A42A0C719ABADC800BB0101 /* MyWebSocket.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyWebSocket.mm; sourceTree = "<group>"; };
 		9A42A0E019ABB12D00BB0101 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
 		9A42A0E519ABCD9F00BB0101 /* iOSViewController+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Client.h"; sourceTree = "<group>"; };
 		9A42A0E619ABCD9F00BB0101 /* iOSViewController+Client.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Client.mm"; sourceTree = "<group>"; };
@@ -1861,7 +1861,7 @@
 				9A42A0C419ABADC800BB0101 /* MyHTTPConnection.h */,
 				9A42A0C519ABADC800BB0101 /* MyHTTPConnection.m */,
 				9A42A0C619ABADC800BB0101 /* MyWebSocket.h */,
-				9A42A0C719ABADC800BB0101 /* MyWebSocket.m */,
+				9A42A0C719ABADC800BB0101 /* MyWebSocket.mm */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -3047,7 +3047,7 @@
 				9A03764A198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
 				9A42A04119A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
 				9A42A03919A79C3200BB0101 /* DDNumber.m in Sources */,
-				9A42A0CF19ABADC800BB0101 /* MyWebSocket.m in Sources */,
+				9A42A0CF19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
 				9A0375D8198DA31900258E95 /* b2Body.cpp in Sources */,
 				9AE2FC8E19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9AA789121909FE3000A26C66 /* DesktopViewController+Compass.mm in Sources */,
@@ -3184,7 +3184,7 @@
 				9A0375F9198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A03757B198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9A998C8B1949F29500778DFC /* compassRender+Label.mm in Sources */,
-				9A42A0CC19ABADC800BB0101 /* MyWebSocket.m in Sources */,
+				9A42A0CC19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
 				9A037653198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
 				9A0375FF198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
 				9A42A06219A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
@@ -3267,7 +3267,7 @@
 				9A9701E619085002007C3C19 /* watchNSView.m in Sources */,
 				9A03760D198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A0375B3198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
-				9A42A0CE19ABADC800BB0101 /* MyWebSocket.m in Sources */,
+				9A42A0CE19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
 				9AE2FC8D19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9A037637198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9A42A09F19A79CA200BB0101 /* DDASLLogger.m in Sources */,
@@ -3428,7 +3428,7 @@
 				9A42A04319A79C3200BB0101 /* HTTPConnection.m in Sources */,
 				9A03757C198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9A42A03719A79C3200BB0101 /* DDNumber.m in Sources */,
-				9A42A0CD19ABADC800BB0101 /* MyWebSocket.m in Sources */,
+				9A42A0CD19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
 				9AFB14A118EE639A00063632 /* compassRender.mm in Sources */,
 				9A36618E19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
 				9A037660198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,

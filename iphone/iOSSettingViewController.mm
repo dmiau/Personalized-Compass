@@ -48,6 +48,15 @@
         
         self.rootViewController =
         [myNavigationController.viewControllers objectAtIndex:0];
+        
+        
+        // Watch socket status
+        [self.rootViewController addObserver:self forKeyPath:@"socket_status"
+            options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
+        
+        // Watch the system_message variable
+        [self.rootViewController addObserver:self forKeyPath:@"system_message"
+            options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
     }
     return self;
 }
@@ -67,18 +76,14 @@
     [super viewDidLoad];
 
     // Initialize system message
-    self.systemMessage.text = @"OK";
+    
+    // Append the new message
+    self.systemMessage.text =
+    [self.systemMessage.text stringByAppendingString:
+     [NSString stringWithFormat:@"OK\n%@",
+      self.rootViewController.system_message]];
+    
     self.systemMessage.editable = NO;
-    
-    
-    // Watch socket status
-    [self.rootViewController addObserver:self forKeyPath:@"socket_status"
-              options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
-    
-    // Watch the system_message variable
-    [self.rootViewController addObserver:self forKeyPath:@"system_message"
-              options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -106,6 +111,21 @@
     }
     
     //-------------------
+    // Update the connection parameters
+    //-------------------
+    bool socket_status = [self.rootViewController.socket_status boolValue];
+    if (socket_status){
+        self.ipTextField.text = self.rootViewController.ip_string;
+        [self.serverSegmentControl setSelectedSegmentIndex:1];
+        self.portTextfield.text =
+        [NSString stringWithFormat:@"%d", self.rootViewController.port_number];
+    }else{
+        self.ipTextField.text = @"localhost";
+        [self.serverSegmentControl setSelectedSegmentIndex:0];
+        self.portTextfield.text = @"xxxx";
+    }
+    
+    //-------------------
     // Change navigation bar color
     //-------------------
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
@@ -125,6 +145,12 @@
     myNavigationController.navigationBar.barTintColor =
     [UIColor whiteColor];
     myNavigationController.navigationBar.topItem.title = @"General";
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [self.rootViewController removeObserver:self forKeyPath:@"socket_status"
+                                        context:NULL];
+    [self.rootViewController removeObserver:self forKeyPath:@"system_message" context:NULL];
 }
 
 

@@ -40,4 +40,6 @@
 // Disable/enable the landmark list
 - (IBAction)toggleLandmarkTableView:(id)sender;
 
+- (IBAction)toggleiOSSyncFlag:(id)sender;
+
 @end

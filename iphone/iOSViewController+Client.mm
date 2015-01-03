@@ -72,7 +72,10 @@
         _webSocket.delegate = nil;
         [_webSocket close];
         _webSocket = nil;
-        self.socket_status = [NSNumber numberWithBool:NO];
+        @synchronized(self.socket_status){
+            self.socket_status = [NSNumber numberWithBool:NO];
+        }
+        self.system_message = @"Disconnecting...";
     }
 }
 
@@ -81,16 +84,23 @@
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket;
 {
     NSLog(@"Websocket Connected");
-    self.socket_status = [NSNumber numberWithBool:YES];
     
+    @synchronized(self.socket_status){
+        self.socket_status = [NSNumber numberWithBool:YES];
+    }
     self.system_message = @"Connected!";
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;
 {
     NSLog(@":( Websocket Failed With Error %@", error);
-    self.socket_status = [NSNumber numberWithBool:NO];
+    @synchronized(self.socket_status){
+        self.socket_status = [NSNumber numberWithBool:NO];
+    }
     self.system_message = @"Connection Failed! (see logs)";
+    
+    _webSocket.delegate = nil;
+    [_webSocket close];
     _webSocket = nil;
 }
 
@@ -103,9 +113,15 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
 {
-    self.socket_status = [NSNumber numberWithBool:NO];
+    
+    @synchronized(self.socket_status){
+        self.socket_status = [NSNumber numberWithBool:NO];
+    }
     NSLog(@"WebSocket closed");
     self.system_message = @"Connection Closed! (see logs)";
+
+    _webSocket.delegate = nil;
+    [_webSocket close];
     _webSocket = nil;
 }
 
@@ -119,15 +135,19 @@
         return;
     
     Corners4x2 temp = self.corners4x2;
+    MKCoordinateRegion temp_region = self.mapView.region;
     
     // Package the data
     NSDictionary *myDict = @{@"ulurbrbl" :
                         [NSData dataWithBytes:&(temp)
                                        length:sizeof(temp)],
-                             @"latitude": [NSNumber numberWithDouble:
-                                           [self.mapView centerCoordinate].latitude],
-                             @"longitude": [NSNumber numberWithDouble:
-                                           [self.mapView centerCoordinate].longitude]};
+                             @"map_region":[NSData dataWithBytes:
+                                            &(temp_region)
+                                        length:sizeof(temp_region)],
+                             @"mdl_orientation":[NSNumber numberWithFloat:
+                                                 self.model->camera_pos.orientation],
+                             @"mdl_tilt":[NSNumber numberWithFloat:
+                                                 self.model->tilt]};
     
     // Send the data (in the form of NSData)
     //http://stackoverflow.com/questions/5513075/how-can-i-convert-nsdictionary-to-nsdata-and-vice-versa

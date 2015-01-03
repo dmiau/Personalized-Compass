@@ -138,16 +138,27 @@
     }
 }
 
-- (IBAction)toggleServer:(id)sender {
-    [self.rootViewController startServer];
-    //---------------
-    // Display port information
-    //---------------
-    int port = [[self.rootViewController.httpServer asyncSocket] localPort];
+- (IBAction)toggleServer:(NSSegmentedControl*)sender {
     
-    self.serverPort.stringValue =
-    [NSString stringWithFormat:@"%d", port];
+    switch (sender.selectedSegment) {
+        case 0:
+            [self.rootViewController.httpServer stop];
+            self.serverPort.stringValue =
+            [NSString stringWithFormat:@"%@", @"????"];
+            break;
+        case 1:
+            [self.rootViewController startServer];
+            //---------------
+            // Display port information
+            //---------------
+            int port = [[self.rootViewController.httpServer asyncSocket] localPort];
+            
+            self.serverPort.stringValue =
+            [NSString stringWithFormat:@"%d", port];
+            break;
+    }
 }
+
 - (IBAction)toggleGLView:(NSButton*)sender {
     if ([sender state] == NSOnState) {
         [self.rootViewController.compassView setHidden:NO];
@@ -165,6 +176,11 @@
         [self.rootViewController.landmarkTable setHidden:YES];
         
     }
+}
+
+- (IBAction)toggleiOSSyncFlag:(NSSegmentedControl*)sender {
+    self.rootViewController.iOSSyncFlag =
+    !self.rootViewController.iOSSyncFlag;
 }
 
 @end
