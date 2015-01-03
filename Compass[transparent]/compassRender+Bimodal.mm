@@ -182,7 +182,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         }else{
             glPushMatrix();
             glRotatef(-model->camera_pos.orientation, 0, 0, -1);
-            isBoundaryIndicatorDrawn = drawBox
+            isBoundaryIndicatorDrawn = drawBoxInCompass
             (outer_disk_radius/mode_max_dist_array[0]);
             glPopMatrix();
         }

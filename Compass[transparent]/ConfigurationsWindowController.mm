@@ -183,4 +183,9 @@
     !self.rootViewController.iOSSyncFlag;
 }
 
+- (IBAction)toggleiOSBoundary:(id)sender {
+    self.rootViewController.renderer->isiOSBoxEnabled
+    = !self.rootViewController.renderer->isiOSBoxEnabled;
+}
+
 @end

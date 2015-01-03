@@ -134,13 +134,13 @@
     if ([self.socket_status boolValue] == NO)
         return;
     
-    Corners4x2 temp = self.corners4x2;
+    Corners4x2 temp_corner = self.corners4x2;
     MKCoordinateRegion temp_region = self.mapView.region;
     
     // Package the data
     NSDictionary *myDict = @{@"ulurbrbl" :
-                        [NSData dataWithBytes:&(temp)
-                                       length:sizeof(temp)],
+                        [NSData dataWithBytes:&(temp_corner)
+                                       length:sizeof(temp_corner)],
                              @"map_region":[NSData dataWithBytes:
                                             &(temp_region)
                                         length:sizeof(temp_region)],

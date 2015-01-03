@@ -17,7 +17,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="682" height="427"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="-1" width="682" height="427"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -92,7 +92,7 @@
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sp0-lE-LyV">
                                             <rect key="frame" x="15" y="333" width="191" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Show OpenGL Changes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Cy7-aZ-x72">
+                                            <buttonCell key="cell" type="check" title="Show OpenGL Layer" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Cy7-aZ-x72">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -263,6 +263,27 @@
                                                 <action selector="toggleiOSSyncFlag:" target="-2" id="T1B-Ee-LJY"/>
                                             </connections>
                                         </segmentedControl>
+                                        <box autoresizesSubviews="NO" fixedFrame="YES" title="Communicaiton with iOS" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="pUI-yr-MHn">
+                                            <rect key="frame" x="341" y="-2" width="268" height="163"/>
+                                            <view key="contentView">
+                                                <rect key="frame" x="1" y="1" width="266" height="147"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebE-G7-EVb">
+                                                        <rect key="frame" x="31" y="8" width="145" height="18"/>
+                                                        <buttonCell key="cell" type="check" title="Show iOS boundary" bezelStyle="regularSquare" imagePosition="left" inset="2" id="iJ0-X1-H3t">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="toggleiOSBoundary:" target="-2" id="0a1-G4-AwZ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </view>
+                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </box>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -279,7 +300,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-17" y="348.5"/>
+            <point key="canvasLocation" x="8" y="387.5"/>
         </window>
     </objects>
 </document>

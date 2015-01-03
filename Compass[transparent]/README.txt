@@ -1679,15 +1679,13 @@ iOS:
 - the app crashes when the connection is dropped. To reproduce, 
 I can cut the connection from the OSX side. [fixed@10:06PM]
 - cannot turn off the connection. the segment control status 
-is not updated
+is not updated [fixed@11:34PM]
 
 OSX:
 - the server cannot be really turned off [fixed@10:23PM]
 - updateMapDisplayRegion code needs to be refiend (so as the one iniOS)
 - when the table and the compass is on, the app is easy to crash...
 (so when working on the box drawing code, this part needs to be taken into account)
-
-
 
 self.model->camera_pos.orientation = heading_deg;
 self.model->tilt = tilt_deg;
@@ -1706,6 +1704,49 @@ self.model->tilt = tilt_deg;
                                                  self.model->camera_pos.orientation],
                              @"mdl_tilt":[NSNumber numberWithFloat:
                                                  self.model->tilt]};
+
+-------------------------------------------------------------------
+1.3.2015
+-------------------------------------------------------------------
+check compassRender::renderStyleWedge
+drawBoxInView is an good example
+
+drawing is in compassRender::render
+
+box4Corners is calculated within updateOverviewMap
+
+CGPoint iOSFourCorners[4];
+Refactor drawBoxInView
+
+- need to clean up settings code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

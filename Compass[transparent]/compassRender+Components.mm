@@ -210,10 +210,10 @@ void compassRender::drawClearWatch(){
 //-------------
 // draws the mini box to signify scale
 //-------------
-BOOL compassRender::drawBox(double renderD2realDRatio)
+BOOL compassRender::drawBoxInCompass(double renderD2realDRatio)
 {
-    // drawBox returns true when the box is successfully drawn
-    // drawBox returns false when the box is too small to be drawn
+    // drawBoxInCompass returns true when the box is successfully drawn
+    // drawBoxInCompass returns false when the box is too small to be drawn
     
     // calculate the parameters needed to draw the box
     
@@ -302,17 +302,17 @@ BOOL compassRender::drawBoundaryCircle(double renderD2realDRatio)
     return true;
 }
 
-void compassRender::drawOverviewBox(){
+void compassRender::drawBoxInView(CGPoint fourCorners[4]){
     // Draw the box
     glLineWidth(2);
     glColor4f(1, 0, 0, 1);
     glPushMatrix();
     // Plot the triangle first, then rotate and translate
     
-    Vertex3D    vertex1 = Vertex3DMake(box4Corners[0].x, box4Corners[0].y, 0);
-    Vertex3D    vertex2 = Vertex3DMake(box4Corners[1].x, box4Corners[1].y, 0);
-    Vertex3D    vertex3 = Vertex3DMake(box4Corners[2].x, box4Corners[2].y, 0);
-    Vertex3D    vertex4 = Vertex3DMake(box4Corners[3].x, box4Corners[3].y, 0);
+    Vertex3D    vertex1 = Vertex3DMake(fourCorners[0].x, fourCorners[0].y, 0);
+    Vertex3D    vertex2 = Vertex3DMake(fourCorners[1].x, fourCorners[1].y, 0);
+    Vertex3D    vertex3 = Vertex3DMake(fourCorners[2].x, fourCorners[2].y, 0);
+    Vertex3D    vertex4 = Vertex3DMake(fourCorners[3].x, fourCorners[3].y, 0);
         
     RectangleLine3D  rectangle = RectangleLine3DMake(vertex1, vertex2,
                                                      vertex3, vertex4);

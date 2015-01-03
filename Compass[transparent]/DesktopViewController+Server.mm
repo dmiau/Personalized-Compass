@@ -56,12 +56,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 //---------------------
 -(void)syncWithiOS: (NSDictionary*) myDictionary
 {
-    //Unpack parameters of the four corners
-    NSData *myData = myDictionary[@"corners4x2"];
-    
-    Corners4x2 temp_corner;
-    [myData getBytes:&temp_corner length:sizeof(temp_corner)];
-    
+    NSData *myData;
     //Unpack parameters of the map region
     myData = myDictionary[@"map_region"];
     MKCoordinateRegion temp_region;
@@ -85,7 +80,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     // Make the display region bigger than iOS's
     MKCoordinateRegion expanded_region =
     MKCoordinateRegionMake(temp_region.center,
-                           MKCoordinateSpanMake(temp_region.span.latitudeDelta, temp_region.span.longitudeDelta));
+                           MKCoordinateSpanMake(
+                            5*temp_region.span.latitudeDelta,
+                            5*temp_region.span.longitudeDelta));
     self.mapView.region = expanded_region;
     
     self.model->updateMdl();
@@ -93,6 +90,22 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     self.mapView.camera.heading = -[myDictionary[@"mdl_orientation"] floatValue];
 
+    //--------------------------
+    // Calculate the four corners of the iOS display
+    //--------------------------
+    //Unpack parameters of the four corners
+    myData = myDictionary[@"ulurbrbl"];
+    
+    Corners4x2 temp_corner;
+    [myData getBytes:&temp_corner length:sizeof(temp_corner)];
+    
+    for (int i = 0; i < 4; ++i){
+        self.renderer->iOSFourCorners[i] =
+        [self.mapView convertCoordinate:
+         CLLocationCoordinate2DMake(temp_corner.content[i][0],
+                                    temp_corner.content[i][1])
+                          toPointToView:self.compassView];
+    }
 }
 
 @end

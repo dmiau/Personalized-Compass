@@ -41,5 +41,6 @@
 - (IBAction)toggleLandmarkTableView:(id)sender;
 
 - (IBAction)toggleiOSSyncFlag:(id)sender;
+- (IBAction)toggleiOSBoundary:(id)sender;
 
 @end

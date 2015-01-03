@@ -118,9 +118,18 @@ public:
     // Camera handling
     recCamera camera;
     
+    //-------------------
     // Overview map stuff
+    //-------------------
     bool isOverviewMapEnabled;
     CGPoint box4Corners[4];
+
+    //-------------------
+    // Displaying iOS box in OSX
+    //-------------------
+    bool isiOSBoxEnabled;
+    // The four corners of the iOS display
+    CGPoint iOSFourCorners[4];
     
 private:
     // Compass rendering intermediate parameters
@@ -164,9 +173,9 @@ private:
                    texture_info my_texture_info);
     void drawCircle(float cx, float cy, float r, int num_segments, bool isSolid);
     
-    BOOL drawBox(double renderD2realDRatio);
+    BOOL drawBoxInCompass(double renderD2realDRatio);
     BOOL drawBoundaryCircle(double renderD2realDRatio);
-    void drawOverviewBox();
+    void drawBoxInView(CGPoint fourCorners[4]);
     void drawClearWatch();
     
     // Wedge drawing routines

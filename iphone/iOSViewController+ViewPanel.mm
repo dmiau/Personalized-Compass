@@ -307,7 +307,7 @@
     }
     
     //-------------
-    // Draw a box on the overview map
+    // Calculate the boundary of the overview map for box drawing
     //-------------
     
     //First we need to calculate the corners of the map so we get the points
