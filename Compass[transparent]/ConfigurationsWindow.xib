@@ -206,13 +206,13 @@
                                             </segmentedCell>
                                         </segmentedControl>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Communicaiton with iOS" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="pUI-yr-MHn">
-                                            <rect key="frame" x="343" y="5" width="268" height="173"/>
+                                            <rect key="frame" x="343" y="5" width="268" height="197"/>
                                             <view key="contentView">
-                                                <rect key="frame" x="1" y="1" width="266" height="157"/>
+                                                <rect key="frame" x="1" y="1" width="266" height="181"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-HR-OT0">
-                                                        <rect key="frame" x="31" y="129" width="43" height="17"/>
+                                                        <rect key="frame" x="31" y="153" width="43" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Server" id="lme-0Y-f0A">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -220,7 +220,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCY-8D-qgU">
-                                                        <rect key="frame" x="139" y="124" width="71" height="24"/>
+                                                        <rect key="frame" x="139" y="148" width="71" height="24"/>
                                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Lr2-fF-hcI">
                                                             <font key="font" metaFont="system"/>
                                                             <segments>
@@ -233,7 +233,7 @@
                                                         </connections>
                                                     </segmentedControl>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCQ-aO-U6l">
-                                                        <rect key="frame" x="34" y="74" width="30" height="17"/>
+                                                        <rect key="frame" x="34" y="98" width="30" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port" id="9Cx-HZ-LqK">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -241,7 +241,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zUJ-ry-l8C">
-                                                        <rect key="frame" x="145" y="75" width="90" height="17"/>
+                                                        <rect key="frame" x="145" y="99" width="90" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="???" id="FGh-qP-edj">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -249,7 +249,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8R-2a-zvp">
-                                                        <rect key="frame" x="33" y="47" width="91" height="17"/>
+                                                        <rect key="frame" x="33" y="71" width="91" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sync with iOS" id="mf9-Pd-OyE">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -257,7 +257,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8F-Le-2s4">
-                                                        <rect key="frame" x="139" y="42" width="71" height="24"/>
+                                                        <rect key="frame" x="139" y="66" width="71" height="24"/>
                                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Va1-3i-Lxe">
                                                             <font key="font" metaFont="system"/>
                                                             <segments>
@@ -270,7 +270,7 @@
                                                         </connections>
                                                     </segmentedControl>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srg-Hg-usC">
-                                                        <rect key="frame" x="33" y="104" width="17" height="17"/>
+                                                        <rect key="frame" x="33" y="128" width="17" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="IP" id="dma-Sw-n6t">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -278,7 +278,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEe-97-M7w">
-                                                        <rect key="frame" x="70" y="102" width="191" height="17"/>
+                                                        <rect key="frame" x="70" y="126" width="191" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ip????" id="q1e-F3-qMD">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -289,13 +289,23 @@
                                                         </connections>
                                                     </textField>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebE-G7-EVb">
-                                                        <rect key="frame" x="32" y="17" width="145" height="18"/>
+                                                        <rect key="frame" x="32" y="41" width="145" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Show iOS boundary" bezelStyle="regularSquare" imagePosition="left" inset="2" id="iJ0-X1-H3t">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
                                                             <action selector="toggleiOSBoundary:" target="-2" id="0a1-G4-AwZ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfp-XC-UKD">
+                                                        <rect key="frame" x="32" y="13" width="158" height="18"/>
+                                                        <buttonCell key="cell" type="check" title="Show iOS screen only" bezelStyle="regularSquare" imagePosition="left" inset="2" id="EJE-24-5SL">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="toggleiOSScreenOnly:" target="-2" id="Egh-6s-rAT"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

@@ -657,7 +657,6 @@
 		9A75720D197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */; };
 		9A75720E197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */; };
 		9A75720F197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */; };
-		9A7983E11A45C8D200F86108 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E518D9EBB20028B80C /* MainMenu.xib */; };
 		9A8284DF1A4A32A2000ED4AA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8284DE1A4A32A2000ED4AA /* WebKit.framework */; };
 		9A82B6311941518900534A5F /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9A82B6321941518900534A5F /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
@@ -876,6 +875,7 @@
 		9AEA582918D9ED350028B80C /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
 		9AEA582C18D9ED600028B80C /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
 		9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
+		9AEC4CBE1A5AFB5100B61A3B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57E518D9EBB20028B80C /* MainMenu.xib */; };
 		9AEC5CE518F3956F00A29F75 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582518D9EC9F0028B80C /* GLUT.framework */; };
 		9AEC5CE618F3956F00A29F75 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582318D9EC940028B80C /* MapKit.framework */; };
 		9AEC5CE718F3956F00A29F75 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA582118D9EC8F0028B80C /* CoreLocation.framework */; };
@@ -2594,7 +2594,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A7983E11A45C8D200F86108 /* MainMenu.xib in Resources */,
+				9AEC4CBE1A5AFB5100B61A3B /* MainMenu.xib in Resources */,
 				9A4808CB198C2FA30001E188 /* training.kml in Resources */,
 				9AECA76F196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A239EDD196EFF410064BDC9 /* new.kml in Resources */,

@@ -93,9 +93,22 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         double aperture, leg;
         label_info myLabelinfo;
         if ([model->configurations[@"wedge_style"]
-             isEqualToString:@"modified-orthographic"]){
-          
-            box screen_box(orig_width-30, orig_height-30);
+             isEqualToString:@"modified-orthographic"])
+        {
+            float wedge_disp_width, wedge_disp_height;
+            if (isiOSBoxEnabled &&
+                model->tilt > -0.0001)
+            {
+                //TODO Render wedge within the iOS screen boundary?
+                // iOSFourCorners
+                wedge_disp_width = iOSFourCorners[1].x - iOSFourCorners[0].x - 10;
+                wedge_disp_height = iOSFourCorners[1].y - iOSFourCorners[2].y - 10;
+            }else{
+                wedge_disp_width = orig_width-30;
+                wedge_disp_height = orig_height - 30;
+            }
+            
+            box screen_box(wedge_disp_width, wedge_disp_height);
             wedge my_wedge(model, screen_box, CGPointMake(x_diff, y_diff));
             my_wedge.render();
             leg = my_wedge.leg;

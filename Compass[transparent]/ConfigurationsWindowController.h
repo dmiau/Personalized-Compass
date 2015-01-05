@@ -43,5 +43,6 @@
 
 - (IBAction)toggleiOSSyncFlag:(id)sender;
 - (IBAction)toggleiOSBoundary:(id)sender;
+- (IBAction)toggleiOSScreenOnly:(id)sender;
 
 @end

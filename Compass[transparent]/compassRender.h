@@ -100,8 +100,6 @@ public:
     // Parameters for perspective projection
     float orig_width;
     float orig_height;
-    float viewport_width;
-    float viewport_height;
     float fov;
     
     //----------------

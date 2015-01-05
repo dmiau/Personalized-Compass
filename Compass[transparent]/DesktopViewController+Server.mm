@@ -77,12 +77,17 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     //    [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];
 
     
+    float OSX_iOS_screen_ratio = 5;
+    if (self.model->configurations[@"wedge_status"] == @"on"){
+        OSX_iOS_screen_ratio = 1.5;
+    }
+    
     // Make the display region bigger than iOS's
     MKCoordinateRegion expanded_region =
     MKCoordinateRegionMake(temp_region.center,
                            MKCoordinateSpanMake(
-                            5*temp_region.span.latitudeDelta,
-                            5*temp_region.span.longitudeDelta));
+                            OSX_iOS_screen_ratio*temp_region.span.latitudeDelta,
+                            OSX_iOS_screen_ratio*temp_region.span.longitudeDelta));
     self.mapView.region = expanded_region;
     
     self.model->updateMdl();

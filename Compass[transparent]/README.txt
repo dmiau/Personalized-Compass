@@ -1720,15 +1720,36 @@ Refactor drawBoxInView
 
 - need to clean up settings code
 
+remove?
+- SettingsViewController.mm, SettingsViewController.h
 
+What's next?
+- implement Wedge-like testing environment
+- 
 
+-------------------------------------------------------------------
+1.5.2015
+-------------------------------------------------------------------
+- Try to build the code on a new system. 
+- I want to implement wedge testing mode. 
+How can I modify the screen size?
 
+potential sources of confusion:
 
+compassRender:
+-orig_height
+-viewport_height
 
+OpenGL:
+-viewHeight
 
+* up and down motions need to be fixed. 
 
+The screen size may be modified in compassRenderer+wedge.m
+TODO
+TOFIX
 
-
+Need to add a mask
 
 
 

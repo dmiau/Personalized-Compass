@@ -191,4 +191,30 @@
     = !self.rootViewController.renderer->isiOSBoxEnabled;
 }
 
+- (IBAction)toggleiOSScreenOnly:(id)sender {
+    
+//    NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0,
+//                self.rootViewController.mapView.bounds.size.width,
+//                self.rootViewController.mapView.bounds.size.height) cornerRadius:0];
+//    
+//    Corners4x2 corners4x2 = self.rootViewController.corners4x2;
+//    NSBezierPath *rectPath = [NSBezierPath bezierPathWithRoundedRect:CGRectMake(
+//                corners4x2.content[0][0], corners4x2.content[0][1],
+//                corners4x2.content[1][0] - corners4x2.content[0][0],
+//                corners4x2.content[1][0] - corners4x2.content[2][0]) cornerRadius:0];
+//    [path appendBezierPath:rectPath];
+////
+////    [path setUsesEvenOddFillRule:YES];
+////    
+////
+////    
+//    CALayer *fillLayer = [CALayer layer];
+//    fillLayer.path = path.CGPath;
+//    fillLayer.fillRule = kCAFillRuleEvenOdd;
+//    fillLayer.fillColor = [UIColor blackColor].CGColor;
+//    fillLayer.opacity = 1;
+//    [self.glkView.layer addSublayer:fillLayer];
+//    self.view.backgroundColor = [UIColor blackColor];
+}
+
 @end
