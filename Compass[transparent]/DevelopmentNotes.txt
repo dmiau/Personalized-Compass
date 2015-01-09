@@ -1,14 +1,17 @@
 Coordinate system:
 
-OSX View (u, v):
+=====================
+OSX View (u, v)
+=====================
 --------u
 |
 |
 |
 v
 
+=====================
 OpenGL
-
+=====================
 y
 |
 |
@@ -16,6 +19,15 @@ y
 |
 |
 -y
+
+=====================
+iOS (u, v), note: the coordinate system is flipped
+=====================
+v
+|
+|
+|
+--------u
 
 
 These things are different:

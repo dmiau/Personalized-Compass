@@ -237,6 +237,16 @@
 // of MapView
 //----------------------------
 - (void) updateCornerLatLon{
+    
+//    =====================
+//    iOS (u, v), note: the coordinate system is flipped
+//    =====================
+//    v
+//    |
+//    |
+//    |
+//    --------u
+    
     //First we need to calculate the corners of the map so we get the points
     CGPoint ulPoint = CGPointMake(self.mapView.bounds.origin.x,
                                   self.mapView.bounds.origin.y);
@@ -251,16 +261,18 @@
                                   self.mapView.bounds.origin.y+
                                   self.mapView.bounds.size.height);
     
+    // Note the order in coord_array is reversed so the order in OSX is correct.
+    
     //Then transform those points into lat,lng values
     CLLocationCoordinate2D coord_array[4];
-    coord_array[0]
+    coord_array[3]
     = [self.mapView convertPoint:ulPoint toCoordinateFromView:self.mapView];
-    coord_array[1]
+    coord_array[2]
     = [self.mapView convertPoint:urPoint toCoordinateFromView:self.mapView];
     
-    coord_array[2]
+    coord_array[1]
     = [self.mapView convertPoint:brPoint toCoordinateFromView:self.mapView];
-    coord_array[3]
+    coord_array[0]
     = [self.mapView convertPoint:blPoint toCoordinateFromView:self.mapView];
     
     //http://stackoverflow.com/questions/17548425/objective-c-property-for-c-array

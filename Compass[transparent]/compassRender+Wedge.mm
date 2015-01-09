@@ -102,7 +102,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
                 //TODO Render wedge within the iOS screen boundary?
                 // iOSFourCorners
                 wedge_disp_width = iOSFourCorners[1].x - iOSFourCorners[0].x - 10;
-                wedge_disp_height = iOSFourCorners[1].y - iOSFourCorners[2].y - 10;
+                wedge_disp_height = iOSFourCorners[2].y - iOSFourCorners[1].y - 10;
             }else{
                 wedge_disp_width = orig_width-30;
                 wedge_disp_height = orig_height - 30;

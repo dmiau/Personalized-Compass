@@ -323,6 +323,69 @@ void compassRender::drawBoxInView(CGPoint fourCorners[4]){
 }
 
 
+
+//-------------------------
+//
+//-------------------------
+void compassRender::drawiOSMask(CGPoint fourCorners[4]){
+    // Draw the box
+    glLineWidth(2);
+    glColor4f(1, 1, 1, 1);
+    glPushMatrix();
+    
+    Vertex3D    vertex1, vertex2, vertex3, vertex4;
+    RectangleLine3D rectangle;
+    // Need to draw four rectangles: top, left, bottom, right
+    
+    // Draw the top rectangle:
+    vertex1 = Vertex3DMake(0, 0, 0);
+    vertex2 = Vertex3DMake(orig_width, 0, 0);
+    vertex3 = Vertex3DMake(orig_width, fourCorners[0].y, 0);
+    vertex4 = Vertex3DMake(0, fourCorners[0].y, 0);
+    
+    rectangle = RectangleLine3DMake(vertex1, vertex2,
+                                                     vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &rectangle);
+    glDrawArrays(GL_TRIANGLE_FAN, 0,5);
+    
+
+    // Draw the left rectangle:
+    vertex1 = Vertex3DMake(fourCorners[1].x, 0, 0);
+    vertex2 = Vertex3DMake(orig_width, 0, 0);
+    vertex3 = Vertex3DMake(orig_width, orig_height, 0);
+    vertex4 = Vertex3DMake(fourCorners[1].x, orig_height, 0);
+    
+    rectangle = RectangleLine3DMake(vertex1, vertex2,
+                                    vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &rectangle);
+    glDrawArrays(GL_TRIANGLE_FAN, 0,5);
+    
+    
+    // Draw the bottom rectangle:
+    vertex1 = Vertex3DMake(0, fourCorners[2].y, 0);
+    vertex2 = Vertex3DMake(orig_width, fourCorners[2].y, 0);
+    vertex3 = Vertex3DMake(orig_width, orig_height, 0);
+    vertex4 = Vertex3DMake(0, orig_height, 0);
+    
+    rectangle = RectangleLine3DMake(vertex1, vertex2,
+                                    vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &rectangle);
+    glDrawArrays(GL_TRIANGLE_FAN, 0,5);
+    
+    // Draw the right rectangle:
+    vertex1 = Vertex3DMake(0, 0, 0);
+    vertex2 = Vertex3DMake(fourCorners[0].x, 0, 0);
+    vertex3 = Vertex3DMake(fourCorners[0].x, orig_height, 0);
+    vertex4 = Vertex3DMake(0, orig_height, 0);
+    
+    rectangle = RectangleLine3DMake(vertex1, vertex2,
+                                    vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &rectangle);
+    glDrawArrays(GL_TRIANGLE_FAN, 0,5);
+        
+    glPopMatrix();
+}
+
 #pragma mark ----Tools----
 double compassRender::getMapWidthInMeters(){
 

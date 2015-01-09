@@ -192,6 +192,8 @@
 }
 
 - (IBAction)toggleiOSScreenOnly:(id)sender {
+    self.rootViewController.renderer->isiOSMaskEnabled
+    = !self.rootViewController.renderer->isiOSMaskEnabled;
     
 //    NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0,
 //                self.rootViewController.mapView.bounds.size.width,
@@ -207,14 +209,15 @@
 ////    [path setUsesEvenOddFillRule:YES];
 ////    
 ////
-////    
-//    CALayer *fillLayer = [CALayer layer];
-//    fillLayer.path = path.CGPath;
-//    fillLayer.fillRule = kCAFillRuleEvenOdd;
-//    fillLayer.fillColor = [UIColor blackColor].CGColor;
-//    fillLayer.opacity = 1;
-//    [self.glkView.layer addSublayer:fillLayer];
-//    self.view.backgroundColor = [UIColor blackColor];
+////
+//    
+//    CAShapeLayer *fillLayer = [CAShapeLayer layer];
+////    fillLayer.path = path.CGPath;
+////    fillLayer.fillRule = kCAFillRuleEvenOdd;
+////    fillLayer.fillColor = [UIColor blackColor].CGColor;
+////    fillLayer.opacity = 1;
+////    [self.glkView.layer addSublayer:fillLayer];
+////    self.view.backgroundColor = [UIColor blackColor];
 }
 
 @end

@@ -1751,10 +1751,36 @@ TOFIX
 
 Need to add a mask
 
+mapMask = [CALayer layer];
+mapMask.backgroundColor = [[UIColor whiteColor] CGColor];
+mapMask.frame = CGRectMake(0, 0,
+                           self.mapView.frame.size.width,
+                           self.mapView.frame.size.height);
+mapMask.opacity = 1;
+[self.mapView.layer addSublayer:mapMask];
 
+//
+UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.mapView.bounds.size.width, self.mapView.bounds.size.height) cornerRadius:0];
 
+UIBezierPath *circlePath = [UIBezierPath bezierPathWithRoundedRect:
+                            CGRectMake(fwidth/2-radius, fheight/2-radius,2*radius, 2*radius) cornerRadius:radius];
+[path appendPath:circlePath];
+[path setUsesEvenOddFillRule:YES];
 
+CAShapeLayer *fillLayer = [CAShapeLayer layer];
+fillLayer.path = path.CGPath;
+fillLayer.fillRule = kCAFillRuleEvenOdd;
+fillLayer.fillColor = [UIColor blackColor].CGColor;
+fillLayer.opacity = 1;
+[self.glkView.layer addSublayer:fillLayer];
+self.view.backgroundColor = [UIColor blackColor];
 
+Attach NSBezierPath to a CAShapeLayer
+http://stackoverflow.com/questions/17788870/how-to-attach-an-nsbezierpath-to-a-cashapelayer
+
+-------------------------------------------------------------------
+1.5.2015
+-------------------------------------------------------------------
 
 
 

@@ -1103,6 +1103,7 @@
 		9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Interactions.mm"; sourceTree = "<group>"; };
 		9A36619119A3FE4E00DC0D15 /* myMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myMapView.h; sourceTree = "<group>"; };
 		9A36619219A3FE4E00DC0D15 /* myMapView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = myMapView.mm; sourceTree = "<group>"; };
+		9A39E14D1A5B5188002D203D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9A3DA0951964E9B1009E0073 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = icons/add.png; sourceTree = "<group>"; };
 		9A3DA0961964E9B1009E0073 /* remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remove.png; path = icons/remove.png; sourceTree = "<group>"; };
 		9A3DA0A31964F5E3009E0073 /* genKMLString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genKMLString.mm; sourceTree = "<group>"; };
@@ -2144,6 +2145,7 @@
 		9AEA57CF18D9EBB20028B80C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A39E14D1A5B5188002D203D /* QuartzCore.framework */,
 				9A8284DE1A4A32A2000ED4AA /* WebKit.framework */,
 				9AAEDB3B1A0DB7A9000F3A23 /* libicucore.dylib */,
 				9AAEDB391A0DB79E000F3A23 /* SystemConfiguration.framework */,

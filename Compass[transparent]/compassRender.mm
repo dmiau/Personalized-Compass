@@ -67,6 +67,7 @@ int compassRender::initRenderMdl(){
     wedgeMode               = false;
     isOverviewMapEnabled    = false;
     isiOSBoxEnabled         = false;
+    isiOSMaskEnabled        = false;
     
     for (int i = 0; i < 4; ++i){
         // Initialize all four corners to 0 first
@@ -220,34 +221,48 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     // Draw a box in the overview view
     //--------------
     // This is strange, I couldn't place this block below the draw compass code...
-    glPushMatrix();
+
     if (isOverviewMapEnabled &&
         model->tilt > -0.0001)
     {
+        glPushMatrix();
         // Note UIView's coordinate system is diffrent than OpenGL's
         glTranslatef(-orig_width/2, orig_height/2, 0);
         glRotatef(180, 1, 0, 0);
         drawBoxInView(box4Corners);
+        glPopMatrix();
     }
-    glPopMatrix();
-
     
     //--------------
     // Draw a box (to indicate the iOS diaplay area)
     // in the main view
     //--------------
-    // This is strange, I couldn't place this block below the draw compass code...
-    glPushMatrix();
+
     if (isiOSBoxEnabled &&
         model->tilt > -0.0001)
     {
+        glPushMatrix();
         // Note UIView's coordinate system is diffrent than OpenGL's
         glTranslatef(-orig_width/2, orig_height/2, 0);
         glRotatef(180, 1, 0, 0);
         drawBoxInView(iOSFourCorners);
+        glPopMatrix();
     }
-    glPopMatrix();
-    
+
+    //--------------
+    // Draw a box (to indicate the iOS diaplay area)
+    // in the main view
+    //--------------
+    if (isiOSMaskEnabled &&
+        model->tilt > -0.0001)
+    {
+        glPushMatrix();
+        // Note UIView's coordinate system is diffrent than OpenGL's
+        glTranslatef(-orig_width/2, orig_height/2, 0);
+        glRotatef(180, 1, 0, 0);
+        drawiOSMask(iOSFourCorners);
+        glPopMatrix();
+    }
     
     //--------------
     // Draw compass

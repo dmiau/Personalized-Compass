@@ -131,6 +131,8 @@ public:
     // The four corners of the iOS display
     CGPoint iOSFourCorners[4];
     
+    bool isiOSMaskEnabled;
+    
 private:
     // Compass rendering intermediate parameters
     double max_dist;
@@ -176,6 +178,7 @@ private:
     BOOL drawBoxInCompass(double renderD2realDRatio);
     BOOL drawBoundaryCircle(double renderD2realDRatio);
     void drawBoxInView(CGPoint fourCorners[4]);
+    void drawiOSMask(CGPoint fourCorners[4]);
     void drawClearWatch();
     
     // Wedge drawing routines
