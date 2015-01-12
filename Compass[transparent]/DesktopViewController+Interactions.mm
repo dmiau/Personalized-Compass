@@ -40,14 +40,18 @@
     }
 }
 
+//--------------------
+// Toggle personalized compass
+//--------------------
 - (IBAction)toggleCompass:(id)sender {
-    // Toggle MapView status
-    if (self.conventionalCompassVisible == YES){
-        self.conventionalCompassVisible = NO;
+    if ([self.model->configurations[@"personalized_compass_status"]
+         isEqualToString: @"on"])
+    {
+//        self.conventionalCompassVisible = NO;
         self.model->configurations[@"personalized_compass_status"] = @"off";
         [(NSMenuItem *)sender setTitle:@"Show Compass"];
     }else{
-        self.conventionalCompassVisible = YES;
+//        self.conventionalCompassVisible = YES;
         self.model->configurations[@"personalized_compass_status"] = @"on";
         [(NSMenuItem *)sender setTitle:@"Hide Compass"];
     }

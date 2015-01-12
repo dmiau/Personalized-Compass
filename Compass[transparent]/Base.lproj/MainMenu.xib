@@ -798,7 +798,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="827" height="530"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <view key="contentView" canDrawConcurrently="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="827" height="530"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -812,7 +812,7 @@
                             <outlet property="delegate" destination="3Bp-Mg-e5g" id="NIL-4Z-Qlz"/>
                         </connections>
                     </mapView>
-                    <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="62" horizontalPageScroll="10" verticalLineScroll="62" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuI-5c-mA4" userLabel="Landmark Table">
+                    <scrollView hidden="YES" ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="62" horizontalPageScroll="10" verticalLineScroll="62" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuI-5c-mA4" userLabel="Landmark Table">
                         <rect key="frame" x="583" y="9" width="233" height="512"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" drawsBackground="NO" copiesOnScroll="NO" id="fFu-K9-Eqy">
                             <rect key="frame" x="1" y="17" width="231" height="494"/>

@@ -189,6 +189,15 @@
 - (IBAction)toggleiOSBoundary:(id)sender {
     self.rootViewController.renderer->isiOSBoxEnabled
     = !self.rootViewController.renderer->isiOSBoxEnabled;
+    
+    // If the syncflag is off and the box mode is enabled,
+    // we need to manually initialize iOSFourCorners
+    if (!self.rootViewController.iOSSyncFlag &&
+        self.rootViewController.renderer->isiOSBoxEnabled)
+    {
+        float scale = [self.iOSScale floatValue];
+        [self calculateiOSScreenSize:scale];
+    }
 }
 
 - (IBAction)toggleiOSScreenOnly:(id)sender {
@@ -220,4 +229,31 @@
 ////    self.view.backgroundColor = [UIColor blackColor];
 }
 
+- (IBAction)adjustiOSScreenSize:(NSSlider *)sender {
+    float scale = [sender floatValue];
+    [self calculateiOSScreenSize:scale];
+}
+
+- (void)calculateiOSScreenSize:(float)scale{
+    //ul, ur, br, bl
+    float height = self.rootViewController.renderer->orig_height;
+    float width = self.rootViewController.renderer->orig_width;
+    
+    //iOS screen size is 320x503
+    float iOS_height = height * scale;
+    float iOS_width = iOS_height *320/503;
+    
+    CGPoint *tempFourCorners = self.rootViewController.renderer->iOSFourCorners;
+    tempFourCorners[0].x = width/2 - iOS_width/2;
+    tempFourCorners[0].y = height/2 - iOS_height/2;
+    
+    tempFourCorners[1].x = width/2 + iOS_width/2;
+    tempFourCorners[1].y = height/2 - iOS_height/2;
+    
+    tempFourCorners[2].x = width/2 + iOS_width/2;
+    tempFourCorners[2].y = height/2 + iOS_height/2;
+    
+    tempFourCorners[3].x = width/2 - iOS_width/2;
+    tempFourCorners[3].y = height/2 + iOS_height/2;
+}
 @end

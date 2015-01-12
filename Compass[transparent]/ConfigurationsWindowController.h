@@ -41,8 +41,14 @@
 // Disable/enable the landmark list
 - (IBAction)toggleLandmarkTableView:(id)sender;
 
+// Disable/enable iOS sync
 - (IBAction)toggleiOSSyncFlag:(id)sender;
 - (IBAction)toggleiOSBoundary:(id)sender;
 - (IBAction)toggleiOSScreenOnly:(id)sender;
+
+// Adjust the iOS screen size
+- (IBAction)adjustiOSScreenSize:(id)sender;
+
+@property (weak) IBOutlet NSSlider *iOSScale;
 
 @end

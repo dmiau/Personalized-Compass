@@ -129,6 +129,7 @@ public:
     //-------------------
     bool isiOSBoxEnabled;
     // The four corners of the iOS display
+    // (is NSView coordinates)
     CGPoint iOSFourCorners[4];
     
     bool isiOSMaskEnabled;

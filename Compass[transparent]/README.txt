@@ -1779,8 +1779,67 @@ Attach NSBezierPath to a CAShapeLayer
 http://stackoverflow.com/questions/17788870/how-to-attach-an-nsbezierpath-to-a-cashapelayer
 
 -------------------------------------------------------------------
-1.5.2015
+1.9.2015
 -------------------------------------------------------------------
+What needs to be done?
+- [done] Stand-alone iOS wedge mode (for testing)
+* [done] vislibility test will need to be updated
+- wedge parameters (fomula parameter modifications?)
+- move the location table to the configuration pane 
+- (desktop) touch-hold to move the compass
+- color - green check , red x
+- compass color (red is reserved for N, in most cases)
+- update method consolidation/clean-up
+- watch test mode
+
+* test manager
+- test generation
+- test result logging
+- show the difference between the answer and the groundtruth
+- setting sychronization (between the memory and the file); setting serilization
+
+iPad
+- cover the entire screen with the GL layer
+
+wedge_correction_X
+
+Nice to have:
+- transition between a wedge and a compass
+
+-------------------------------------------------------------------
+1.11.2015
+-------------------------------------------------------------------
+What should I tackle today? (I should try to work from home, at least in the afternoon.)
+
+-------------------------------------------------------------------
+1.12.2015
+-------------------------------------------------------------------
+The lighting in my room is throwing me off. It feels like there is soemething wrong with my eyes...(I hope not)
+
+- toggleCompass is to toggle the conventional compass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

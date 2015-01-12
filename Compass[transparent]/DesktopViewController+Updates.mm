@@ -74,8 +74,8 @@
         mouseTimer = nil;
         
         // Update the screen cordinates corresponding to
-        // iOS screen's boundary, if isiOSBoxEnabled is on
-        if (self.renderer->isiOSBoxEnabled){
+        // iOS screen's boundary, if iOSSyncFlag is on
+        if (self.iOSSyncFlag){
             for (int i = 0; i < 4; ++i){
                 self.renderer->iOSFourCorners[i] =
                 [self.mapView convertCoordinate:
@@ -119,14 +119,22 @@
     
     //concurrentQueue
     // UI update needs to be on main queue?
-    dispatch_async(dispatch_get_main_queue(),
-                   ^{
-                       NSRange range = [self.locationTableView rowsInRect:visibleRect];
-                       for (int i = range.location; i < range.location + range.length; ++i){
-                           // [todo] This part is ver slow...
-                           ((LocationCellView*)[tableCellCache objectAtIndex:i]).infoTextField.stringValue = [NSString stringWithFormat:@"%.2f (m)",self.model->data_array[i].distance];
-                       }
-                   });
+    
+    //---------------------------
+    // Update the location table
+    // (Do not need to update if the table is hidden!)
+    //---------------------------
+    if (!self.landmarkTable.isHidden)
+    {
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           NSRange range = [self.locationTableView rowsInRect:visibleRect];
+                           for (int i = range.location; i < range.location + range.length; ++i){
+                               // [todo] This part is ver slow...
+                               ((LocationCellView*)[tableCellCache objectAtIndex:i]).infoTextField.stringValue = [NSString stringWithFormat:@"%.2f (m)",self.model->data_array[i].distance];
+                           }
+                       });
+    }
     //        NSLog(@"location: %d, length:  %d", range.location, range.length);
 }
 
@@ -202,10 +210,25 @@
         
         CLLocationCoordinate2D coord2d =
         data_ptr->annotation.coordinate;
-        CGRect myRect = [self.mapView frame];
+        
+        // Visibility calculation differs
+        // when isiOSBoxEnabled is true
+        
+        //TODO: need to fix watch mode with isiOSBoxEnabled is true
+        CGRect myRect;
+        if (self.renderer->isiOSBoxEnabled){
+            // Get the information from iOSFourCorners
+            myRect.origin= self.renderer->iOSFourCorners[0];
+            myRect.size.width = self.renderer->iOSFourCorners[1].x -
+            self.renderer->iOSFourCorners[0].x;
+            myRect.size.height = self.renderer->iOSFourCorners[2].y -
+            self.renderer->iOSFourCorners[1].y;
+        }else{
+            myRect = [self.mapView frame];
+        }
+
         
         if (self.renderer->watchMode){
-            
             
             CLLocation *point_location = [[CLLocation alloc]
                                           initWithLatitude:coord2d.latitude
@@ -220,8 +243,8 @@
             // testing if someLocation is on rotating mapView
             CGPoint screenP = [self.mapView convertCoordinate:
                                coord2d toPointToView:self.mapView];
-            if (screenP.x > 0 && screenP.x < myRect.size.width
-                && screenP.y > 0 && screenP.y < myRect.size.height){
+            if (screenP.x > myRect.origin.x && screenP.x < myRect.size.width
+                && screenP.y > myRect.origin.y && screenP.y < myRect.size.height){
                 data_ptr->isVisible = true;
             }else{
                 data_ptr->isVisible = false;

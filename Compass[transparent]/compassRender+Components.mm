@@ -330,7 +330,7 @@ void compassRender::drawBoxInView(CGPoint fourCorners[4]){
 void compassRender::drawiOSMask(CGPoint fourCorners[4]){
     // Draw the box
     glLineWidth(2);
-    glColor4f(1, 1, 1, 1);
+    glColor4f(0, 0, 0, 0);
     glPushMatrix();
     
     Vertex3D    vertex1, vertex2, vertex3, vertex4;
@@ -382,7 +382,7 @@ void compassRender::drawiOSMask(CGPoint fourCorners[4]){
                                     vertex3, vertex4);
     glVertexPointer(3, GL_FLOAT, 0, &rectangle);
     glDrawArrays(GL_TRIANGLE_FAN, 0,5);
-        
+    
     glPopMatrix();
 }
 
