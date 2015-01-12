@@ -18,6 +18,12 @@
 @property (weak) IBOutlet NSTextField *serverPort;
 
 //-------------
+// Methods
+//-------------
+- (void) prepareWindow;
+
+
+//-------------
 // Controls
 //-------------
 
@@ -48,7 +54,12 @@
 
 // Adjust the iOS screen size
 - (IBAction)adjustiOSScreenSize:(id)sender;
-
 @property (weak) IBOutlet NSSlider *iOSScale;
+
+// Adjust wedge parameters
+- (IBAction)adjustWedgeCorrectionFactor:(id)sender;
+@property (weak) IBOutlet NSSlider *wedgeCorrectionFactor;
+
+
 
 @end

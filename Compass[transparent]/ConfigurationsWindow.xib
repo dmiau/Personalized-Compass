@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="iOSScale" destination="mSQ-zP-kZe" id="kWn-Sk-LdW"/>
                 <outlet property="serverPort" destination="zUJ-ry-l8C" id="PMO-A3-KVC"/>
+                <outlet property="wedgeCorrectionFactor" destination="vkT-wl-kqH" id="u0A-QG-TrG"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="SOO-Ww-bDf"/>
             </connections>
         </customObject>
@@ -33,7 +34,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9N-E5-dbb">
-                                            <rect key="frame" x="173" y="54" width="104" height="24"/>
+                                            <rect key="frame" x="173" y="33" width="104" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="KQ2-n4-f9M">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -46,7 +47,7 @@
                                             </segmentedCell>
                                         </segmentedControl>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z11-fa-dPu">
-                                            <rect key="frame" x="15" y="58" width="87" height="17"/>
+                                            <rect key="frame" x="15" y="37" width="87" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data Prefilter" id="5Zi-vo-bwk">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -54,7 +55,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vx-BQ-EFN">
-                                            <rect key="frame" x="15" y="31" width="78" height="17"/>
+                                            <rect key="frame" x="15" y="10" width="78" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="D-Selection" id="EuS-gB-7OV">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -62,7 +63,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceG-YF-7mx">
-                                            <rect key="frame" x="15" y="204" width="67" height="17"/>
+                                            <rect key="frame" x="15" y="171" width="67" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Show Pins" id="CII-gg-03i">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -70,7 +71,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ei7-dU-Rpc">
-                                            <rect key="frame" x="96" y="198" width="297" height="24"/>
+                                            <rect key="frame" x="96" y="165" width="297" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="yf2-9F-DtD">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -147,7 +148,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vpY-C6-3ty">
-                                            <rect key="frame" x="15" y="167" width="40" height="17"/>
+                                            <rect key="frame" x="15" y="134" width="40" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="+Pins" id="W6x-jI-mV4">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -155,7 +156,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGn-ah-z3K">
-                                            <rect key="frame" x="96" y="161" width="189" height="24"/>
+                                            <rect key="frame" x="96" y="128" width="189" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="aX0-9b-v3x">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -166,7 +167,7 @@
                                             </segmentedCell>
                                         </segmentedControl>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wqn-5k-xyS">
-                                            <rect key="frame" x="15" y="130" width="80" height="17"/>
+                                            <rect key="frame" x="15" y="97" width="80" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Annotations" id="d3M-02-sUF">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -174,7 +175,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJl-VQ-Hma">
-                                            <rect key="frame" x="96" y="124" width="210" height="24"/>
+                                            <rect key="frame" x="96" y="91" width="210" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="QNG-cQ-GlZ">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -187,14 +188,14 @@
                                             </connections>
                                         </segmentedControl>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eua-L7-1Sd">
-                                            <rect key="frame" x="15" y="88" width="118" height="18"/>
+                                            <rect key="frame" x="15" y="67" width="118" height="18"/>
                                             <buttonCell key="cell" type="check" title="Landmark Lock" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TvN-CD-b6F">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8R-2a-zvp">
-                                            <rect key="frame" x="15" y="263" width="91" height="17"/>
+                                            <rect key="frame" x="15" y="234" width="91" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sync with iOS" id="mf9-Pd-OyE">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -202,7 +203,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ui0-ym-9gQ">
-                                            <rect key="frame" x="173" y="27" width="104" height="24"/>
+                                            <rect key="frame" x="173" y="6" width="104" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="BVE-Qc-tuX">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -282,7 +283,7 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8F-Le-2s4">
-                                            <rect key="frame" x="116" y="259" width="71" height="24"/>
+                                            <rect key="frame" x="116" y="230" width="71" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Va1-3i-Lxe">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -295,7 +296,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebE-G7-EVb">
-                                            <rect key="frame" x="218" y="262" width="145" height="18"/>
+                                            <rect key="frame" x="218" y="233" width="145" height="18"/>
                                             <buttonCell key="cell" type="check" title="Show iOS boundary" bezelStyle="regularSquare" imagePosition="left" inset="2" id="iJ0-X1-H3t">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -305,7 +306,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfp-XC-UKD">
-                                            <rect key="frame" x="380" y="261" width="158" height="18"/>
+                                            <rect key="frame" x="380" y="232" width="158" height="18"/>
                                             <buttonCell key="cell" type="check" title="Show iOS screen only" bezelStyle="regularSquare" imagePosition="left" inset="2" id="EJE-24-5SL">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -315,15 +316,30 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhs-3K-j8j">
-                                            <rect key="frame" x="179" y="235" width="100" height="17"/>
+                                            <rect key="frame" x="137" y="206" width="100" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="iOS screen size" id="uvw-JF-3IV">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8R-z1-WXZ">
+                                            <rect key="frame" x="84" y="271" width="153" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Wedge correction factor" id="0hm-ru-kbw">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vkT-wl-kqH">
+                                            <rect key="frame" x="267" y="269" width="215" height="21"/>
+                                            <sliderCell key="cell" state="on" alignment="left" maxValue="10" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="bLG-Ah-Yc7"/>
+                                            <connections>
+                                                <action selector="adjustWedgeCorrectionFactor:" target="-2" id="HDk-HH-CwE"/>
+                                            </connections>
+                                        </slider>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSQ-zP-kZe">
-                                            <rect key="frame" x="309" y="231" width="215" height="21"/>
+                                            <rect key="frame" x="267" y="202" width="215" height="21"/>
                                             <sliderCell key="cell" state="on" alignment="left" maxValue="1" doubleValue="0.33000000000000002" tickMarkPosition="above" sliderType="linear" id="Xtw-su-V7i"/>
                                             <connections>
                                                 <action selector="adjustiOSScreenSize:" target="-2" id="H8i-gz-eYI"/>
@@ -345,7 +361,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-270" y="388"/>
+            <point key="canvasLocation" x="-197" y="385"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
     </objects>

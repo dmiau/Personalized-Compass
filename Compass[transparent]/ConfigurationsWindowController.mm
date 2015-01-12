@@ -23,9 +23,6 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
-//configurationWindowController =
-//[[ConfigurationsWindowController alloc] initWithWindowNibName:@"ConfigurationsWindow"];
-
 
 - (id)initWithWindowNibName: (NSString *)windowNibName{
     self = [super initWithWindowNibName:windowNibName];
@@ -36,6 +33,12 @@
     return self;
 }
 
+
+- (void) prepareWindow{
+        
+    
+    
+}
 
 - (IBAction)compassSegmentControl:(id)sender {
     NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
@@ -255,5 +258,10 @@
     
     tempFourCorners[3].x = width/2 - iOS_width/2;
     tempFourCorners[3].y = height/2 + iOS_height/2;
+}
+- (IBAction)adjustWedgeCorrectionFactor:(NSSlider *)sender {
+    float value = [sender floatValue];
+    self.rootViewController.model->configurations[@"wedge_correction_x"]
+    = [NSNumber numberWithFloat: value];
 }
 @end

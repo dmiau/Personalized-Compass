@@ -1816,10 +1816,36 @@ What should I tackle today? (I should try to work from home, at least in the aft
 -------------------------------------------------------------------
 The lighting in my room is throwing me off. It feels like there is soemething wrong with my eyes...(I hope not)
 
+What needs to be done?
+- initialize configurations window
+- wedge parameters (fomula parameter modifications?)
+- move the location table to the configuration pane 
+- (desktop) touch-hold to move the compass
+- color - green check , red x
+- compass color (red is reserved for N, in most cases)
+- update method consolidation/clean-up
+- watch test mode
+
+* test manager
+- test generation
+- test result logging
+- show the difference between the answer and the groundtruth
+- setting sychronization (between the memory and the file); setting serilization
+
+iPad
+- cover the entire screen with the GL layer
+
+wedge_correction_X
+
+Nice to have:
+- transition between a wedge and a compass
+
+Done:
+- Stand-alone iOS wedge mode (for testing)
+* vislibility test will need to be updated
 - toggleCompass is to toggle the conventional compass
 
-
-
+- relocate table to the configurations panel
 
 
 

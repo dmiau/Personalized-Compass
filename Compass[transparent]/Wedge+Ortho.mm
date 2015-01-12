@@ -79,7 +79,9 @@ wedgeParams wedge::calculateRegionTwoParams(double tx, double ty){
     double corrected_off_screen_dist = off_screen_dist * correction_x;
     
     
-    double l_leg = corrected_off_screen_dist + log((corrected_off_screen_dist + 20)/12)*10;
+    // This seems to be the part that needs to be modified.˚
+    double l_leg = corrected_off_screen_dist +
+    log((corrected_off_screen_dist + 20)/12)*10;
     
     double l_aperture = (5+corrected_off_screen_dist*0.3)/l_leg;
     l_leg = l_leg / correction_x;
