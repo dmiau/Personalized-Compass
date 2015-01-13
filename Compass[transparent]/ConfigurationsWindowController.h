@@ -11,11 +11,26 @@
 #import "DesktopViewController.h"
 
 @interface ConfigurationsWindowController : NSWindowController
+<NSTableViewDataSource, NSTableViewDelegate>{
+    NSMutableArray *tableCellCache;
+    
+    // Location pane
+    NSArray *kml_files;
+}
 
+//-------------
+// Properties
+//-------------
 @property compassMdl *model;
 @property DesktopViewController *rootViewController;
 @property NSString *server_ip;
 @property (weak) IBOutlet NSTextField *serverPort;
+
+@property (weak) IBOutlet NSTableView *locationTableView;
+
+@property (weak) IBOutlet NSComboBox *kmlComboBox;
+
+
 
 //-------------
 // Methods
@@ -60,6 +75,8 @@
 - (IBAction)adjustWedgeCorrectionFactor:(id)sender;
 @property (weak) IBOutlet NSSlider *wedgeCorrectionFactor;
 
+// KML combo box
+- (IBAction)didChangeKMLCombo:(id)sender;
 
 
 @end

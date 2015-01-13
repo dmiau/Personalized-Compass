@@ -23,9 +23,6 @@
             <connections>
                 <outlet property="compassView" destination="UCa-0f-w4g" id="hRx-r8-sIb"/>
                 <outlet property="currentCoord" destination="th9-iC-Vy8" id="8Fy-fK-MjE"/>
-                <outlet property="kmlComboBox" destination="Zbz-i8-ZYC" id="fZS-PB-L24"/>
-                <outlet property="landmarkTable" destination="DuI-5c-mA4" id="UtS-nc-hBG"/>
-                <outlet property="locationTableView" destination="sA2-ri-dei" id="Mij-xV-5lj"/>
                 <outlet property="mapView" destination="mWq-Lx-RbY" id="1w7-uy-mYl"/>
                 <outlet property="toolbarSearchField" destination="AxC-dk-J1g" id="Gsp-TB-GBF"/>
                 <outlet property="view" destination="EiT-Mj-1SZ" id="BKl-Ab-Cbt"/>
@@ -657,12 +654,6 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="V1A-Nn-ND8"/>
-                            <menuItem title="Toggle Landmarks Table" keyEquivalent="l" id="eIm-Du-4I9">
-                                <modifierMask key="keyEquivalentModifierMask" control="YES"/>
-                                <connections>
-                                    <action selector="toggleLandmarkTable:" target="3Bp-Mg-e5g" id="deh-fg-9me"/>
-                                </connections>
-                            </menuItem>
                             <menuItem title="Hide Map" keyEquivalent="m" id="ksy-Wz-2ps">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
@@ -812,104 +803,9 @@
                             <outlet property="delegate" destination="3Bp-Mg-e5g" id="NIL-4Z-Qlz"/>
                         </connections>
                     </mapView>
-                    <scrollView hidden="YES" ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="62" horizontalPageScroll="10" verticalLineScroll="62" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuI-5c-mA4" userLabel="Landmark Table">
-                        <rect key="frame" x="583" y="9" width="233" height="512"/>
-                        <clipView key="contentView" ambiguous="YES" misplaced="YES" drawsBackground="NO" copiesOnScroll="NO" id="fFu-K9-Eqy">
-                            <rect key="frame" x="1" y="17" width="231" height="494"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <tableView identifier="LocationTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="60" rowSizeStyle="automatic" headerView="01t-qL-llK" viewBased="YES" id="sA2-ri-dei">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <size key="intercellSpacing" width="3" height="2"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                    <tableColumns>
-                                        <tableColumn editable="NO" width="228" minWidth="40" maxWidth="1000" id="Obx-d4-Tmd">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Location">
-                                                <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
-                                            </tableHeaderCell>
-                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" refusesFirstResponder="YES" alignment="left" id="xRJ-MW-dVp">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                            <prototypeCellViews>
-                                                <tableCellView identifier="LocationTable" id="HbF-ul-PVr" customClass="LocationCellView">
-                                                    <rect key="frame" x="1" y="1" width="228" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KH1-bi-OiO">
-                                                            <rect key="frame" x="2" y="25" width="223" height="35"/>
-                                                            <textFieldCell key="cell" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="LocationCell" drawsBackground="YES" id="w4v-Yj-VHV">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fID-jy-dzZ">
-                                                            <rect key="frame" x="43" y="0.0" width="100" height="22"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Label" id="IOg-0g-JhI">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ym8-yv-eJ3">
-                                                            <rect key="frame" x="4" y="5" width="38" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dist:" id="aGO-Gj-wFG">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PnJ-te-X0i">
-                                                            <rect key="frame" x="199" y="40" width="22" height="18"/>
-                                                            <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zcU-QX-hfw">
-                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                <font key="font" metaFont="system"/>
-                                                            </buttonCell>
-                                                            <connections>
-                                                                <action selector="toggleCheckbox:" target="HbF-ul-PVr" id="SkK-KU-dDQ"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <connections>
-                                                        <outlet property="checkbox" destination="PnJ-te-X0i" id="sOj-Zu-aCO"/>
-                                                        <outlet property="infoTextField" destination="fID-jy-dzZ" id="Eju-JI-JeX"/>
-                                                        <outlet property="textField" destination="KH1-bi-OiO" id="peD-DH-L4e"/>
-                                                    </connections>
-                                                </tableCellView>
-                                            </prototypeCellViews>
-                                        </tableColumn>
-                                    </tableColumns>
-                                    <connections>
-                                        <outlet property="dataSource" destination="3Bp-Mg-e5g" id="B9U-DU-VIb"/>
-                                        <outlet property="delegate" destination="3Bp-Mg-e5g" id="9fJ-u4-Qy3"/>
-                                    </connections>
-                                </tableView>
-                            </subviews>
-                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="L9J-hG-Mxl">
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Jln-2W-V6q">
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <tableHeaderView key="headerView" id="01t-qL-llK">
-                            <rect key="frame" x="0.0" y="0.0" width="231" height="17"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </tableHeaderView>
-                    </scrollView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="DuI-5c-mA4" secondAttribute="trailing" constant="10" id="0nT-EE-W43"/>
                     <constraint firstAttribute="trailing" secondItem="UCa-0f-w4g" secondAttribute="trailing" id="0rf-xB-H3M"/>
-                    <constraint firstAttribute="bottom" secondItem="DuI-5c-mA4" secondAttribute="bottom" constant="10" id="44N-j2-Mka"/>
-                    <constraint firstItem="DuI-5c-mA4" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="10" id="8Yg-uM-Sg0"/>
                     <constraint firstItem="UCa-0f-w4g" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="9r9-zp-Qqm"/>
                     <constraint firstItem="mWq-Lx-RbY" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="BcM-tU-GYL"/>
                     <constraint firstAttribute="trailing" secondItem="mWq-Lx-RbY" secondAttribute="trailing" id="H7Q-SJ-noa"/>
@@ -923,25 +819,6 @@
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="kQb-08-INq"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="y9U-0u-VQ8"/>
-                    <toolbarItem implicitItemIdentifier="65A5E827-9B67-4C2A-BD4D-4E9640D9C06A" label="kml" paletteLabel="kml" id="chN-qg-9eH">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="99" height="26"/>
-                        <size key="maxSize" width="203" height="26"/>
-                        <comboBox key="view" verticalHuggingPriority="750" id="Zbz-i8-ZYC">
-                            <rect key="frame" x="0.0" y="14" width="203" height="26"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="BQr-eI-0bz">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </comboBoxCell>
-                            <connections>
-                                <action selector="didChangeKMLCombo:" target="3Bp-Mg-e5g" id="syn-53-VPe"/>
-                                <outlet property="dataSource" destination="3Bp-Mg-e5g" id="8dv-aC-PNu"/>
-                                <outlet property="delegate" destination="3Bp-Mg-e5g" id="jAd-Vf-pwd"/>
-                            </connections>
-                        </comboBox>
-                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="1A5CE0C8-77B4-4989-9268-63D57960E6BD" label="Current Coordinates" paletteLabel="Current Coordinates" id="L9r-Ay-yOw">
                         <nil key="toolTip"/>
                         <size key="minSize" width="38" height="17"/>
@@ -964,7 +841,7 @@
                             <rect key="frame" x="0.0" y="14" width="227" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            <size key="cellSize" width="78" height="18"/>
+                            <size key="cellSize" width="79" height="18"/>
                             <size key="intercellSpacing" width="4" height="2"/>
                             <buttonCell key="prototype" type="push" title="Radio" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="uta-QL-yNT">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1018,7 +895,6 @@
                     <toolbarItem reference="L9r-Ay-yOw"/>
                     <toolbarItem reference="Tqb-1k-Rmy"/>
                     <toolbarItem reference="y9U-0u-VQ8"/>
-                    <toolbarItem reference="chN-qg-9eH"/>
                     <toolbarItem reference="y9U-0u-VQ8"/>
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>

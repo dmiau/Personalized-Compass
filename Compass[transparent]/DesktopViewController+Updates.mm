@@ -136,6 +136,14 @@
                        });
     }
     //        NSLog(@"location: %d, length:  %d", range.location, range.length);
+    
+    //---------------------------
+    // Update the configuraiton controller table
+    // (Do not need to update if the table is hidden!)
+    //---------------------------
+    
+    
+    
 }
 
 - (void) updateMapDisplayRegion{

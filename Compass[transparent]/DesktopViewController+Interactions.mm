@@ -80,55 +80,6 @@
 }
 
 #pragma mark ------------- User Interface -------------
-
-- (IBAction)didChangeKMLCombo:(id)sender {
-    NSString* astr = [self.kmlComboBox stringValue];
-    
-    self.model->location_filename = [[NSBundle mainBundle] pathForResource:astr                                                                             ofType:@""];
-    
-    NSLog(@"json combon triggered %@", astr);
-    
-    // The following debug line did work!
-    // po ((NSComboBox *)sender).stringValue
-    
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
-    [self.locationTableView selectRowIndexes:indexSet byExtendingSelection:NO];
-    
-    //Begin editing of the cell containing the new object
-    [self.locationTableView editColumn:0 row:0 withEvent:nil select:YES];
-    
-    
-    [tableCellCache removeAllObjects];
-    self.model->reloadFiles();
-    
-    
-    for (int i = 0; i < self.model->data_array.size(); ++i)
-    {
-        [tableCellCache addObject:[NSNull null]];
-    }
-    
-    [self updateMapDisplayRegion];
-    [self renderAnnotations];
-    [self.locationTableView reloadData];
-}
-
-//--------------------
-// Combo box control
-//--------------------
-- (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox {
-    return [kml_files count];
-}
-- (id)comboBox:(NSComboBox *)aComboBox objectValueForItemAtIndex:(NSInteger)loc {
-    return [kml_files objectAtIndex:loc];
-}
-- (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)string {
-    return [kml_files indexOfObject: string];
-}
-
-- (IBAction)toggleLandmarkTable:(id)sender {
-    [self.landmarkTable setHidden:![self.landmarkTable isHidden]];
-}
-
 //--------------------
 // Mouse event
 //--------------------

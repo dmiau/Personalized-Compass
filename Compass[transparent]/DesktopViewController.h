@@ -39,7 +39,6 @@ typedef struct{
     NSTimer *_updateUITimer;
     BOOL pinVisible;
     NSMutableArray *tableCellCache;
-    NSArray *kml_files;
     
     //------------------
     // Search related stuff
@@ -63,7 +62,7 @@ typedef struct{
 @property (weak) IBOutlet NSTextField *currentCoord;
 @property (weak) IBOutlet NSComboBox *kmlComboBox;
 @property (weak) IBOutlet NSTableView *locationTableView;
-@property (weak) IBOutlet NSSearchField *searchField;
+//@property (weak) IBOutlet NSSearchField *searchField;
 @property (weak) IBOutlet NSSearchField *toolbarSearchField;
 
 @property compassMdl* model;
@@ -105,8 +104,6 @@ typedef struct{
 - (IBAction)rotate:(id)sender;
 - (IBAction)refreshConfigurations:(id)sender;
 //- (IBAction)showSettings:(id)sender;
-- (IBAction)toggleLandmarkTable:(id)sender;
-
 
 // KML combo box
 - (IBAction)didChangeKMLCombo:(id)sender;

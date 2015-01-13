@@ -27,16 +27,7 @@
             pinVisible = FALSE;
             
             if (self.model == NULL)
-                throw(runtime_error("compassModel is uninitialized"));
-            
-            // Collect a list of kml files
-            NSString *path = [[[NSBundle mainBundle]
-                               pathForResource:@"montreal.kml" ofType:@""]
-                              stringByDeletingLastPathComponent];
-            
-            NSArray *dirFiles = [[NSFileManager defaultManager]
-                                 contentsOfDirectoryAtPath: path error:nil];
-            kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
+                throw(runtime_error("compassModel is uninitialized"));            
             
             // Important, initialize NSMutableArray with empty cells
             tableCellCache = [[NSMutableArray alloc] init];

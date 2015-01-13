@@ -531,6 +531,10 @@
 		9A42A0E419ABB12D00BB0101 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 9A42A0E019ABB12D00BB0101 /* Web */; };
 		9A42A0E719ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0E619ABCD9F00BB0101 /* iOSViewController+Client.mm */; };
 		9A42A0E819ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A0E619ABCD9F00BB0101 /* iOSViewController+Client.mm */; };
+		9A4582711A647AAC00943F6C /* ConfigurationsWindowController+locations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */; };
+		9A4582721A647AAC00943F6C /* ConfigurationsWindowController+locations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */; };
+		9A4582731A647AAC00943F6C /* ConfigurationsWindowController+locations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */; };
+		9A4582741A647AAC00943F6C /* ConfigurationsWindowController+locations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */; };
 		9A469E0F19A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
 		9A469E1019A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
 		9A469E1119A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */; };
@@ -1181,6 +1185,8 @@
 		9A42A0E019ABB12D00BB0101 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
 		9A42A0E519ABCD9F00BB0101 /* iOSViewController+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Client.h"; sourceTree = "<group>"; };
 		9A42A0E619ABCD9F00BB0101 /* iOSViewController+Client.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Client.mm"; sourceTree = "<group>"; };
+		9A45826F1A647AAC00943F6C /* ConfigurationsWindowController+locations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConfigurationsWindowController+locations.h"; sourceTree = "<group>"; };
+		9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ConfigurationsWindowController+locations.mm"; sourceTree = "<group>"; };
 		9A469E0D19A4FEC100EB88C0 /* OSXPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXPinAnnotationView.h; sourceTree = "<group>"; };
 		9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OSXPinAnnotationView.mm; sourceTree = "<group>"; };
 		9A469E1319A5183400EB88C0 /* OSXCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSXCalloutView.xib; sourceTree = "<group>"; };
@@ -1705,6 +1711,8 @@
 			children = (
 				9A3F1E861A4B247100D621A9 /* ConfigurationsWindowController.h */,
 				9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */,
+				9A45826F1A647AAC00943F6C /* ConfigurationsWindowController+locations.h */,
+				9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -3074,6 +3082,7 @@
 				9A42A05519A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
 				9A0375C0198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A75720D197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
+				9A4582741A647AAC00943F6C /* ConfigurationsWindowController+locations.mm in Sources */,
 				9A259D5F199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A42A04D19A79C3200BB0101 /* HTTPServer.m in Sources */,
 				9A998C8E1949F29500778DFC /* compassRender+Label.mm in Sources */,
@@ -3104,6 +3113,7 @@
 				9A42A06619A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
 				9A42A05A19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
 				9A42A05219A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
+				9A4582711A647AAC00943F6C /* ConfigurationsWindowController+locations.mm in Sources */,
 				9A037671198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A037587198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037599198DA31800258E95 /* b2ChainShape.cpp in Sources */,
@@ -3321,6 +3331,7 @@
 				9A42A05819A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
 				9A03766D198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
 				9A42A04019A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
+				9A4582731A647AAC00943F6C /* ConfigurationsWindowController+locations.mm in Sources */,
 				9A0375B9198DA31800258E95 /* b2Draw.cpp in Sources */,
 				9A03765B198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
 				9A42A09319A79CA200BB0101 /* GCDAsyncSocket.m in Sources */,
@@ -3417,6 +3428,7 @@
 				9AFB14A318EE639A00063632 /* OpenGLView.mm in Sources */,
 				9AFB14A418EE639A00063632 /* AppDelegate.mm in Sources */,
 				9A03759A198DA31800258E95 /* b2ChainShape.cpp in Sources */,
+				9A4582721A647AAC00943F6C /* ConfigurationsWindowController+locations.mm in Sources */,
 				9A03760C198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A037624198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,

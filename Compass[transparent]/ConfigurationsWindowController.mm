@@ -21,6 +21,13 @@
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    // Important, initialize NSMutableArray with empty cells
+    tableCellCache = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < self.rootViewController.model->data_array.size(); ++i)
+    {
+        [tableCellCache addObject:[NSNull null]];
+    }
 }
 
 
@@ -29,14 +36,37 @@
     if (self) {
         // Initialization code here.
         self.model = compassMdl::shareCompassMdl();
+        
+        // Collect a list of kml files
+        NSString *path = [[[NSBundle mainBundle]
+                           pathForResource:@"montreal.kml" ofType:@""]
+                          stringByDeletingLastPathComponent];
+        
+        NSArray *dirFiles = [[NSFileManager defaultManager]
+                             contentsOfDirectoryAtPath: path error:nil];
+        kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
+        
     }
     return self;
 }
 
-
+//---------------------
+// This method is called to prepare the location window
+//---------------------
 - (void) prepareWindow{
         
+    // Update all the switches
     
+    
+    // Initialize the combo box
+    [self.kmlComboBox setStringValue:
+     [self.model->location_filename
+      lastPathComponent]];
+    
+    
+
+    
+    // Update the table
     
 }
 
@@ -264,4 +294,5 @@
     self.rootViewController.model->configurations[@"wedge_correction_x"]
     = [NSNumber numberWithFloat: value];
 }
+
 @end

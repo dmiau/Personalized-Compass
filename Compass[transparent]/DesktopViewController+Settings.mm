@@ -17,11 +17,11 @@
     if (!self.configurationWindowController){
         self.configurationWindowController =
         [[ConfigurationsWindowController alloc] initWithWindowNibName:@"ConfigurationsWindow"];
-        
         self.configurationWindowController.rootViewController = self;
     }
     
     [self.configurationWindowController showWindow:nil];
+    [self.configurationWindowController prepareWindow];
     [[self.configurationWindowController window] setIsVisible:YES];
 }
 
