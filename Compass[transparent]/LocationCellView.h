@@ -7,13 +7,21 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "compassModel.h"
+#import "DesktopViewController.h"
 
 @interface LocationCellView : NSTableCellView{
     @private
-    IBOutlet NSTextField *infoTextField;
-    
 }
 @property (weak, atomic) IBOutlet NSButton *checkbox;
 - (IBAction) toggleCheckbox: (id) sender;
-@property(assign) NSTextField *infoTextField;
+@property(weak) IBOutlet NSTextField *infoTextField;
+
+@property DesktopViewController* rootViewController;
+@property data* data_ptr;
+@property bool isUserLocation;
+
+// Control the visibility of OpenGL view
+- (IBAction)flipSingleLandmark:(NSButton*)sender;
+
 @end

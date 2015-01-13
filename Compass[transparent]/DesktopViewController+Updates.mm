@@ -124,17 +124,17 @@
     // Update the location table
     // (Do not need to update if the table is hidden!)
     //---------------------------
-    if (!self.landmarkTable.isHidden)
-    {
-        dispatch_async(dispatch_get_main_queue(),
-                       ^{
-                           NSRange range = [self.locationTableView rowsInRect:visibleRect];
-                           for (int i = range.location; i < range.location + range.length; ++i){
-                               // [todo] This part is ver slow...
-                               ((LocationCellView*)[tableCellCache objectAtIndex:i]).infoTextField.stringValue = [NSString stringWithFormat:@"%.2f (m)",self.model->data_array[i].distance];
-                           }
-                       });
-    }
+//    if (!self.landmarkTable.isHidden)
+//    {
+//        dispatch_async(dispatch_get_main_queue(),
+//                       ^{
+//                           NSRange range = [self.locationTableView rowsInRect:visibleRect];
+//                           for (int i = range.location; i < range.location + range.length; ++i){
+//                               // [todo] This part is ver slow...
+//                               ((LocationCellView*)[tableCellCache objectAtIndex:i]).infoTextField.stringValue = [NSString stringWithFormat:@"%.2f (m)",self.model->data_array[i].distance];
+//                           }
+//                       });
+//    }
     //        NSLog(@"location: %d, length:  %d", range.location, range.length);
     
     //---------------------------

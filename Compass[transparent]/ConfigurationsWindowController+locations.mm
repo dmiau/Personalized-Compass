@@ -23,38 +23,41 @@
 
 // This method is optional if you use bindings to provide the data
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    // Get the row ID
     
     LocationCellView *result;
+    
     // check if a cached copy already exists
-    if ([tableCellCache objectAtIndex:row] != (id)[NSNull null]){
-        result = [tableCellCache objectAtIndex:row];
-    }else{
-        // Retrieve to get the @"LocationTable" from the pool or,
-        // if no version is available in the pool, load the Interface Builder version
-        result =
-        [tableView    makeViewWithIdentifier:@"LocationTable" owner:self];
-        
-        string location_name;
-        location_name = self.model->data_array[row].name;
-        
-        result.textField.backgroundColor = [NSColor
-                                            colorWithCalibratedRed: (float)self.model->color_map[row][0]/256
-                                            green: (float)self.model->color_map[row][1]/256
-                                            blue: (float)self.model->color_map[row][2]/256
-                                            alpha: 1];
-        
-        result.textField.stringValue = [NSString stringWithCString:
-                                        location_name.c_str()
-                                                          encoding:
-                                        [NSString defaultCStringEncoding]];
-        
-        // Update dist here
-        result.infoTextField.stringValue = [NSString stringWithFormat:@"%.2f (m)",
-                                            self.model->data_array[row].distance];
-        
-        // Important--replacing, not insering
-        [tableCellCache replaceObjectAtIndex: row withObject: result];
-    }
+
+    // Retrieve to get the @"LocationTable" from the pool or,
+    // if no version is available in the pool, load the Interface Builder version
+    result =
+    [tableView    makeViewWithIdentifier:@"LocationTable" owner:self];
+    
+    string location_name;
+    location_name = self.model->data_array[row].name;
+    
+    result.textField.backgroundColor = [NSColor
+                                        colorWithCalibratedRed: (float)self.model->color_map[row][0]/256
+                                        green: (float)self.model->color_map[row][1]/256
+                                        blue: (float)self.model->color_map[row][2]/256
+                                        alpha: 1];
+    
+    result.textField.stringValue = [NSString stringWithCString:
+                                    location_name.c_str()
+                                                      encoding:
+                                    [NSString defaultCStringEncoding]];
+    // connect data_ptr and rootViewController
+    result.data_ptr = &(self.model->data_array[row]);
+    result.rootViewController = self.rootViewController;
+    
+    // Update dist here
+    result.infoTextField.stringValue = @"N/A";
+//    [NSString stringWithFormat:@"%.2f (m)", self.model->data_array[row].distance];
+    [result.checkbox setState:result.data_ptr->isEnabled];
+    result.isUserLocation = false;
+//    // Important--replacing, not insering
+//    [tableCellCache replaceObjectAtIndex: row withObject: result];
     return result;
 }
 
@@ -83,6 +86,26 @@
     //    [tableView reloadData];
 }
 
+
+//-------------
+// Table selection control
+//-------------
+
+- (IBAction)toggleLandmarkSelection:(NSButton*)sender {
+    
+    if ([[sender title] rangeOfString:@"All"].location != NSNotFound){
+        for (int i = 0; i < self.model->data_array.size(); ++i) {
+            self.model->data_array[i].isEnabled = true;
+        }
+    }else{
+        for (int i = 0; i < self.model->data_array.size(); ++i) {
+            self.model->data_array[i].isEnabled = false;
+        }
+    }
+    [self.locationTableView reloadData];
+    self.rootViewController.renderAnnotations;
+}
+
 //-----------------------
 // Combo box control
 //-----------------------
@@ -103,14 +126,14 @@
     [self.locationTableView editColumn:0 row:0 withEvent:nil select:YES];
     
     
-    [tableCellCache removeAllObjects];
+//    [tableCellCache removeAllObjects];
     self.model->reloadFiles();
     
     
-    for (int i = 0; i < self.model->data_array.size(); ++i)
-    {
-        [tableCellCache addObject:[NSNull null]];
-    }
+//    for (int i = 0; i < self.model->data_array.size(); ++i)
+//    {
+//        [tableCellCache addObject:[NSNull null]];
+//    }
     
     [self.rootViewController updateMapDisplayRegion];
     [self.rootViewController renderAnnotations];

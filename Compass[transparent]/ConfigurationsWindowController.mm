@@ -22,12 +22,12 @@
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     // Important, initialize NSMutableArray with empty cells
-    tableCellCache = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < self.rootViewController.model->data_array.size(); ++i)
-    {
-        [tableCellCache addObject:[NSNull null]];
-    }
+//    tableCellCache = [[NSMutableArray alloc] init];
+//    
+//    for (int i = 0; i < self.rootViewController.model->data_array.size(); ++i)
+//    {
+//        [tableCellCache addObject:[NSNull null]];
+//    }
 }
 
 
@@ -203,16 +203,6 @@
         [self.rootViewController.compassView setHidden:YES];
     }
 }
-- (IBAction)toggleLandmarkTableView:(NSButton*)sender {
-    
-    if ([sender state] == NSOnState) {
-        [self.rootViewController.landmarkTable setHidden:NO];
-    }
-    else {
-        [self.rootViewController.landmarkTable setHidden:YES];
-        
-    }
-}
 
 - (IBAction)toggleiOSSyncFlag:(NSSegmentedControl*)sender {
     self.rootViewController.iOSSyncFlag =
@@ -294,5 +284,4 @@
     self.rootViewController.model->configurations[@"wedge_correction_x"]
     = [NSNumber numberWithFloat: value];
 }
-
 @end

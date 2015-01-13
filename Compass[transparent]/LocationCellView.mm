@@ -26,4 +26,12 @@
     // Drawing code here.
 }
 
+
+- (IBAction)flipSingleLandmark:(NSButton*)sender{
+    if ([sender state] == NSOnState) {
+        self.data_ptr->isEnabled = true;
+    } else {
+        self.data_ptr->isEnabled = false;
+    }
+}
 @end

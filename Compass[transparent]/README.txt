@@ -1831,16 +1831,13 @@ Done:
 Brought my MacMini to the office. 
 
 What needs to be done?
-- initialize configurations window
 - wedge parameters (fomula parameter modifications?)
-- move the location table to the configuration pane 
 - (desktop) touch-hold to move the compass
 - color - green check , red x
 - compass color (red is reserved for N, in most cases)
 - update method consolidation/clean-up
 - watch test mode
 - the issue of chaning compass sizes
-- location selection
 
 * test manager
 - test generation
@@ -1856,16 +1853,16 @@ wedge_correction_X
 Nice to have:
 - transition between a wedge and a compass
 
-Working:
+Done:
 - moving the combo box to the configuration panel
-- 
+- move the location table to the configuration pane 
+- initialize configurations window
 
+Working:
+- location selection
+- delete
 
-
-
-
-
-
+tableCellCache
 
 
 

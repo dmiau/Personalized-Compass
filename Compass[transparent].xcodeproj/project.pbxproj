@@ -629,7 +629,7 @@
 		9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9A60F8A0198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A60F89F198D75C000E60ABD /* iOSViewController+Interactions.mm */; };
 		9A60F8A1198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A60F89F198D75C000E60ABD /* iOSViewController+Interactions.mm */; };
-		9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
+		9A6A74A418E4A45D00C7A9D5 /* LocationCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.mm */; };
 		9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
 		9A6F53F21910069F00F35FED /* DebugInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */; };
 		9A6F53F31910069F00F35FED /* DebugInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */; };
@@ -711,7 +711,7 @@
 		9A9701D919083B26007C3C19 /* DesktopViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */; };
 		9A9701DA19083B26007C3C19 /* DesktopViewController+Compass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+Compass.mm */; };
 		9A9701DB19083B26007C3C19 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
-		9A9701DC19083BCF007C3C19 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
+		9A9701DC19083BCF007C3C19 /* LocationCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.mm */; };
 		9A9701DD19083C9B007C3C19 /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
 		9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A9701E119083E8C007C3C19 /* smartWatch.xib */; };
 		9A9701E619085002007C3C19 /* watchNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9701E519085002007C3C19 /* watchNSView.m */; };
@@ -754,7 +754,7 @@
 		9AA789121909FE3000A26C66 /* DesktopViewController+Compass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+Compass.mm */; };
 		9AA789131909FE3000A26C66 /* locationFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EC77E19004BCB00C3815F /* locationFilter.mm */; };
 		9AA789141909FE3000A26C66 /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
-		9AA789151909FE3000A26C66 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
+		9AA789151909FE3000A26C66 /* LocationCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.mm */; };
 		9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
 		9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
 		9AA789191909FE3000A26C66 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
@@ -939,7 +939,7 @@
 		9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9AFB14A018EE639A00063632 /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
 		9AFB14A118EE639A00063632 /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
-		9AFB14A218EE639A00063632 /* LocationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */; };
+		9AFB14A218EE639A00063632 /* LocationCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.mm */; };
 		9AFB14A318EE639A00063632 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582818D9ED350028B80C /* OpenGLView.mm */; };
 		9AFB14A418EE639A00063632 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57E318D9EBB20028B80C /* AppDelegate.mm */; };
 		9AFB14A518EE639A00063632 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
@@ -1236,7 +1236,7 @@
 		9A60F89E198D75C000E60ABD /* iOSViewController+Interactions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Interactions.h"; sourceTree = "<group>"; };
 		9A60F89F198D75C000E60ABD /* iOSViewController+Interactions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Interactions.mm"; sourceTree = "<group>"; };
 		9A6A74A218E4A45D00C7A9D5 /* LocationCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCellView.h; sourceTree = "<group>"; };
-		9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCellView.m; sourceTree = "<group>"; };
+		9A6A74A318E4A45D00C7A9D5 /* LocationCellView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LocationCellView.mm; sourceTree = "<group>"; };
 		9A6EC77E19004BCB00C3815F /* locationFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = locationFilter.mm; sourceTree = "<group>"; };
 		9A6F53F11910069F00F35FED /* DebugInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugInfoWindow.xib; sourceTree = "<group>"; };
 		9A6F53F61910073F00F35FED /* DebugWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugWindowController.h; sourceTree = "<group>"; };
@@ -2019,7 +2019,7 @@
 				9AEA582718D9ED350028B80C /* OpenGLView.h */,
 				9AEA582818D9ED350028B80C /* OpenGLView.mm */,
 				9A6A74A218E4A45D00C7A9D5 /* LocationCellView.h */,
-				9A6A74A318E4A45D00C7A9D5 /* LocationCellView.m */,
+				9A6A74A318E4A45D00C7A9D5 /* LocationCellView.mm */,
 				9A3DA0C11966E563009E0073 /* CustomAnnotationView.h */,
 				9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */,
 				9A2E42DC196C8A2800CF8862 /* HeadingAnnotationView.h */,
@@ -3043,7 +3043,7 @@
 				9A037596198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A037614198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A36619619A3FE4E00DC0D15 /* myMapView.mm in Sources */,
-				9AA789151909FE3000A26C66 /* LocationCellView.m in Sources */,
+				9AA789151909FE3000A26C66 /* LocationCellView.mm in Sources */,
 				9A42A0A819A79CA200BB0101 /* DDLog.m in Sources */,
 				9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */,
 				9A037626198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
@@ -3191,7 +3191,7 @@
 				9A0375C3198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A36619319A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9A03765F198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
-				9A6A74A418E4A45D00C7A9D5 /* LocationCellView.m in Sources */,
+				9A6A74A418E4A45D00C7A9D5 /* LocationCellView.mm in Sources */,
 				9A0375E7198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A037581198DA31800258E95 /* b2Collision.cpp in Sources */,
 				9A42A0B119A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
@@ -3230,7 +3230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A9701DC19083BCF007C3C19 /* LocationCellView.m in Sources */,
+				9A9701DC19083BCF007C3C19 /* LocationCellView.mm in Sources */,
 				9AFD8F58197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A037577198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9A42A03419A79C3200BB0101 /* DDData.m in Sources */,
@@ -3420,7 +3420,7 @@
 				9A0375F4198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A0375C4198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A36618219A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
-				9AFB14A218EE639A00063632 /* LocationCellView.m in Sources */,
+				9AFB14A218EE639A00063632 /* LocationCellView.mm in Sources */,
 				9A0375DC198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9A037612198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A469E1B19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */,

@@ -12,8 +12,6 @@
 
 @interface ConfigurationsWindowController : NSWindowController
 <NSTableViewDataSource, NSTableViewDelegate>{
-    NSMutableArray *tableCellCache;
-    
     // Location pane
     NSArray *kml_files;
 }
@@ -39,7 +37,7 @@
 
 
 //-------------
-// Controls
+// Configurations pane
 //-------------
 
 // Control the visibility of OpenGL view
@@ -59,9 +57,6 @@
 // Disable/enable the server
 - (IBAction)toggleServer:(id)sender;
 
-// Disable/enable the landmark list
-- (IBAction)toggleLandmarkTableView:(id)sender;
-
 // Disable/enable iOS sync
 - (IBAction)toggleiOSSyncFlag:(id)sender;
 - (IBAction)toggleiOSBoundary:(id)sender;
@@ -75,8 +70,21 @@
 - (IBAction)adjustWedgeCorrectionFactor:(id)sender;
 @property (weak) IBOutlet NSSlider *wedgeCorrectionFactor;
 
+
+
+//-------------
+// Locations pane
+//-------------
+
 // KML combo box
 - (IBAction)didChangeKMLCombo:(id)sender;
+- (IBAction)toggleLandmarkSelection:(id)sender;
+
+
+
+
+
+
 
 
 @end

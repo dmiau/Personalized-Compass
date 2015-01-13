@@ -57,12 +57,11 @@ typedef struct{
 
 @property (weak) IBOutlet MKMapView *mapView;
 @property (weak) IBOutlet NSOpenGLView *compassView;
-@property (weak) IBOutlet NSScrollView *landmarkTable;
+//@property (weak) IBOutlet NSScrollView *landmarkTable;
 
 @property (weak) IBOutlet NSTextField *currentCoord;
 @property (weak) IBOutlet NSComboBox *kmlComboBox;
 @property (weak) IBOutlet NSTableView *locationTableView;
-//@property (weak) IBOutlet NSSearchField *searchField;
 @property (weak) IBOutlet NSSearchField *toolbarSearchField;
 
 @property compassMdl* model;
