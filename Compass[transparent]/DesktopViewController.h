@@ -82,6 +82,7 @@ typedef struct{
 - (void)initMapView;
 - (void)updateMapDisplayRegion;
 -(bool)updateModelCompassCenterXY;
+- (void)updateMainGUI;
 
 //----------------
 // Compass related stuff

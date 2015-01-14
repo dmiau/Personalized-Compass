@@ -1830,6 +1830,22 @@ Done:
 -------------------------------------------------------------------
 Brought my MacMini to the office. 
 
+Done:
+- moving the combo box to the configuration panel
+- move the location table to the configuration pane 
+- initialize configurations window
+
+Working:
+- location selection
+- delete
+
+tableCellCache
+
+-------------------------------------------------------------------
+1.14.2015
+-------------------------------------------------------------------
+- need to check the iOSViewController viewWillAppear method 
+
 What needs to be done?
 - wedge parameters (fomula parameter modifications?)
 - (desktop) touch-hold to move the compass
@@ -1853,16 +1869,17 @@ wedge_correction_X
 Nice to have:
 - transition between a wedge and a compass
 
-Done:
-- moving the combo box to the configuration panel
-- move the location table to the configuration pane 
-- initialize configurations window
-
 Working:
-- location selection
-- delete
+- fixing a sudden shift when calling updateMapDisplayRegion
 
-tableCellCache
+    [self updateLocationVisibility];
+    self.model->updateMdl();
+
+
+
+
+
+
 
 
 

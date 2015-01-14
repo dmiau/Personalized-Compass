@@ -103,7 +103,7 @@
         }
     }
     [self.locationTableView reloadData];
-    self.rootViewController.renderAnnotations;
+    [self.rootViewController updateMainGUI];
 }
 
 //-----------------------

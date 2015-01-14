@@ -33,5 +33,7 @@
     } else {
         self.data_ptr->isEnabled = false;
     }
+    
+    [self.rootViewController updateMainGUI];
 }
 @end

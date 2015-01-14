@@ -80,11 +80,4 @@
 - (IBAction)didChangeKMLCombo:(id)sender;
 - (IBAction)toggleLandmarkSelection:(id)sender;
 
-
-
-
-
-
-
-
 @end

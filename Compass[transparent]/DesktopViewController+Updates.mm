@@ -186,10 +186,22 @@
                       fromView:self.compassView];
     return true;
 }
+
+
+//------------------
+// Refresh the main GUI
+//------------------
+- (void)updateMainGUI{
+    //    [self.rootViewController updateMapDisplayRegion];
+    [self updateLocationVisibility];
+    self.model->updateMdl();
+    [self renderAnnotations];
+    [self.compassView setNeedsDisplay:YES];
+}
+
 //------------------
 // Tools
 //------------------
-
 -(void) updateLocationVisibility{
     
     CLLocationCoordinate2D orig_coord2d =

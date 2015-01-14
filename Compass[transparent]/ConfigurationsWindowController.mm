@@ -63,11 +63,9 @@
      [self.model->location_filename
       lastPathComponent]];
     
-    
 
-    
     // Update the table
-    
+    [self.locationTableView reloadData];
 }
 
 - (IBAction)compassSegmentControl:(id)sender {
