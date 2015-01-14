@@ -399,6 +399,10 @@
 		9A3F1E891A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */; };
 		9A3F1E8A1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */; };
 		9A3F1E8B1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */; };
+		9A4293BE1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */; };
+		9A4293BF1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */; };
+		9A4293C01A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */; };
+		9A4293C11A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */; };
 		9A42A03219A79C3200BB0101 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00D19A79C3200BB0101 /* DDData.m */; };
 		9A42A03319A79C3200BB0101 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00D19A79C3200BB0101 /* DDData.m */; };
 		9A42A03419A79C3200BB0101 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42A00D19A79C3200BB0101 /* DDData.m */; };
@@ -1120,6 +1124,8 @@
 		9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurationsWindow.xib; sourceTree = "<group>"; };
 		9A3F1E861A4B247100D621A9 /* ConfigurationsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationsWindowController.h; sourceTree = "<group>"; };
 		9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConfigurationsWindowController.mm; sourceTree = "<group>"; };
+		9A4293BC1A672FDE00F110E3 /* ConfigurationsWindowController+model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConfigurationsWindowController+model.h"; sourceTree = "<group>"; };
+		9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ConfigurationsWindowController+model.mm"; sourceTree = "<group>"; };
 		9A42A00C19A79C3200BB0101 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
 		9A42A00D19A79C3200BB0101 /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
 		9A42A00E19A79C3200BB0101 /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
@@ -1713,6 +1719,8 @@
 				9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */,
 				9A45826F1A647AAC00943F6C /* ConfigurationsWindowController+locations.h */,
 				9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */,
+				9A4293BC1A672FDE00F110E3 /* ConfigurationsWindowController+model.h */,
+				9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -3073,6 +3081,7 @@
 				9A03758A198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037668198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A06119A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
+				9A4293C11A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9A0375FC198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A3F1E8B1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9A0375AE198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
@@ -3188,6 +3197,7 @@
 				9A03759F198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A42A0C819ABADC800BB0101 /* MyHTTPConnection.m in Sources */,
 				9A42A03619A79C3200BB0101 /* DDNumber.m in Sources */,
+				9A4293BE1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9A0375C3198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A36619319A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9A03765F198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
@@ -3322,6 +3332,7 @@
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
 				9A176DA819A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9AE2FC8619AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
+				9A4293C01A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9A037679198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9A42A09B19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
 				9A3F1E8A1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
@@ -3408,6 +3419,7 @@
 				9A03757C198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9A42A03719A79C3200BB0101 /* DDNumber.m in Sources */,
 				9A42A0CD19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
+				9A4293BF1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9AFB14A118EE639A00063632 /* compassRender.mm in Sources */,
 				9A36618E19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
 				9A037660198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,

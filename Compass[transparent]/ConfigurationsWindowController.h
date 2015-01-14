@@ -23,11 +23,7 @@
 @property DesktopViewController *rootViewController;
 @property NSString *server_ip;
 @property (weak) IBOutlet NSTextField *serverPort;
-
 @property (weak) IBOutlet NSTableView *locationTableView;
-
-@property (weak) IBOutlet NSComboBox *kmlComboBox;
-
 
 
 //-------------
@@ -75,9 +71,17 @@
 //-------------
 // Locations pane
 //-------------
+@property (weak) IBOutlet NSComboBox *kmlComboBox;
 
 // KML combo box
 - (IBAction)didChangeKMLCombo:(id)sender;
 - (IBAction)toggleLandmarkSelection:(id)sender;
 
+// Model control
+@property (weak) IBOutlet NSSegmentedControl *dataSegmentControl;
+@property (weak) IBOutlet NSSegmentedControl *filterSegmentControl;
+
+- (IBAction)toggleLandmarkLock:(NSButton*)sender;
+- (IBAction)filterTypeSegmentControl:(NSSegmentedControl*)sender;
+- (IBAction)dataPrefilterSegmentControl:(NSSegmentedControl*)sender;
 @end

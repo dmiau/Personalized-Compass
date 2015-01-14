@@ -1854,12 +1854,8 @@ What needs to be done?
 - update method consolidation/clean-up
 - watch test mode
 - the issue of chaning compass sizes
+- Why there is a sudden shift when calling updateMapDisplayRegion
 
-* test manager
-- test generation
-- test result logging
-- show the difference between the answer and the groundtruth
-- setting sychronization (between the memory and the file); setting serilization
 
 iPad
 - cover the entire screen with the GL layer
@@ -1869,12 +1865,16 @@ wedge_correction_X
 Nice to have:
 - transition between a wedge and a compass
 
+Done:
+- implmented landmarkLock
+
+
 Working:
-- fixing a sudden shift when calling updateMapDisplayRegion
-
-    [self updateLocationVisibility];
-    self.model->updateMdl();
-
+* test manager
+- test generation
+- test result logging
+- show the difference between the answer and the groundtruth
+- setting sychronization (between the memory and the file); setting serilization
 
 
 
