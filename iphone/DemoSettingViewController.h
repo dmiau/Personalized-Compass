@@ -1,5 +1,5 @@
 //
-//  DebugSettingViewController.h
+//  DemoSettingViewController.h
 //  Compass[transparent]
 //
 //  Created by Daniel Miau on 8/1/14.
@@ -15,7 +15,7 @@
 @property param* param_ptr;
 @end
 
-@interface DebugSettingViewController : UIViewController
+@interface DemoSettingViewController : UIViewController
 <UITableViewDelegate, UIAlertViewDelegate>{
 }
 

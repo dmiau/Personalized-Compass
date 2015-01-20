@@ -52,14 +52,21 @@ iOS/OSX data exchange:
 ==================
 Updates
 ==================
-DesktopViewController.updateMapDisplayRegion                                        
-DesktopViewController.updateLocationVisibility
-model->updateMdl
-DesktopViewController.renderAnnotations
-compassView setNeedsDisplay:YES
+DesktopViewController.updateMapDisplayRegion
 
+DesktopViewController.updateMainGUI{
+	DesktopViewController.updateLocationVisibility
+	model->updateMdl
+	DesktopViewController.renderAnnotations
+	compassView setNeedsDisplay:YES	
+}                                        
 
+==================
+Design
+==================
 
+Snapshot:
+The snapshot feature was created for debug and demo purposes. Later the snapshot feature is further extended for the purpose of user studies. A snapshot captures the current location, type of visualization, 
 
 
 

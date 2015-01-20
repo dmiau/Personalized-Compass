@@ -21,7 +21,7 @@
         self.dataSegmentControl.enabled = true;
         self.filterSegmentControl.enabled = true;
     }
-    [self.rootViewController updateMainGUI];    
+    [self.rootViewController updateMainGUI];
 }
 
 - (IBAction)filterTypeSegmentControl:(NSSegmentedControl*)segmentedControl {

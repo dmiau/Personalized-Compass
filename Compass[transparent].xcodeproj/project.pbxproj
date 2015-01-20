@@ -551,8 +551,8 @@
 		9A469E1B19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E1919A53DA200EB88C0 /* DesktopViewController+Search.mm */; };
 		9A469E1C19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E1919A53DA200EB88C0 /* DesktopViewController+Search.mm */; };
 		9A469E1D19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A469E1919A53DA200EB88C0 /* DesktopViewController+Search.mm */; };
-		9A480890198BE79E0001E188 /* DebugSettingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A48088F198BE79D0001E188 /* DebugSettingViewController.mm */; };
-		9A480891198BE79E0001E188 /* DebugSettingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A48088F198BE79D0001E188 /* DebugSettingViewController.mm */; };
+		9A480890198BE79E0001E188 /* DemoSettingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A48088F198BE79D0001E188 /* DemoSettingViewController.mm */; };
+		9A480891198BE79E0001E188 /* DemoSettingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A48088F198BE79D0001E188 /* DemoSettingViewController.mm */; };
 		9A480898198BF1F70001E188 /* debug.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A480896198BF1F70001E188 /* debug.png */; };
 		9A480899198BF1F70001E188 /* debug.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A480896198BF1F70001E188 /* debug.png */; };
 		9A48089A198BF1F70001E188 /* debug.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A480896198BF1F70001E188 /* debug.png */; };
@@ -1198,8 +1198,8 @@
 		9A469E1319A5183400EB88C0 /* OSXCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSXCalloutView.xib; sourceTree = "<group>"; };
 		9A469E1819A53DA200EB88C0 /* DesktopViewController+Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Search.h"; sourceTree = "<group>"; };
 		9A469E1919A53DA200EB88C0 /* DesktopViewController+Search.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Search.mm"; sourceTree = "<group>"; };
-		9A48088E198BE79D0001E188 /* DebugSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugSettingViewController.h; sourceTree = "<group>"; };
-		9A48088F198BE79D0001E188 /* DebugSettingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DebugSettingViewController.mm; sourceTree = "<group>"; };
+		9A48088E198BE79D0001E188 /* DemoSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSettingViewController.h; sourceTree = "<group>"; };
+		9A48088F198BE79D0001E188 /* DemoSettingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DemoSettingViewController.mm; sourceTree = "<group>"; };
 		9A480896198BF1F70001E188 /* debug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = debug.png; path = icons/debug.png; sourceTree = "<group>"; };
 		9A480897198BF1F70001E188 /* general.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = general.png; path = icons/general.png; sourceTree = "<group>"; };
 		9A4808A5198C2D2D0001E188 /* DesktopViewController+Annotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Annotations.h"; sourceTree = "<group>"; };
@@ -1875,8 +1875,8 @@
 		9A480892198BE7AE0001E188 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				9A48088E198BE79D0001E188 /* DebugSettingViewController.h */,
-				9A48088F198BE79D0001E188 /* DebugSettingViewController.mm */,
+				9A48088E198BE79D0001E188 /* DemoSettingViewController.h */,
+				9A48088F198BE79D0001E188 /* DemoSettingViewController.mm */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
@@ -2785,7 +2785,7 @@
 				9A0375AF198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A0375CD198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A3DA0A81964F5E3009E0073 /* genKMLString.mm in Sources */,
-				9A480890198BE79E0001E188 /* DebugSettingViewController.mm in Sources */,
+				9A480890198BE79E0001E188 /* DemoSettingViewController.mm in Sources */,
 				9A0375FD198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A037639198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9AFD8F5E197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
@@ -2917,7 +2917,7 @@
 				9A82B6351941518900534A5F /* compassRender.mm in Sources */,
 				9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9AE57286199CF8D60055799F /* Wedge+Radial.mm in Sources */,
-				9A480891198BE79E0001E188 /* DebugSettingViewController.mm in Sources */,
+				9A480891198BE79E0001E188 /* DemoSettingViewController.mm in Sources */,
 				9A75715D197D804100C23AEE /* historyParser.mm in Sources */,
 				9AFD8F5B197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A757155197D6C1500C23AEE /* snapshotParser.mm in Sources */,

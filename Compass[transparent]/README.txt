@@ -1846,6 +1846,15 @@ tableCellCache
 -------------------------------------------------------------------
 - need to check the iOSViewController viewWillAppear method 
 
+-------------------------------------------------------------------
+1.15.2015
+-------------------------------------------------------------------
+Done:
+- implmented landmarkLock
+
+-------------------------------------------------------------------
+1.16.2015
+-------------------------------------------------------------------
 What needs to be done?
 - wedge parameters (fomula parameter modifications?)
 - (desktop) touch-hold to move the compass
@@ -1855,7 +1864,7 @@ What needs to be done?
 - watch test mode
 - the issue of chaning compass sizes
 - Why there is a sudden shift when calling updateMapDisplayRegion
-
+- need to display label touch checking code when the compass is off
 
 iPad
 - cover the entire screen with the GL layer
@@ -1865,10 +1874,6 @@ wedge_correction_X
 Nice to have:
 - transition between a wedge and a compass
 
-Done:
-- implmented landmarkLock
-
-
 Working:
 * test manager
 - test generation
@@ -1876,20 +1881,39 @@ Working:
 - show the difference between the answer and the groundtruth
 - setting sychronization (between the memory and the file); setting serilization
 
+4:49PM. I realized the current design/implementation is not ideal. The design and implementation need to be redone.
 
+-------------------------------------------------------------------
+1.18.2015
+-------------------------------------------------------------------
+Planning.
 
+I will use arc4random() to draw one elment from the array at a time
+http://stackoverflow.com/questions/7047085/reading-random-values-from-an-array
 
+methods to write:
+- (vector<data>) generateLocationsForCloseDist: (int) close_distc Number: (int) close_n
+FarDist: (int) far Number: (int) far_n
 
+-------------------------------------------------------------------
+1.19.2015
+-------------------------------------------------------------------
+I think I have some ideas. The way how my test harness currently works is a bit strage. 
 
+The core of the test harness is implemented in TestManager (a C++ class). 
+The TestManager has a property called test_vector, which is supposed to store a collection of tests. At the moment, however, it stores one test per device type. 
 
+-------------------------------------------------------------------
+1.20.2015
+-------------------------------------------------------------------
+Today's goals:
+- Convert TestManager to DemoManager
+- iOS interface modification
 
+- test generation
 
-
-
-
-
-
-
+Working:
+- implementing a tab bar controller
 
 
 
