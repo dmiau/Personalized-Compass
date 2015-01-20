@@ -20,7 +20,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
-@property TestManager* testManager;
+@property DemoManager* demoManager;
 
 @property iOSViewController* rootViewController;
 - (IBAction)generateTests:(id)sender;

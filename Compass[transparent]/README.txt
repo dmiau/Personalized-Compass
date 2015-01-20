@@ -1900,20 +1900,22 @@ FarDist: (int) far Number: (int) far_n
 -------------------------------------------------------------------
 I think I have some ideas. The way how my test harness currently works is a bit strage. 
 
-The core of the test harness is implemented in TestManager (a C++ class). 
-The TestManager has a property called test_vector, which is supposed to store a collection of tests. At the moment, however, it stores one test per device type. 
+The core of the test harness is implemented in DemoManager (a C++ class). 
+The DemoManager has a property called test_vector, which is supposed to store a collection of tests. At the moment, however, it stores one test per device type. 
 
 -------------------------------------------------------------------
 1.20.2015
 -------------------------------------------------------------------
 Today's goals:
-- Convert TestManager to DemoManager
 - iOS interface modification
-
 - test generation
 
-Working:
+Done:
 - implementing a tab bar controller
+- Convert TestManager to DemoManager
+
+Working:
+
 
 
 

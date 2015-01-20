@@ -367,10 +367,10 @@
     static int snapshot_id = 0;
     static bool mask_status = false;
     
-    if (self.testManager->test_counter ==-1){
+    if (self.demoManager->test_counter ==-1){
         snapshot_id = 0;
-        self.testManager->test_counter = 0;
-        [self setupEnvForTest:self.testManager->test_vector[0]];
+        self.demoManager->test_counter = 0;
+        [self setupEnvForTest:self.demoManager->test_vector[0]];
     }
         
     if ([label isEqualToString:@"[Pre.]"]){
@@ -378,12 +378,12 @@
         snapshot_id = snapshot_id-1;
         if (snapshot_id < 0)
         {
-            if (self.testManager->test_counter != 0){
+            if (self.demoManager->test_counter != 0){
                 // Set up the environment
                 snapshot_id = self.model->snapshot_array.size() -1;
                 [self setupEnvForTest:self.
-                 testManager->test_vector
-                 [--self.testManager->test_counter]];
+                 demoManager->test_vector
+                 [--self.demoManager->test_counter]];
             }else{
                 snapshot_id = 0;
             }
@@ -399,12 +399,12 @@
         // Set up the environment
         if (snapshot_id == (int)self.model->snapshot_array.size())
         {
-            if (self.testManager->test_counter !=
-                self.testManager->test_vector.size()-1)
+            if (self.demoManager->test_counter !=
+                self.demoManager->test_vector.size()-1)
             {
                 snapshot_id =0;
-                [self setupEnvForTest:self.testManager->
-                 test_vector[++self.testManager->test_counter]];
+                [self setupEnvForTest:self.demoManager->
+                 test_vector[++self.demoManager->test_counter]];
             }else{
                 --snapshot_id;
             }
@@ -447,9 +447,9 @@
 }
 
 - (UIBarButtonItem*) resetVisualizationButton{
-    self.testManager->visualization_counter = 0;
+    self.demoManager->visualization_counter = 0;
     NSString *visTitle = [NSString stringWithFormat:@"[%@]",
-                          self.testManager->
+                          self.demoManager->
                           enabled_visualization_vector[0].name];
     static UIBarButtonItem* anItem = [[UIBarButtonItem alloc]
               initWithTitle:visTitle
@@ -460,10 +460,10 @@
 }
 
 - (void)loopVisualizations:(UIBarButtonItem*) bar_button{
-    int idx = self.testManager->visualization_counter;
+    int idx = self.demoManager->visualization_counter;
     
     CPVisualizationType current_type = (CPVisualizationType)
-    self.testManager->enabled_visualization_vector[idx].type;
+    self.demoManager->enabled_visualization_vector[idx].type;
     
     switch (current_type) {
         case CPNone:
@@ -492,10 +492,10 @@
     
     // Calculat the next type
     idx = idx + 1;
-    idx = idx % self.testManager->enabled_visualization_vector.size();
-    self.testManager->visualization_counter = idx;
+    idx = idx % self.demoManager->enabled_visualization_vector.size();
+    self.demoManager->visualization_counter = idx;
     // Update the title
     bar_button.title = [NSString stringWithFormat:@"[%@]",
-    self.testManager->enabled_visualization_vector[idx].name];
+    self.demoManager->enabled_visualization_vector[idx].name];
 }
 @end

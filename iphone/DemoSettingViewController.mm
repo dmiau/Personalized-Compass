@@ -80,7 +80,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if(self) {
-        self.testManager = TestManager::shareTestManager();
+        self.demoManager = DemoManager::shareDemoManager();
     }
     return self;
 }
@@ -110,7 +110,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    self.testManager->generateTests();
+    self.demoManager->generateTests();
     [super viewWillDisappear:animated];
 }
 
@@ -160,11 +160,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0)
-        return self.testManager->visualization_vector.size();
+        return self.demoManager->visualization_vector.size();
     else if (section == 1)
-        return self.testManager->device_vector.size();
+        return self.demoManager->device_vector.size();
     else
-        return self.testManager->test_vector.size();
+        return self.demoManager->test_vector.size();
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -200,24 +200,24 @@
     
     if (section_id == 0){
         cell.textLabel.text =
-        self.testManager->visualization_vector[i].name;
+        self.demoManager->visualization_vector[i].name;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
         
-        param_ptr = &(self.testManager->visualization_vector[i]);
+        param_ptr = &(self.demoManager->visualization_vector[i]);
         cell.param_ptr = param_ptr;
         cell.mySwitch.on = param_ptr->isEnabled;
     }else if (section_id == 1){
         // Configure Cell
         cell.textLabel.text =
-        self.testManager->device_vector[i].name;
+        self.demoManager->device_vector[i].name;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
 
-        param_ptr = &(self.testManager->device_vector[i]);
+        param_ptr = &(self.demoManager->device_vector[i]);
         cell.param_ptr = param_ptr;
         cell.mySwitch.on = param_ptr->isEnabled;
     }else if (section_id == 2){
         cell.textLabel.text = @"Test";
-//        self.testManager->test_vector[i].name;
+//        self.demoManager->test_vector[i].name;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
         cell.mySwitch.on = true;
     }
@@ -240,7 +240,7 @@
     
 }
 - (IBAction)generateTests:(id)sender {
-    self.testManager->generateTests();
+    self.demoManager->generateTests();
     [self.myTableView reloadData];
 }
 @end

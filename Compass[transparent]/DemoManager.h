@@ -1,13 +1,13 @@
 //
-//  TestManager.h
+//  DemoManager.h
 //  Compass[transparent]
 //
 //  Created by dmiau on 7/31/14.
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
 
-#ifndef __Compass_transparent___TestManager__
-#define __Compass_transparent___TestManager__
+#ifndef __Compass_transparent___DemoManager__
+#define __Compass_transparent___DemoManager__
 
 #include <iostream>
 #include <vector>
@@ -72,7 +72,7 @@ public:
 //---------------
 // Test Manager
 //---------------
-class TestManager{
+class DemoManager{
 public:
     vector<param> visualization_vector;
     vector<param> device_vector;
@@ -85,10 +85,10 @@ public:
     int visualization_counter;
     int test_counter;
 public:
-    static TestManager* shareTestManager();
-    int initTestManager();
+    static DemoManager* shareDemoManager();
+    int initDemoManager();
     int generateTests();
 };
 
 
-#endif /* defined(__Compass_transparent___TestManager__) */
+#endif /* defined(__Compass_transparent___DemoManager__) */

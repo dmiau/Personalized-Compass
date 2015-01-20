@@ -13,7 +13,7 @@
 #include "compassRender.h"
 #include <iostream>
 #import "iOSGLKView.h"
-#import "TestManager.h"
+#import "DemoManager.h"
 
 // SocketRocket
 #import "SRWebSocket.h"
@@ -121,7 +121,7 @@ typedef struct{
 
 @property compassMdl* model;
 @property compassRender* renderer;
-@property TestManager* testManager;
+@property DemoManager* demoManager;
 
 @property NSNumber *mapUpdateFlag;
 @property bool conventionalCompassVisible;

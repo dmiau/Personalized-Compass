@@ -302,6 +302,11 @@
         case 0:
             self.rootViewController.UIConfigurations[@"UIToolbarMode"]
             = @"Development";
+            
+            // Rotate the phone back
+            // In the Dev mode, the phone is in the phone configuration by default
+            [self.rootViewController setupPhoneViewMode];
+            
             self.rootViewController.mapView.layer.borderWidth
             = 0.0f;
             self.rootViewController.mapView.layer.borderColor =

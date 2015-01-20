@@ -43,7 +43,7 @@
     if(self) {
         self.model = compassMdl::shareCompassMdl();
         self.renderer = compassRender::shareCompassRender();
-        self.testManager = TestManager::shareTestManager();
+        self.demoManager = DemoManager::shareDemoManager();
         
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));

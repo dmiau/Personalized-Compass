@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
@@ -540,7 +539,7 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="TestManager" identifier="" id="bcB-ka-Uom">
+                            <tabViewItem label="DemoManager" identifier="" id="bcB-ka-Uom">
                                 <view key="view" id="aqh-aY-10O">
                                     <rect key="frame" x="10" y="33" width="636" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

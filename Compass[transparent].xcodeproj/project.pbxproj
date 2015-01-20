@@ -13,12 +13,12 @@
 		9A02D0EC195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
 		9A02D0F6195C5CE800A64987 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F5195C5CE800A64987 /* Dropbox.framework */; };
 		9A02D0F7195C5CE800A64987 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F5195C5CE800A64987 /* Dropbox.framework */; };
-		9A037369198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
-		9A03736A198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
-		9A03736B198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
-		9A03736C198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
-		9A03736D198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
-		9A03736E198AF8A500258E95 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* TestManager.mm */; };
+		9A037369198AF8A500258E95 /* DemoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* DemoManager.mm */; };
+		9A03736A198AF8A500258E95 /* DemoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* DemoManager.mm */; };
+		9A03736B198AF8A500258E95 /* DemoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* DemoManager.mm */; };
+		9A03736C198AF8A500258E95 /* DemoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* DemoManager.mm */; };
+		9A03736D198AF8A500258E95 /* DemoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* DemoManager.mm */; };
+		9A03736E198AF8A500258E95 /* DemoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A037367198AF8A500258E95 /* DemoManager.mm */; };
 		9A03755D198DA31800258E95 /* Box2DConfig.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 9A0374F8198DA31800258E95 /* Box2DConfig.cmake */; };
 		9A03755E198DA31800258E95 /* Box2DConfig.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 9A0374F8198DA31800258E95 /* Box2DConfig.cmake */; };
 		9A03755F198DA31800258E95 /* Box2DConfig.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 9A0374F8198DA31800258E95 /* Box2DConfig.cmake */; };
@@ -987,8 +987,8 @@
 		9A02D0E8195C5C8700A64987 /* filesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filesystem.h; sourceTree = "<group>"; };
 		9A02D0E9195C5C8700A64987 /* filesystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = filesystem.mm; sourceTree = "<group>"; };
 		9A02D0F5195C5CE800A64987 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = iphone/Dropbox.framework; sourceTree = "<group>"; };
-		9A037367198AF8A500258E95 /* TestManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestManager.mm; sourceTree = "<group>"; };
-		9A037368198AF8A500258E95 /* TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManager.h; sourceTree = "<group>"; };
+		9A037367198AF8A500258E95 /* DemoManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DemoManager.mm; sourceTree = "<group>"; };
+		9A037368198AF8A500258E95 /* DemoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoManager.h; sourceTree = "<group>"; };
 		9A0374F7198DA31800258E95 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Box2D.h; path = "Compass[transparent]/Box2D/Box2D.h"; sourceTree = "<group>"; };
 		9A0374F8198DA31800258E95 /* Box2DConfig.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Box2DConfig.cmake; path = "Compass[transparent]/Box2D/Box2DConfig.cmake"; sourceTree = "<group>"; };
 		9A0374F9198DA31800258E95 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = "Compass[transparent]/Box2D/CMakeLists.txt"; sourceTree = "<group>"; };
@@ -1690,7 +1690,7 @@
 			children = (
 				9AD5AB0B199D1BF400B351FA /* iPad */,
 				9A480893198BE7BE0001E188 /* Root */,
-				9A480892198BE7AE0001E188 /* Debug */,
+				9A480892198BE7AE0001E188 /* Demo */,
 				9A480894198BE7DB0001E188 /* Settings */,
 				9A480895198BE8330001E188 /* Snapshot+History */,
 				9A4808A4198C29270001E188 /* Landmark Table */,
@@ -1872,13 +1872,13 @@
 			name = Client;
 			sourceTree = "<group>";
 		};
-		9A480892198BE7AE0001E188 /* Debug */ = {
+		9A480892198BE7AE0001E188 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
 				9A48088E198BE79D0001E188 /* DemoSettingViewController.h */,
 				9A48088F198BE79D0001E188 /* DemoSettingViewController.mm */,
 			);
-			name = Debug;
+			name = Demo;
 			sourceTree = "<group>";
 		};
 		9A480893198BE7BE0001E188 /* Root */ = {
@@ -2001,8 +2001,8 @@
 				9AFD8F55197C20000099BD88 /* genSnapshotString.mm */,
 				9AECA766196A0269008ADAEC /* CustomPointAnnotation.h */,
 				9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */,
-				9A037367198AF8A500258E95 /* TestManager.mm */,
-				9A037368198AF8A500258E95 /* TestManager.h */,
+				9A037367198AF8A500258E95 /* DemoManager.mm */,
+				9A037368198AF8A500258E95 /* DemoManager.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2843,7 +2843,7 @@
 				9AE2FC7819AE43810015E2B6 /* SRWebSocket.m in Sources */,
 				9A0375A3198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9AE57285199CF8D60055799F /* Wedge+Radial.mm in Sources */,
-				9A03736D198AF8A500258E95 /* TestManager.mm in Sources */,
+				9A03736D198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9AFD8F5A197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A03762D198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A3240D8197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */,
@@ -2901,7 +2901,7 @@
 				9A998C901949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A0375F8198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A037586198DA31800258E95 /* b2Collision.cpp in Sources */,
-				9A03736E198AF8A500258E95 /* TestManager.mm in Sources */,
+				9A03736E198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A037640198DA31900258E95 /* b2GearJoint.cpp in Sources */,
 				9A3DA0CF19683235009E0073 /* DetailViewController.mm in Sources */,
 				9A0375EC198DA31900258E95 /* b2Island.cpp in Sources */,
@@ -3072,7 +3072,7 @@
 				9A037608198DA31900258E95 /* b2CircleContact.cpp in Sources */,
 				9A0375A2198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A0375C6198DA31900258E95 /* b2Settings.cpp in Sources */,
-				9A03736C198AF8A500258E95 /* TestManager.mm in Sources */,
+				9A03736C198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A4808AA198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
 				9A037662198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
@@ -3214,7 +3214,7 @@
 				9A42A04219A79C3200BB0101 /* HTTPConnection.m in Sources */,
 				9AEA582918D9ED350028B80C /* OpenGLView.mm in Sources */,
 				9A757150197D6C1500C23AEE /* snapshotParser.mm in Sources */,
-				9A037369198AF8A500258E95 /* TestManager.mm in Sources */,
+				9A037369198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A176DA619A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9A42A03A19A79C3200BB0101 /* DDRange.m in Sources */,
 				9A037635198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
@@ -3299,7 +3299,7 @@
 				9A037607198DA31900258E95 /* b2CircleContact.cpp in Sources */,
 				9A0375A7198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
 				9A037631198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
-				9A03736B198AF8A500258E95 /* TestManager.mm in Sources */,
+				9A03736B198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A03757D198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9A42A05C19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
 				9A42A06419A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
@@ -3457,7 +3457,7 @@
 				9A03756A198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
 				9A176DA719A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9A42A06719A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
-				9A03736A198AF8A500258E95 /* TestManager.mm in Sources */,
+				9A03736A198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A3F1E891A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9AB90B9C194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,

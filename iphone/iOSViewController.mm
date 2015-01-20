@@ -162,9 +162,6 @@
     if (orientation == UIDeviceOrientationLandscapeLeft ||
         orientation == UIDeviceOrientationLandscapeRight)
     {
-        screenWidth = screenRect.size.height;
-        screenHeight = screenRect.size.width;
-        
 //#ifdef __IPHONE__
         if ([self.UIConfigurations[@"UIToolbarMode"]
              isEqualToString: @"Development"])

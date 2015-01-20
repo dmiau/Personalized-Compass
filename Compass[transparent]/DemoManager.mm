@@ -1,23 +1,23 @@
 //
-//  TestManager.cpp
+//  DemoManager.cpp
 //  Compass[transparent]
 //
 //  Created by dmiau on 7/31/14.
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
 
-#include "TestManager.h"
+#include "DemoManager.h"
 #import "compassModel.h"
 
 //--------------
 // Test Manager singleton initializations
 //--------------
-TestManager* TestManager::shareTestManager(){
-    static TestManager* instance = NULL;
+DemoManager* DemoManager::shareDemoManager(){
+    static DemoManager* instance = NULL;
     
     if (!instance){ // Only allow one instance of class to be generated
-        instance = new TestManager;
-        instance->initTestManager();
+        instance = new DemoManager;
+        instance->initDemoManager();
     }
     return instance;
 };
@@ -25,7 +25,7 @@ TestManager* TestManager::shareTestManager(){
 //--------------
 // Test Manager initializations
 //--------------
-int TestManager::initTestManager(){
+int DemoManager::initDemoManager(){
     visualization_vector.clear();
     device_vector.clear();
     visualization_counter = 0;
@@ -60,7 +60,7 @@ int TestManager::initTestManager(){
     return 0;
 }
 
-int TestManager::generateTests(){
+int DemoManager::generateTests(){
     compassMdl* model = compassMdl::shareCompassMdl();
     enabled_visualization_vector.clear();
     for (int i = 0; i < visualization_vector.size(); ++i){
