@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "iOSViewController.h"
 
-@interface debugCell :UITableViewCell
-@property UISwitch* mySwitch;
-@property iOSViewController* rootViewController;
-@property param* param_ptr;
-@end
 
 @interface DemoSettingViewController : UIViewController
 <UITableViewDelegate, UIAlertViewDelegate>{

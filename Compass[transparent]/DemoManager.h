@@ -9,6 +9,8 @@
 #ifndef __Compass_transparent___DemoManager__
 #define __Compass_transparent___DemoManager__
 
+// TestManager and DemoManager share some common resources
+#import "TestManager.h"
 #include <iostream>
 #include <vector>
 #include <map>
@@ -17,60 +19,12 @@
 #import <Cocoa/Cocoa.h>
 #else
 #import <UIKit/UIKit.h>
-#import "filesystem.h"
 #endif
 
 using namespace std;
 
-//-----------
-// Enum definition
-//-----------
-typedef enum{
-    CPNone,
-    CPPCompass,
-    CPWedge,
-    CPOverview
-}CPVisualizationType;
-
-typedef enum{
-    CPPhone,
-    CPWatch
-}CPDeviceType;
-
-
-class param{
-public:
-    int type;
-    bool  isEnabled;
-    NSString *name;
-public:
-    param(){
-        type = NULL;
-        isEnabled = false;
-        name = @"";
-    };
-};
-
-class test{
-public:
-    
-    CPVisualizationType visualization;
-    CPDeviceType device;
-    int test_id;
-    int snapshot_id;
-    NSString *name;
-    NSString *instructions;
-    NSString *sectionMsg;
-    bool isEnabled;
-public:
-    test(){
-        visualization = CPPCompass;
-        device = CPPhone;
-    };
-};
-
 //---------------
-// Test Manager
+// Demo Manager
 //---------------
 class DemoManager{
 public:

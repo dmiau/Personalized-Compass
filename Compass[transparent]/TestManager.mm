@@ -1,23 +1,23 @@
 //
-//  DemoManager.cpp
+//  TestManager.cpp
 //  Compass[transparent]
 //
-//  Created by dmiau on 7/31/14.
-//  Copyright (c) 2014 dmiau. All rights reserved.
+//  Created by Daniel on 1/20/15.
+//  Copyright (c) 2015 dmiau. All rights reserved.
 //
 
-#include "DemoManager.h"
+#include "TestManager.h"
 #import "compassModel.h"
 
 //--------------
 // Demo Manager singleton initializations
 //--------------
-DemoManager* DemoManager::shareDemoManager(){
-    static DemoManager* instance = NULL;
+TestManager* TestManager::shareTestManager(){
+    static TestManager* instance = NULL;
     
     if (!instance){ // Only allow one instance of class to be generated
-        instance = new DemoManager;
-        instance->initDemoManager();
+        instance = new TestManager;
+        instance->initTestManager();
     }
     return instance;
 };
@@ -25,7 +25,7 @@ DemoManager* DemoManager::shareDemoManager(){
 //--------------
 // Demo Manager initializations
 //--------------
-int DemoManager::initDemoManager(){
+int TestManager::initTestManager(){
     visualization_vector.clear();
     device_vector.clear();
     visualization_counter = 0;
@@ -45,7 +45,7 @@ int DemoManager::initDemoManager(){
     }
     
     vector<CPDeviceType> device_enums = {CPPhone, CPWatch};
-
+    
     NSArray* device_strings = @[@"Phone", @"Watch"];
     for (int i = 0; i < device_enums.size(); ++i){
         param myParam;
@@ -60,7 +60,7 @@ int DemoManager::initDemoManager(){
     return 0;
 }
 
-int DemoManager::generateTests(){
+int TestManager::generateTests(){
     compassMdl* model = compassMdl::shareCompassMdl();
     enabled_visualization_vector.clear();
     for (int i = 0; i < visualization_vector.size(); ++i){
@@ -69,7 +69,7 @@ int DemoManager::generateTests(){
             (visualization_vector[i]);
         }
     }
-
+    
     enabled_device_vector.clear();
     for (int i = 0; i < device_vector.size(); ++i){
         if (device_vector[i].isEnabled){
@@ -84,20 +84,20 @@ int DemoManager::generateTests(){
     int test_id_counter = 0;
     test_vector.clear();
     for (int i = 0; i < enabled_device_vector.size(); ++i){
-    
-//        for (int j = 0; j < enabled_visualization_vector.size(); ++j){
         
-//            for (int k =0; k < model->snapshot_array.size(); ++k){
-                test myTest;
-                
-//                myTest.visualization = (CPVisualizationType)enabled_visualization_vector[j].type;
-                myTest.device = (CPDeviceType)enabled_device_vector[i].type;
-//                myTest.snapshot_id = k;
-                myTest.test_id = test_id_counter;
-                test_vector.push_back(myTest);
-                test_id_counter += test_id_counter;
-//            }
-//        }
+        //        for (int j = 0; j < enabled_visualization_vector.size(); ++j){
+        
+        //            for (int k =0; k < model->snapshot_array.size(); ++k){
+        test myTest;
+        
+        //                myTest.visualization = (CPVisualizationType)enabled_visualization_vector[j].type;
+        myTest.device = (CPDeviceType)enabled_device_vector[i].type;
+        //                myTest.snapshot_id = k;
+        myTest.test_id = test_id_counter;
+        test_vector.push_back(myTest);
+        test_id_counter += test_id_counter;
+        //            }
+        //        }
         
     }
     

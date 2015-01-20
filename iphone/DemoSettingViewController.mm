@@ -9,7 +9,16 @@
 #import "DemoSettingViewController.h"
 #import "AppDelegate.h"
 
-@implementation debugCell
+//--------------------
+// Demo Cell
+//--------------------
+@interface demoCell :UITableViewCell
+@property UISwitch* mySwitch;
+@property iOSViewController* rootViewController;
+@property param* param_ptr;
+@end
+
+@implementation demoCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]))
@@ -105,7 +114,7 @@
     //-----------------
     // Register the custom cell
     //-----------------
-    [self.myTableView registerClass:[debugCell class]
+    [self.myTableView registerClass:[demoCell class]
              forCellReuseIdentifier:@"myTableCell"];
 }
 
@@ -188,7 +197,7 @@
 //----------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    debugCell *cell = (debugCell *)[tableView                                                dequeueReusableCellWithIdentifier:@"myTableCell"];
+    demoCell *cell = (demoCell *)[tableView                                                dequeueReusableCellWithIdentifier:@"myTableCell"];
     
     if (cell == nil){
         NSLog(@"Something wrong...");
@@ -225,20 +234,8 @@
 }
 
 //-------------
-// Toggle editing mode
+// Buttons
 //-------------
-- (IBAction)toggleEditing:(id)sender {
-    UIBarButtonItem *myButton =
-    (UIBarButtonItem*) sender;
-    if (self.myTableView.editing == YES){
-        [self.myTableView setEditing:NO animated:YES];
-        myButton.title = @"Edit";
-    }else{
-        [self.myTableView setEditing:YES animated:YES];
-        myButton.title = @"Done";
-    }
-    
-}
 - (IBAction)generateTests:(id)sender {
     self.demoManager->generateTests();
     [self.myTableView reloadData];

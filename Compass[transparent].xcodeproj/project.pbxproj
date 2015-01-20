@@ -857,6 +857,12 @@
 		9AE57284199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57285199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57286199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
+		9AE610471A6EF3BD00175A79 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE610451A6EF3BD00175A79 /* TestManager.mm */; };
+		9AE610481A6EF3BD00175A79 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE610451A6EF3BD00175A79 /* TestManager.mm */; };
+		9AE610491A6EF3BD00175A79 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE610451A6EF3BD00175A79 /* TestManager.mm */; };
+		9AE6104A1A6EF3BD00175A79 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE610451A6EF3BD00175A79 /* TestManager.mm */; };
+		9AE6104B1A6EF3BD00175A79 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE610451A6EF3BD00175A79 /* TestManager.mm */; };
+		9AE6104C1A6EF3BD00175A79 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE610451A6EF3BD00175A79 /* TestManager.mm */; };
 		9AEA4D471A4A08BE00E452C3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB311A0DB771000F3A23 /* libz.dylib */; };
 		9AEA4D481A4A08CD00E452C3 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB371A0DB791000F3A23 /* libc++.dylib */; };
 		9AEA4D491A4A08DA00E452C3 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB3B1A0DB7A9000F3A23 /* libicucore.dylib */; };
@@ -1326,6 +1332,8 @@
 		9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassModel+tools.mm"; sourceTree = "<group>"; };
 		9AE5727F199CF8D60055799F /* Wedge+Radial.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Wedge+Radial.mm"; sourceTree = "<group>"; };
 		9AE57280199CF8D60055799F /* Wedge+Radial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wedge+Radial.h"; sourceTree = "<group>"; };
+		9AE610451A6EF3BD00175A79 /* TestManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestManager.mm; sourceTree = "<group>"; };
+		9AE610461A6EF3BD00175A79 /* TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManager.h; sourceTree = "<group>"; };
 		9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compass[transparent].app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEA57D018D9EBB20028B80C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AEA57D318D9EBB20028B80C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -2003,6 +2011,8 @@
 				9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */,
 				9A037367198AF8A500258E95 /* DemoManager.mm */,
 				9A037368198AF8A500258E95 /* DemoManager.h */,
+				9AE610451A6EF3BD00175A79 /* TestManager.mm */,
+				9AE610461A6EF3BD00175A79 /* TestManager.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2792,6 +2802,7 @@
 				9A0375E5198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A0375EB198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
+				9AE6104B1A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9ACD80DA1986CB8900AAB052 /* iOSViewController+Init.mm in Sources */,
 				9A0375DF198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9A4F0F82193E331E00CF32DE /* xmlParser.mm in Sources */,
@@ -2946,6 +2957,7 @@
 				9A037634198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A037592198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A03764C198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
+				9AE6104C1A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9A03758C198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */,
 				9A95CCB4194B4146008E520F /* iOSSettingViewController.mm in Sources */,
@@ -3072,6 +3084,7 @@
 				9A037608198DA31900258E95 /* b2CircleContact.cpp in Sources */,
 				9A0375A2198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A0375C6198DA31900258E95 /* b2Settings.cpp in Sources */,
+				9AE6104A1A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9A03736C198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A4808AA198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
 				9AA7891B1909FE3000A26C66 /* GLString.mm in Sources */,
@@ -3218,6 +3231,7 @@
 				9A176DA619A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9A42A03A19A79C3200BB0101 /* DDRange.m in Sources */,
 				9A037635198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
+				9AE610471A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9A037611198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A037575198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9A75720A197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
@@ -3323,6 +3337,7 @@
 				9A0375CB198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A0375F5198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A9701CC19083B10007C3C19 /* compassRender.mm in Sources */,
+				9AE610491A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9A0375D1198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A42A05019A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
 				9A757152197D6C1500C23AEE /* snapshotParser.mm in Sources */,
@@ -3417,6 +3432,7 @@
 				9A0375BE198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A42A04319A79C3200BB0101 /* HTTPConnection.m in Sources */,
 				9A03757C198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
+				9AE610481A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9A42A03719A79C3200BB0101 /* DDNumber.m in Sources */,
 				9A42A0CD19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
 				9A4293BF1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
