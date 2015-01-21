@@ -44,7 +44,7 @@ int TestManager::initTestManager(){
         visualization_vector.push_back(myParam);
     }
     
-    vector<CPDeviceType> device_enums = {CPPhone, CPWatch};
+    vector<DeviceType> device_enums = {PHONE, WATCH};
     
     NSArray* device_strings = @[@"Phone", @"Watch"];
     for (int i = 0; i < device_enums.size(); ++i){
@@ -91,7 +91,7 @@ int TestManager::generateTests(){
         test myTest;
         
         //                myTest.visualization = (CPVisualizationType)enabled_visualization_vector[j].type;
-        myTest.device = (CPDeviceType)enabled_device_vector[i].type;
+        myTest.device = (DeviceType)enabled_device_vector[i].type;
         //                myTest.snapshot_id = k;
         myTest.test_id = test_id_counter;
         test_vector.push_back(myTest);

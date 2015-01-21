@@ -25,18 +25,19 @@ using namespace std;
 //-----------
 // Enum definition
 //-----------
+
+// Device type enum
+typedef enum{
+    PHONE,
+    WATCH
+}DeviceType;
+
 typedef enum{
     CPNone,
     CPPCompass,
     CPWedge,
     CPOverview
 }CPVisualizationType;
-
-typedef enum{
-    CPPhone,
-    CPWatch
-}CPDeviceType;
-
 
 class param{
 public:
@@ -55,7 +56,7 @@ class test{
 public:
     
     CPVisualizationType visualization;
-    CPDeviceType device;
+    DeviceType device;
     int test_id;
     int snapshot_id;
     NSString *name;
@@ -65,7 +66,7 @@ public:
 public:
     test(){
         visualization = CPPCompass;
-        device = CPPhone;
+        device = PHONE;
     };
 };
 

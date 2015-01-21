@@ -140,7 +140,7 @@ typedef struct{
 // Snapshot related stuff
 //----------------
 - (bool)takeSnapshot;
-- (bool)displaySnapshot: (int) id;
+- (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag;
 - (bool)saveSnapshotArray;
 - (bool)loadSanpshotArray;
 

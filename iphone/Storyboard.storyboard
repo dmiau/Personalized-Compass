@@ -882,13 +882,7 @@
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8cn-zV-Mtj">
                                 <rect key="frame" x="-4" y="476" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem title="Generate Tests" id="3xJ-vM-W5s">
-                                        <connections>
-                                            <action selector="generateTests:" destination="wBd-YN-L9N" id="X2D-a1-QMh"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6O5-ta-egx">
                                 <rect key="frame" x="0.0" y="66" width="320" height="410"/>

@@ -182,9 +182,16 @@
     
     
     if (section_id == 0){
+        //----------------
+        // User selects a file
+        //----------------
+        
         [self loadSnapshotWithName:
          snapshot_file_array[row_id]];
     }else{
+        //----------------
+        // User selects a snapshot
+        //----------------
         self.rootViewController.snapshot_id_toshow = row_id;
         
         //--------------

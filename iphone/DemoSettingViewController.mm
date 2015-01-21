@@ -119,7 +119,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    self.demoManager->generateTests();
+    self.demoManager->updateDemoList();
     [super viewWillDisappear:animated];
 }
 
@@ -163,22 +163,23 @@
 //-------------------
 #pragma mark -----Table View Data Source Methods-----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    // Two sections: 1) Visualizaton; 2) Device    
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0)
         return self.demoManager->visualization_vector.size();
-    else if (section == 1)
-        return self.demoManager->device_vector.size();
     else
-        return self.demoManager->test_vector.size();
+        return self.demoManager->device_vector.size();
+//    else
+//        return self.demoManager->enabled_device_vector.size();
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSArray *list = @[@"VisualizationTypes", @"DeviceTypes", @"Tests"];
+    NSArray *list = @[@"Visualization Types", @"Device Types", @"Tests"];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
     /* Create custom view to display section header... */
@@ -224,20 +225,14 @@
         param_ptr = &(self.demoManager->device_vector[i]);
         cell.param_ptr = param_ptr;
         cell.mySwitch.on = param_ptr->isEnabled;
-    }else if (section_id == 2){
-        cell.textLabel.text = @"Test";
-//        self.demoManager->test_vector[i].name;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
-        cell.mySwitch.on = true;
     }
+    
+//    else if (section_id == 2){
+//        cell.textLabel.text = @"Demo";
+////        self.demoManager->test_vector[i].name;
+//        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
+//        cell.mySwitch.on = true;
+//    }
     return cell;
-}
-
-//-------------
-// Buttons
-//-------------
-- (IBAction)generateTests:(id)sender {
-    self.demoManager->generateTests();
-    [self.myTableView reloadData];
 }
 @end

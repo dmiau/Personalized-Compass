@@ -77,7 +77,8 @@
     // Snapshot and history stuff
     //---------------
     if (self.snapshot_id_toshow >= 0){
-        [self displaySnapshot:self.snapshot_id_toshow];
+        [self displaySnapshot:self.snapshot_id_toshow
+         withVizSettings: false];
         self.snapshot_id_toshow = -1;
     }
 

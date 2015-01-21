@@ -34,14 +34,14 @@ public:
     vector<param> enabled_visualization_vector;
     vector<param> enabled_device_vector;
     
-    vector<test> test_vector;
-    
+    // The following counters are used to indicate which device and visualization
+    // to configure.
     int visualization_counter;
-    int test_counter;
+    int device_counter;
 public:
     static DemoManager* shareDemoManager();
     int initDemoManager();
-    int generateTests();
+    int updateDemoList();
 };
 
 

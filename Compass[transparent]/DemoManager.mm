@@ -29,7 +29,7 @@ int DemoManager::initDemoManager(){
     visualization_vector.clear();
     device_vector.clear();
     visualization_counter = 0;
-    test_counter = -1; //-1 means initialization
+    device_counter = -1; //-1 means initialization
     
     vector<CPVisualizationType> visualization_enums
     = {CPNone, CPPCompass, CPWedge, CPOverview};
@@ -44,7 +44,7 @@ int DemoManager::initDemoManager(){
         visualization_vector.push_back(myParam);
     }
     
-    vector<CPDeviceType> device_enums = {CPPhone, CPWatch};
+    vector<DeviceType> device_enums = {PHONE, WATCH};
 
     NSArray* device_strings = @[@"Phone", @"Watch"];
     for (int i = 0; i < device_enums.size(); ++i){
@@ -56,12 +56,14 @@ int DemoManager::initDemoManager(){
     }
     
     // Generate a set of inti tests
-    generateTests();
+    updateDemoList();
     return 0;
 }
 
-int DemoManager::generateTests(){
+int DemoManager::updateDemoList(){
     compassMdl* model = compassMdl::shareCompassMdl();
+    
+    // Specify the types of visualizations available
     enabled_visualization_vector.clear();
     for (int i = 0; i < visualization_vector.size(); ++i){
         if (visualization_vector[i].isEnabled){
@@ -70,6 +72,7 @@ int DemoManager::generateTests(){
         }
     }
 
+    // Specify the types of devices available
     enabled_device_vector.clear();
     for (int i = 0; i < device_vector.size(); ++i){
         if (device_vector[i].isEnabled){
@@ -78,30 +81,7 @@ int DemoManager::generateTests(){
         }
     }
     
-    //---------------------
-    // Generate a list of tests
-    //---------------------
-    int test_id_counter = 0;
-    test_vector.clear();
-    for (int i = 0; i < enabled_device_vector.size(); ++i){
-    
-//        for (int j = 0; j < enabled_visualization_vector.size(); ++j){
-        
-//            for (int k =0; k < model->snapshot_array.size(); ++k){
-                test myTest;
-                
-//                myTest.visualization = (CPVisualizationType)enabled_visualization_vector[j].type;
-                myTest.device = (CPDeviceType)enabled_device_vector[i].type;
-//                myTest.snapshot_id = k;
-                myTest.test_id = test_id_counter;
-                test_vector.push_back(myTest);
-                test_id_counter += test_id_counter;
-//            }
-//        }
-        
-    }
-    
-    // Reset the test counter
-    test_counter = -1;
+    // Reset the device counter
+    device_counter = -1;
     return 0;
 }

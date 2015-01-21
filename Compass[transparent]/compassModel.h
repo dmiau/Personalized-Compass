@@ -96,13 +96,18 @@ public:
 //--------------
 // snapshot and breadcrumb
 //--------------
+
 class snapshot{
 public:
     MKCoordinateRegion coordinateRegion;
     double orientation;
     NSString* kmlFilename;
+    
+    // Visualization Status
     bool wedgeStatus;
     bool overviewMapStatus;
+    bool pcompassStatus;
+    
     NSString* name;
     MKMapType mapType;
     NSDate* time_stamp;

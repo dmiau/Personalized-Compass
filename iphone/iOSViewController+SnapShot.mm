@@ -33,7 +33,12 @@
     return true;
 }
 
-- (bool)displaySnapshot: (int) id
+//------------------
+// displaySnapshot loads and displays a snapshot
+// when setup_viz_flag is on, the visualization settings
+// at the time when the snap was taken will be loaded too
+//------------------
+- (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag
 {
     snapshot mySnapshot = self.model->snapshot_array[id];
     
@@ -77,9 +82,6 @@
     [self renderAnnotations];
     
     [self updateLocationVisibility];
-    
-    
-    
 
     self.mapView.camera.heading = -mySnapshot.orientation;
     return true;

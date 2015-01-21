@@ -361,16 +361,19 @@
 }
 
 #pragma mark ------Demo actions------
+//-------------------
+// Main method to control the demo
+//-------------------
 - (void)runDemoAction:(UIBarButtonItem*) bar_button{
 
     NSString* label = bar_button.title;
     static int snapshot_id = 0;
     static bool mask_status = false;
     
-    if (self.demoManager->test_counter ==-1){
+    if (self.demoManager->device_counter ==-1){
         snapshot_id = 0;
-        self.demoManager->test_counter = 0;
-        [self setupEnvForTest:self.demoManager->test_vector[0]];
+        self.demoManager->device_counter = 0;
+        [self setupEnvForTest:self.demoManager->enabled_device_vector[0].type];
     }
         
     if ([label isEqualToString:@"[Pre.]"]){
@@ -378,17 +381,18 @@
         snapshot_id = snapshot_id-1;
         if (snapshot_id < 0)
         {
-            if (self.demoManager->test_counter != 0){
+            if (self.demoManager->device_counter != 0){
                 // Set up the environment
                 snapshot_id = self.model->snapshot_array.size() -1;
                 [self setupEnvForTest:self.
-                 demoManager->test_vector
-                 [--self.demoManager->test_counter]];
+                 demoManager->enabled_device_vector
+                 [--self.demoManager->device_counter].type];
             }else{
                 snapshot_id = 0;
             }
         }
-        [self displaySnapshot:snapshot_id];
+        [self displaySnapshot:snapshot_id
+              withVizSettings: false];
         self.model->lockLandmarks = true;
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
@@ -399,18 +403,19 @@
         // Set up the environment
         if (snapshot_id == (int)self.model->snapshot_array.size())
         {
-            if (self.demoManager->test_counter !=
-                self.demoManager->test_vector.size()-1)
+            if (self.demoManager->device_counter !=
+                self.demoManager->enabled_device_vector.size()-1)
             {
                 snapshot_id =0;
                 [self setupEnvForTest:self.demoManager->
-                 test_vector[++self.demoManager->test_counter]];
+                 enabled_device_vector[++self.demoManager->device_counter].type];
             }else{
                 --snapshot_id;
             }
         }
         
-        [self displaySnapshot:snapshot_id];
+        [self displaySnapshot:snapshot_id
+              withVizSettings: false];
         self.model->lockLandmarks = true;
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
@@ -438,8 +443,8 @@
 }
 
 
-- (void)setupEnvForTest:(test) myTest{
-    if (myTest.device == CPPhone){
+- (void)setupEnvForTest:(int) type{
+    if (type == PHONE){
         [self setupPhoneViewMode];
     }else{
         [self setupWatchViewMode];
