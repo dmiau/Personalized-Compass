@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 
 #import "DemoManager.h"
+#import "TestManager.h"
 
 #import "HTTPServer.h"
 #import "MyHTTPConnection.h"
@@ -67,6 +68,7 @@ typedef struct{
 @property compassMdl* model;
 @property compassRender* renderer;
 @property DemoManager* demoManager;
+@property TestManager* testManager;
 @property NSNumber *mapUpdateFlag;
 @property bool conventionalCompassVisible;
 

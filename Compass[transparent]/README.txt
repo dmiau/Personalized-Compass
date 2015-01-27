@@ -1921,6 +1921,106 @@ displaySnapshot is the method to load and display a snapshot
 -------------------------------------------------------------------
 1.21.2015
 -------------------------------------------------------------------
+Today's goal:
+- Make progress on TestManager
+Maybe I can take advantage of the information stored in iOSFourCorners
+
+Done:
+- Cleaned up DemoManager and TestManager
+- Have a conceptual model on what to implement
+
+Working:
+- Implementing generateLocateTests
+
+self.rootViewController.renderer->iOSFourCorners
+
+I do need a test file to specify the following parameters:
+- 
+
+-------------------------------------------------------------------
+1.22.2015
+-------------------------------------------------------------------
+Today's goals:
+- Locate tests generation (did not do much on this day...)
+
+-------------------------------------------------------------------
+1.23.2015
+-------------------------------------------------------------------
+
+I sketched out some ideas on how to implement the test harness. 
+4:32PM. Work on the test harness again. 
+
+For test case generation, I should try to use double as much as possible. 
+
+-------------------------------------------------------------------
+1.25.2015
+-------------------------------------------------------------------
+I can tokenize strings
+http://stackoverflow.com/questions/259956/nsstring-tokenize-in-objective-c
+
+Working on test case generation design.
+p: phone
+w:watch
+c:compass
+w:wedge
+
+-------------------------------------------------------------------
+1.26.2015
+-------------------------------------------------------------------
+- expecting snow storm, working from home today. 
+
+Does this make sense?
+
+Have a nested loop to iterate all the possible test_spec, in each iteration, test_vector will be called. Each test_vector is associated with one person. 
+
+test_vector = generateTestVector(test_spec);
+10:32PM. There is something wrong in my permute function.
+
+-------------------------------------------------------------------
+1.27.2015
+-------------------------------------------------------------------
+- Need to update the "next" function so it returns vector<string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

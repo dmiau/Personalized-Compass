@@ -68,6 +68,45 @@ Design
 Snapshot:
 The snapshot feature was created for debug and demo purposes. Later the snapshot feature is further extended for the purpose of user studies. A snapshot captures the current location, type of visualization, 
 
+Param structure
+name 
+type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

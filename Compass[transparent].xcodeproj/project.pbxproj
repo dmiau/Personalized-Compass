@@ -631,6 +631,22 @@
 		9A4F0FB2193E746200CF32DE /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
 		9A5681B01944A57A0021DA97 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
 		9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9A5681AF1944A57A0021DA97 /* SundayTest.kml */; };
+		9A5F32001A768B44003B0426 /* TestManager-Location.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */; };
+		9A5F32011A768B44003B0426 /* TestManager-Location.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */; };
+		9A5F32021A768B44003B0426 /* TestManager-Location.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */; };
+		9A5F32031A768B44003B0426 /* TestManager-Location.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */; };
+		9A5F32041A768B44003B0426 /* TestManager-Location.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */; };
+		9A5F32051A768B44003B0426 /* TestManager-Location.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */; };
+		9A5F32071A76968B003B0426 /* TestManager-TestVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */; };
+		9A5F32081A76968B003B0426 /* TestManager-TestVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */; };
+		9A5F32091A76968B003B0426 /* TestManager-TestVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */; };
+		9A5F320A1A76968B003B0426 /* TestManager-TestVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */; };
+		9A5F320B1A76968B003B0426 /* TestManager-TestVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */; };
+		9A5F320C1A76968B003B0426 /* TestManager-TestVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */; };
+		9A5F320F1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */; };
+		9A5F32101A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */; };
+		9A5F32111A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */; };
+		9A5F32121A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */; };
 		9A60F8A0198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A60F89F198D75C000E60ABD /* iOSViewController+Interactions.mm */; };
 		9A60F8A1198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A60F89F198D75C000E60ABD /* iOSViewController+Interactions.mm */; };
 		9A6A74A418E4A45D00C7A9D5 /* LocationCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A74A318E4A45D00C7A9D5 /* LocationCellView.mm */; };
@@ -1243,6 +1259,10 @@
 		9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSGLKView.mm; sourceTree = "<group>"; };
 		9A517566198F17390066BC21 /* scratch.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = scratch.mm; sourceTree = "<group>"; };
 		9A5681AF1944A57A0021DA97 /* SundayTest.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SundayTest.kml; sourceTree = "<group>"; };
+		9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-Location.mm"; sourceTree = "<group>"; };
+		9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-TestVector.mm"; sourceTree = "<group>"; };
+		9A5F320D1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConfigurationsWindowController+TestManager.h"; sourceTree = "<group>"; };
+		9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ConfigurationsWindowController+TestManager.mm"; sourceTree = "<group>"; };
 		9A5F3FBF18EE5A5000953336 /* Compass[transparent] copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compass[transparent] copy.entitlements"; sourceTree = "<group>"; };
 		9A5F3FC518EE606200953336 /* tabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = tabView.xib; path = "Compass[transparent]/tabView.xib"; sourceTree = "<group>"; };
 		9A60F89E198D75C000E60ABD /* iOSViewController+Interactions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Interactions.h"; sourceTree = "<group>"; };
@@ -1729,6 +1749,8 @@
 				9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */,
 				9A4293BC1A672FDE00F110E3 /* ConfigurationsWindowController+model.h */,
 				9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */,
+				9A5F320D1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.h */,
+				9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2012,6 +2034,8 @@
 				9A037367198AF8A500258E95 /* DemoManager.mm */,
 				9A037368198AF8A500258E95 /* DemoManager.h */,
 				9AE610451A6EF3BD00175A79 /* TestManager.mm */,
+				9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */,
+				9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */,
 				9AE610461A6EF3BD00175A79 /* TestManager.h */,
 			);
 			name = Model;
@@ -2837,10 +2861,12 @@
 				9ABB382E19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm in Sources */,
 				9A2E42E2196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A0375B5198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
+				9A5F32041A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A037603198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
 				9AECA76C196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */,
 				9A0375F7198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
+				9A5F320B1A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A03767B198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9AFD8F4C197B2E460099BD88 /* snapshotTableViewController.mm in Sources */,
 				9A03765D198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
@@ -2897,6 +2923,7 @@
 				9A03761C198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9A3240D9197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */,
 				9A037580198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
+				9A5F32051A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A6FB7F51958FFC20020355A /* iOSViewController+Updates.mm in Sources */,
 				9A0375A4198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A42A0E819ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */,
@@ -2984,6 +3011,7 @@
 				9A037574198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9A0375E6198DA31900258E95 /* b2Fixture.cpp in Sources */,
+				9A5F320C1A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A037646198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A037628198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A3DA0A91964F5E3009E0073 /* genKMLString.mm in Sources */,
@@ -3062,10 +3090,12 @@
 				9A42A06D19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9A037596198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A037614198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
+				9A5F32031A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A36619619A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9AA789151909FE3000A26C66 /* LocationCellView.mm in Sources */,
 				9A42A0A819A79CA200BB0101 /* DDLog.m in Sources */,
 				9AA789171909FE3000A26C66 /* OpenGLView.mm in Sources */,
+				9A5F32121A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm in Sources */,
 				9A037626198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9AA789181909FE3000A26C66 /* AppDelegate.mm in Sources */,
 				9A36618419A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
@@ -3100,6 +3130,7 @@
 				9A0375AE198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A0375EA198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A037650198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
+				9A5F320A1A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A42A05119A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
 				9A42A05519A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
 				9A0375C0198DA31900258E95 /* b2Math.cpp in Sources */,
@@ -3131,6 +3162,7 @@
 				9A998C921949F32800778DFC /* compassRender+Components.mm in Sources */,
 				9A0375B7198DA31800258E95 /* b2Draw.cpp in Sources */,
 				9A42A05E19A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
+				9A5F32071A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9AECA768196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A42A06619A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
 				9A42A05A19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
@@ -3194,6 +3226,7 @@
 				9A037653198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
 				9A0375FF198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
 				9A42A06219A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
+				9A5F32001A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A0375D5198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A757158197D804100C23AEE /* historyParser.mm in Sources */,
@@ -3216,6 +3249,7 @@
 				9A03765F198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A6A74A418E4A45D00C7A9D5 /* LocationCellView.mm in Sources */,
 				9A0375E7198DA31900258E95 /* b2Island.cpp in Sources */,
+				9A5F320F1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm in Sources */,
 				9A037581198DA31800258E95 /* b2Collision.cpp in Sources */,
 				9A42A0B119A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
 				9A03761D198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
@@ -3315,10 +3349,12 @@
 				9A037631198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A03736B198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A03757D198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
+				9A5F32021A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A42A05C19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
 				9A42A06419A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
 				9A9701D319083B19007C3C19 /* readConfiguration.mm in Sources */,
 				9A42A06019A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
+				9A5F32111A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm in Sources */,
 				9A037643198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A037661198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A037595198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
@@ -3353,6 +3389,7 @@
 				9A3F1E8A1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9A42A06C19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9A42A0A319A79CA200BB0101 /* DDFileLogger.m in Sources */,
+				9A5F32091A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A42A05819A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
 				9A03766D198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
@@ -3413,6 +3450,7 @@
 				9A42A05319A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
 				9A0375A6198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
 				9A42A05B19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
+				9A5F32081A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A037642198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A037606198DA31900258E95 /* b2CircleContact.cpp in Sources */,
 				9A42A0C019A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */,
@@ -3425,6 +3463,7 @@
 				9A42A06F19A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A037666198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A04719A79C3200BB0101 /* HTTPMessage.m in Sources */,
+				9A5F32101A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm in Sources */,
 				9A42A06B19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9A037672198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A0375A0198DA31800258E95 /* b2CircleShape.cpp in Sources */,
@@ -3465,6 +3504,7 @@
 				9A037576198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9AFD8F57197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A0375FA198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
+				9A5F32011A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A42A0C919ABADC800BB0101 /* MyHTTPConnection.m in Sources */,
 				9A0375E8198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A75720B197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,

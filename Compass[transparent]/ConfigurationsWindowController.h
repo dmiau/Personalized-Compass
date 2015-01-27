@@ -61,12 +61,11 @@
 // Adjust the iOS screen size
 - (IBAction)adjustiOSScreenSize:(id)sender;
 @property (weak) IBOutlet NSSlider *iOSScale;
+@property NSString* iOSScreenStr;
 
 // Adjust wedge parameters
 - (IBAction)adjustWedgeCorrectionFactor:(id)sender;
 @property (weak) IBOutlet NSSlider *wedgeCorrectionFactor;
-
-
 
 //-------------
 // Locations pane
@@ -84,4 +83,10 @@
 - (IBAction)toggleLandmarkLock:(NSButton*)sender;
 - (IBAction)filterTypeSegmentControl:(NSSegmentedControl*)sender;
 - (IBAction)dataPrefilterSegmentControl:(NSSegmentedControl*)sender;
+
+
+//-------------
+// Test Manager
+//-------------
+- (IBAction)generateTests:(id)sender;
 @end

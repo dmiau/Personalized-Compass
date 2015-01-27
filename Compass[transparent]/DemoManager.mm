@@ -31,8 +31,8 @@ int DemoManager::initDemoManager(){
     visualization_counter = 0;
     device_counter = -1; //-1 means initialization
     
-    vector<CPVisualizationType> visualization_enums
-    = {CPNone, CPPCompass, CPWedge, CPOverview};
+    vector<VisualizationType> visualization_enums
+    = {VIZNONE, VIZPCOMPASS, VIZWEDGE, VIZOVERVIEW};
     NSArray* visualization_strings =
     @[@"None", @"PComp", @"Wedge", @"OverV"];
     

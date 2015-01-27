@@ -56,12 +56,14 @@ public:
 };
 
 //--------------
-// landmark object
+// landmark object: a data object holds one location
 //--------------
 class data {
 public:
     // Properties
     std::string name;
+    
+    // distance and orientation will be updated on the fly
     double distance;
     float orientation;
     float latitude;

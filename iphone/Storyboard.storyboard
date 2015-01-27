@@ -978,8 +978,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="yng-bX-3xc"/>
         <segue reference="WS4-yg-Oj7"/>
         <segue reference="K1H-er-9a7"/>
-        <segue reference="WDh-6L-UAq"/>
     </inferredMetricsTieBreakers>
 </document>

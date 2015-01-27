@@ -467,26 +467,26 @@
 - (void)loopVisualizations:(UIBarButtonItem*) bar_button{
     int idx = self.demoManager->visualization_counter;
     
-    CPVisualizationType current_type = (CPVisualizationType)
+    VisualizationType current_type = (VisualizationType)
     self.demoManager->enabled_visualization_vector[idx].type;
     
     switch (current_type) {
-        case CPNone:
+        case VIZNONE:
             [self toggleOverviewMap:NO];
             [self togglePCompass:NO];
             [self toggleWedge:NO];
             break;
-        case CPPCompass:
+        case VIZPCOMPASS:
             [self toggleOverviewMap:NO];
             [self toggleWedge:NO];
             [self togglePCompass:YES];
             break;
-        case CPWedge:
+        case VIZWEDGE:
             [self toggleOverviewMap:NO];
             [self togglePCompass:NO];
             [self toggleWedge:YES];
             break;
-        case CPOverview:
+        case VIZOVERVIEW:
             [self togglePCompass:NO];
             [self toggleWedge:NO];
             [self toggleOverviewMap:YES];

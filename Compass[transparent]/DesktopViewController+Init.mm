@@ -40,6 +40,9 @@
             // Initialize iOSSyncFlag
             self.iOSSyncFlag = false;
             
+            // Initial testManager to NULL
+            self.testManager = NULL;            
+            
             //--------------------
             // Initialize a list of UI configurations
             //--------------------

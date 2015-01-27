@@ -264,6 +264,10 @@
     float iOS_height = height * scale;
     float iOS_width = iOS_height *320/503;
     
+    //Generate iOSScreenStr
+    self.iOSScreenStr = [NSString stringWithFormat:@"503x320 x %.2f = %.2fx%.2f",
+                         scale, iOS_height, iOS_width];
+    
     CGPoint *tempFourCorners = self.rootViewController.renderer->iOSFourCorners;
     tempFourCorners[0].x = width/2 - iOS_width/2;
     tempFourCorners[0].y = height/2 - iOS_height/2;
@@ -282,4 +286,5 @@
     self.rootViewController.model->configurations[@"wedge_correction_x"]
     = [NSNumber numberWithFloat: value];
 }
+
 @end
