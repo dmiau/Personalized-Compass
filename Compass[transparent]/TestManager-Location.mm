@@ -15,10 +15,14 @@ map<string, vector<int>> TestManager::generateLocationVector(){
     location_dict.clear();
     
     map<string, vector<int>> phone_locations =
-    generateLocateTests(PHONE);
-
+    generateLocateLocations(PHONE);
     // Store into location_dict
     location_dict.insert(phone_locations.begin(), phone_locations.end());
+    
+    map<string, vector<int>> watch_locations =
+    generateLocateLocations(WATCH);
+    // Store into location_dict
+    location_dict.insert(watch_locations.begin(), watch_locations.end());
     
     // Save the location to a CSV
     saveLocationCSV();
@@ -30,7 +34,7 @@ map<string, vector<int>> TestManager::generateLocationVector(){
 //--------------
 // Methods to generate tests
 //--------------
-map<string, vector<int>> TestManager::generateLocateTests(DeviceType deviceType){
+map<string, vector<int>> TestManager::generateLocateLocations(DeviceType deviceType){
     // locations in close_vector should be witin the display area,
     // so we can perform the old wedge test on the display
     
@@ -75,17 +79,17 @@ map<string, vector<int>> TestManager::generateLocateTests(DeviceType deviceType)
     
     vector<vector<int>> t_location_vector;
     
-    // pcompass:close, wedge:close
-    vector<string> prefix_list = {device_prefix + ":pcompass:t1:c",
-        device_prefix + ":wedge:t1:c"};
+    // pcompass:t1:, wedge:t1:
+    vector<string> prefix_list = {device_prefix + ":pcompass:t1:",
+        device_prefix + ":wedge:t1:"};
+    
     vector<vector<double>> boundary_spec_list =
     {{close_begin, close_end, (double)close_n},
         {far_begin, far_end, (double)far_n}};
     
-    
-    for (int bi = 0; bi < boundary_spec_list.size(); ++bi){
-        for (int i =0; i < prefix_list.size(); ++i){
-            
+    for (int i =0; i < prefix_list.size(); ++i){
+        int location_counter = 0;
+        for (int bi = 0; bi < boundary_spec_list.size(); ++bi){
             double t_begin = boundary_spec_list[bi][0];
             double t_end = boundary_spec_list[bi][1];
             double t_n = boundary_spec_list[bi][2];
@@ -94,12 +98,14 @@ map<string, vector<int>> TestManager::generateLocateTests(DeviceType deviceType)
             (t_begin, t_end, (int)t_n);
             
             for (int li = 0; li < t_location_vector.size(); ++li){
-                string code = prefix_list[i] + to_string(li);
+
+                string location_class_subfix = "c";
+                if (bi == 1)
+                    location_class_subfix = "f";
                 
+                string code = prefix_list[i] + to_string(location_counter++) +
+                location_class_subfix;
                 
-//                out_location_dict.insert(
-//                                     pair<string, vector<int>>
-//                                     (code, t_location_vector[i]));
                 out_location_dict[code] = t_location_vector[li];
             }
         }
@@ -129,7 +135,7 @@ vector<vector<int>> TestManager::generateRandomLocations
     
     vector<double> close_vector; close_vector.clear();
     for (int i = 0; i < location_n; ++i){
-        int temp = step * i + distr(generator);
+        int temp = close_boundary + step * i + distr(generator);
         
         // Need to transform to xy coordinate
         vector<int> t_vector; // The first is x, and the second is y
@@ -141,7 +147,7 @@ vector<vector<int>> TestManager::generateRandomLocations
 }
 
 
-map<string, vector<int>> TestManager::generateTriangulateTests(DeviceType deviceType){
+map<string, vector<int>> TestManager::generateTriangulateLocations(DeviceType deviceType){
     map<string, vector<int>> out_location_dict;
 
     // Need to generate the following cases
@@ -191,14 +197,14 @@ map<string, vector<int>> TestManager::generateTriangulateTests(DeviceType device
     return out_location_dict;
 }
 
-map<string, vector<int>> TestManager::generateOrientTests(DeviceType deviceType){
+map<string, vector<int>> TestManager::generateOrientLocations(DeviceType deviceType){
     map<string, vector<int>> out_location_dict;
 
     return out_location_dict;
 }
 
 //----------------
-// Save the 
+// Save the locations to CSV
 //----------------
 void TestManager::saveLocationCSV(){
     //--------------
@@ -219,5 +225,72 @@ void TestManager::saveLocationCSV(){
 //    [w writeLineOfFields:d.lines[0]];
 //    [w writeLineOfFields:d.lines[1]];
 //    [w writeLineOfFields:@[@1, @2, @3, @"91, 5"]];
+}
+
+//---------------
+    // Initialize watch_boundaries and phone_boundaries
+//---------------
+void TestManager::initializeDeviceBoundaries(){
+    
+    float em_width, em_height;
+    float ios_width, ios_height;
+
+    double close_begin, close_end;
+    double far_begin, far_end;
+    
+    //         close_n steps    far_n steps
+    // -------|------------|---|---------------|
+    // close_begin  close_end far_begin     far_end
+    
+
+    // In the study, there are two devices (environments) to be tested: phone and watch
+    // However, in the locate task, phone and watch might be tested on a desktop
+    // So this can be a bit confusing.
+    // Here will call phone and watch as devices
+    // desktop and ios as platform
+
+    //------------
+    // Phone
+    //------------
+    em_width = 212; em_height = 332;
+    ios_width = 320; ios_height = 503;
+    vector<float> two_heights = {em_height, ios_height};
+    
+    // First populate the desktop, second populate the ios
+    for (int i = 0; i < two_heights.size(); ++i){
+        float platform_height = two_heights[i];
+        close_begin = platform_height/2 * close_begin_x;
+        close_end = platform_height/2 * close_end_x;
+        
+        far_begin = platform_height/2 * far_begin_x;
+        far_end = platform_height/2 * far_end_x;
+        
+        // Need to initialize the vector
+        vector<pair<float, float>> temp =
+        {pair<float, float>(close_begin, close_end), pair<float, float>(far_begin, far_end)};
+        
+        phone_boundaries.push_back(temp);
+    }
+    
+    //------------
+    // Watch
+    //------------
+    em_width = 212 * 0.7; em_height = 332 * 0.7;
+    ios_width = 320 * 0.7; ios_height = 503 * 0.7;
+    two_heights = {em_height, ios_height};
+    // First populate the desktop, second populate the ios
+    for (int i = 0; i < two_heights.size(); ++i){
+        float platform_height = two_heights[i];
+        close_begin = platform_height/2 * close_begin_x;
+        close_end = platform_height/2 * close_end_x;
+        
+        far_begin = platform_height/2 * far_begin_x;
+        far_end = platform_height/2 * far_end_x;
+ 
+        // Need to initialize the vector
+        vector<pair<float, float>> temp =
+        {pair<float, float>(close_begin, close_end), pair<float, float>(far_begin, far_end)};
+        watch_boundaries.push_back(temp);
+    }
 }
 

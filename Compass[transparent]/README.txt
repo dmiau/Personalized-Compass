@@ -2007,7 +2007,17 @@ http://stackoverflow.com/questions/2760411/objective-c-x-code-equivalent-of-file
 configuration_filename
 location_filename
 
+-------------------------------------------------------------------
+1.29.2015
+-------------------------------------------------------------------
+Goal of today:
+- Have a working locate test!
 
+Todo:
+- Fill out placeholders for generateTriangulateLocations and generateOrientLocations
+- Generate .tests
+- Generate .kml and .snapshot
+- Testharness UI
 
 
 

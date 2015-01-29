@@ -72,9 +72,21 @@ Param structure
 name 
 type
 
+==================
+Test Code Design
+==================
+phone:pcompass:t1:0c,29,0
+phone:pcompass:t1:1c,639,0
+phone:pcompass:t1:2c,893,0
+phone:pcompass:t1:3c,1403,0
+phone:pcompass:t1:4c,1751,0
 
+code convention:
+device:visualization:task:location_class-subID
 
-
+phone:pcompass:t2:0c-1
+phone:pcompass:t2:0c-2
+phone:pcompass:t2:0c-3
 
 
 

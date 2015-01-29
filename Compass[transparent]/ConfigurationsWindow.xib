@@ -573,11 +573,11 @@
                             </tabViewItem>
                             <tabViewItem label="Test Manager" identifier="" id="bcB-ka-Uom">
                                 <view key="view" id="aqh-aY-10O">
-                                    <rect key="frame" x="10" y="33" width="664" height="418"/>
+                                    <rect key="frame" x="10" y="33" width="636" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NbM-Qf-t6J">
-                                            <rect key="frame" x="472" y="140" width="133" height="32"/>
+                                            <rect key="frame" x="472" y="128" width="133" height="32"/>
                                             <buttonCell key="cell" type="push" title="Generate Tests" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9fr-qi-zfz">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -587,7 +587,7 @@
                                             </connections>
                                         </button>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Tasks" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="NZC-af-ngC">
-                                            <rect key="frame" x="23" y="44" width="182" height="141"/>
+                                            <rect key="frame" x="23" y="32" width="182" height="141"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="180" height="125"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -626,7 +626,7 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAL-u0-ctl">
-                                            <rect key="frame" x="223" y="149" width="146" height="17"/>
+                                            <rect key="frame" x="223" y="137" width="146" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number of participants" id="Rwr-wB-8ag">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -634,7 +634,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHv-Yw-cvS">
-                                            <rect key="frame" x="374" y="147" width="96" height="22"/>
+                                            <rect key="frame" x="374" y="135" width="96" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="100" drawsBackground="YES" id="z5H-ya-eti">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -645,7 +645,7 @@
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skr-1q-Ntq">
-                                            <rect key="frame" x="223" y="89" width="91" height="17"/>
+                                            <rect key="frame" x="223" y="77" width="91" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Participlant ID" id="icp-gj-0Yf">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -653,7 +653,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UVr-dg-qsX">
-                                            <rect key="frame" x="329" y="87" width="96" height="22"/>
+                                            <rect key="frame" x="329" y="75" width="96" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0" drawsBackground="YES" id="Z2A-VM-uHQ">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -664,14 +664,14 @@
                                             </connections>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ER3-qa-fzL">
-                                            <rect key="frame" x="436" y="80" width="94" height="32"/>
+                                            <rect key="frame" x="436" y="68" width="94" height="32"/>
                                             <buttonCell key="cell" type="push" title="Run Test" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SCr-Es-gdI">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwW-Zi-Rot">
-                                            <rect key="frame" x="225" y="119" width="88" height="17"/>
+                                            <rect key="frame" x="225" y="107" width="88" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Test directory" id="3SH-6d-RkT">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -679,7 +679,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Factors" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Vse-0N-pwB">
-                                            <rect key="frame" x="6" y="223" width="624" height="190"/>
+                                            <rect key="frame" x="6" y="211" width="624" height="190"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="622" height="174"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

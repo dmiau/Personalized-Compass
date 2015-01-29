@@ -80,6 +80,13 @@ public:
 //---------------
 // Pool object
 //---------------
+
+//Three methods to generate a pool
+//FULL: fully counter-balanced
+//FIXED: take the sequence as is
+//LATIN: Latin square
+enum POOLMODE {FULL, FIXED, LATIN};
+
 class pool{
 public:
     string name;
@@ -90,8 +97,28 @@ public:
     // {{2, 1}, {1, 2}}}
     vector< vector<vector<string>> > content;
 public:
-    // constructor
-    pool(vector<string>, int leaf_n);
+    // pool takes a list of conditions (e.g., device types, viz types, etc.)
+    // and generates a pool of string bundles, which can be used to generate
+    // prefix.
+    
+    // The entire pool is stored in content, which is
+    // vector < vector< vector<string> > >
+    // An example of the visualization pool is like
+    // { {{pcompass, wedge}, {wedge, pcompaass}},
+    //   {{wedge, pcompass}, {pcompaass, wedge}}
+    // }
+    
+    // leaf_n indicates the number of items of *the level above*
+    // In the case of visualization, the level above is the device level.
+    // Each participant has two device leaves (phone and watch),
+    // thus leaf_n is 2 for the visualization condition
+    
+    // The idea is that at each iteration of device, the program can call the
+    // the "next" method to get a visualization_list (which contains two
+    // visualizations, pcompass and wedge)
+    
+    // leaf_n controls the number of items per pool unit
+    pool(vector<string>, POOLMODE mode, int leaf_n);
     
     // Next should return the following in sequence
     // {1, 2}, {2, 1},   {2, 1}, {1, 2}
@@ -127,10 +154,20 @@ public:
     
     // A map holds all the IDs and (x, y) coordinates
     map<string, vector<int>> location_dict;
+    // Stores all test vectors (each participant has a test vector)
+    vector<vector<string>> all_test_vectors;
     
     //---------------
-    // Parameters for the locate test generation
+    // Parameters for close, far boundaries
     //---------------
+    
+    // watch_boundaries and phone_boundaries layout
+    //              close       |   far
+    // [0]desktop  [float, float]  | [float, float]
+    // [1]mobile   [float, float]  | [float, float]
+    vector<vector<pair<float, float>>> watch_boundaries;
+    vector<vector<pair<float, float>>> phone_boundaries;
+    
     float close_begin_x;
     float close_end_x;
     float far_begin_x;
@@ -164,13 +201,16 @@ public:
     static TestManager* shareTestManager();
     int initTestManager();
     
+    // Initialize watch_boundaries and phone_boundaries
+    void initializeDeviceBoundaries();
+    
     // Methods to generate tests
     int generateTests();
     
     
     map<string, vector<int>> generateLocationVector();
     
-    map<string, vector<int>> generateLocateTests(DeviceType deviceType);
+    map<string, vector<int>> generateLocateLocations(DeviceType deviceType);
     
     //--------------
     // Generate  close_bounary<  n random locations < far_boundary
@@ -180,20 +220,21 @@ public:
     vector<vector<int>> generateRandomLocations
     (double close_boundary, double far_boundary, int location_n);
     
-    map<string, vector<int>> generateTriangulateTests(DeviceType deviceType);
-    map<string, vector<int>> generateOrientTests(DeviceType deviceType);
+    map<string, vector<int>> generateTriangulateLocations(DeviceType deviceType);
+    map<string, vector<int>> generateOrientLocations(DeviceType deviceType);
 
-    vector<string> generateTestVector(
+    void generateAllTestVectors(
         vector<string> device_list,
         vector<string> visualization_list,
         vector<string> task_list,
         vector<string> distance_list,
-        vector<int> location_list
+        vector<string> location_list
     );
     
     // I will need a snapshot generator too
     
     void saveLocationCSV();
+    void saveAllTestVectorCSV();
 };
 
 //class test{
