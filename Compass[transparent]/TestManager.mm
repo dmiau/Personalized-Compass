@@ -26,6 +26,9 @@ TestManager* TestManager::shareTestManager(){
 // Test Manager initializations
 //--------------
 int TestManager::initTestManager(){
+    
+    model = compassMdl::shareCompassMdl();
+    
     visualization_vector.clear();
     device_vector.clear();
     visualization_counter = 0;
@@ -57,6 +60,11 @@ int TestManager::initTestManager(){
     
     // Generate a set of inti tests
 //    generateTests();
+    
+    // Initialize random number generation
+    seed = 12345;
+    std::mt19937 temp(seed);
+    generator = temp;
     return 0;
 }
 
@@ -86,18 +94,18 @@ int TestManager::generateTests(){
     // Generate location vector
     //=====================
     
-//    // Generate location dictionary
-//    map<string, data> location_map;
-//    
-//    for (int i = 0; i < enabled_device_vector.size(); ++i){
-//        DeviceType deviceType = (DeviceType) enabled_device_vector[i].type;
+    for (int i = 0; i < enabled_device_vector.size(); ++i){
+        DeviceType deviceType = (DeviceType) enabled_device_vector[i].type;
+        
+        map<string, vector<int>> t_location_dict = generateLocationVector();
+        
 //        vector<data> locate_tests = generateLocateTests(deviceType);
 //        
 //        // I will need to package the tests into snapshots
 //        
 //        vector<data> triangulate_ests = generateTriangulateTests(deviceType);
 //        vector<data> orient_tests = generateOrientTests(deviceType);
-//    }
+    }
     
     //=====================
     // Generate tests
@@ -129,12 +137,10 @@ int TestManager::generateTests(){
 //                       distance_list, location_list);
     //--------------------------
     
-    user_n = 2;
-    
     string dprefix = "", dvprefix = "", dvtprefix = "", prefix = "";
     vector<string> user_test_vector;
     vector<vector<string>> all_test_vectors; all_test_vectors.clear();
-    for (int ui = 0; ui < user_n; ++ui){
+    for (int ui = 0; ui < participant_n; ++ui){
         
         user_test_vector.clear();
         vector<string> t_device_list = device_pool.next();
@@ -172,5 +178,3 @@ int TestManager::generateTests(){
     test_counter = -1;
     return 0;
 }
-
-

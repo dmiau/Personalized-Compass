@@ -16,6 +16,29 @@
         TestManager::shareTestManager();
     }
     
+    // Populate the parameters to Testmanager
+    self.rootViewController.testManager->close_begin_x =
+    [self.close_begin_x floatValue];
+    self.rootViewController.testManager->close_end_x =
+    [self.close_end_x floatValue];
+    
+    self.rootViewController.testManager->far_begin_x =
+    [self.far_begin_x floatValue];
+    self.rootViewController.testManager->far_end_x =
+    [self.far_end_x floatValue];
+    
+    self.rootViewController.testManager->close_n =
+    [self.close_n intValue];
+    
+    self.rootViewController.testManager->far_n =
+    [self.far_n intValue];
+    
+    self.rootViewController.testManager->participant_n =
+    [self.participant_n intValue];
+
+    self.rootViewController.testManager->participant_id =
+    [self.participant_id intValue];
+    
     // Generate tests
     self.rootViewController.testManager->generateTests();
 }

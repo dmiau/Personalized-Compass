@@ -174,7 +174,8 @@ public:
     NSNumber *configurationFileReadFlag;
     NSMutableDictionary *configurations;
     NSMutableDictionary *cache_configurations;
-        
+    
+    NSString* desktopDropboxDataRoot;
     NSString* configuration_filename;
     NSString* location_filename;
     NSString* snapshot_filename;

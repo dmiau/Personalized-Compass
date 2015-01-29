@@ -1980,8 +1980,32 @@ test_vector = generateTestVector(test_spec);
 1.27.2015
 -------------------------------------------------------------------
 - Need to update the "next" function so it returns vector<string>
+- Have a draft to generate test vectors
+12:21PM. Now on to generate locations. 
 
+- I would like to complete location vector generation today. I think it is possible. 
+What kind of location vector do you want to generate?
+2:03PM. Should I take a nap or not?
 
+10:15PM. I felt hard to concentrate. I know there are issues in generateRandomLocations. distr needs to be cached.
+
+-------------------------------------------------------------------
+1.28.2015
+-------------------------------------------------------------------
+11:11AM. Work in the office. 
+Let's make some progress on location generation today. 
+2:10PM. Came back to work on the triangulate test generation
+
+Let's at least complete the locate test harness first. 
+
+5:06PM. Ran into LLDB issue with std::map
+
+5:29PM. Standard, predefined marcors:
+http://stackoverflow.com/questions/2760411/objective-c-x-code-equivalent-of-file-and-line-from-c-c
+
+5:36PM. Let's fix the desktop loading/saving path issue before dinner. Look for the string NSBundle.
+configuration_filename
+location_filename
 
 
 

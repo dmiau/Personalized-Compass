@@ -58,6 +58,8 @@ int compassMdl::initMdl(){
     dbFilesystem = [[filesystem alloc] initDROPBOX];
 #endif
     
+    desktopDropboxDataRoot = @"/Users/daniel_miau/Dropbox/Apps/pcompass_x/";
+    
     //--------------
     // Load configurations and locations
     //--------------
