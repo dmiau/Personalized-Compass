@@ -44,48 +44,27 @@ map<string, vector<int>> TestManager::generateLocateLocations(DeviceType deviceT
     //        pcompass | wedge
     // close | desktop | desktop
     // far   | phone   | phone
-
-    string device_prefix;
-    float em_width, em_height;
-    float ios_width, ios_height;
-
-    double close_begin, close_end;
     
-    double far_begin, far_end;
-
-    //         close_n steps    far_n steps
-    // -------|------------|---|---------------|
-    // close_begin  close_end far_begin     far_end
-    
-    
-    if (deviceType == PHONE){
-        device_prefix = "phone";
-        // PHONE
-        em_width = 332; em_height = 212;
-        ios_width = 320; ios_height = 503;
-    }else{
-        // WATCH
+    string device_prefix = "phone";
+    vector<vector<pair<float, float>>> boundary_spec = phone_boundaries;
+    if (deviceType == WATCH){
         device_prefix = "watch";
-        em_width = 332; em_height = 212;
-        ios_width = 320; ios_height = 503;
+        boundary_spec = watch_boundaries;
     }
-    // TODO: need to have better close_begin
-    close_begin = em_height/2 * close_begin_x;
-    close_end = em_height/2 * close_end_x;
-    
-    far_begin = ios_height/2 * far_begin_x;
-    far_end = ios_height/2 * far_end_x;
     
     
-    vector<vector<int>> t_location_vector;
-    
+//-----------------------
+// code sharing?
     // pcompass:t1:, wedge:t1:
     vector<string> prefix_list = {device_prefix + ":pcompass:t1:",
         device_prefix + ":wedge:t1:"};
     
+    // Define the boundaries for the locate tasks
     vector<vector<double>> boundary_spec_list =
-    {{close_begin, close_end, (double)close_n},
-        {far_begin, far_end, (double)far_n}};
+    {{boundary_spec[0][0].first, boundary_spec[0][0].second, (double)close_n},
+        {boundary_spec[1][1].first, boundary_spec[1][1].second, (double)far_n}};
+//-----------------------
+    
     
     for (int i =0; i < prefix_list.size(); ++i){
         int location_counter = 0;
@@ -93,21 +72,23 @@ map<string, vector<int>> TestManager::generateLocateLocations(DeviceType deviceT
             double t_begin = boundary_spec_list[bi][0];
             double t_end = boundary_spec_list[bi][1];
             double t_n = boundary_spec_list[bi][2];
+
+            string location_class_subfix = "c";
+            if (bi == 1)
+                location_class_subfix = "f";
             
-            t_location_vector =  generateRandomLocations
+            //------------------
+            vector<vector<int>> t_location_vector =  generateRandomLocations
             (t_begin, t_end, (int)t_n);
             
             for (int li = 0; li < t_location_vector.size(); ++li){
-
-                string location_class_subfix = "c";
-                if (bi == 1)
-                    location_class_subfix = "f";
                 
                 string code = prefix_list[i] + to_string(location_counter++) +
                 location_class_subfix;
                 
                 out_location_dict[code] = t_location_vector[li];
             }
+            //------------------            
         }
     }
     
