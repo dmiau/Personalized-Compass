@@ -48,6 +48,9 @@
 
     
     if (mySnapshot.selected_ids.size() == 0){
+        // If no landmarks are specified, let the model to decide which
+        // landmark to show (use the K_ORIENTATIONS method)
+        
         self.model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
     }else{
         //-----------------

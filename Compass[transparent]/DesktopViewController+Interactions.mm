@@ -62,21 +62,21 @@
     // Get the sender title
     NSString *title = [(NSMenuItem *)sender title];
     
-    MKMapCamera *mycamera = self.mapView.camera;
-    
-    CLLocationDirection cur_heading = mycamera.heading;
+    //
+    float step = 2;
+    if (abs(self.mapView.camera.heading) < 10){
+        step = 10;
+    }
     
     if ([title rangeOfString:@"CCW"].location == NSNotFound){
-        mycamera.heading = cur_heading - 2;
-        // Update the compassModel's orientation
-        //[todo] need to fix orientation
-        self.model->camera_pos.orientation = self.model->camera_pos.orientation +2;
+        self.mapView.camera.heading -= step;
+        
     }else{
-        mycamera.heading = cur_heading + 2;
-        self.model->camera_pos.orientation = self.model->camera_pos.orientation -2;
+        self.mapView.camera.heading += step;
     }
-    cout << "Orientation: " << self.model->camera_pos.orientation << endl;
-    [self.mapView setCamera:mycamera animated:YES];
+    // Update the compassModel's orientation
+    self.model->camera_pos.orientation = - self.mapView.camera.heading;
+//    cout << "Orientation: " << self.model->camera_pos.orientation << endl;
 }
 
 #pragma mark ------------- User Interface -------------

@@ -2025,20 +2025,32 @@ Todo:
 2.2.2015
 -------------------------------------------------------------------
 
-Todo:
-
-- Generate .kml and .snapshot
+*Todo
+- [Desktop] implement snapshot
+- [Desktop] use mouse to move the compass location
+- [Desktop] test authoring tool? (my task might be overly complicated)
 - Testharness UI
+- Compass scaling when the window is scaled?
+- Need some desktop <-> iOS conversion tools:
 
-Done:
 
-
-Working:
+*Done
 - Read the file from the dropbox source
-look for *_filename
+look for *_filename [10:51AM]
+- heading is problematic. The rotating map has this snap-back feature, which is annoying. Fixed. [4:34PM]
 
+*Working
+- Generate .kml and .snapshot
+* I would need some kind of test configuation files 
 
+check displaySnapshot in iOSViewController+SnapShot.mm
 
+snapshot has a field called coordinateRegion.
+
+MKCoordinateSpan span
+
+- I want to see how MKMapRect change and how MKCoordinateSpace changes?
+what happen to the rotate function?
 
 
 

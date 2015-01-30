@@ -38,6 +38,10 @@
     if ( !MKMapRectEqualToRect(visibleMapRect_cache, visibleMapRect)||
         abs((double)(pitch_cache - self.mapView.camera.pitch)) > epsilon)
     {
+//        // debug
+//        NSLog(@"cached rect: %@", MKStringFromMapRect(visibleMapRect_cache));
+//        NSLog(@"visible rect: %@", MKStringFromMapRect(self.mapView.visibleMapRect));
+        
         visibleMapRect_cache = visibleMapRect;
         pitch_cache = self.mapView.camera.pitch;
         
@@ -110,12 +114,12 @@
     [self updateLocationVisibility];
     self.model->updateMdl();
     
-    // Update distances on the table
-    NSScrollView* scrollView = [self.locationTableView enclosingScrollView];
-    CGRect visibleRect = scrollView.contentView.visibleRect;
-    
-    dispatch_queue_t concurrentQueue =
-    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+//    // Update distances on the table
+//    NSScrollView* scrollView = [self.locationTableView enclosingScrollView];
+//    CGRect visibleRect = scrollView.contentView.visibleRect;
+//    
+//    dispatch_queue_t concurrentQueue =
+//    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
     
     //concurrentQueue
     // UI update needs to be on main queue?

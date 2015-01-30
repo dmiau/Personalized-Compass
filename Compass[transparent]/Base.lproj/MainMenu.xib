@@ -899,6 +899,7 @@
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
+            <point key="canvasLocation" x="62.5" y="379"/>
         </window>
     </objects>
 </document>
