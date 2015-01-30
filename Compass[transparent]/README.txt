@@ -1987,7 +1987,7 @@ test_vector = generateTestVector(test_spec);
 What kind of location vector do you want to generate?
 2:03PM. Should I take a nap or not?
 
-10:15PM. I felt hard to concentrate. I know there are issues in generateRandomLocations. distr needs to be cached.
+10:15PM. I felt hard to concentrate. I know there are issues in generateRandomLocateLocations. distr needs to be cached.
 
 -------------------------------------------------------------------
 1.28.2015

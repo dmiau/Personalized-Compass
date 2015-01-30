@@ -130,7 +130,7 @@ public:
 //---------------
 // Test Manager
 //---------------
-
+enum TaskType {LOCATE, TRIANGULATE, ORIENT};
 
 class TestManager{
 public:
@@ -209,20 +209,28 @@ public:
     
     
     map<string, vector<int>> generateLocationVector();
-    
-    map<string, vector<int>> generateLocateLocations(DeviceType deviceType);
+
+    map<string, vector<int>> generateLocationsByTask
+    (DeviceType deviceType, TaskType taskType);
     
     //--------------
     // Generate  close_bounary<  n random locations < far_boundary
     // The n random locations fall into n equally distant segments
     // btween close_boundary and far_boundary
     //--------------
-    vector<vector<int>> generateRandomLocations
+    vector<vector<int>> generateRandomLocateLocations
     (double close_boundary, double far_boundary, int location_n);
     
-    map<string, vector<int>> generateTriangulateLocations(DeviceType deviceType);
-    map<string, vector<int>> generateOrientLocations(DeviceType deviceType);
-
+    vector<vector<int>> generateRandomTriangulateLocations
+    (double close_boundary, double far_boundary, int location_n);
+    
+    vector<vector<int>> generateRandomOrientLocations
+    (double close_boundary, double far_boundary, int location_n);
+    
+    //---------------
+    // Test vector generation
+    //---------------
+    
     void generateAllTestVectors(
         vector<string> device_list,
         vector<string> visualization_list,

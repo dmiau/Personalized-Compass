@@ -14,16 +14,18 @@ map<string, vector<int>> TestManager::generateLocationVector(){
     
     location_dict.clear();
     
-    map<string, vector<int>> phone_locations =
-    generateLocateLocations(PHONE);
-    // Store into location_dict
-    location_dict.insert(phone_locations.begin(), phone_locations.end());
+    vector<TaskType> task_list = {LOCATE, TRIANGULATE, ORIENT};
+    vector<DeviceType> device_list = {PHONE, WATCH};
     
-    map<string, vector<int>> watch_locations =
-    generateLocateLocations(WATCH);
-    // Store into location_dict
-    location_dict.insert(watch_locations.begin(), watch_locations.end());
-    
+    map<string, vector<int>> temp_locations;
+    for (int i = 0; i < device_list.size(); ++i){
+        for (int j = 0; j < task_list.size(); ++j){
+            temp_locations.clear();
+            temp_locations = generateLocationsByTask(device_list[i], task_list[j]);
+            // Store into location_dict
+            location_dict.insert(temp_locations.begin(), temp_locations.end());
+        }
+    }
     // Save the location to a CSV
     saveLocationCSV();
     
@@ -34,7 +36,8 @@ map<string, vector<int>> TestManager::generateLocationVector(){
 //--------------
 // Methods to generate tests
 //--------------
-map<string, vector<int>> TestManager::generateLocateLocations(DeviceType deviceType){
+map<string, vector<int>> TestManager::generateLocationsByTask
+(DeviceType deviceType, TaskType taskType){
     // locations in close_vector should be witin the display area,
     // so we can perform the old wedge test on the display
     
@@ -51,19 +54,36 @@ map<string, vector<int>> TestManager::generateLocateLocations(DeviceType deviceT
         device_prefix = "watch";
         boundary_spec = watch_boundaries;
     }
+
     
-    
-//-----------------------
-// code sharing?
-    // pcompass:t1:, wedge:t1:
-    vector<string> prefix_list = {device_prefix + ":pcompass:t1:",
-        device_prefix + ":wedge:t1:"};
-    
+    //-----------------------
     // Define the boundaries for the locate tasks
     vector<vector<double>> boundary_spec_list =
-    {{boundary_spec[0][0].first, boundary_spec[0][0].second, (double)close_n},
+    {{boundary_spec[1][0].first, boundary_spec[1][0].second, (double)close_n},
         {boundary_spec[1][1].first, boundary_spec[1][1].second, (double)far_n}};
-//-----------------------
+    
+    string task_prefix;
+    switch (taskType) {
+        case LOCATE:
+            task_prefix = "t1";
+            boundary_spec_list =
+        {{boundary_spec[0][0].first, boundary_spec[0][0].second, (double)close_n},
+            {boundary_spec[1][1].first, boundary_spec[1][1].second, (double)far_n}};
+            break;
+        case TRIANGULATE:
+            task_prefix = "t2";
+            break;
+        case ORIENT:
+            task_prefix = "t3";
+            break;
+        default:
+            break;
+    }
+    
+    // pcompass:t1:, wedge:t1:
+    vector<string> prefix_list = {device_prefix + ":pcompass:" + task_prefix + ":",
+        device_prefix + ":wedge:" + task_prefix + ":"};
+    //-----------------------
     
     
     for (int i =0; i < prefix_list.size(); ++i){
@@ -78,17 +98,46 @@ map<string, vector<int>> TestManager::generateLocateLocations(DeviceType deviceT
                 location_class_subfix = "f";
             
             //------------------
-            vector<vector<int>> t_location_vector =  generateRandomLocations
-            (t_begin, t_end, (int)t_n);
-            
-            for (int li = 0; li < t_location_vector.size(); ++li){
-                
-                string code = prefix_list[i] + to_string(location_counter++) +
-                location_class_subfix;
-                
-                out_location_dict[code] = t_location_vector[li];
+            vector<vector<int>> t_location_vector;
+            int step = 1;
+            switch (taskType) {
+                case LOCATE:
+                    t_location_vector =  generateRandomLocateLocations
+                    (t_begin, t_end, (int)t_n);
+                    break;
+                case TRIANGULATE:
+                    step = 3;
+                    t_location_vector =  generateRandomTriangulateLocations
+                    (t_begin, t_end, (int)t_n);
+                    break;
+                case ORIENT:
+                    t_location_vector =  generateRandomOrientLocations
+                    (t_begin, t_end, (int)t_n);
+                    break;
+                default:
+                    break;
             }
-            //------------------            
+
+            
+            for (int li = 0; li < t_location_vector.size(); li += step){
+                
+                // Each TRIANGULATE task requires three landmarks
+                if (taskType == TRIANGULATE){
+                    for (int ti = 0; ti < 3; ++ti){
+                        string code = prefix_list[i] + to_string(location_counter) +
+                        location_class_subfix +  "-" + to_string(ti);
+                        
+                        out_location_dict[code] = t_location_vector[li];
+                    }
+                    location_counter = location_counter + 1;
+                }else{
+                    string code = prefix_list[i] + to_string(location_counter++) +
+                    location_class_subfix;
+                    
+                    out_location_dict[code] = t_location_vector[li];
+                }
+            }
+            //------------------
         }
     }
     
@@ -101,7 +150,7 @@ map<string, vector<int>> TestManager::generateLocateLocations(DeviceType deviceT
 // The n random locations fall into n equally distant segments
 // btween close_boundary and far_boundary
 //--------------
-vector<vector<int>> TestManager::generateRandomLocations
+vector<vector<int>> TestManager::generateRandomLocateLocations
 (double close_boundary, double far_boundary, int location_n){
     
     vector<vector<int>> output;
@@ -127,61 +176,62 @@ vector<vector<int>> TestManager::generateRandomLocations
     return output;
 }
 
-
-map<string, vector<int>> TestManager::generateTriangulateLocations(DeviceType deviceType){
-    map<string, vector<int>> out_location_dict;
-
-    // Need to generate the following cases
-    //        pcompass | wedge
-    // close | desktop | desktop
-    // far   | phone   | phone
+//--------------
+// place holder...
+//--------------
+vector<vector<int>> TestManager::generateRandomOrientLocations
+(double close_boundary, double far_boundary, int location_n){
     
-    string device_prefix;
-    float em_width, em_height;
-    float ios_width, ios_height;
+    vector<vector<int>> output;
     
-    double close_begin, close_end;
+    double step = (far_boundary - close_boundary) / location_n;
     
-    double far_begin, far_end;
+    using namespace std;
+    // Initialize random number generator
     
-    //         close_n steps    far_n steps
-    // -------|------------|---|---------------|
-    // close_begin  close_end far_begin     far_end
+    // Need to provide a seed
+    std::uniform_int_distribution<int>  distr(0, step);
     
-    
-    if (deviceType == PHONE){
-        device_prefix = "phone";
-        // PHONE
-        em_width = 332; em_height = 212;
-        ios_width = 320; ios_height = 503;
-    }else{
-        // WATCH
-        device_prefix = "watch";
-        em_width = 332; em_height = 212;
-        ios_width = 320; ios_height = 503;
+    vector<double> close_vector; close_vector.clear();
+    for (int i = 0; i < location_n; ++i){
+        int temp = close_boundary + step * i + distr(generator);
+        
+        // Need to transform to xy coordinate
+        vector<int> t_vector; // The first is x, and the second is y
+        t_vector.push_back(temp); t_vector.push_back(0);
+        output.push_back(t_vector);
     }
     
-    
-    //
-    //
-    //
-    
-    //generate random float
-    //http://stackoverflow.com/questions/5289613/generate-random-float-between-two-floats
-    
-    for (int i = 0; i < tri_test_n; ++i){
-        
-        
-        
-    }
-    
-    return out_location_dict;
+    return output;
 }
 
-map<string, vector<int>> TestManager::generateOrientLocations(DeviceType deviceType){
-    map<string, vector<int>> out_location_dict;
-
-    return out_location_dict;
+//--------------
+// place holder...
+//--------------
+vector<vector<int>> TestManager::generateRandomTriangulateLocations
+(double close_boundary, double far_boundary, int location_n){
+    
+    vector<vector<int>> output;
+    
+    double step = (far_boundary - close_boundary) / location_n;
+    
+    using namespace std;
+    // Initialize random number generator
+    
+    // Need to provide a seed
+    std::uniform_int_distribution<int>  distr(0, step);
+    
+    vector<double> close_vector; close_vector.clear();
+    for (int i = 0; i < 3*location_n; ++i){
+        int temp = close_boundary + step * i + distr(generator);
+        
+        // Need to transform to xy coordinate
+        vector<int> t_vector; // The first is x, and the second is y
+        t_vector.push_back(temp); t_vector.push_back(0);
+        output.push_back(t_vector);
+    }
+    
+    return output;
 }
 
 //----------------
