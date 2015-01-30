@@ -112,7 +112,9 @@
 - (IBAction)didChangeKMLCombo:(id)sender {
     NSString* astr = [self.kmlComboBox stringValue];
     
-    self.model->location_filename = [[NSBundle mainBundle] pathForResource:astr                                                                             ofType:@""];
+    // Load the file from the Dropbox root
+    self.model->location_filename = [self.model->desktopDropboxDataRoot
+                                     stringByAppendingPathComponent:astr];
     
     NSLog(@"json combon triggered %@", astr);
     

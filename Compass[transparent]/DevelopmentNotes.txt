@@ -1,3 +1,9 @@
+=====================
+Build macros
+=====================
+All iOS devices have the macro __IPHONE__ defined
+
+
 Coordinate system:
 
 =====================

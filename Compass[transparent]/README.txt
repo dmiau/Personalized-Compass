@@ -2013,17 +2013,29 @@ location_filename
 Goal of today:
 - Have a working locate test!
 
-Todo:
+Done:
 - Fill out placeholders for generateTriangulateLocations and generateOrientLocations
 - Generate .tests
+
+Todo:
 - Generate .kml and .snapshot
 - Testharness UI
 
+-------------------------------------------------------------------
+2.2.2015
+-------------------------------------------------------------------
+
+Todo:
+
+- Generate .kml and .snapshot
+- Testharness UI
+
+Done:
 
 
-
-
-
+Working:
+- Read the file from the dropbox source
+look for *_filename
 
 
 

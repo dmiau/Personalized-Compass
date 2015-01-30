@@ -63,12 +63,24 @@ int compassMdl::initMdl(){
     //--------------
     // Load configurations and locations
     //--------------
+#ifdef __IPHONE__
+    // All iOS devices
     configuration_filename = [[NSBundle mainBundle] pathForResource:@"configurations.json" ofType:@""];
+#else
+    // Desktop
+    configuration_filename = [desktopDropboxDataRoot stringByAppendingPathComponent:@"configurations.json"];
+#endif
     
     // Need to read the configuraiton file first (to get the default location file name, if default options are used.
     readConfigurations(this);
-    
+
+#ifdef __IPHONE__
+    // All iOS devices
     location_filename =[[NSBundle mainBundle] pathForResource:configurations[@"default_location_filename"] ofType:@""];
+#else
+    // Desktop
+    location_filename =[desktopDropboxDataRoot                        stringByAppendingPathComponent:configurations[@"default_location_filename"]];
+#endif
     
     //------------
     // Load configuations from physical files into memory

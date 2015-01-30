@@ -38,9 +38,7 @@
         self.model = compassMdl::shareCompassMdl();
         
         // Collect a list of kml files
-        NSString *path = [[[NSBundle mainBundle]
-                           pathForResource:@"montreal.kml" ofType:@""]
-                          stringByDeletingLastPathComponent];
+        NSString *path = self.model->desktopDropboxDataRoot;
         
         NSArray *dirFiles = [[NSFileManager defaultManager]
                              contentsOfDirectoryAtPath: path error:nil];
