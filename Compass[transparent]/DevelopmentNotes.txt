@@ -16,6 +16,15 @@ OSX View (u, v)
 v
 
 =====================
+iOS (u, v), note: the coordinate system is flipped
+=====================
+v
+|
+|
+|
+--------u
+
+=====================
 OpenGL
 =====================
 y
@@ -25,16 +34,6 @@ y
 |
 |
 -y
-
-=====================
-iOS (u, v), note: the coordinate system is flipped
-=====================
-v
-|
-|
-|
---------u
-
 
 These things are different:
 self.render->compass_centroid
@@ -94,6 +93,20 @@ phone:pcompass:t2:0c-1
 phone:pcompass:t2:0c-2
 phone:pcompass:t2:0c-3
 
+==================
+iOS emulation
+==================
+.kml and .snapshot generation
+(assuming no rotation in tests)
+- converts the coordinates in the test files (in iOS screen coordinates) to the coordinates in the OSX screen coordinates
+- calculate map coordinates on OSX
+- store all map coordinates to .kml and .snapshot
+- store the latitude and longitude spans in .snapshots
+
+display
+iOS:
+- display snapshot has been implemented
+- OSX's load snapshot method need to convert latitude delta and longitude delta to the ones on the desktop.
 
 
 

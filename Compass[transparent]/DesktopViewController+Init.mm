@@ -123,7 +123,7 @@
 // initMapView may be called whenever configurations.json is reloaded
 //-----------------
 - (void) initMapView{
-    [self updateMapDisplayRegion];
+    [self updateMapDisplayRegion: NO];
     
     // Provide the centroid of compass to the model
     [self updateModelCompassCenterXY];

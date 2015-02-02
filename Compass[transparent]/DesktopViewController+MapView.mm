@@ -97,4 +97,24 @@
 //    [[self currentCoord] setStringValue: latlon_str];
 //}
 
+//------------------
+// Coordinate conversion
+//------------------
+- (CLLocationCoordinate2D) calculateLatLonFromiOSX: (int) x Y: (int) y {
+    CLLocationCoordinate2D result;
+    
+    // Note: (x, y) are in the iOS OpenGL coordinate system
+    
+    // The (x, y) coordinates in the OSX screen coordinate frame
+    CGPoint osx_xy;
+    osx_xy.x = (float)x * self.renderer->em_ios_width / self.renderer->true_ios_width;
+    osx_xy.y = (float)y * self.renderer->em_ios_height / self.renderer->true_ios_height;
+    
+    osx_xy.x = self.renderer->orig_width/2 + osx_xy.x;
+    osx_xy.y = self.renderer->orig_height/2 + osx_xy.y;
+    
+    result = [self.mapView convertPoint:osx_xy toCoordinateFromView:self.compassView];
+    return result;
+}
+
 @end

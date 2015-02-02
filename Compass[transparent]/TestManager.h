@@ -27,6 +27,12 @@ using namespace std;
 // Forward declaration
 class compassRender;
 
+#ifdef __IPHONE__
+@class iOSViewController;
+#else
+@class DesktopViewController;
+#endif
+
 // Device type enum
 typedef enum{
     PHONE,
@@ -134,9 +140,18 @@ enum TaskType {LOCATE, TRIANGULATE, ORIENT};
 
 class TestManager{
 public:
+    
+    // Test parameters
+    
+    
+    
     // Connections to other modules
     compassMdl *model;
-    
+#ifdef __IPHONE__
+    iOSViewController *rootViewController;
+#else
+    DesktopViewController *rootViewController;
+#endif
     // Test configurations
     // This parameters allow TestManager to decide the number of enabled devices
     bool phone_flag;
@@ -207,7 +222,9 @@ public:
     // Methods to generate tests
     int generateTests();
     
-    
+    //---------------
+    // Location vector generation
+    //---------------
     map<string, vector<int>> generateLocationVector();
 
     map<string, vector<int>> generateLocationsByTask
@@ -226,6 +243,8 @@ public:
     
     vector<vector<int>> generateRandomOrientLocations
     (double close_boundary, double far_boundary, int location_n);
+    
+    void generateKML();
     
     //---------------
     // Test vector generation

@@ -269,17 +269,26 @@
     [self calculateiOSScreenSize:scale];
 }
 
+// Calculate the coordinates of the four corners of the emulated iOS display
+// in OSX's screen coordinate system
 - (void)calculateiOSScreenSize:(float)scale{
+
+    // Cache the starting iOS_height and iOS_width, to provide the base
+    // to calculate the scaled iOSFourCorners
+    static float cached_iOS_height = self.rootViewController.renderer->em_ios_height;
+    static float cached_iOS_width = self.rootViewController.renderer->em_ios_width;
+    
     //ul, ur, br, bl
     float height = self.rootViewController.renderer->orig_height;
     float width = self.rootViewController.renderer->orig_width;
     
     //iOS screen size is 320x503
-    float iOS_height = height * scale;
-    float iOS_width = iOS_height *320/503;
+    float iOS_height = cached_iOS_height * scale;
+    float iOS_width = cached_iOS_width * scale;
     
     //Generate iOSScreenStr
-    self.iOSScreenStr = [NSString stringWithFormat:@"503x320 x %.2f = %.2fx%.2f",
+    self.iOSScreenStr = [NSString stringWithFormat:@"%.1fx%.1f x %.2f = %.2fx%.2f",
+                         cached_iOS_height, cached_iOS_width,
                          scale, iOS_height, iOS_width];
     
     CGPoint *tempFourCorners = self.rootViewController.renderer->iOSFourCorners;

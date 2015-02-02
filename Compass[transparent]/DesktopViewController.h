@@ -82,9 +82,10 @@ typedef struct{
 // Update and initialization functions
 //----------------
 - (void)initMapView;
-- (void)updateMapDisplayRegion;
+- (void)updateMapDisplayRegion: (bool) animated;
 -(bool)updateModelCompassCenterXY;
 - (void)updateMainGUI;
+-(void) updateLocationVisibility;
 
 //----------------
 // Compass related stuff
@@ -121,12 +122,21 @@ typedef struct{
                    heading: (float) heading_deg
                       tilt: (float) tilt_deg;
 
+//-------------------
+// Convert the coordinates in 
+//-------------------
+- (CLLocationCoordinate2D) calculateLatLonFromiOSX: (int) x Y: (int) y;
+
+//----------------
+//Snapshot category
+//----------------
+- (bool)takeSnapshot;
+- (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag;
 
 //----------------
 //Annotation category
 //----------------
 -(void) renderAnnotations;
-
 
 //----------------
 //Server

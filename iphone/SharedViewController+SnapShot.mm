@@ -1,14 +1,26 @@
 //
-//  iOSViewController+SnapShot.m
+//  SharedViewController+SnapShot.m
 //  Compass[transparent]
 //
 //  Created by dmiau on 7/19/14.
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
 
-#import "iOSViewController+SnapShot.h"
-
+#ifdef __IPHONE__
+//-------------------
+// iOS
+//-------------------
+#import "iOSViewController.h"
 @implementation iOSViewController (SnapShot)
+
+#else
+
+//-------------------
+// Desktop (osx)
+//-------------------
+#import "DesktopViewController.h"
+@implementation DesktopViewController (SnapShot)
+#endif
 
 //@property vector<snapshot> snapshot_array;
 - (bool)takeSnapshot{
@@ -89,12 +101,4 @@
     self.mapView.camera.heading = -mySnapshot.orientation;
     return true;
 }
-- (bool)saveSnapshotArray{
-    return true;
-}
-
-- (bool)loadSanpshotArray{
-    return true;
-}
-
 @end

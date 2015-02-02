@@ -2022,7 +2022,7 @@ Todo:
 - Testharness UI
 
 -------------------------------------------------------------------
-2.2.2015
+1.30.2015
 -------------------------------------------------------------------
 
 *Todo
@@ -2051,6 +2051,68 @@ MKCoordinateSpan span
 
 - I want to see how MKMapRect change and how MKCoordinateSpace changes?
 what happen to the rotate function?
+
+In compassRender
+    float em_ios_width;
+    float em_ios_height;
+    float em_watch_radius;
+
+check calculateiOSScreenSize
+
+-------------------------------------------------------------------
+1.31.2015
+-------------------------------------------------------------------
+Need to address the following two questions:
+1. How do I know the mapRect in OSX?
+2. How do I know the mapRect in iOS?
+
+A couple of things can be useful:
+- MKMapPoint
+- MKMapSize (not sure how to get this)
+- MKMapRect
+- MKZoomScale (not useful)
+
+need to initialize 
+em_ios_height and em_ios_width
+
+-------------------------------------------------------------------
+2.1.2015
+-------------------------------------------------------------------
+
+Todo:
+
+==================
+iOS emulation
+==================
+.kml and .snapshot generation
+(assuming no rotation in tests)
+- converts the coordinates in the test files (in iOS screen coordinates) to the coordinates in the OSX screen coordinates
+- calculate map coordinates on OSX
+- store all map coordinates to .kml and .snapshot
+- store the latitude and longitude spans in .snapshots
+
+display
+iOS:
+- display snapshot has been implemented
+- OSX's load snapshot method need to convert latitude delta and longitude delta to the ones on the desktop.
+
+Done:
+
+
+Working:
+.kml and .snapshot generation
+(assuming no rotation in tests)
+
+8:52PM. I want to port the snapshot capability to the desktop. 
+
+-------------------------------------------------------------------
+2.2.2015
+-------------------------------------------------------------------
+- experimenting code sharing
+
+
+
+
 
 
 

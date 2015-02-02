@@ -29,6 +29,8 @@ map<string, vector<int>> TestManager::generateLocationVector(){
     // Save the location to a CSV
     saveLocationCSV();
     
+    generateKML();
+    
     return out_location_dict;
 }
 

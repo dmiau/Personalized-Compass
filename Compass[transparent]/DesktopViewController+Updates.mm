@@ -17,7 +17,7 @@
     
     // [todo] update code can be refactored
     self.model->reloadFiles();
-    [self updateMapDisplayRegion];
+    [self updateMapDisplayRegion: NO];
     [self.locationTableView reloadData];
 }
 
@@ -150,7 +150,7 @@
     
 }
 
-- (void) updateMapDisplayRegion{
+- (void) updateMapDisplayRegion: (bool) animated{
     // updateMapDisplayRegion syncs parameters from the model to the
     // display map
     
@@ -170,7 +170,7 @@
     CLLocationCoordinate2D coord;
     coord.latitude = self.model->camera_pos.latitude;
     coord.longitude = self.model->camera_pos.longitude;
-    [self.mapView setCenterCoordinate:coord animated:YES];
+    [self.mapView setCenterCoordinate:coord animated:animated];
     
 //    self.mapView.camera.pitch = -self.model->tilt;
 //    self.mapView.camera.heading = -self.model->camera_pos.orientation;

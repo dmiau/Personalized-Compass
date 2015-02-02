@@ -80,7 +80,7 @@
     self.model->camera_pos.longitude = self.model->data_array[ind].longitude;
     
 //    self.model->updateMdl();
-    [self updateMapDisplayRegion];
+    [self updateMapDisplayRegion: YES];
 //    [tableView reloadData];
 }
 

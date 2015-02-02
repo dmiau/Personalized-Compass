@@ -82,7 +82,7 @@
     self.model->camera_pos.longitude = self.model->data_array[ind].longitude;
     
     //    self.model->updateMdl();
-    [self.rootViewController updateMapDisplayRegion];
+    [self.rootViewController updateMapDisplayRegion: YES];
     //    [tableView reloadData];
 }
 
@@ -137,7 +137,7 @@
 //        [tableCellCache addObject:[NSNull null]];
 //    }
     
-    [self.rootViewController updateMapDisplayRegion];
+    [self.rootViewController updateMapDisplayRegion: NO];
     [self.rootViewController renderAnnotations];
     [self.locationTableView reloadData];
 }

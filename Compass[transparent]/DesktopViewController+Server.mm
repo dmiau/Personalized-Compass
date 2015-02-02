@@ -70,7 +70,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 //    self.model->tilt =
 //    [myDictionary[@"mdl_tilt"] floatValue];
     
-    [self updateMapDisplayRegion];
+    [self updateMapDisplayRegion: YES];
 //    self.mapView.region = mySnapshot.coordinateRegion;
     
     // Not sure why setRegion does not work well...

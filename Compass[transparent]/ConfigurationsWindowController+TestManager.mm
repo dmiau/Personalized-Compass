@@ -14,6 +14,8 @@
     if (self.rootViewController.testManager == NULL){
         self.rootViewController.testManager =
         TestManager::shareTestManager();
+        self.rootViewController.testManager->rootViewController
+        = self.rootViewController;
     }
     
     // Populate the parameters to Testmanager

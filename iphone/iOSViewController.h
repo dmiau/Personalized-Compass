@@ -141,8 +141,6 @@ typedef struct{
 //----------------
 - (bool)takeSnapshot;
 - (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag;
-- (bool)saveSnapshotArray;
-- (bool)loadSanpshotArray;
 
 //----------------
 // History related stuff

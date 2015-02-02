@@ -338,8 +338,8 @@
 		9A2E42EA196C9D2C00CF8862 /* heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2E42E4196C9D2C00CF8862 /* heading.png */; };
 		9A2ED70A19639D5900CA385E /* ExtraPanels.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2ED70919639D5900CA385E /* ExtraPanels.xib */; };
 		9A2F0C591943DA9200350BD2 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0C531943DA9200350BD2 /* Texture2D.m */; };
-		9A3240D8197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* iOSViewController+SnapShot.mm */; };
-		9A3240D9197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* iOSViewController+SnapShot.mm */; };
+		9A3240D8197AB06F008E929D /* SharedViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */; };
+		9A3240D9197AB06F008E929D /* SharedViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */; };
 		9A3240DC197AB083008E929D /* iOSViewController+History.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240DB197AB083008E929D /* iOSViewController+History.mm */; };
 		9A3240DD197AB083008E929D /* iOSViewController+History.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240DB197AB083008E929D /* iOSViewController+History.mm */; };
 		9A32852C199116FA0016E8A2 /* ExtraPanelController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A32852B199116FA0016E8A2 /* ExtraPanelController.mm */; };
@@ -609,6 +609,16 @@
 		9A49A5FB1954A90E00937961 /* bottomUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F91954A90E00937961 /* bottomUpSegue.m */; };
 		9A4A44771979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */; };
 		9A4A44781979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */; };
+		9A4AA64A1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */; };
+		9A4AA64B1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */; };
+		9A4AA64C1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */; };
+		9A4AA64D1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */; };
+		9A4AA64E1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */; };
+		9A4AA64F1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */; };
+		9A4AA6511A7FD9AC0009F448 /* SharedViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */; };
+		9A4AA6521A7FD9AC0009F448 /* SharedViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */; };
+		9A4AA6531A7FD9AD0009F448 /* SharedViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */; };
+		9A4AA6541A7FD9AD0009F448 /* SharedViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */; };
 		9A4F0F47193E2A8900CF32DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F46193E2A8900CF32DE /* Foundation.framework */; };
 		9A4F0F49193E2A8900CF32DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */; };
 		9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F4F193E2A8900CF32DE /* InfoPlist.strings */; };
@@ -1125,8 +1135,7 @@
 		9A2ED70919639D5900CA385E /* ExtraPanels.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtraPanels.xib; sourceTree = "<group>"; };
 		9A2F0C521943DA9200350BD2 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture2D.h; path = "../Compass[transparent]/Texture2D.h"; sourceTree = "<group>"; };
 		9A2F0C531943DA9200350BD2 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Texture2D.m; path = "../Compass[transparent]/Texture2D.m"; sourceTree = "<group>"; };
-		9A3240D6197AB06F008E929D /* iOSViewController+SnapShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+SnapShot.h"; sourceTree = "<group>"; };
-		9A3240D7197AB06F008E929D /* iOSViewController+SnapShot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+SnapShot.mm"; sourceTree = "<group>"; };
+		9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "SharedViewController+SnapShot.mm"; path = "iphone/SharedViewController+SnapShot.mm"; sourceTree = "<group>"; };
 		9A3240DA197AB083008E929D /* iOSViewController+History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+History.h"; sourceTree = "<group>"; };
 		9A3240DB197AB083008E929D /* iOSViewController+History.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+History.mm"; sourceTree = "<group>"; };
 		9A32852A199116FA0016E8A2 /* ExtraPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraPanelController.h; sourceTree = "<group>"; };
@@ -1248,6 +1257,7 @@
 		9A49A5F91954A90E00937961 /* bottomUpSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bottomUpSegue.m; sourceTree = "<group>"; };
 		9A4A44751979B151007F0120 /* iOSViewController+DebugPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+DebugPanel.h"; sourceTree = "<group>"; };
 		9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+DebugPanel.mm"; sourceTree = "<group>"; };
+		9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-KmlGeneration.mm"; sourceTree = "<group>"; };
 		9A4F0F45193E2A8800CF32DE /* iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F0F46193E2A8900CF32DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1946,8 +1956,6 @@
 				9ABB382D19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm */,
 				9A4A44751979B151007F0120 /* iOSViewController+DebugPanel.h */,
 				9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */,
-				9A3240D6197AB06F008E929D /* iOSViewController+SnapShot.h */,
-				9A3240D7197AB06F008E929D /* iOSViewController+SnapShot.mm */,
 				9A3240DA197AB083008E929D /* iOSViewController+History.h */,
 				9A3240DB197AB083008E929D /* iOSViewController+History.mm */,
 				9A42A0E919ABCDA900BB0101 /* Client */,
@@ -1988,6 +1996,14 @@
 				9A3DA0CD19683235009E0073 /* DetailViewController.mm */,
 			);
 			name = "Landmark Table";
+			sourceTree = "<group>";
+		};
+		9A4AA6501A7FD7CE0009F448 /* Shared Controller Methods */ = {
+			isa = PBXGroup;
+			children = (
+				9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */,
+			);
+			name = "Shared Controller Methods";
 			sourceTree = "<group>";
 		};
 		9A4F0F4C193E2A8900CF32DE /* iphone */ = {
@@ -2044,6 +2060,7 @@
 				9AE610451A6EF3BD00175A79 /* TestManager.mm */,
 				9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */,
 				9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */,
+				9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */,
 				9AE610461A6EF3BD00175A79 /* TestManager.h */,
 			);
 			name = Model;
@@ -2197,6 +2214,7 @@
 				9AFB14C018EE658800063632 /* tabView */,
 				9A9F535F1A7995E800E3744B /* Tools */,
 				9AEA57D618D9EBB20028B80C /* Compass[transparent] */,
+				9A4AA6501A7FD7CE0009F448 /* Shared Controller Methods */,
 				9A4F0F4C193E2A8900CF32DE /* iphone */,
 				9AEA57CF18D9EBB20028B80C /* Frameworks */,
 				9AEA57CE18D9EBB20028B80C /* Products */,
@@ -2910,9 +2928,10 @@
 				9A03736D198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9AFD8F5A197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A03762D198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
-				9A3240D8197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */,
+				9A3240D8197AB06F008E929D /* SharedViewController+SnapShot.mm in Sources */,
 				9A037597198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A998D75194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
+				9A4AA64E1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9AB90B9F194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
 				9A037675198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
@@ -2948,7 +2967,7 @@
 				9A0375C8198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A0375B0198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A03761C198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
-				9A3240D9197AB06F008E929D /* iOSViewController+SnapShot.mm in Sources */,
+				9A3240D9197AB06F008E929D /* SharedViewController+SnapShot.mm in Sources */,
 				9A037580198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9A5F32051A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A6FB7F51958FFC20020355A /* iOSViewController+Updates.mm in Sources */,
@@ -3037,6 +3056,7 @@
 				9A0375B6198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A037598198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A037574198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
+				9A4AA64F1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9A0375E6198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A5F320C1A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
@@ -3074,6 +3094,7 @@
 				9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */,
 				9AA7890C1909FE3000A26C66 /* DesktopViewController.mm in Sources */,
 				9A037638198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
+				9A4AA6541A7FD9AD0009F448 /* SharedViewController+SnapShot.mm in Sources */,
 				9A42A03D19A79C3200BB0101 /* DDRange.m in Sources */,
 				9A42A05D19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
 				9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */,
@@ -3153,6 +3174,7 @@
 				9A03758A198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037668198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A06119A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
+				9A4AA64D1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9A4293C11A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9A0375FC198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A3F1E8B1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
@@ -3245,6 +3267,7 @@
 				9A42A06E19A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A037617198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
+				9A4AA6511A7FD9AC0009F448 /* SharedViewController+SnapShot.mm in Sources */,
 				9A36618119A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
 				9A36618719A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
 				9A037665198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
@@ -3274,6 +3297,7 @@
 				9A42A0C819ABADC800BB0101 /* MyHTTPConnection.m in Sources */,
 				9A42A03619A79C3200BB0101 /* DDNumber.m in Sources */,
 				9A4293BE1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
+				9A4AA64A1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9A0375C3198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A36619319A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9A03765F198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
@@ -3335,6 +3359,7 @@
 				9A9701D719083B26007C3C19 /* DesktopViewController.mm in Sources */,
 				9A03762B198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A469E1C19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */,
+				9A4AA6531A7FD9AD0009F448 /* SharedViewController+SnapShot.mm in Sources */,
 				9A9701E619085002007C3C19 /* watchNSView.m in Sources */,
 				9A03760D198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A0375B3198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
@@ -3414,6 +3439,7 @@
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
 				9A176DA819A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9AE2FC8619AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
+				9A4AA64C1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9A4293C01A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9A037679198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9A42A09B19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -3509,6 +3535,7 @@
 				9AFB14A118EE639A00063632 /* compassRender.mm in Sources */,
 				9A36618E19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
 				9A037660198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
+				9A4AA6521A7FD9AC0009F448 /* SharedViewController+SnapShot.mm in Sources */,
 				9A42A04B19A79C3200BB0101 /* HTTPServer.m in Sources */,
 				9A0375D6198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A03765A198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
@@ -3543,6 +3570,7 @@
 				9A0375B2198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A42A05719A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
 				9A03756A198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
+				9A4AA64B1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9A176DA719A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9A42A06719A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
 				9A03736A198AF8A500258E95 /* DemoManager.mm in Sources */,

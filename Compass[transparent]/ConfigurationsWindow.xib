@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
@@ -159,13 +159,13 @@
                                         </slider>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSQ-zP-kZe">
                                             <rect key="frame" x="267" y="178" width="215" height="21"/>
-                                            <sliderCell key="cell" state="on" alignment="left" maxValue="1" doubleValue="0.63" tickMarkPosition="above" sliderType="linear" id="Xtw-su-V7i"/>
+                                            <sliderCell key="cell" state="on" alignment="left" minValue="0.20000000000000001" maxValue="3" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="Xtw-su-V7i"/>
                                             <connections>
                                                 <action selector="adjustiOSScreenSize:" target="-2" id="H8i-gz-eYI"/>
                                             </connections>
                                         </slider>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8H-dj-SN1">
-                                            <rect key="frame" x="139" y="157" width="205" height="17"/>
+                                            <rect key="frame" x="139" y="157" width="263" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="????" id="q2L-Bh-mmk">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -914,7 +914,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-665" y="499"/>
+            <point key="canvasLocation" x="-633" y="315"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
     </objects>

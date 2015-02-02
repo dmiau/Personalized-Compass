@@ -102,6 +102,15 @@ public:
     float orig_height;
     float fov;
     
+    // Parameters for the emulated device
+    float em_ios_width;
+    float em_ios_height;
+    float em_watch_radius;
+    
+    float true_ios_width;
+    float true_ios_height;
+    float true_watch_radius;
+    
     //----------------
     // Lable related stuff
     //----------------

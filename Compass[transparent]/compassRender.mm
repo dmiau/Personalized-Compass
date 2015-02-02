@@ -165,7 +165,7 @@ RenderParamStruct makeRenderParams(
 }
 
 //--------------
-// Display
+// compassRender constructor
 //--------------
 
 void compassRender::render(){
@@ -181,6 +181,14 @@ void compassRender::render(){
     RenderParamStruct renderParamStruct =
     makeRenderParams(filter_type, style_type);
     //    makeRenderParams(NONE, BIMODAL);
+    
+    // Initialize the emulated iOS parameters
+    em_ios_width = [model->configurations[@"em_ios_display_wh"][0] floatValue];
+    em_ios_height = [model->configurations[@"em_ios_display_wh"][1] floatValue];
+    
+    true_ios_width = [model->configurations[@"true_ios_display_wh"][0] floatValue];
+    true_ios_height = [model->configurations[@"true_ios_display_wh"][1] floatValue];
+    
     render(renderParamStruct);
 }
 
