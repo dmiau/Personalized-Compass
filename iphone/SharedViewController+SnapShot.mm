@@ -56,8 +56,6 @@
     
     self.model->location_filename = mySnapshot.kmlFilename;
     self.model->reloadFiles();
-
-
     
     if (mySnapshot.selected_ids.size() == 0){
         // If no landmarks are specified, let the model to decide which

@@ -619,6 +619,10 @@
 		9A4AA6521A7FD9AC0009F448 /* SharedViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */; };
 		9A4AA6531A7FD9AD0009F448 /* SharedViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */; };
 		9A4AA6541A7FD9AD0009F448 /* SharedViewController+SnapShot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */; };
+		9A4AA65D1A7FEF010009F448 /* SnapShotViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */; };
+		9A4AA65E1A7FEF010009F448 /* SnapShotViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */; };
+		9A4AA65F1A7FEF010009F448 /* SnapShotViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */; };
+		9A4AA6601A7FEF010009F448 /* SnapShotViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */; };
 		9A4F0F47193E2A8900CF32DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F46193E2A8900CF32DE /* Foundation.framework */; };
 		9A4F0F49193E2A8900CF32DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */; };
 		9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F4F193E2A8900CF32DE /* InfoPlist.strings */; };
@@ -1258,6 +1262,8 @@
 		9A4A44751979B151007F0120 /* iOSViewController+DebugPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+DebugPanel.h"; sourceTree = "<group>"; };
 		9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+DebugPanel.mm"; sourceTree = "<group>"; };
 		9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-KmlGeneration.mm"; sourceTree = "<group>"; };
+		9A4AA65B1A7FEF010009F448 /* SnapShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapShotViewController.h; sourceTree = "<group>"; };
+		9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SnapShotViewController.mm; sourceTree = "<group>"; };
 		9A4F0F45193E2A8800CF32DE /* iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F0F46193E2A8900CF32DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1769,6 +1775,8 @@
 				9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */,
 				9A5F320D1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.h */,
 				9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */,
+				9A4AA65B1A7FEF010009F448 /* SnapShotViewController.h */,
+				9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -3177,6 +3185,7 @@
 				9A4AA64D1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9A4293C11A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9A0375FC198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
+				9A4AA6601A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
 				9A3F1E8B1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9A0375AE198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A0375EA198DA31900258E95 /* b2Island.cpp in Sources */,
@@ -3248,6 +3257,7 @@
 				9A0375C9198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A03758D198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A0375B1198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
+				9A4AA65D1A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
 				9AFD8F61197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A03760B198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A037605198DA31900258E95 /* b2CircleContact.cpp in Sources */,
@@ -3442,6 +3452,7 @@
 				9A4AA64C1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9A4293C01A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9A037679198DA31900258E95 /* b2Rope.cpp in Sources */,
+				9A4AA65F1A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
 				9A42A09B19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
 				9A3F1E8A1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9A42A06C19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
@@ -3576,6 +3587,7 @@
 				9A03736A198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A3F1E891A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9AB90B9C194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
+				9A4AA65E1A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,
 				9A3DA0A51964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A42A09E19A79CA200BB0101 /* DDASLLogger.m in Sources */,

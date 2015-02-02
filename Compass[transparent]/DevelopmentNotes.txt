@@ -1,4 +1,13 @@
 =====================
+How to access rootViewController
+=====================
+
+AppDelegate has a property called rootViewController, and DesktopViewController can be accessed from there    
+AppDelegate *temp = [[NSApplication sharedApplication] delegate];
+temp.rootViewController = self; 
+
+
+=====================
 Build macros
 =====================
 All iOS devices have the macro __IPHONE__ defined

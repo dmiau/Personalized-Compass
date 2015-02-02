@@ -2110,7 +2110,14 @@ Working:
 -------------------------------------------------------------------
 - experimenting code sharing
 
+Todo:
 
+
+Done:
+- implement the snapshot feature on the desktop
+- turned out I need to implement a NSViewController [4:39PM]
+
+Working:
 
 
 

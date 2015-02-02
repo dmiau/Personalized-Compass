@@ -175,6 +175,8 @@ public:
     NSMutableDictionary *configurations;
     NSMutableDictionary *cache_configurations;
     
+    // * The path of the filename will be discarded
+    // in each file read function
     NSString* desktopDropboxDataRoot;
     NSString* configuration_filename;
     NSString* location_filename;

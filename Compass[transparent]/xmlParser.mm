@@ -17,6 +17,7 @@ vector<data> readLocationKml(compassMdl* mdl, NSString* filename){
     data_array.clear();
     
 #ifdef __IPHONE__
+    // iOS
     NSData* data = nil;
     if (mdl->dbFilesystem.isReady &&
         mdl->filesys_type == DROPBOX){
@@ -45,8 +46,10 @@ vector<data> readLocationKml(compassMdl* mdl, NSString* filename){
     
     
 #else
+    // Desktop
     myParser = [[xmlParser alloc]
-                initWithFileURL: [NSURL fileURLWithPath: filename]];
+                initWithFileURL: [NSURL fileURLWithPath:
+                [mdl->desktopDropboxDataRoot stringByAppendingPathComponent:[filename lastPathComponent]]]];
 #endif
     
     myParser.parseFile;

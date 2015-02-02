@@ -91,17 +91,21 @@ int compassMdl::initMdl(){
     //------------
     // Load snapshot if the file is available
     //------------
-    
-#ifdef __IPHONE__
-    // [todo] need to think about the OSX case
-    
     bool snapshotFileExists = false;
     // Check if a snapshot file exists
+#ifdef __IPHONE__
+    // All iOS devices
     if (filesys_type == DROPBOX){
         snapshotFileExists = [dbFilesystem fileExists:@"snapshot.kml"];
     }else{
         snapshotFileExists = [docFilesystem fileExists:@"snapshot.kml"];
     }
+#else
+    // Desktop
+    NSString *path = [desktopDropboxDataRoot stringByAppendingPathComponent:@"snapshot.kml"];
+    snapshotFileExists = [[NSFileManager defaultManager]
+                          fileExistsAtPath:path];
+#endif
     
     if (snapshotFileExists){
         snapshot_filename = @"snapshot.kml";
@@ -111,7 +115,7 @@ int compassMdl::initMdl(){
     }
     history_filename = @"";
     history_notes = @"";
-#endif
+
     
     //------------
     // Initialize user position

@@ -40,7 +40,9 @@ int readConfigurations(compassMdl* mdl_instance){
     
 #else
     NSString *jsonPath = mdl_instance->configuration_filename;
-    NSData *data = [NSData dataWithContentsOfFile:jsonPath];
+    NSData *data = [NSData dataWithContentsOfFile:
+         [mdl_instance->desktopDropboxDataRoot stringByAppendingPathComponent:
+                    [jsonPath lastPathComponent]]];
 #endif
     
     NSError *error = nil;

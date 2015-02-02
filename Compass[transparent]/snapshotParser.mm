@@ -16,6 +16,7 @@ int readSnapshotKml(compassMdl* mdl){
     NSString* filename = mdl->snapshot_filename;
     snapshotParser *myParser;
 #ifdef __IPHONE__
+    // iOS
     NSData* data = nil;
     if (mdl->dbFilesystem.isReady &&
         mdl->filesys_type == DROPBOX){
@@ -43,8 +44,10 @@ int readSnapshotKml(compassMdl* mdl){
     }
     
 #else
+    // Desktop
     myParser = [[snapshotParser alloc]
-                initWithFileURL: [NSURL fileURLWithPath: filename]];
+                initWithFileURL: [NSURL fileURLWithPath:
+    [mdl->desktopDropboxDataRoot stringByAppendingPathComponent:filename]]];
 #endif
     myParser.parseFile;
     mdl->snapshot_array = myParser.snapshot_array;
