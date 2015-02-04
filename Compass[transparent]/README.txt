@@ -2140,6 +2140,10 @@ What do I want to achieve today?
 (assuming no rotation in tests)
 
 *Todo:
+- TabView initialization
+http://stackoverflow.com/questions/13443446/take-an-action-when-user-switches-tabs-on-an-nstabview
+- Pin display control 
+* Display no pins for the tests
 
 
 *Working:

@@ -729,6 +729,10 @@
 		9A8DF92B1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */; };
 		9A8DF92C1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */; };
 		9A8DF92D1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */; };
+		9A91FB8F1A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A91FB8E1A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm */; };
+		9A91FB901A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A91FB8E1A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm */; };
+		9A91FB911A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A91FB8E1A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm */; };
+		9A91FB921A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A91FB8E1A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm */; };
 		9A94820D1991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
 		9A94820E1991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
 		9A94820F1991D46A0036249C /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A94820C1991D46A0036249C /* setup.png */; };
@@ -1171,7 +1175,6 @@
 		9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurationsWindow.xib; sourceTree = "<group>"; };
 		9A3F1E861A4B247100D621A9 /* ConfigurationsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationsWindowController.h; sourceTree = "<group>"; };
 		9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConfigurationsWindowController.mm; sourceTree = "<group>"; };
-		9A4293BC1A672FDE00F110E3 /* ConfigurationsWindowController+model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConfigurationsWindowController+model.h"; sourceTree = "<group>"; };
 		9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ConfigurationsWindowController+model.mm"; sourceTree = "<group>"; };
 		9A42A00C19A79C3200BB0101 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
 		9A42A00D19A79C3200BB0101 /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
@@ -1238,7 +1241,6 @@
 		9A42A0E019ABB12D00BB0101 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
 		9A42A0E519ABCD9F00BB0101 /* iOSViewController+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Client.h"; sourceTree = "<group>"; };
 		9A42A0E619ABCD9F00BB0101 /* iOSViewController+Client.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Client.mm"; sourceTree = "<group>"; };
-		9A45826F1A647AAC00943F6C /* ConfigurationsWindowController+locations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConfigurationsWindowController+locations.h"; sourceTree = "<group>"; };
 		9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ConfigurationsWindowController+locations.mm"; sourceTree = "<group>"; };
 		9A469E0D19A4FEC100EB88C0 /* OSXPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXPinAnnotationView.h; sourceTree = "<group>"; };
 		9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OSXPinAnnotationView.mm; sourceTree = "<group>"; };
@@ -1290,7 +1292,6 @@
 		9A5681AF1944A57A0021DA97 /* SundayTest.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SundayTest.kml; sourceTree = "<group>"; };
 		9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-Location.mm"; sourceTree = "<group>"; };
 		9A5F32061A76968B003B0426 /* TestManager-TestVector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-TestVector.mm"; sourceTree = "<group>"; };
-		9A5F320D1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConfigurationsWindowController+TestManager.h"; sourceTree = "<group>"; };
 		9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ConfigurationsWindowController+TestManager.mm"; sourceTree = "<group>"; };
 		9A5F3FBF18EE5A5000953336 /* Compass[transparent] copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Compass[transparent] copy.entitlements"; sourceTree = "<group>"; };
 		9A5F3FC518EE606200953336 /* tabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = tabView.xib; path = "Compass[transparent]/tabView.xib"; sourceTree = "<group>"; };
@@ -1316,6 +1317,7 @@
 		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
 		9A82B6531941528600534A5F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		9A8DF9271A4DBF57002DFCB8 /* DevelopmentNotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DevelopmentNotes.txt; sourceTree = "<group>"; };
+		9A91FB8E1A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ConfigurationsWindowController+Configurations.mm"; sourceTree = "<group>"; };
 		9A94820C1991D46A0036249C /* setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setup.png; path = icons/setup.png; sourceTree = "<group>"; };
 		9A95CCB0194AC5A2008E520F /* iphone copy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "iphone copy.entitlements"; sourceTree = "<group>"; };
 		9A95CCB1194B4146008E520F /* iOSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSSettingViewController.h; sourceTree = "<group>"; };
@@ -1776,11 +1778,9 @@
 			children = (
 				9A3F1E861A4B247100D621A9 /* ConfigurationsWindowController.h */,
 				9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */,
-				9A45826F1A647AAC00943F6C /* ConfigurationsWindowController+locations.h */,
+				9A91FB8E1A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm */,
 				9A4582701A647AAC00943F6C /* ConfigurationsWindowController+locations.mm */,
-				9A4293BC1A672FDE00F110E3 /* ConfigurationsWindowController+model.h */,
 				9A4293BD1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm */,
-				9A5F320D1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.h */,
 				9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */,
 				9A4AA65B1A7FEF010009F448 /* SnapShotViewController.h */,
 				9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */,
@@ -3116,6 +3116,7 @@
 				9A42A03D19A79C3200BB0101 /* DDRange.m in Sources */,
 				9A42A05D19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
 				9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */,
+				9A91FB921A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */,
 				9A037644198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A037674198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A03763E198DA31900258E95 /* b2GearJoint.cpp in Sources */,
@@ -3269,6 +3270,7 @@
 				9A03758D198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A0375B1198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A4AA65D1A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
+				9A91FB8F1A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */,
 				9AFD8F61197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A03760B198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A037605198DA31900258E95 /* b2CircleContact.cpp in Sources */,
@@ -3385,6 +3387,7 @@
 				9A9701E619085002007C3C19 /* watchNSView.m in Sources */,
 				9A03760D198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A0375B3198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
+				9A91FB911A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */,
 				9A42A0CE19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
 				9AE2FC8D19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9A037637198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
@@ -3602,6 +3605,7 @@
 				9A3F1E891A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9AB90B9C194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A4AA65E1A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
+				9A91FB901A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,
 				9A3DA0A51964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A42A09E19A79CA200BB0101 /* DDASLLogger.m in Sources */,

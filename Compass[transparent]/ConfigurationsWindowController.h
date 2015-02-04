@@ -27,10 +27,11 @@
 
 
 //-------------
-// Methods
+// Update + Init Methods
 //-------------
 - (void) prepareWindow;
-
+- (void) updateLocationsPane;
+- (void) updateConfigurationsPane;
 
 //-------------
 // Configurations pane
@@ -50,9 +51,7 @@
 // Control to show or hide the wedge
 - (IBAction)wedgeSegmentControl:(id)sender;
 
-// Control whether multiple annotations can be displayed
-// simultaneously
-- (IBAction)annotationNumberSegmentControl:(id)sender;
+
 
 // Disable/enable the server
 - (IBAction)toggleServer:(id)sender;
@@ -87,6 +86,13 @@
 - (IBAction)toggleLandmarkLock:(NSButton*)sender;
 - (IBAction)filterTypeSegmentControl:(NSSegmentedControl*)sender;
 - (IBAction)dataPrefilterSegmentControl:(NSSegmentedControl*)sender;
+
+// Control whether multiple annotations can be displayed
+// simultaneously
+- (IBAction)annotationNumberSegmentControl:(id)sender;
+
+- (IBAction)pinSegmentControl:(id)sender;
+- (IBAction)createPinSegmentControl:(id)sender;
 
 
 //-------------

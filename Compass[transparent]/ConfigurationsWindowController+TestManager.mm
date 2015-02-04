@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 dmiau. All rights reserved.
 //
 
-#import "ConfigurationsWindowController+TestManager.h"
+#import "ConfigurationsWindowController.h"
 
 @implementation ConfigurationsWindowController (TestManager)
 - (IBAction)generateTests:(id)sender {

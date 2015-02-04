@@ -6,12 +6,140 @@
 //  Copyright (c) 2015 dmiau. All rights reserved.
 //
 
-#import "ConfigurationsWindowController+locations.h"
+#import "ConfigurationsWindowController.h"
 #import "LocationCellView.h"
+#import "OSXPinAnnotationView.h"
 
 @implementation ConfigurationsWindowController (locations)
-#pragma mark table
 
+- (void)updateLocationsPane{
+    // Initialize the combo box
+    [self.kmlComboBox setStringValue:
+     [self.model->location_filename
+      lastPathComponent]];
+    
+    // Update the table
+    [self.locationTableView reloadData];    
+}
+
+
+
+
+
+
+
+//-----------------
+// Pins
+//-----------------
+
+- (IBAction)pinSegmentControl:(id)sender {
+    NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
+    
+    NSString *label = [segmentedControl labelForSegment:
+                       [segmentedControl selectedSegment]];
+    
+    NSArray* annotation_array = self.rootViewController.mapView.annotations;
+    
+    if ([label isEqualToString:@"All"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:NO];
+        }
+    }else if ([label isEqualToString:@"Enabled"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            int i = annotation.data_id;
+            if (self.model->data_array[i].isEnabled){
+                [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:NO];
+            }else{
+                [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:YES];
+            }
+        }
+    }else if ([label isEqualToString:@"Dropped"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            if (annotation.point_type == dropped){
+                [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:NO];
+            }else{
+                [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:YES];
+            }
+        }
+    }else if ([label isEqualToString:@"None"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:YES];
+        }
+    }
+}
+
+- (IBAction)createPinSegmentControl:
+(NSSegmentedControl*) segmentedControl
+{
+    int idx = [segmentedControl selectedSegment];
+    switch (idx) {
+        case 0:            self.rootViewController.UIConfigurations[@"UIAcceptsPinCreation"]=
+            [NSNumber numberWithBool:true];
+            break;
+        case 1:            self.rootViewController.UIConfigurations[@"UIAcceptsPinCreation"]=
+            [NSNumber numberWithBool:false];
+            break;
+        case 2:
+            NSArray* annotation_array = self.rootViewController.mapView.annotations;
+            for (CustomPointAnnotation* annotation in annotation_array){
+                if (annotation.point_type == dropped){
+                    [self.rootViewController.mapView removeAnnotation:annotation];
+                }
+            }
+            break;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------
+// annotationNumberSegmentControl controls whether multiple callouts
+// can be shown at the same time or not.
+//-----------------
+- (IBAction)annotationNumberSegmentControl:(NSSegmentedControl*)sender {
+    
+    bool canShowCallout = false;
+    
+    switch (sender.selectedSegment) {
+        case 0:
+            self.rootViewController.UIConfigurations
+            [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:NO];
+            canShowCallout = true;
+            break;
+        case 1:
+            self.rootViewController.UIConfigurations
+            [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
+            canShowCallout = false;
+            break;
+    }
+    
+    for (id<MKAnnotation> annotation in
+         self.rootViewController.mapView.annotations){
+        OSXPinAnnotationView* pinView =
+        (OSXPinAnnotationView*)
+        [self.rootViewController.mapView
+         viewForAnnotation: annotation];
+        pinView.canShowCallout = canShowCallout;
+        
+        if (canShowCallout){
+            [pinView showCustomCallout:NO];
+        }
+    }
+}
+
+
+#pragma mark ------------table------------
 - (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView{
     if ([[tableView identifier] isEqualToString:@"LocationTable"])
     {
