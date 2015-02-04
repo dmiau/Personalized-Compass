@@ -43,7 +43,8 @@
 
 // Control the visibility of OpenGL view
 - (IBAction)toggleGLView:(id)sender;
-
+@property (weak) IBOutlet NSSegmentedControl *compassSegmentControl;
+@property (weak) IBOutlet NSSegmentedControl *wedgeSegmentControl;
 
 // Control to show or hide the compass
 - (IBAction)compassSegmentControl:(id)sender;
@@ -60,6 +61,10 @@
 - (IBAction)toggleiOSSyncFlag:(id)sender;
 - (IBAction)toggleiOSBoundary:(id)sender;
 - (IBAction)toggleiOSScreenOnly:(id)sender;
+
+// emulated iOS visualization control
+@property (weak) IBOutlet NSButton *iOSBoundaryControl;
+@property (weak) IBOutlet NSButton *iOSMaskControl;
 
 // Adjust the iOS screen size
 - (IBAction)adjustiOSScreenSize:(id)sender;
@@ -79,13 +84,11 @@
 - (IBAction)didChangeKMLCombo:(id)sender;
 - (IBAction)toggleLandmarkSelection:(id)sender;
 
-// Model control
-@property (weak) IBOutlet NSSegmentedControl *dataSegmentControl;
-@property (weak) IBOutlet NSSegmentedControl *filterSegmentControl;
+// Annotation control
 
-- (IBAction)toggleLandmarkLock:(NSButton*)sender;
-- (IBAction)filterTypeSegmentControl:(NSSegmentedControl*)sender;
-- (IBAction)dataPrefilterSegmentControl:(NSSegmentedControl*)sender;
+@property (weak) IBOutlet NSSegmentedControl *showPinSegmentControl;
+@property (weak) IBOutlet NSSegmentedControl *createPinSegmentControl;
+@property (weak) IBOutlet NSSegmentedControl *multipleAnnotationsControl;
 
 // Control whether multiple annotations can be displayed
 // simultaneously
@@ -94,6 +97,16 @@
 - (IBAction)pinSegmentControl:(id)sender;
 - (IBAction)createPinSegmentControl:(id)sender;
 
+
+// Model control
+@property (weak) IBOutlet NSButton *landmarkLock;
+
+- (IBAction)toggleLandmarkLock:(NSButton*)sender;
+
+@property (weak) IBOutlet NSSegmentedControl *dataPrefilterControl;
+@property (weak) IBOutlet NSSegmentedControl *dataSelectionControl;
+- (IBAction)dataPrefilterSegmentControl:(NSSegmentedControl*)sender;
+- (IBAction)dataSelectionSegmentControl:(NSSegmentedControl*)sender;
 
 //-------------
 // Test Manager

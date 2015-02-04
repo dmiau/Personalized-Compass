@@ -89,9 +89,13 @@
         [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
                                   forKey:@"UICompassInteractionEnabled"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UIAllowMultipleAnnotations"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                   forKey:@"UICompassCenterLocked"];
         [self.UIConfigurations setObject:@"Auto"
                                   forKey:@"UIOverviewScaleMode"];
+        [self.UIConfigurations setObject:@"All"
+                                  forKey:@"ShowPins"];
     }
     return self;
 }

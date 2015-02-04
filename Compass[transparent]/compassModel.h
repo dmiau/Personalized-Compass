@@ -171,7 +171,7 @@ public:
     //-----------------
     // Configurations
     //-----------------
-    NSNumber *configurationFileReadFlag;
+    bool configurationFileReadFlag;
     NSMutableDictionary *configurations;
     NSMutableDictionary *cache_configurations;
     

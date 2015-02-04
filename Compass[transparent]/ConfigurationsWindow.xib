@@ -7,14 +7,22 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigurationsWindowController">
             <connections>
-                <outlet property="dataSegmentControl" destination="WGK-rE-xhO" id="hjK-Da-awY"/>
+                <outlet property="compassSegmentControl" destination="jGa-Mo-rnn" id="OR0-22-1AD"/>
+                <outlet property="createPinSegmentControl" destination="Ave-RY-tW5" id="oMJ-MM-WSf"/>
+                <outlet property="dataPrefilterControl" destination="WGK-rE-xhO" id="Dxu-hb-yE4"/>
+                <outlet property="dataSelectionControl" destination="IkE-w1-HK2" id="TXy-gb-YtZ"/>
                 <outlet property="desktopDropboxDataRoot" destination="HbS-zc-3va" id="8ik-m4-BOi"/>
-                <outlet property="filterSegmentControl" destination="IkE-w1-HK2" id="Yor-gO-Yzl"/>
+                <outlet property="iOSBoundaryControl" destination="ebE-G7-EVb" id="o9h-KB-MgI"/>
+                <outlet property="iOSMaskControl" destination="Wfp-XC-UKD" id="naa-Tl-ieG"/>
                 <outlet property="iOSScale" destination="mSQ-zP-kZe" id="kWn-Sk-LdW"/>
                 <outlet property="kmlComboBox" destination="h6a-yL-0dW" id="pSJ-DP-tmg"/>
+                <outlet property="landmarkLock" destination="olE-wE-agI" id="aVa-TT-LYA"/>
                 <outlet property="locationTableView" destination="o9S-oS-f3X" id="9Lb-sC-RBP"/>
+                <outlet property="multipleAnnotationsControl" destination="QA4-Wd-h0Y" id="QEJ-fa-zec"/>
                 <outlet property="serverPort" destination="zUJ-ry-l8C" id="PMO-A3-KVC"/>
+                <outlet property="showPinSegmentControl" destination="DFr-EQ-NPg" id="ML9-Uw-chT"/>
                 <outlet property="wedgeCorrectionFactor" destination="vkT-wl-kqH" id="u0A-QG-TrG"/>
+                <outlet property="wedgeSegmentControl" destination="mjH-sm-kuZ" id="xUO-F7-X1G"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="SOO-Ww-bDf"/>
             </connections>
         </customObject>
@@ -398,7 +406,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="olE-wE-agI">
-                                                        <rect key="frame" x="6" y="82" width="118" height="18"/>
+                                                        <rect key="frame" x="6" y="79" width="118" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Landmark Lock" bezelStyle="regularSquare" imagePosition="left" inset="2" id="SAv-s6-s89">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -418,7 +426,7 @@
                                                             </segments>
                                                         </segmentedCell>
                                                         <connections>
-                                                            <action selector="filterTypeSegmentControl:" target="-2" id="eou-pR-9EP"/>
+                                                            <action selector="dataPrefilterSegmentControl:" target="-2" id="9oC-Jz-Z1S"/>
                                                         </connections>
                                                     </segmentedControl>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q1O-by-JwT">
@@ -448,7 +456,7 @@
                                                             </segments>
                                                         </segmentedCell>
                                                         <connections>
-                                                            <action selector="dataPrefilterSegmentControl:" target="-2" id="6Mg-1B-fNO"/>
+                                                            <action selector="dataSelectionSegmentControl:" target="-2" id="rcW-sc-dV5"/>
                                                         </connections>
                                                     </segmentedControl>
                                                 </subviews>
@@ -1014,7 +1022,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-1265" y="370"/>
+            <point key="canvasLocation" x="-1790" y="345"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
         <viewController id="aLW-cy-kmh" userLabel="SnapShot View Controller" customClass="SnapShotViewController">

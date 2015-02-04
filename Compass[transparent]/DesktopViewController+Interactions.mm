@@ -47,11 +47,9 @@
     if ([self.model->configurations[@"personalized_compass_status"]
          isEqualToString: @"on"])
     {
-//        self.conventionalCompassVisible = NO;
         self.model->configurations[@"personalized_compass_status"] = @"off";
         [(NSMenuItem *)sender setTitle:@"Show Compass"];
     }else{
-//        self.conventionalCompassVisible = YES;
         self.model->configurations[@"personalized_compass_status"] = @"on";
         [(NSMenuItem *)sender setTitle:@"Hide Compass"];
     }
@@ -124,6 +122,12 @@
 
 - (void)mouseWasHeld: (NSTimer *)tim {
     // Long mouse held will lead to this function
+    
+    //----------------------------
+    // Do nothing when the creation mode is off
+    //----------------------------
+    if (![self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue])
+        return;
     
     NSEvent * mouseDownEvent = [tim userInfo];
     [mouseTimer invalidate];

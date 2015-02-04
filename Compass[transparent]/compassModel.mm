@@ -275,7 +275,10 @@ int compassMdl::cleanMdl(){
 void compassMdl::watchConfigurationFile(){
     //http://stackoverflow.com/questions/11355144/file-monitoring-using-grand-central-dispatch/11372441#11372441
     
-    int fdes = open([configuration_filename UTF8String], O_RDONLY);
+    NSString *configuration_fullpath = [desktopDropboxDataRoot
+    stringByAppendingPathComponent:[configuration_filename lastPathComponent]];
+    
+    int fdes = open([configuration_fullpath UTF8String], O_RDONLY);
     dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
     void (^eventHandler)(void), (^cancelHandler)(void);
     unsigned long mask = DISPATCH_VNODE_DELETE | DISPATCH_VNODE_WRITE | DISPATCH_VNODE_EXTEND | DISPATCH_VNODE_ATTRIB | DISPATCH_VNODE_LINK | DISPATCH_VNODE_RENAME | DISPATCH_VNODE_REVOKE;
@@ -291,7 +294,7 @@ void compassMdl::watchConfigurationFile(){
             NSLog(@"%lu", l);
             // [todo] currently only works with aquamacs
             // handle the file has data case
-            printf("Watched file has data\n");
+            printf("Watched file has been changed\n");
             readConfigurations(this);
         }
     };
@@ -299,7 +302,7 @@ void compassMdl::watchConfigurationFile(){
         int fdes = dispatch_source_get_handle(source);
         close(fdes);
         // Wait for new file to exist.
-        while ((fdes = open([configuration_filename UTF8String], O_RDONLY)) == -1)
+        while ((fdes = open([configuration_fullpath UTF8String], O_RDONLY)) == -1)
             sleep(1);
         printf("re-opened target file in cancel handler\n");
         source = dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE, fdes, mask, queue);

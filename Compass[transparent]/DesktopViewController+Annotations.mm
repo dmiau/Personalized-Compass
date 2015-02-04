@@ -338,4 +338,42 @@
     [pinView showDetailCallout:NO];
 }
 
+//-------------------
+// Change how annotations should be displayed
+//-------------------
+- (void)changeAnnotationDisplayMode: (NSString*) mode{
+    NSArray* annotation_array = self.mapView.annotations;
+    
+    if ([mode isEqualToString:@"All"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+        }
+    }else if ([mode isEqualToString:@"Enabled"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            int i = annotation.data_id;
+            if (self.model->data_array[i].isEnabled){
+                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+            }else{
+                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+            }
+        }
+    }else if ([mode isEqualToString:@"Dropped"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            if (annotation.point_type == dropped){
+                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+            }else{
+                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+            }
+        }
+    }else if ([mode isEqualToString:@"None"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+        }
+    }else{
+        throw(runtime_error("Unknown showPin mode."));
+    }
+    
+    self.UIConfigurations[@"ShowPins"] = mode;
+}
+
 @end

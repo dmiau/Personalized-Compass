@@ -16,8 +16,70 @@
     // Update the dropbox root
     [self.desktopDropboxDataRoot setStringValue:
      self.model->desktopDropboxDataRoot];
+    
+    // Update compass status
+    if ([self.model->configurations[@"personalized_compass_status"]
+         isEqualToString:@"off"])
+    {
+        self.compassSegmentControl.selectedSegment = 0;
+    }else if ([self.model->configurations[@"personalized_compass_status"]
+               isEqualToString:@"n"]){
+        self.compassSegmentControl.selectedSegment = 1;
+    }else if (self.rootViewController.mapView.showsCompass){
+        self.compassSegmentControl.selectedSegment = 2;
+    }
+    
+    // Update wedge status
+    if ([self.model->configurations[@"wedge_status"] isEqualToString: @"off"]){
+        self.wedgeSegmentControl.selectedSegment = 0;
+    }else{
+        // Wedge is on
+        
+        if ([self.model->configurations[@"wedge_style"] isEqualToString: @"original"]){
+            self.wedgeSegmentControl.selectedSegment = 1;
+        }else if ([self.model->configurations[@"wedge_style"] isEqualToString: @"orthographic"]){
+            self.wedgeSegmentControl.selectedSegment = 2;
+        }else{
+            self.wedgeSegmentControl.selectedSegment = 3;
+        }
+    }
+    
+    // Update iOS emulation status
+    self.iOSBoundaryControl.state = self.rootViewController.renderer->isiOSBoxEnabled;
+    
+    self.iOSMaskControl.state = self.rootViewController.renderer->isiOSMaskEnabled;
 }
 
+
+//--------------------
+// Compass selection control
+//--------------------
+- (IBAction)compassSegmentControl:(id)sender {
+    NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
+    
+    int idx = [segmentedControl selectedSegment];
+    switch (idx) {
+        case 0:
+            self.model->configurations[@"personalized_compass_status"] = @"off";
+            [self.rootViewController setFactoryCompassHidden:YES];
+            break;
+        case 1:
+            self.model->configurations[@"personalized_compass_status"] = @"on";
+            [self.rootViewController setFactoryCompassHidden:YES];
+            break;
+        case 2:
+            self.model->configurations[@"personalized_compass_status"] = @"off";
+            //        [self.glkView setHidden:YES];
+            [self.rootViewController setFactoryCompassHidden:NO];
+            break;
+    }
+    //    [self.rootViewController.compassView setNeedsDisplay:YES];
+    [self.rootViewController.compassView display];
+}
+
+//--------------------
+// Wedge selection control
+//--------------------
 - (IBAction)wedgeSegmentControl:(id)sender {
     NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
     

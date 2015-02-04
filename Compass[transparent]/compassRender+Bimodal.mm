@@ -171,7 +171,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                     glRotatef(-model->camera_pos.orientation, 0, 0, -1);
                     drawCircle(-compass_centroid.x/radius * boundary_radius,
                                -compass_centroid.y/radius * boundary_radius,
-                               boundary_radius, 100, false);
+                               boundary_radius, 50, false);
                     isBoundaryIndicatorDrawn = true;
                 }
                 glPopMatrix();
@@ -209,12 +209,15 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     
     
     // ---------------
-    // draw the scale indicator
+    // draw the scale indicator (for Binodal mode)
     // ---------------
-
     if (mode_max_dist_array.size() == 2){
         // Only need to draw the scale indicator in bimodal mode
-        glLineWidth(2);
+#ifdef __IPHONE__
+         glLineWidth(2);
+#else
+         glLineWidth(1);
+#endif
         glColor4f(0, 0, 0, 1);
         drawCircle(0, 0, outer_disk_radius, 50, false);
     }

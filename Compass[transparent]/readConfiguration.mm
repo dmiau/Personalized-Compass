@@ -103,6 +103,6 @@ int readConfigurations(compassMdl* mdl_instance){
     [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: mdl_instance->configurations]];    
     
 //    NSLog(@"%@", mdl_instance->configurations);
-    mdl_instance->configurationFileReadFlag = [NSNumber numberWithInt:1];
+    mdl_instance->configurationFileReadFlag = true;
     return EXIT_SUCCESS;
 }

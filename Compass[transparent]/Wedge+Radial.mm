@@ -106,10 +106,13 @@ void compassRender::drawOneSide(double rotation, double width, double height,
     //        v2
     // v1
     //        v3
+#ifdef __IPHONE__
     glLineWidth(4);
+#else
+    glLineWidth(2);
+#endif
     
     glPushMatrix();
-    
     
     // Plot the triangle first, then rotate and translate
     glRotatef(rotation, 0, 0, 1);

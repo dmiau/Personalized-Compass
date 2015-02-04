@@ -48,6 +48,11 @@
         self.mapUpdateFlag = [NSNumber numberWithDouble:0.0];
     }
     //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
+    
+    if (self.model->configurationFileReadFlag){
+        self.renderer->loadParametersFromModelConfiguration();
+        self.model->configurationFileReadFlag = false;
+    }    
 }
 
 //---------------

@@ -55,6 +55,7 @@ label_info compassRender::drawLabel(float rotation, float height,
     glRotatef(180, 1, 0, 0);
     label_string = [[GLString alloc] initWithAttributedString:
                     my_texture_info.attr_str];
+    glScalef(0.5, 0.5, 0);
     [label_string drawAtPoint:NSMakePoint (0, 0)];
 #else
     //--------------

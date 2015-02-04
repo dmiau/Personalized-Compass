@@ -17,55 +17,84 @@
     [self.kmlComboBox setStringValue:
      [self.model->location_filename
       lastPathComponent]];
-    
+
     // Update the table
-    [self.locationTableView reloadData];    
+    [self.locationTableView reloadData];
+    
+    // Update all the controls    
+
+    // Update the state of landmark lock
+    self.landmarkLock.state = self.model->lockLandmarks;
+
+    //-----------------
+    // Update compass model control
+    //-----------------
+    
+    // Update data pre-filtering control
+    NSString *prefilter_type = self.model->configurations[@"prefilter_param"];
+    
+    if ([prefilter_type isEqualToString:@"NONE"]){
+        self.dataPrefilterControl.selectedSegment = 0;
+    }else if ([prefilter_type isEqualToString:@"CLUSTER"]){
+        self.dataPrefilterControl.selectedSegment = 1;
+    }else if ([prefilter_type isEqualToString:@"CLOSEST"]){
+        self.dataPrefilterControl.selectedSegment = 2;
+    }
+    
+    // Update data selection control
+    NSString *filter_type = self.model->configurations[@"filter_type"];
+    
+    if ([filter_type isEqualToString:@"K_ORIENTATIONS"]){
+        self.dataSelectionControl.selectedSegment = 0;
+    }else if ([filter_type isEqualToString:@"NONE"]){
+        self.dataSelectionControl.selectedSegment = 1;
+    }else if ([filter_type isEqualToString:@"MANUAL"]){
+        self.dataSelectionControl.selectedSegment = 2;
+    }
+
+    //-----------------
+    // Update annotation control
+    //-----------------
+
+    // Update showPin segment control
+    if ([self.rootViewController.UIConfigurations[@"ShowPins"] isEqualToString:@"None"]){
+        self.showPinSegmentControl.selectedSegment = 0;
+    }else if ([self.rootViewController.UIConfigurations[@"ShowPins"] isEqualToString:@"Enabled"]){
+        self.showPinSegmentControl.selectedSegment = 1;
+    }else if([self.rootViewController.UIConfigurations[@"ShowPins"] isEqualToString:@"Dropped"]){
+        self.showPinSegmentControl.selectedSegment = 2;
+    }else if([self.rootViewController.UIConfigurations[@"ShowPins"] isEqualToString:@"All"]){
+        self.showPinSegmentControl.selectedSegment = 3;
+    }
+    
+    // Update pin creation segment control
+    if (self.rootViewController.UIConfigurations[@"UIAcceptsPinCreation"]==
+        [NSNumber numberWithBool:true])
+    {
+        self.createPinSegmentControl.selectedSegment = 0;
+    }else{
+        self.createPinSegmentControl.selectedSegment = 1;
+    }
+    
+    // Update multiple annotation segment control
+    if (self.rootViewController.UIConfigurations
+        [@"UIAllowMultipleAnnotations"] == [NSNumber numberWithBool:NO]){
+        self.multipleAnnotationsControl.selectedSegment = 0;
+    }else{
+        self.multipleAnnotationsControl.selectedSegment = 1;
+    }
 }
 
-
-
-
-
-
-
+#pragma mark ------------Annotation Control------------
 //-----------------
 // Pins
 //-----------------
-
 - (IBAction)pinSegmentControl:(id)sender {
     NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
     
     NSString *label = [segmentedControl labelForSegment:
                        [segmentedControl selectedSegment]];
-    
-    NSArray* annotation_array = self.rootViewController.mapView.annotations;
-    
-    if ([label isEqualToString:@"All"]){
-        for (CustomPointAnnotation* annotation in annotation_array){
-            [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:NO];
-        }
-    }else if ([label isEqualToString:@"Enabled"]){
-        for (CustomPointAnnotation* annotation in annotation_array){
-            int i = annotation.data_id;
-            if (self.model->data_array[i].isEnabled){
-                [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:NO];
-            }else{
-                [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:YES];
-            }
-        }
-    }else if ([label isEqualToString:@"Dropped"]){
-        for (CustomPointAnnotation* annotation in annotation_array){
-            if (annotation.point_type == dropped){
-                [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:NO];
-            }else{
-                [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:YES];
-            }
-        }
-    }else if ([label isEqualToString:@"None"]){
-        for (CustomPointAnnotation* annotation in annotation_array){
-            [[self.rootViewController.mapView viewForAnnotation:annotation] setHidden:YES];
-        }
-    }
+    [self.rootViewController changeAnnotationDisplayMode:label];
 }
 
 - (IBAction)createPinSegmentControl:
@@ -73,10 +102,12 @@
 {
     int idx = [segmentedControl selectedSegment];
     switch (idx) {
-        case 0:            self.rootViewController.UIConfigurations[@"UIAcceptsPinCreation"]=
+        case 0:
+            self.rootViewController.UIConfigurations[@"UIAcceptsPinCreation"]=
             [NSNumber numberWithBool:true];
             break;
-        case 1:            self.rootViewController.UIConfigurations[@"UIAcceptsPinCreation"]=
+        case 1:
+            self.rootViewController.UIConfigurations[@"UIAcceptsPinCreation"]=
             [NSNumber numberWithBool:false];
             break;
         case 2:
@@ -89,19 +120,6 @@
             break;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //-----------------
 // annotationNumberSegmentControl controls whether multiple callouts

@@ -70,7 +70,6 @@ typedef struct{
 @property DemoManager* demoManager;
 @property TestManager* testManager;
 @property NSNumber *mapUpdateFlag;
-@property bool conventionalCompassVisible;
 
 @property NSMutableDictionary* UIConfigurations;
 @property HTTPServer *httpServer; // expose the iv
@@ -137,6 +136,9 @@ typedef struct{
 //Annotation category
 //----------------
 -(void) renderAnnotations;
+
+// Change how annotations should be displayed
+- (void)changeAnnotationDisplayMode: (NSString*) mode;
 
 //----------------
 //Server

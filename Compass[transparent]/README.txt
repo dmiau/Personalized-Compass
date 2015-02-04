@@ -2138,15 +2138,51 @@ What do I want to achieve today?
 - folder organization
 -.kml and .snapshot generation
 (assuming no rotation in tests)
-
-*Todo:
-- TabView initialization
-http://stackoverflow.com/questions/13443446/take-an-action-when-user-switches-tabs-on-an-nstabview
 - Pin display control 
 * Display no pins for the tests
+- TabView initialization
 
+*Todo:
+- The behavior of manual selection is a bit strange...
 
 *Working:
+
+-------------------------------------------------------------------
+2.4.2015
+-------------------------------------------------------------------
+What do you want to do today?
+
+*Done
+- Fixing the manual selection bug [9:57AM]
+- Think about the architecture of TestManager [11:32AM, half done]
+- Did a lot of parameter tuning [1:24PM]
+- Reload the configuration file
+* loadParametersFromModelConfiguration
+    self.renderer->loadParametersFromModelConfiguration();
+
+    mdl_instance->configurationFileReadFlag = [NSNumber numberWithInt:1];
+- Desktop compass should be moved to the lower left
+- Keep the controls in the locations pane updated [4:53PM]
+- Keep the controls in the configurations pane updated [5:25PM]
+
+*Todo
+- Implement "Run Test"
+
+- Snapshot loading is too slow on iOS
+- Test authoring tool (manually add locations)
+- configure visualization type in snapshot generation
+- Display visualization and configure display type correctly
+- Chang the "Test Cases" pane to the "Study Log" pane
+- Implement a StudyLog structure
+- Implement iOS's TestManager (right now it only has a DemoManager)
+- Design and implement package exchange (right now a dictionary is sent)
+- Design what information needs to be passed around
+* iOSViewController+Client
+* MyWebSocket
+* DesktopViewController+Server
+- Mouse-click-to-move the compass
+
+*Working
 
 
 

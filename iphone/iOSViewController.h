@@ -207,6 +207,8 @@ typedef struct{
 // Annotations related methods
 //----------------
 - (void) renderAnnotations;
+// Change how annotations should be displayed
+- (void)changeAnnotationDisplayMode: (NSString*) mode;
 
 //----------------
 // Communication

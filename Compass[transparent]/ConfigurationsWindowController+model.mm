@@ -14,17 +14,17 @@
     
     if ([sender state] == NSOnState){
         self.model->lockLandmarks = true;
-        self.dataSegmentControl.enabled = false;
-        self.filterSegmentControl.enabled = false;
+        self.dataSelectionControl.enabled = false;
+        self.dataPrefilterControl.enabled = false;
     }else{
         self.model->lockLandmarks = false;
-        self.dataSegmentControl.enabled = true;
-        self.filterSegmentControl.enabled = true;
+        self.dataSelectionControl.enabled = true;
+        self.dataPrefilterControl.enabled = true;
     }
     [self.rootViewController updateMainGUI];
 }
 
-- (IBAction)filterTypeSegmentControl:(NSSegmentedControl*)segmentedControl {
+- (IBAction)dataSelectionSegmentControl:(NSSegmentedControl*)segmentedControl {
     
     NSString *label = [segmentedControl
                        labelForSegment: [segmentedControl selectedSegment]];

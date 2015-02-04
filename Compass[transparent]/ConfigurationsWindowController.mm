@@ -68,7 +68,7 @@ willSelectTabViewItem:(NSTabViewItem *)tabViewItem
     NSString *tab_label = tabViewItem.label;
     
     if ([tab_label isEqualToString:@"Configurations"]){
-        
+        [self updateConfigurationsPane];
     }else if ([tab_label isEqualToString:@"Locations"]){
         // Need to refresh the Locations pane
         [self updateLocationsPane];
@@ -86,48 +86,9 @@ willSelectTabViewItem:(NSTabViewItem *)tabViewItem
 // This method is called to prepare the location window
 //---------------------
 - (void) prepareWindow{
-        
-    // Update all the switches
+    [self updateConfigurationsPane];
+    [self updateLocationsPane];
     
-    
-    // Initialize the combo box
-    [self.kmlComboBox setStringValue:
-     [self.model->location_filename
-      lastPathComponent]];
-    
-    // Update the dropbox root
-    [self.desktopDropboxDataRoot setStringValue:
-    self.model->desktopDropboxDataRoot];
-
-    // Update the table
-    [self.locationTableView reloadData];
 }
-
-- (IBAction)compassSegmentControl:(id)sender {
-    NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
-    
-    int idx = [segmentedControl selectedSegment];
-    switch (idx) {
-        case 0:
-            self.rootViewController.conventionalCompassVisible = NO;
-            self.model->configurations[@"personalized_compass_status"] = @"off";
-            [self.rootViewController setFactoryCompassHidden:YES];
-            break;
-        case 1:
-            self.rootViewController.conventionalCompassVisible = NO;
-            self.model->configurations[@"personalized_compass_status"] = @"on";
-            [self.rootViewController setFactoryCompassHidden:YES];
-            break;
-        case 2:
-            self.rootViewController.conventionalCompassVisible = YES;
-            self.model->configurations[@"personalized_compass_status"] = @"off";
-            //        [self.glkView setHidden:YES];
-            [self.rootViewController setFactoryCompassHidden:NO];
-            break;
-    }
-    //    [self.rootViewController.compassView setNeedsDisplay:YES];
-    [self.rootViewController.compassView display];
-}
-
 
 @end

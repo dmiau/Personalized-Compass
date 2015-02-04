@@ -55,7 +55,7 @@
                                       forKey:@"UIToolbarMode"];
             [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                       forKey:@"UIToolbarNeedsUpdate"];
-            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+            [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
                                       forKey:@"UIAcceptsPinCreation"];
             [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
                                       forKey:@"UICompassTouched"];
@@ -67,6 +67,8 @@
                                       forKey:@"UIAllowMultipleAnnotations"];
             [self.UIConfigurations setObject:@"Auto"
                                       forKey:@"UIOverviewScaleMode"];
+            [self.UIConfigurations setObject:@"All"
+                                      forKey:@"ShowPins"];
         }
     }
     return self;
@@ -132,8 +134,7 @@
     [self renderAnnotations];
     
     // Set the conventional compass to be invisible
-    self.conventionalCompassVisible = false;
-    
+    [self setFactoryCompassHidden:YES];
 }
 
 @end

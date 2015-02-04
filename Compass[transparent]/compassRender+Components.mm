@@ -253,7 +253,11 @@ BOOL compassRender::drawBoxInCompass(double renderD2realDRatio)
 //    NSLog(@"-------------");
     
     // Draw the box
+#ifdef __IPHONE__
     glLineWidth(3);
+#else
+    glLineWidth(2);
+#endif
     glColor4f(1, 0, 0, 0.5);
     glPushMatrix();
     // Plot the triangle first, then rotate and translate
