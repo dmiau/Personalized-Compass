@@ -24,8 +24,6 @@
 #endif
 
 using namespace std;
-// Forward declaration
-class compassRender;
 
 #ifdef __IPHONE__
 @class iOSViewController;
@@ -141,9 +139,13 @@ enum TaskType {LOCATE, TRIANGULATE, ORIENT};
 class TestManager{
 public:
     
-    // Test parameters
-    
-    
+    // Test generation parameters
+    // These parameters specify where the generated tests should go
+    NSString *test_foldername;          //e.g., study0
+    NSString *test_kml_filename;        //e.g., t_locations.kml
+    NSString *test_location_filename;   //e.g., temp.locations
+    NSString *alltest_vector_filename;     //e.g., allTestVectors.tests
+    NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
     
     // Connections to other modules
     compassMdl *model;
@@ -169,8 +171,12 @@ public:
     
     // A map holds all the IDs and (x, y) coordinates
     map<string, vector<int>> location_dict;
+    // This map is for code to ID lookup
+    map<string, int> location_code_to_id;
     // Stores all test vectors (each participant has a test vector)
     vector<vector<string>> all_test_vectors;
+    // Stores all snapshot vectors (each participant has a snapshot vector)
+    vector<vector<snapshot>> all_snapshot_vectors;
     
     //---------------
     // Parameters for close, far boundaries
@@ -244,7 +250,8 @@ public:
     vector<vector<int>> generateRandomOrientLocations
     (double close_boundary, double far_boundary, int location_n);
     
-    void generateKML();
+    
+    void saveTestLocationsToKML();
     
     //---------------
     // Test vector generation
@@ -258,10 +265,15 @@ public:
         vector<string> location_list
     );
     
-    // I will need a snapshot generator too
-    
     void saveLocationCSV();
     void saveAllTestVectorCSV();
+    
+    // I will need a snapshot generator too
+    void generateSnapShots();
+    void saveSnapShotsToKML();
+    
+    // Prepare test directory
+    void setupOutputFolder();
 };
 
 //class test{

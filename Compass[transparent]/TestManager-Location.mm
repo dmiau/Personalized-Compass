@@ -29,7 +29,7 @@ map<string, vector<int>> TestManager::generateLocationVector(){
     // Save the location to a CSV
     saveLocationCSV();
     
-    generateKML();
+    saveTestLocationsToKML();
     
     return out_location_dict;
 }
@@ -240,9 +240,13 @@ vector<vector<int>> TestManager::generateRandomTriangulateLocations
 // Save the locations to CSV
 //----------------
 void TestManager::saveLocationCSV(){
-    //--------------
-    NSString *out_file = [model->desktopDropboxDataRoot
-                          stringByAppendingPathComponent:@"test.locations"];
+
+    // Make sure the output folder exists
+    setupOutputFolder();
+    NSString *folder_path = [model->desktopDropboxDataRoot
+                             stringByAppendingString:test_foldername];
+    NSString *out_file = [folder_path
+                          stringByAppendingPathComponent:test_location_filename];
     CHCSVWriter *w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
     
     // http://stackoverflow.com/questions/1443793/iterate-keys-in-a-c-map

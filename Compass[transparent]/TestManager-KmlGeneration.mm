@@ -16,9 +16,9 @@
 
 
 //--------------------
-// generateKML save location_dict into a .kml file
+// saveTestLocationsToKML save location_dict into a .kml file
 //--------------------
-void TestManager::generateKML(){
+void TestManager::saveTestLocationsToKML(){
     
 //    data(){
 //        name = "";
@@ -36,6 +36,7 @@ void TestManager::generateKML(){
     
     
     // Generate a data_array
+    int i = 0;
     for (auto &item : location_dict){
      
         vector<int> ios_xy = item.second;
@@ -51,19 +52,27 @@ void TestManager::generateKML(){
         t_data.latitude = coord.latitude;
         t_data.name = item.first;
         t_data_array.push_back(t_data);
-    }
-    
+        
+        // Populate location_code_to_id, for code to id look up
+        location_code_to_id[item.first] = i++;
+    }    
     
     NSString *content = genKMLString(t_data_array);
+
+    //--------------------
+    // Make sure the output folder exists
+    setupOutputFolder();
+    NSString *folder_path = [model->desktopDropboxDataRoot
+                             stringByAppendingString:test_foldername];
     
     NSError* error;
-    NSString *doc_path = [model->desktopDropboxDataRoot
-                          stringByAppendingPathComponent:@"test_location.kml"];
+    NSString *doc_path = [folder_path
+                          stringByAppendingPathComponent:test_kml_filename];
     
     if (![content writeToFile:doc_path
                    atomically:YES encoding: NSASCIIStringEncoding
                         error:&error])
     {
-        throw(runtime_error("Failed to write test_location.kml"));
+        throw(runtime_error("Failed to write test kml file"));
     }
 }

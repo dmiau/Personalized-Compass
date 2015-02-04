@@ -129,14 +129,10 @@ void TestManager::generateAllTestVectors(
                     for (int li = 0; li < t_location_list.size(); ++li){
                         prefix = dvtprefix +  ":" + t_location_list[li];
                         
-                        // Need to handle slightly differently for task2
-                        if (t_task_list[ti] == "t2"){
-                            for (int sli = 0; sli <3; ++sli){
-                                user_test_vector.push_back(prefix + "-" + to_string(sli));
-                            }
-                        }else{
+                            // Generate test prefix string. Each test has a string
+                            // In the case of t2, there are multiple locations
+                            // associated with a single test
                             user_test_vector.push_back(prefix);
-                        }
                     }
                     
                 }
@@ -152,9 +148,15 @@ void TestManager::generateAllTestVectors(
 // Save all test vectors (each participant has a test vector)
 //--------------
 void TestManager::saveAllTestVectorCSV(){
+
     //--------------
-    NSString *out_file = [model->desktopDropboxDataRoot
-                          stringByAppendingPathComponent:@"allTestVectors.tests"];
+    // Make sure the output folder exists
+    setupOutputFolder();
+    NSString *folder_path = [model->desktopDropboxDataRoot
+                             stringByAppendingString:test_foldername];
+    
+    NSString *out_file = [folder_path
+                          stringByAppendingPathComponent:alltest_vector_filename];
     
     CHCSVWriter *w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
     // http://stackoverflow.com/questions/1443793/iterate-keys-in-a-c-map

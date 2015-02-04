@@ -98,9 +98,14 @@ phone:pcompass:t1:4c,1751,0
 code convention:
 device:visualization:task:location_class-subID
 
-phone:pcompass:t2:0c-1
-phone:pcompass:t2:0c-2
-phone:pcompass:t2:0c-3
+Each t2 test has three corresponding locations.
+phone:pcompass:t2:9f-0,5230,0
+phone:pcompass:t2:9f-1,5230,0
+phone:pcompass:t2:9f-2,5230,0
+
+Some intermediate files will be generated during the process of test generation.
+test.locations
+allTestVectors.tests
 
 ==================
 iOS emulation

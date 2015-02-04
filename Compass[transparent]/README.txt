@@ -2108,22 +2108,41 @@ Working:
 -------------------------------------------------------------------
 2.2.2015
 -------------------------------------------------------------------
-- experimenting code sharing
-
-Todo:
-
-
-Done:
+*Done:
 - implement the snapshot feature on the desktop
 - turned out I need to implement a NSViewController [4:39PM]
+- experimenting code sharing
 
-Working:
+*Todo:
+- [Desktop] use mouse to move the compass location
+- [Desktop] test authoring tool? (my task might be overly complicated)
+- Testharness UI
+- Compass scaling when the window is scaled?
+- Need some desktop <-> iOS conversion tools:
+- Use NSTabViewDelegate to update the configuration pane
+http://stackoverflow.com/questions/13443446/take-an-action-when-user-switches-tabs-on-an-nstabview
+- sync from desktop to iOS
+
+*Working:
+-.kml and .snapshot generation
+(assuming no rotation in tests)
+
+I found there are two kml generation functions. One is called genKMLString, the other is called genSnapSthotString. This is confusing. 
+
+-------------------------------------------------------------------
+2.3.2015
+-------------------------------------------------------------------
+What do I want to achieve today?  
+
+*Done:
+- folder organization
+-.kml and .snapshot generation
+(assuming no rotation in tests)
+
+*Todo:
 
 
-
-
-
-
+*Working:
 
 
 

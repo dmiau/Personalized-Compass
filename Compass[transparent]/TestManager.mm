@@ -63,9 +63,29 @@ int TestManager::initTestManager(){
     std::mt19937 temp(seed);
     generator = temp;
     
+    // Initialize default output filenames
+    test_foldername     = @"study0";
+    test_kml_filename   = @"t_locations.kml";
+    test_location_filename  = @"temp.locations";
+    alltest_vector_filename = @"allTestVectors.tests";
+    test_snapshot_prefix = @"snapshot-participant";
+    
     return 0;
 }
 
+//--------------
+// Prepare the output environment
+//--------------
+void TestManager::setupOutputFolder(){
+    NSString *out_folder_path = [model->desktopDropboxDataRoot
+                                 stringByAppendingString:test_foldername];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:out_folder_path])
+    {
+        NSError *error;
+        [[NSFileManager defaultManager] createDirectoryAtPath:out_folder_path withIntermediateDirectories:NO attributes:nil error:&error];
+        NSLog(@"%@ created", out_folder_path);
+    }
+}
 
 //--------------
 // Test Generation
@@ -125,7 +145,13 @@ int TestManager::generateTests(){
     //=====================
     generateAllTestVectors(device_list, visualization_list, task_list,
                        distance_list, location_list);
-    
+
+    //=====================
+    // Save the files
+    //=====================
+    generateSnapShots();
+    saveSnapShotsToKML();
+        
     // Reset the test counter
     test_counter = -1;
     return 0;
