@@ -147,9 +147,7 @@
     self.model->location_filename = self.mySnapshot->kmlFilename;
     
     cache_data_array = self.model->data_array;
-    self.model->data_array = readLocationKml
-    (self.model,self.mySnapshot->kmlFilename);
-    self.model->initTextureArray();
+    readLocationKml(self.model,self.mySnapshot->kmlFilename);    
     
     //-----------------
     // Restore selection status

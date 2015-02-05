@@ -71,6 +71,11 @@ int readSnapshotKml(compassMdl* mdl){
     coord_flag          =false;
     orienttion_flag     =false;
     kmlFilename_flag    =false;
+    notes_flag          = false;
+    date_flag           = false;
+    selected_id_flag    = false;
+    visualization_flag  = false;
+    device_flag         = false;
     return self;
 }
 
@@ -84,6 +89,11 @@ int readSnapshotKml(compassMdl* mdl){
     coord_flag          =false;
     orienttion_flag     =false;
     kmlFilename_flag    =false;
+    notes_flag          = false;
+    date_flag           = false;
+    selected_id_flag    = false;
+    visualization_flag  = false;
+    device_flag         = false;
     return self;
 }
 
@@ -134,6 +144,10 @@ int readSnapshotKml(compassMdl* mdl){
         date_flag = true;
     }else if ([elementName isEqualToString:@"selected_ids"]){
         selected_id_flag = true;
+    }else if ([elementName isEqualToString:@"visualizationType"]){
+        visualization_flag = true;
+    }else if ([elementName isEqualToString:@"deviceType"]){
+        device_flag = true;
     }
 }
 
@@ -181,6 +195,12 @@ int readSnapshotKml(compassMdl* mdl){
                 snapshot_array[snapshot_array.size()-1].
                 selected_ids.push_back([anItem integerValue]);
             }
+        }else if (visualization_flag){
+            snapshot_array[snapshot_array.size()-1].visualizationType =
+            (VisualizationType)[string integerValue];
+        }else if (device_flag){
+            snapshot_array[snapshot_array.size()-1].deviceType =
+            (DeviceType)[string integerValue];
         }
     }
 }
@@ -209,6 +229,10 @@ int readSnapshotKml(compassMdl* mdl){
         date_flag = false;
     }else if ([elementName isEqualToString:@"selected_ids"]){
         selected_id_flag = false;
+    }else if ([elementName isEqualToString:@"visualizationType"]){
+        visualization_flag = false;
+    }else if ([elementName isEqualToString:@"deviceType"]){
+        device_flag = false;
     }
 }
 @end

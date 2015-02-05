@@ -9,6 +9,7 @@
 #import "ConfigurationsWindowController.h"
 #import "LocationCellView.h"
 #import "OSXPinAnnotationView.h"
+#include "xmlParser.h"
 
 @implementation ConfigurationsWindowController (locations)
 
@@ -261,28 +262,16 @@
     // Load the file from the Dropbox root
     self.model->location_filename = [self.model->desktopDropboxDataRoot
                                      stringByAppendingPathComponent:astr];
-    
-    NSLog(@"json combon triggered %@", astr);
-    
-    // The following debug line did work!
-    // po ((NSComboBox *)sender).stringValue
-    
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
-    [self.locationTableView selectRowIndexes:indexSet byExtendingSelection:NO];
-    
-    //Begin editing of the cell containing the new object
-    [self.locationTableView editColumn:0 row:0 withEvent:nil select:YES];
-    
-    
-//    [tableCellCache removeAllObjects];
-    self.model->reloadFiles();
-    
-    
-//    for (int i = 0; i < self.model->data_array.size(); ++i)
-//    {
-//        [tableCellCache addObject:[NSNull null]];
-//    }
-    
+    readLocationKml(self.model, self.model->location_filename);
+    self.model->updateMdl();
+    NSLog(@"json combo triggered %@", astr);
+        
+//    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
+//    [self.locationTableView selectRowIndexes:indexSet byExtendingSelection:NO];
+//    
+//    //Begin editing of the cell containing the new object
+//    [self.locationTableView editColumn:0 row:0 withEvent:nil select:YES];
+
     [self.rootViewController updateMapDisplayRegion: NO];
     [self.rootViewController renderAnnotations];
     [self.locationTableView reloadData];

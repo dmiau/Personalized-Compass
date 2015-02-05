@@ -294,7 +294,7 @@
     // reload
     readConfigurations(self.model);
 }
-- (IBAction)toogleToolbarMode:(id)sender {
+- (IBAction)toggleToolbarMode:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     int index = [segmentedControl selectedSegmentIndex];
     

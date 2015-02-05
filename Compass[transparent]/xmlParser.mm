@@ -11,11 +11,9 @@
 #include <stdexcept>
 
 
-vector<data> readLocationKml(compassMdl* mdl, NSString* filename){
+void readLocationKml(compassMdl* mdl, NSString* filename){
     xmlParser *myParser;
-    vector<data> data_array;
-    data_array.clear();
-    
+   
 #ifdef __IPHONE__
     // iOS
     NSData* data = nil;
@@ -39,7 +37,6 @@ vector<data> readLocationKml(compassMdl* mdl, NSString* filename){
     
     if (!data){
         throw(runtime_error("Failed to read the location file."));
-        return data_array;
     }else{
         myParser = [[xmlParser alloc] initWithData: data];
     }
@@ -53,17 +50,16 @@ vector<data> readLocationKml(compassMdl* mdl, NSString* filename){
 #endif
     
     myParser.parseFile;
-    
+
+    // Do NOT change the current locaction
 //    mdl->camera_pos.name = myParser.data_array[0].name;
 //    // Set the initial orientation to 0
 //    mdl->camera_pos.orientation = 0;
 //    mdl->camera_pos.latitude = myParser.data_array[0].latitude;
 //    mdl->camera_pos.longitude = myParser.data_array[0].longitude;
 //    
-//    mdl->data_array = myParser.data_array;
-
-    data_array = myParser.data_array;
-    return data_array;
+    mdl->data_array = myParser.data_array;
+    mdl->initTextureArray();
 }
 
 

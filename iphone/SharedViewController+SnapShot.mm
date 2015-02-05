@@ -51,6 +51,7 @@
 // at the time when the snap was taken will be loaded too
 //------------------
 - (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag
+withPins: (bool) pin_flag
 {
     snapshot mySnapshot = self.model->snapshot_array[id];
     
@@ -89,6 +90,76 @@
     
     self.model->updateMdl();
 
+    
+    //-----------------
+    // Set up viz and device
+    //-----------------
+    if (setup_viz_flag ){
+        switch(mySnapshot.visualizationType)
+        {
+            case VIZPCOMPASS:
+                // Turn off the personalized compass and the conventional compass
+                self.model->configurations[@"personalized_compass_status"] = @"on";
+                [self setFactoryCompassHidden:YES];
+                
+                // Turn off the wedge
+                self.model->configurations[@"wedge_status"] = @"off";
+                break;
+            case VIZWEDGE:
+                // Turn off the personalized compass and the conventional compass
+                self.model->configurations[@"personalized_compass_status"] = @"off";
+                [self setFactoryCompassHidden:YES];
+                
+                // Turn off the wedge
+                self.model->configurations[@"wedge_status"] = @"on";
+                self.model->configurations[@"wedge_style"] = @"orthographic";
+                break;
+            case VIZOVERVIEW:
+                // Do nothing
+                break;
+            case VIZNONE:
+                // Do nothing                
+                break;
+            default:
+                cout << "Default" <<endl;
+        }
+#ifndef __IPHONE__
+        // Desktop
+        [self.compassView display];
+#else
+        // iOS
+        [self.glkView setNeedsDisplay];
+#endif
+    }
+    
+//    else{
+//
+//#ifndef __IPHONE__
+//        // Turn off all the visualization and device settings, at least on desktop
+//        
+//        // Turn off the personalized compass and the conventional compass
+//        self.model->configurations[@"personalized_compass_status"] = @"off";
+//        [self setFactoryCompassHidden:YES];
+//        
+//        // Turn off the wedge
+//        self.model->configurations[@"wedge_status"] = @"off";
+//        
+//        [self.compassView display];
+//#endif
+//    }
+
+    //-----------------
+    // Set up pin appearance
+    //-----------------
+    
+    if (pin_flag){
+        // Show pins
+        [self changeAnnotationDisplayMode:@"All"];        
+    }else{
+        // Do not show pins
+        [self changeAnnotationDisplayMode:@"None"];
+    }
+    
     
     // Render annotation
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist

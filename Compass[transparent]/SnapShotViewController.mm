@@ -123,7 +123,8 @@
     int ind = (int)[idx firstIndex];
     
     // Display a snapshot
-    [self.rootViewController displaySnapshot:ind withVizSettings:false];
+    [self.rootViewController displaySnapshot:ind withVizSettings:false
+     withPins:YES];
         
 //    // Assume only one row is clicked
 //    int ind = (int)[idx firstIndex];

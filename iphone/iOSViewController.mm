@@ -78,7 +78,7 @@
     //---------------
     if (self.snapshot_id_toshow >= 0){
         [self displaySnapshot:self.snapshot_id_toshow
-         withVizSettings: false];
+         withVizSettings: false withPins:YES];
         self.snapshot_id_toshow = -1;
     }
 

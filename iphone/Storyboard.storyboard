@@ -198,7 +198,7 @@
                                     <segment title="Web"/>
                                 </segments>
                                 <connections>
-                                    <action selector="toogleToolbarMode:" destination="9xM-YS-8bl" eventType="valueChanged" id="bco-Ut-V1O"/>
+                                    <action selector="toggleToolbarMode:" destination="9xM-YS-8bl" eventType="valueChanged" id="bco-Ut-V1O"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jTW-lk-cfK">

@@ -13,7 +13,11 @@
 
 using namespace std;
 
-vector<data> readLocationKml(compassMdl* mdl,
+
+// readLocationKml read location from a provided kml file and load the locations
+// to mdl's data_array property
+// (in the process it also generates the texture for Open GL labels
+void readLocationKml(compassMdl* mdl,
                              NSString *filename);
 
 @interface xmlParser : NSObject <NSXMLParserDelegate>

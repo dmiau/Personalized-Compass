@@ -2165,14 +2165,13 @@ What do you want to do today?
 - Keep the controls in the locations pane updated [4:53PM]
 - Keep the controls in the configurations pane updated [5:25PM]
 
+- Change the "Test Cases" pane to the "Study Log" pane [5:27PM]
+- configure visualization type in snapshot generation (need to log the necessary information) [9:11PM]
+
 *Todo
 - Implement "Run Test"
-
 - Snapshot loading is too slow on iOS
 - Test authoring tool (manually add locations)
-- configure visualization type in snapshot generation
-- Display visualization and configure display type correctly
-- Chang the "Test Cases" pane to the "Study Log" pane
 - Implement a StudyLog structure
 - Implement iOS's TestManager (right now it only has a DemoManager)
 - Design and implement package exchange (right now a dictionary is sent)
@@ -2181,13 +2180,41 @@ What do you want to do today?
 * MyWebSocket
 * DesktopViewController+Server
 - Mouse-click-to-move the compass
+- compass_disk_radius is kept getting changed
+- map zoom in/out, pan around
+- desktop compass box in emiOS mode
 
 *Working
+- Display visualization and configure display type correctly
 
+-------------------------------------------------------------------
+2.4.2015
+-------------------------------------------------------------------
+*Done
+- need to modify readLocationKml [3:01PM]
 
+*ToDO
+- Snapshot loading is too slow on iOS
+- Test authoring tool (manually add locations)
+- Implement a StudyLog structure
 
+- Design and implement package exchange (right now a dictionary is sent)
+- Design what information needs to be passed around
+* iOSViewController+Client
+* MyWebSocket
+* DesktopViewController+Server
+- Mouse-click-to-move the compass
+- compass_disk_radius is kept getting changed
+- map zoom in/out, pan around
+- desktop compass box in emiOS mode
 
+- Auto decide MapRect for the study
 
+*Working
+- Display visualization and configure display type correctly
+- Implement "Run Test"
+- Implement iOS's TestManager (right now it only has a DemoManager)
+- Fix the changing eiOS screen
 
 
 

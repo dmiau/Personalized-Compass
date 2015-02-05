@@ -31,20 +31,6 @@ using namespace std;
 @class DesktopViewController;
 #endif
 
-// Device type enum
-typedef enum{
-    PHONE,
-    WATCH
-}DeviceType;
-
-// Visualization type enum
-typedef enum{
-    VIZNONE,
-    VIZPCOMPASS,
-    VIZWEDGE,
-    VIZOVERVIEW
-}VisualizationType;
-
 //---------------
 // Param object
 //---------------

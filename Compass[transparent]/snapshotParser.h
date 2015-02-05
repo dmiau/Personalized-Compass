@@ -36,6 +36,8 @@ int readSnapshotKml(compassMdl* mdl);
     BOOL notes_flag;
     BOOL date_flag;
     BOOL selected_id_flag;
+    BOOL visualization_flag;
+    BOOL device_flag;
 }
 //snapshot_array stores the output
 @property std::vector<snapshot> snapshot_array;

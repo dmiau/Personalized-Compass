@@ -130,7 +130,8 @@ typedef struct{
 //Snapshot category
 //----------------
 - (bool)takeSnapshot;
-- (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag;
+- (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag
+withPins: (bool) pin_flag;
 
 //----------------
 //Annotation category

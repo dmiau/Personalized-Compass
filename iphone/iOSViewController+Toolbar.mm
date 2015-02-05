@@ -392,7 +392,7 @@
             }
         }
         [self displaySnapshot:snapshot_id
-              withVizSettings: false];
+              withVizSettings: false withPins:YES];
         self.model->lockLandmarks = true;
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
@@ -415,7 +415,7 @@
         }
         
         [self displaySnapshot:snapshot_id
-              withVizSettings: false];
+              withVizSettings: false withPins:YES];
         self.model->lockLandmarks = true;
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];

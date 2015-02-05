@@ -147,6 +147,22 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         string([my_snapshot_array[i].date_str UTF8String]);
         temp_str = temp_str + "</date>\n";
         
+        //-----------------
+        // deviceType
+        //-----------------
+        temp_str = temp_str + "<deviceType>";
+        temp_str = temp_str +
+        to_string(my_snapshot_array[i].deviceType);
+        temp_str = temp_str + "</deviceType>\n";
+        
+        //-----------------
+        // visualizationType
+        //-----------------
+        temp_str = temp_str + "<visualizationType>";
+        temp_str = temp_str +
+        to_string(my_snapshot_array[i].visualizationType);
+        temp_str = temp_str + "</visualizationType>\n";
+                
         temp_str = temp_str + "</Placemark>\n\n";
     }
     

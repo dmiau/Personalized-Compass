@@ -35,6 +35,23 @@ public:
 };
 
 //--------------
+// Enum declration
+//--------------
+// Device type enum
+typedef enum{
+    PHONE,
+    WATCH
+}DeviceType;
+
+// Visualization type enum
+typedef enum{
+    VIZNONE,
+    VIZPCOMPASS,
+    VIZWEDGE,
+    VIZOVERVIEW
+}VisualizationType;
+
+//--------------
 // label info
 //--------------
 class label_info{
@@ -105,10 +122,9 @@ public:
     double orientation;
     NSString* kmlFilename;
     
-    // Visualization Status
-    bool wedgeStatus;
-    bool overviewMapStatus;
-    bool pcompassStatus;
+    // Visualization and device spec
+    DeviceType deviceType;
+    VisualizationType visualizationType;
     
     NSString* name;
     MKMapType mapType;

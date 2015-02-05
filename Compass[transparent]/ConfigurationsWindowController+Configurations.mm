@@ -12,6 +12,9 @@
 
 @implementation ConfigurationsWindowController (Configurations)
 
+//--------------------
+// Refresh the configuration pane
+//--------------------
 - (void) updateConfigurationsPane{
     // Update the dropbox root
     [self.desktopDropboxDataRoot setStringValue:
@@ -215,6 +218,8 @@
     static float cached_iOS_height = self.rootViewController.renderer->em_ios_height;
     static float cached_iOS_width = self.rootViewController.renderer->em_ios_width;
     
+//    static MKCoordinateSpan cached_map_span = self.rootViewController.mapView.region.span;
+    
     //ul, ur, br, bl
     float height = self.rootViewController.renderer->orig_height;
     float width = self.rootViewController.renderer->orig_width;
@@ -222,7 +227,15 @@
     //iOS screen size is 320x503
     float iOS_height = cached_iOS_height * scale;
     float iOS_width = cached_iOS_width * scale;
-    
+
+//    //When one scales the emulated iOS screen, the map zoom level should be
+//    //adjusted accordingly. Note in my implementation, the iOS is always
+//    //the golden standard
+//    
+//    MKCoordinateSpan new_map_span = MKCoordinateSpanMake(
+//        cached_map_span.latitudeDelta/scale, cached_map_span.longitudeDelta/scale);
+//    self.rootViewController.mapView.region.span = new_map_span;
+//    
     //Generate iOSScreenStr
     self.iOSScreenStr = [NSString stringWithFormat:@"%.1fx%.1f x %.2f = %.2fx%.2f",
                          cached_iOS_height, cached_iOS_width,

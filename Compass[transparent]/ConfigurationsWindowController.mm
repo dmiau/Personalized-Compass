@@ -88,7 +88,6 @@ willSelectTabViewItem:(NSTabViewItem *)tabViewItem
 - (void) prepareWindow{
     [self updateConfigurationsPane];
     [self updateLocationsPane];
-    
 }
 
 @end

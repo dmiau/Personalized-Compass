@@ -73,13 +73,29 @@ void TestManager::generateSnapShots(){
             }
             
             //------------------
-            // Configure visualization type
-            //------------------
-            
-            //------------------
             // Assemble a snapshot
             //------------------
             snapshot t_snapshot;
+            
+            //------------------
+            // Configure visualization type and the device spec
+            //------------------
+            // Visualization type
+            if (test_code.find(":pcompass:") != string::npos) {
+                t_snapshot.visualizationType = VIZPCOMPASS;
+            }else if (test_code.find(":wedge:") != string::npos) {
+                t_snapshot.visualizationType = VIZWEDGE;
+            }else{
+                t_snapshot.visualizationType = VIZNONE;
+            }
+            
+            // Device type
+            if (test_code.find("watch:") != string::npos) {
+                t_snapshot.deviceType = WATCH;
+            }else{
+                t_snapshot.deviceType = PHONE;
+            }
+    
             t_snapshot.name = [NSString stringWithUTF8String: test_code.c_str()];
             t_snapshot.coordinateRegion = coordinateRegion;
             t_snapshot.selected_ids = selected_ids;

@@ -148,12 +148,8 @@ int compassMdl::reloadFiles(){
     readConfigurations(this);
     
     // Read the location data
-    data_array = readLocationKml(this, location_filename);
-    
-    //---------------
-    // Generate and cache textures
-    //---------------
-    initTextureArray();
+    // texture cache is generated within readLocationKml
+    readLocationKml(this, location_filename);    
     
     camera_pos.name = data_array[0].name;
     // Set the initial orientation to 0

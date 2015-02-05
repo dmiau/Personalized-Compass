@@ -1000,7 +1000,7 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Test Cases" identifier="" id="3Ed-Na-fQJ">
+                            <tabViewItem label="Study Log" identifier="" id="3Ed-Na-fQJ">
                                 <view key="view" id="U6x-fB-mTO">
                                     <rect key="frame" x="10" y="33" width="636" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
