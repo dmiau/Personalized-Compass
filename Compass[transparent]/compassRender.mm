@@ -60,7 +60,6 @@ int compassRender::initRenderMdl(){
     // Initialize camera and shapes
     //--------------------
     resetCamera();     // Initialize the camera
-    compass_scale           = [model->configurations[@"compass_scale"] floatValue];
     label_flag              = true;
     watchMode               = false;
     trainingMode            = false;
@@ -68,16 +67,15 @@ int compassRender::initRenderMdl(){
     isOverviewMapEnabled    = false;
     isiOSBoxEnabled         = false;
     isiOSMaskEnabled        = false;
+
+    loadParametersFromModelConfiguration();
     
     for (int i = 0; i < 4; ++i){
         // Initialize all four corners to 0 first
         box4Corners[i].x = 0; box4Corners[i].y = 0;
         iOSFourCorners[i].x = 0; iOSFourCorners[i].y = 0;
     }
-    
     glDrawingCorrectionRatio = 1;
-    
-    loadParametersFromModelConfiguration();
     
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
@@ -93,6 +91,10 @@ void compassRender::loadParametersFromModelConfiguration(){
     [model->configurations[@"compass_centroid"][0] floatValue];
     compass_centroid.y =
     [model->configurations[@"compass_centroid"][1] floatValue];
+    
+    compass_disk_radius = [model->configurations[@"compass_disk_radius"] floatValue];
+    central_disk_radius = compass_disk_radius *
+    [model->configurations[@"central_disk_to_compass_disk_ratio"] floatValue];
 }
 
 //---------------
@@ -102,14 +104,7 @@ int compassRender::initRenderView(float win_width, float win_height){
     view_width = win_width; view_height = win_height;
     
     camera.viewPos.z = win_height/2 * tan((90-camera.fov/2)/180*3.14);
-#ifndef __IPHONE__
-    half_canvas_size = win_height/2;
-#else
-    half_canvas_size = win_width/2;
-#endif
-    
-    central_disk_radius = half_canvas_size/10;    
-    
+
     // Transformations for the projection
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -123,7 +118,7 @@ int compassRender::initRenderView(float win_width, float win_height){
     // Push the scene in the negative-z direction
     // This is just to simulate gluLoookAt
     glTranslatef(0, 0, -camera.viewPos.z);
-    //#endif
+
     return EXIT_SUCCESS;
 }
 

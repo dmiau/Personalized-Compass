@@ -170,6 +170,7 @@
                  [renderer->model->configurations[@"bg_color"][1] floatValue]/255,
                  [renderer->model->configurations[@"bg_color"][2] floatValue]/255,
                  [renderer->model->configurations[@"bg_color"][3] floatValue]/255);
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable( GL_DEPTH_TEST);
 

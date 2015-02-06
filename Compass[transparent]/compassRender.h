@@ -89,7 +89,9 @@ public:
     float glDrawingCorrectionRatio;
     // the scale of the compass, a number between 0 and 1
     float compass_scale;
-    int half_canvas_size;       // Specify the boundary of orthographic projection [d]
+       
+    float compass_disk_radius;    // Specify the radius of the compass disk (in pixels)
+    
     float central_disk_radius;  // Specify the radius of the blue dots of the compass
     recVec compass_centroid;    // Specify the centroid of the compass *in OpenGL frame*
 

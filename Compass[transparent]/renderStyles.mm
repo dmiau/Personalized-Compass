@@ -97,7 +97,7 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
 
         data data_ = model->data_array[j];
 
-        double distance = data_.distance / max_dist * half_canvas_size * 0.9;
+        double distance = data_.distance / max_dist * compass_disk_radius * 0.9;
         glTranslatef(0, 0, 0.001);
         drawTriangle(central_disk_radius, data_.orientation, distance);
     }
@@ -109,7 +109,7 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
               [model->configurations[@"disk_color"][1] floatValue]/255,
               [model->configurations[@"disk_color"][2] floatValue]/255,
               [model->configurations[@"disk_color"][3] floatValue]/255);
-    drawCircle(0, 0, half_canvas_size, 50, true);
+    drawCircle(0, 0, compass_disk_radius, 50, true);
 }
 
 //------------------------------------
@@ -143,8 +143,8 @@ void compassRender::renderBareboneCompass(){
               50/256,
               50/256, 0.5);
     drawTriangle(central_disk_radius/6, 0,
-                 half_canvas_size *
-                 [model->configurations[@"north_indicator_ratio"] floatValue]);
+                 compass_disk_radius *
+                 [model->configurations[@"north_indicator_to_compass_disk_ratio"] floatValue]);
     
     // ---------------
     // draw the background (transparent) disk
@@ -162,10 +162,7 @@ void compassRender::renderBareboneCompass(){
               alpha);
     glTranslatef(0, 0, -1);
     // the radius of the outer disk
-    float outer_disk_radius =
-    half_canvas_size *
-    [model->configurations[@"outer_disk_ratio"] floatValue];
-    drawCircle(0, 0, outer_disk_radius, 50, true);
+    drawCircle(0, 0, compass_disk_radius, 50, true);
     
     glPopMatrix();
 }

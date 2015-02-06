@@ -41,16 +41,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     drawCircle(0, 0, central_disk_radius, 50, true);
     glPopMatrix();
     
-    // half_canvas_size
-    // |-----------------------------------------|
-    // outer_radius = half_canvas_size * outer_disk_ratio;
-    // |----------------------------------|
-    
-    // the radius of the outer disk
-    float outer_disk_radius =
-    half_canvas_size *
-    [model->configurations[@"outer_disk_ratio"] floatValue];
-
     // ---------------
     // draw the triangle
     // ---------------
@@ -89,7 +79,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         if (data_.distance <= mode_max_dist_array[0]){
             base_radius = central_disk_radius;
             distance = data_.distance /
-            mode_max_dist_array[0] * outer_disk_radius;
+            mode_max_dist_array[0] * compass_disk_radius;
         }else{
             base_radius = central_disk_radius/4;
             
@@ -101,7 +91,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                 glColor4f(0, 1, 0, 1);
             }
             
-            distance = outer_disk_radius *
+            distance = compass_disk_radius *
             data_.distance / mode_max_dist_array[1];
             if (data_.distance / mode_max_dist_array[1] > 1)
             {
@@ -130,9 +120,8 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                   101/256,
                   42/256, 1);
     }
-    drawTriangle(central_disk_radius/6, 0,
-                 half_canvas_size *
-                 [model->configurations[@"north_indicator_ratio"] floatValue]);
+    drawTriangle(central_disk_radius/6, 0, compass_disk_radius *
+                 [model->configurations[@"north_indicator_to_compass_disk_ratio"] floatValue]);
     
     // ---------------
     // draw the box
@@ -153,7 +142,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                 glPushMatrix();
                 
                 double renderD2realDRatio =
-                (outer_disk_radius/mode_max_dist_array[0]);
+                (compass_disk_radius/mode_max_dist_array[0]);
                 
                 CLLocationDistance box_width = getMapWidthInMeters();
                 float radius = [model->configurations[@"watch_radius"] floatValue];
@@ -177,13 +166,13 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                 glPopMatrix();
             }else{
                 isBoundaryIndicatorDrawn = drawBoundaryCircle
-                (outer_disk_radius/mode_max_dist_array[0]);
+                (compass_disk_radius/mode_max_dist_array[0]);
             }
         }else{
             glPushMatrix();
             glRotatef(-model->camera_pos.orientation, 0, 0, -1);
             isBoundaryIndicatorDrawn = drawBoxInCompass
-            (outer_disk_radius/mode_max_dist_array[0]);
+            (compass_disk_radius/mode_max_dist_array[0]);
             glPopMatrix();
         }
     }
@@ -219,7 +208,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
          glLineWidth(1);
 #endif
         glColor4f(0, 0, 0, 1);
-        drawCircle(0, 0, outer_disk_radius, 50, false);
+        drawCircle(0, 0, compass_disk_radius, 50, false);
     }
     
     // ---------------
@@ -238,7 +227,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
               [model->configurations[@"disk_color"][2] floatValue]/255,
               alpha);
     glTranslatef(0, 0, -1);
-    drawCircle(0, 0, outer_disk_radius, 50, true);
+    drawCircle(0, 0, compass_disk_radius, 50, true);
     
     glPopMatrix();
 }

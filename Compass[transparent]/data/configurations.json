@@ -1,8 +1,8 @@
  [
   {
-  "property": "separator",
+  "comment": "program related stuff",
   "value": "==================================================",
-  "comment": "program related stuff"
+  "property": "separator"
   },
   {
   "property": "db_stream_flag",
@@ -15,19 +15,14 @@
   "comment": "Specify the default location file"
   },
   {
-  "property": "dropbox_root",
-  "value": "https://www.dropbox.com/s/ck8s0qfm9gso721/",
-  "comment": "dropbox root"
-  },
-  {
   "property": "personalized_compass_status",
   "value": "on",
   "comment": "on, off"
   },
   {
-  "property": "separator",
+  "comment": "overview map related stuff",
   "value": "==================================================",
-  "comment": "overview map related stuff"
+  "property": "separator"  
   },
   {
   "property": "overview_map_scale",
@@ -35,9 +30,9 @@
   "comment": "This is a comment"
   },
   {
-  "property": "separator",
+  "comment": "wedge related stuff",
   "value": "==================================================",
-  "comment": "wedge related stuff"
+  "property": "separator"
   },
   {
   "property": "wedge_status",
@@ -55,13 +50,13 @@
   "comment": "original, modified-orthographic, modified-perspective"
   },
   {
-  "property": "separator",
+  "comment": "compass related stuff",
   "value": "==================================================",
-  "comment": "compass related stuff"
+  "property": "separator"
   },
   {
   "property": "traslation_step",
-  "value": 4,
+  "value": 1,
   "comment": "This is a comment"
   },
   {
@@ -80,35 +75,50 @@
   "comment": "the color of the compass disk"
   },
   {
-  "property": "outer_disk_ratio",
+  "property": "[x]outer_disk_ratio",
   "value": 0.7,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },
+  {
+  "property": "compass_disk_radius",
+  "value": 47,
+  "comment": "Specify the radius of the compass disk (in pixels)."
+  },  
+  {
+  "property": "iOS_compass_disk_radius",
+  "value": 40,
+  "comment": "Specify the radius of the compass disk (in pixels)."
+  },    
+  {
+  "property": "central_disk_to_compass_disk_ratio",
+  "value": 0.14,
+  "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
+  },  
   {
   "property": "label_dist_ratio",
   "value": 0.9,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },
   {
-  "property": "north_indicator_ratio",
-  "value": 1.0,
+  "property": "north_indicator_to_compass_disk_ratio",
+  "value": 1.42,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },
   {
   "property": "compass_scale",
-  "value": 0.3
+  "value": 1
   },
   {
   "property": "iOS_compass_scale",
-  "value": 0.3
+  "value": 1
   },
   {
   "property": "iPad_compass_scale",
-  "value": 0.4
+  "value": 1
   },
   {
   "property": "compass_centroid",
-  "value": [-164, -155]
+  "value": [-230, -170]
   },
   {
   "property": "iOS_compass_centroid",
@@ -119,19 +129,9 @@
   "value": [0, 0]
   },
   {
-  "property": "separator",
+  "comment": "watch related stuff",
   "value": "==================================================",
-  "comment": "iOS related stuff"
-  },
-  {
-  "property": "iOS_status",
-  "value": "off",
-  "comment": "on, off"
-  },
-  {
-  "property": "separator",
-  "value": "==================================================",
-  "comment": "watch related stuff"
+  "property": "separator"
   },
   {
   "property": "watch_radius",
@@ -143,7 +143,7 @@
   },
   {
   "property": "font_size",
-  "value": 14,
+  "value": 21,
   "comment": "the scale needs to be redisgned."
   },
   {
@@ -186,6 +186,21 @@
   "value": 4,
   "comment": "Specify the number of landmarks"
   },
+  {
+  "comment": "Emulated iOS screen size (on OSX)",  
+  "value": "==================================================",
+  "property": "separator"
+  },
+  {
+  "property": "em_ios_display_wh",
+  "value": [192, 302],
+  "comment": "(width, height))"
+  },
+{
+  "property": "true_ios_display_wh",
+  "value": [320, 503],
+  "comment": "(width, height))"
+  },  
   {
   "property": "color_map",
   "value":      [

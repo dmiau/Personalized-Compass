@@ -312,8 +312,7 @@
     compassXY.y = self.glkView.frame.size.height/2 - compassXY.y;
     double dist = sqrt(pow((touchPoint.x - compassXY.x), 2) +
                        pow((touchPoint.y - compassXY.y), 2));
-    double radius = self.renderer->half_canvas_size
-    * [self.model->configurations[@"outer_disk_ratio"] floatValue]
+    double radius = self.renderer->compass_disk_radius
     * [self.model->configurations[@"compass_scale"] floatValue];
     if (dist <= radius)
         return true;

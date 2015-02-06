@@ -44,7 +44,7 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
         max_dist = INFINITY;
     }
     // ---------------
-    // Render triangles and the background disks
+    // Render triangles and the compass disk
     // based on the specified style
     // ---------------
     
@@ -52,7 +52,8 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
     applyStyle(renderParamStruct.style_type, model->indices_for_rendering);
     
     // ---------------
-    // draw labels
+    // draw labels and the scale indicator (1:4.5)
+    // Note: these two classes of information are drawn true to scale
     // ---------------
     if (label_flag){
         glPushMatrix();
@@ -69,7 +70,7 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             if (!wedgeMode){
                 
                 orientation = data_.orientation;
-                distance = half_canvas_size * 0.9;                
+                distance = compass_disk_radius * 1.1;
             }else{
                 orientation = data_.my_label_info.orientation;
                 distance = data_.my_label_info.distance;
@@ -90,6 +91,7 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
 
         //--------------
         // Draw scale indicator
+        // Note: the distance of the scale indicator is hardcoded
         //--------------
         if (model->mode_max_dist_array.size() > 1
             && !wedgeMode)
@@ -104,7 +106,7 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             texture_info my_texture_info = model->generateTextureInfo
             ([NSString stringWithUTF8String:buff]);
             my_texture_info.box_flag = false;
-            drawLabel(best_orientation, half_canvas_size * 0.3, my_texture_info);
+            drawLabel(best_orientation, compass_disk_radius * 0.3, my_texture_info);
         }
         glPopMatrix();
     }
