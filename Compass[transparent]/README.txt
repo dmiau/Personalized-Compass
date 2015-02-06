@@ -2279,7 +2279,7 @@ Goals:
 
 where is compass_scale used?
 
-glDrawingCorrectionRatio needs to be got rid of.
+Removed glDrawingCorrectionRatio
 
 
 

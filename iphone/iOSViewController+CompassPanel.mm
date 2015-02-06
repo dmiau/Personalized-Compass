@@ -41,8 +41,9 @@
     // Change compass ctr
     [self changeCompassLocationTo: @"Default"];
     
-    self.renderer->model->configurations[@"compass_scale"] =
-    self.model->cache_configurations[@"compass_scale"];
+    
+    // Reset the compss scale back to the default scale
+    self.renderer->adjustAbsoluteCompassScale(1);
     
     UITextField *searchField =
     [self.ibSearchBar valueForKey:@"_searchField"];
@@ -72,8 +73,7 @@
 
     // Change compass ctr
     [self changeCompassLocationTo: @"Center"];
-    self.renderer->model->configurations[@"compass_scale"] =
-    [NSNumber numberWithFloat:0.3];
+    self.renderer->adjustAbsoluteCompassScale(0.3);
     
     UITextField *searchField =
     [self.ibSearchBar valueForKey:@"_searchField"];
@@ -152,8 +152,7 @@
             [self changeCompassLocationTo: @"Center"];
             self.renderer->model->configurations[@"font_size"] =
             [NSNumber numberWithFloat:14];
-            self.renderer->model->configurations[@"compass_scale"] =
-            [NSNumber numberWithFloat:0.9];
+            self.renderer->adjustAbsoluteCompassScale(0.9);
             break;
         case 2:
             //-----------
@@ -170,8 +169,7 @@
             // Change compass ctr
             [self changeCompassLocationTo: @"Center"];
             
-            self.renderer->model->configurations[@"compass_scale"] =
-            [NSNumber numberWithFloat:0.8];
+            self.renderer->adjustAbsoluteCompassScale(0.8);
             self.renderer->model->configurations[@"font_size"] =
             [NSNumber numberWithFloat:14];
             [self.view addSubview:slider];
@@ -295,11 +293,6 @@
         cached_flag = true;
     }
     
-    float cached_scale =
-    [self.model->cache_configurations[@"compass_scale"] floatValue];
-    
-    self.model->configurations[@"compass_scale"] =
-    [NSNumber numberWithFloat:cached_scale];
     
     //---------------
     // iPhone case

@@ -252,10 +252,6 @@
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
     
-    float scale = self.renderer->glDrawingCorrectionRatio * self.renderer->compass_scale;
-    glScalef(scale, scale, 1);
-    
-    
     glTranslatef(-width/2, -height/2, 0);
     //    cout << "rotation: " << rotation << endl;
     Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
@@ -335,28 +331,24 @@
     // Style(0,0)
     //-----------------
     renderer->updateViewport(x, y,width/2, height/2);
-    renderer->glDrawingCorrectionRatio = 1;
     renderer->render(makeRenderParams(NONE, BIMODAL));
 
     //-----------------
     // Style(0,1)
     //-----------------
     renderer->updateViewport(width/2, 0, width/2, height/2);
-    renderer->glDrawingCorrectionRatio = 1;
     renderer->render(makeRenderParams(K_NEARESTLOCATIONS, REAL_RATIO));
 
     //-----------------
     // Style(1,0)
     //-----------------
     renderer->updateViewport(0, height/2, width/2, height/2);
-    renderer->glDrawingCorrectionRatio = 1;
     renderer->render(makeRenderParams(NONE, REAL_RATIO));
     
     //-----------------
     // Style(1,1)
     //-----------------
     renderer->updateViewport(width/2, height/2, width/2, height/2);
-    renderer->glDrawingCorrectionRatio = 1;    
     renderer->render(makeRenderParams(K_ORIENTATIONS, BIMODAL));
 }
 
@@ -412,14 +404,6 @@ GLenum glReportError (void)
 
 - (void)magnifyWithEvent:(NSEvent *)event {
     NSLog(@"happy");
-//    if ([event magnification] > 0)
-//    {
-//        self.renderer->compass_scale = self.renderer->compass_scale + 0.1;        
-//    }
-//    else if ([event magnification] < 0)
-//    {
-//        self.renderer->compass_scale = self.renderer->compass_scale - 0.1;
-//    }    
 }
 
 - (void)rotateWithEvent:(NSEvent *)event {

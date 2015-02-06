@@ -18,12 +18,6 @@ label_info compassRender::drawLabel(float rotation, float height,
     glTranslatef(0, height, 0); //central_disk_radius
     glRotatef(-rotation, 0, 0, -1);
     
-    if (!wedgeMode){
-        // Fix text size
-        float scale = 1/ (compass_scale); // glDrawingCorrectionRatio *
-        glScalef(scale, scale, 1);
-    }
-    
     // This line seems to make the text darker for some reason
     glColor4f (1.0f, 1.0f, 1.0f, 1.0f);
     
@@ -72,27 +66,17 @@ label_info compassRender::drawLabel(float rotation, float height,
     
     label_info my_label_info;
     //-----------------
-    // Populate label info here
+    // Populate label info here (at the moment it is only used for wedge)
     //-----------------
     my_label_info.orientation
     = rotation;
     my_label_info.distance
-    = height * compass_scale;
+    = height;
     my_label_info.centroid.x
-    = height * compass_scale * sin(rotation/180*M_PI)
+    = height * sin(rotation/180*M_PI)
     + label_shift_x;
     my_label_info.centroid.y
-    = height * compass_scale * cos(rotation/180*M_PI);
-
-
-//    NSLog(@"==Render==");
-//    NSLog(@"Name: %@",
-//          [NSString stringWithUTF8String: model->data_array[j].name.c_str()]);
-//    NSLog(@"Dist: %f, Orienation: %f", height * compass_scale,
-//          rotation);
-//
-//    NSLog(@"Centroid: %@", NSStringFromCGPoint(model->data_array[j].my_label_info.centroid));
-//    NSLog(@"==Render==");
+    = height * cos(rotation/180*M_PI);
     
     return my_label_info;
 }

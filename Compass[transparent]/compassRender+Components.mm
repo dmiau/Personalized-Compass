@@ -70,7 +70,7 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             if (!wedgeMode){
                 
                 orientation = data_.orientation;
-                distance = compass_disk_radius * 1.1;
+                distance = compass_disk_radius * 1.2;
             }else{
                 orientation = data_.my_label_info.orientation;
                 distance = data_.my_label_info.distance;

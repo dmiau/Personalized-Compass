@@ -233,8 +233,8 @@
             [self isCompassTouched:point1])
         {
             [self compassSelectedMode:YES];
-            starting_scale =
-            [self.model->configurations[@"compass_scale"] floatValue];
+            starting_scale = self.renderer->compass_disk_radius /
+            [self.model->configurations[@"compass_disk_radius"] floatValue];
             [self.mapView setUserInteractionEnabled:NO];
             [self.mapView setZoomEnabled:NO];
             [self.mapView setRotateEnabled:NO];
@@ -251,7 +251,7 @@
     {
         double scale = starting_scale * recognizer.scale;
         double min_limit, max_limit;
-        max_limit = 1.0;
+        max_limit = 1.5;
         if (self.renderer->watchMode){
             min_limit = 0.15;
         }else{
@@ -260,13 +260,9 @@
                 
         if ((scale >= min_limit) && (scale <= max_limit)){
             // Set a limit to the scale
-            self.model->configurations[@"compass_scale"] =
-            [NSNumber numberWithFloat: scale];
+            self.renderer->adjustAbsoluteCompassScale(scale);
         }
-        
-        self.renderer->loadParametersFromModelConfiguration();
-        
-        
+                    
         if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
             [self updateModelCompassCenterXY];
         }
@@ -312,8 +308,7 @@
     compassXY.y = self.glkView.frame.size.height/2 - compassXY.y;
     double dist = sqrt(pow((touchPoint.x - compassXY.x), 2) +
                        pow((touchPoint.y - compassXY.y), 2));
-    double radius = self.renderer->compass_disk_radius
-    * [self.model->configurations[@"compass_scale"] floatValue];
+    double radius = self.renderer->compass_disk_radius;
     if (dist <= radius)
         return true;
     else

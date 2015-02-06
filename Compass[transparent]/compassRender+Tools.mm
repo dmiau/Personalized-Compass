@@ -29,3 +29,16 @@ CGPoint compassRender::convertCompassPointToMapUV(CGPoint point,
         
     return result_pt;
 }
+
+void compassRender::incrementCompassRadisByFactor(float factor){
+    float default_radius = [model->configurations[@"compass_disk_radius"] floatValue];
+    float current_scale = compass_disk_radius / default_radius;
+    compass_disk_radius = default_radius * (current_scale + factor);
+    central_disk_radius = compass_disk_radius *
+    [model->configurations[@"central_disk_to_compass_disk_ratio"] floatValue];
+}
+
+void compassRender::adjustAbsoluteCompassScale(float scale){
+    compass_disk_radius =
+    [model->configurations[@"compass_disk_radius"] floatValue] * scale;
+}

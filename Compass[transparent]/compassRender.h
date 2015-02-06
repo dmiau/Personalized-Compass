@@ -57,8 +57,6 @@ typedef struct{
 
 RenderParamStruct makeRenderParams(filter_enum filter_type, style_enum style_type);
 
-
-
 //----------------------------------
 // compassRender class
 //----------------------------------
@@ -76,7 +74,6 @@ public:
     MKMapView *mapView;
     compassMdl* model;
 
-    
     //----------------
     // Parameters for compass drawing
     //----------------
@@ -85,13 +82,9 @@ public:
     bool watchMode;
     bool trainingMode;
     
-    // Compass presenation parameters
-    float glDrawingCorrectionRatio;
-    // the scale of the compass, a number between 0 and 1
-    float compass_scale;
-       
+    // Compass presenation parameters    
     float compass_disk_radius;    // Specify the radius of the compass disk (in pixels)
-    
+    float watch_compass_disk_radius; // Specify the radius of the watch compass disk (in pixels)
     float central_disk_radius;  // Specify the radius of the blue dots of the compass
     recVec compass_centroid;    // Specify the centroid of the compass *in OpenGL frame*
 
@@ -178,8 +171,16 @@ public:
     double getMapHeightInMeters();
     double findBestEmptyOrienation(vector<double> orientation_array);
     CGPoint convertCompassPointToMapUV(CGPoint point, CGFloat window_width, CGFloat window_height);
+
+    //-----------------
+    // Control the scale of the compass
+    //-----------------
+    void adjustAbsoluteCompassScale(float scale);
+    void incrementCompassRadisByFactor(float factor);
 private:
+    //-----------------
     // Drawing routines
+    //-----------------
     void drawWayfindingAid(RenderParamStruct renderParamStruct);
     void drawTriangle(int central_disk_radius, float rotation, float height);
     label_info drawLabel(float rotation, float height,

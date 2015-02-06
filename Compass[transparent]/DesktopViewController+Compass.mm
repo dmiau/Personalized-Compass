@@ -16,13 +16,11 @@
     
     if ([title rangeOfString:@"Out"].location == NSNotFound){
         // Zoom In case
-        self.renderer->compass_scale = self.renderer->compass_scale + 0.1;
+        self.renderer->incrementCompassRadisByFactor(0.1);
     }else{
         // Zoom In case
-        self.renderer->compass_scale = self.renderer->compass_scale - 0.1;
+        self.renderer->incrementCompassRadisByFactor(-0.1);
     }
-    self.model->configurations[@"compass_scale"] =
-    [NSNumber numberWithFloat:self.renderer->compass_scale];
 }
 
 - (IBAction)moveCompass:(id)sender {

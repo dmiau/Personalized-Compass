@@ -75,7 +75,6 @@ int compassRender::initRenderMdl(){
         box4Corners[i].x = 0; box4Corners[i].y = 0;
         iOSFourCorners[i].x = 0; iOSFourCorners[i].y = 0;
     }
-    glDrawingCorrectionRatio = 1;
     
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
@@ -85,8 +84,7 @@ int compassRender::initRenderMdl(){
 // Load parameters from configuration files
 //---------------
 void compassRender::loadParametersFromModelConfiguration(){
-    compass_scale = [model->configurations[@"compass_scale"] floatValue];
-    
+   
     compass_centroid.x =
     [model->configurations[@"compass_centroid"][0] floatValue];
     compass_centroid.y =
@@ -95,6 +93,9 @@ void compassRender::loadParametersFromModelConfiguration(){
     compass_disk_radius = [model->configurations[@"compass_disk_radius"] floatValue];
     central_disk_radius = compass_disk_radius *
     [model->configurations[@"central_disk_to_compass_disk_ratio"] floatValue];
+    
+    watch_compass_disk_radius =
+    [model->configurations[@"watch_compass_disk_radius"] floatValue];
 }
 
 //---------------
@@ -128,7 +129,6 @@ int compassRender::initRenderView(float win_width, float win_height){
 void compassRender::updateViewport
 (GLint x, GLint y, GLsizei width, GLsizei height)
 {
-    glDrawingCorrectionRatio = view_height / height;
     glViewport (x, y, width, height);
     
     updateProjection((float)width/(float)height);  // update projection matrix
@@ -291,9 +291,6 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         glRotatef(model->tilt, 1, 0, 0);
         
         glRotatef(model->camera_pos.orientation, 0, 0, -1);
-        // scaling only applies to non-wedge styles
-        float scale = glDrawingCorrectionRatio * compass_scale;
-        glScalef(scale, scale, 1);
         
         drawWayfindingAid(renderParamStruct);
         glPopMatrix();
