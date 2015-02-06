@@ -343,10 +343,8 @@
         [self hideAllPanels];
         [[self debugPanel] setHidden:NO];
         
-        self.snapshotStatusTextView.text =
-        [NSString stringWithFormat:@"%@\n %lu",
-         [self.model->snapshot_filename lastPathComponent],
-         self.model->snapshot_array.size()];
+        // Update the information on the debug pane
+        [self updateDebugPanel];
     }else{
         [[self debugPanel] setHidden:YES];
     }

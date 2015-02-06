@@ -10,6 +10,38 @@
 
 @implementation iOSViewController (DebugPanel)
 
+//------------------
+// Update the control of the debug pane
+//------------------
+-(void)updateDebugPanel{
+    // Update showPin segment control
+    if ([self.UIConfigurations[@"ShowPins"] isEqualToString:@"All"]){
+        self.showPinSegmentControl.selectedSegmentIndex = 0;
+    }else if ([self.UIConfigurations[@"ShowPins"] isEqualToString:@"Enabled"]){
+        self.showPinSegmentControl.selectedSegmentIndex = 1;
+    }else if([self.UIConfigurations[@"ShowPins"] isEqualToString:@"Dropped"]){
+        self.showPinSegmentControl.selectedSegmentIndex = 2;
+    }else if([self.UIConfigurations[@"ShowPins"] isEqualToString:@"None"]){
+        self.showPinSegmentControl.selectedSegmentIndex = 3;
+    }
+    
+    // Update pin creation segment control
+    if (self.UIConfigurations[@"UIAcceptsPinCreation"]==
+        [NSNumber numberWithBool:true])
+    {
+        self.createPinSegmentControl.selectedSegmentIndex = 0;
+    }else{
+        self.createPinSegmentControl.selectedSegmentIndex = 1;
+    }
+
+    // Update snapshot information text   
+    self.snapshotStatusTextView.text =
+    [NSString stringWithFormat:@"%@\n %lu",
+     [self.model->snapshot_filename lastPathComponent],
+     self.model->snapshot_array.size()];
+}
+
+
 - (IBAction)takeSnapshot:(id)sender {
     [self takeSnapshot];
     self.snapshotStatusTextView.text =

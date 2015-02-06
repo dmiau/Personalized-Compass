@@ -259,10 +259,25 @@
 - (IBAction)didChangeKMLCombo:(id)sender {
     NSString* astr = [self.kmlComboBox stringValue];
     
+    if ([self.model->location_filename isEqualToString:
+         [self.model->desktopDropboxDataRoot stringByAppendingPathComponent:astr]])
+    {
+        // Somehow this method is called whenever a tab is switched.Do nothing
+        // if the selection of location_file does not change
+        return;
+    }
+    
     // Load the file from the Dropbox root
     self.model->location_filename = [self.model->desktopDropboxDataRoot
                                      stringByAppendingPathComponent:astr];
     readLocationKml(self.model, self.model->location_filename);
+    
+    self.model->camera_pos.name = self.model->data_array[0].name;
+    // Set the initial orientation to 0
+    self.model->camera_pos.orientation = 0;
+    self.model->camera_pos.latitude = self.model->data_array[0].latitude;
+    self.model->camera_pos.longitude = self.model->data_array[0].longitude;
+    
     self.model->updateMdl();
     NSLog(@"json combo triggered %@", astr);
         

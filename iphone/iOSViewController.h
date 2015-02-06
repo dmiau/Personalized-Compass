@@ -102,7 +102,10 @@ typedef struct{
 - (void) setupWatchViewMode;
 
 // Debug panel
+-(void)updateDebugPanel;
 @property (weak, nonatomic) IBOutlet UITextView *snapshotStatusTextView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *showPinSegmentControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *createPinSegmentControl;
 
 
 // watch sidebar

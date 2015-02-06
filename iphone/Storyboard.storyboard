@@ -25,6 +25,9 @@
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nfb-xm-KgJ" userLabel="Big Map View">
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RVv-fy-219" id="KWT-jB-Sne"/>
+                                </connections>
                             </mapView>
                             <mapView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8M-kf-lHS" userLabel="Overview Map">
                                 <rect key="frame" x="0.0" y="66" width="150" height="110"/>

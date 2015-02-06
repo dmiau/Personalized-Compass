@@ -30,7 +30,7 @@ typedef struct{
 
 @class ConfigurationsWindowController; //Forward declaration
 //@class SettingsViewController; //Forward declaration
-
+@class MyWebSocket;
 
 //---------------------------------------
 // DesktopViewController
@@ -144,6 +144,7 @@ withPins: (bool) pin_flag;
 //----------------
 //Server
 //----------------
+@property MyWebSocket* webSocket;
 @property BOOL iOSSyncFlag;
 @property Corners4x2 corners4x2;
 -(void)startServer;

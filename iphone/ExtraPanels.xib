@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -10,6 +10,7 @@
                 <outlet property="compassInteractionSwitch" destination="rvI-31-UeQ" id="Rig-dd-mYM"/>
                 <outlet property="compassModeSegmentControl" destination="JZD-YD-lpV" id="Zdv-Me-rcR"/>
                 <outlet property="compassSegmentControl" destination="gdc-No-bBu" id="Ajg-Nj-mvp"/>
+                <outlet property="createPinSegmentControl" destination="NxM-du-Rcc" id="PY0-Xc-Ds8"/>
                 <outlet property="dataSegmentControl" destination="h43-e5-7WU" id="zO1-Zz-mVF"/>
                 <outlet property="filterSegmentControl" destination="koe-mY-dSr" id="vO4-tg-uqO"/>
                 <outlet property="landmarkLock" destination="0So-s1-ohR" id="aSU-OI-n5a"/>
@@ -17,6 +18,7 @@
                 <outlet property="overviewSegmentControl" destination="VF8-nw-5JM" id="Wwh-w9-0fX"/>
                 <outlet property="scaleIndicator" destination="VBb-4f-jm8" id="SOP-WS-1mq"/>
                 <outlet property="scaleSlider" destination="q0u-q7-bxI" id="ybW-uj-DI5"/>
+                <outlet property="showPinSegmentControl" destination="d8F-NK-ErG" id="VMz-Ro-1ql"/>
                 <outlet property="snapshotStatusTextView" destination="sOS-OQ-fcR" id="mns-8e-eFa"/>
                 <outlet property="watchCompassInteractionSwitch" destination="6oY-Vi-dja" id="eZx-nE-A1v"/>
                 <outlet property="watchLandmrkLockSwitch" destination="Uxd-e5-rhu" id="hoI-aO-IwY"/>
@@ -221,17 +223,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="EeU-zQ-Enw">
-                    <rect key="frame" x="65" y="157" width="145" height="29"/>
-                    <segments>
-                        <segment title="None"/>
-                        <segment title="Abbrev."/>
-                        <segment title="Full"/>
-                    </segments>
-                    <connections>
-                        <action selector="labelSegmentControl:" destination="-1" eventType="valueChanged" id="wMh-ZV-g9L"/>
-                    </connections>
-                </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interactions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRX-aP-Tju">
                     <rect key="frame" x="9" y="24" width="90" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -266,6 +257,17 @@
                         <action selector="resetUICompass:" destination="-1" eventType="touchUpInside" id="YQl-Xq-cEk"/>
                     </connections>
                 </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="EeU-zQ-Enw">
+                    <rect key="frame" x="64" y="157" width="145" height="29"/>
+                    <segments>
+                        <segment title="None"/>
+                        <segment title="Abbrev."/>
+                        <segment title="Full"/>
+                    </segments>
+                    <connections>
+                        <action selector="labelSegmentControl:" destination="-1" eventType="valueChanged" id="wMh-ZV-g9L"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -301,18 +303,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d8F-NK-ErG">
-                    <rect key="frame" x="98" y="56" width="214" height="29"/>
-                    <segments>
-                        <segment title="All"/>
-                        <segment title="Enabled"/>
-                        <segment title="Dropped"/>
-                        <segment title="None"/>
-                    </segments>
-                    <connections>
-                        <action selector="pinSegmentControl:" destination="-1" eventType="valueChanged" id="LtS-re-mJe"/>
-                    </connections>
-                </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Pins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmn-ZA-GKd">
                     <rect key="frame" x="8" y="59" width="82" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -342,6 +332,18 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d8F-NK-ErG">
+                    <rect key="frame" x="98" y="56" width="214" height="29"/>
+                    <segments>
+                        <segment title="All"/>
+                        <segment title="Enabled"/>
+                        <segment title="Dropped"/>
+                        <segment title="None"/>
+                    </segments>
+                    <connections>
+                        <action selector="pinSegmentControl:" destination="-1" eventType="valueChanged" id="LtS-re-mJe"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>

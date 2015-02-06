@@ -18,6 +18,9 @@
         AppDelegate *temp = [[NSApplication sharedApplication] delegate];
         // Initialize self.
         self.rootViewController = temp.rootViewController;
+        
+        // Inject myself to DesktopViewController
+        self.rootViewController.webSocket = self;
     }
     return self;
 }

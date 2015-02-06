@@ -872,6 +872,14 @@
 		9ABB382F19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB382D19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm */; };
 		9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */; };
 		9ABB96B51957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */; };
+		9AC314301A840E640091BC88 /* iOSViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3142F1A840E640091BC88 /* iOSViewController+MapView.mm */; };
+		9AC314311A840E640091BC88 /* iOSViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3142F1A840E640091BC88 /* iOSViewController+MapView.mm */; };
+		9AC314341A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314331A843D610091BC88 /* DesktopViewController+Communication.mm */; };
+		9AC314351A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314331A843D610091BC88 /* DesktopViewController+Communication.mm */; };
+		9AC314361A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314331A843D610091BC88 /* DesktopViewController+Communication.mm */; };
+		9AC314371A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314331A843D610091BC88 /* DesktopViewController+Communication.mm */; };
+		9AC314381A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314331A843D610091BC88 /* DesktopViewController+Communication.mm */; };
+		9AC314391A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC314331A843D610091BC88 /* DesktopViewController+Communication.mm */; };
 		9ACCED0018EF5425006E9CA4 /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ACCECFF18EF5425006E9CA4 /* london.kml */; };
 		9ACD80D61986982B00AAB052 /* UINavigationController+rotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */; };
 		9ACD80D71986982B00AAB052 /* UINavigationController+rotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */; };
@@ -1363,6 +1371,9 @@
 		9ABB382D19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+CompassPanel.mm"; sourceTree = "<group>"; };
 		9ABB96B21957C94A00D7296A /* iOSViewController+ViewPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+ViewPanel.h"; sourceTree = "<group>"; };
 		9ABB96B31957C94A00D7296A /* iOSViewController+ViewPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+ViewPanel.mm"; sourceTree = "<group>"; };
+		9AC3142E1A840E640091BC88 /* iOSViewController+MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+MapView.h"; sourceTree = "<group>"; };
+		9AC3142F1A840E640091BC88 /* iOSViewController+MapView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+MapView.mm"; sourceTree = "<group>"; };
+		9AC314331A843D610091BC88 /* DesktopViewController+Communication.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Communication.mm"; sourceTree = "<group>"; };
 		9ACCECFF18EF5425006E9CA4 /* london.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = london.kml; sourceTree = "<group>"; };
 		9ACD80D41986982B00AAB052 /* UINavigationController+rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+rotation.h"; sourceTree = "<group>"; };
 		9ACD80D51986982B00AAB052 /* UINavigationController+rotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UINavigationController+rotation.mm"; sourceTree = "<group>"; };
@@ -1965,6 +1976,8 @@
 				9A006CA119522918009BB81C /* iOSViewController+Model.mm */,
 				9A49A5F0195491CF00937961 /* iOSViewController+Annotations.h */,
 				9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */,
+				9AC3142E1A840E640091BC88 /* iOSViewController+MapView.h */,
+				9AC3142F1A840E640091BC88 /* iOSViewController+MapView.mm */,
 				9A6FB7EE1958FF390020355A /* iOSViewController+Toolbar.h */,
 				9A6FB7EF1958FF390020355A /* iOSViewController+Toolbar.mm */,
 				9ABB382C19776A2B00AFADA8 /* iOSViewController+CompassPanel.h */,
@@ -2017,6 +2030,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */,
+				9AC314331A843D610091BC88 /* DesktopViewController+Communication.mm */,
 			);
 			name = "Shared Controller Methods";
 			sourceTree = "<group>";
@@ -2938,6 +2952,7 @@
 				9A259D60199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A75715C197D804100C23AEE /* historyParser.mm in Sources */,
 				9AB90B98194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
+				9AC314301A840E640091BC88 /* iOSViewController+MapView.mm in Sources */,
 				9AE2FC7819AE43810015E2B6 /* SRWebSocket.m in Sources */,
 				9A0375A3198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9AE57285199CF8D60055799F /* Wedge+Radial.mm in Sources */,
@@ -2956,6 +2971,7 @@
 				9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
 				9AE2FC8F19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
+				9AC314381A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A037669198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A0E719ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */,
 				9A037645198DA31900258E95 /* b2Joint.cpp in Sources */,
@@ -3048,6 +3064,7 @@
 				9A037634198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A037592198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A03764C198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
+				9AC314311A840E640091BC88 /* iOSViewController+MapView.mm in Sources */,
 				9AE6104C1A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9A4AA6671A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */,
 				9A03758C198DA31800258E95 /* b2Distance.cpp in Sources */,
@@ -3067,6 +3084,7 @@
 				9A0375CE198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
 				9A0375E0198DA31900258E95 /* b2ContactManager.cpp in Sources */,
+				9AC314391A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9AD5AB0E199D1C3900B351FA /* iPadTabBarController.mm in Sources */,
@@ -3199,6 +3217,7 @@
 				9A0375FC198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A4AA6601A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
 				9A3F1E8B1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
+				9AC314371A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A0375AE198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A0375EA198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A037650198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
@@ -3308,6 +3327,7 @@
 				9A757158197D804100C23AEE /* historyParser.mm in Sources */,
 				9A42A0A119A79CA200BB0101 /* DDFileLogger.m in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+Compass.mm in Sources */,
+				9AC314341A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A42A04619A79C3200BB0101 /* HTTPMessage.m in Sources */,
 				9A0375ED198DA31900258E95 /* b2World.cpp in Sources */,
 				9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */,
@@ -3470,6 +3490,7 @@
 				9A037679198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9A4AA65F1A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
 				9A42A09B19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
+				9AC314361A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A3F1E8A1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9A42A06C19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9A42A0A319A79CA200BB0101 /* DDFileLogger.m in Sources */,
@@ -3564,6 +3585,7 @@
 				9A037660198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A4AA6521A7FD9AC0009F448 /* SharedViewController+SnapShot.mm in Sources */,
 				9A42A04B19A79C3200BB0101 /* HTTPServer.m in Sources */,
+				9AC314351A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A0375D6198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A03765A198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
 				9A42A03F19A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,

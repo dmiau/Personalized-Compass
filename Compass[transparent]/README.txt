@@ -2192,6 +2192,11 @@ What do you want to do today?
 -------------------------------------------------------------------
 *Done
 - need to modify readLocationKml [3:01PM]
+- There is a strange bug. I have to use load snapshot. (kmlComboBox bug?)
+- Need to fix annotation control (when the mpa region is changed)
+http://stackoverflow.com/questions/2100483/hide-show-annotation-on-mkmapview
+- (void)changeAnnotationDisplayMode: (NSString*) mode
+self.UIConfigurations[@"ShowPins"] [4:42PM]
 
 *ToDO
 - Snapshot loading is too slow on iOS
@@ -2199,32 +2204,74 @@ What do you want to do today?
 - Implement a StudyLog structure
 
 - Design and implement package exchange (right now a dictionary is sent)
-- Design what information needs to be passed around
-* iOSViewController+Client
-* MyWebSocket
-* DesktopViewController+Server
+
 - Mouse-click-to-move the compass
 - compass_disk_radius is kept getting changed
 - map zoom in/out, pan around
 - desktop compass box in emiOS mode
 
-- Auto decide MapRect for the study
+- Automatically calculate MapRect for the study
+- Add annotation editing capability to the desktop map
+- kml and snapshot dir needs to be refreshed after tab switch
 
 *Working
 - Display visualization and configure display type correctly
 - Implement "Run Test"
 - Implement iOS's TestManager (right now it only has a DemoManager)
 - Fix the changing eiOS screen
+- Communication module (Design what information needs to be passed around)
+* iOSViewController+Client
+* MyWebSocket
+* DesktopViewController+Server
 
+It is complicated to send messages from the server. 
 
+Apply singleton and dependency injection in MyWebSocket.mm
 
+Use the sendData method
 
+- (void)sendData:(NSData *)msgData
 
+-------------------------------------------------------------------
+2.6.2015
+-------------------------------------------------------------------
+*Done
 
+*ToDO
+- Snapshot loading is too slow on iOS
+- Test authoring tool (manually add locations)
+- Implement a StudyLog structure
 
+- Design and implement package exchange (right now a dictionary is sent)
 
+- Mouse-click-to-move the compass
+- compass_disk_radius is kept getting changed
+- map zoom in/out, pan around
+- desktop compass box in emiOS mode
 
+- Automatically calculate MapRect for the study
+- Add annotation editing capability to the desktop map
+- kml and snapshot dir needs to be refreshed after tab switch
 
+*Working
+- Display visualization and configure display type correctly
+- Implement "Run Test"
+- Implement iOS's TestManager (right now it only has a DemoManager)
+- Fix the changing eiOS screen
+- Communication module (Design what information needs to be passed around)
+* iOSViewController+Client
+* MyWebSocket
+* DesktopViewController+Server
+
+It is complicated to send messages from the server. 
+
+Apply singleton and dependency injection in MyWebSocket.mm
+
+Use the sendData method
+
+- (void)sendData:(NSData *)msgData
+
+- need to clean up compassRender.mm, the code is ridiculous
 
 
 

@@ -40,10 +40,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     glTranslatef(0, 0, 1);
     drawCircle(0, 0, central_disk_radius, 50, true);
     glPopMatrix();
-
-    // ---------------
-    // draw the triangle
-    // ---------------
     
     // half_canvas_size
     // |-----------------------------------------|
@@ -54,6 +50,10 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     float outer_disk_radius =
     half_canvas_size *
     [model->configurations[@"outer_disk_ratio"] floatValue];
+
+    // ---------------
+    // draw the triangle
+    // ---------------
     
     glPushMatrix();
     // Note that the index starts from -1

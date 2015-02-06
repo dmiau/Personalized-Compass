@@ -88,14 +88,11 @@
     
 }
 
-//// Updating current location indicator
-//- (void)mapView:(MKMapView *)mapViewHandle regionDidChangeAnimated:(BOOL)animated{
-//
-//    NSString *latlon_str = [NSString stringWithFormat:@"%2.4f, %2.4f",
-//                    [mapViewHandle centerCoordinate].latitude,
-//                    [mapViewHandle centerCoordinate].longitude];
-//    [[self currentCoord] setStringValue: latlon_str];
-//}
+// New annotation will be generated as the map is changed.
+// Need to update the annotation appearance status again.
+- (void)mapView:(MKMapView *)mapViewHandle regionDidChangeAnimated:(BOOL)animated{
+    [self changeAnnotationDisplayMode:self.UIConfigurations[@"ShowPins"]];
+}
 
 //------------------
 // Coordinate conversion
