@@ -99,7 +99,7 @@ void compassRender::loadParametersFromModelConfiguration(){
 // Initialize the "viewing" part of the render
 //---------------
 int compassRender::initRenderView(float win_width, float win_height){
-    orig_width = win_width; orig_height = win_height;
+    view_width = win_width; view_height = win_height;
     
     camera.viewPos.z = win_height/2 * tan((90-camera.fov/2)/180*3.14);
 #ifndef __IPHONE__
@@ -114,7 +114,7 @@ int compassRender::initRenderView(float win_width, float win_height){
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     
-    updateViewport(0, 0, orig_width, orig_height);
+    updateViewport(0, 0, view_width, view_height);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     //    gluLookAt(camera.viewPos.x, camera.viewPos.y, camera.viewPos.z,
@@ -133,7 +133,7 @@ int compassRender::initRenderView(float win_width, float win_height){
 void compassRender::updateViewport
 (GLint x, GLint y, GLsizei width, GLsizei height)
 {
-    glDrawingCorrectionRatio = orig_height / height;
+    glDrawingCorrectionRatio = view_height / height;
     glViewport (x, y, width, height);
     
     updateProjection((float)width/(float)height);  // update projection matrix
@@ -214,7 +214,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         //fovy, asepect, zNear, zFar
-        myGluPerspective(camera.fov, (float)orig_width/(float)orig_height, 1, 3 * camera.viewPos.z);
+        myGluPerspective(camera.fov, (float)view_width/(float)view_height, 1, 3 * camera.viewPos.z);
         
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
@@ -235,7 +235,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     {
         glPushMatrix();
         // Note UIView's coordinate system is diffrent than OpenGL's
-        glTranslatef(-orig_width/2, orig_height/2, 0);
+        glTranslatef(-view_width/2, view_height/2, 0);
         glRotatef(180, 1, 0, 0);
         drawBoxInView(box4Corners);
         glPopMatrix();
@@ -251,7 +251,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     {
         glPushMatrix();
         // Note UIView's coordinate system is diffrent than OpenGL's
-        glTranslatef(-orig_width/2, orig_height/2, 0);
+        glTranslatef(-view_width/2, view_height/2, 0);
         glRotatef(180, 1, 0, 0);
         drawBoxInView(iOSFourCorners);
         glPopMatrix();
@@ -266,7 +266,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     {
         glPushMatrix();
         // Note UIView's coordinate system is diffrent than OpenGL's
-        glTranslatef(-orig_width/2, orig_height/2, 0);
+        glTranslatef(-view_width/2, view_height/2, 0);
         glRotatef(180, 1, 0, 0);
         drawiOSMask(iOSFourCorners);
         glPopMatrix();
@@ -302,9 +302,12 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         
         drawWayfindingAid(renderParamStruct);
         glPopMatrix();
-    }else if (watchMode){
-        drawClearWatch();
     }
+    
+    // [Delete] Not sure the function of this
+//    else if (watchMode){
+//        drawClearWatch();
+//    }
     glDisableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_VERTEX_ARRAY);
     

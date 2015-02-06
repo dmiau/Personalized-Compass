@@ -221,8 +221,8 @@
 //    static MKCoordinateSpan cached_map_span = self.rootViewController.mapView.region.span;
     
     //ul, ur, br, bl
-    float height = self.rootViewController.renderer->orig_height;
-    float width = self.rootViewController.renderer->orig_width;
+    float height = self.rootViewController.renderer->view_height;
+    float width = self.rootViewController.renderer->view_width;
     
     //iOS screen size is 320x503
     float iOS_height = cached_iOS_height * scale;

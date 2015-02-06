@@ -39,8 +39,8 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     // Declarations
     CLLocationCoordinate2D myCoord;
     CGPoint center_pt;
-    center_pt.x = orig_width/2;
-    center_pt.y = orig_height/2;
+    center_pt.x = view_width/2;
+    center_pt.y = view_height/2;
     
     if (this->mapView == nil){
         NSLog(@"***********mapView is uninitialized");
@@ -78,7 +78,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         CGPoint screen_pt =
         [this->mapView convertCoordinate:myCoord toPointToView:this->mapView];
         
-        screen_pt.y = -screen_pt.y + orig_height; //b/c the coordinate sys is flipped...
+        screen_pt.y = -screen_pt.y + view_height; //b/c the coordinate sys is flipped...
         // We want the origin to be at the top left corner,
         // but screen_pt was calculated from the botton left corner
         
@@ -104,8 +104,8 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
                 wedge_disp_width = iOSFourCorners[1].x - iOSFourCorners[0].x - 10;
                 wedge_disp_height = iOSFourCorners[2].y - iOSFourCorners[1].y - 10;
             }else{
-                wedge_disp_width = orig_width-30;
-                wedge_disp_height = orig_height - 30;
+                wedge_disp_width = view_width-30;
+                wedge_disp_height = view_height - 30;
             }
             
             box screen_box(wedge_disp_width, wedge_disp_height);
@@ -120,7 +120,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         }else{
              double rotation, tx, ty, new_width, new_height;
             applyCoordTransform(x_diff, y_diff,
-                                orig_width, orig_height,
+                                view_width, view_height,
                                 &rotation, &tx, &ty,
                                 &new_width, &new_height);
             

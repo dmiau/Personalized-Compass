@@ -69,33 +69,16 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             if (!wedgeMode){
                 
                 orientation = data_.orientation;
-                distance = half_canvas_size * 0.9;
-                
-//                //-----------------
-//                // Populate label info here
-//                //-----------------
-//                model->data_array[j].my_label_info.orientation
-//                = orientation;
-//                model->data_array[j].my_label_info.distance
-//                = distance * compass_scale;
-//                model->data_array[j].my_label_info.centroid.x
-//                = distance * compass_scale * sin(orientation/180*M_PI);
-//                model->data_array[j].my_label_info.centroid.y
-//                = distance * compass_scale * cos(orientation/180*M_PI);
-//
-//                
-//                NSLog(@"==Render==");
-//                NSLog(@"Name: %@",
-//                      [NSString stringWithUTF8String: model->data_array[j].name.c_str()]);
-//                NSLog(@"Dist: %f, Orienation: %f", distance * compass_scale,
-//                      orientation);
-//                
-//                NSLog(@"Centroid: %@", NSStringFromCGPoint(model->data_array[j].my_label_info.centroid));
-//                NSLog(@"==Render==");
+                distance = half_canvas_size * 0.9;                
             }else{
                 orientation = data_.my_label_info.orientation;
                 distance = data_.my_label_info.distance;
             }
+            
+            //------------------
+            // Populate label info here
+            //------------------
+            
             label_info my_label_info = drawLabel(orientation, distance,
                       model->data_array[j].my_texture_info);
             if (!wedgeMode){
@@ -184,31 +167,32 @@ void compassRender::drawCircle(float cx, float cy, float r,
 }
 
 
-void compassRender::drawClearWatch(){
-    
-    glPushMatrix();
-    glTranslatef(0, 0, -1);
-    // ---------------
-    // draw the background (transparent) disk
-    // ---------------
-    float outer_disk_radius =
-    half_canvas_size *
-    [model->configurations[@"outer_disk_ratio"] floatValue];
-    
-    // Translate the compass to the desired screen location
-    glTranslatef(compass_centroid.x, compass_centroid.y, 0);
-    
-    glColor4f(0, 0, 0, 0);
-
-    float scale = glDrawingCorrectionRatio * compass_scale;
-    glScalef(scale, scale, 1);
-    drawCircle(0, 0, outer_disk_radius, 50, true);
-
-    glPopMatrix();
-}
+// Not sure the purpose of this method [2.6.2015]
+//void compassRender::drawClearWatch(){
+//    
+//    glPushMatrix();
+//    glTranslatef(0, 0, -1);
+//    // ---------------
+//    // draw the background (transparent) disk
+//    // ---------------
+//    float outer_disk_radius =
+//    half_canvas_size *
+//    [model->configurations[@"outer_disk_ratio"] floatValue];
+//    
+//    // Translate the compass to the desired screen location
+//    glTranslatef(compass_centroid.x, compass_centroid.y, 0);
+//    
+//    glColor4f(0, 0, 0, 0);
+//
+//    float scale = glDrawingCorrectionRatio * compass_scale;
+//    glScalef(scale, scale, 1);
+//    drawCircle(0, 0, outer_disk_radius, 50, true);
+//
+//    glPopMatrix();
+//}
 
 //-------------
-// draws the mini box to signify scale
+// draws the mini box to indicate the boundary of the display
 //-------------
 BOOL compassRender::drawBoxInCompass(double renderD2realDRatio)
 {
@@ -234,11 +218,6 @@ BOOL compassRender::drawBoxInCompass(double renderD2realDRatio)
     // Then the origin
     double x, y;
     
-    // The following formula needs to be corrected
-//model->compassCenterXY.x / mapView.frame.size.width
-//    x = -render_width * (0.5* orig_width + compass_centroid.x) / orig_width;
-//    y = render_height * (0.5 * orig_height - compass_centroid.y) / orig_height;
-
     x = -render_width * model->compassCenterXY.x / mapView.frame.size.width;
     y = render_height * model->compassCenterXY.y / mapView.frame.size.height;
     
@@ -343,8 +322,8 @@ void compassRender::drawiOSMask(CGPoint fourCorners[4]){
     
     // Draw the top rectangle:
     vertex1 = Vertex3DMake(0, 0, 0);
-    vertex2 = Vertex3DMake(orig_width, 0, 0);
-    vertex3 = Vertex3DMake(orig_width, fourCorners[0].y, 0);
+    vertex2 = Vertex3DMake(view_width, 0, 0);
+    vertex3 = Vertex3DMake(view_width, fourCorners[0].y, 0);
     vertex4 = Vertex3DMake(0, fourCorners[0].y, 0);
     
     rectangle = RectangleLine3DMake(vertex1, vertex2,
@@ -355,9 +334,9 @@ void compassRender::drawiOSMask(CGPoint fourCorners[4]){
 
     // Draw the left rectangle:
     vertex1 = Vertex3DMake(fourCorners[1].x, 0, 0);
-    vertex2 = Vertex3DMake(orig_width, 0, 0);
-    vertex3 = Vertex3DMake(orig_width, orig_height, 0);
-    vertex4 = Vertex3DMake(fourCorners[1].x, orig_height, 0);
+    vertex2 = Vertex3DMake(view_width, 0, 0);
+    vertex3 = Vertex3DMake(view_width, view_height, 0);
+    vertex4 = Vertex3DMake(fourCorners[1].x, view_height, 0);
     
     rectangle = RectangleLine3DMake(vertex1, vertex2,
                                     vertex3, vertex4);
@@ -367,9 +346,9 @@ void compassRender::drawiOSMask(CGPoint fourCorners[4]){
     
     // Draw the bottom rectangle:
     vertex1 = Vertex3DMake(0, fourCorners[2].y, 0);
-    vertex2 = Vertex3DMake(orig_width, fourCorners[2].y, 0);
-    vertex3 = Vertex3DMake(orig_width, orig_height, 0);
-    vertex4 = Vertex3DMake(0, orig_height, 0);
+    vertex2 = Vertex3DMake(view_width, fourCorners[2].y, 0);
+    vertex3 = Vertex3DMake(view_width, view_height, 0);
+    vertex4 = Vertex3DMake(0, view_height, 0);
     
     rectangle = RectangleLine3DMake(vertex1, vertex2,
                                     vertex3, vertex4);
@@ -379,8 +358,8 @@ void compassRender::drawiOSMask(CGPoint fourCorners[4]){
     // Draw the right rectangle:
     vertex1 = Vertex3DMake(0, 0, 0);
     vertex2 = Vertex3DMake(fourCorners[0].x, 0, 0);
-    vertex3 = Vertex3DMake(fourCorners[0].x, orig_height, 0);
-    vertex4 = Vertex3DMake(0, orig_height, 0);
+    vertex3 = Vertex3DMake(fourCorners[0].x, view_height, 0);
+    vertex4 = Vertex3DMake(0, view_height, 0);
     
     rectangle = RectangleLine3DMake(vertex1, vertex2,
                                     vertex3, vertex4);

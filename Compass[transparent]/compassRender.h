@@ -97,18 +97,18 @@ public:
     // Parameters for setting up perspective projection, etc.
     //----------------
     // Parameters for perspective projection
-    float orig_width;
-    float orig_height;
+    float view_width;           // The height of the view (in pixels)
+    float view_height;          // The width of the view (in pixels)
     float fov;
     
     // Parameters for the emulated device
-    float em_ios_width;
-    float em_ios_height;
-    float em_watch_radius;
+    float em_ios_width;         // emulated ios screen width (in pixels)
+    float em_ios_height;        // emulated ios screen height (in pixels)
+    float em_watch_radius;      // emulated watch radius
     
-    float true_ios_width;
-    float true_ios_height;
-    float true_watch_radius;
+    float true_ios_width;       // ios view width (in pixels)
+    float true_ios_height;      // ios view height (in pixels)
+    float true_watch_radius;    // watch radius (in pixels)
     
     //----------------
     // Lable related stuff
@@ -155,7 +155,7 @@ public:
     compassRender(); // constructor
     void init();
     int initRenderMdl();
-    int initRenderView(float orig_width, float orig_height);
+    int initRenderView(float view_width, float view_height);
 
     
     //-----------------
@@ -188,7 +188,8 @@ private:
     BOOL drawBoundaryCircle(double renderD2realDRatio);
     void drawBoxInView(CGPoint fourCorners[4]);
     void drawiOSMask(CGPoint fourCorners[4]);
-    void drawClearWatch();
+
+    //    void drawClearWatch(); //Not sure the function of this.
     
     // Wedge drawing routines
     void drawOneSide(double rotation, double width, double height,

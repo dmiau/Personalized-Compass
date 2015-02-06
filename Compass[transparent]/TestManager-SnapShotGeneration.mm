@@ -48,11 +48,11 @@ void TestManager::generateSnapShots(){
             
             coordinateRegion.span.latitudeDelta =
             rootViewController.mapView.region.span.latitudeDelta *
-            p_render->em_ios_height / p_render->orig_height;
+            p_render->em_ios_height / p_render->view_height;
             
             coordinateRegion.span.longitudeDelta =
             rootViewController.mapView.region.span.latitudeDelta *
-            p_render->em_ios_width / p_render->orig_width;
+            p_render->em_ios_width / p_render->view_width;
             
             //------------------
             // Collect all the selected ids

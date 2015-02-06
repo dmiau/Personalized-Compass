@@ -1737,7 +1737,7 @@ How can I modify the screen size?
 potential sources of confusion:
 
 compassRender:
--orig_height
+-view_height
 -viewport_height
 
 OpenGL:
@@ -2273,8 +2273,13 @@ Use the sendData method
 
 - need to clean up compassRender.mm, the code is ridiculous
 
+Goals:
+- compass_radius (in pixel)
+- compass_centroid_radius (in pixel)
 
+where is compass_scale used?
 
+glDrawingCorrectionRatio needs to be got rid of.
 
 
 
