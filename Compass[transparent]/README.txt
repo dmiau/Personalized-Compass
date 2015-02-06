@@ -2236,6 +2236,16 @@ Use the sendData method
 2.6.2015
 -------------------------------------------------------------------
 *Done
+- where is compass_scale used? (removed all compass_scale)
+- Removed glDrawingCorrectionRatio
+- compass_radius (in pixel)
+- need to clean up compassRender.mm, the code is ridiculous
+- It is complicated to send messages from the server. 
+Apply singleton and dependency injection in MyWebSocket.mm
+Use the sendData method
+- (void)sendData:(NSData *)msgData
+- compass_centroid_radius (in pixel)
+- compass_disk_radius is kept getting changed [5:08PM]
 
 *ToDO
 - Snapshot loading is too slow on iOS
@@ -2245,7 +2255,7 @@ Use the sendData method
 - Design and implement package exchange (right now a dictionary is sent)
 
 - Mouse-click-to-move the compass
-- compass_disk_radius is kept getting changed
+
 - map zoom in/out, pan around
 - desktop compass box in emiOS mode
 
@@ -2258,28 +2268,17 @@ Use the sendData method
 - Implement "Run Test"
 - Implement iOS's TestManager (right now it only has a DemoManager)
 - Fix the changing eiOS screen
+
 - Communication module (Design what information needs to be passed around)
 * iOSViewController+Client
 * MyWebSocket
 * DesktopViewController+Server
 
-It is complicated to send messages from the server. 
 
-Apply singleton and dependency injection in MyWebSocket.mm
 
-Use the sendData method
 
-- (void)sendData:(NSData *)msgData
 
-- need to clean up compassRender.mm, the code is ridiculous
 
-Goals:
-- compass_radius (in pixel)
-- compass_centroid_radius (in pixel)
-
-where is compass_scale used?
-
-Removed glDrawingCorrectionRatio
 
 
 

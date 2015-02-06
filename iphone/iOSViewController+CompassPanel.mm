@@ -177,7 +177,7 @@
     }
     [self toggleMapMask];
     [self toggleWatchMask];
-    self.renderer->loadParametersFromModelConfiguration();
+    self.renderer->loadCentroidFromModelConfiguration();
     [self updateModelCompassCenterXY];
     [self.glkView setNeedsDisplay];
 }
@@ -345,7 +345,7 @@
     [self updateModelCompassCenterXY];
     
     // The order is important
-    self.renderer->loadParametersFromModelConfiguration();
+    self.renderer->loadCentroidFromModelConfiguration();
     [self updateModelCompassCenterXY];
     [self.glkView setNeedsDisplay];
 }

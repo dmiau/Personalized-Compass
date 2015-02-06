@@ -83,13 +83,16 @@ int compassRender::initRenderMdl(){
 //---------------
 // Load parameters from configuration files
 //---------------
-void compassRender::loadParametersFromModelConfiguration(){
-   
+void compassRender::loadCentroidFromModelConfiguration(){
     compass_centroid.x =
     [model->configurations[@"compass_centroid"][0] floatValue];
     compass_centroid.y =
     [model->configurations[@"compass_centroid"][1] floatValue];
-    
+}
+
+
+void compassRender::loadParametersFromModelConfiguration(){
+    loadCentroidFromModelConfiguration();
     compass_disk_radius = [model->configurations[@"compass_disk_radius"] floatValue];
     central_disk_radius = compass_disk_radius *
     [model->configurations[@"central_disk_to_compass_disk_ratio"] floatValue];

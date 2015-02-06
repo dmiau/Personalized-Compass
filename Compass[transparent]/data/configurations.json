@@ -73,17 +73,17 @@
   "property": "disk_color",
   "value": [100, 100, 100, 150],
   "comment": "the color of the compass disk"
-  },
-  {
-  "property": "[x]outer_disk_ratio",
-  "value": 0.7,
-  "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
-  },
+  },  
   {
   "property": "compass_disk_radius",
   "value": 47,
   "comment": "Specify the radius of the compass disk (in pixels)."
-  },  
+  },
+  {
+  "property": "watch_compass_disk_radius",
+  "value": 14,
+  "comment": "Specify the radius of the compass disk (in pixels)."
+  },    
   {
   "property": "iOS_compass_disk_radius",
   "value": 40,
@@ -95,26 +95,9 @@
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },  
   {
-  "property": "label_dist_ratio",
-  "value": 0.9,
-  "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
-  },
-  {
   "property": "north_indicator_to_compass_disk_ratio",
   "value": 1.42,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
-  },
-  {
-  "property": "compass_scale",
-  "value": 1
-  },
-  {
-  "property": "iOS_compass_scale",
-  "value": 1
-  },
-  {
-  "property": "iPad_compass_scale",
-  "value": 1
   },
   {
   "property": "compass_centroid",

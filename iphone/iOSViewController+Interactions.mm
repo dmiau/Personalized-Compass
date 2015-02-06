@@ -157,7 +157,7 @@
 
         }
         // The order is important
-        self.renderer->loadParametersFromModelConfiguration();
+        self.renderer->loadCentroidFromModelConfiguration();
         
         if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
             [self updateModelCompassCenterXY];

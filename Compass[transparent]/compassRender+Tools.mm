@@ -41,4 +41,6 @@ void compassRender::incrementCompassRadisByFactor(float factor){
 void compassRender::adjustAbsoluteCompassScale(float scale){
     compass_disk_radius =
     [model->configurations[@"compass_disk_radius"] floatValue] * scale;
+    central_disk_radius = compass_disk_radius *
+    [model->configurations[@"central_disk_to_compass_disk_ratio"] floatValue];
 }

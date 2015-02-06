@@ -163,6 +163,7 @@ public:
     void updateViewport(GLint x, GLint y, GLsizei width, GLsizei height);
     void updateProjection(GLfloat aspect_ratio);
     void loadParametersFromModelConfiguration();
+    void loadCentroidFromModelConfiguration();
 
     //-----------------
     // Tools

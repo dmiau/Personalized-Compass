@@ -120,7 +120,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                   101/256,
                   42/256, 1);
     }
-    drawTriangle(central_disk_radius/6, 0, compass_disk_radius *
+    drawTriangle(1, 0, compass_disk_radius *
                  [model->configurations[@"north_indicator_to_compass_disk_ratio"] floatValue]);
     
     // ---------------

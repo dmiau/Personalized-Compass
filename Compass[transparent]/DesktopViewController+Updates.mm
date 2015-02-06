@@ -50,7 +50,7 @@
     //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
     
     if (self.model->configurationFileReadFlag){
-        self.renderer->loadParametersFromModelConfiguration();
+        self.renderer->loadCentroidFromModelConfiguration();
         self.model->configurationFileReadFlag = false;
     }    
 }
