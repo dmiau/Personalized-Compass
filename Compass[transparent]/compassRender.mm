@@ -39,7 +39,7 @@ compassRender::compassRender(){
 // sets the camera data to initial conditions
 void compassRender::resetCamera()
 {
-    camera.fov = 30;
+    camera.fov = 10;
     
     camera.viewPos.x = 0.0;
     camera.viewPos.y = 0.0;
@@ -73,7 +73,7 @@ int compassRender::initRenderMdl(){
     for (int i = 0; i < 4; ++i){
         // Initialize all four corners to 0 first
         box4Corners[i].x = 0; box4Corners[i].y = 0;
-        iOSFourCorners[i].x = 0; iOSFourCorners[i].y = 0;
+        iOSFourCornersInNSView[i].x = 0; iOSFourCornersInNSView[i].y = 0;
     }
     
     // near and far are calculated from the point of view of an observer
@@ -96,9 +96,6 @@ void compassRender::loadParametersFromModelConfiguration(){
     compass_disk_radius = [model->configurations[@"compass_disk_radius"] floatValue];
     central_disk_radius = compass_disk_radius *
     [model->configurations[@"central_disk_to_compass_disk_ratio"] floatValue];
-    
-    watch_compass_disk_radius =
-    [model->configurations[@"watch_compass_disk_radius"] floatValue];
 }
 
 //---------------
@@ -251,7 +248,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         // Note UIView's coordinate system is diffrent than OpenGL's
         glTranslatef(-view_width/2, view_height/2, 0);
         glRotatef(180, 1, 0, 0);
-        drawBoxInView(iOSFourCorners);
+        drawBoxInView(iOSFourCornersInNSView);
         glPopMatrix();
     }
 
@@ -266,7 +263,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         // Note UIView's coordinate system is diffrent than OpenGL's
         glTranslatef(-view_width/2, view_height/2, 0);
         glRotatef(180, 1, 0, 0);
-        drawiOSMask(iOSFourCorners);
+        drawiOSMask(iOSFourCornersInNSView);
         glPopMatrix();
     }
     

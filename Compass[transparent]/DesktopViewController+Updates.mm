@@ -7,6 +7,7 @@
 //
 
 #import "DesktopViewController+Updates.h"
+#import "ConfigurationsWindowController.h"
 #import "LocationCellView.h"
 #include <cmath>
 
@@ -82,15 +83,21 @@
         [mouseTimer invalidate];
         mouseTimer = nil;
         
-        // Update the screen cordinates corresponding to
-        // iOS screen's boundary, if iOSSyncFlag is on
-        if (self.iOSSyncFlag){
-            for (int i = 0; i < 4; ++i){
-                self.renderer->iOSFourCorners[i] =
-                [self.mapView convertCoordinate:
-                 CLLocationCoordinate2DMake(self.corners4x2.content[i][0],
-                                            self.corners4x2.content[i][1])
-                                  toPointToView:self.compassView];
+        // TODO
+        if (self.renderer->isiOSBoxEnabled){
+            // Update the screen cordinates corresponding to
+            // iOS screen's boundary, if iOSSyncFlag is on
+            if (!self.iOSSyncFlag){
+                float scale = [self.configurationWindowController.iOSScale floatValue];
+                [self calculateiOSScreenSize:scale];
+            }else{
+                for (int i = 0; i < 4; ++i){
+                    self.renderer->iOSFourCornersInNSView[i] =
+                    [self.mapView convertCoordinate:
+                     CLLocationCoordinate2DMake(self.corners4x2.content[i][0],
+                                                self.corners4x2.content[i][1])
+                                      toPointToView:self.compassView];
+                }
             }
         }
     }
@@ -118,41 +125,6 @@
     self.model->camera_pos.longitude = lon_float;
     [self updateLocationVisibility];
     self.model->updateMdl();
-    
-//    // Update distances on the table
-//    NSScrollView* scrollView = [self.locationTableView enclosingScrollView];
-//    CGRect visibleRect = scrollView.contentView.visibleRect;
-//    
-//    dispatch_queue_t concurrentQueue =
-//    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
-    
-    //concurrentQueue
-    // UI update needs to be on main queue?
-    
-    //---------------------------
-    // Update the location table
-    // (Do not need to update if the table is hidden!)
-    //---------------------------
-//    if (!self.landmarkTable.isHidden)
-//    {
-//        dispatch_async(dispatch_get_main_queue(),
-//                       ^{
-//                           NSRange range = [self.locationTableView rowsInRect:visibleRect];
-//                           for (int i = range.location; i < range.location + range.length; ++i){
-//                               // [todo] This part is ver slow...
-//                               ((LocationCellView*)[tableCellCache objectAtIndex:i]).infoTextField.stringValue = [NSString stringWithFormat:@"%.2f (m)",self.model->data_array[i].distance];
-//                           }
-//                       });
-//    }
-    //        NSLog(@"location: %d, length:  %d", range.location, range.length);
-    
-    //---------------------------
-    // Update the configuraiton controller table
-    // (Do not need to update if the table is hidden!)
-    //---------------------------
-    
-    
-    
 }
 
 - (void) updateMapDisplayRegion: (bool) animated{
@@ -246,12 +218,12 @@
         //TODO: need to fix watch mode with isiOSBoxEnabled is true
         CGRect myRect;
         if (self.renderer->isiOSBoxEnabled){
-            // Get the information from iOSFourCorners
-            myRect.origin= self.renderer->iOSFourCorners[0];
-            myRect.size.width = self.renderer->iOSFourCorners[1].x -
-            self.renderer->iOSFourCorners[0].x;
-            myRect.size.height = self.renderer->iOSFourCorners[2].y -
-            self.renderer->iOSFourCorners[1].y;
+            // Get the information from iOSFourCornersInNSView
+            myRect.origin= self.renderer->iOSFourCornersInNSView[0];
+            myRect.size.width = self.renderer->iOSFourCornersInNSView[1].x -
+            self.renderer->iOSFourCornersInNSView[0].x;
+            myRect.size.height = self.renderer->iOSFourCornersInNSView[2].y -
+            self.renderer->iOSFourCornersInNSView[1].y;
         }else{
             myRect = [self.mapView frame];
         }

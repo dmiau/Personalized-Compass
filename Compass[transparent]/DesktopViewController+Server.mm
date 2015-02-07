@@ -105,7 +105,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [myData getBytes:&temp_corner length:sizeof(temp_corner)];
     self.corners4x2 = temp_corner;
     for (int i = 0; i < 4; ++i){
-        self.renderer->iOSFourCorners[i] =
+        self.renderer->iOSFourCornersInNSView[i] =
         [self.mapView convertCoordinate:
          CLLocationCoordinate2DMake(temp_corner.content[i][0],
                                     temp_corner.content[i][1])

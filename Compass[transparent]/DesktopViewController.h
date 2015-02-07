@@ -142,11 +142,12 @@ withPins: (bool) pin_flag;
 - (void)changeAnnotationDisplayMode: (NSString*) mode;
 
 //----------------
-//Server
+//Server + iOSEmulation
 //----------------
 @property MyWebSocket* webSocket;
 @property BOOL iOSSyncFlag;
 @property Corners4x2 corners4x2;
 -(void)startServer;
 -(void)syncWithiOS: (NSDictionary*) dict;
+- (void)calculateiOSScreenSize:(float)scale;
 @end

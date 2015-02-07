@@ -251,7 +251,7 @@
     {
         double scale = starting_scale * recognizer.scale;
         double min_limit, max_limit;
-        max_limit = 1.5;
+        max_limit = 2.0;
         if (self.renderer->watchMode){
             min_limit = 0.15;
         }else{

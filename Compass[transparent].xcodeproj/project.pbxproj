@@ -850,6 +850,10 @@
 		9AB2A721196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
 		9AB2A722196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
 		9AB2A723196372AA0001E96F /* unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AB2A717196372AA0001E96F /* unselected.png */; };
+		9AB5AD841A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */; };
+		9AB5AD851A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */; };
+		9AB5AD861A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */; };
+		9AB5AD871A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */; };
 		9AB90B8D194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
 		9AB90B8E194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
 		9AB90B8F194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
@@ -1364,6 +1368,7 @@
 		9AAEDB3B1A0DB7A9000F3A23 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		9AB2A716196372AA0001E96F /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = icons/selected.png; sourceTree = "<group>"; };
 		9AB2A717196372AA0001E96F /* unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unselected.png; path = icons/unselected.png; sourceTree = "<group>"; };
+		9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+iOSEmulation.mm"; sourceTree = "<group>"; };
 		9AB90B8C194DED0B0030BF5B /* Taiwan.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taiwan.kml; sourceTree = "<group>"; };
 		9AB90B93194F383A0030BF5B /* compassRender+Bimodal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Bimodal.mm"; sourceTree = "<group>"; };
 		9AB90B9A194F39F40030BF5B /* compassRender+Wedge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Wedge.mm"; sourceTree = "<group>"; };
@@ -2159,6 +2164,7 @@
 				9A6F53F71910073F00F35FED /* DebugWindowController.mm */,
 				9A42A0BD19A8049F00BB0101 /* DesktopViewController+Server.h */,
 				9A42A0BE19A8049F00BB0101 /* DesktopViewController+Server.mm */,
+				9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */,
 				9A42A0C319ABAD7500BB0101 /* Server */,
 				9A42A00219A5819700BB0101 /* Settings */,
 			);
@@ -3193,6 +3199,7 @@
 				9A037632198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A42A09419A79CA200BB0101 /* GCDAsyncSocket.m in Sources */,
 				9A42A0A019A79CA200BB0101 /* DDASLLogger.m in Sources */,
+				9AB5AD871A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */,
 				9A42A0B019A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
 				9A42A07119A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
@@ -3310,6 +3317,7 @@
 				9A037617198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9AEA580B18D9EC440028B80C /* compassModel.mm in Sources */,
 				9A4AA6511A7FD9AC0009F448 /* SharedViewController+SnapShot.mm in Sources */,
+				9AB5AD841A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */,
 				9A36618119A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
 				9A36618719A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
 				9A037665198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
@@ -3466,6 +3474,7 @@
 				9A36619519A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A03758F198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
+				9AB5AD861A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */,
 				9A36618319A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
 				9A42A07019A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */,
@@ -3593,6 +3602,7 @@
 				9A03761E198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				9A4AA6631A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */,
 				9A0375F4198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
+				9AB5AD851A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */,
 				9A0375C4198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A9F53641A79962900E3744B /* CHCSVParser.m in Sources */,
 				9A36618219A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,

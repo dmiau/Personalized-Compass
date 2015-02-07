@@ -100,15 +100,21 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
                 model->tilt > -0.0001)
             {
                 //TODO Render wedge within the iOS screen boundary?
-                // iOSFourCorners
-                wedge_disp_width = iOSFourCorners[1].x - iOSFourCorners[0].x - 10;
-                wedge_disp_height = iOSFourCorners[2].y - iOSFourCorners[1].y - 10;
+                // iOSFourCornersInNSView
+                wedge_disp_width = iOSFourCornersInNSView[1].x - iOSFourCornersInNSView[0].x - 10;
+                wedge_disp_height = iOSFourCornersInNSView[2].y - iOSFourCornersInNSView[1].y - 10;
             }else{
                 wedge_disp_width = view_width-30;
                 wedge_disp_height = view_height - 30;
             }
             
             box screen_box(wedge_disp_width, wedge_disp_height);
+            
+            
+//            float shift = 300;
+//            glTranslatef(-shift, 0, 0);
+            
+            
             wedge my_wedge(model, screen_box, CGPointMake(x_diff, y_diff));
             my_wedge.render();
             leg = my_wedge.leg;

@@ -89,7 +89,9 @@
     // This reports the correct mouse position.
     NSLog(@"ViewController: %@", NSStringFromPoint(mouseLoc));
     
-    
+    //--------------------
+    // Check if the compass is pressed
+    //--------------------
     //    NSLog(@"***Mouse down");
     //	GLint viewport[4];
     //	GLubyte pixel[3];
@@ -99,26 +101,70 @@
     //
     //    // Print pixel colors
     //    printf("%d %d %d\n",pixel[0],pixel[1],pixel[2]);
-    
+
+    //--------------------
+    // Check if the compass is pressed
+    //--------------------
+    if ([self isCompassTouched:mouseLoc]){
+        [self compassSelectedMode:YES];
+        [self.compassView setNeedsDisplay: YES];
+
+    }else{
+        // Detecting long mouse click
+        //http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
+        mouseTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                      target:self
+                                                    selector:@selector(mouseWasHeld:)
+                                                    userInfo:theEvent
+                                                     repeats:NO];
+    }
+
     // http://stackoverflow.com/questions/6590763/mouse-events-bleeding-through-nsview
     // I want the event to bleed.
-    
-    // Detecting long mouse click
-    //http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
-    mouseTimer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                  target:self
-                                                selector:@selector(mouseWasHeld:)
-                                                userInfo:theEvent
-                                                 repeats:NO];
-    
     [super mouseDown:theEvent];
 }
+
+- (void)mouseDragged:(NSEvent *)theEvent{
+    
+    //http://lists.apple.com/archives/mac-opengl/2003/Feb/msg00069.html
+    NSPoint mouseLoc = [self.compassView convertPoint:[theEvent locationInWindow] fromView:nil];
+    
+    if ([self.UIConfigurations[@"UICompassTouched"] boolValue]){
+        //-------------------------
+        // When the compass is pressed,
+        // enter here to continuously update the compass's position
+        //-------------------------
+        
+        // update compass location
+        recVec compassXY = self.renderer->compass_centroid;
+        compassXY.x = mouseLoc.x - self.compassView.frame.size.width/2;
+        compassXY.y = mouseLoc.y - self.compassView.frame.size.height/2;
+        
+        
+        self.model->configurations[@"compass_centroid"][0] =
+        [NSNumber numberWithInt:compassXY.x];
+        self.model->configurations[@"compass_centroid"][1] =
+        [NSNumber numberWithInt:compassXY.y];
+        
+        self.renderer->loadCentroidFromModelConfiguration();
+        
+        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
+            [self updateModelCompassCenterXY];
+        }
+        
+        [self.compassView setNeedsDisplay: YES];
+        return;
+    }
+}
+
 
 - (void)mouseUp:(NSEvent *)theEvent{
     [mouseTimer invalidate];
     mouseTimer = nil;
+    if ([self.UIConfigurations[@"UICompassTouched"] boolValue]){
+        [self compassSelectedMode:NO];
+    }
 }
-
 
 - (void)mouseWasHeld: (NSTimer *)tim {
     // Long mouse held will lead to this function
@@ -147,4 +193,46 @@
     
     [self.mapView addAnnotation:annotation];
 }
+
+#pragma mark ------------- Compass Interaction -------------
+- (void)compassSelectedMode:(bool)state{
+    if (state){
+        [self.mapView setPitchEnabled:NO];
+        [self.mapView setZoomEnabled:NO];
+        [self.mapView setRotateEnabled:NO];
+        [self.mapView setScrollEnabled:NO];
+        self.model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:255];
+    }else{
+        [self.mapView setPitchEnabled:NO];
+        [self.mapView setZoomEnabled:YES];
+        [self.mapView setRotateEnabled:YES];
+        [self.mapView setScrollEnabled:YES];
+        self.model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:150];
+    }
+    self.UIConfigurations[@"UICompassTouched"] =
+    [NSNumber numberWithBool: state];
+    [self.compassView setNeedsDisplay:YES];
+}
+
+
+- (bool)isCompassTouched: (CGPoint) touchPoint{
+    
+    if ([self.compassView isHidden])
+        return false;
+    
+    //--------------------
+    // Check if the compass is pressed
+    //--------------------
+    recVec compassXY = self.renderer->compass_centroid;
+    compassXY.x = compassXY.x + self.compassView.frame.size.width/2;
+    compassXY.y = self.compassView.frame.size.height/2 + compassXY.y;
+    double dist = sqrt(pow((touchPoint.x - compassXY.x), 2) +
+                       pow((touchPoint.y - compassXY.y), 2));
+    double radius = self.renderer->compass_disk_radius;
+    if (dist <= radius)
+        return true;
+    else
+        return false;
+}
+
 @end

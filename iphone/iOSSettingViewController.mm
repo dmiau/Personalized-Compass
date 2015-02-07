@@ -293,6 +293,8 @@
     
     // reload
     readConfigurations(self.model);
+    self.renderer->loadParametersFromModelConfiguration();
+    [self.rootViewController.glkView setNeedsDisplay];
 }
 - (IBAction)toggleToolbarMode:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;

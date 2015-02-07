@@ -63,4 +63,9 @@
     //    [self.superview mouseDown:theEvent];
     [super.nextResponder mouseUp:theEvent];
 }
+
+-(void)mouseDragged:(NSEvent *)theEvent{
+    [super mouseDragged:theEvent];
+    [super.nextResponder mouseDragged:theEvent];
+}
 @end

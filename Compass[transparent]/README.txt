@@ -1715,7 +1715,7 @@ drawing is in compassRender::render
 
 box4Corners is calculated within updateOverviewMap
 
-CGPoint iOSFourCorners[4];
+CGPoint iOSFourCornersInNSView[4];
 Refactor drawBoxInView
 
 - need to clean up settings code
@@ -1923,7 +1923,7 @@ displaySnapshot is the method to load and display a snapshot
 -------------------------------------------------------------------
 Today's goal:
 - Make progress on TestManager
-Maybe I can take advantage of the information stored in iOSFourCorners
+Maybe I can take advantage of the information stored in iOSFourCornersInNSView
 
 Done:
 - Cleaned up DemoManager and TestManager
@@ -1932,7 +1932,7 @@ Done:
 Working:
 - Implementing generateLocateTests
 
-self.rootViewController.renderer->iOSFourCorners
+self.rootViewController.renderer->iOSFourCornersInNSView
 
 I do need a test file to specify the following parameters:
 - 
@@ -2246,22 +2246,21 @@ Use the sendData method
 - (void)sendData:(NSData *)msgData
 - compass_centroid_radius (in pixel)
 - compass_disk_radius is kept getting changed [5:08PM]
+- Center iOS boundary after window is resized (when iOS sync is off) [8:22PM]
 
-*ToDO
+*ToDo
 - Snapshot loading is too slow on iOS
 - Test authoring tool (manually add locations)
 - Implement a StudyLog structure
-
 - Design and implement package exchange (right now a dictionary is sent)
-
-- Mouse-click-to-move the compass
-
 - map zoom in/out, pan around
 - desktop compass box in emiOS mode
 
 - Automatically calculate MapRect for the study
 - Add annotation editing capability to the desktop map
 - kml and snapshot dir needs to be refreshed after tab switch
+- The box indicator calculation is incorrect
+- Mouse-click-to-move the compass
 
 *Working
 - Display visualization and configure display type correctly
@@ -2274,15 +2273,47 @@ Use the sendData method
 * MyWebSocket
 * DesktopViewController+Server
 
+- Sometimes a needle could become too thin
+- iWath emulation
+
+- watchMode, modify drawOneSide to cut off the legs
+
+-------------------------------------------------------------------
+2.7.2015
+-------------------------------------------------------------------
+
+*Done
+- Mouse-click-to-move the compass [3:50PM]
+
+*ToDo
+- Snapshot loading is too slow on iOS
+- Test authoring tool (manually add locations)
+- Implement a StudyLog structure
+- Design and implement package exchange (right now a dictionary is sent)
+- map zoom in/out, pan around
+- desktop compass box in emiOS mode
+
+- Automatically calculate MapRect for the study
+- Add annotation editing capability to the desktop map
+- kml and snapshot dir needs to be refreshed after tab switch
+- The box indicator calculation is incorrect
 
 
+*Working
+- Display visualization and configure display type correctly
+- Implement "Run Test"
+- Implement iOS's TestManager (right now it only has a DemoManager)
+- Fix the changing eiOS screen
 
+- Communication module (Design what information needs to be passed around)
+* iOSViewController+Client
+* MyWebSocket
+* DesktopViewController+Server
 
+- Sometimes a needle could become too thin
+- iWath emulation
 
-
-
-
-
+- watchMode, modify drawOneSide to cut off the legs
 
 
 

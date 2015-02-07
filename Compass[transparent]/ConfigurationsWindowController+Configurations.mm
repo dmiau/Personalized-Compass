@@ -162,16 +162,24 @@
 }
 
 - (IBAction)toggleiOSBoundary:(id)sender {
+
+    // Needs to be reworked 
+    
     self.rootViewController.renderer->isiOSBoxEnabled
     = !self.rootViewController.renderer->isiOSBoxEnabled;
     
+    if (self.rootViewController.renderer->isiOSBoxEnabled){
+        [self.iOSMaskControl setState:1];
+        [self toggleiOSScreenOnly:nil];
+    }
+    
     // If the syncflag is off and the box mode is enabled,
-    // we need to manually initialize iOSFourCorners
+    // we need to manually initialize iOSFourCornersInNSView
     if (!self.rootViewController.iOSSyncFlag &&
         self.rootViewController.renderer->isiOSBoxEnabled)
     {
         float scale = [self.iOSScale floatValue];
-        [self calculateiOSScreenSize:scale];
+        [self.rootViewController calculateiOSScreenSize:scale];
     }
 }
 
@@ -206,54 +214,10 @@
 
 - (IBAction)adjustiOSScreenSize:(NSSlider *)sender {
     float scale = [sender floatValue];
-    [self calculateiOSScreenSize:scale];
+    [self.rootViewController calculateiOSScreenSize:scale];
 }
 
-// Calculate the coordinates of the four corners of the emulated iOS display
-// in OSX's screen coordinate system
-- (void)calculateiOSScreenSize:(float)scale{
-    
-    // Cache the starting iOS_height and iOS_width, to provide the base
-    // to calculate the scaled iOSFourCorners
-    static float cached_iOS_height = self.rootViewController.renderer->em_ios_height;
-    static float cached_iOS_width = self.rootViewController.renderer->em_ios_width;
-    
-//    static MKCoordinateSpan cached_map_span = self.rootViewController.mapView.region.span;
-    
-    //ul, ur, br, bl
-    float height = self.rootViewController.renderer->view_height;
-    float width = self.rootViewController.renderer->view_width;
-    
-    //iOS screen size is 320x503
-    float iOS_height = cached_iOS_height * scale;
-    float iOS_width = cached_iOS_width * scale;
 
-//    //When one scales the emulated iOS screen, the map zoom level should be
-//    //adjusted accordingly. Note in my implementation, the iOS is always
-//    //the golden standard
-//    
-//    MKCoordinateSpan new_map_span = MKCoordinateSpanMake(
-//        cached_map_span.latitudeDelta/scale, cached_map_span.longitudeDelta/scale);
-//    self.rootViewController.mapView.region.span = new_map_span;
-//    
-    //Generate iOSScreenStr
-    self.iOSScreenStr = [NSString stringWithFormat:@"%.1fx%.1f x %.2f = %.2fx%.2f",
-                         cached_iOS_height, cached_iOS_width,
-                         scale, iOS_height, iOS_width];
-    
-    CGPoint *tempFourCorners = self.rootViewController.renderer->iOSFourCorners;
-    tempFourCorners[0].x = width/2 - iOS_width/2;
-    tempFourCorners[0].y = height/2 - iOS_height/2;
-    
-    tempFourCorners[1].x = width/2 + iOS_width/2;
-    tempFourCorners[1].y = height/2 - iOS_height/2;
-    
-    tempFourCorners[2].x = width/2 + iOS_width/2;
-    tempFourCorners[2].y = height/2 + iOS_height/2;
-    
-    tempFourCorners[3].x = width/2 - iOS_width/2;
-    tempFourCorners[3].y = height/2 + iOS_height/2;
-}
 - (IBAction)adjustWedgeCorrectionFactor:(NSSlider *)sender {
     float value = [sender floatValue];
     self.rootViewController.model->configurations[@"wedge_correction_x"]

@@ -84,7 +84,7 @@ public:
     
     // Compass presenation parameters    
     float compass_disk_radius;    // Specify the radius of the compass disk (in pixels)
-    float watch_compass_disk_radius; // Specify the radius of the watch compass disk (in pixels)
+
     float central_disk_radius;  // Specify the radius of the blue dots of the compass
     recVec compass_centroid;    // Specify the centroid of the compass *in OpenGL frame*
 
@@ -133,7 +133,7 @@ public:
     bool isiOSBoxEnabled;
     // The four corners of the iOS display
     // (is NSView coordinates)
-    CGPoint iOSFourCorners[4];
+    CGPoint iOSFourCornersInNSView[4];
     
     bool isiOSMaskEnabled;
     

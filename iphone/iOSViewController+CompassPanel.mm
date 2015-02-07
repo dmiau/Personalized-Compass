@@ -67,13 +67,19 @@
     
     self.renderer->watchMode = true;
     for (int i = 0; i<4; ++i){
-        self.renderer->model->configurations[@"bg_color"][i] =
+        self.model->configurations[@"bg_color"][i] =
         self.model->cache_configurations[@"bg_color"][i];
     }
 
     // Change compass ctr
     [self changeCompassLocationTo: @"Center"];
-    self.renderer->adjustAbsoluteCompassScale(0.3);
+    
+    float watch_scale =
+    [self.model->configurations[@"watch_compass_disk_radius"]
+                         floatValue] /
+    [self.model->configurations[@"compass_disk_radius"]
+     floatValue];
+    self.renderer->adjustAbsoluteCompassScale(watch_scale);
     
     UITextField *searchField =
     [self.ibSearchBar valueForKey:@"_searchField"];

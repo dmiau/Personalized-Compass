@@ -122,6 +122,13 @@ iOS:
 - display snapshot has been implemented
 - OSX's load snapshot method need to convert latitude delta and longitude delta to the ones on the desktop.
 
+The wedge module plots a wedge wrt to the center of the view, and it assumes the center is at the origin (0,0). So in the case of iPhone emulation. If the center is shifted, the wedge module needs to know. Also, after a wedge is generated. It needs to be shifted. 
+
+
+
+
+
+
 ==================
 Test Manager
 ==================
