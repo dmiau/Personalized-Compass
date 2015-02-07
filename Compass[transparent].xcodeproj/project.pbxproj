@@ -786,6 +786,10 @@
 		9A998D7C194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
 		9A998D7D194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
 		9A998D7E194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
+		9A9DD7391A86C145005376AB /* emulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* emulatediOS.mm */; };
+		9A9DD73A1A86C145005376AB /* emulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* emulatediOS.mm */; };
+		9A9DD73B1A86C145005376AB /* emulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* emulatediOS.mm */; };
+		9A9DD73C1A86C145005376AB /* emulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* emulatediOS.mm */; };
 		9A9F53631A79962900E3744B /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9F53621A79962900E3744B /* CHCSVParser.m */; };
 		9A9F53641A79962900E3744B /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9F53621A79962900E3744B /* CHCSVParser.m */; };
 		9A9F53651A79962900E3744B /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9F53621A79962900E3744B /* CHCSVParser.m */; };
@@ -1349,6 +1353,8 @@
 		9A998D74194BB99D00778DFC /* iOSViewController+GetLocation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+GetLocation.mm"; sourceTree = "<group>"; };
 		9A998D77194BC60C00778DFC /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = icons/location.png; sourceTree = "<group>"; };
 		9A998D7B194BCB0900778DFC /* setup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = setup.jpg; path = icons/setup.jpg; sourceTree = "<group>"; };
+		9A9DD7371A86C145005376AB /* emulatediOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = emulatediOS.mm; sourceTree = "<group>"; };
+		9A9DD7381A86C145005376AB /* emulatediOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emulatediOS.h; sourceTree = "<group>"; };
 		9A9F53611A79962900E3744B /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		9A9F53621A79962900E3744B /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 		9AA789341909FE3000A26C66 /* webBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2130,6 +2136,8 @@
 				9A36619219A3FE4E00DC0D15 /* myMapView.mm */,
 				9A469E0D19A4FEC100EB88C0 /* OSXPinAnnotationView.h */,
 				9A469E0E19A4FEC100EB88C0 /* OSXPinAnnotationView.mm */,
+				9A9DD7371A86C145005376AB /* emulatediOS.mm */,
+				9A9DD7381A86C145005376AB /* emulatediOS.h */,
 				9A176DAA19A58F250032DE3F /* xib */,
 			);
 			name = View;
@@ -3219,6 +3227,7 @@
 				9A03758A198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037668198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A06119A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
+				9A9DD73C1A86C145005376AB /* emulatediOS.mm in Sources */,
 				9A4AA64D1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9A4293C11A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9A0375FC198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
@@ -3292,6 +3301,7 @@
 				9A9F53631A79962900E3744B /* CHCSVParser.m in Sources */,
 				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
 				9A469E0F19A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */,
+				9A9DD7391A86C145005376AB /* emulatediOS.mm in Sources */,
 				9A0375C9198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A03758D198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A0375B1198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
@@ -3494,6 +3504,7 @@
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
 				9A176DA819A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9AE2FC8619AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
+				9A9DD73B1A86C145005376AB /* emulatediOS.mm in Sources */,
 				9A4AA64C1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9A4293C01A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9A037679198DA31900258E95 /* b2Rope.cpp in Sources */,
@@ -3624,6 +3635,7 @@
 				9AFD8F57197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A0375FA198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A5F32011A768B44003B0426 /* TestManager-Location.mm in Sources */,
+				9A9DD73A1A86C145005376AB /* emulatediOS.mm in Sources */,
 				9A42A0C919ABADC800BB0101 /* MyHTTPConnection.m in Sources */,
 				9A0375E8198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A75720B197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,

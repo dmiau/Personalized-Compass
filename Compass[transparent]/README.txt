@@ -2312,8 +2312,10 @@ Use the sendData method
 
 - Sometimes a needle could become too thin
 - iWath emulation
-
 - watchMode, modify drawOneSide to cut off the legs
+- display whitebackground (this should be easy)
+
+- building an emulatediOS class
 
 
 
