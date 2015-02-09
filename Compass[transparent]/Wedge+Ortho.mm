@@ -257,7 +257,7 @@ void wedge::render(){
     xy = rotateCCW(xy, wedge_rotation);
     xy.x = xy.x + tx; xy.y = xy.y + ty;
     xy = rotateCCW(xy, section_rotation);
-    
+
     wedgeLabelinfo.centroid = xy;
     wedgeLabelinfo.aperture = aperture;
     wedgeLabelinfo.leg = leg;

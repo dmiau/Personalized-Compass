@@ -104,8 +104,8 @@
     
     // The (x, y) coordinates in the OSX screen coordinate frame
     CGPoint osx_xy;
-    osx_xy.x = (float)x * self.renderer->em_ios_width / self.renderer->true_ios_width;
-    osx_xy.y = (float)y * self.renderer->em_ios_height / self.renderer->true_ios_height;
+    osx_xy.x = (float)x * self.renderer->emulatediOS.width / self.renderer->emulatediOS.true_ios_width;
+    osx_xy.y = (float)y * self.renderer->emulatediOS.height / self.renderer->emulatediOS.true_ios_height;
     
     osx_xy.x = self.renderer->view_width/2 + osx_xy.x;
     osx_xy.y = self.renderer->view_height/2 + osx_xy.y;

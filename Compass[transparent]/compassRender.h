@@ -14,15 +14,23 @@
 #import <MapKit/MapKit.h>
 
 #ifndef __IPHONE__
+//--------------------
+// OSX
+//--------------------
+#import "emulatediOS.h"
 #import "GLString.h"
+
 #else
+
+//--------------------
+// iPhone
+//--------------------
 #import "GLString.h"
 #import <GLKit/GLKit.h>
 typedef UIFont NSFont;
 typedef UIColor NSColor;
 #import "Texture2D.h"
 #endif
-
 
 // http://stackoverflow.com/questions/4714698/mixing-objective-c-m-mm-c-cpp-files
 
@@ -75,6 +83,13 @@ public:
     MKMapView *mapView;
     compassMdl* model;
 
+#ifndef __IPHONE__
+    //----------------
+    // Emulated iOS
+    //----------------
+    EmulatediOS emulatediOS;
+#endif
+    
     //----------------
     // Parameters for compass drawing
     //----------------
@@ -96,16 +111,7 @@ public:
     float view_width;           // The height of the view (in pixels)
     float view_height;          // The width of the view (in pixels)
     float fov;
-    
-    // Parameters for the emulated device
-    float em_ios_width;         // emulated ios screen width (in pixels)
-    float em_ios_height;        // emulated ios screen height (in pixels)
-    float em_watch_radius;      // emulated watch radius
-    
-    float true_ios_width;       // ios view width (in pixels)
-    float true_ios_height;      // ios view height (in pixels)
-    float true_watch_radius;    // watch radius (in pixels)
-    
+        
     //----------------
     // Lable related stuff
     //----------------
@@ -127,17 +133,6 @@ public:
     //-------------------
     bool isOverviewMapEnabled;
     CGPoint box4Corners[4];
-
-    //-------------------
-    // Displaying iOS box in OSX
-    //-------------------
-    bool isiOSBoxEnabled;
-    // The four corners of the iOS display
-    // (is NSView coordinates)
-    CGPoint iOSFourCornersInNSView[4];
-    
-    bool isiOSMaskEnabled;
-    
 private:
     // Compass rendering intermediate parameters
     double max_dist;
@@ -179,6 +174,13 @@ public:
     //-----------------
     void adjustAbsoluteCompassScale(float scale);
     void incrementCompassRadisByFactor(float factor);
+
+
+    //-----------------
+    // Emulated iOS drawing routines
+    //-----------------
+    void drawBoxInView(CGPoint fourCorners[4], bool isSolid);
+    void drawiOSMask(CGPoint fourCorners[4]);
 private:
     //-----------------
     // Drawing routines
@@ -191,8 +193,7 @@ private:
     
     BOOL drawBoxInCompass(double renderD2realDRatio);
     BOOL drawBoundaryCircle(double renderD2realDRatio);
-    void drawBoxInView(CGPoint fourCorners[4]);
-    void drawiOSMask(CGPoint fourCorners[4]);
+
 
     //    void drawClearWatch(); //Not sure the function of this.
     

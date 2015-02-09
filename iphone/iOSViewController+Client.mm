@@ -134,7 +134,7 @@
     if ([self.socket_status boolValue] == NO)
         return;
     
-    Corners4x2 temp_corner = self.corners4x2;
+    LatLons4x2 temp_corner = self.latLons4x2;
     MKCoordinateRegion temp_region = self.mapView.region;
     
     // Package the data

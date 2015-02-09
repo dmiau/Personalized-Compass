@@ -14,6 +14,15 @@
 @implementation ConfigurationsWindowController (locations)
 
 - (void)updateLocationsPane{
+    
+    // Collect a list of kml files
+    NSString *path = self.model->desktopDropboxDataRoot;
+    
+    NSArray *dirFiles = [[NSFileManager defaultManager]
+                         contentsOfDirectoryAtPath: path error:nil];
+    kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
+    [self.kmlComboBox reloadData]; // Refresh the KML list
+    
     // Initialize the combo box
     [self.kmlComboBox setStringValue:
      [self.model->location_filename

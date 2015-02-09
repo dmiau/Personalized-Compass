@@ -22,11 +22,10 @@
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 
-
 // CLLocationDegress is typedef to double
 typedef struct{
     double content[4][2];
-}Corners4x2;
+}LatLons4x2;
 
 @class ConfigurationsWindowController; //Forward declaration
 //@class SettingsViewController; //Forward declaration
@@ -142,12 +141,16 @@ withPins: (bool) pin_flag;
 - (void)changeAnnotationDisplayMode: (NSString*) mode;
 
 //----------------
+//Tools
+//----------------
+- (CGPoint) convertOpenGLCoordToNSView: (CGPoint) coordInOpenGL;
+- (CGPoint) convertNSViewCoordToOpenGL: (CGPoint) coordInNSView;
+//----------------
 //Server + iOSEmulation
 //----------------
 @property MyWebSocket* webSocket;
 @property BOOL iOSSyncFlag;
-@property Corners4x2 corners4x2;
+
 -(void)startServer;
 -(void)syncWithiOS: (NSDictionary*) dict;
-- (void)calculateiOSScreenSize:(float)scale;
 @end

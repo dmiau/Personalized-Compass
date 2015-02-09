@@ -28,7 +28,7 @@ enum findMe_enum{
 // CLLocationDegress is typedef to double
 typedef struct{
     double content[4][2];
-}Corners4x2;
+}LatLons4x2;
 
 
 @interface iOSViewController : UIViewController
@@ -54,7 +54,7 @@ typedef struct{
 //----------------
 // Cache MapView parameters
 //----------------
-@property Corners4x2 corners4x2;
+@property LatLons4x2 latLons4x2;
 - (void) updateCornerLatLon;
 
 

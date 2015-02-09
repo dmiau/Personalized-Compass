@@ -57,6 +57,13 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
     // ---------------
     if (label_flag){
         glPushMatrix();
+        
+        
+        //------------------
+        // Populate label info here
+        //------------------
+        
+        
         vector<double> orientation_array;
         orientation_array.clear();
         
@@ -287,10 +294,14 @@ BOOL compassRender::drawBoundaryCircle(double renderD2realDRatio)
     return true;
 }
 
-void compassRender::drawBoxInView(CGPoint fourCorners[4]){
+void compassRender::drawBoxInView(CGPoint fourCorners[4], bool isSolid){
     // Draw the box
     glLineWidth(2);
-    glColor4f(1, 0, 0, 1);
+    
+    if (isSolid)
+        glColor4f(0, 0, 0, 0.5);
+    else
+        glColor4f(1, 0, 0, 1);
     glPushMatrix();
     // Plot the triangle first, then rotate and translate
     
@@ -302,7 +313,11 @@ void compassRender::drawBoxInView(CGPoint fourCorners[4]){
     RectangleLine3D  rectangle = RectangleLine3DMake(vertex1, vertex2,
                                                      vertex3, vertex4);
     glVertexPointer(3, GL_FLOAT, 0, &rectangle);
-    glDrawArrays(GL_LINE_STRIP, 0,5);
+    
+    if (isSolid)
+        glDrawArrays(GL_TRIANGLE_FAN, 0,5);
+    else
+        glDrawArrays(GL_LINE_STRIP, 0,5);
     
     glPopMatrix();
 }

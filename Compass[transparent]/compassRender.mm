@@ -65,17 +65,11 @@ int compassRender::initRenderMdl(){
     trainingMode            = false;
     wedgeMode               = false;
     isOverviewMapEnabled    = false;
-    isiOSBoxEnabled         = false;
-    isiOSMaskEnabled        = false;
 
     loadParametersFromModelConfiguration();
-    
-    for (int i = 0; i < 4; ++i){
-        // Initialize all four corners to 0 first
-        box4Corners[i].x = 0; box4Corners[i].y = 0;
-        iOSFourCornersInNSView[i].x = 0; iOSFourCornersInNSView[i].y = 0;
-    }
-    
+#ifndef __IPHONE__
+    emulatediOS = EmulatediOS(model);
+#endif
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
 }
@@ -176,14 +170,7 @@ void compassRender::render(){
     RenderParamStruct renderParamStruct =
     makeRenderParams(filter_type, style_type);
     //    makeRenderParams(NONE, BIMODAL);
-    
-    // Initialize the emulated iOS parameters
-    em_ios_width = [model->configurations[@"em_ios_display_wh"][0] floatValue];
-    em_ios_height = [model->configurations[@"em_ios_display_wh"][1] floatValue];
-    
-    true_ios_width = [model->configurations[@"true_ios_display_wh"][0] floatValue];
-    true_ios_height = [model->configurations[@"true_ios_display_wh"][1] floatValue];
-    
+        
     render(renderParamStruct);
 }
 
@@ -232,41 +219,17 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         // Note UIView's coordinate system is diffrent than OpenGL's
         glTranslatef(-view_width/2, view_height/2, 0);
         glRotatef(180, 1, 0, 0);
-        drawBoxInView(box4Corners);
+        drawBoxInView(box4Corners, false);
         glPopMatrix();
     }
-    
+#ifndef __IPHONE__
     //--------------
-    // Draw a box (to indicate the iOS diaplay area)
-    // in the main view
+    // Draw the emulated iOS
     //--------------
-
-    if (isiOSBoxEnabled &&
-        model->tilt > -0.0001)
-    {
-        glPushMatrix();
-        // Note UIView's coordinate system is diffrent than OpenGL's
-        glTranslatef(-view_width/2, view_height/2, 0);
-        glRotatef(180, 1, 0, 0);
-        drawBoxInView(iOSFourCornersInNSView);
-        glPopMatrix();
+    if (emulatediOS.is_enabled){
+        emulatediOS.render(this);
     }
-
-    //--------------
-    // Draw a box (to indicate the iOS diaplay area)
-    // in the main view
-    //--------------
-    if (isiOSMaskEnabled &&
-        model->tilt > -0.0001)
-    {
-        glPushMatrix();
-        // Note UIView's coordinate system is diffrent than OpenGL's
-        glTranslatef(-view_width/2, view_height/2, 0);
-        glRotatef(180, 1, 0, 0);
-        drawiOSMask(iOSFourCornersInNSView);
-        glPopMatrix();
-    }
-    
+#endif
     //--------------
     // Draw compass
     //--------------
@@ -315,20 +278,6 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         drawWayfindingAid(renderParamStruct);
         wedgeMode = false;
         glPopMatrix();
-    }
-
-    //--------------
-    // Draw iOS display region
-    //--------------
-    NSString* iOS_status = model->configurations[@"iOS_status"];
-    if ([iOS_status isEqualToString:@"on"]){
-//        wedgeMode = true;
-//        renderParamStruct.style_type =
-//        hashStyleStr(@"WEDGE");
-//        glPushMatrix();
-//        drawWayfindingAid(renderParamStruct);
-//        wedgeMode = false;
-//        glPopMatrix();
     }
     
     glDisableClientState(GL_VERTEX_ARRAY);

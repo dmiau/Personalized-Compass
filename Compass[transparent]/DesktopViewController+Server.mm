@@ -101,16 +101,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     //Unpack parameters of the four corners
     myData = myDictionary[@"ulurbrbl"];
     
-    Corners4x2 temp_corner;
-    [myData getBytes:&temp_corner length:sizeof(temp_corner)];
-    self.corners4x2 = temp_corner;
-    for (int i = 0; i < 4; ++i){
-        self.renderer->iOSFourCornersInNSView[i] =
-        [self.mapView convertCoordinate:
-         CLLocationCoordinate2DMake(temp_corner.content[i][0],
-                                    temp_corner.content[i][1])
-                          toPointToView:self.compassView];
-    }
+    LatLons4x2 temp_corner;
+    [myData getBytes:&temp_corner length:sizeof(temp_corner)];    
+    self.renderer->emulatediOS.updateFourLatLon(temp_corner.content);
+
 }
 
 @end

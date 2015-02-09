@@ -2281,7 +2281,6 @@ Use the sendData method
 -------------------------------------------------------------------
 2.7.2015
 -------------------------------------------------------------------
-
 *Done
 - Mouse-click-to-move the compass [3:50PM]
 
@@ -2317,12 +2316,59 @@ Use the sendData method
 
 - building an emulatediOS class
 
+-------------------------------------------------------------------
+2.8.2015
+-------------------------------------------------------------------
+*Done
+- building an emulatediOS class
+
+Perhaps I don't need iOSFourCornersInNSView at all
+Clean up this:
+    //-------------------
+    // Displaying iOS box in OSX
+    //-------------------
+    bool isiOSBoxEnabled;
+    // The four corners of the iOS display
+    // (is NSView coordinates)
+    CGPoint iOSFourCornersInNSView[4];
+    
+    bool isiOSMaskEnabled;
+
+need to remove calculateiOSScreenSize
+        self.rootViewController.renderer->emulatediOS.changeSizeByScale(scale);
+
+iOSFourCornersInNSView [7:27PM]
+- mouse-click-to-move emiOS [11:05PM]
+
+*ToDo
+- Snapshot loading is too slow on iOS
+- Test authoring tool (manually add locations)
+- Implement a StudyLog structure
+- Design and implement package exchange (right now a dictionary is sent)
+- map zoom in/out, pan around
+- desktop compass box in emiOS mode
+
+- Automatically calculate MapRect for the study
+- Add annotation editing capability to the desktop map
+- kml and snapshot dir needs to be refreshed after tab switch
+- The box indicator calculation is incorrect
 
 
+*Working
+- Display visualization and configure display type correctly
+- Implement "Run Test"
+- Implement iOS's TestManager (right now it only has a DemoManager)
+- Fix the changing eiOS screen
 
+- Communication module (Design what information needs to be passed around)
+* iOSViewController+Client
+* MyWebSocket
+* DesktopViewController+Server
 
-
-
+- Sometimes a needle could become too thin
+- iWath emulation
+- watchMode, modify drawOneSide to cut off the legs
+- display whitebackground (this should be easy)
 
 
 

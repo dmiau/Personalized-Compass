@@ -11,6 +11,12 @@ label_info compassRender::drawLabel(float rotation, float height,
                               texture_info my_texture_info)
 {    
     glPushMatrix();
+#ifndef __IPHONE__
+    if (emulatediOS.is_enabled){
+        glTranslatef(emulatediOS.centroid_in_opengl.x,
+                     emulatediOS.centroid_in_opengl.y, 0);
+    }
+#endif
     //--------------------
     // Keep the text level (rotate->translate->rotate)
     //--------------------

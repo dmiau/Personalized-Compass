@@ -48,9 +48,8 @@
     }
     
     // Update iOS emulation status
-    self.iOSBoundaryControl.state = self.rootViewController.renderer->isiOSBoxEnabled;
-    
-    self.iOSMaskControl.state = self.rootViewController.renderer->isiOSMaskEnabled;
+    self.iOSBoundaryControl.state = self.rootViewController.renderer->emulatediOS.is_enabled;
+    self.iOSMaskControl.state = self.rootViewController.renderer->emulatediOS.is_mask_enabled;
 }
 
 
@@ -165,56 +164,32 @@
 
     // Needs to be reworked 
     
-    self.rootViewController.renderer->isiOSBoxEnabled
-    = !self.rootViewController.renderer->isiOSBoxEnabled;
+    self.rootViewController.renderer->emulatediOS.is_enabled
+    = !self.rootViewController.renderer->emulatediOS.is_enabled;
     
-    if (self.rootViewController.renderer->isiOSBoxEnabled){
+    if (self.rootViewController.renderer->emulatediOS.is_enabled){
         [self.iOSMaskControl setState:1];
-        [self toggleiOSScreenOnly:nil];
+        self.rootViewController.renderer->emulatediOS.is_mask_enabled = true;
     }
     
     // If the syncflag is off and the box mode is enabled,
-    // we need to manually initialize iOSFourCornersInNSView
+    // we need to manually initialize the dimensions of the emulated iOS device
     if (!self.rootViewController.iOSSyncFlag &&
-        self.rootViewController.renderer->isiOSBoxEnabled)
+        self.rootViewController.renderer->emulatediOS.is_enabled)
     {
         float scale = [self.iOSScale floatValue];
-        [self.rootViewController calculateiOSScreenSize:scale];
+        self.rootViewController.renderer->emulatediOS.changeSizeByScale(scale);
     }
 }
 
-- (IBAction)toggleiOSScreenOnly:(id)sender {
-    self.rootViewController.renderer->isiOSMaskEnabled
-    = !self.rootViewController.renderer->isiOSMaskEnabled;
-    
-    //    NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0,
-    //                self.rootViewController.mapView.bounds.size.width,
-    //                self.rootViewController.mapView.bounds.size.height) cornerRadius:0];
-    //
-    //    Corners4x2 corners4x2 = self.rootViewController.corners4x2;
-    //    NSBezierPath *rectPath = [NSBezierPath bezierPathWithRoundedRect:CGRectMake(
-    //                corners4x2.content[0][0], corners4x2.content[0][1],
-    //                corners4x2.content[1][0] - corners4x2.content[0][0],
-    //                corners4x2.content[1][0] - corners4x2.content[2][0]) cornerRadius:0];
-    //    [path appendBezierPath:rectPath];
-    ////
-    ////    [path setUsesEvenOddFillRule:YES];
-    ////
-    ////
-    ////
-    //
-    //    CAShapeLayer *fillLayer = [CAShapeLayer layer];
-    ////    fillLayer.path = path.CGPath;
-    ////    fillLayer.fillRule = kCAFillRuleEvenOdd;
-    ////    fillLayer.fillColor = [UIColor blackColor].CGColor;
-    ////    fillLayer.opacity = 1;
-    ////    [self.glkView.layer addSublayer:fillLayer];
-    ////    self.view.backgroundColor = [UIColor blackColor];
+- (IBAction)toggleiOSScreenOnly:(NSButton*)sender {
+    self.rootViewController.renderer->emulatediOS.is_mask_enabled
+    = [sender state];
 }
 
 - (IBAction)adjustiOSScreenSize:(NSSlider *)sender {
-    float scale = [sender floatValue];
-    [self.rootViewController calculateiOSScreenSize:scale];
+    float scale = [self.iOSScale floatValue];
+    self.rootViewController.renderer->emulatediOS.changeSizeByScale(scale);
 }
 
 
@@ -232,4 +207,11 @@
     }
 }
 
+//-------------------
+// Control the appearance of labels
+//-------------------
+- (IBAction)toggleLabels:(NSButton *)sender {
+    self.rootViewController.renderer->label_flag = [sender state];
+    [self.rootViewController.compassView setNeedsDisplay: YES];
+}
 @end

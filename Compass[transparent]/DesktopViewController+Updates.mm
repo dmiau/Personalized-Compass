@@ -84,20 +84,12 @@
         mouseTimer = nil;
         
         // TODO
-        if (self.renderer->isiOSBoxEnabled){
+        if (self.renderer->emulatediOS.is_enabled){
             // Update the screen cordinates corresponding to
             // iOS screen's boundary, if iOSSyncFlag is on
             if (!self.iOSSyncFlag){
                 float scale = [self.configurationWindowController.iOSScale floatValue];
-                [self calculateiOSScreenSize:scale];
-            }else{
-                for (int i = 0; i < 4; ++i){
-                    self.renderer->iOSFourCornersInNSView[i] =
-                    [self.mapView convertCoordinate:
-                     CLLocationCoordinate2DMake(self.corners4x2.content[i][0],
-                                                self.corners4x2.content[i][1])
-                                      toPointToView:self.compassView];
-                }
+                self.renderer->emulatediOS.changeSizeByScale(scale);
             }
         }
     }
@@ -217,13 +209,16 @@
         
         //TODO: need to fix watch mode with isiOSBoxEnabled is true
         CGRect myRect;
-        if (self.renderer->isiOSBoxEnabled){
+        if (self.renderer->emulatediOS.is_enabled){
             // Get the information from iOSFourCornersInNSView
-            myRect.origin= self.renderer->iOSFourCornersInNSView[0];
-            myRect.size.width = self.renderer->iOSFourCornersInNSView[1].x -
-            self.renderer->iOSFourCornersInNSView[0].x;
-            myRect.size.height = self.renderer->iOSFourCornersInNSView[2].y -
-            self.renderer->iOSFourCornersInNSView[1].y;
+            
+            CGPoint coordInNSView =
+            [self convertOpenGLCoordToNSView: self.renderer->emulatediOS.centroid_in_opengl];
+            coordInNSView.x = coordInNSView.x- self.renderer->emulatediOS.width/2;
+            coordInNSView.y = coordInNSView.y+ self.renderer->emulatediOS.height/2;
+            myRect.origin= coordInNSView;
+            myRect.size.width = self.renderer->emulatediOS.width;
+            myRect.size.height = self.renderer->emulatediOS.height;
         }else{
             myRect = [self.mapView frame];
         }

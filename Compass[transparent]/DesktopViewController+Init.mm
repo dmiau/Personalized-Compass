@@ -17,59 +17,59 @@
 {
     if(self = [super initWithCoder:aDecoder]) {
         // Do something
-        if((self = [super init])) {
-            self.model = compassMdl::shareCompassMdl();
-            
-            // Get the pointer of render
-            // At this point the render may not be fully initialized
-            self.renderer = compassRender::shareCompassRender();
-            
-            pinVisible = FALSE;
-            
-            if (self.model == NULL)
-                throw(runtime_error("compassModel is uninitialized"));            
-            
-            // Important, initialize NSMutableArray with empty cells
-            tableCellCache = [[NSMutableArray alloc] init];
-            
-            for (int i = 0; i < self.model->data_array.size(); ++i)
-            {
-                [tableCellCache addObject:[NSNull null]];
-            }                        
-            
-            // Initialize iOSSyncFlag
-            self.iOSSyncFlag = false;
-            
-            // Initial testManager to NULL
-            self.testManager = NULL;            
-            
-            //--------------------
-            // Initialize a list of UI configurations
-            //--------------------
-            self.UIConfigurations = [[NSMutableDictionary alloc] init];
-            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
-                                      forKey:@"UIRotationLock"];
-            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
-                                      forKey:@"UIBreadcrumbDisplay"];
-            [self.UIConfigurations setObject:@"Development"
-                                      forKey:@"UIToolbarMode"];
-            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
-                                      forKey:@"UIToolbarNeedsUpdate"];
-            [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
-                                      forKey:@"UIAcceptsPinCreation"];
-            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
-                                      forKey:@"UICompassTouched"];
-            [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
-                                      forKey:@"UICompassInteractionEnabled"];
-            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
-                                      forKey:@"UICompassCenterLocked"];
-            [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
-                                      forKey:@"UIAllowMultipleAnnotations"];
-            [self.UIConfigurations setObject:@"Auto"
-                                      forKey:@"UIOverviewScaleMode"];
-            [self.UIConfigurations setObject:@"All"
-                                      forKey:@"ShowPins"];
+        
+        self.model = compassMdl::shareCompassMdl();
+        
+        if (self.model == NULL)
+            throw(runtime_error("compassModel is uninitialized"));
+        
+        // Get the pointer of render
+        // At this point the render may not be fully initialized
+        self.renderer = compassRender::shareCompassRender();
+        
+        pinVisible = FALSE;
+        
+        // Important, initialize NSMutableArray with empty cells
+        tableCellCache = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < self.model->data_array.size(); ++i)
+        {
+            [tableCellCache addObject:[NSNull null]];
         }
+        
+        // Initialize iOSSyncFlag
+        self.iOSSyncFlag = false;
+        
+        // Initial testManager to NULL
+        self.testManager = NULL;
+        
+        //--------------------
+        // Initialize a list of UI configurations
+        //--------------------
+        self.UIConfigurations = [[NSMutableDictionary alloc] init];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UIRotationLock"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UIBreadcrumbDisplay"];
+        [self.UIConfigurations setObject:@"Development"
+                                  forKey:@"UIToolbarMode"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UIToolbarNeedsUpdate"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
+                                  forKey:@"UIAcceptsPinCreation"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UICompassTouched"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:true]
+                                  forKey:@"UICompassInteractionEnabled"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UICompassCenterLocked"];
+        [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
+                                  forKey:@"UIAllowMultipleAnnotations"];
+        [self.UIConfigurations setObject:@"Auto"
+                                  forKey:@"UIOverviewScaleMode"];
+        [self.UIConfigurations setObject:@"All"
+                                  forKey:@"ShowPins"];
+        
     }
     return self;
 }

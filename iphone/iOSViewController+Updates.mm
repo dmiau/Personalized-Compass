@@ -277,13 +277,13 @@
     
     //http://stackoverflow.com/questions/17548425/objective-c-property-for-c-array
     
-    Corners4x2 temp;
+    LatLons4x2 temp;
     
     for (int i = 0; i <4; ++i){
         temp.content[i][0] = coord_array[i].latitude;
         temp.content[i][1] = coord_array[i].longitude;
     }
-    self.corners4x2 = temp;
+    self.latLons4x2 = temp;
 }
 
 @end

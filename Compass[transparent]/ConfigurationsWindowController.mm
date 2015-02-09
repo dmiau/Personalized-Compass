@@ -34,14 +34,7 @@
     if (self) {
         // Initialization code here.
         self.model = compassMdl::shareCompassMdl();
-        
-        // Collect a list of kml files
-        NSString *path = self.model->desktopDropboxDataRoot;
-        
-        NSArray *dirFiles = [[NSFileManager defaultManager]
-                             contentsOfDirectoryAtPath: path error:nil];
-        kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
-        
+                
         //-------------
         // Initialize test parameters
         //-------------
@@ -89,5 +82,6 @@ willSelectTabViewItem:(NSTabViewItem *)tabViewItem
     [self updateConfigurationsPane];
     [self updateLocationsPane];
 }
+
 
 @end

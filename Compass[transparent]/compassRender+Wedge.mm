@@ -46,7 +46,13 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         NSLog(@"***********mapView is uninitialized");
         return;
     }
-    
+#ifndef __IPHONE__
+    glPushMatrix();    
+    if (emulatediOS.is_enabled){
+        glTranslatef(emulatediOS.centroid_in_opengl.x,
+                     emulatediOS.centroid_in_opengl.y, 0);
+    }
+#endif
     
     //--------------------
     // Calculate the parameters of each wedge
@@ -96,26 +102,28 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
              isEqualToString:@"modified-orthographic"])
         {
             float wedge_disp_width, wedge_disp_height;
-            if (isiOSBoxEnabled &&
+            
+            
+            wedge_disp_width = view_width-30;
+            wedge_disp_height = view_height - 30;
+#ifndef __IPHONE__
+            if (emulatediOS.is_enabled &&
                 model->tilt > -0.0001)
             {
-                //TODO Render wedge within the iOS screen boundary?
-                // iOSFourCornersInNSView
-                wedge_disp_width = iOSFourCornersInNSView[1].x - iOSFourCornersInNSView[0].x - 10;
-                wedge_disp_height = iOSFourCornersInNSView[2].y - iOSFourCornersInNSView[1].y - 10;
-            }else{
-                wedge_disp_width = view_width-30;
-                wedge_disp_height = view_height - 30;
+                //-------------------
+                // The display area is smaller when the emulated iOS mode is on
+                //-------------------
+                wedge_disp_width = emulatediOS.width - 5;
+                wedge_disp_height = emulatediOS.height - 5;
+                x_diff = x_diff - emulatediOS.centroid_in_opengl.x;
+                y_diff = y_diff - emulatediOS.centroid_in_opengl.y;
             }
-            
+#endif
             box screen_box(wedge_disp_width, wedge_disp_height);
+        
             
-            
-//            float shift = 300;
-//            glTranslatef(-shift, 0, 0);
-            
-            
-            wedge my_wedge(model, screen_box, CGPointMake(x_diff, y_diff));
+            wedge my_wedge(model, screen_box,
+                           CGPointMake(x_diff, y_diff));
             my_wedge.render();
             leg = my_wedge.leg;
             aperture = my_wedge.aperture;
@@ -123,6 +131,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             // Populate label_info_array
             //---------------------
             myLabelinfo = my_wedge.wedgeLabelinfo;
+
         }else{
              double rotation, tx, ty, new_width, new_height;
             applyCoordTransform(x_diff, y_diff,
@@ -151,6 +160,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             model->data_array[j].my_label_info = myLabelinfo;
         }
     }
+    glPopMatrix();
     
     db_stream << "Done!" << endl;
     

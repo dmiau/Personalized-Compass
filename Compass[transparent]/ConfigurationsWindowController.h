@@ -39,6 +39,7 @@
 
 @property (weak) IBOutlet NSTextField *desktopDropboxDataRoot;
 - (IBAction)changeDesktopDropboxDataRoot:(id)sender;
+- (IBAction)toggleLabels:(id)sender;
 
 
 // Control the visibility of OpenGL view

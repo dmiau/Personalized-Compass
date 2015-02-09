@@ -45,14 +45,19 @@ void TestManager::generateSnapShots(){
             
             // Forward declaration
             compassRender *p_render = rootViewController.renderer;
-            
+
+#ifndef __IPHONE__
             coordinateRegion.span.latitudeDelta =
             rootViewController.mapView.region.span.latitudeDelta *
-            p_render->em_ios_height / p_render->view_height;
+            p_render->emulatediOS.height / p_render->view_height;
             
             coordinateRegion.span.longitudeDelta =
             rootViewController.mapView.region.span.latitudeDelta *
-            p_render->em_ios_width / p_render->view_width;
+            p_render->emulatediOS.width / p_render->view_width;
+#else
+            coordinateRegion.span =
+            rootViewController.mapView.region.span;
+#endif
             
             //------------------
             // Collect all the selected ids

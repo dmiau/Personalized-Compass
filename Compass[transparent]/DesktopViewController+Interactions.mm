@@ -109,6 +109,12 @@
         [self compassSelectedMode:YES];
         [self.compassView setNeedsDisplay: YES];
 
+    }else if (self.renderer->emulatediOS.is_enabled
+              && self.renderer->emulatediOS.isTouched(
+        [self convertNSViewCoordToOpenGL: mouseLoc]))
+    {
+        [self enableMapInteraction:NO];
+        [self.compassView setNeedsDisplay: YES];
     }else{
         // Detecting long mouse click
         //http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
@@ -151,10 +157,13 @@
         if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
             [self updateModelCompassCenterXY];
         }
-        
-        [self.compassView setNeedsDisplay: YES];
-        return;
     }
+    
+    if (self.renderer->emulatediOS.is_touched){
+        self.renderer->emulatediOS.centroid_in_opengl = [self convertNSViewCoordToOpenGL: mouseLoc];
+    }
+    
+    [self.compassView setNeedsDisplay: YES];
 }
 
 
@@ -163,6 +172,11 @@
     mouseTimer = nil;
     if ([self.UIConfigurations[@"UICompassTouched"] boolValue]){
         [self compassSelectedMode:NO];
+    }
+    
+    if (self.renderer->emulatediOS.is_touched){
+        self.renderer->emulatediOS.is_touched = false;
+        [self enableMapInteraction:YES];
     }
 }
 
@@ -196,24 +210,32 @@
 
 #pragma mark ------------- Compass Interaction -------------
 - (void)compassSelectedMode:(bool)state{
+    [self enableMapInteraction:!state];
     if (state){
-        [self.mapView setPitchEnabled:NO];
-        [self.mapView setZoomEnabled:NO];
-        [self.mapView setRotateEnabled:NO];
-        [self.mapView setScrollEnabled:NO];
         self.model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:255];
     }else{
-        [self.mapView setPitchEnabled:NO];
-        [self.mapView setZoomEnabled:YES];
-        [self.mapView setRotateEnabled:YES];
-        [self.mapView setScrollEnabled:YES];
         self.model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:150];
     }
+
     self.UIConfigurations[@"UICompassTouched"] =
     [NSNumber numberWithBool: state];
     [self.compassView setNeedsDisplay:YES];
 }
 
+-(void)enableMapInteraction:(bool)state{
+    if (!state){
+        [self.mapView setPitchEnabled:NO];
+        [self.mapView setZoomEnabled:NO];
+        [self.mapView setRotateEnabled:NO];
+        [self.mapView setScrollEnabled:NO];
+
+    }else{
+        [self.mapView setPitchEnabled:YES];
+        [self.mapView setZoomEnabled:YES];
+        [self.mapView setRotateEnabled:YES];
+        [self.mapView setScrollEnabled:YES];
+    }
+}
 
 - (bool)isCompassTouched: (CGPoint) touchPoint{
     

@@ -46,6 +46,8 @@
 }
 
 - (void)viewWillAppear{
+    [self updateSnapshotFileList];
+    
     // Initialize the combo box
     [self.kmlComboBox setStringValue:
      [self.model->snapshot_filename
@@ -64,6 +66,7 @@
                          contentsOfDirectoryAtPath: path error:nil];
     
     snapshot_file_array = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS 'snapshot'"]];
+    [self.kmlComboBox reloadData];
 }
 
 #pragma mark -----Combo Box-----
