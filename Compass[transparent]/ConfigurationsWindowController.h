@@ -84,6 +84,7 @@
 // KML combo box
 - (IBAction)didChangeKMLCombo:(id)sender;
 - (IBAction)toggleLandmarkSelection:(id)sender;
+- (IBAction)refreshLocationTable:(id)sender;
 
 // Annotation control
 
@@ -108,6 +109,8 @@
 @property (weak) IBOutlet NSSegmentedControl *dataSelectionControl;
 - (IBAction)dataPrefilterSegmentControl:(NSSegmentedControl*)sender;
 - (IBAction)dataSelectionSegmentControl:(NSSegmentedControl*)sender;
+- (IBAction)saveKML:(id)sender;
+- (IBAction)saveKMLAs:(id)sender;
 
 //-------------
 // Test Manager

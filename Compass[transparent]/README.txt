@@ -2370,6 +2370,46 @@ iOSFourCornersInNSView [7:27PM]
 - watchMode, modify drawOneSide to cut off the legs
 - display whitebackground (this should be easy)
 
+-------------------------------------------------------------------
+2.9.2015
+-------------------------------------------------------------------
+*Done
+- label control 
+- kml loading [9:35AM]
+- Fix the changing eiOS screen
+
+- Fixed a bug in user dropped pin
+* CalloutViewController annotation editing control
+* configureUserDroppedPinView seems have some issues [2:21PM]
+
+*ToDo
+- Snapshot loading is too slow on iOS
+- Test authoring tool (manually add locations)
+- Implement a StudyLog structure
+- Design and implement package exchange (right now a dictionary is sent)
+- map zoom in/out, pan around
+- desktop compass box in emiOS mode
+
+- Automatically calculate MapRect for the study
+- Add annotation editing capability to the desktop map
+- kml and snapshot dir needs to be refreshed after tab switch
+- The box indicator calculation is incorrect
+
+- Communication module (Design what information needs to be passed around)
+* iOSViewController+Client
+* MyWebSocket
+* DesktopViewController+Server
+
+*Working
+- Display visualization and configure display type correctly
+- Implement "Run Test"
+- Implement iOS's TestManager (right now it only has a DemoManager)
+
+- Sometimes a needle could become too thin
+- iWath emulation
+- watchMode, modify drawOneSide to cut off the legs
+- display whitebackground (this should be easy)
+
 
 
 

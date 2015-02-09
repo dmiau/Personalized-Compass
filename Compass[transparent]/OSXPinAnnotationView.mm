@@ -7,6 +7,8 @@
 //
 
 #import "OSXPinAnnotationView.h"
+#import "DesktopViewController.h"
+#import "AppDelegate.h"
 
 //-----------------------------
 // CalloutViewController
@@ -21,6 +23,11 @@
     self.model = compassMdl::shareCompassMdl();
     self.annotation = annotation;
 
+    //------------------
+    // Get the rootViewController
+    AppDelegate *temp = [[NSApplication sharedApplication] delegate];
+    self.rootViewController = temp.rootViewController;
+    
     //------------------
     
     // Do any additional setup after loading the view.
@@ -84,9 +91,43 @@
 }
 
 - (IBAction)addLocation:(id)sender {
+    // Right buttton tapped - add the pin to data_array
+    data myData;
+    myData.name = [self.annotation.title UTF8String];
+    myData.annotation = self.annotation;
+    myData.annotation.point_type = landmark;
+    
+    myData.annotation.subtitle =
+    [NSString stringWithFormat:@"%lu",
+     self.model->data_array.size()];
+    
+    myData.latitude =  self.annotation.coordinate.latitude;
+    myData.longitude =  self.annotation.coordinate.longitude;
+    
+    myData.annotation.data_id = self.model->data_array.size();
+    
+    myData.my_texture_info = self.model->generateTextureInfo
+    ([NSString stringWithUTF8String:myData.name.c_str()]);
+    // Add the new data to data_array
+    self.model->data_array.push_back(myData);
+    
+    
+    self.addButton.enabled = NO;
+    self.removeButton.enabled = YES;
+    
+    self.statusSegmentControl.enabled = true;
+    self.statusSegmentControl.selectedSegment = 0;
+    
+    [self.rootViewController renderAnnotations];
 }
 
 - (IBAction)removeLocation:(id)sender {
+    int i = self.annotation.data_id;
+    [self.rootViewController.mapView removeAnnotation:
+     self.model->data_array[i].annotation];
+    self.model->data_array.erase(
+                                 self.model->data_array.begin() + i );
+    self.removeButton.enabled = NO;
 }
 
 - (IBAction)toggleEnable:(id)sender {
@@ -101,6 +142,17 @@
 }
 
 - (IBAction)doneEditing:(id)sender {
+    [self.titleTextField resignFirstResponder];
+    [self.noteTextField resignFirstResponder];
+    
+    self.annotation.title = self.titleTextField.stringValue;
+    self.annotation.notes = self.noteTextField.stringValue;
+    
+    if (self.annotation.point_type == landmark){
+        int i = self.annotation.data_id;
+        self.model->data_array[i].name =
+        [self.annotation.title UTF8String];
+    }
 }
 @end
 

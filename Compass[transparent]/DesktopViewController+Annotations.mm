@@ -58,7 +58,8 @@
         {
             pinView = [[OSXPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
         }else{
-            pinView.annotation = annotation;
+            // TODO: the callOutViewController needs to be reinitialized!
+            pinView = [pinView initWithAnnotation:annotation reuseIdentifier:landmarkAnnotationID];
         }
         
         if([self.UIConfigurations[@"UIAllowMultipleAnnotations"] boolValue]){
@@ -118,8 +119,10 @@
 //---------------
 // User triggered drop pin
 //---------------
-- (MKPinAnnotationView *) configureUserDroppedPinView: (MKPinAnnotationView *) pinView
+- (OSXPinAnnotationView *) configureUserDroppedPinView: (OSXPinAnnotationView *) pinView
 {
+    
+    
     NSString *address;
     CLLocation *location = [[CLLocation alloc]
                             initWithLatitude:[pinView.annotation coordinate].latitude

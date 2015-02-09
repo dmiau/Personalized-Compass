@@ -10,13 +10,15 @@
 #import "CustomPointAnnotation.h"
 #import "compassModel.h"
 
+@class DesktopViewController;
+
 @interface CalloutViewController : NSViewController
 
 @property CustomPointAnnotation *annotation;
 @property (weak) IBOutlet NSView *detailView;
 @property (weak) IBOutlet NSTextField *landmark_name;
 @property compassMdl* model;
-
+@property DesktopViewController *rootViewController;
 
 @property (weak, nonatomic) IBOutlet NSTextField *titleTextField;
 

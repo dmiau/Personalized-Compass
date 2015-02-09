@@ -242,6 +242,9 @@
     //    [tableView reloadData];
 }
 
+- (IBAction)refreshLocationTable:(id)sender {
+    [self.locationTableView reloadData];
+}
 
 //-------------
 // Table selection control
@@ -309,5 +312,83 @@
 }
 - (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)string {
     return [kml_files indexOfObject: string];
+}
+
+
+#pragma mark ------------Data Export------------
+//-------------
+// Save file
+//-------------
+- (IBAction)saveKML:(id)sender {
+    
+    NSString *filename =
+    [self.model->location_filename lastPathComponent];
+    [self saveKMLWithFilename:filename];
+    
+}
+
+- (IBAction)saveKMLAs:(id)sender {
+    
+    NSString* filename =
+    [self input: @"Please input a file name:" defaultValue:@"nweKml.kml"];
+    if ([filename rangeOfString:@".kml"].location == NSNotFound) {
+        filename = [filename stringByAppendingString:@".kml"];
+    }
+    [self saveKMLWithFilename:filename];
+    
+    // There are some more works to do at the point
+    
+    // At this point we are operating on the new file
+    self.model->location_filename = filename;
+    // Initialize the combo box
+    [self.kmlComboBox setStringValue:
+     [self.model->location_filename
+      lastPathComponent]];
+}
+
+- (BOOL) saveKMLWithFilename:(NSString*) filename{
+    bool hasError = false;
+    NSString *content = genKMLString(self.model->data_array);
+    
+    NSError* error;
+    NSString *doc_path = [self.model->desktopDropboxDataRoot stringByAppendingPathComponent:filename];
+    
+    if (![content writeToFile:doc_path
+                   atomically:YES encoding: NSASCIIStringEncoding
+                        error:&error])
+    {
+        
+        NSAlert *alert = [NSAlert alertWithMessageText:
+                          [NSString stringWithFormat:@"Write %@ failed", doc_path]
+                                         defaultButton:@"OK"
+                                       alternateButton:nil
+                                           otherButton:nil
+                             informativeTextWithFormat:@""];
+        [alert runModal];
+        return false;
+    }
+    return true;
+}
+
+- (NSString *)input: (NSString *)prompt defaultValue: (NSString *)defaultValue {
+    NSAlert *alert = [NSAlert alertWithMessageText: prompt
+                                     defaultButton:@"OK"
+                                   alternateButton:@"Cancel"
+                                       otherButton:nil
+                         informativeTextWithFormat:@""];
+    
+    NSTextField *input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+    [input setStringValue:defaultValue];
+    [alert setAccessoryView:input];
+    NSInteger button = [alert runModal];
+    if (button == NSAlertDefaultReturn) {
+        [input validateEditing];
+        return [input stringValue];
+    } else if (button == NSAlertAlternateReturn) {
+        return nil;
+    } else {
+        NSAssert1(NO, @"Invalid input dialog button %d", button);
+        return nil;
+    }
 }
 @end
