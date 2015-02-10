@@ -2417,16 +2417,16 @@ iOSFourCornersInNSView [7:27PM]
 -------------------------------------------------------------------
 2.10.2015
 -------------------------------------------------------------------
-*Done
+***** Done
 - display whitebackground (this should be easy) [10:32PM]
+- Load snapshots in study mode [11:07AM]
+- Display visualization and configure display type correctly [12:20PM]
 
-*ToDo
+***** ToDo
 - Snapshot loading is too slow on iOS
 - Implement a StudyLog structure
 - Design and implement package exchange (right now a dictionary is sent)
 - map zoom in/out, pan around
-
-- Automatically calculate MapRect for the study
 
 - Communication module (Design what information needs to be passed around)
 * iOSViewController+Client
@@ -2435,15 +2435,20 @@ iOSFourCornersInNSView [7:27PM]
 
 - Lation square generation
 - Compass needs to be updated in real time when it is moved 
+- Naming conventions: .locations, .snapshot, .tests, etc. 
+- Think about tests which involve multiple locations (I can sketch out some ideas)
+- Outline the paper
 
-*Working
-- Display visualization and configure display type correctly
+- Automatically calculate MapRect for the study
+
+***** Working
+- Sometimes a needle could become too thin
+- iWath emulation, watchMode, modify drawOneSide to cut off the legs
+
 - Implement "Run Test"
 - Implement iOS's TestManager (right now it only has a DemoManager)
 
-- Sometimes a needle could become too thin
-- iWath emulation
-- watchMode, modify drawOneSide to cut off the legs
+
 
 
 

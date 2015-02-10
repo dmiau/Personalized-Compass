@@ -389,8 +389,7 @@
                 snapshot_id = 0;
             }
         }
-        [self displaySnapshot:snapshot_id
-              withVizSettings: false withPins:YES];
+        [self displaySnapshot:snapshot_id withStudySettings:NO];
         self.model->lockLandmarks = true;
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
@@ -412,8 +411,7 @@
             }
         }
         
-        [self displaySnapshot:snapshot_id
-              withVizSettings: false withPins:YES];
+        [self displaySnapshot:snapshot_id withStudySettings:NO];
         self.model->lockLandmarks = true;
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];

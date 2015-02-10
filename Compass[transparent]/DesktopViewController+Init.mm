@@ -40,8 +40,11 @@
         // Initialize iOSSyncFlag
         self.iOSSyncFlag = false;
         
-        // Initial testManager to NULL
-        self.testManager = NULL;
+        //--------------------
+        // Initial testManager
+        //--------------------        
+        self.testManager = TestManager::shareTestManager();
+        self.testManager->rootViewController = self;
         
         //--------------------
         // Initialize a list of UI configurations

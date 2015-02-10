@@ -42,12 +42,13 @@
     self = [super initWithCoder:aDecoder];
     if(self) {
         self.model = compassMdl::shareCompassMdl();
-        self.renderer = compassRender::shareCompassRender();
-        self.demoManager = DemoManager::shareDemoManager();
-        
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
-        
+        self.renderer = compassRender::shareCompassRender();
+        self.demoManager = DemoManager::shareDemoManager();
+        self.testManager = TestManager::shareTestManager();
+        self.testManager->rootViewController = self;
+                
         [self.searchDisplayController setDelegate:self];
         [self.ibSearchBar setDelegate:self];
         

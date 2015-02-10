@@ -23,4 +23,25 @@
     output.y = coordInNSView.y - self.renderer->view_height/2;
     return output;
 }
+
+//-------------------
+// shiftTestingEnvironmentBy shift the entire environment, including the map,
+// the emulated iOS and the compass, by the vector specified in shift (in pixels)
+//-------------------
+- (void) shiftTestingEnvironmentBy: (CGPoint) shift{
+    
+    // Shift the map
+    
+    // 1. Find out the coordinates, coord, corresponding to -shift
+    // 2. Make coord the center
+    CGPoint neg_shift;
+    neg_shift.x = - shift.x; neg_shift.y = -shift.y;
+    CLLocationCoordinate2D coord = [self.mapView convertPoint:neg_shift toCoordinateFromView:self.compassView];
+    
+    
+    // Shift the em iOS
+    
+    
+    // Shift the compass
+}
 @end

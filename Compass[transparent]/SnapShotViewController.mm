@@ -35,6 +35,8 @@
         
         selected_snapshot_id = -1;
         [self updateSnapshotFileList];
+        
+        self.isStudyMode = false;
     }
     return self;
 }
@@ -55,6 +57,9 @@
     
     // Update the table
     [self.myTableView reloadData];
+    
+    // Set the study mode
+    self.studyModeSegmentControl.selectedSegment = (int) self.isStudyMode;
 }
 
 
@@ -124,22 +129,10 @@
     NSIndexSet *idx = [tableView selectedRowIndexes];
     //    NSLog(@"Selected Row: %@", idx);
     int ind = (int)[idx firstIndex];
-    
-    // Display a snapshot
-    [self.rootViewController displaySnapshot:ind withVizSettings:false
-     withPins:YES];
         
-//    // Assume only one row is clicked
-//    int ind = (int)[idx firstIndex];
-//    
-//    //[todo] hwo to improve?
-//    self.model->camera_pos.name = self.model->data_array[ind].name;
-//    self.model->camera_pos.latitude = self.model->data_array[ind].latitude;
-//    self.model->camera_pos.longitude = self.model->data_array[ind].longitude;
-//    
-//    //    self.model->updateMdl();
-//    [self.rootViewController updateMapDisplayRegion: YES];
-//    //    [tableView reloadData];
+    // Display a snapshot
+    [self.rootViewController displaySnapshot:ind
+                           withStudySettings: self.isStudyMode];
 }
 
 //----------------
@@ -156,6 +149,23 @@
         [alert runModal];        
     }else{
         [self.myTableView reloadData];
+    }
+}
+
+//----------------
+// Toggle study mode
+//----------------
+- (IBAction)toggleStudyMode:(NSSegmentedControl*)sender {
+    int state = [sender selectedSegment];
+    switch (state) {
+        case 0:
+            self.isStudyMode = false;
+            break;
+        case 1:
+            self.isStudyMode = true;
+            break;
+        default:
+            break;
     }
 }
 @end

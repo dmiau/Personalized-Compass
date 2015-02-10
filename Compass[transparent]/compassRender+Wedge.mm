@@ -104,7 +104,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             float wedge_disp_width, wedge_disp_height;
             
             
-            wedge_disp_width = view_width-30;
+            wedge_disp_width = view_width-30; // This control the visible area where a wedge can be plotted.
             wedge_disp_height = view_height - 30;
 #ifndef __IPHONE__
             if (emulatediOS.is_enabled &&
@@ -113,8 +113,8 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
                 //-------------------
                 // The display area is smaller when the emulated iOS mode is on
                 //-------------------
-                wedge_disp_width = emulatediOS.width - 5;
-                wedge_disp_height = emulatediOS.height - 5;
+                wedge_disp_width = emulatediOS.width - 10;
+                wedge_disp_height = emulatediOS.height - 10;
                 x_diff = x_diff - emulatediOS.centroid_in_opengl.x;
                 y_diff = y_diff - emulatediOS.centroid_in_opengl.y;
             }

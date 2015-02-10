@@ -121,9 +121,14 @@ public:
 // Test Manager
 //---------------
 enum TaskType {LOCATE, TRIANGULATE, ORIENT};
-
+enum TestManagerMode {CONTROL, COLLECT};
 class TestManager{
 public:
+    
+    //-----------------
+    // Parameters
+    //-----------------
+    TestManagerMode testManagerMode;
     
     // Test generation parameters
     // These parameters specify where the generated tests should go

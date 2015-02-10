@@ -609,11 +609,11 @@
                             </tabViewItem>
                             <tabViewItem label="SnapShots" identifier="" id="0Fw-BV-9HS">
                                 <view key="view" id="a2d-kU-hoH">
-                                    <rect key="frame" x="10" y="33" width="664" height="418"/>
+                                    <rect key="frame" x="10" y="33" width="636" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KbF-5H-0SW">
-                                            <rect key="frame" x="159" y="391" width="95" height="17"/>
+                                            <rect key="frame" x="159" y="379" width="95" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="SnapShot File:" id="CmM-gd-0g1">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -621,7 +621,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="36" horizontalPageScroll="10" verticalLineScroll="36" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGP-0u-SGW" userLabel="SnapShot Scroll- Table View">
-                                            <rect key="frame" x="17" y="29" width="237" height="348"/>
+                                            <rect key="frame" x="17" y="17" width="237" height="348"/>
                                             <clipView key="contentView" misplaced="YES" id="wUv-BV-1pQ">
                                                 <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -687,21 +687,21 @@
                                             </tableHeaderView>
                                         </scrollView>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ogD-r4-tah">
-                                            <rect key="frame" x="295" y="259" width="71" height="32"/>
+                                            <rect key="frame" x="267" y="325" width="71" height="32"/>
                                             <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ihu-Ql-mcf">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5HX-cC-tgN">
-                                            <rect key="frame" x="381" y="259" width="87" height="32"/>
+                                            <rect key="frame" x="353" y="325" width="87" height="32"/>
                                             <buttonCell key="cell" type="push" title="SaveAs" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6Tc-Sm-xkR">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KJn-e1-EDr">
-                                            <rect key="frame" x="476" y="259" width="84" height="32"/>
+                                            <rect key="frame" x="448" y="325" width="84" height="32"/>
                                             <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mPo-WF-KNP">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -711,7 +711,7 @@
                                             </connections>
                                         </button>
                                         <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0v-rk-Z2j" userLabel="SnapShot Combo Box">
-                                            <rect key="frame" x="260" y="386" width="226" height="26"/>
+                                            <rect key="frame" x="260" y="374" width="226" height="26"/>
                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="gXq-fX-Xfb">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -724,7 +724,7 @@
                                             </connections>
                                         </comboBox>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3s-wl-jDi">
-                                            <rect key="frame" x="268" y="339" width="156" height="17"/>
+                                            <rect key="frame" x="271" y="289" width="156" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Snapshot Loading Mode" id="ioe-rX-lMx">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -732,7 +732,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WS3-xR-E3R">
-                                            <rect key="frame" x="429" y="333" width="179" height="24"/>
+                                            <rect key="frame" x="432" y="283" width="179" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="ucO-qE-Zmb">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -740,6 +740,9 @@
                                                     <segment label="Study" width="86" tag="1"/>
                                                 </segments>
                                             </segmentedCell>
+                                            <connections>
+                                                <action selector="toggleStudyMode:" target="aLW-cy-kmh" id="au0-qa-gj7"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                 </view>
@@ -1097,6 +1100,7 @@
             <connections>
                 <outlet property="kmlComboBox" destination="i0v-rk-Z2j" id="E4D-oM-4PI"/>
                 <outlet property="myTableView" destination="i3l-pK-bwD" id="QyO-56-CFC"/>
+                <outlet property="studyModeSegmentControl" destination="WS3-xR-E3R" id="SWy-HQ-x1L"/>
                 <outlet property="view" destination="a2d-kU-hoH" id="EKQ-sT-b8e"/>
             </connections>
         </viewController>

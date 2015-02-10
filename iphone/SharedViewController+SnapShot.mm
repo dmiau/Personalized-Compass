@@ -50,10 +50,24 @@
 // when setup_viz_flag is on, the visualization settings
 // at the time when the snap was taken will be loaded too
 //------------------
-- (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag
-withPins: (bool) pin_flag
+- (bool)displaySnapshot: (int) snapshot_id withStudySettings: (bool) study_settings_flag
 {
-    snapshot mySnapshot = self.model->snapshot_array[id];
+    //-----------
+    // Set up the parameters
+    //-----------
+    // Default values
+    bool pin_flag = true;
+    bool setup_viz_flag = false;
+    
+    if (study_settings_flag){
+        setup_viz_flag = true;
+        
+        if (self.testManager->testManagerMode == CONTROL){
+            pin_flag = false;
+        }
+    }
+    
+    snapshot mySnapshot = self.model->snapshot_array[snapshot_id];
     
     self.model->location_filename = mySnapshot.kmlFilename;
     self.model->reloadFiles();
@@ -94,7 +108,23 @@ withPins: (bool) pin_flag
     //-----------------
     // Set up viz and device
     //-----------------
-    if (setup_viz_flag ){
+    if (setup_viz_flag){
+        if (self.testManager->testManagerMode == CONTROL){
+            // Emulate the iOS enironment if on the desktop
+            // (if it is in the control mode)
+#ifndef __IPHONE__
+            self.renderer->emulatediOS.is_enabled = true;
+            self.renderer->emulatediOS.is_mask_enabled = true;
+            
+            
+            // Also need to set up the positions of the em iOS
+            // and the compass
+            
+            
+            
+#endif
+        }
+
         switch(mySnapshot.visualizationType)
         {
             case VIZPCOMPASS:
@@ -112,7 +142,7 @@ withPins: (bool) pin_flag
                 
                 // Turn off the wedge
                 self.model->configurations[@"wedge_status"] = @"on";
-                self.model->configurations[@"wedge_style"] = @"orthographic";
+                self.model->configurations[@"wedge_style"] = @"modified-orthographic";
                 break;
             case VIZOVERVIEW:
                 // Do nothing
@@ -154,7 +184,7 @@ withPins: (bool) pin_flag
     
     if (pin_flag){
         // Show pins
-        [self changeAnnotationDisplayMode:@"All"];        
+        [self changeAnnotationDisplayMode:@"Enabled"];
     }else{
         // Do not show pins
         [self changeAnnotationDisplayMode:@"None"];

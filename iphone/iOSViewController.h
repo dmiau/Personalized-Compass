@@ -14,6 +14,7 @@
 #include <iostream>
 #import "iOSGLKView.h"
 #import "DemoManager.h"
+#import "TestManager.h"
 
 // SocketRocket
 #import "SRWebSocket.h"
@@ -125,6 +126,7 @@ typedef struct{
 @property compassMdl* model;
 @property compassRender* renderer;
 @property DemoManager* demoManager;
+@property TestManager* testManager;
 
 @property NSNumber *mapUpdateFlag;
 @property bool conventionalCompassVisible;
@@ -143,8 +145,7 @@ typedef struct{
 // Snapshot related stuff
 //----------------
 - (bool)takeSnapshot;
-- (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag
-withPins: (bool) pin_flag;
+- (bool)displaySnapshot: (int) snapshot_id withStudySettings: (bool) study_settings_flag;
 
 //----------------
 // History related stuff

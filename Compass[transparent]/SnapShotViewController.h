@@ -24,16 +24,19 @@ class compassMdl;
 @property compassMdl* model;
 @property DesktopViewController *rootViewController;
 @property (weak) IBOutlet NSComboBox *kmlComboBox;
+@property (weak) IBOutlet NSSegmentedControl *studyModeSegmentControl;
 
-
-- (IBAction)saveKML:(id)sender;
-- (IBAction)saveSnspahotAs:(id)sender;
-- (IBAction)reloadSnapshotFile:(id)sender;
-
+@property bool isStudyMode;
 
 //-----------
 // kml combo box
 //-----------
 - (IBAction)didChangeKMLCombo:(id)sender;
+
+- (IBAction)saveKML:(id)sender;
+- (IBAction)saveSnspahotAs:(id)sender;
+- (IBAction)reloadSnapshotFile:(id)sender;
+
+- (IBAction)toggleStudyMode:(id)sender;
 
 @end

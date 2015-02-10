@@ -33,6 +33,7 @@ int TestManager::initTestManager(){
     device_vector.clear();
     visualization_counter = 0;
     test_counter = -1; //-1 means initialization
+    testManagerMode = CONTROL;
     
     vector<VisualizationType> visualization_enums
     = {VIZNONE, VIZPCOMPASS, VIZWEDGE, VIZOVERVIEW};

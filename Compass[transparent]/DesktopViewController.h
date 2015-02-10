@@ -130,8 +130,7 @@ typedef struct{
 //Snapshot category
 //----------------
 - (bool)takeSnapshot;
-- (bool)displaySnapshot: (int) id withVizSettings: (bool) setup_viz_flag
-withPins: (bool) pin_flag;
+- (bool)displaySnapshot: (int) id withStudySettings: (bool) study_settings_flag;
 
 //----------------
 //Annotation category
@@ -146,6 +145,10 @@ withPins: (bool) pin_flag;
 //----------------
 - (CGPoint) convertOpenGLCoordToNSView: (CGPoint) coordInOpenGL;
 - (CGPoint) convertNSViewCoordToOpenGL: (CGPoint) coordInNSView;
+// shiftTestingEnvironmentBy shift the entire environment, including the map,
+// the emulated iOS and the compass, by the vector specified in shift (in pixels)
+- (void) shiftTestingEnvironmentBy: (CGPoint) shift;
+
 //----------------
 //Server + iOSEmulation
 //----------------
