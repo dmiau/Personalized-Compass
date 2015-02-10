@@ -224,12 +224,27 @@ BOOL compassRender::drawBoxInCompass(double renderD2realDRatio)
         return false;
     }
     
-    // Then the origin
+    // Then the origin of the box (the top left corner)
     double x, y;
     
-    x = -render_width * model->compassCenterXY.x / mapView.frame.size.width;
-    y = render_height * model->compassCenterXY.y / mapView.frame.size.height;
+    CGPoint compassCenterXYInCompassView = model->compassCenterXY;
+    compassCenterXYInCompassView.y = mapView.frame.size.height -
+    compassCenterXYInCompassView.y;
     
+    x = -render_width * compassCenterXYInCompassView.x / mapView.frame.size.width;
+    y = render_height * (mapView.frame.size.height - compassCenterXYInCompassView.y) / mapView.frame.size.height;
+    
+#ifndef __IPHONE__
+    if (emulatediOS.is_enabled){
+        x = -render_width * -(emulatediOS.centroid_in_opengl.x - emulatediOS.width/2-
+                             compassCenterXYInCompassView.x + view_width/2)
+                            / emulatediOS.width;
+        y = render_height * (emulatediOS.centroid_in_opengl.y + emulatediOS.height/2-
+                             compassCenterXYInCompassView.y + view_height/2)
+                            / emulatediOS.height;
+    }
+#endif
+
 //    //---------------
 //    // Debug info
 //    //---------------
@@ -388,33 +403,52 @@ void compassRender::drawiOSMask(CGPoint fourCorners[4]){
 
 #pragma mark ----Tools----
 double compassRender::getMapWidthInMeters(){
-
-    CLLocationCoordinate2D top_left_coord =
+    CLLocationCoordinate2D bottom_left_coord =
     [this->mapView convertPoint:CGPointMake(0, 0)
            toCoordinateFromView:this->mapView];
-    
-    CLLocation *top_left_loc =
-    [[CLLocation alloc] initWithLatitude:top_left_coord.latitude longitude:top_left_coord.longitude];
-    
-    CLLocationCoordinate2D top_right_coord =
+
+    CLLocationCoordinate2D bottom_right_coord =
     [this->mapView convertPoint:CGPointMake(this->mapView.frame.size.width, 0)
            toCoordinateFromView:this->mapView];
-    CLLocation *top_right_loc =
-    [[CLLocation alloc] initWithLatitude:top_right_coord.latitude longitude:top_right_coord.longitude];
-    return [top_left_loc distanceFromLocation:top_right_loc];
+    
+#ifndef __IPHONE__
+    if (emulatediOS.is_enabled){
+        emulatediOS.calculateFourLatLon(mapView);
+        bottom_left_coord = emulatediOS.four_latlon[3];
+        bottom_right_coord = emulatediOS.four_latlon[2];
+    }
+#endif
+
+    CLLocation *bottom_left_loc =
+    [[CLLocation alloc] initWithLatitude:bottom_left_coord.latitude longitude:bottom_left_coord.longitude];
+    
+
+    CLLocation *bottom_right_loc =
+    [[CLLocation alloc] initWithLatitude:bottom_right_coord.latitude longitude:bottom_right_coord.longitude];
+    return [bottom_left_loc distanceFromLocation:bottom_right_loc];
 }
 
 double compassRender::getMapHeightInMeters(){
     CLLocationCoordinate2D top_left_coord =
     [this->mapView convertPoint:CGPointMake(0, 0)
            toCoordinateFromView:this->mapView];
+
+    CLLocationCoordinate2D bottom_left_coord =
+    [this->mapView convertPoint:CGPointMake(0, this->mapView.frame.size.height)
+           toCoordinateFromView:this->mapView];
+    
+#ifndef __IPHONE__
+    if (emulatediOS.is_enabled){
+        emulatediOS.calculateFourLatLon(mapView);
+        top_left_coord = emulatediOS.four_latlon[0];
+        bottom_left_coord = emulatediOS.four_latlon[3];
+    }
+#endif
     
     CLLocation *top_left_loc =
     [[CLLocation alloc] initWithLatitude:top_left_coord.latitude longitude:top_left_coord.longitude];
     
-    CLLocationCoordinate2D bottom_left_coord =
-    [this->mapView convertPoint:CGPointMake(0, this->mapView.frame.size.height)
-           toCoordinateFromView:this->mapView];
+
     CLLocation *bottom_left_loc =
     [[CLLocation alloc] initWithLatitude:bottom_left_coord.latitude longitude:bottom_left_coord.longitude];
     return [top_left_loc distanceFromLocation:bottom_left_loc];

@@ -51,6 +51,7 @@ public:
     bool acceptTouch(bool state);
     void changeSizeByScale(float scale);
     void updateFourLatLon(double labLon4x2Double[4][2]);
+    void calculateFourLatLon(MKMapView *mapView);
     MKCoordinateRegion caculateCoordinateRegionForDesktop
     (DesktopViewController *rootViewController);
 };

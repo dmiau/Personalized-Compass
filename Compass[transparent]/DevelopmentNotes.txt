@@ -15,8 +15,19 @@ All iOS devices have the macro __IPHONE__ defined
 
 Coordinate system:
 
+self.render->compass_centroid
+self.model->configurations[@"compass_centroid"]
 =====================
-OSX View (u, v)
+OSX CompassView (u, v)
+=====================
+v
+|
+|
+|
+--------u
+
+=====================
+OSX Map View (u, v) self.model->compassCenterXY [in MapView]
 =====================
 --------u
 |
@@ -45,10 +56,11 @@ y
 -y
 
 These things are different:
+These two are supposed to be the same [in OpenGL coordinate]
 self.render->compass_centroid
 self.model->configurations[@"compass_centroid"]
-self.model->compassCenterXY
 
+self.model->compassCenterXY [in MapView]
 
 Map convention:
 (latitude, longitude)

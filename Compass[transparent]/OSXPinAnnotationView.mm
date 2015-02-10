@@ -27,9 +27,7 @@
     // Get the rootViewController
     AppDelegate *temp = [[NSApplication sharedApplication] delegate];
     self.rootViewController = temp.rootViewController;
-    
-    //------------------
-    
+        
     // Do any additional setup after loading the view.
     self.titleTextField.stringValue = self.annotation.title;
     self.noteTextField.stringValue = self.annotation.notes;

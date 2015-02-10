@@ -208,7 +208,7 @@ public:
     //-----------------
     // indicates the centroid of compass in the map window coordinate frame
     // (in terms of u, v, not in terms of latitude and longitude)
-    CGPoint compassCenterXY;
+    CGPoint compassCenterXY; // Check the dev note for the MapView coordinate convention!
     // list of distances computed from the current location
     vector<double> distance_list;
     // indices of locations, ordered by distance

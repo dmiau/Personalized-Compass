@@ -2381,6 +2381,10 @@ iOSFourCornersInNSView [7:27PM]
 - Fixed a bug in user dropped pin
 * CalloutViewController annotation editing control
 * configureUserDroppedPinView seems have some issues [2:21PM]
+- kml and snapshot dir needs to be refreshed after tab switch
+- Add annotation editing capability to the desktop map[2:24PM]
+- drawBoxInCompass needs to be modified 
+- The box indicator calculation is incorrect [8:53PM]
 
 *ToDo
 - Snapshot loading is too slow on iOS
@@ -2391,9 +2395,7 @@ iOSFourCornersInNSView [7:27PM]
 - desktop compass box in emiOS mode
 
 - Automatically calculate MapRect for the study
-- Add annotation editing capability to the desktop map
-- kml and snapshot dir needs to be refreshed after tab switch
-- The box indicator calculation is incorrect
+
 
 - Communication module (Design what information needs to be passed around)
 * iOSViewController+Client

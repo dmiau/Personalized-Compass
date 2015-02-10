@@ -142,7 +142,7 @@
         //-------------------------
         
         // update compass location
-        recVec compassXY = self.renderer->compass_centroid;
+        recVec compassXY;
         compassXY.x = mouseLoc.x - self.compassView.frame.size.width/2;
         compassXY.y = mouseLoc.y - self.compassView.frame.size.height/2;
         
@@ -150,8 +150,7 @@
         self.model->configurations[@"compass_centroid"][0] =
         [NSNumber numberWithInt:compassXY.x];
         self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:compassXY.y];
-        
+        [NSNumber numberWithInt:compassXY.y];        
         self.renderer->loadCentroidFromModelConfiguration();
         
         if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
@@ -162,7 +161,7 @@
     if (self.renderer->emulatediOS.is_touched){
         self.renderer->emulatediOS.centroid_in_opengl = [self convertNSViewCoordToOpenGL: mouseLoc];
     }
-    
+
     [self.compassView setNeedsDisplay: YES];
 }
 
@@ -202,7 +201,7 @@
     CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
     annotation.coordinate = touchMapCoordinate;
     annotation.title      = @"Dropped Pin";
-    annotation.subtitle   = @"Dropped Pin";
+    annotation.subtitle   = @"";
     annotation.point_type = dropped;
     
     [self.mapView addAnnotation:annotation];

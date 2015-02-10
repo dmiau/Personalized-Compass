@@ -186,4 +186,43 @@ MKCoordinateRegion EmulatediOS::caculateCoordinateRegionForDesktop
     return output;
 }
 
+/*
+ Calculate four_latlon based on the current boundary
+ */
+void EmulatediOS::calculateFourLatLon(MKMapView *mapView){
+    CGPoint ptInNSView;
+    float view_width, view_height;
+    CLLocationCoordinate2D coord;
 
+    // Upper left
+    ptInNSView.x = centroid_in_opengl.x - width/2 + view_width/2;
+    ptInNSView.y = centroid_in_opengl.y + height/2 + view_height/2;
+    
+    coord = [mapView convertPoint:ptInNSView
+           toCoordinateFromView:mapView];
+    four_latlon[0] = coord;
+
+    // Upper right
+    ptInNSView.x = centroid_in_opengl.x + width/2 + view_width/2;
+    ptInNSView.y = centroid_in_opengl.y + height/2 + view_height/2;
+    
+    coord = [mapView convertPoint:ptInNSView
+                                toCoordinateFromView:mapView];
+    four_latlon[1] = coord;
+
+    // Lower right
+    ptInNSView.x = centroid_in_opengl.x + width/2 + view_width/2;
+    ptInNSView.y = centroid_in_opengl.y - height/2 + view_height/2;
+    
+    coord = [mapView convertPoint:ptInNSView
+                                toCoordinateFromView:mapView];
+    four_latlon[2] = coord;
+    
+    // Lower left
+    ptInNSView.x = centroid_in_opengl.x - width/2 + view_width/2;
+    ptInNSView.y = centroid_in_opengl.y - height/2 + view_height/2;
+    
+    coord = [mapView convertPoint:ptInNSView
+                                toCoordinateFromView:mapView];
+    four_latlon[3] = coord;
+}

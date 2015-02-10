@@ -12,7 +12,7 @@ label_info compassRender::drawLabel(float rotation, float height,
 {    
     glPushMatrix();
 #ifndef __IPHONE__
-    if (emulatediOS.is_enabled){
+    if (emulatediOS.is_enabled && wedgeMode){
         glTranslatef(emulatediOS.centroid_in_opengl.x,
                      emulatediOS.centroid_in_opengl.y, 0);
     }

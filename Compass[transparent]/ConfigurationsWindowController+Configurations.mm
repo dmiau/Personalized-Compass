@@ -160,12 +160,12 @@
     !self.rootViewController.iOSSyncFlag;
 }
 
-- (IBAction)toggleiOSBoundary:(id)sender {
+- (IBAction)toggleiOSBoundary:(NSButton*)sender {
 
     // Needs to be reworked 
     
     self.rootViewController.renderer->emulatediOS.is_enabled
-    = !self.rootViewController.renderer->emulatediOS.is_enabled;
+    = [sender state];
     
     if (self.rootViewController.renderer->emulatediOS.is_enabled){
         [self.iOSMaskControl setState:1];

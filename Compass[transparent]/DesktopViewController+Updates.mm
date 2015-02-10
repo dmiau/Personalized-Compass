@@ -209,21 +209,21 @@
         
         //TODO: need to fix watch mode with isiOSBoxEnabled is true
         CGRect myRect;
+        myRect = [self.mapView frame];
+
+#ifndef __IPHONE__
         if (self.renderer->emulatediOS.is_enabled){
             // Get the information from iOSFourCornersInNSView
             
             CGPoint coordInNSView =
             [self convertOpenGLCoordToNSView: self.renderer->emulatediOS.centroid_in_opengl];
             coordInNSView.x = coordInNSView.x- self.renderer->emulatediOS.width/2;
-            coordInNSView.y = coordInNSView.y+ self.renderer->emulatediOS.height/2;
+            coordInNSView.y = coordInNSView.y- self.renderer->emulatediOS.height/2;
             myRect.origin= coordInNSView;
             myRect.size.width = self.renderer->emulatediOS.width;
             myRect.size.height = self.renderer->emulatediOS.height;
-        }else{
-            myRect = [self.mapView frame];
         }
-
-        
+#endif
         if (self.renderer->watchMode){
             
             CLLocation *point_location = [[CLLocation alloc]
@@ -239,8 +239,8 @@
             // testing if someLocation is on rotating mapView
             CGPoint screenP = [self.mapView convertCoordinate:
                                coord2d toPointToView:self.mapView];
-            if (screenP.x > myRect.origin.x && screenP.x < myRect.size.width
-                && screenP.y > myRect.origin.y && screenP.y < myRect.size.height){
+            if (screenP.x > myRect.origin.x && (screenP.x - myRect.origin.x) < myRect.size.width
+                && screenP.y > myRect.origin.y && (screenP.y - myRect.origin.y) < myRect.size.height){
                 data_ptr->isVisible = true;
             }else{
                 data_ptr->isVisible = false;
