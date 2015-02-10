@@ -46,46 +46,49 @@
         }
     }
     
+    
     //------------------
-    // Check if any of the label is clicked
+    // Check if any of the label is clicked (only when the compass is enabled)
     //------------------
-    CGPoint touch_pt = [touch locationInView:self.mapView];
-    NSLog(@"MapUV U: %f, V: %f", touch_pt.x, touch_pt.y);
-    for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
-        int j = self.model->indices_for_rendering[i];
-        // convert from compass coordinate to map uv coordinate
-        CGPoint label_pt_compass =
-        self.model->data_array[j].my_label_info.centroid;
-        
-        NSLog(@"Name: %@",
-              [NSString stringWithUTF8String: self.model->data_array[j].name.c_str()]);
-        NSLog(@"Centroid: %@", NSStringFromCGPoint(label_pt_compass));
-        CGPoint label_pt = self.renderer->
-        convertCompassPointToMapUV(label_pt_compass,
-                                   self.glkView.frame.size.width,
-                                   self.glkView.frame.size.height);
-        
-        NSLog(@"%@", NSStringFromCGPoint(label_pt));
-        double width = self.model->data_array[j].my_texture_info.size.width;
-        double height = self.model->data_array[j].my_texture_info.size.height;
-        
-        if ((touch_pt.x - label_pt.x) <= width
-            && (touch_pt.x - label_pt.x) >= 0
-            && (label_pt.y - touch_pt.y) <= height
-            && (label_pt.y - touch_pt.y) >=0)
-        {
-            int id = j;
-            self.model->camera_pos.latitude =
-            self.model->data_array[id].latitude;
-            self.model->camera_pos.longitude =
-            self.model->data_array[id].longitude;
-            self.landmark_id_toshow = -1;
-            [self updateMapDisplayRegion:YES];
-
-        
-        [self.glkView setNeedsDisplay];
+    if (self.model->configurations[@"personalized_compass_status"] == @"on"){
+        CGPoint touch_pt = [touch locationInView:self.mapView];
+        NSLog(@"MapUV U: %f, V: %f", touch_pt.x, touch_pt.y);
+        for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
+            int j = self.model->indices_for_rendering[i];
+            // convert from compass coordinate to map uv coordinate
+            CGPoint label_pt_compass =
+            self.model->data_array[j].my_label_info.centroid;
+            
+            NSLog(@"Name: %@",
+                  [NSString stringWithUTF8String: self.model->data_array[j].name.c_str()]);
+            NSLog(@"Centroid: %@", NSStringFromCGPoint(label_pt_compass));
+            CGPoint label_pt = self.renderer->
+            convertCompassPointToMapUV(label_pt_compass,
+                                       self.glkView.frame.size.width,
+                                       self.glkView.frame.size.height);
+            
+            NSLog(@"%@", NSStringFromCGPoint(label_pt));
+            double width = self.model->data_array[j].my_texture_info.size.width;
+            double height = self.model->data_array[j].my_texture_info.size.height;
+            
+            if ((touch_pt.x - label_pt.x) <= width
+                && (touch_pt.x - label_pt.x) >= 0
+                && (label_pt.y - touch_pt.y) <= height
+                && (label_pt.y - touch_pt.y) >=0)
+            {
+                int id = j;
+                self.model->camera_pos.latitude =
+                self.model->data_array[id].latitude;
+                self.model->camera_pos.longitude =
+                self.model->data_array[id].longitude;
+                self.landmark_id_toshow = -1;
+                [self updateMapDisplayRegion:YES];
+                
+                
+                [self.glkView setNeedsDisplay];
+            }
+            
         }
-        
     }
 }
 

@@ -54,6 +54,37 @@
 
 
 //--------------------
+// Toggle Blank Background
+//--------------------
+- (IBAction)toggleBlankBackground:(NSButton*)sender {
+    static bool init = false;
+    static MKPolygon* poly;
+    
+    // Initialization
+    if (!init){
+
+    }
+    
+    if ([sender state]){
+        
+        vector<CLLocationCoordinate2D> latlon_vector =
+        [self.rootViewController getBoundaryLatLon];
+        
+        // Define an overlay that covers Colorado.
+        CLLocationCoordinate2D  points[4];
+        points[0] = latlon_vector[0];
+        points[1] = latlon_vector[1];
+        points[2] = latlon_vector[2];
+        points[3] = latlon_vector[3];
+        poly = [MKPolygon polygonWithCoordinates:points count:4];
+        poly.title = @"Blank";
+        [self.rootViewController.mapView addOverlay:poly];
+    }else{
+        [self.rootViewController.mapView removeOverlay:poly];
+    }
+}
+
+//--------------------
 // Compass selection control
 //--------------------
 - (IBAction)compassSegmentControl:(id)sender {

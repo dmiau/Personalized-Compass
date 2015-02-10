@@ -2385,22 +2385,24 @@ iOSFourCornersInNSView [7:27PM]
 - Add annotation editing capability to the desktop map[2:24PM]
 - drawBoxInCompass needs to be modified 
 - The box indicator calculation is incorrect [8:53PM]
+- desktop compass box in emiOS mode
+- Test authoring tool (manually add locations)
 
 *ToDo
 - Snapshot loading is too slow on iOS
-- Test authoring tool (manually add locations)
 - Implement a StudyLog structure
 - Design and implement package exchange (right now a dictionary is sent)
 - map zoom in/out, pan around
-- desktop compass box in emiOS mode
 
 - Automatically calculate MapRect for the study
-
 
 - Communication module (Design what information needs to be passed around)
 * iOSViewController+Client
 * MyWebSocket
 * DesktopViewController+Server
+
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
 
 *Working
 - Display visualization and configure display type correctly
@@ -2412,7 +2414,36 @@ iOSFourCornersInNSView [7:27PM]
 - watchMode, modify drawOneSide to cut off the legs
 - display whitebackground (this should be easy)
 
+-------------------------------------------------------------------
+2.10.2015
+-------------------------------------------------------------------
+*Done
+- display whitebackground (this should be easy) [10:32PM]
 
+*ToDo
+- Snapshot loading is too slow on iOS
+- Implement a StudyLog structure
+- Design and implement package exchange (right now a dictionary is sent)
+- map zoom in/out, pan around
+
+- Automatically calculate MapRect for the study
+
+- Communication module (Design what information needs to be passed around)
+* iOSViewController+Client
+* MyWebSocket
+* DesktopViewController+Server
+
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
+
+*Working
+- Display visualization and configure display type correctly
+- Implement "Run Test"
+- Implement iOS's TestManager (right now it only has a DemoManager)
+
+- Sometimes a needle could become too thin
+- iWath emulation
+- watchMode, modify drawOneSide to cut off the legs
 
 
 

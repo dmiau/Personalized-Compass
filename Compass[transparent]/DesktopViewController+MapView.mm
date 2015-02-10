@@ -93,6 +93,17 @@
 - (void)mapView:(MKMapView *)mapViewHandle regionDidChangeAnimated:(BOOL)animated{
     [self changeAnnotationDisplayMode:self.UIConfigurations[@"ShowPins"]];
 }
+//------------------
+// Blank Overlay
+//------------------
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView
+            rendererForOverlay:(id<MKOverlay>)overlay
+{
+    MKPolygonRenderer *polygonRenderer = [[MKPolygonRenderer alloc] initWithPolygon:overlay];
+    polygonRenderer.strokeColor = [NSColor whiteColor];
+    polygonRenderer.fillColor   = [NSColor whiteColor];
+    return polygonRenderer;
+}
 
 //------------------
 // Coordinate conversion
@@ -114,4 +125,35 @@
     return result;
 }
 
+//------------------
+// Coordinate conversion
+//------------------
+- (vector<CLLocationCoordinate2D>) getBoundaryLatLon{
+    vector<CLLocationCoordinate2D> output; output.clear();
+    
+    CLLocationCoordinate2D temp;
+    
+    // Top left
+    temp = [self.mapView convertPoint:CGPointMake(0, 0)
+                 toCoordinateFromView:self.mapView];
+    output.push_back(temp);
+    
+    // Top right
+    temp = [self.mapView convertPoint:CGPointMake(self.renderer->view_width, 0)
+                 toCoordinateFromView:self.mapView];
+    output.push_back(temp);
+    
+    // Bottom right
+    temp = [self.mapView convertPoint:CGPointMake(self.renderer->view_width,
+                                                  self.renderer->view_height)
+                 toCoordinateFromView:self.mapView];
+    output.push_back(temp);
+    
+    // Bottom left
+    temp = [self.mapView convertPoint:CGPointMake(0, self.renderer->view_height)
+                 toCoordinateFromView:self.mapView];
+    output.push_back(temp);
+    
+    return output;
+}
 @end

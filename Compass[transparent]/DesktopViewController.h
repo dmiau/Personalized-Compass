@@ -124,6 +124,7 @@ typedef struct{
 // Convert the coordinates in 
 //-------------------
 - (CLLocationCoordinate2D) calculateLatLonFromiOSX: (int) x Y: (int) y;
+- (vector<CLLocationCoordinate2D>) getBoundaryLatLon;
 
 //----------------
 //Snapshot category

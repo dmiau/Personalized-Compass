@@ -43,6 +43,8 @@
 
 
 // Control the visibility of OpenGL view
+- (IBAction)toggleBlankBackground:(id)sender;
+
 - (IBAction)toggleGLView:(id)sender;
 @property (weak) IBOutlet NSSegmentedControl *compassSegmentControl;
 @property (weak) IBOutlet NSSegmentedControl *wedgeSegmentControl;
