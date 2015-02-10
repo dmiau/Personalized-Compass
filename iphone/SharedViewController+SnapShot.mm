@@ -109,21 +109,7 @@
     // Set up viz and device
     //-----------------
     if (setup_viz_flag){
-        if (self.testManager->testManagerMode == CONTROL){
-            // Emulate the iOS enironment if on the desktop
-            // (if it is in the control mode)
-#ifndef __IPHONE__
-            self.renderer->emulatediOS.is_enabled = true;
-            self.renderer->emulatediOS.is_mask_enabled = true;
-            
-            
-            // Also need to set up the positions of the em iOS
-            // and the compass
-            
-            
-            
-#endif
-        }
+
 
         switch(mySnapshot.visualizationType)
         {
@@ -153,6 +139,25 @@
             default:
                 cout << "Default" <<endl;
         }
+        
+        if (self.testManager->testManagerMode == CONTROL){
+            // Emulate the iOS enironment if on the desktop
+            // (if it is in the control mode)
+#ifndef __IPHONE__
+            self.renderer->emulatediOS.is_enabled = true;
+            self.renderer->emulatediOS.is_mask_enabled = true;
+            
+            
+            // Also need to set up the positions of the em iOS
+            // and the compass
+            CGPoint shift;
+            shift.x = -self.renderer->view_width/2 + 100;
+            shift.y = 0;
+            [self shiftTestingEnvironmentBy:shift];
+#endif
+        }
+        
+        
 #ifndef __IPHONE__
         // Desktop
         [self.compassView display];
@@ -162,22 +167,6 @@
 #endif
     }
     
-//    else{
-//
-//#ifndef __IPHONE__
-//        // Turn off all the visualization and device settings, at least on desktop
-//        
-//        // Turn off the personalized compass and the conventional compass
-//        self.model->configurations[@"personalized_compass_status"] = @"off";
-//        [self setFactoryCompassHidden:YES];
-//        
-//        // Turn off the wedge
-//        self.model->configurations[@"wedge_status"] = @"off";
-//        
-//        [self.compassView display];
-//#endif
-//    }
-
     //-----------------
     // Set up pin appearance
     //-----------------
@@ -190,14 +179,13 @@
         [self changeAnnotationDisplayMode:@"None"];
     }
     
+    self.mapView.camera.heading = -mySnapshot.orientation;
     
     // Render annotation
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
     [self renderAnnotations];
     
     [self updateLocationVisibility];
-
-    self.mapView.camera.heading = -mySnapshot.orientation;
     return true;
 }
 @end

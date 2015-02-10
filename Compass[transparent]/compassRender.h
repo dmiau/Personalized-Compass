@@ -102,7 +102,7 @@ public:
     float compass_disk_radius;    // Specify the radius of the compass disk (in pixels)
 
     float central_disk_radius;  // Specify the radius of the blue dots of the compass
-    recVec compass_centroid;    // Specify the centroid of the compass *in OpenGL frame*
+    CGPoint compass_centroid;    // Specify the centroid of the compass *in OpenGL frame*
 
     //----------------
     // Parameters for setting up perspective projection, etc.

@@ -130,7 +130,7 @@
         
 #ifndef __IPAD__
         // update compass location
-        recVec compassXY;
+        CGPoint compassXY;
         compassXY.x = touchPoint.x - self.glkView.frame.size.width/2;
         compassXY.y = self.glkView.frame.size.height/2 - touchPoint.y;
         
@@ -142,7 +142,7 @@
         new_centroid.x = glkTouchPoint.x - self.glkView.frame.size.width/2;
         new_centroid.y = self.glkView.frame.size.height/2 - glkTouchPoint.y;
 
-        recVec compassXY = self.renderer->compass_centroid;
+        CGPoint compassXY = self.renderer->compass_centroid;
 
         
         CGRect orig_frame = self.glkView.frame;
@@ -303,7 +303,7 @@
     //--------------------
     // Check if the compass is pressed
     //--------------------
-    recVec compassXY = self.renderer->compass_centroid;
+    CGPoint compassXY = self.renderer->compass_centroid;
     compassXY.x = compassXY.x + self.glkView.frame.size.width/2;
     compassXY.y = self.glkView.frame.size.height/2 - compassXY.y;
     double dist = sqrt(pow((touchPoint.x - compassXY.x), 2) +

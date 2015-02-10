@@ -289,7 +289,7 @@
 - (void) changeCompassLocationTo: (NSString*) label{
     // Need to perform a deep copy
     static bool cached_flag = false;
-    static recVec defaultCentroidParams;
+    static CGPoint defaultCentroidParams;
     static CGRect default_rect;
     
     if (!cached_flag){

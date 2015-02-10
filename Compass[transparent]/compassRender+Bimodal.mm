@@ -40,6 +40,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     glTranslatef(0, 0, 1);
     drawCircle(0, 0, central_disk_radius, 50, true);
     glPopMatrix();
+
     
     // ---------------
     // draw the triangle
@@ -182,20 +183,12 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // (to indicate that there is a boudary indicator
     // ---------------
     if (!isBoundaryIndicatorDrawn){
-////        glPushMatrix();
-//        glColor4f(1, 1, 1, 1);
-////        glTranslatef(0, 0, 2);
-////        drawCircle(0, 0, central_disk_radius/1.5, 50, true);
-////        glPopMatrix();
-//    }else{
         glColor4f(1, 0, 0, 1);
         glPushMatrix();
         glTranslatef(0, 0, 2);
         drawCircle(0, 0, central_disk_radius/2, 50, true);
         glPopMatrix();
     }
-
-    
     
     // ---------------
     // draw the scale indicator (for Binodal mode)

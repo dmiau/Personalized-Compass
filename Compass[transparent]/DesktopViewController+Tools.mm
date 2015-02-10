@@ -29,19 +29,25 @@
 // the emulated iOS and the compass, by the vector specified in shift (in pixels)
 //-------------------
 - (void) shiftTestingEnvironmentBy: (CGPoint) shift{
+
+    // Shift the em iOS
+    self.renderer->emulatediOS.centroid_in_opengl = shift;
+    
+    // Shift the compass
+    // update compass location
+    self.renderer->compass_centroid = shift;
+    if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
+        [self updateModelCompassCenterXY];
+    }
     
     // Shift the map
     
     // 1. Find out the coordinates, coord, corresponding to -shift
     // 2. Make coord the center
     CGPoint neg_shift;
-    neg_shift.x = - shift.x; neg_shift.y = -shift.y;
+    neg_shift.x = - shift.x + self.renderer->view_width/2;
+    neg_shift.y = -shift.y + self.renderer->view_height/2;
     CLLocationCoordinate2D coord = [self.mapView convertPoint:neg_shift toCoordinateFromView:self.compassView];
-    
-    
-    // Shift the em iOS
-    
-    
-    // Shift the compass
+    [self.mapView setCenterCoordinate:coord animated:NO];
 }
 @end

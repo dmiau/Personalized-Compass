@@ -2421,6 +2421,7 @@ iOSFourCornersInNSView [7:27PM]
 - display whitebackground (this should be easy) [10:32PM]
 - Load snapshots in study mode [11:07AM]
 - Display visualization and configure display type correctly [12:20PM]
+- cleaned: loadCentroidFromModelConfiguration, recVec [3:30PM]
 
 ***** ToDo
 - Snapshot loading is too slow on iOS
@@ -2448,8 +2449,6 @@ iOSFourCornersInNSView [7:27PM]
 - Implement "Run Test"
 - Implement iOS's TestManager (right now it only has a DemoManager)
 
-cleaning
-loadCentroidFromModelConfiguration
 
 
 

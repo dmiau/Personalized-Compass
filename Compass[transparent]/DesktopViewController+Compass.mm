@@ -29,7 +29,7 @@
     float step_size =
     [self.model->configurations[@"traslation_step"] floatValue];
     
-    recVec compassXY = self.renderer->compass_centroid;
+    CGPoint compassXY = self.renderer->compass_centroid;
 
     if ([title rangeOfString:@"Right"].location != NSNotFound){
         compassXY.x = compassXY.x + step_size;
