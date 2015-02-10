@@ -2448,8 +2448,8 @@ iOSFourCornersInNSView [7:27PM]
 - Implement "Run Test"
 - Implement iOS's TestManager (right now it only has a DemoManager)
 
-
-
+cleaning
+loadCentroidFromModelConfiguration
 
 
 

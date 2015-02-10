@@ -41,15 +41,6 @@ OSX Map View (u, v) self.model->compassCenterXY [in MapView]
 v
 
 =====================
-iOS (u, v), note: the coordinate system is flipped
-=====================
-v
-|
-|
-|
---------u
-
-=====================
 OpenGL
 =====================
 y
@@ -59,6 +50,24 @@ y
 |
 |
 -y
+
+=====================
+iOS (u, v), note: the coordinate system is flipped (mapView?)
+=====================
+v
+|
+|
+|
+--------u
+
+=====================
+iOS GLK View
+=====================
+--------u
+|
+|
+|
+v
 
 These things are different:
 These two are supposed to be the same [in OpenGL coordinate]

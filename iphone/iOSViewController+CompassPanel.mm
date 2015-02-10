@@ -289,12 +289,11 @@
 - (void) changeCompassLocationTo: (NSString*) label{
     // Need to perform a deep copy
     static bool cached_flag = false;
-    static NSArray *defaultCentroidParams;
+    static recVec defaultCentroidParams;
     static CGRect default_rect;
     
     if (!cached_flag){
-        defaultCentroidParams =
-        [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject: self.renderer->model->configurations[@"compass_centroid"]]];
+        defaultCentroidParams = self.renderer->compass_centroid;
         default_rect = self.glkView.frame;
         cached_flag = true;
     }
@@ -305,22 +304,16 @@
     //---------------
 #ifndef __IPAD__
     if ([label isEqualToString:@"Default"]){
-        self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
+        self.renderer->compass_centroid = defaultCentroidParams;
     }else if ([label isEqualToString:@"UR"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:90];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:180];
+        self.renderer->compass_centroid.x = 90;
+        self.renderer->compass_centroid.y = 180;
     }else if ([label isEqualToString:@"Center"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:0];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:0];
+        self.renderer->compass_centroid.x = 0;
+        self.renderer->compass_centroid.y = 0;
     }else if ([label isEqualToString:@"BL"]){
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:-70];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:-150];
+        self.renderer->compass_centroid.x = -70;
+        self.renderer->compass_centroid.y = -150;
     }
 #endif
     
@@ -331,7 +324,7 @@
     default_rect = CGRectMake(425, -43,
                               default_rect.size.width, default_rect.size.height);
     if ([label isEqualToString:@"Default"]){
-        self.model->configurations[@"compass_centroid"] = defaultCentroidParams;
+        self.renderer->compass_centroid = defaultCentroidParams;
         self.glkView.frame = default_rect;
     }else if ([label isEqualToString:@"UR"]){
         self.glkView.frame = default_rect;
@@ -347,11 +340,7 @@
     
 #endif
     
-    // Need to update compass center (this is important!)
-    [self updateModelCompassCenterXY];
-    
     // The order is important
-    self.renderer->loadCentroidFromModelConfiguration();
     [self updateModelCompassCenterXY];
     [self.glkView setNeedsDisplay];
 }

@@ -130,14 +130,11 @@
         
 #ifndef __IPAD__
         // update compass location
-        recVec compassXY = self.renderer->compass_centroid;
+        recVec compassXY;
         compassXY.x = touchPoint.x - self.glkView.frame.size.width/2;
         compassXY.y = self.glkView.frame.size.height/2 - touchPoint.y;
         
-        self.model->configurations[@"compass_centroid"][0] =
-        [NSNumber numberWithInt:compassXY.x];
-        self.model->configurations[@"compass_centroid"][1] =
-        [NSNumber numberWithInt:compassXY.y];
+        self.renderer->compass_centroid = compassXY;
 #endif
         
 #ifdef __IPAD__
@@ -161,8 +158,6 @@
             [self compassSelectedMode:NO];
 
         }
-        // The order is important
-        self.renderer->loadCentroidFromModelConfiguration();
         
         if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
             [self updateModelCompassCenterXY];

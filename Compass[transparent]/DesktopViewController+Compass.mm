@@ -41,13 +41,7 @@
         compassXY.y = compassXY.y - step_size;
     }
 
-    self.model->configurations[@"compass_centroid"][0] =
-    [NSNumber numberWithInt:compassXY.x];
-    self.model->configurations[@"compass_centroid"][1] =
-    [NSNumber numberWithInt:compassXY.y];
-
-    // The order is important
-    self.renderer->loadCentroidFromModelConfiguration();
+    self.renderer->compass_centroid = compassXY;
     
     if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
         [self updateModelCompassCenterXY];

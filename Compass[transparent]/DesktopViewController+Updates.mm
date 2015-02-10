@@ -153,9 +153,9 @@
     self.model->compassCenterXY =
     [self.mapView convertPoint:
      CGPointMake(self.compassView.frame.size.width/2
-                 + [self.model->configurations[@"compass_centroid"][0] floatValue],
+                 + self.renderer->compass_centroid.x,
                  self.compassView.frame.size.height/2
-                 + [self.model->configurations[@"compass_centroid"][1] floatValue])
+                 + self.renderer->compass_centroid.y)
                       fromView:self.compassView];
     return true;
 }
