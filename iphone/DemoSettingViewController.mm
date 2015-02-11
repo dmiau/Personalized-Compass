@@ -137,7 +137,11 @@
     
     myNavigationController.navigationBar.barTintColor =
     [UIColor whiteColor];
-    myNavigationController.navigationBar.topItem.title = @"Debug";
+    myNavigationController.navigationBar.topItem.title = @"Demo";
+    
+    
+    self.demoSwitch.on = [self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+                                       isEqualToString:@"Demo"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -234,5 +238,15 @@
 //        cell.mySwitch.on = true;
 //    }
     return cell;
+}
+- (IBAction)toggleDemoSwitch:(UISwitch*)sender {
+    self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+    = @"Development";
+    if (sender.on){
+        self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+        = @"Demo";
+    }
+    self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
+    = [NSNumber numberWithBool:true];
 }
 @end

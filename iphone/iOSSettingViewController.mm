@@ -91,16 +91,6 @@
     else
         self.dataSource.selectedSegmentIndex = 2;
     
-    // Initialize toolbar indicator
-    NSString* toolbar_mode = self.rootViewController.UIConfigurations[@"UIToolbarMode"];
-    if ([toolbar_mode isEqualToString:@"Development"]){
-        [self.toolbarSegmentControl setSelectedSegmentIndex:0];
-    }else{
-
-        [self.toolbarSegmentControl setSelectedSegmentIndex:1];
-    }
-    
-    
     // Watch socket status
     [self.rootViewController addObserver:self forKeyPath:@"socket_status"
                                  options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
@@ -296,6 +286,8 @@
     self.renderer->loadParametersFromModelConfiguration();
     [self.rootViewController.glkView setNeedsDisplay];
 }
+
+
 - (IBAction)toggleToolbarMode:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     int index = [segmentedControl selectedSegmentIndex];
@@ -334,6 +326,8 @@
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];
 }
+
+
 - (IBAction)toggleServerConnection:(UISegmentedControl*) segmentedControl {
     switch ([segmentedControl selectedSegmentIndex]) {
         case 0:

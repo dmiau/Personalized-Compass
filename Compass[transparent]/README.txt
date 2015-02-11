@@ -2461,8 +2461,6 @@ iOSFourCornersInNSView [7:27PM]
 - Design and implement package exchange (right now a dictionary is sent)
 - map zoom in/out, pan around
 
-
-
 - Lation square generation
 - Compass needs to be updated in real time when it is moved 
 - Naming conventions: .locations, .snapshot, .tests, etc. 

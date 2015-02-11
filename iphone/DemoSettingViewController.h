@@ -20,6 +20,8 @@
 @property iOSViewController* rootViewController;
 - (IBAction)generateTests:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISwitch *demoSwitch;
+- (IBAction)toggleDemoSwitch:(id)sender;
 
 - (IBAction)dismissModalVC:(id)sender;
 @end

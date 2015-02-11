@@ -66,6 +66,8 @@
         [self.myTableView reloadData];
     }
     
+    self.studyModeSwitch.on = [self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+                                       isEqualToString:@"Study"];
     //-------------------
     // Change navigation bar color
     //-------------------
@@ -86,7 +88,7 @@
     
     myNavigationController.navigationBar.barTintColor =
     [UIColor colorWithRed:78.0/255 green:199.0/255 blue:40.0/255 alpha:1];
-    myNavigationController.navigationBar.topItem.title = @"Snapshot";
+    myNavigationController.navigationBar.topItem.title = @"Test Manager";
     
 }
 
@@ -333,6 +335,21 @@
 
 - (IBAction)resetTestManager:(id)sender {
     self.rootViewController.testManager->resetTestManager();
+}
+
+//-----------------
+// Toggle study mode
+//-----------------
+- (IBAction)toggleStudyMode:(UISwitch*)sender {
+    
+    self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+    = @"Development";
+    if (sender.on){
+        self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+        = @"Study";
+    }
+    self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
+    = [NSNumber numberWithBool:true];
 }
 
 @end

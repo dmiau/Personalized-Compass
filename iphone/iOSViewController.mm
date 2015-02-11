@@ -36,14 +36,26 @@
     if ([self.UIConfigurations[@"UIToolbarNeedsUpdate"]
          boolValue]){
         
+        self.mapView.layer.borderWidth
+        = 0.0f;
+        self.mapView.layer.borderColor =
+        [UIColor clearColor].CGColor;
+        
         if ([self.UIConfigurations[@"UIToolbarMode"]
-             isEqualToString:@"Development"]){
+             isEqualToString:@"Development"])
+        {
             [self constructDebugToolbar: @"Portrait"];
         }else if ([self.UIConfigurations[@"UIToolbarMode"]
-                   isEqualToString:@"Demo"]){
+                   isEqualToString:@"Demo"])
+        {
+            self.mapView.layer.borderColor =
+            [UIColor blueColor].CGColor;
+            self.mapView.layer.borderWidth
+            = 2.0f;
             [self constructDemoToolbar: @"Portrait"];
         }else if ([self.UIConfigurations[@"UIToolbarMode"]
-                   isEqualToString:@"Study"]){
+                   isEqualToString:@"Study"])
+        {
             [self constructStudyToolbar: @"Portrait"];
         }
         

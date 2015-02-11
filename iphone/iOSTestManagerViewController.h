@@ -22,7 +22,8 @@
 @property iOSViewController* rootViewController;
 - (IBAction)resetTestManager:(id)sender;
 
-
+@property (weak, nonatomic) IBOutlet UISwitch *studyModeSwitch;
+- (IBAction)toggleStudyMode:(id)sender;
 
 - (IBAction)reloadSnapshotFile:(id)sender;
 @end
