@@ -42,7 +42,11 @@
         }else if ([self.UIConfigurations[@"UIToolbarMode"]
                    isEqualToString:@"Demo"]){
             [self constructDemoToolbar: @"Portrait"];
+        }else if ([self.UIConfigurations[@"UIToolbarMode"]
+                   isEqualToString:@"Study"]){
+            [self constructStudyToolbar: @"Portrait"];
         }
+        
         self.UIConfigurations[@"UIToolbarNeedsUpdate"]
         = [NSNumber numberWithBool:false];
     }
@@ -77,7 +81,11 @@
     // Snapshot and history stuff
     //---------------
     if (self.snapshot_id_toshow >= 0){
-        [self displaySnapshot:self.snapshot_id_toshow withStudySettings:NO];
+        bool study_mode = false;
+        if (self.testManager->testManagerMode != OFF)
+            study_mode = true;
+        
+        [self displaySnapshot:self.snapshot_id_toshow withStudySettings:study_mode];
         self.snapshot_id_toshow = -1;
     }
 

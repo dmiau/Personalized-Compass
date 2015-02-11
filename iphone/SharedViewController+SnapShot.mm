@@ -5,6 +5,7 @@
 //  Created by dmiau on 7/19/14.
 //  Copyright (c) 2014 dmiau. All rights reserved.
 //
+#import "xmlParser.h"
 
 #ifdef __IPHONE__
 //-------------------
@@ -69,8 +70,10 @@
     
     snapshot mySnapshot = self.model->snapshot_array[snapshot_id];
     
-    self.model->location_filename = mySnapshot.kmlFilename;
-    self.model->reloadFiles();
+    if (mySnapshot.kmlFilename != self.model->location_filename){
+        self.model->location_filename = mySnapshot.kmlFilename;
+        readLocationKml(self.model, self.model->location_filename);
+    }
     
     if (mySnapshot.selected_ids.size() == 0){
         // If no landmarks are specified, let the model to decide which

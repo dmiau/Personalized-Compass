@@ -300,6 +300,7 @@
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     int index = [segmentedControl selectedSegmentIndex];
     
+    self.rootViewController.testManager->testManagerMode = OFF;    
     switch (index) {
         case 0:
             self.rootViewController.UIConfigurations[@"UIToolbarMode"]
@@ -323,11 +324,11 @@
             [UIColor blueColor].CGColor;
             self.rootViewController.mapView.layer.borderWidth
             = 2.0f;
-            
             break;
         case 2:
             self.rootViewController.UIConfigurations[@"UIToolbarMode"]
-            = @"Web";
+            = @"Study";
+            self.rootViewController.testManager->testManagerMode = CONTROL;
             break;
     }
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]

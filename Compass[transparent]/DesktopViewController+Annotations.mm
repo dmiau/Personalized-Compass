@@ -123,31 +123,35 @@
 {
     
     
-    NSString *address;
-    CLLocation *location = [[CLLocation alloc]
-                            initWithLatitude:[pinView.annotation coordinate].latitude
-                            longitude:[pinView.annotation coordinate].longitude];
-    
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder reverseGeocodeLocation:location
-                   completionHandler:^(NSArray *placemarks, NSError *error)
-     {
-         if(placemarks && placemarks.count > 0)
+    //-----------------
+    // Only do address look up when the Test Manager is off
+    //-----------------
+    if (self.testManager->testManagerMode == OFF){
+        NSString *address;
+        CLLocation *location = [[CLLocation alloc]
+                                initWithLatitude:[pinView.annotation coordinate].latitude
+                                longitude:[pinView.annotation coordinate].longitude];
+        
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        [geocoder reverseGeocodeLocation:location
+                       completionHandler:^(NSArray *placemarks, NSError *error)
          {
-             CLPlacemark *placemark= [placemarks objectAtIndex:0];
-             //address is NSString variable that declare in .h file.
-             NSString* address =
-             [NSString stringWithFormat:@"%@ %@ , %@ , %@",
-              [placemark subThoroughfare],
-              [placemark thoroughfare],[placemark locality],[placemark administrativeArea]];
-             
-             NSLog(@"New Address Is:%@",address);
-             
-             CustomPointAnnotation *copyAnnotation = pinView.annotation;
-             copyAnnotation.subtitle = address;
-         }
-     }];
-    
+             if(placemarks && placemarks.count > 0)
+             {
+                 CLPlacemark *placemark= [placemarks objectAtIndex:0];
+                 //address is NSString variable that declare in .h file.
+                 NSString* address =
+                 [NSString stringWithFormat:@"%@ %@ , %@ , %@",
+                  [placemark subThoroughfare],
+                  [placemark thoroughfare],[placemark locality],[placemark administrativeArea]];
+                 
+                 NSLog(@"New Address Is:%@",address);
+                 
+                 CustomPointAnnotation *copyAnnotation = pinView.annotation;
+                 copyAnnotation.subtitle = address;
+             }
+         }];
+    }
     pinView.pinColor = MKPinAnnotationColorPurple;
     
     //---------------

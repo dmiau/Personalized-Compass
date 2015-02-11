@@ -33,30 +33,35 @@
     self.noteTextField.stringValue = self.annotation.notes;
     self.addressView.stringValue = self.annotation.subtitle;
 
-    NSString *address;
-    CLLocation *location = [[CLLocation alloc]
-                            initWithLatitude:[self.annotation coordinate].latitude
-                            longitude:[self.annotation coordinate].longitude];
-
-    if ([self.addressView.stringValue isEqualToString:@""]){
-        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-        [geocoder reverseGeocodeLocation:location
-                       completionHandler:^(NSArray *placemarks, NSError *error)
-         {
-             if(placemarks && placemarks.count > 0)
+    //--------------------
+    // Only do address look up when the test manager is off
+    //--------------------
+    if(self.rootViewController.testManager->testManagerMode == OFF){
+        NSString *address;
+        CLLocation *location = [[CLLocation alloc]
+                                initWithLatitude:[self.annotation coordinate].latitude
+                                longitude:[self.annotation coordinate].longitude];
+        
+        if ([self.addressView.stringValue isEqualToString:@""]){
+            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+            [geocoder reverseGeocodeLocation:location
+                           completionHandler:^(NSArray *placemarks, NSError *error)
              {
-                 CLPlacemark *placemark= [placemarks objectAtIndex:0];
-                 //address is NSString variable that declare in .h file.
-                 NSString* address =
-                 [NSString stringWithFormat:@"%@ %@ , %@ , %@",
-                  [placemark subThoroughfare],
-                  [placemark thoroughfare],[placemark locality],[placemark administrativeArea]];
-                 NSLog(@"New Address Is:%@",address);
-                 self.addressView.stringValue = address;
-             }
-         }];
+                 if(placemarks && placemarks.count > 0)
+                 {
+                     CLPlacemark *placemark= [placemarks objectAtIndex:0];
+                     //address is NSString variable that declare in .h file.
+                     NSString* address =
+                     [NSString stringWithFormat:@"%@ %@ , %@ , %@",
+                      [placemark subThoroughfare],
+                      [placemark thoroughfare],[placemark locality],[placemark administrativeArea]];
+                     NSLog(@"New Address Is:%@",address);
+                     self.addressView.stringValue = address;
+                 }
+             }];
+        }
     }
-
+    
     //-------------
     // Configure the add and remove buttons
     //-------------

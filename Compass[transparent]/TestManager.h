@@ -19,21 +19,17 @@
 
 #ifndef __IPHONE__
 #import <Cocoa/Cocoa.h>
+@class DesktopViewController;
 #else
 #import <UIKit/UIKit.h>
+@class iOSViewController;
 #endif
 
 using namespace std;
 
-#ifdef __IPHONE__
-@class iOSViewController;
-#else
-@class DesktopViewController;
-#endif
-
-//---------------
+//------------------------------
 // Param object
-//---------------
+//------------------------------
 // This is necessary so we can conveniently count the number of enabled devices
 // and visualizations, etc.
 class param{
@@ -49,9 +45,9 @@ public:
     };
 };
 
-//---------------
+//------------------------------
 // Record object
-//---------------
+//------------------------------
 class record{
 public:
     CLLocationCoordinate2D ground_truth;
@@ -67,9 +63,9 @@ public:
     };
 };
 
-//---------------
+//------------------------------
 // Pool object
-//---------------
+//------------------------------
 
 //Three methods to generate a pool
 //FULL: fully counter-balanced
@@ -117,11 +113,12 @@ public:
     vector<string> next();
 };
 
-//---------------
+//------------------------------
 // Test Manager
-//---------------
+//------------------------------
 enum TaskType {LOCATE, TRIANGULATE, ORIENT};
-enum TestManagerMode {CONTROL, COLLECT};
+enum TestManagerMode {OFF, CONTROL, COLLECT};
+
 class TestManager{
 public:
     
@@ -140,6 +137,7 @@ public:
     
     // Connections to other modules
     compassMdl *model;
+    
 #ifdef __IPHONE__
     iOSViewController *rootViewController;
 #else
@@ -265,6 +263,13 @@ public:
     
     // Prepare test directory
     void setupOutputFolder();
+    
+    //---------------
+    // Test flow control
+    //---------------
+    void resetTestManager();
+    void showNextTest();
+    void showPreviousTest();
 };
 
 //class test{

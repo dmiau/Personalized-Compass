@@ -32,8 +32,8 @@ int TestManager::initTestManager(){
     visualization_vector.clear();
     device_vector.clear();
     visualization_counter = 0;
-    test_counter = -1; //-1 means initialization
-    testManagerMode = CONTROL;
+    test_counter = 0;
+    testManagerMode = OFF;
     
     vector<VisualizationType> visualization_enums
     = {VIZNONE, VIZPCOMPASS, VIZWEDGE, VIZOVERVIEW};
@@ -73,6 +73,15 @@ int TestManager::initTestManager(){
     
     return 0;
 }
+
+
+//--------------
+// Reset the test manager
+//--------------
+void TestManager::resetTestManager(){
+    test_counter = 0;
+}
+
 
 //--------------
 // Prepare the output environment
@@ -153,7 +162,5 @@ int TestManager::generateTests(){
     generateSnapShots();
     saveSnapShotsToKML();
         
-    // Reset the test counter
-    test_counter = -1;
     return 0;
 }

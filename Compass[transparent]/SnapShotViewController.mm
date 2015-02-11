@@ -160,9 +160,11 @@
     switch (state) {
         case 0:
             self.isStudyMode = false;
+            self.rootViewController.testManager->testManagerMode = OFF;
             break;
         case 1:
             self.isStudyMode = true;
+            self.rootViewController.testManager->testManagerMode = CONTROL;
             break;
         default:
             break;

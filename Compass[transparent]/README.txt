@@ -2449,7 +2449,38 @@ iOSFourCornersInNSView [7:27PM]
 - Implement "Run Test"
 - Implement iOS's TestManager (right now it only has a DemoManager)
 
+-------------------------------------------------------------------
+2.11.2015
+-------------------------------------------------------------------
+***** Done
+- Implement iOS's TestManager (right now it only has a DemoManager) [11:23AM]
 
+***** ToDo
+- Snapshot loading is too slow on iOS
+- Implement a StudyLog structure
+- Design and implement package exchange (right now a dictionary is sent)
+- map zoom in/out, pan around
+
+
+
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
+- Naming conventions: .locations, .snapshot, .tests, etc. 
+- Think about tests which involve multiple locations (I can sketch out some ideas)
+- Outline the paper
+
+- Automatically calculate MapRect for the study
+
+***** Working
+- Sometimes a needle could become too thin
+- iWath emulation, watchMode, modify drawOneSide to cut off the legs
+
+- Implement "Run Test"
+
+- Communication module (Design what information needs to be passed around)
+* iOSViewController+Client
+* MyWebSocket
+* DesktopViewController+Server
 
 
 

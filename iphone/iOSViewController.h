@@ -197,6 +197,7 @@ typedef struct{
 - (void) hideAllPanels;
 - (void) constructDebugToolbar:(NSString*) mode;
 - (void) constructDemoToolbar:(NSString*)mode;
+- (void) constructStudyToolbar:(NSString*)mode;
 
 //----------------
 // Update and initialization functions
