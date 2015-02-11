@@ -75,21 +75,7 @@
     
     UINavigationController *myNavigationController =
     app.window.rootViewController;
-    
-    
-    NSDictionary *navbarTitleTextAttributes =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     [UIColor whiteColor],UITextAttributeTextColor,
-     [UIColor blackColor], UITextAttributeTextShadowColor,nil];
-    
-    
-    [myNavigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
-    myNavigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
-    myNavigationController.navigationBar.barTintColor =
-    [UIColor colorWithRed:78.0/255 green:199.0/255 blue:40.0/255 alpha:1];
     myNavigationController.navigationBar.topItem.title = @"Test Manager";
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -341,12 +327,14 @@
 // Toggle study mode
 //-----------------
 - (IBAction)toggleStudyMode:(UISwitch*)sender {
-    
+
     self.rootViewController.UIConfigurations[@"UIToolbarMode"]
     = @"Development";
+    self.rootViewController.testManager->testManagerMode = OFF;
     if (sender.on){
         self.rootViewController.UIConfigurations[@"UIToolbarMode"]
         = @"Study";
+        self.rootViewController.testManager->testManagerMode = CONTROL;
     }
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];

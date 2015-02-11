@@ -69,6 +69,8 @@ iOS GLK View
 |
 v
 
+
+
 These things are different:
 These two are supposed to be the same [in OpenGL coordinate]
 self.render->compass_centroid
@@ -176,13 +178,13 @@ Data package:
 Type: Instruction, Message
 
 - Instruction
-*command: SetupEnv, LoadSnapshot, Start, SwitchControl, End, Sync
-*parameter: filename, snapshot_id
-*switchContorl: yes, no
+*Command: SetupEnv, LoadSnapshot, Start, SwitchControl, End, Sync
+*Parameter: SsnapshotID
+*SwitchContorl: yes, no
 
 - Message
-* status: OK, BAD, NEXT
-* notes:
+* Status: OK, BAD, NEXT
+* Notes:
 
 
 

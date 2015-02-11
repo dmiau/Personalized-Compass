@@ -92,7 +92,5 @@
     counter_button.title = [NSString stringWithFormat:
                             @"%d/%lu", self.testManager->test_counter,
                             self.model->snapshot_array.size()];
-    //
-    [self sendData];
 }
 @end

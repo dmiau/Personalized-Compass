@@ -270,6 +270,7 @@ public:
     void resetTestManager();
     void showNextTest();
     void showPreviousTest();
+    void showTestNumber(int test_id);
 };
 
 //class test{

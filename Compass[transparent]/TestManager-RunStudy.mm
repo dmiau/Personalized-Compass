@@ -25,12 +25,9 @@ void TestManager::showPreviousTest(){
     // Do NOT execute this method if test_counter is already 0
     if (test_counter == 0)
         return;
-    
-    model->lockLandmarks = false;
+
     test_counter = test_counter - 1;
-    
-    [rootViewController displaySnapshot:test_counter withStudySettings:YES];
-    model->lockLandmarks = true;
+    showTestNumber(test_counter);
 }
 
 //------------------
@@ -41,25 +38,23 @@ void TestManager::showNextTest(){
     // Do NOT execute this method if test_counter is already the max
     if (test_counter == (model->snapshot_array.size() - 1))
         return;
+
+    test_counter = test_counter + 1;
+    showTestNumber(test_counter);
+}
+
+//------------------
+// Run test by ID
+//------------------
+void TestManager::showTestNumber(int test_id){
+    // Do NOT execute this method if test_counter is already 0
+    if (test_id < 0 || test_id >= model->snapshot_array.size() ){
+        return;
+    }else{
+            test_counter = test_id;
+    }
     
     model->lockLandmarks = false;
-    test_counter = test_counter + 1;
-
-//    // Set up the environment
-//    if (snapshot_id == (int)self.model->snapshot_array.size())
-//    {
-//        if (self.demoManager->device_counter !=
-//            self.demoManager->enabled_device_vector.size()-1)
-//        {
-//            snapshot_id =0;
-//            [self setupEnvForTest:self.demoManager->
-//             enabled_device_vector[++self.demoManager->device_counter].type];
-//        }else{
-//            --snapshot_id;
-//        }
-//    }
-    
     [rootViewController displaySnapshot:test_counter withStudySettings:YES];
     model->lockLandmarks = true;
 }
-

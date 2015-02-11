@@ -224,7 +224,7 @@
                             self.model->snapshot_array.size()];
     
     //
-    [self sendData];
+    [self sendBoundaryLatLon];
 }
 
 

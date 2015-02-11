@@ -157,4 +157,9 @@ typedef struct{
 
 -(void)startServer;
 -(void)syncWithiOS: (NSDictionary*) dict;
+
+// implemented in the communication category
+-(void)sendPackage: (NSDictionary *) package;
+-(void)handlePackage: (NSData *) data;
+
 @end

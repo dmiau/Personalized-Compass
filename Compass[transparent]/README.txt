@@ -2466,23 +2466,17 @@ iOSFourCornersInNSView [7:27PM]
 - Naming conventions: .locations, .snapshot, .tests, etc. 
 - Think about tests which involve multiple locations (I can sketch out some ideas)
 - Outline the paper
-
 - Automatically calculate MapRect for the study
+- Implement "Run Test"
 
 ***** Working
 - Sometimes a needle could become too thin
 - iWath emulation, watchMode, modify drawOneSide to cut off the legs
 
-- Implement "Run Test"
-
 - Communication module (Design what information needs to be passed around)
-* iOSViewController+Client
-* MyWebSocket
-* DesktopViewController+Server
-
-
-
-
+* iOSViewController+Client 
+* MyWebSocket [3:41PM]
+* DesktopViewController+Server [4:32PM]
 
 
 

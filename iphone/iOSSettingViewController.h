@@ -32,7 +32,7 @@
 - (IBAction)toggleDataSource:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dataSource;
-
+@property (weak, nonatomic) IBOutlet UISegmentedControl *toolbarSegmentControl;
 
 - (IBAction)toggleToolbarMode:(id)sender;
 

@@ -178,6 +178,21 @@
                                     <action selector="refreshConfiguraitons:" destination="bsL-PH-kKP" eventType="touchUpInside" id="nY8-UB-agw"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Toolbar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-te-DRR">
+                                <rect key="frame" x="134" y="69" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cMN-4s-fse">
+                                <rect key="frame" x="216" y="66" width="101" height="29"/>
+                                <segments>
+                                    <segment title="Dev"/>
+                                    <segment title="Demo"/>
+                                </segments>
+                                <connections>
+                                    <action selector="toggleToolbarMode:" destination="bsL-PH-kKP" eventType="valueChanged" id="fOH-Rs-hdM"/>
+                                </connections>
+                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIc-Pc-GkR">
                                 <rect key="frame" x="11" y="60" width="54" height="30"/>
                                 <state key="normal" title="Dismiss">
@@ -236,6 +251,7 @@
                         <outlet property="portTextfield" destination="Q6T-Cw-v3M" id="84z-5Q-Sh4"/>
                         <outlet property="serverSegmentControl" destination="6VO-nz-VXb" id="hUp-u5-Z7H"/>
                         <outlet property="systemMessage" destination="ycR-nB-iuR" id="x80-LF-TFo"/>
+                        <outlet property="toolbarSegmentControl" destination="cMN-4s-fse" id="Mmq-9v-SIW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPD-Yn-J6X" userLabel="First Responder" sceneMemberID="firstResponder"/>

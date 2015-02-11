@@ -50,23 +50,11 @@
     NSLog(@"didReceiveData!");
     //http://stackoverflow.com/questions/9593803/testing-for-type-of-class-in-objective-c?rq=1
     
-    //Unpack the data
-    NSDictionary *myDictionary = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//    //Unpack the data
+//    NSDictionary *myDictionary = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
-    NSLog(@"Dictionary content:");
-//    for (id key in myDictionary) {
-//        NSLog(@"key: %@, value: %@ \n", key, [myDictionary objectForKey:key]);
-//    }
-    
-//    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
-
-    // Sync with iOS
-    if (self.rootViewController.iOSSyncFlag)
-    {        
-        // UI update needs to be on main queue?
-        dispatch_async(dispatch_get_main_queue(),
-        ^{[self.rootViewController syncWithiOS: myDictionary];});
-    }
+    //Pass the received data to the data handler
+    [self.rootViewController handlePackage:data];
 }
 
 - (void)didClose

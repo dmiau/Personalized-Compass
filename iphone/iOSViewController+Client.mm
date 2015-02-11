@@ -125,36 +125,6 @@
     _webSocket = nil;
 }
 
-//--------------------
-// Send the parameters associated with the current display area
-//--------------------
-- (void) sendData
-{
-    // Do nothing is the connection is not established yet
-    if ([self.socket_status boolValue] == NO)
-        return;
-    
-    LatLons4x2 temp_corner = self.latLons4x2;
-    MKCoordinateRegion temp_region = self.mapView.region;
-    
-    // Package the data
-    NSDictionary *myDict = @{@"ulurbrbl" :
-                        [NSData dataWithBytes:&(temp_corner)
-                                       length:sizeof(temp_corner)],
-                             @"map_region":[NSData dataWithBytes:
-                                            &(temp_region)
-                                        length:sizeof(temp_region)],
-                             @"mdl_orientation":[NSNumber numberWithFloat:
-                                                 self.model->camera_pos.orientation],
-                             @"mdl_tilt":[NSNumber numberWithFloat:
-                                                 self.model->tilt]};
-    
-    // Send the data (in the form of NSData)
-    //http://stackoverflow.com/questions/5513075/how-can-i-convert-nsdictionary-to-nsdata-and-vice-versa
-    NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:myDict];
-    [_webSocket send: myData];
-}
-
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 {

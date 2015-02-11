@@ -203,9 +203,13 @@
 - (void)pickerView:(UIPickerView *)pickerView
       didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    
+    if (self.rootViewController.testManager->testManagerMode != OFF){
+        self.rootViewController.testManager->testManagerMode = OFF;
+    }
+
     model->location_filename = [kml_files objectAtIndex:row];
     model->reloadFiles();
-    
     
     //--------------
     // new.kml is a speical location file used to creating new data,

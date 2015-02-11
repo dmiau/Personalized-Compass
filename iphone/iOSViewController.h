@@ -223,7 +223,12 @@ typedef struct{
 @property NSString* ip_string;
 @property NSNumber *socket_status;
 - (void) toggleServerConnection: (bool) status;
-- (void) sendData;
+
+
+// implemented in the communication category
+- (void) sendBoundaryLatLon;
+-(void)sendPackage: (NSDictionary *) package;
+-(void)handlePackage: (NSData *) data;
 
 //----------------
 // System message
