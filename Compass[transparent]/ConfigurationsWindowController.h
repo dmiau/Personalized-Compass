@@ -87,6 +87,7 @@
 - (IBAction)didChangeKMLCombo:(id)sender;
 - (IBAction)toggleLandmarkSelection:(id)sender;
 - (IBAction)refreshLocationTable:(id)sender;
+- (IBAction)emptyAllLocations:(id)sender;
 
 // Annotation control
 

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
 		9A006CA319522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
+		9A02792F1A8C1CCD00363514 /* TestManagerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02792E1A8C1CCD00363514 /* TestManagerViewController.mm */; };
+		9A0279301A8C1CCD00363514 /* TestManagerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02792E1A8C1CCD00363514 /* TestManagerViewController.mm */; };
+		9A0279311A8C1CCD00363514 /* TestManagerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02792E1A8C1CCD00363514 /* TestManagerViewController.mm */; };
+		9A0279321A8C1CCD00363514 /* TestManagerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02792E1A8C1CCD00363514 /* TestManagerViewController.mm */; };
 		9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
 		9A02D0EC195C5C8700A64987 /* filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02D0E9195C5C8700A64987 /* filesystem.mm */; };
 		9A02D0F6195C5CE800A64987 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A02D0F5195C5CE800A64987 /* Dropbox.framework */; };
@@ -1068,6 +1072,8 @@
 /* Begin PBXFileReference section */
 		9A006CA019522918009BB81C /* iOSViewController+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Model.h"; sourceTree = "<group>"; };
 		9A006CA119522918009BB81C /* iOSViewController+Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Model.mm"; sourceTree = "<group>"; };
+		9A02792D1A8C1CCD00363514 /* TestManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManagerViewController.h; sourceTree = "<group>"; };
+		9A02792E1A8C1CCD00363514 /* TestManagerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestManagerViewController.mm; sourceTree = "<group>"; };
 		9A02D0E8195C5C8700A64987 /* filesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filesystem.h; sourceTree = "<group>"; };
 		9A02D0E9195C5C8700A64987 /* filesystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = filesystem.mm; sourceTree = "<group>"; };
 		9A02D0F5195C5CE800A64987 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = iphone/Dropbox.framework; sourceTree = "<group>"; };
@@ -1828,6 +1834,8 @@
 				9A5F320E1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm */,
 				9A4AA65B1A7FEF010009F448 /* SnapShotViewController.h */,
 				9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */,
+				9A02792D1A8C1CCD00363514 /* TestManagerViewController.h */,
+				9A02792E1A8C1CCD00363514 /* TestManagerViewController.mm */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -3181,6 +3189,7 @@
 				9AAC65DE1A8BA2C000B9BF2E /* TestManager-RunStudy.mm in Sources */,
 				9A0375B4198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A4D2B2F1A882E0000BB81DB /* DesktopViewController+Tools.mm in Sources */,
+				9A0279321A8C1CCD00363514 /* TestManagerViewController.mm in Sources */,
 				9A03757E198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9AA7890B1909FE3000A26C66 /* renderStyles.mm in Sources */,
 				9A03767A198DA31900258E95 /* b2Rope.cpp in Sources */,
@@ -3388,6 +3397,7 @@
 				9A5F32001A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A6F53F81910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A0375D5198DA31900258E95 /* b2Body.cpp in Sources */,
+				9A02792F1A8C1CCD00363514 /* TestManagerViewController.mm in Sources */,
 				9A757158197D804100C23AEE /* historyParser.mm in Sources */,
 				9A42A0A119A79CA200BB0101 /* DDFileLogger.m in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+Compass.mm in Sources */,
@@ -3462,6 +3472,7 @@
 				9AAC65DD1A8BA2C000B9BF2E /* TestManager-RunStudy.mm in Sources */,
 				9A03761F198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				9A4D2B2E1A882E0000BB81DB /* DesktopViewController+Tools.mm in Sources */,
+				9A0279311A8C1CCD00363514 /* TestManagerViewController.mm in Sources */,
 				9A42A07419A79C3200BB0101 /* WebSocket.m in Sources */,
 				9A6F53FA1910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A037655198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
@@ -3594,6 +3605,7 @@
 				9A037582198DA31800258E95 /* b2Collision.cpp in Sources */,
 				9A3DA0C41966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				9A03764E198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
+				9A0279301A8C1CCD00363514 /* TestManagerViewController.mm in Sources */,
 				9A037678198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9A0375D0198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A757159197D804100C23AEE /* historyParser.mm in Sources */,

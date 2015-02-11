@@ -391,4 +391,13 @@
         return nil;
     }
 }
+
+- (IBAction)emptyAllLocations:(id)sender {
+    self.rootViewController.model->data_array.clear();
+    [self.locationTableView reloadData];
+
+    self.model->updateMdl();
+    [self.rootViewController renderAnnotations];
+    [self.locationTableView reloadData];    
+}
 @end

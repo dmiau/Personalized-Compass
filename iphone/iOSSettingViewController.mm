@@ -324,7 +324,6 @@
         case 2:
             self.rootViewController.UIConfigurations[@"UIToolbarMode"]
             = @"Study";
-            self.rootViewController.testManager->testManagerMode = CONTROL;
             break;
     }
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]

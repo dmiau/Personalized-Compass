@@ -334,7 +334,8 @@
     if (sender.on){
         self.rootViewController.UIConfigurations[@"UIToolbarMode"]
         = @"Study";
-        self.rootViewController.testManager->testManagerMode = CONTROL;
+        
+        self.rootViewController.testManager->initTestEnv(CONTROL);
     }
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];

@@ -267,6 +267,7 @@ public:
     //---------------
     // Test flow control
     //---------------
+    void initTestEnv(TestManagerMode mode);
     void resetTestManager();
     void showNextTest();
     void showPreviousTest();

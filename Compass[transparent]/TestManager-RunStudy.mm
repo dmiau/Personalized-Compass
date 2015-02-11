@@ -16,6 +16,20 @@
 #import "DesktopViewController.h"
 #endif
 
+//------------------
+// Setup the environment for the next test
+//------------------
+void TestManager::initTestEnv(TestManagerMode mode){
+    testManagerMode = mode;
+    showTestNumber(0);
+    
+    if (mode == CONTROL){
+        NSDictionary *myDict = @{@"Type" : @"Instruction",
+                                 @"Command" : @"SetupEnv"
+                                 };
+        [rootViewController sendPackage: myDict];
+    }
+}
 
 //------------------
 // Setup the environment for the next test

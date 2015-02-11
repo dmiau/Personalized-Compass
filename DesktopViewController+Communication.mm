@@ -79,8 +79,7 @@
         NSString* command = myDictionary[@"Command"];
         
         if ([command isEqualToString: @"SetupEnv"]){
-
-            
+            self.testManager->initTestEnv(COLLECT);            
         }else if ([command isEqualToString: @"LoadSnapshot"]){
             int test_id = [myDictionary[@"SsnapshotID"] intValue];
             self.testManager->showTestNumber(test_id);
@@ -117,29 +116,6 @@
     }else{
         throw(runtime_error("Unknown package type."));
     }
-    
-    
-    // Not sure if the following is necessary.
-    
-    
-#ifdef __IPHONE__
-    //------------
-    // iOS
-    //------------
-    
-#else
-    //------------
-    // OSX
-    //------------
-    
-    //    // Sync with iOS
-    //    if (self.rootViewController.iOSSyncFlag)
-    //    {
-    //        // UI update needs to be on main queue?
-    //        dispatch_async(dispatch_get_main_queue(),
-    //                       ^{[self.rootViewController syncWithiOS: myDictionary];});
-    //    }
-#endif
 }
 
 
@@ -228,10 +204,11 @@
                              @"mdl_tilt":[NSNumber numberWithFloat:
                                           self.model->tilt]};
     
-    // Send the data (in the form of NSData)
-    //http://stackoverflow.com/questions/5513075/how-can-i-convert-nsdictionary-to-nsdata-and-vice-versa
-    NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:myDict];
-    [_webSocket send: myData];
+    [self sendPackage:myDict];    
+//    // Send the data (in the form of NSData)
+//    //http://stackoverflow.com/questions/5513075/how-can-i-convert-nsdictionary-to-nsdata-and-vice-versa
+//    NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:myDict];
+//    [_webSocket send: myData];
 }
 #endif
 

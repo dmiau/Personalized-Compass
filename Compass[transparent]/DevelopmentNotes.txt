@@ -179,8 +179,7 @@ Type: Instruction, Message
 
 - Instruction
 *Command: SetupEnv, LoadSnapshot, Start, SwitchControl, End, Sync
-*Parameter: SsnapshotID
-*SwitchContorl: yes, no
+*Parameter: SsnapshotID, YES, NO, Filename
 
 - Message
 * Status: OK, BAD, NEXT
