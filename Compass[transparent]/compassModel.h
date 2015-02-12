@@ -89,7 +89,7 @@ public:
     bool isEnabled; // indicates wheather the landmark is enabled or not
     bool isVisible; // indicates the locaiton is within the current
                     // visible region or not.
-    
+    bool isAnswer;
     //-------------
     // label related stuff
     //-------------
@@ -108,6 +108,7 @@ public:
         orientation = 0;
         isEnabled = YES;
         isVisible = NO;
+        isAnswer = NO;
         annotation = [[CustomPointAnnotation alloc] init];
     };
 };
@@ -247,7 +248,14 @@ public:
     // Need this field because the orientation in user_pos
     // indicating the orientation from the current camera_pos
     double user_heading_deg;
-    //
+
+    // When the user wants to home the map, the map go back to this setting.
+    // At the home location, the orientation will be reset to zero.
+    MKCoordinateRegion homeCoordinateRegion;
+    
+    // These two do not seem to be very useful. The purpose of these two is to
+    // automatically determine a zoom level when the program is first initialized
+    // (so the user will not see a world map.
     float latitudedelta;
     float longitudedelta;
     

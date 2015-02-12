@@ -129,22 +129,22 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view contentMode="scaleToFill" restorationIdentifier="ModelPanel" id="1GR-sH-34c" userLabel="ModelPanel">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="165"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0So-s1-ohR">
-                    <rect key="frame" x="169" y="15" width="51" height="31"/>
+                    <rect key="frame" x="169" y="65" width="51" height="31"/>
                     <connections>
                         <action selector="toggleLandmarkLock:" destination="-1" eventType="valueChanged" id="XhJ-dO-28O"/>
                     </connections>
                 </switch>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Landmark Lock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3W-Hn-DzT">
-                    <rect key="frame" x="12" y="20" width="120" height="21"/>
+                    <rect key="frame" x="12" y="70" width="120" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="koe-mY-dSr">
-                    <rect key="frame" x="119" y="123" width="189" height="29"/>
+                    <rect key="frame" x="119" y="173" width="189" height="29"/>
                     <segments>
                         <segment title="kOrientation"/>
                         <segment title="None"/>
@@ -155,12 +155,12 @@
                     </connections>
                 </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="D-Selection:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztD-O9-npJ">
-                    <rect key="frame" x="12" y="125" width="95" height="21"/>
+                    <rect key="frame" x="12" y="175" width="95" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h43-e5-7WU">
-                    <rect key="frame" x="119" y="69" width="189" height="29"/>
+                    <rect key="frame" x="119" y="119" width="189" height="29"/>
                     <segments>
                         <segment title="None"/>
                         <segment title="Cluster"/>
@@ -171,15 +171,32 @@
                     </connections>
                 </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Prefilter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAq-HS-9Sb">
-                    <rect key="frame" x="12" y="71" width="100" height="21"/>
+                    <rect key="frame" x="12" y="121" width="100" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMW-EF-C9U">
+                    <rect key="frame" x="113" y="20" width="195" height="30"/>
+                    <state key="normal" title="Make Current View as Home"/>
+                    <connections>
+                        <action selector="setCurrentAsHome:" destination="-1" eventType="touchUpInside" id="grN-hY-yZF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trz-Bq-Wfd">
+                    <rect key="frame" x="12" y="20" width="41" height="30"/>
+                    <state key="normal" title="Home">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="goHome:" destination="-1" eventType="touchUpInside" id="ZZs-8A-mKn"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="546" y="195.5"/>
         </view>
         <view contentMode="scaleToFill" restorationIdentifier="WatchPanel" id="Sug-eX-yGZ" userLabel="WatchPanel">
             <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>

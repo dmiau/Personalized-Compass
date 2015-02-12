@@ -31,6 +31,7 @@
 -(void)vcTimerFired{
     static double pitch_cache = 0.0;
     static MKMapRect visibleMapRect_cache = MKMapRectMake(0, 0, 0, 0);
+    static bool hasChanged = false;
     
     double epsilon = 0.0000001;
     
@@ -47,7 +48,16 @@
         pitch_cache = self.mapView.camera.pitch;
         
         self.mapUpdateFlag = [NSNumber numberWithDouble:0.0];
+        hasChanged = true;
+    }else{
+        // This condition is reached when the model just comes to a stop.
+        if (hasChanged){
+            [self updateMainGUI];
+            hasChanged = false;
+        }
     }
+    
+    
     //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
 }
 

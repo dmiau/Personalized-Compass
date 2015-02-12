@@ -87,9 +87,10 @@ typedef struct{
 
 
 // Model panel
+@property (weak, nonatomic) IBOutlet UISwitch *landmarkLock;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *filterSegmentControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dataSegmentControl;
-@property (weak, nonatomic) IBOutlet UISwitch *landmarkLock;
+
 
 
 // Compass panel

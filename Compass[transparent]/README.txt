@@ -2495,6 +2495,7 @@ maintain a type counter dictionary
 -------------------------------------------------------------------
 ***** Done
 - need to improve the snapshot class [9:56AM]
+- building a home button [2:28PM]
 
 ***** ToDo
 - Snapshot loading is too slow on iOS
@@ -2513,7 +2514,7 @@ maintain a type counter dictionary
 - iWath emulation, watchMode, modify drawOneSide to cut off the legs
 - Naming conventions: .locations, .snapshot, .tests, etc. 
 
-- test authoring tool
+- Test Creator
 
 Test authoring tool strategies:
 - Use TestManager
@@ -2521,12 +2522,9 @@ Test authoring tool strategies:
 - Grow test_vector
 - Generate snapshot, and store the snapshot into the snapshot vector
 
-
-
 maintain a type counter dictionary
 
-
-
+toggleWatchMask can be enhanced.
 
 
 

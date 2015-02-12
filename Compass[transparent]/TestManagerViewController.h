@@ -47,4 +47,19 @@
 @property NSNumber* task_orient;
 @property NSNumber* task_closest;
 
+//-------------
+// Manual test creation
+//-------------
+
+// Temporary structures
+
+
+// Actions
+- (IBAction)resetManualTestCreation:(id)sender;
+- (IBAction)addTestLocations:(id)sender;
+- (IBAction)addiOSCoordRegion:(id)sender;
+- (IBAction)addOSXCoordRegion:(id)sender;
+- (IBAction)commitTestToMemory:(id)sender;
+- (IBAction)generateManualTests:(id)sender;
+
 @end

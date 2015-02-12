@@ -10,6 +10,20 @@
 
 @implementation iOSViewController (Model)
 
+//---------------
+// The "home" button is clicked
+//---------------
+- (IBAction)goHome:(id)sender {
+    self.mapView.region = self.model->homeCoordinateRegion;
+    self.mapView.camera.heading = 0;
+}
+
+//---------------
+// Set the current location as home
+//---------------
+- (IBAction)setCurrentAsHome:(id)sender {
+    self.model->homeCoordinateRegion = self.mapView.region;
+}
 
 - (IBAction)toggleLandmarkLock:(id)sender {
     UISwitch* mySwitch = (UISwitch*) sender;

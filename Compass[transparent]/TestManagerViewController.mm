@@ -64,6 +64,9 @@
     
 }
 
+//--------------------------
+// Generate tests automatically
+//--------------------------
 - (IBAction)generateTests:(id)sender {
     // Initial testManager if it is not initialized yet
     if (self.rootViewController.testManager == NULL){
@@ -98,5 +101,30 @@
     
     // Generate tests
     self.rootViewController.testManager->generateTests();
+}
+
+//--------------------------
+// Manually test creation
+//--------------------------
+
+- (IBAction)resetManualTestCreation:(id)sender {
+}
+
+- (IBAction)addTestLocations:(id)sender {
+}
+
+- (IBAction)addiOSCoordRegion:(id)sender {
+}
+
+- (IBAction)addOSXCoordRegion:(id)sender {
+}
+
+- (IBAction)commitTestToMemory:(id)sender {
+}
+
+- (IBAction)generateManualTests:(id)sender {
+}
+
+- (IBAction)addiOSSnapshot:(id)sender {
 }
 @end

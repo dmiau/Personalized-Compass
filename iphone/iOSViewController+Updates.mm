@@ -17,6 +17,7 @@
     static double longitude_cache = 0.0;
     static double pitch_cache = 0.0;
     static double camera_heading = 0.0;
+    static bool   hasChanged = false;
     double epsilon = 0.0000001;
     
     // Note that heading is defined as the negative of
@@ -31,6 +32,22 @@
         pitch_cache = self.mapView.camera.pitch;
         camera_heading = [self calculateCameraHeading];
         self.mapUpdateFlag = [NSNumber numberWithDouble:0.0];
+        hasChanged = true;
+    }else{
+        // This condition is reached when the map comes to a stop
+        // Do a force refresh
+        if (hasChanged){
+            // Do a force refresh
+            [self updateLocationVisibility];
+               self.model->updateMdl();
+            [self updateCornerLatLon];
+            
+            [self sendBoundaryLatLon];
+            [self updateOverviewMap];
+            [self.glkView setNeedsDisplay];
+            [self updateFindMeView];
+            hasChanged = false;
+        }
     }
     //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
 }

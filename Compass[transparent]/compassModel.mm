@@ -96,7 +96,13 @@ int compassMdl::initMdl(){
     //------------
     reloadFiles();
     watchConfigurationFile();
-
+    
+    // The very first camera_pos is set to be the home
+    homeCoordinateRegion.center = CLLocationCoordinate2DMake
+    (camera_pos.latitude, camera_pos.longitude);
+    homeCoordinateRegion.span = MKCoordinateSpanMake
+    (latitudedelta, longitudedelta);
+    
     //------------
     // Load snapshot if the file is available
     //------------

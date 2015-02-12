@@ -232,6 +232,8 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
         cell.isUserLocation = false;
         data_ptr = &(self.model->data_array[i]);
+        
+//        cell.backgroundColor = [UIColor redColor];
     }
     cell.data_ptr = data_ptr;
     cell.mySwitch.on = data_ptr->isEnabled;    
