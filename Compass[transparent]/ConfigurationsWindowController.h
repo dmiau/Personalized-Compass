@@ -118,15 +118,15 @@
 //-------------
 // Test Manager
 //-------------
-- (IBAction)generateTests:(id)sender;
+//- (IBAction)generateTests:(id)sender;
 
 // Properties for parameter binding
-@property NSNumber* close_begin_x;
-@property NSNumber* close_end_x;
-@property NSNumber* close_n; // # of locations in the close category
-@property NSNumber* far_begin_x;
-@property NSNumber* far_end_x;
-@property NSNumber* far_n; // # of locations in the far category
-@property NSNumber* participant_n; // # of users
-@property NSNumber* participant_id;
+//@property NSNumber* close_begin_x;
+//@property NSNumber* close_end_x;
+//@property NSNumber* close_n; // # of locations in the close category
+//@property NSNumber* far_begin_x;
+//@property NSNumber* far_end_x;
+//@property NSNumber* far_n; // # of locations in the far category
+//@property NSNumber* participant_n; // # of users
+//@property NSNumber* participant_id;
 @end

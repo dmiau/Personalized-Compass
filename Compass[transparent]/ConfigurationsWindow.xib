@@ -769,7 +769,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="generateTests:" target="-2" id="a00-d8-tfN"/>
+                                                <action selector="generateTests:" target="mH8-SB-opV" id="ZIQ-d1-PQx"/>
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAL-u0-ctl">
@@ -788,7 +788,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="-2" name="value" keyPath="self.participant_n" id="eRt-ap-41Y"/>
+                                                <binding destination="mH8-SB-opV" name="value" keyPath="self.participant_n" id="C9v-uT-RiE"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skr-1q-Ntq">
@@ -807,7 +807,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="-2" name="value" keyPath="self.participant_id" id="dbf-84-y6Q"/>
+                                                <binding destination="mH8-SB-opV" name="value" keyPath="self.participant_id" id="yeF-sb-Ekt"/>
                                             </connections>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ER3-qa-fzL">
@@ -861,6 +861,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.viz_pcompass" id="8vI-vG-z4A"/>
+                                                        </connections>
                                                     </button>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52X-j6-Ixx">
                                                         <rect key="frame" x="9" y="53" width="65" height="18"/>
@@ -868,6 +871,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.viz_wedge" id="qZa-2H-S18"/>
+                                                        </connections>
                                                     </button>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kL3-hf-4Mb">
                                                         <rect key="frame" x="159" y="79" width="62" height="18"/>
@@ -875,6 +881,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.disp_phone" id="khK-8C-Kq1"/>
+                                                        </connections>
                                                     </button>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dX-wZ-4WM">
                                                         <rect key="frame" x="159" y="55" width="61" height="18"/>
@@ -882,6 +891,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.disp_watch" id="tuX-rJ-U35"/>
+                                                        </connections>
                                                     </button>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uUW-sO-iV7">
                                                         <rect key="frame" x="266" y="78" width="58" height="18"/>
@@ -903,6 +915,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.viz_overview" id="6UM-hv-z1G"/>
+                                                        </connections>
                                                     </button>
                                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kgf-0p-iQR">
                                                         <rect key="frame" x="306" y="40" width="34" height="22"/>
@@ -912,7 +927,7 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="-2" name="value" keyPath="self.close_begin_x" id="UWM-oh-XRR"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.close_begin_x" id="Hah-Eb-OpL"/>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34d-iT-TED">
@@ -939,7 +954,7 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="-2" name="value" keyPath="self.close_n" id="ZnP-80-Jyv"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.close_n" id="vbq-LF-fId"/>
                                                         </connections>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxM-Kb-K99">
@@ -950,7 +965,7 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="-2" name="value" keyPath="self.far_begin_x" id="G2t-gp-WAA"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.far_begin_x" id="a5R-Rc-yJo"/>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AWR-eu-DTy">
@@ -969,7 +984,7 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="-2" name="value" keyPath="self.far_n" id="Ue6-oQ-3lr"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.far_n" id="gVe-m6-eGv"/>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3k-pd-uyF">
@@ -994,9 +1009,12 @@
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            <connections>
+                                                                <binding destination="mH8-SB-opV" name="value" keyPath="self.close_end_x" id="0OK-HD-hdo"/>
+                                                            </connections>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="-2" name="value" keyPath="self.close_end_x" id="9kr-Ii-fWY"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.close_end_x" id="24b-xM-34V"/>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EfG-xX-O68">
@@ -1023,7 +1041,7 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="-2" name="value" keyPath="self.far_end_x" id="bbF-Ii-s21"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.far_end_x" id="I0S-4C-BJ4"/>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iA0-GF-hv4">
@@ -1051,6 +1069,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.task_locate" id="ghW-tD-hqe"/>
+                                                        </connections>
                                                     </button>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QxZ-Xv-Dqt">
                                                         <rect key="frame" x="10" y="73" width="90" height="18"/>
@@ -1058,6 +1079,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.task_triangulate" id="Dd4-Yg-NnH"/>
+                                                        </connections>
                                                     </button>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbk-De-Jj8">
                                                         <rect key="frame" x="9" y="45" width="60" height="18"/>
@@ -1065,6 +1089,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.task_orient" id="98p-1u-Zmk"/>
+                                                        </connections>
                                                     </button>
                                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADq-IW-XBf">
                                                         <rect key="frame" x="9" y="18" width="69" height="18"/>
@@ -1072,6 +1099,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.task_closest" id="cCb-Z1-ALa"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </view>

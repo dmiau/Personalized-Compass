@@ -35,19 +35,7 @@
         // Initialization code here.
         self.model = compassMdl::shareCompassMdl();
                 
-        //-------------
-        // Initialize test parameters
-        //-------------
-        self.close_begin_x = [NSNumber numberWithFloat:1.5];
-        self.close_end_x = [NSNumber numberWithFloat:3];
-        self.far_begin_x = [NSNumber numberWithFloat:3];
-        self.far_end_x = [NSNumber numberWithFloat:10];
-        
-        self.close_n = [NSNumber numberWithInteger:5];
-        self.far_n = [NSNumber numberWithInteger:5];
-        
-        self.participant_n = [NSNumber numberWithInteger:100];
-        self.participant_id = [NSNumber numberWithInteger:0];
+
     }
     return self;
 }
