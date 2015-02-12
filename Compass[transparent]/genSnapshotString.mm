@@ -54,6 +54,8 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         temp_str = temp_str + string([my_snapshot_array[i].name UTF8String]);
         temp_str = temp_str + "</name>\n";
         
+        //********************************** iOS
+        
         //-----------------
         // Coordinates (longitude, latitude)
         //-----------------
@@ -92,6 +94,55 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         
         temp_str = temp_str + "</Point>\n";
         
+        //**********************************
+        
+        
+        
+        //********************************** OSX
+        
+        //-----------------
+        // Coordinates (longitude, latitude)
+        //-----------------
+        temp_str = temp_str + "<OSXPoint>\n";
+        temp_str = temp_str + "<osxcoordinates>";
+        
+        // Need to use this trick to output coordinates
+        // longitude first, latitude second
+        stringStream.clear();
+        stringStream.str("");
+        stringStream << my_snapshot_array[i].osx_coordinateRegion.center.longitude << ","
+        << my_snapshot_array[i].osx_coordinateRegion.center.latitude << ",0.0";
+        
+        coord_str = stringStream.str();
+        temp_str = temp_str + coord_str;
+        
+        temp_str = temp_str + "</osxcoordinates>\n";
+        
+        //-----------------
+        // Coordinates (span)
+        //-----------------
+        temp_str = temp_str + "<osxspans>";
+        
+        // Need to use this trick to output coordinates
+        // longitude first, latitude second
+        stringStream.clear();
+        stringStream.str("");
+        stringStream << my_snapshot_array[i].osx_coordinateRegion.span.longitudeDelta << ","
+        << my_snapshot_array[i].osx_coordinateRegion.span.latitudeDelta << ",0.0";
+        
+        coord_str = stringStream.str();
+        temp_str = temp_str + coord_str;
+        
+        temp_str = temp_str + "</osxspans>\n";
+        
+        
+        temp_str = temp_str + "</OSXPoint>\n";
+        
+        //**********************************
+        
+        
+        
+        
         //-----------------
         // Orientation
         //-----------------
@@ -129,6 +180,66 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         temp_str = temp_str +
         genSelectedIDStr(my_snapshot_array[i].selected_ids);
         temp_str = temp_str + "</selected_ids>\n";
+        
+
+        //-----------------
+        // enabled_list
+        //-----------------
+        temp_str = temp_str + "<enabled_list>";
+        temp_str = temp_str +
+        genSelectedIDStr(my_snapshot_array[i].enabled_list);
+        temp_str = temp_str + "</enabled_list>\n";
+        
+        //-----------------
+        // ios_display_wh
+        //-----------------
+        temp_str = temp_str + "<ios_display_wh>";
+        
+        // Need to use this trick to output coordinates
+        // longitude first, latitude second
+        stringStream.clear();
+        stringStream.str("");
+        stringStream << my_snapshot_array[i].ios_display_wh.x << ","
+        << my_snapshot_array[i].ios_display_wh.y << ",0.0";
+        
+        coord_str = stringStream.str();
+        temp_str = temp_str + coord_str;
+        
+        temp_str = temp_str + "</ios_display_wh>\n";
+        
+        //-----------------
+        // eios_display_wh
+        //-----------------
+        temp_str = temp_str + "<eios_display_wh>";
+        
+        // Need to use this trick to output coordinates
+        // longitude first, latitude second
+        stringStream.clear();
+        stringStream.str("");
+        stringStream << my_snapshot_array[i].eios_display_wh.x << ","
+        << my_snapshot_array[i].eios_display_wh.y << ",0.0";
+        
+        coord_str = stringStream.str();
+        temp_str = temp_str + coord_str;
+        
+        temp_str = temp_str + "</eios_display_wh>\n";
+        
+        //-----------------
+        // osx_display_wh
+        //-----------------
+        temp_str = temp_str + "<osx_display_wh>";
+        
+        // Need to use this trick to output coordinates
+        // longitude first, latitude second
+        stringStream.clear();
+        stringStream.str("");
+        stringStream << my_snapshot_array[i].osx_display_wh.x << ","
+        << my_snapshot_array[i].osx_display_wh.y << ",0.0";
+        
+        coord_str = stringStream.str();
+        temp_str = temp_str + coord_str;
+        
+        temp_str = temp_str + "</osx_display_wh>\n";
         
         
         //-----------------

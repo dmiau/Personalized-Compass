@@ -2480,6 +2480,85 @@ iOSFourCornersInNSView [7:27PM]
 
 - test authoring tool
 
+Test authoring tool strategies:
+- Use TestManager
+- Grow location_dict
+- Grow test_vector
+- Generate snapshot, and store the snapshot into the snapshot vector
+
+- need to improve the snapshot class [11:06PM]
+
+maintain a type counter dictionary
+
+-------------------------------------------------------------------
+2.12.2015
+-------------------------------------------------------------------
+***** Done
+- need to improve the snapshot class [9:56AM]
+
+***** ToDo
+- Snapshot loading is too slow on iOS
+- Implement a StudyLog structure
+- map zoom in/out, pan around
+
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
+
+- Think about tests which involve multiple locations (I can sketch out some ideas)
+- Outline the paper
+- Automatically calculate MapRect for the study
+
+***** Working
+- Sometimes a needle could become too thin
+- iWath emulation, watchMode, modify drawOneSide to cut off the legs
+- Naming conventions: .locations, .snapshot, .tests, etc. 
+
+- test authoring tool
+
+Test authoring tool strategies:
+- Use TestManager
+- Grow location_dict
+- Grow test_vector
+- Generate snapshot, and store the snapshot into the snapshot vector
+
+
+
+maintain a type counter dictionary
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -38,6 +38,13 @@ int readSnapshotKml(compassMdl* mdl);
     BOOL selected_id_flag;
     BOOL visualization_flag;
     BOOL device_flag;
+    
+    BOOL osx_coord_flag;
+    BOOL osx_span_flag;
+    BOOL enabled_list_flag;
+    BOOL ios_display_wh_flag;
+    BOOL eios_display_wh_flag;
+    BOOL osx_display_wh_flag;
 }
 //snapshot_array stores the output
 @property std::vector<snapshot> snapshot_array;

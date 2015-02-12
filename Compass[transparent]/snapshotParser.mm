@@ -50,6 +50,14 @@ int readSnapshotKml(compassMdl* mdl){
     [mdl->desktopDropboxDataRoot stringByAppendingPathComponent:filename]]];
 #endif
     myParser.parseFile;
+    
+    
+    // Run sanity check before sendig the snapshot_array to the model
+    // Because some of the newly added field might be empty
+    for (int i = 0; i < myParser.snapshot_array.size(); ++i){
+        myParser.snapshot_array[i].runSanityCheck();
+    }
+    
     mdl->snapshot_array = myParser.snapshot_array;
     
     return EXIT_SUCCESS;
@@ -76,6 +84,14 @@ int readSnapshotKml(compassMdl* mdl){
     selected_id_flag    = false;
     visualization_flag  = false;
     device_flag         = false;
+    
+    osx_coord_flag      = false;
+    osx_span_flag       = false;
+    enabled_list_flag   = false;
+    ios_display_wh_flag = false;
+    eios_display_wh_flag= false;
+    osx_display_wh_flag = false;
+    
     return self;
 }
 
@@ -94,6 +110,13 @@ int readSnapshotKml(compassMdl* mdl){
     selected_id_flag    = false;
     visualization_flag  = false;
     device_flag         = false;
+    
+    osx_coord_flag      = false;
+    osx_span_flag       = false;
+    enabled_list_flag   = false;
+    ios_display_wh_flag = false;
+    eios_display_wh_flag= false;
+    osx_display_wh_flag = false;
     return self;
 }
 
@@ -149,6 +172,22 @@ int readSnapshotKml(compassMdl* mdl){
     }else if ([elementName isEqualToString:@"deviceType"]){
         device_flag = true;
     }
+    
+    else if ([elementName isEqualToString:@"osx_coord"]){
+        osx_coord_flag = true;
+    }else if ([elementName isEqualToString:@"osx_span"]){
+        osx_span_flag = true;
+    }else if ([elementName isEqualToString:@"enabled_list"]){
+        enabled_list_flag = true;
+    }else if ([elementName isEqualToString:@"ios_display_wh"]){
+        ios_display_wh_flag = true;
+    }else if ([elementName isEqualToString:@"eios_display_wh"]){
+        eios_display_wh_flag = true;
+    }else if ([elementName isEqualToString:@"osx_display_wh"]){
+        osx_display_wh_flag = true;
+    }
+    
+    
 }
 
 //----------------
@@ -202,6 +241,64 @@ int readSnapshotKml(compassMdl* mdl){
             snapshot_array[snapshot_array.size()-1].deviceType =
             (DeviceType)[string integerValue];
         }
+        
+        else if (osx_coord_flag){
+            // Need to somehow split the sting
+            NSArray *_coord = [string componentsSeparatedByString:@","];
+            // Note that in KML coordinates order are (lon, lat)
+            
+            // Populate MKPointAnnotation
+            CLLocationCoordinate2D coord2D = CLLocationCoordinate2DMake
+            ([_coord[1] floatValue],
+             [_coord[0] floatValue]);
+            snapshot_array[snapshot_array.size()-1].osx_coordinateRegion.center = coord2D;
+        }else if (osx_span_flag){
+            // Need to somehow split the sting
+            NSArray *_coord = [string componentsSeparatedByString:@","];
+            // Note that in KML coordinates order are (lon, lat)
+            
+            snapshot_array[snapshot_array.size()-1]
+            .osx_coordinateRegion.span.longitudeDelta = [_coord[0] floatValue];
+            snapshot_array[snapshot_array.size()-1]
+            .osx_coordinateRegion.span.latitudeDelta = [_coord[1] floatValue];
+        }
+        
+        else if (enabled_list_flag){
+            // Need to somehow split the sting
+            NSArray *id_array = [string componentsSeparatedByString:@","];
+            for (NSString *anItem in id_array){
+                snapshot_array[snapshot_array.size()-1].
+                enabled_list.push_back([anItem integerValue]);
+            }
+        }
+        
+        else if (ios_display_wh_flag){
+            // Need to somehow split the sting
+            NSArray *id_array = [string componentsSeparatedByString:@","];
+            snapshot_array[snapshot_array.size()-1].ios_display_wh.x =
+            [id_array[0] floatValue];
+            snapshot_array[snapshot_array.size()-1].ios_display_wh.y =
+            [id_array[1] floatValue];
+        }
+        
+        else if (eios_display_wh_flag){
+            // Need to somehow split the sting
+            NSArray *id_array = [string componentsSeparatedByString:@","];
+            snapshot_array[snapshot_array.size()-1].eios_display_wh.x =
+            [id_array[0] floatValue];
+            snapshot_array[snapshot_array.size()-1].eios_display_wh.y =
+            [id_array[1] floatValue];
+        }
+        
+        else if (osx_display_wh_flag){
+            // Need to somehow split the sting
+            NSArray *id_array = [string componentsSeparatedByString:@","];
+            snapshot_array[snapshot_array.size()-1].osx_display_wh.x =
+            [id_array[0] floatValue];
+            snapshot_array[snapshot_array.size()-1].osx_display_wh.y =
+            [id_array[1] floatValue];
+        }
+        
     }
 }
 
@@ -233,6 +330,20 @@ int readSnapshotKml(compassMdl* mdl){
         visualization_flag = false;
     }else if ([elementName isEqualToString:@"deviceType"]){
         device_flag = false;
+    }
+    
+    else if ([elementName isEqualToString:@"osx_coord"]){
+        osx_coord_flag = false;
+    }else if ([elementName isEqualToString:@"osx_span"]){
+        osx_span_flag = false;
+    }else if ([elementName isEqualToString:@"enabled_list"]){
+        enabled_list_flag = false;
+    }else if ([elementName isEqualToString:@"ios_display_wh"]){
+        ios_display_wh_flag = false;
+    }else if ([elementName isEqualToString:@"eios_display_wh"]){
+        eios_display_wh_flag = false;
+    }else if ([elementName isEqualToString:@"osx_display_wh"]){
+        osx_display_wh_flag = false;
     }
 }
 @end

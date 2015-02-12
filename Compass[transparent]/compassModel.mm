@@ -16,7 +16,16 @@
 // http://stackoverflow.com/questions/3277121/include-objective-c-header-in-c-file
 
 using namespace std;
-#pragma mark compassMdl class`
+#pragma mark -------------snapshot class-------------
+void snapshot::runSanityCheck(){
+    if (enabled_list.size() == 0){
+        for (int i = 0; i < selected_ids.size(); ++i){
+            enabled_list.push_back(1);
+        }
+    }
+}
+
+#pragma mark -------------compassMdl class-------------
 // http://www.galloway.me.uk/tutorials/singleton-classes/
 // http://www.yolinux.com/TUTORIALS/C++Singleton.html
 

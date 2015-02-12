@@ -118,7 +118,8 @@ public:
 
 class snapshot{
 public:
-    MKCoordinateRegion coordinateRegion;
+    MKCoordinateRegion coordinateRegion; //iOS
+    MKCoordinateRegion osx_coordinateRegion; //iOS
     double orientation;
     NSString* kmlFilename;
     
@@ -135,6 +136,12 @@ public:
     // This stores the ids of the selected landmarks
     // i.e., indices for rendering
     vector<int> selected_ids;
+    vector<int> enabled_list;
+    
+    // Cache screen size for debug purpose
+    CGPoint ios_display_wh;
+    CGPoint eios_display_wh;
+    CGPoint osx_display_wh;
 public:
     snapshot(){
         kmlFilename = @"";
@@ -142,7 +149,20 @@ public:
         notes       = @"";
         date_str    = @"";
         selected_ids.clear();
+        enabled_list.clear();
+        
+        coordinateRegion.center = CLLocationCoordinate2DMake(0, 0);
+        coordinateRegion.span = MKCoordinateSpanMake(0, 0);
+
+        osx_coordinateRegion.center = CLLocationCoordinate2DMake(0, 0);
+        osx_coordinateRegion.span = MKCoordinateSpanMake(0, 0);
+        
+        ios_display_wh = CGPointMake(0, 0);
+        eios_display_wh = CGPointMake(0, 0);
+        osx_display_wh = CGPointMake(0, 0);
     }
+    
+    void runSanityCheck();
 };
 
 class breadcrumb{
