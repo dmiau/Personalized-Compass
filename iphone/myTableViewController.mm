@@ -338,9 +338,9 @@
         //--------------
         if ([self.model->location_filename isEqualToString:@"new.kml"])
         {
-            self.rootViewController.needUpdateDisplayRegion = false;
+            // Do nothing
         }else{
-            self.rootViewController.needUpdateDisplayRegion = true;
+            self.rootViewController.landmark_id_toshow = 0;
             // updateMapDisplayRegion will be called in unwindSegue
         }
         self.rootViewController.needUpdateAnnotations = true;
@@ -360,7 +360,6 @@
         // We might need to do something for iPad
         //--------------
 #ifdef __IPAD__
-        self.rootViewController.needUpdateDisplayRegion = true;
         iOSViewController* parentVC = self.rootViewController;
         [self dismissViewControllerAnimated:YES completion:^{
             // call your completion method:

@@ -86,7 +86,8 @@ typedef struct{
 // Update and initialization functions
 //----------------
 - (void)initMapView;
-- (void)updateMapDisplayRegion: (bool) animated;
+- (void)updateMapDisplayRegion: (MKCoordinateRegion) coord_region
+                 withAnimation: (bool) animated;
 -(bool)updateModelCompassCenterXY;
 - (void)updateMainGUI;
 -(void) updateLocationVisibility;

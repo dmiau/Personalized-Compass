@@ -131,19 +131,7 @@
     MKCoordinateRegion temp_region;
     [myData getBytes:&temp_region length:sizeof(temp_region)];
     
-    // Update model parameters
-    self.model->camera_pos.latitude = temp_region.center.latitude;
-    self.model->camera_pos.longitude = temp_region.center.longitude;
-    //    self.model->camera_pos.orientation =
-    //    [myDictionary[@"mdl_orientation"] floatValue];
-    //    self.model->tilt =
-    //    [myDictionary[@"mdl_tilt"] floatValue];
-    
-    [self updateMapDisplayRegion: YES];
-    //    self.mapView.region = mySnapshot.coordinateRegion;
-    
-    // Not sure why setRegion does not work well...
-    //    [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];
+
     
     
     float OSX_iOS_screen_ratio = 5;
@@ -157,10 +145,8 @@
                            MKCoordinateSpanMake(
                                                 OSX_iOS_screen_ratio*temp_region.span.latitudeDelta,
                                                 OSX_iOS_screen_ratio*temp_region.span.longitudeDelta));
-    self.mapView.region = expanded_region;
-    
-    self.model->updateMdl();
-    
+    // Update model parameters
+    [self updateMapDisplayRegion:expanded_region withAnimation:YES];
     
     self.mapView.camera.heading = -[myDictionary[@"mdl_orientation"] floatValue];
     

@@ -26,7 +26,6 @@
 @property compassRender* renderer;
 @property iOSViewController* rootViewController;
 
-//@property bool needUpdateDisplayRegion;
 - (IBAction)toggleDataSource:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dataSource;

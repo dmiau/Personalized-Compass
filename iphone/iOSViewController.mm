@@ -78,13 +78,6 @@
     //---------------
     // Unwind actions
     //---------------
-    // There is a bug here. There seems to be an extra shift component.
-    if (self.needUpdateDisplayRegion){
-        [self updateMapDisplayRegion:YES];
-        self.needUpdateDisplayRegion = false;
-    }
-    
-    
     if (self.needUpdateAnnotations){
         self.needUpdateAnnotations = false;
 
@@ -127,13 +120,14 @@
     // Goto the selected location
     //---------------
     if (self.landmark_id_toshow >= 0){
-        int id = self.landmark_id_toshow;
-        self.model->camera_pos.latitude =
-        self.model->data_array[id].latitude;
-        self.model->camera_pos.longitude =
-        self.model->data_array[id].longitude;
+        
+        
+        int lid = self.landmark_id_toshow;
+        MKCoordinateRegion temp = MKCoordinateRegionMake
+        (CLLocationCoordinate2DMake(self.model->data_array[lid].latitude, self.model->data_array[lid].longitude),self.mapView.region.span);
+        
+        [self updateMapDisplayRegion: temp withAnimation:NO];
         self.landmark_id_toshow = -1;
-        [self updateMapDisplayRegion:NO];
     }
     
     [self.glkView setNeedsDisplay];
@@ -222,7 +216,17 @@
 // initMapView may be called whenever configurations.json is reloaded
 //-----------------
 - (void) initMapView{
-    [self updateMapDisplayRegion:YES];
+    MKCoordinateRegion temp;
+    if (self.model->data_array.size()>0){
+        temp = MKCoordinateRegionMake
+        (CLLocationCoordinate2DMake(self.model->data_array[0].latitude, self.model->data_array[0].longitude),MKCoordinateSpanMake(0.01, 0.01));
+    }else{
+        // Manhattan as the default location
+        temp = MKCoordinateRegionMake
+        (CLLocationCoordinate2DMake(40.705773, -74.002159),
+         MKCoordinateSpanMake(0.01, 0.01));
+    }
+    [self updateMapDisplayRegion: temp withAnimation:NO];
     
     // Provide the centroid of compass to the model
     [self updateModelCompassCenterXY];

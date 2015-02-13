@@ -65,6 +65,12 @@
     // updates should not come from map! Need to fix this
     if ([keyPath isEqual:@"mapUpdateFlag"]) {
         
+        [self updateLocationVisibility];
+        
+        [self updateCornerLatLon];
+        
+        [self sendBoundaryLatLon];
+        
         CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint: self.model->compassCenterXY
             toCoordinateFromView:self.mapView];
         
@@ -73,11 +79,7 @@
                         heading: [self calculateCameraHeading]
                            tilt: -self.mapView.camera.pitch];
 
-        [self updateLocationVisibility];
-        
-        [self updateCornerLatLon];
-        
-        [self sendBoundaryLatLon];
+
         // [todo] This code should be put into the gesture recognizer
         // Disable the compass
         
@@ -147,37 +149,42 @@
     return true_north_wrt_up;
 }
 
-- (void) updateMapDisplayRegion: (bool) animated{
+- (void) updateMapDisplayRegion: (MKCoordinateRegion) coord_region
+                  withAnimation:(bool) animated
+{
+    // updateMapDisplayRegion syncs parameters from the model to the
+    // display map
+    
     //http://stackoverflow.com/questions/14771197/ios-beginning-ios-tutorial-underscore-before-variable
-    static int once = 0;
-    if (once==0){
+    static bool isInited = false;
+    if (!isInited){
         MKCoordinateRegion region;
         region.center.latitude = self.model->camera_pos.latitude;
         region.center.longitude = self.model->camera_pos.longitude;
         
         region.span.longitudeDelta = self.model->latitudedelta;
         region.span.latitudeDelta = self.model->longitudedelta;
-        [self.mapView setRegion:region];
-        once = 1;
+        [self.mapView setRegion:region animated:NO];
+        isInited = true;
     }
     
-    CLLocationCoordinate2D coord;
-    coord.latitude = self.model->camera_pos.latitude;
-    coord.longitude = self.model->camera_pos.longitude;
+    [self.mapView setRegion:coord_region animated:animated];
     
     
-    //    // The compass may be off-center, thus we need to calculate the
-    //    // coordinate of the true center
-    //    [self.mapView convertPoint: NSMakePoint(-self.compassView.frame.size.width/2,
-    //                                            -self.compassView.frame.size.height/2)
-    //                      fromView:self.compassView];
+    // Update the model
+    CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
+                                              self.model->compassCenterXY
+                                                   toCoordinateFromView:self.mapView];
+    self.model->camera_pos.latitude = compassCtrCoord.latitude;
+    self.model->camera_pos.longitude = compassCtrCoord.longitude;
     
-    
-    
-    [self.mapView setCenterCoordinate:coord animated:animated];
-    
-    
-//    [self.mapView setRegion:<#(MKCoordinateRegion)#> animated:<#(BOOL)#>];
+    [self updateLocationVisibility];
+    self.model->updateMdl();
+#ifndef __IPHONE__
+    [self.compassView setNeedsDisplay:YES];
+#else
+    [self.glkView setNeedsDisplay];
+#endif
 }
 
 //------------------

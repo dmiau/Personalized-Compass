@@ -18,8 +18,7 @@
     
     // [todo] update code can be refactored
     self.model->reloadFiles();
-    [self updateMapDisplayRegion: NO];
-    [self.locationTableView reloadData];
+    [self initMapView];
 }
 
 //-----------
@@ -124,30 +123,27 @@
     self.model->updateMdl();
 }
 
-- (void) updateMapDisplayRegion: (bool) animated{
+- (void) updateMapDisplayRegion: (MKCoordinateRegion) coord_region
+                  withAnimation:(bool) animated
+{
     // updateMapDisplayRegion syncs parameters from the model to the
     // display map
     
     //http://stackoverflow.com/questions/14771197/ios-beginning-ios-tutorial-underscore-before-variable
-    static int once = 0;
-    if (once==0){
-        MKCoordinateRegion region;
-        region.center.latitude = self.model->camera_pos.latitude;
-        region.center.longitude = self.model->camera_pos.longitude;
-        
-        region.span.longitudeDelta = self.model->latitudedelta;
-        region.span.latitudeDelta = self.model->longitudedelta;
-        [self.mapView setRegion:region];
-        once = 1;
-    }
-
-    CLLocationCoordinate2D coord;
-    coord.latitude = self.model->camera_pos.latitude;
-    coord.longitude = self.model->camera_pos.longitude;
-    [self.mapView setCenterCoordinate:coord animated:animated];
     
-//    self.mapView.camera.pitch = -self.model->tilt;
-//    self.mapView.camera.heading = -self.model->camera_pos.orientation;
+    [self.mapView setRegion:coord_region animated:animated];
+    
+    
+    // Update the model
+    CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
+                                              self.model->compassCenterXY
+                                                   toCoordinateFromView:self.mapView];
+    self.model->camera_pos.latitude = compassCtrCoord.latitude;
+    self.model->camera_pos.longitude = compassCtrCoord.longitude;
+    
+    [self updateLocationVisibility];
+    self.model->updateMdl();
+    [self.compassView setNeedsDisplay:YES];
 }
 
 

@@ -78,15 +78,11 @@
                 && (label_pt.y - touch_pt.y) <= height
                 && (label_pt.y - touch_pt.y) >=0)
             {
-                int id = j;
-                self.model->camera_pos.latitude =
-                self.model->data_array[id].latitude;
-                self.model->camera_pos.longitude =
-                self.model->data_array[id].longitude;
+                MKCoordinateRegion temp = MKCoordinateRegionMake
+                (CLLocationCoordinate2DMake(self.model->data_array[j].latitude, self.model->data_array[j].longitude),self.mapView.region.span);
+                [self updateMapDisplayRegion: temp withAnimation:YES];
+                
                 self.landmark_id_toshow = -1;
-                [self updateMapDisplayRegion:YES];
-                
-                
                 [self.glkView setNeedsDisplay];
             }
             

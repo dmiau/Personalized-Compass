@@ -2579,18 +2579,15 @@ toggleWatchMask can be enhanced.
 - study counter is incorrect when jump to a study
 - somehow the compass thinks its center is located at the center of the screen
 
+retired updateMapDisplayRegion
+use
+[self.mapView setRegion:<#(MKCoordinateRegion)#> animated:<#(BOOL)#>]; instead.
 
 
-
-
-
-
-
-
-
-
-
-
+    MKCoordinateRegion temp = MKCoordinateRegionMake
+    (CLLocationCoordinate2DMake(self.model->data_array[ind].latitude, self.model->data_array[ind].longitude),self.rootViewController.mapView.region.span);
+    
+    [self.rootViewController updateMapDisplayRegion: temp withAnimation:NO];
 
 
 

@@ -231,15 +231,11 @@
     
     // Assume only one row is clicked
     int ind = (int)[idx firstIndex];
+
+    MKCoordinateRegion temp = MKCoordinateRegionMake
+    (CLLocationCoordinate2DMake(self.model->data_array[ind].latitude, self.model->data_array[ind].longitude),self.rootViewController.mapView.region.span);
     
-    //[todo] hwo to improve?
-//    self.model->camera_pos.name = self.model->data_array[ind].name;
-    self.model->camera_pos.latitude = self.model->data_array[ind].latitude;
-    self.model->camera_pos.longitude = self.model->data_array[ind].longitude;
-    
-    //    self.model->updateMdl();
-    [self.rootViewController updateMapDisplayRegion: YES];
-    //    [tableView reloadData];
+    [self.rootViewController updateMapDisplayRegion: temp withAnimation:NO];
 }
 
 - (IBAction)refreshLocationTable:(id)sender {
@@ -288,23 +284,15 @@
     // Set the initial orientation to 0
     
     if (self.model->data_array.size() > 0){
-        self.model->camera_pos.orientation = 0;
-        self.model->camera_pos.latitude = self.model->data_array[0].latitude;
-        self.model->camera_pos.longitude = self.model->data_array[0].longitude;
+        MKCoordinateRegion temp = MKCoordinateRegionMake
+        (CLLocationCoordinate2DMake(self.model->data_array[0].latitude, self.model->data_array[0].longitude),self.rootViewController.mapView.region.span);
+        
+        [self.rootViewController updateMapDisplayRegion: temp withAnimation:NO];
     }
     
-    self.model->updateMdl();
-    NSLog(@"json combo triggered %@", astr);
-        
-//    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
-//    [self.locationTableView selectRowIndexes:indexSet byExtendingSelection:NO];
-//    
-//    //Begin editing of the cell containing the new object
-//    [self.locationTableView editColumn:0 row:0 withEvent:nil select:YES];
-
-    [self.rootViewController updateMapDisplayRegion: NO];
     [self.rootViewController renderAnnotations];
     [self.locationTableView reloadData];
+    NSLog(@"json combo triggered %@", astr);
 }
 
 - (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox {

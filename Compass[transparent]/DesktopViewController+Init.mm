@@ -128,7 +128,19 @@
 // initMapView may be called whenever configurations.json is reloaded
 //-----------------
 - (void) initMapView{
-    [self updateMapDisplayRegion: NO];
+    
+    MKCoordinateRegion temp;
+    if (self.model->data_array.size()>0){
+        temp = MKCoordinateRegionMake
+        (CLLocationCoordinate2DMake(self.model->data_array[0].latitude, self.model->data_array[0].longitude),MKCoordinateSpanMake(0.01, 0.01));
+    }else{
+        // Manhattan as the default location
+        temp = MKCoordinateRegionMake
+        (CLLocationCoordinate2DMake(40.705773, -74.002159),
+         MKCoordinateSpanMake(0.01, 0.01));
+    }
+    [self updateMapDisplayRegion: temp withAnimation:NO];
+    
     
     // Provide the centroid of compass to the model
     [self updateModelCompassCenterXY];

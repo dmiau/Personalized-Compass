@@ -74,14 +74,10 @@
     // Assume only one row is clicked
     int ind = (int)[idx firstIndex];
     
-    //[todo] hwo to improve?
-//    self.model->camera_pos.name = self.model->data_array[ind].name;
-    self.model->camera_pos.latitude = self.model->data_array[ind].latitude;
-    self.model->camera_pos.longitude = self.model->data_array[ind].longitude;
+    MKCoordinateRegion temp = MKCoordinateRegionMake
+    (CLLocationCoordinate2DMake(self.model->data_array[ind].latitude, self.model->data_array[ind].longitude),self.mapView.region.span);
     
-//    self.model->updateMdl();
-    [self updateMapDisplayRegion: YES];
-//    [tableView reloadData];
+    [self updateMapDisplayRegion: temp withAnimation:NO];
 }
 
 @end

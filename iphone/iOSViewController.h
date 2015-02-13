@@ -211,7 +211,8 @@ typedef struct{
 // Update and initialization functions
 //----------------
 - (void)initMapView;
-- (void) updateMapDisplayRegion: (bool) animated;
+- (void) updateMapDisplayRegion: (MKCoordinateRegion) coord_region
+                  withAnimation:(bool) animated;
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
 -(void)updateOverviewMap;
 -(bool)updateModelCompassCenterXY;

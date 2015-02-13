@@ -146,16 +146,7 @@
 
 //    self.mapView.region = mySnapshot.coordinateRegion;
     [self.mapView setRegion:mySnapshot.coordinateRegion animated:NO];
-    
-    
-    CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
-                                              self.model->compassCenterXY
-                                                   toCoordinateFromView:self.mapView];
-    self.model->camera_pos.latitude = compassCtrCoord.latitude;
-    self.model->camera_pos.longitude = compassCtrCoord.longitude;
-    
-    // Not sure why setRegion does not work well...
-//    [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];    
+ 
     
     //-----------------
     // Set up viz and device

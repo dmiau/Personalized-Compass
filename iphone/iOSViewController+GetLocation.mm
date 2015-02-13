@@ -90,12 +90,12 @@
     
     // When the findMe button is first pressed, we center the map
     // to the current user location, but we only do it once
-    if (self.move2UpdatedLocation){
-        [self feedModelLatitude: myLocation.coordinate.latitude
-                      longitude: myLocation.coordinate.longitude
-                        heading: 0
-                           tilt: 0];
-        [self updateMapDisplayRegion:YES];
+    if (self.move2UpdatedLocation){       
+        [self updateMapDisplayRegion:MKCoordinateRegionMake
+         (CLLocationCoordinate2DMake
+          (myLocation.coordinate.latitude, myLocation.coordinate.longitude),
+          self.mapView.region.span) withAnimation:YES];
+        
         self.move2UpdatedLocation = false;
     }
     [self.mapView removeAnnotation:self.model->user_pos.annotation];
