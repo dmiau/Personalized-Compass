@@ -36,13 +36,34 @@
     
     // Need to save the file name too
     mySnapshot.kmlFilename = self.model->location_filename;
-    mySnapshot.name = @"debug_snapshot";
+    if (self.testManager->testManagerMode == AUTHORING){
+        mySnapshot.name = @"authored_snapshot";
+    }else{
+        mySnapshot.name = @"debug_snapshot";
+    }
+    
     mySnapshot.date_str =
     [NSDateFormatter localizedStringFromDate:[NSDate date]
                                    dateStyle:NSDateFormatterShortStyle
                                    timeStyle:NSDateFormatterFullStyle];
     mySnapshot.selected_ids = self.model->indices_for_rendering;
+    
     self.model->snapshot_array.push_back(mySnapshot);
+    //--------------
+    // Test authoring mode
+    //--------------
+    if (self.testManager->testManagerMode == AUTHORING){
+        // Disable all landmarks
+        for (int i = 0; i < self.model->data_array.size(); ++i) {
+            self.model->data_array[i].isEnabled = false;
+        }
+        
+#ifdef __IPHONE__
+        self.needUpdateAnnotations = true;
+#endif
+    }else{
+                
+    }
     return true;
 }
 

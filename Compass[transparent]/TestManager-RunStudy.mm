@@ -72,3 +72,23 @@ void TestManager::showTestNumber(int test_id){
     [rootViewController displaySnapshot:test_counter withStudySettings:YES];
     model->lockLandmarks = true;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

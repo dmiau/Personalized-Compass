@@ -117,7 +117,7 @@ public:
 // Test Manager
 //------------------------------
 enum TaskType {LOCATE, TRIANGULATE, ORIENT};
-enum TestManagerMode {OFF, CONTROL, COLLECT};
+enum TestManagerMode {OFF, CONTROL, COLLECT, AUTHORING};
 
 class TestManager{
 public:
@@ -272,6 +272,11 @@ public:
     void showNextTest();
     void showPreviousTest();
     void showTestNumber(int test_id);
+    
+    //---------------
+    // Manual test authoring
+    //---------------
+    void setAuthoringMode(bool state);
 };
 
 //class test{

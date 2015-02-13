@@ -30,9 +30,8 @@
     [self hideAllPanels];
     
     //-------------------
-    // Build a toolboar
+    // Build a toolboar for a specific mode
     //-------------------
-    
     if ([self.UIConfigurations[@"UIToolbarNeedsUpdate"]
          boolValue]){
         
@@ -48,6 +47,9 @@
         }else if ([self.UIConfigurations[@"UIToolbarMode"]
                    isEqualToString:@"Demo"])
         {
+            //-------------
+            // A blue border will be shown in the demo mode
+            //-------------
             self.mapView.layer.borderColor =
             [UIColor blueColor].CGColor;
             self.mapView.layer.borderWidth
@@ -57,6 +59,16 @@
                    isEqualToString:@"Study"])
         {
             [self constructStudyToolbar: @"Portrait"];
+        }else if ([self.UIConfigurations[@"UIToolbarMode"]
+                   isEqualToString:@"Authoring"])
+        {
+            //-------------
+            // A magentaColor border will be shown in the authoring mode
+            //-------------
+            self.mapView.layer.borderColor =
+            [UIColor magentaColor].CGColor;
+            self.mapView.layer.borderWidth
+            = 2.0f;
         }
         
         self.UIConfigurations[@"UIToolbarNeedsUpdate"]

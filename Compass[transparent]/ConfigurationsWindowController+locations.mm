@@ -233,7 +233,7 @@
     int ind = (int)[idx firstIndex];
     
     //[todo] hwo to improve?
-    self.model->camera_pos.name = self.model->data_array[ind].name;
+//    self.model->camera_pos.name = self.model->data_array[ind].name;
     self.model->camera_pos.latitude = self.model->data_array[ind].latitude;
     self.model->camera_pos.longitude = self.model->data_array[ind].longitude;
     
@@ -284,11 +284,14 @@
                                      stringByAppendingPathComponent:astr];
     readLocationKml(self.model, self.model->location_filename);
     
-    self.model->camera_pos.name = self.model->data_array[0].name;
+//    self.model->camera_pos.name = self.model->data_array[0].name;
     // Set the initial orientation to 0
-    self.model->camera_pos.orientation = 0;
-    self.model->camera_pos.latitude = self.model->data_array[0].latitude;
-    self.model->camera_pos.longitude = self.model->data_array[0].longitude;
+    
+    if (self.model->data_array.size() > 0){
+        self.model->camera_pos.orientation = 0;
+        self.model->camera_pos.latitude = self.model->data_array[0].latitude;
+        self.model->camera_pos.longitude = self.model->data_array[0].longitude;
+    }
     
     self.model->updateMdl();
     NSLog(@"json combo triggered %@", astr);

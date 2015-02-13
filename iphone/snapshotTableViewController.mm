@@ -296,6 +296,12 @@
 //-------------
 // Save file
 //-------------
+- (IBAction)newKML:(id)sender {
+    self.model->snapshot_array.clear();
+    [self.myTableView reloadData];
+    [self saveSnspahotAs:nil];
+}
+
 - (IBAction)saveKML:(id)sender {
     
     NSString *filename = self.model->snapshot_filename;

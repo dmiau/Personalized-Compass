@@ -933,6 +933,14 @@
 		9AE2FC8E19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */; };
 		9AE2FC8F19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */; };
 		9AE2FC9019AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */; };
+		9AE37F991A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37F981A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm */; };
+		9AE37F9A1A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37F981A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm */; };
+		9AE37F9C1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37F9B1A8D5D90005E8C5C /* TestManager-Authoring.mm */; };
+		9AE37F9D1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37F9B1A8D5D90005E8C5C /* TestManager-Authoring.mm */; };
+		9AE37F9E1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37F9B1A8D5D90005E8C5C /* TestManager-Authoring.mm */; };
+		9AE37F9F1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37F9B1A8D5D90005E8C5C /* TestManager-Authoring.mm */; };
+		9AE37FA01A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37F9B1A8D5D90005E8C5C /* TestManager-Authoring.mm */; };
+		9AE37FA11A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37F9B1A8D5D90005E8C5C /* TestManager-Authoring.mm */; };
 		9AE57281199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
 		9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5727F199CF8D60055799F /* Wedge+Radial.mm */; };
@@ -1432,6 +1440,9 @@
 		9AE2FC7A19AE43890015E2B6 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		9AE2FC8219AF860F0015E2B6 /* compassRender+Tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+Tools.mm"; sourceTree = "<group>"; };
 		9AE2FC8A19AFCD3C0015E2B6 /* compassModel+tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassModel+tools.mm"; sourceTree = "<group>"; };
+		9AE37F971A8D50DF005E8C5C /* iOSTestAuthoringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSTestAuthoringViewController.h; sourceTree = "<group>"; };
+		9AE37F981A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSTestAuthoringViewController.mm; sourceTree = "<group>"; };
+		9AE37F9B1A8D5D90005E8C5C /* TestManager-Authoring.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-Authoring.mm"; sourceTree = "<group>"; };
 		9AE5727F199CF8D60055799F /* Wedge+Radial.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Wedge+Radial.mm"; sourceTree = "<group>"; };
 		9AE57280199CF8D60055799F /* Wedge+Radial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wedge+Radial.h"; sourceTree = "<group>"; };
 		9AE610451A6EF3BD00175A79 /* TestManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestManager.mm; sourceTree = "<group>"; };
@@ -2108,6 +2119,8 @@
 			children = (
 				9A8934F51A8BAF5900BCE84C /* iOSTestManagerViewController.h */,
 				9A8934F61A8BAF5900BCE84C /* iOSTestManagerViewController.mm */,
+				9AE37F971A8D50DF005E8C5C /* iOSTestAuthoringViewController.h */,
+				9AE37F981A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm */,
 			);
 			name = TestManager;
 			sourceTree = "<group>";
@@ -2143,6 +2156,7 @@
 				9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */,
 				9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */,
 				9AAC65DA1A8BA2C000B9BF2E /* TestManager-RunStudy.mm */,
+				9AE37F9B1A8D5D90005E8C5C /* TestManager-Authoring.mm */,
 				9AE610461A6EF3BD00175A79 /* TestManager.h */,
 			);
 			name = Model;
@@ -2968,6 +2982,7 @@
 				9A0375F1198DA31900258E95 /* b2World.cpp in Sources */,
 				9A0375A9198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
 				9A037621198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
+				9AE37FA01A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
 				9AE2FC8819AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
 				9A998C8F1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A037573198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
@@ -2988,6 +3003,7 @@
 				9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */,
 				9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */,
 				9A998C961949F32800778DFC /* compassRender+Components.mm in Sources */,
+				9AE37F991A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm in Sources */,
 				9A037651198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
 				9A0375D3198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9ABB382E19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm in Sources */,
@@ -3077,6 +3093,7 @@
 				9A037670198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
 				9A037616198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A998C901949F29500778DFC /* compassRender+Label.mm in Sources */,
+				9AE37F9A1A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm in Sources */,
 				9A0375F8198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A037586198DA31800258E95 /* b2Collision.cpp in Sources */,
 				9A03736E198AF8A500258E95 /* DemoManager.mm in Sources */,
@@ -3098,6 +3115,7 @@
 				9A480891198BE79E0001E188 /* DemoSettingViewController.mm in Sources */,
 				9A75715D197D804100C23AEE /* historyParser.mm in Sources */,
 				9AFD8F5B197C20000099BD88 /* genSnapshotString.mm in Sources */,
+				9AE37FA11A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
 				9A757155197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A9F53681A79962900E3744B /* CHCSVParser.m in Sources */,
 				9A0375BC198DA31800258E95 /* b2Draw.cpp in Sources */,
@@ -3244,6 +3262,7 @@
 				9AA789141909FE3000A26C66 /* compassRender.mm in Sources */,
 				9A42A06D19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9A037596198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
+				9AE37F9F1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
 				9A037614198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A5F32031A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A36619619A3FE4E00DC0D15 /* myMapView.mm in Sources */,
@@ -3451,6 +3470,7 @@
 				9A42A04E19A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
 				9A42A03E19A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
 				9A3DA0A41964F5E3009E0073 /* genKMLString.mm in Sources */,
+				9AE37F9C1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
 				9A0375DB198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9AF01B7318ECE5FC0029A860 /* GLString.mm in Sources */,
 			);
@@ -3527,6 +3547,7 @@
 				9A0375A7198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
 				9A037631198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9A03736B198AF8A500258E95 /* DemoManager.mm in Sources */,
+				9AE37F9E1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
 				9A03757D198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
 				9A5F32021A768B44003B0426 /* TestManager-Location.mm in Sources */,
 				9A42A05C19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
@@ -3713,6 +3734,7 @@
 				9A91FB901A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */,
 				9AFB14A518EE639A00063632 /* main.mm in Sources */,
 				9A3DA0A51964F5E3009E0073 /* genKMLString.mm in Sources */,
+				9AE37F9D1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
 				9A42A09E19A79CA200BB0101 /* DDASLLogger.m in Sources */,
 				9A0375E2198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A757151197D6C1500C23AEE /* snapshotParser.mm in Sources */,

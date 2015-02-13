@@ -2516,16 +2516,15 @@ maintain a type counter dictionary
 
 - Test Creator
 
-Test authoring tool strategies:
+Test authoring tool strategies (now on iOS):
 - Use TestManager
 - Grow location_dict
 - Grow test_vector
 - Generate snapshot, and store the snapshot into the snapshot vector
 
 maintain a type counter dictionary
-
 toggleWatchMask can be enhanced.
-
+- fake it until you make it. [5:20PM]
 
 
 

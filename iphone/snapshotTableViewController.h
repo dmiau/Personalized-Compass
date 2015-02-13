@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;
 @property iOSViewController* rootViewController;
-
+- (IBAction)newKML:(id)sender;
 - (IBAction)saveKML:(id)sender;
 - (IBAction)saveSnspahotAs:(id)sender;
 - (IBAction)reloadSnapshotFile:(id)sender;

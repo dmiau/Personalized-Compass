@@ -32,6 +32,7 @@
 
 - (IBAction)toggleLandmakrSelection:(id)sender;
 - (IBAction)toggleEditing:(id)sender;
+- (IBAction)newKML:(id)sender;
 - (IBAction)saveKML:(id)sender;
 - (IBAction)saveKMLAs:(id)sender;
 @end

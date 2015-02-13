@@ -141,8 +141,14 @@ int compassMdl::initMdl(){
     
     // At this point the latitude and longitude in user_pos
     // are just place holders
-    user_pos.latitude = data_array[0].latitude;
-    user_pos.longitude = data_array[0].longitude;
+    
+    if (data_array.size()>0){
+        user_pos.latitude = data_array[0].latitude;
+        user_pos.longitude = data_array[0].longitude;
+    }else{
+        user_pos.latitude = 40.705773;
+        user_pos.longitude = -74.002159;
+    }
     user_pos.annotation = [[CustomPointAnnotation alloc] init];
     CLLocationCoordinate2D coord;
     coord.latitude = user_pos.latitude;
@@ -166,11 +172,17 @@ int compassMdl::reloadFiles(){
     // texture cache is generated within readLocationKml
     readLocationKml(this, location_filename);    
     
-    camera_pos.name = data_array[0].name;
+//    camera_pos.name = data_array[0].name;
     // Set the initial orientation to 0
     camera_pos.orientation = 0;
-    camera_pos.latitude = data_array[0].latitude;
-    camera_pos.longitude = data_array[0].longitude;
+    
+    if (data_array.size()>0){
+        camera_pos.latitude = data_array[0].latitude;
+        camera_pos.longitude = data_array[0].longitude;
+    }else{
+        camera_pos.latitude = 40.705773;
+        camera_pos.longitude = -74.002159;
+    }
 
     updateMdl();
     return 0;
@@ -262,11 +274,16 @@ int compassMdl::updateMdl(){
     // [todo better bound]
     // Calculate latitude delta and longitude delta
     // Find out the longest distance for normalization
-    std::vector<double>::iterator result =
-    std::max_element(distance_list.begin(),
-                     distance_list.end());
-    double max_dist = *result; //(meters)
-    
+    double max_dist;
+    if (distance_list.size() > 0){
+        std::vector<double>::iterator result =
+        std::max_element(distance_list.begin(),
+                         distance_list.end());
+        max_dist = *result; //(meters)
+    }else{
+        max_dist = 100000;
+    }
+
     latitudedelta = 0.1 * max_dist / 1110000.0;
     longitudedelta = 0.1 * max_dist / 1110000.0;
     return 0;

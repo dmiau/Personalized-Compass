@@ -334,6 +334,8 @@
 
 }
 
+
+
 //-------------
 // Deleting rows
 //-------------
@@ -380,6 +382,12 @@
 //-------------
 // Save file
 //-------------
+- (IBAction)newKML:(id)sender {
+    self.model->data_array.clear();
+    [self.myTableView reloadData];
+    [self saveKMLAs:nil];
+}
+
 - (IBAction)saveKML:(id)sender {
 
     NSString *filename =
