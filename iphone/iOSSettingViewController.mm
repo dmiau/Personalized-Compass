@@ -205,7 +205,13 @@
 {
     
     if (self.rootViewController.testManager->testManagerMode != OFF){
-        self.rootViewController.testManager->testManagerMode = OFF;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TestManager is ON"
+                                                        message:@"Location file change while the TestManager is ON."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
 
     model->location_filename = [kml_files objectAtIndex:row];

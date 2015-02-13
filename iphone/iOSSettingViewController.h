@@ -17,7 +17,7 @@
 #import "iOSViewController.h"
 
 
-@interface iOSSettingViewController : UIViewController
+@interface iOSSettingViewController : UIViewController<UIAlertViewDelegate>
 {
     BOOL pinVisible;
     NSArray *kml_files;

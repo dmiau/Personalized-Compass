@@ -89,6 +89,7 @@
         self.needUpdateAnnotations = false;
 
         [self renderAnnotations];
+//        [self updateDataAnnotations];
     }
     
     // This may be an iPad only thing

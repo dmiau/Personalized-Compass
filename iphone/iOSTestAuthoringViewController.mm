@@ -35,6 +35,21 @@
     [myNavigationController.viewControllers objectAtIndex:0];
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    self.authoringModeControl.on = (self.rootViewController.testManager->testManagerMode == AUTHORING);
+    //-------------------
+    // Change navigation bar color
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    myNavigationController.navigationBar.topItem.title = @"Authoring Pane";
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -56,12 +71,7 @@
     if (sender.on){
         self.rootViewController.UIConfigurations[@"UIToolbarMode"]
         = @"Authoring";
-        self.rootViewController.testManager->setAuthoringMode(YES);
-        
-        
-        
-        
-        
+        self.rootViewController.testManager->setAuthoringMode(YES);        
     }else{
         self.rootViewController.testManager->setAuthoringMode(NO);
     }

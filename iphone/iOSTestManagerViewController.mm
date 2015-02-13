@@ -252,7 +252,7 @@
     if (section_id == 0){
         
         int i = [indexPath row];
-        if ([snapshot_file_array[i] isEqualToString:@"snapshot.kml"])
+        if ([snapshot_file_array[i] isEqualToString:@"default.snapshot"])
             return;
         
         if (self.model->filesys_type == DROPBOX){

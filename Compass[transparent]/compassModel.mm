@@ -111,19 +111,19 @@ int compassMdl::initMdl(){
 #ifdef __IPHONE__
     // All iOS devices
     if (filesys_type == DROPBOX){
-        snapshotFileExists = [dbFilesystem fileExists:@"snapshot.kml"];
+        snapshotFileExists = [dbFilesystem fileExists:@"default.snapshot"];
     }else{
-        snapshotFileExists = [docFilesystem fileExists:@"snapshot.kml"];
+        snapshotFileExists = [docFilesystem fileExists:@"default.snapshot"];
     }
 #else
     // Desktop
-    NSString *path = [desktopDropboxDataRoot stringByAppendingPathComponent:@"snapshot.kml"];
+    NSString *path = [desktopDropboxDataRoot stringByAppendingPathComponent:@"default.snapshot"];
     snapshotFileExists = [[NSFileManager defaultManager]
                           fileExistsAtPath:path];
 #endif
     
     if (snapshotFileExists){
-        snapshot_filename = @"snapshot.kml";
+        snapshot_filename = @"default.snapshot";
         if (readSnapshotKml(this) != EXIT_SUCCESS){
             throw(runtime_error("Failed to load snapshot files"));
         }

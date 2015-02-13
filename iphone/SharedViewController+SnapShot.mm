@@ -36,33 +36,55 @@
     
     // Need to save the file name too
     mySnapshot.kmlFilename = self.model->location_filename;
-    if (self.testManager->testManagerMode == AUTHORING){
-        mySnapshot.name = @"authored_snapshot";
-    }else{
-        mySnapshot.name = @"debug_snapshot";
-    }
-    
     mySnapshot.date_str =
     [NSDateFormatter localizedStringFromDate:[NSDate date]
                                    dateStyle:NSDateFormatterShortStyle
                                    timeStyle:NSDateFormatterFullStyle];
     mySnapshot.selected_ids = self.model->indices_for_rendering;
+    mySnapshot.name = @"authored_snapshot";
+    if (self.testManager->testManagerMode == AUTHORING){
+        //--------------
+        // Test authoring mode
+        //--------------
+        string prefix = "";
+        
+        // Log device type and visualization type
+        if (self.renderer->watchMode){
+            mySnapshot.deviceType = WATCH;
+            prefix = prefix + "watch:";
+        }else{
+            mySnapshot.deviceType = PHONE;
+            prefix = prefix + "phone:";
+        }
+        
+        if ([self.model->configurations[@"wedge_status"]
+             isEqualToString:@"on"]){
+            mySnapshot.visualizationType = VIZWEDGE;
+            prefix = prefix + "wedge:";
+        }else{
+            mySnapshot.visualizationType = VIZPCOMPASS;
+            prefix = prefix + "pcompass:";
+        }
+     
+#ifdef __IPHONE__
+        prefix = prefix + "t" +
+        to_string(self.taskSegmentControl.selectedSegmentIndex);
+#endif
+        // Update a new name
+        mySnapshot.name = [NSString stringWithUTF8String: prefix.c_str()];
+    }
     
     self.model->snapshot_array.push_back(mySnapshot);
+    
     //--------------
-    // Test authoring mode
+    // Set up the environment to author the next test
     //--------------
     if (self.testManager->testManagerMode == AUTHORING){
         // Disable all landmarks
         for (int i = 0; i < self.model->data_array.size(); ++i) {
             self.model->data_array[i].isEnabled = false;
         }
-        
-#ifdef __IPHONE__
-        self.needUpdateAnnotations = true;
-#endif
-    }else{
-                
+        [self renderAnnotations];
     }
     return true;
 }

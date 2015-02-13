@@ -52,7 +52,7 @@
         dirFiles = [self.model->dbFilesystem listFiles];
     }
     
-    snapshot_file_array = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS 'snapshot'"]];
+    snapshot_file_array = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS '.snapshot'"]];
 }
 
 
@@ -268,7 +268,7 @@
     if (section_id == 0){
         
         int i = [indexPath row];
-        if ([snapshot_file_array[i] isEqualToString:@"snapshot.kml"])
+        if ([snapshot_file_array[i] isEqualToString:@"default.snapshot"])
             return;
         
         if (self.model->filesys_type == DROPBOX){
@@ -396,8 +396,8 @@
         UITextField *textField = [alertView textFieldAtIndex:0];
         NSString *filename = textField.text;
         
-        if ([filename rangeOfString:@".kml"].location == NSNotFound) {
-            filename = [filename stringByAppendingString:@".kml"];
+        if ([filename rangeOfString:@".snapshot"].location == NSNotFound) {
+            filename = [filename stringByAppendingString:@".snapshot"];
         }
         [self saveSnapshotWithFilename:filename];
         

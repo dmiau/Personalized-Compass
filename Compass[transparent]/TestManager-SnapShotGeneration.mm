@@ -124,7 +124,7 @@ void TestManager::saveSnapShotsToKML(){
         // Process one participant per iteration
         //-------------------
         NSString *snapshot_filename =
-        [NSString stringWithFormat:@"%@%d.kml", test_snapshot_prefix, ui];
+        [NSString stringWithFormat:@"%@%d.snapshot", test_snapshot_prefix, ui];
         
         NSString *content = genSnapshotString(all_snapshot_vectors[ui]);
 

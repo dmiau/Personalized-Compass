@@ -2526,9 +2526,55 @@ maintain a type counter dictionary
 toggleWatchMask can be enhanced.
 - fake it until you make it. [5:20PM]
 
+-------------------------------------------------------------------
+2.13.2015
+-------------------------------------------------------------------
+***** Done
+- snapshot message should not accept touch-edit [8:42AM]
 
+***** ToDo
+- Snapshot loading is too slow on iOS
+- Implement a StudyLog structure
+- map zoom in/out, pan around
 
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
 
+- Think about tests which involve multiple locations (I can sketch out some ideas)
+- Outline the paper
+- Automatically calculate MapRect for the study
+
+***** Working
+- Sometimes a needle could become too thin
+- iWath emulation, watchMode, modify drawOneSide to cut off the legs
+- Naming conventions: .locations, .tests, .history, etc. 
+
+- Test Creator
+
+Test authoring tool strategies (now on iOS):
+- Use TestManager
+- Grow location_dict
+- Grow test_vector
+- Generate snapshot, and store the snapshot into the snapshot vector
+
+maintain a type counter dictionary
+toggleWatchMask can be enhanced.
+
+- integrate data selector with the location table
+
+- compass needs an update after it is moved (inprecise)
+- author drop-pin should be enabled
+
+- add home red box
+- study snapshot detail -> crash
+- implemtn task type counter
+- work on the study experience
+- ortho+wedge do not work
+- study counter is incorrect when jump to a study
+- somehow the compass thinks its center is located at the center of the screen
+- when the study mode is off, landmark lock should be disabled
+- loading studies is too slow
+- centralize .kml and .snapshot saving
 
 
 

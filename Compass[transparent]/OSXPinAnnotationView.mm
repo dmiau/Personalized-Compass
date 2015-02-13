@@ -121,6 +121,7 @@
     self.statusSegmentControl.enabled = true;
     self.statusSegmentControl.selectedSegment = 0;
     
+//    [self.rootViewController updateDataAnnotations];
     [self.rootViewController renderAnnotations];
 }
 

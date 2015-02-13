@@ -70,7 +70,7 @@
     NSArray *dirFiles = [[NSFileManager defaultManager]
                          contentsOfDirectoryAtPath: path error:nil];
     
-    snapshot_file_array = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS 'snapshot'"]];
+    snapshot_file_array = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS '.snapshot'"]];
     [self.kmlComboBox reloadData];
 }
 

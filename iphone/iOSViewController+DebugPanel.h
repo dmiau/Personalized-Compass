@@ -15,5 +15,4 @@
 - (IBAction)pinSegmentControl:(id)sender;
 - (IBAction)createPinSegmentControl:(id)sender;
 
-
 @end

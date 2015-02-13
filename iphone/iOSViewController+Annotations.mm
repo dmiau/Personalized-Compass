@@ -23,6 +23,14 @@
     }
 }
 
+-(void)updateDataAnnotations{
+    // Add annotations one by one
+    for (int i = 0; i < self.model->data_array.size(); ++i){
+        data myData = self.model->data_array[i];
+        [self.mapView removeAnnotation: myData.annotation];
+        [self.mapView addAnnotation: myData.annotation];
+    }
+}
 
 //------------------
 // This function is called to prepare a view for an annotation
@@ -274,11 +282,15 @@
         }
     }else if ([mode isEqualToString:@"Enabled"]){
         for (CustomPointAnnotation* annotation in annotation_array){
-            int i = annotation.data_id;
-            if (self.model->data_array[i].isEnabled){
-                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
-            }else{
-                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+            
+            // Note we need to skip the dropped pin
+            if (annotation.point_type != dropped){
+                int i = annotation.data_id;
+                if (self.model->data_array[i].isEnabled){
+                    [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+                }else{
+                    [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+                }
             }
         }
     }else if ([mode isEqualToString:@"Dropped"]){

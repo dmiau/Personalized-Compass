@@ -334,8 +334,6 @@
 
 }
 
-
-
 //-------------
 // Deleting rows
 //-------------
@@ -379,6 +377,7 @@
     self.rootViewController.needUpdateAnnotations = true;
 }
 
+#pragma mark -----KML file saving-----
 //-------------
 // Save file
 //-------------
@@ -386,6 +385,7 @@
     self.model->data_array.clear();
     [self.myTableView reloadData];
     [self saveKMLAs:nil];
+    self.rootViewController.needUpdateAnnotations = true;    
 }
 
 - (IBAction)saveKML:(id)sender {

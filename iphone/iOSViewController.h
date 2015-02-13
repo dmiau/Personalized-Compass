@@ -108,6 +108,7 @@ typedef struct{
 @property (weak, nonatomic) IBOutlet UITextView *snapshotStatusTextView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *showPinSegmentControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *createPinSegmentControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *taskSegmentControl;
 
 
 // watch sidebar
@@ -214,6 +215,7 @@ typedef struct{
 // Annotations related methods
 //----------------
 - (void) renderAnnotations;
+-(void) updateDataAnnotations;
 // Change how annotations should be displayed
 - (void)changeAnnotationDisplayMode: (NSString*) mode;
 
