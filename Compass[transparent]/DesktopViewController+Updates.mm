@@ -140,7 +140,7 @@
         [self.mapView setRegion:region];
         once = 1;
     }
-    
+
     CLLocationCoordinate2D coord;
     coord.latitude = self.model->camera_pos.latitude;
     coord.longitude = self.model->camera_pos.longitude;

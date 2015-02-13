@@ -164,7 +164,7 @@
     }
     
     if ([label isEqualToString:@"[Pre.]"]){
-        self.model->lockLandmarks = false;
+
         snapshot_id = snapshot_id-1;
         if (snapshot_id < 0)
         {
@@ -179,12 +179,12 @@
             }
         }
         [self displaySnapshot:snapshot_id withStudySettings:NO];
-        self.model->lockLandmarks = true;
+
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
         
     }else if ([label isEqualToString:@"[Next]"]){
-        self.model->lockLandmarks = false;
+
         snapshot_id = snapshot_id+1;
         // Set up the environment
         if (snapshot_id == (int)self.model->snapshot_array.size())
@@ -201,7 +201,7 @@
         }
         
         [self displaySnapshot:snapshot_id withStudySettings:NO];
-        self.model->lockLandmarks = true;
+
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
     }else if ([label isEqualToString:@"[Mask]"]){

@@ -1005,6 +1005,12 @@
 		9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
 		9AECA774196AEAB7008ADAEC /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AECA76E196AEAB7008ADAEC /* UKLondon.kml */; };
 		9AECA775196B1545008ADAEC /* ExtraPanels.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2ED70919639D5900CA385E /* ExtraPanels.xib */; };
+		9AEEC68B1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEC68A1A8E48F900C5D3A7 /* SharedViewController+Files.mm */; };
+		9AEEC68C1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEC68A1A8E48F900C5D3A7 /* SharedViewController+Files.mm */; };
+		9AEEC68D1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEC68A1A8E48F900C5D3A7 /* SharedViewController+Files.mm */; };
+		9AEEC68E1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEC68A1A8E48F900C5D3A7 /* SharedViewController+Files.mm */; };
+		9AEEC68F1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEC68A1A8E48F900C5D3A7 /* SharedViewController+Files.mm */; };
+		9AEEC6901A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEC68A1A8E48F900C5D3A7 /* SharedViewController+Files.mm */; };
 		9AEECFAE190A0B6B0031BAAE /* WebViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */; };
 		9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
 		9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEECFF51910599B0031BAAE /* StyleWindow.xib */; };
@@ -1482,6 +1488,7 @@
 		9AECA766196A0269008ADAEC /* CustomPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPointAnnotation.h; sourceTree = "<group>"; };
 		9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomPointAnnotation.mm; sourceTree = "<group>"; };
 		9AECA76E196AEAB7008ADAEC /* UKLondon.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = UKLondon.kml; sourceTree = "<group>"; };
+		9AEEC68A1A8E48F900C5D3A7 /* SharedViewController+Files.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SharedViewController+Files.mm"; sourceTree = "<group>"; };
 		9AEECFAC190A0B6B0031BAAE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = "Compass[transparent]/WebViewController.h"; sourceTree = "<group>"; };
 		9AEECFAD190A0B6B0031BAAE /* WebViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = WebViewController.mm; path = "Compass[transparent]/WebViewController.mm"; sourceTree = "<group>"; };
 		9AEECFF51910599B0031BAAE /* StyleWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StyleWindow.xib; sourceTree = "<group>"; };
@@ -2084,6 +2091,7 @@
 			children = (
 				9A3240D7197AB06F008E929D /* SharedViewController+SnapShot.mm */,
 				9AC314331A843D610091BC88 /* DesktopViewController+Communication.mm */,
+				9AEEC68A1A8E48F900C5D3A7 /* SharedViewController+Files.mm */,
 			);
 			name = "Shared Controller Methods";
 			sourceTree = "<group>";
@@ -3037,6 +3045,7 @@
 				9A3240D8197AB06F008E929D /* SharedViewController+SnapShot.mm in Sources */,
 				9A037597198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A998D75194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
+				9AEEC68F1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
 				9A4AA64E1A7E7F8D0009F448 /* TestManager-KmlGeneration.mm in Sources */,
 				9AB90B9F194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
@@ -3099,6 +3108,7 @@
 				9A03736E198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A037640198DA31900258E95 /* b2GearJoint.cpp in Sources */,
 				9A3DA0CF19683235009E0073 /* DetailViewController.mm in Sources */,
+				9AEEC6901A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
 				9A0375EC198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A037622198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				9A82B6331941518900534A5F /* locationFilter.mm in Sources */,
@@ -3232,6 +3242,7 @@
 				9A42A09C19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
 				9A0375DE198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9A03760E198DA31900258E95 /* b2Contact.cpp in Sources */,
+				9AEEC68E1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
 				9A42A06519A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
 				9A0375F0198DA31900258E95 /* b2World.cpp in Sources */,
 				9A42A0B419A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
@@ -3350,6 +3361,7 @@
 				9A037671198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A037587198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037599198DA31800258E95 /* b2ChainShape.cpp in Sources */,
+				9AEEC68B1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
 				9AE2FC8B19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9AE2FC8419AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
 				9A037623198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
@@ -3517,6 +3529,7 @@
 				9A42A04419A79C3200BB0101 /* HTTPConnection.m in Sources */,
 				9A037601198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
 				9A42A0AF19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
+				9AEEC68D1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
 				9A42A05419A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
 				9A0375A1198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A037583198DA31800258E95 /* b2Collision.cpp in Sources */,
@@ -3708,6 +3721,7 @@
 				9AFB14A418EE639A00063632 /* AppDelegate.mm in Sources */,
 				9A03759A198DA31800258E95 /* b2ChainShape.cpp in Sources */,
 				9A4582721A647AAC00943F6C /* ConfigurationsWindowController+locations.mm in Sources */,
+				9AEEC68C1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
 				9A03760C198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A6F53F91910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A037624198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,

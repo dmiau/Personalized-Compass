@@ -19,7 +19,7 @@
 //------------------
 // Test authoring mode
 //------------------
-void TestManager::setAuthoringMode(bool state){
+void TestManager::toggleAuthoringMode(bool state){
     if (state){
         // Set the orientation to 0, and disable rotation
         rootViewController.mapView.camera.heading = 0;
@@ -30,6 +30,8 @@ void TestManager::setAuthoringMode(bool state){
         // Save the file?
         testManagerMode = OFF;
         model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
+        [rootViewController saveKMLwithType: LOCATION];
+        [rootViewController saveKMLwithType: SNAPSHOT];
     }
     
     [rootViewController.mapView setRotateEnabled:!state];

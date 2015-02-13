@@ -138,13 +138,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhc-s3-l6X">
-                                <rect key="frame" x="32" y="365" width="251" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="9xM-YS-8bl" id="DSr-kz-1vo"/>
-                                    <outlet property="delegate" destination="9xM-YS-8bl" id="dci-vk-6qm"/>
-                                </connections>
-                            </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B2u-Zp-sZD">
                                 <rect key="frame" x="131" y="265" width="167" height="29"/>
                                 <segments>
@@ -156,12 +149,6 @@
                                     <action selector="toggleDataSource:" destination="9xM-YS-8bl" eventType="valueChanged" id="dJr-jE-zQa"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53y-ox-xfs">
-                                <rect key="frame" x="20" y="353" width="77" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgp-rZ-gJf">
                                 <rect key="frame" x="16" y="268" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -225,7 +212,6 @@
                     <tabBarItem key="tabBarItem" title="General" image="general.png" id="nfG-7J-1IE"/>
                     <navigationItem key="navigationItem" id="qjZ-da-ipz"/>
                     <connections>
-                        <outlet property="dataPicker" destination="Fhc-s3-l6X" id="QwN-lN-BiP"/>
                         <outlet property="dataSource" destination="B2u-Zp-sZD" id="zUP-3R-tOp"/>
                         <outlet property="ipTextField" destination="Agp-Nj-C0p" id="P8U-7v-dkL"/>
                         <outlet property="portTextfield" destination="fVC-a3-Ra2" id="nXc-hu-05Q"/>
@@ -1018,7 +1004,7 @@
                     <connections>
                         <outlet property="myTableView" destination="zvj-5t-Cip" id="ugX-Ka-gDO"/>
                         <outlet property="studyModeSwitch" destination="b0t-3h-xik" id="iXu-G4-zxu"/>
-                        <segue destination="3wt-qb-LGf" kind="push" id="9at-fG-ath"/>
+                        <segue destination="3wt-qb-LGf" kind="push" identifier="ToSnapshotDetailView" id="9at-fG-ath"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0i-v8-RRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1108,9 +1094,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lLk-4j-e3A"/>
-        <segue reference="NSE-Hl-1Qk"/>
         <segue reference="yng-bX-3xc"/>
+        <segue reference="9at-fG-ath"/>
+        <segue reference="lLk-4j-e3A"/>
         <segue reference="VT9-KB-V4S"/>
     </inferredMetricsTieBreakers>
 </document>

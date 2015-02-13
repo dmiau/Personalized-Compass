@@ -126,13 +126,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jSc-Ke-xt4">
-                                <rect key="frame" x="120" y="420" width="272" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="bsL-PH-kKP" id="Cgg-gj-Ka7"/>
-                                    <outlet property="delegate" destination="bsL-PH-kKP" id="5Nl-aT-f8X"/>
-                                </connections>
-                            </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qUz-br-yTL">
                                 <rect key="frame" x="254" y="110" width="183" height="29"/>
                                 <segments>
@@ -144,12 +137,6 @@
                                     <action selector="toggleDataSource:" destination="bsL-PH-kKP" eventType="valueChanged" id="Z1B-yJ-xge"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmB-MN-Lp6">
-                                <rect key="frame" x="219" y="423" width="67" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r0-c2-ds9">
                                 <rect key="frame" x="138" y="113" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -245,7 +232,6 @@
                     </navigationItem>
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="dataPicker" destination="jSc-Ke-xt4" id="ADH-eK-fdj"/>
                         <outlet property="dataSource" destination="qUz-br-yTL" id="6mO-LT-9OM"/>
                         <outlet property="ipTextField" destination="6UJ-nH-Ka5" id="hPd-iI-RCG"/>
                         <outlet property="portTextfield" destination="Q6T-Cw-v3M" id="84z-5Q-Sh4"/>

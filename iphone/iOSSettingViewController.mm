@@ -10,7 +10,7 @@
 #import "iOSViewController.h"
 #import "AppDelegate.h"
 
-@interface iOSSettingViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface iOSSettingViewController ()
 
 @end
 
@@ -33,7 +33,6 @@
         
         pinVisible = FALSE;
         
-        [self initPickerData];
         
         // Connect to the parent view controller to update its
         // properties directly
@@ -80,8 +79,6 @@
     
 //    [super viewWillAppear:animated];
 
-    // Do any additional setup after loading the view.
-    [self selectDefaultLocationFromPicker];
     
     // Initialize data source indicator
     if (model->filesys_type == IOS_DOC)
@@ -153,83 +150,16 @@
 // Picker related stuff
 //----------------------
 
-- (void) initPickerData{
-    // Collect a list of kml files
-    NSArray *dirFiles;
-    if (model->filesys_type == IOS_DOC){
-        dirFiles = [model->docFilesystem listFiles];
-    }else{
-        dirFiles = [model->dbFilesystem listFiles];
-    }
-    
-    dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'snapshot')"]];
-    dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'history')"]];
-    
-    kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
-}
-
-- (void) selectDefaultLocationFromPicker{
-    NSString *file_name = model->location_filename;
-    
-    NSInteger anIndex=[kml_files indexOfObject:[file_name lastPathComponent]];
-    //[todo] need to update the index dynamically
-    [self.dataPicker selectRow:anIndex inComponent:0 animated:NO];
-}
 
 
-- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-        return 1;
-}
+//- (void) selectDefaultLocationFromPicker{
+//    NSString *file_name = model->location_filename;
+//    
+//    NSInteger anIndex=[kml_files indexOfObject:[file_name lastPathComponent]];
+//    //[todo] need to update the index dynamically
+//    [self.dataPicker selectRow:anIndex inComponent:0 animated:NO];
+//}
 
-- (NSInteger) pickerView:( UIPickerView *) pickerView numberOfRowsInComponent:(NSInteger) component
-{
-    return [kml_files count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView
-             titleForRow:(NSInteger)row
-            forComponent:(NSInteger)component{
-    
-    if ([pickerView isEqual:self.dataPicker]){
-        
-        /* Row is zero-based and we want the first row (with index 0)
-         to be rendered as Row 1 so we have to +1 every row index */
-        NSString* dataName = [kml_files objectAtIndex:row];
-           return dataName;
-    }
-    return nil;
-}
-
-- (void)pickerView:(UIPickerView *)pickerView
-      didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    
-    if (self.rootViewController.testManager->testManagerMode != OFF){
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TestManager is ON"
-                                                        message:@"Location file change while the TestManager is ON."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-
-    model->location_filename = [kml_files objectAtIndex:row];
-    model->reloadFiles();
-    
-    //--------------
-    // new.kml is a speical location file used to creating new data,
-    // it is therefore not necessary to go to the first location
-    //--------------
-    if ([model->location_filename isEqualToString:@"new.kml"])
-    {
-        self.rootViewController.needUpdateDisplayRegion = false;
-    }else{
-        self.rootViewController.needUpdateDisplayRegion = true;
-        // updateMapDisplayRegion will be called in unwindSegue
-    }
-    self.rootViewController.needUpdateAnnotations = true;
-}
 
 #pragma mark - Navigation
 
@@ -240,12 +170,10 @@
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     NSString *label = [segmentedControl
                        titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
-    bool refreshPicker = false;
     
     if ([label isEqualToString:@"Local"]){
         if (model->filesys_type == DROPBOX){
             model->filesys_type = IOS_DOC;
-            refreshPicker = true;
         }
     }else{
         if (!model->dbFilesystem.isReady){
@@ -255,23 +183,11 @@
         if ([model->dbFilesystem.db_filesystem completedFirstSync]){
             // reload
             model->filesys_type = DROPBOX;
-            refreshPicker = true;
         }else{
             self.systemMessage.text = @"Dropbox is not ready. Try again later.";
             self.dataSource.selectedSegmentIndex = 0;
         }
     }
-    
-    if (refreshPicker){
-        readConfigurations(model);
-        model->location_filename = model->configurations[@"default_location_filename"];
-        model->reloadFiles();
-        [self initPickerData];
-        [self.dataPicker reloadAllComponents];
-        [self selectDefaultLocationFromPicker];
-        self.rootViewController.needUpdateDisplayRegion = true;
-    }
-    
 }
 
 - (IBAction)dismissModalVC:(id)sender {

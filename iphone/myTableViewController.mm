@@ -65,7 +65,8 @@
         [self setEditingAccessoryType: UITableViewCellAccessoryDetailButton];
     }else{
         [self.mySwitch setHidden:NO];
-        self.mySwitch.on = self.data_ptr->isEnabled;
+        if (self.data_ptr)
+            self.mySwitch.on = self.data_ptr->isEnabled;
         [self setEditingAccessoryType: UITableViewCellAccessoryNone];
     }
 
@@ -93,6 +94,8 @@
         data_dirty_flag = false;
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
+        
+        [self initKMLList];
     }
     return self;
 }
@@ -130,13 +133,16 @@
         UITableViewCell* cell = [self.myTableView
                                  cellForRowAtIndexPath:
                                  [NSIndexPath indexPathForRow: selected_id
-                                                    inSection: 0]];
+                                                    inSection: 2]];
         cell.textLabel.text =
         [NSString stringWithUTF8String:
          self.model->data_array[selected_id].name.c_str()];
         selected_id = -1;
  
     }
+    
+    // Update the KML list
+    [self initKMLList];
     
     //-------------------
     // Change navigation bar color
@@ -174,26 +180,47 @@
     // Dispose of any resources that can be recreated.
 }
 
+//------------------
+// Collect a list of KML files
+//------------------
+- (void) initKMLList{
+    // Collect a list of kml files
+    NSArray *dirFiles;
+    if (self.model->filesys_type == IOS_DOC){
+        dirFiles = [self.model->docFilesystem listFiles];
+    }else{
+        dirFiles = [self.model->dbFilesystem listFiles];
+    }
+    
+    dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'snapshot')"]];
+    dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'history')"]];
+    
+    kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
+}
+
+#pragma mark -----Table View Data Source Methods-----
 //-------------------
 // Table related methods
 //-------------------
-#pragma mark -----Table View Data Source Methods-----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    // Three sections: the location file listing, user location and bookmarks
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     if (section == 0)
         return 1;
-    else
+    else if (section == 1)
         return self.model->data_array.size();
+    else
+        return [kml_files count];
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSArray *list = @[@"Special (user)",
-                      [self.model->location_filename lastPathComponent]];
+    NSArray *list = @[@"User Location",
+                      [self.model->location_filename lastPathComponent],
+                      @"Location Files"];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
     /* Create custom view to display section header... */
@@ -219,13 +246,13 @@
     // Get the row ID
     int section_id = [indexPath section];
     int i = [indexPath row];
-    data *data_ptr;
+    data *data_ptr = NULL;
     
     if (section_id == 0){
         cell.textLabel.text = @"My Location";
         cell.isUserLocation = true;
         data_ptr = &(self.model->user_pos);
-    }else{
+    }else if (section_id == 1){
         // Configure Cell
         cell.textLabel.text =
         [NSString stringWithUTF8String:self.model->data_array[i].name.c_str()];
@@ -234,9 +261,19 @@
         data_ptr = &(self.model->data_array[i]);
         
 //        cell.backgroundColor = [UIColor redColor];
+    }else{
+        cell.textLabel.text =  kml_files[i];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
+        cell.isUserLocation = false;
     }
+    
     cell.data_ptr = data_ptr;
-    cell.mySwitch.on = data_ptr->isEnabled;    
+    if (data_ptr){
+        cell.mySwitch.enabled = true;
+        cell.mySwitch.on = data_ptr->isEnabled;
+    }else{
+        cell.mySwitch.enabled = false;
+    }
     return cell;
 }
 
@@ -254,10 +291,14 @@
     selected_id = i;
     data *data_ptr;
     
+    
     if (section_id == 0){
         data_ptr = &(self.model->user_pos);
-    }else{
+    }else if (section_id == 1){
         data_ptr = &(self.model->data_array[i]);
+    }else{
+        // Do nothing
+        return;
     }
     
     // Perform segue
@@ -270,12 +311,41 @@
     int row_id = [path row];
     int section_id = [path section];
     data *data_ptr;
-    
+
     if (section_id == 0){
         data_ptr = &(self.model->user_pos);
         self.rootViewController.needToggleLocationService = true;
-    }else{
+    }else if (section_id == 1){
         data_ptr = &(self.model->data_array[row_id]);
+    }else{
+        // Reload and display the landmarks
+        if (self.rootViewController.testManager->testManagerMode != OFF){
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TestManager is ON"
+                                                            message:@"Location file change while the TestManager is ON."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+        self.model->location_filename = [kml_files objectAtIndex:row_id];
+        self.model->reloadFiles();
+        
+        //--------------
+        // new.kml is a speical location file used to creating new data,
+        // it is therefore not necessary to go to the first location
+        //--------------
+        if ([self.model->location_filename isEqualToString:@"new.kml"])
+        {
+            self.rootViewController.needUpdateDisplayRegion = false;
+        }else{
+            self.rootViewController.needUpdateDisplayRegion = true;
+            // updateMapDisplayRegion will be called in unwindSegue
+        }
+        self.rootViewController.needUpdateAnnotations = true;
+        
+        [self.myTableView reloadData];
     }
     
     self.rootViewController.needUpdateAnnotations = true;
@@ -343,8 +413,8 @@
     
     // If row is deleted, remove it from the list.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        int i = [indexPath row];
         if ([indexPath section] == 1){
-            int i = [indexPath row];
             [self.rootViewController.mapView removeAnnotation:
              self.model->data_array[i].annotation];
             self.model->data_array.erase(
@@ -352,6 +422,23 @@
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             
             self.model->data_array_dirty = true;
+        }else if ([indexPath section] == 2){
+            //--------------
+            // Delete a KML file
+            //--------------
+            if ([kml_files[i] isEqualToString:@"new.kml"])
+                return;
+            
+            if (self.model->filesys_type == DROPBOX){
+                [self.model->dbFilesystem
+                 deleteFilename:kml_files[i]];
+                
+            }else{
+                [self.model->docFilesystem
+                 deleteFilename:kml_files[i]];
+            }
+            [self initKMLList];
+            [self.myTableView reloadData];
         }
     }
 }

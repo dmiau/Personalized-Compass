@@ -20,7 +20,6 @@
 @interface iOSSettingViewController : UIViewController<UIAlertViewDelegate>
 {
     BOOL pinVisible;
-    NSArray *kml_files;
 }
 
 @property compassMdl* model;
@@ -28,7 +27,6 @@
 @property iOSViewController* rootViewController;
 
 //@property bool needUpdateDisplayRegion;
-@property (weak, nonatomic) IBOutlet UIPickerView *dataPicker;
 - (IBAction)toggleDataSource:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dataSource;

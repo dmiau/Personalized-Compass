@@ -49,11 +49,4 @@
     return true;
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay {
-    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
-    polylineView.strokeColor = [UIColor redColor];
-    polylineView.lineWidth = 8.0;
-    
-    return polylineView;
-}
 @end

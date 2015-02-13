@@ -175,6 +175,9 @@
     
     
     [self.mapView setCenterCoordinate:coord animated:animated];
+    
+    
+//    [self.mapView setRegion:<#(MKCoordinateRegion)#> animated:<#(BOOL)#>];
 }
 
 //------------------

@@ -22,6 +22,7 @@
 <UITableViewDelegate, UIAlertViewDelegate>{
     int selected_id;
     bool data_dirty_flag;
+    NSArray *kml_files;
 }
 
 

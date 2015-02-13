@@ -80,4 +80,5 @@
     self.model->updateMdl();
     [self.glkView setNeedsDisplay];
 }
+
 @end

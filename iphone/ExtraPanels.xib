@@ -13,6 +13,7 @@
                 <outlet property="createPinSegmentControl" destination="NxM-du-Rcc" id="PY0-Xc-Ds8"/>
                 <outlet property="dataSegmentControl" destination="h43-e5-7WU" id="zO1-Zz-mVF"/>
                 <outlet property="filterSegmentControl" destination="koe-mY-dSr" id="vO4-tg-uqO"/>
+                <outlet property="homeBoxSwitch" destination="KWs-bj-HEX" id="n3V-zt-DEu"/>
                 <outlet property="landmarkLock" destination="0So-s1-ohR" id="aSU-OI-n5a"/>
                 <outlet property="overviewScaleSegmentControl" destination="Efc-AO-Jdq" id="nHY-t9-9u7"/>
                 <outlet property="overviewSegmentControl" destination="VF8-nw-5JM" id="Wwh-w9-0fX"/>
@@ -135,18 +136,18 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0So-s1-ohR">
-                    <rect key="frame" x="169" y="65" width="51" height="31"/>
+                    <rect key="frame" x="169" y="89" width="51" height="31"/>
                     <connections>
                         <action selector="toggleLandmarkLock:" destination="-1" eventType="valueChanged" id="XhJ-dO-28O"/>
                     </connections>
                 </switch>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Landmark Lock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3W-Hn-DzT">
-                    <rect key="frame" x="12" y="70" width="120" height="21"/>
+                    <rect key="frame" x="12" y="94" width="120" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="koe-mY-dSr">
-                    <rect key="frame" x="119" y="173" width="189" height="29"/>
+                    <rect key="frame" x="119" y="179" width="189" height="29"/>
                     <segments>
                         <segment title="kOrientation"/>
                         <segment title="None"/>
@@ -157,12 +158,12 @@
                     </connections>
                 </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="D-Selection:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztD-O9-npJ">
-                    <rect key="frame" x="12" y="175" width="95" height="21"/>
+                    <rect key="frame" x="12" y="182" width="95" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h43-e5-7WU">
-                    <rect key="frame" x="119" y="119" width="189" height="29"/>
+                    <rect key="frame" x="119" y="135" width="189" height="29"/>
                     <segments>
                         <segment title="None"/>
                         <segment title="Cluster"/>
@@ -173,20 +174,20 @@
                     </connections>
                 </segmentedControl>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Prefilter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAq-HS-9Sb">
-                    <rect key="frame" x="12" y="121" width="100" height="21"/>
+                    <rect key="frame" x="12" y="137" width="100" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMW-EF-C9U">
-                    <rect key="frame" x="113" y="20" width="195" height="30"/>
+                    <rect key="frame" x="111" y="12" width="195" height="30"/>
                     <state key="normal" title="Make Current View as Home"/>
                     <connections>
                         <action selector="setCurrentAsHome:" destination="-1" eventType="touchUpInside" id="grN-hY-yZF"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trz-Bq-Wfd">
-                    <rect key="frame" x="12" y="20" width="41" height="30"/>
+                    <rect key="frame" x="10" y="12" width="41" height="30"/>
                     <state key="normal" title="Home">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -194,6 +195,18 @@
                         <action selector="goHome:" destination="-1" eventType="touchUpInside" id="ZZs-8A-mKn"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show home box" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJZ-7Z-3of">
+                    <rect key="frame" x="10" y="55" width="125" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KWs-bj-HEX">
+                    <rect key="frame" x="169" y="50" width="51" height="31"/>
+                    <connections>
+                        <action selector="toggleHomeBox:" destination="-1" eventType="valueChanged" id="2Ve-ei-VPi"/>
+                    </connections>
+                </switch>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>

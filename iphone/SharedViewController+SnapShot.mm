@@ -138,18 +138,24 @@
         self.model->configurations[@"filter_type"] = @"MANUAL";
     }
     
-    // Not sure why, but the following lines are needed for iPad
-    self.model->camera_pos.latitude = mySnapshot.coordinateRegion.center.latitude;
-    self.model->camera_pos.longitude = mySnapshot.coordinateRegion.center.longitude;
+//    // Not sure why, but the following lines are needed for iPad
+//    self.model->camera_pos.latitude = mySnapshot.coordinateRegion.center.latitude;
+//    self.model->camera_pos.longitude = mySnapshot.coordinateRegion.center.longitude;
+//
+//    [self updateMapDisplayRegion:NO];
 
-    [self updateMapDisplayRegion:NO];
-    self.mapView.region = mySnapshot.coordinateRegion;
+//    self.mapView.region = mySnapshot.coordinateRegion;
+    [self.mapView setRegion:mySnapshot.coordinateRegion animated:NO];
+    
+    
+    CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
+                                              self.model->compassCenterXY
+                                                   toCoordinateFromView:self.mapView];
+    self.model->camera_pos.latitude = compassCtrCoord.latitude;
+    self.model->camera_pos.longitude = compassCtrCoord.longitude;
     
     // Not sure why setRegion does not work well...
 //    [self.mapView setRegion: mySnapshot.coordinateRegion animated:YES];    
-    
-    self.model->updateMdl();
-
     
     //-----------------
     // Set up viz and device
@@ -202,15 +208,6 @@
             [self shiftTestingEnvironmentBy:shift];
 #endif
         }
-        
-        
-#ifndef __IPHONE__
-        // Desktop
-        [self.compassView display];
-#else
-        // iOS
-        [self.glkView setNeedsDisplay];
-#endif
     }
     
     //-----------------
@@ -232,6 +229,15 @@
     [self renderAnnotations];
     
     [self updateLocationVisibility];
+    
+    self.model->updateMdl();
+#ifndef __IPHONE__
+    // Desktop
+    [self.compassView display];
+#else
+    // iOS
+    [self.glkView setNeedsDisplay];
+#endif
     return true;
 }
 @end

@@ -25,6 +25,11 @@ enum findMe_enum{
     MOVE2LOCATION
 };
 
+enum KMLTYPE{
+    LOCATION,
+    SNAPSHOT,
+    HISTORY
+};
 
 // CLLocationDegress is typedef to double
 typedef struct{
@@ -87,10 +92,11 @@ typedef struct{
 
 
 // Model panel
+@property (weak, nonatomic) IBOutlet UISwitch *homeBoxSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *landmarkLock;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *filterSegmentControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dataSegmentControl;
-
+- (IBAction)toggleHomeBox:(id)sender;
 
 
 // Compass panel
@@ -238,4 +244,9 @@ typedef struct{
 //----------------
 @property NSString* system_message;
 
+
+//----------------
+// File saving
+//----------------
+- (void) saveKMLwithType: (KMLTYPE) type;
 @end

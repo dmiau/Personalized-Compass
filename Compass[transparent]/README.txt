@@ -2531,6 +2531,12 @@ toggleWatchMask can be enhanced.
 -------------------------------------------------------------------
 ***** Done
 - snapshot message should not accept touch-edit [8:42AM]
+- integrate data selector with the location table [9:46AM]
+- centralize .kml and .snapshot saving [10:47]
+- when the study mode is off, landmark lock should be disabled [11:04AM]
+- study snapshot detail -> crash [11:18AM]
+- clea up self.model->lockLandmarks (use manual selection instead) [11:28AM]
+- add home red box [11:58AM]
 
 ***** ToDo
 - Snapshot loading is too slow on iOS
@@ -2560,21 +2566,25 @@ Test authoring tool strategies (now on iOS):
 maintain a type counter dictionary
 toggleWatchMask can be enhanced.
 
-- integrate data selector with the location table
-
-- compass needs an update after it is moved (inprecise)
 - author drop-pin should be enabled
 
-- add home red box
-- study snapshot detail -> crash
 - implemtn task type counter
 - work on the study experience
 - ortho+wedge do not work
+- loading studies is too slow
+
+
+
+- compass needs an update after it is moved (inprecise)
 - study counter is incorrect when jump to a study
 - somehow the compass thinks its center is located at the center of the screen
-- when the study mode is off, landmark lock should be disabled
-- loading studies is too slow
-- centralize .kml and .snapshot saving
+
+
+
+
+
+
+
 
 
 

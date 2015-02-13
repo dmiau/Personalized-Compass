@@ -71,9 +71,9 @@
     if (sender.on){
         self.rootViewController.UIConfigurations[@"UIToolbarMode"]
         = @"Authoring";
-        self.rootViewController.testManager->setAuthoringMode(YES);        
+        self.rootViewController.testManager->toggleAuthoringMode(YES);        
     }else{
-        self.rootViewController.testManager->setAuthoringMode(NO);
+        self.rootViewController.testManager->toggleAuthoringMode(NO);
     }
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];

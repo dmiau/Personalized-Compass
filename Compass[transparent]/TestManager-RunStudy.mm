@@ -67,14 +67,26 @@ void TestManager::showTestNumber(int test_id){
     }else{
             test_counter = test_id;
     }
-    
-    model->lockLandmarks = false;
     [rootViewController displaySnapshot:test_counter withStudySettings:YES];
-    model->lockLandmarks = true;
 }
 
 
-
+void TestManager::toggleStudyMode(bool state){
+    if (state){
+        initTestEnv(CONTROL);
+        rootViewController.UIConfigurations[@"UIToolbarMode"]
+        = @"Study";
+    }else{
+        rootViewController.UIConfigurations[@"UIToolbarMode"]
+        = @"Development";
+        
+        model->lockLandmarks = false;
+        model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
+        model->updateMdl();
+    }
+    rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
+    = [NSNumber numberWithBool:true];
+}
 
 
 

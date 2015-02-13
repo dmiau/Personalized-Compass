@@ -22,6 +22,12 @@
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 
+enum KMLTYPE{
+    LOCATION,
+    SNAPSHOT,
+    HISTORY
+};
+
 // CLLocationDegress is typedef to double
 typedef struct{
     double content[4][2];
@@ -162,4 +168,8 @@ typedef struct{
 -(void)sendPackage: (NSDictionary *) package;
 -(void)handlePackage: (NSData *) data;
 
+//----------------
+//Files
+//----------------
+- (void) saveKMLwithType: (KMLTYPE) type;
 @end

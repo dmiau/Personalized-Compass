@@ -224,21 +224,6 @@
     }
 }
 
-//-------------
-// Toggle editing mode
-//-------------
-- (IBAction)toggleEditing:(id)sender {
-    UIBarButtonItem *myButton =
-    (UIBarButtonItem*) sender;
-    if (self.myTableView.editing == YES){
-        [self.myTableView setEditing:NO animated:YES];
-        myButton.title = @"Edit";
-    }else{
-        [self.myTableView setEditing:YES animated:YES];
-        myButton.title = @"Done";
-    }
-    
-}
 
 //-------------
 // Deleting rows
@@ -327,18 +312,6 @@
 // Toggle study mode
 //-----------------
 - (IBAction)toggleStudyMode:(UISwitch*)sender {
-
-    self.rootViewController.UIConfigurations[@"UIToolbarMode"]
-    = @"Development";
-    self.rootViewController.testManager->testManagerMode = OFF;
-    if (sender.on){
-        self.rootViewController.UIConfigurations[@"UIToolbarMode"]
-        = @"Study";
-        
-        self.rootViewController.testManager->initTestEnv(CONTROL);
-    }
-    self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
-    = [NSNumber numberWithBool:true];
+    self.rootViewController.testManager->toggleStudyMode(sender.on);
 }
-
 @end

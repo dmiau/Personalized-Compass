@@ -267,6 +267,7 @@ public:
     //---------------
     // Test flow control
     //---------------
+    void toggleStudyMode(bool state);
     void initTestEnv(TestManagerMode mode);
     void resetTestManager();
     void showNextTest();
@@ -276,7 +277,7 @@ public:
     //---------------
     // Manual test authoring
     //---------------
-    void setAuthoringMode(bool state);
+    void toggleAuthoringMode(bool state);
 };
 
 //class test{
