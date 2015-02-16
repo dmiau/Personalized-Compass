@@ -21,11 +21,11 @@
     // Add the counter
     NSString* counter_str = [NSString stringWithFormat:
                              @"*/%lu", self.model->snapshot_array.size()];
-    counter_button = [[UIBarButtonItem alloc]
+    self.counter_button = [[UIBarButtonItem alloc]
                       initWithTitle:counter_str
                       style:UIBarButtonItemStyleBordered                                             target:self
                       action:nil];
-    [toolbar_items addObject:counter_button];
+    [toolbar_items addObject:self.counter_button];
     
     
     //--------------
@@ -89,8 +89,8 @@
         self.testManager->showNextTest();
     }
     
-    counter_button.title = [NSString stringWithFormat:
-                            @"%d/%lu", self.testManager->test_counter,
+    self.counter_button.title = [NSString stringWithFormat:
+                            @"%d/%lu", self.testManager->test_counter+1,
                             self.model->snapshot_array.size()];
 }
 @end

@@ -310,4 +310,20 @@
     else
         return false;
 }
+
+
+- (void) displayPopupMessage: (NSString*) message{
+    UIAlertController* alert = [UIAlertController
+                                alertControllerWithTitle:@"System Message"
+                                message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction =
+    [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                           handler:^(UIAlertAction * action)
+     {[alert dismissViewControllerAnimated:YES completion:nil];}];
+    
+    [alert addAction:defaultAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 @end

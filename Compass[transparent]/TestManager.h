@@ -50,17 +50,29 @@ public:
 //------------------------------
 class record{
 public:
-    CLLocationCoordinate2D ground_truth;
-    CLLocationCoordinate2D answer;
-    double error;
-    double duration;
+    int snapshot_id;
+    NSString* code;
+    
+    NSDate *startDate;
+    NSDate *endDate;
+    
+    CGPoint ground_truth;
+    CGPoint answer;
+    
+    double location_error;
+    double elapsed_time;
 public:
     record(){
-        ground_truth    = CLLocationCoordinate2DMake(0, 0);
-        answer          = CLLocationCoordinate2DMake(0, 0);
-        error           = 0;
-        duration        = 0;
+        ground_truth    = CGPointMake(0, 0);
+        answer          = CGPointMake(0, 0);
+        location_error  = 0;
+        elapsed_time    = 0;
     };
+    
+    void start();
+    void end();
+    void display();
+    NSArray* genSavableRecord();
 };
 
 //------------------------------
@@ -117,7 +129,7 @@ public:
 // Test Manager
 //------------------------------
 enum TaskType {LOCATE, TRIANGULATE, ORIENT};
-enum TestManagerMode {OFF, CONTROL, COLLECT, AUTHORING};
+enum TestManagerMode {OFF, CONTROL, COLLECT, AUTHORING, REVIEW};
 
 class TestManager{
 public:
@@ -126,6 +138,7 @@ public:
     // Parameters
     //-----------------
     TestManagerMode testManagerMode;
+    bool isPartnerReady;
     
     // Test generation parameters
     // These parameters specify where the generated tests should go
@@ -134,6 +147,7 @@ public:
     NSString *test_location_filename;   //e.g., temp.locations
     NSString *alltest_vector_filename;     //e.g., allTestVectors.tests
     NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
+    NSString *record_filename;
     
     // Connections to other modules
     compassMdl *model;
@@ -157,7 +171,10 @@ public:
     // Number of users
     int participant_n;
     int participant_id;
-    
+
+    //---------------
+    // map and vector
+    //---------------
     // A map holds all the IDs and (x, y) coordinates
     map<string, vector<int>> location_dict;
     // This map is for code to ID lookup
@@ -166,6 +183,7 @@ public:
     vector<vector<string>> all_test_vectors;
     // Stores all snapshot vectors (each participant has a snapshot vector)
     vector<vector<snapshot>> all_snapshot_vectors;
+    vector<record> record_vector;
     
     //---------------
     // Parameters for close, far boundaries
@@ -201,6 +219,9 @@ public:
     int visualization_counter;
     int test_counter;
 
+    // Structure to keep track of the number of each type of test
+    map<string, int> task_type_counter;
+    
     //---------------
     // Random number generation
     //---------------
@@ -269,10 +290,15 @@ public:
     //---------------
     void toggleStudyMode(bool state);
     void initTestEnv(TestManagerMode mode);
+    void cleanupTestEnv();
+    
     void resetTestManager();
     void showNextTest();
     void showPreviousTest();
     void showTestNumber(int test_id);
+    void updateUI();
+
+    void saveRecord();
     
     //---------------
     // Manual test authoring

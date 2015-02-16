@@ -364,6 +364,12 @@
 		9A36619419A3FE4E00DC0D15 /* myMapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36619219A3FE4E00DC0D15 /* myMapView.mm */; };
 		9A36619519A3FE4E00DC0D15 /* myMapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36619219A3FE4E00DC0D15 /* myMapView.mm */; };
 		9A36619619A3FE4E00DC0D15 /* myMapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A36619219A3FE4E00DC0D15 /* myMapView.mm */; };
+		9A376AF51A912D7000A8D0AA /* TestManager-Record.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A376AF41A912D7000A8D0AA /* TestManager-Record.mm */; };
+		9A376AF61A912D7000A8D0AA /* TestManager-Record.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A376AF41A912D7000A8D0AA /* TestManager-Record.mm */; };
+		9A376AF71A912D7000A8D0AA /* TestManager-Record.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A376AF41A912D7000A8D0AA /* TestManager-Record.mm */; };
+		9A376AF81A912D7000A8D0AA /* TestManager-Record.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A376AF41A912D7000A8D0AA /* TestManager-Record.mm */; };
+		9A376AF91A912D7000A8D0AA /* TestManager-Record.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A376AF41A912D7000A8D0AA /* TestManager-Record.mm */; };
+		9A376AFA1A912D7000A8D0AA /* TestManager-Record.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A376AF41A912D7000A8D0AA /* TestManager-Record.mm */; };
 		9A3DA0971964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
 		9A3DA0981964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
 		9A3DA0991964E9B1009E0073 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0951964E9B1009E0073 /* add.png */; };
@@ -1214,6 +1220,7 @@
 		9A36618C19A3F15500DC0D15 /* DesktopViewController+Interactions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Interactions.mm"; sourceTree = "<group>"; };
 		9A36619119A3FE4E00DC0D15 /* myMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myMapView.h; sourceTree = "<group>"; };
 		9A36619219A3FE4E00DC0D15 /* myMapView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = myMapView.mm; sourceTree = "<group>"; };
+		9A376AF41A912D7000A8D0AA /* TestManager-Record.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-Record.mm"; sourceTree = "<group>"; };
 		9A39E14D1A5B5188002D203D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9A3DA0951964E9B1009E0073 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = icons/add.png; sourceTree = "<group>"; };
 		9A3DA0961964E9B1009E0073 /* remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remove.png; path = icons/remove.png; sourceTree = "<group>"; };
@@ -2165,6 +2172,7 @@
 				9A4AA6491A7E7F8D0009F448 /* TestManager-KmlGeneration.mm */,
 				9AAC65DA1A8BA2C000B9BF2E /* TestManager-RunStudy.mm */,
 				9AE37F9B1A8D5D90005E8C5C /* TestManager-Authoring.mm */,
+				9A376AF41A912D7000A8D0AA /* TestManager-Record.mm */,
 				9AE610461A6EF3BD00175A79 /* TestManager.h */,
 			);
 			name = Model;
@@ -2969,6 +2977,7 @@
 				9A037579198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9A3240DC197AB083008E929D /* iOSViewController+History.mm in Sources */,
 				9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
+				9A376AF91A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
 				9A0375D9198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A0375AF198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A0375CD198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
@@ -3109,6 +3118,7 @@
 				9A037640198DA31900258E95 /* b2GearJoint.cpp in Sources */,
 				9A3DA0CF19683235009E0073 /* DetailViewController.mm in Sources */,
 				9AEEC6901A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
+				9A376AFA1A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
 				9A0375EC198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A037622198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				9A82B6331941518900534A5F /* locationFilter.mm in Sources */,
@@ -3295,6 +3305,7 @@
 				9A42A07119A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapView.mm in Sources */,
+				9A376AF81A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
 				9A037620198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				9A0375CC198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A037608198DA31900258E95 /* b2CircleContact.cpp in Sources */,
@@ -3366,6 +3377,7 @@
 				9AE2FC8419AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
 				9A037623198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A4808A7198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */,
+				9A376AF51A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
 				9A42A05619A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
 				9A42A07219A79C3200BB0101 /* WebSocket.m in Sources */,
 				9A36618D19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
@@ -3582,6 +3594,7 @@
 				9A42A07019A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A03756B198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
+				9A376AF71A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
 				9A0375E3198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A0375E9198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A0375CB198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
@@ -3676,6 +3689,7 @@
 				9A42A0C019A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */,
 				9A42A0A619A79CA200BB0101 /* DDLog.m in Sources */,
 				9A037636198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
+				9A376AF61A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
 				9A03758E198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A0375EE198DA31900258E95 /* b2World.cpp in Sources */,
 				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,

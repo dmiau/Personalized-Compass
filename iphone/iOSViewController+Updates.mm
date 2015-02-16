@@ -169,7 +169,9 @@
     }
     
     [self.mapView setRegion:coord_region animated:animated];
-    
+    // Not sure why I need the following two lines.
+    self.mapView.centerCoordinate = coord_region.center;
+    self.mapView.region = coord_region;
     
     // Update the model
     CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:

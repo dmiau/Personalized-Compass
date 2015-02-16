@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 dmiau. All rights reserved.
 //
 
+#import "snapshotParser.h"
 #ifdef __IPHONE__
 //-------------------
 // iOS
@@ -22,11 +23,18 @@
 @implementation DesktopViewController (Communication)
 #endif
 
+
 //-------------------
+// iOS -> desktop
 // Sending package
 //-------------------
 -(void)sendPackage: (NSDictionary *) package
 {
+    if (![self.socket_status boolValue]){
+        NSLog(@"Communication has not been enabled.");
+        return;
+    }
+    
     NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:package];
 #ifdef __IPHONE__
     //-------------------
@@ -35,43 +43,35 @@
     // Send the data (in the form of NSData)
     //http://stackoverflow.com/questions/5513075/how-can-i-convert-nsdictionary-to-nsdata-and-vice-versa
     [_webSocket send: myData];
-#else
-    //-------------------
-    // OSX
-    //-------------------
-    
-    [self.webSocket sendData:myData];
 #endif
 }
 
-//-------------------
-// Handling package
-//-------------------
+
+//------------------
+// Desktop -> iOS
+// This is for the desktop to communicate with iOS
+//------------------
+- (void)sendMessage: (NSString*) message{
+    
+#ifndef __IPHONE__
+    //-------------------
+    // OSX
+    //-------------------
+    [self.webSocket sendMessage:message];
+#endif
+}
+
+/*
+ -----------------------------------
+ Desktop
+ This is for OSX only, since iOS cannot handle NSData
+  -----------------------------------
+ */
 -(void)handlePackage: (NSData*) data
 {
     //Unpack the data
     NSDictionary *myDictionary = (NSDictionary*)
     [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
-    //NSLog(@"Dictionary content:");
-    //    for (id key in myDictionary) {
-    //        NSLog(@"key: %@, value: %@ \n", key, [myDictionary objectForKey:key]);
-    //    }
-    
-    //    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
-
-    // Design:
-//    Data package:
-//    Type: Instruction, Message
-//    
-//    - Instruction
-//    *command: SetupEnv, LoadSnapshot, Start, SwitchControl, End, Sync
-//    *parameter: filename, snapshot_id
-//    *switchContorl: yes, no
-//    
-//    - Message
-//    * status: OK, BAD, NEXT
-//    * notes:
     
     NSString* package_type = myDictionary[@"Type"];
     
@@ -79,7 +79,18 @@
         NSString* command = myDictionary[@"Command"];
         
         if ([command isEqualToString: @"SetupEnv"]){
-            self.testManager->initTestEnv(COLLECT);            
+            // Load the snapshot file
+            
+            if (![myDictionary[@"Parameter"] isEqualToString:
+                  self.model->snapshot_filename]){
+                self.model->snapshot_filename = myDictionary[@"Parameter"];
+                
+                if (readSnapshotKml(self.model) != EXIT_SUCCESS){
+                    throw(runtime_error("Failed to load snapshot files"));
+                }
+            }
+            self.testManager->initTestEnv(COLLECT);
+
         }else if ([command isEqualToString: @"LoadSnapshot"]){
             int test_id = [myDictionary[@"SsnapshotID"] intValue];
             self.testManager->showTestNumber(test_id);
@@ -93,11 +104,6 @@
             
         }else if ([command isEqualToString: @"Sync"]){
 #ifndef __IPHONE__
-            //    NSLog(@"Dictionary content:");
-            //    for (id key in myDictionary) {
-            //        NSLog(@"key: %@, value: %@ \n", key, [myDictionary objectForKey:key]);
-            //    }
-            
             //    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
             
             // Sync with iOS
@@ -110,12 +116,30 @@
 #endif
         }
                 
-    }else if ([package_type isEqualToString:@"Message"]){
-
-        
     }else{
         throw(runtime_error("Unknown package type."));
     }
+}
+
+//---------------------------
+//iOS
+// This is for iOS, since iOS cannot handle NSData
+//---------------------------
+-(void)handleMessage:(NSString*)message{
+    
+    // 
+    self.received_message = message;
+    
+//    if ([message isEqualToString:@"NONE"]){
+//        // Default message
+//        
+//    }else if ([message isEqualToString:@"OK"]){
+//        
+//    }else if ([message isEqualToString:@"BAD"]){
+//        
+//    }else if ([message isEqualToString:@"NEXT"]){
+//        
+//    }
 }
 
 

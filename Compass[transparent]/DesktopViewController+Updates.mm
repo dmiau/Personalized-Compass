@@ -131,8 +131,12 @@
     
     //http://stackoverflow.com/questions/14771197/ios-beginning-ios-tutorial-underscore-before-variable
     
+    
+    
     [self.mapView setRegion:coord_region animated:animated];
     
+    self.mapView.centerCoordinate = coord_region.center;
+    self.mapView.region = coord_region;
     
     // Update the model
     CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:

@@ -193,20 +193,15 @@
                        titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
     
     if ([label isEqualToString:@"None"]){
-        mapMask.backgroundColor = [[UIColor whiteColor] CGColor];
-        mapMask.frame = CGRectMake(0, 0,
-                                   self.mapView.frame.size.width,
-                                   self.mapView.frame.size.height);
-        mapMask.opacity = 1;
-        [self.mapView.layer addSublayer:mapMask];
+        [self toggleBlankMapMode:YES];
     }else if ([label isEqualToString:@"Standard"]){
-        [mapMask removeFromSuperlayer];
+        [self toggleBlankMapMode:NO];
         self.mapView.mapType = MKMapTypeStandard;
     }else if ([label isEqualToString:@"Hybrid"]){
-        [mapMask removeFromSuperlayer];
+        [self toggleBlankMapMode:NO];
         self.mapView.mapType = MKMapTypeHybrid;
     }else if ([label isEqualToString:@"Satellite"]){
-        [mapMask removeFromSuperlayer];
+        [self toggleBlankMapMode:NO];
         self.mapView.mapType = MKMapTypeSatellite;
     }
     [self.glkView setNeedsDisplay];

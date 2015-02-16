@@ -7,7 +7,7 @@
 // Other flags : trace
 //static const int httpLogLevel = HTTP_LOG_LEVEL_WARN | HTTP_LOG_FLAG_TRACE;
 
-
+//
 @implementation MyWebSocket
 
 
@@ -53,8 +53,12 @@
 //    //Unpack the data
 //    NSDictionary *myDictionary = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
+    dispatch_async(dispatch_get_main_queue(),
+    ^{
+        [self.rootViewController handlePackage:data];
+    });
     //Pass the received data to the data handler
-    [self.rootViewController handlePackage:data];
+
 }
 
 - (void)didClose

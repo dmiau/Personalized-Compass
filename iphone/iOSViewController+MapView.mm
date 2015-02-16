@@ -71,5 +71,18 @@
     }
 }
 
-
+// Toggle the map blank mode
+- (void)toggleBlankMapMode:(bool)state{
+    self.isBlankMapEnabled = state;
+    if (state){
+        mapMask.backgroundColor = [[UIColor whiteColor] CGColor];
+        mapMask.frame = CGRectMake(0, 0,
+                                   self.mapView.frame.size.width,
+                                   self.mapView.frame.size.height);
+        mapMask.opacity = 1;
+        [self.mapView.layer addSublayer:mapMask];
+    }else{
+        [mapMask removeFromSuperlayer];
+    }
+}
 @end

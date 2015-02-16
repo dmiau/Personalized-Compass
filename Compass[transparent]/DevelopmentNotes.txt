@@ -177,13 +177,13 @@ if (env_setup_package){
 Data package:
 Type: Instruction, Message
 
-- Instruction
+- Instruction (NSDictionary)
 *Command: SetupEnv, LoadSnapshot, Start, SwitchControl, End, Sync
 *Parameter: SsnapshotID, YES, NO, Filename
 
-- Message
-* Status: OK, BAD, NEXT
-* Notes:
+- Message (NSString)
+* Status: OK, BAD, NEXT, NONE
+
 
 
 

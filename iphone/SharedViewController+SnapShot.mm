@@ -96,6 +96,11 @@
 //------------------
 - (bool)displaySnapshot: (int) snapshot_id withStudySettings: (bool) study_settings_flag
 {
+
+    if (self.testManager->testManagerMode == CONTROL){
+        self.testManager->test_counter = snapshot_id;
+    }
+    
     //-----------
     // Set up the parameters
     //-----------
@@ -110,6 +115,14 @@
             pin_flag = false;
         }
     }
+
+    
+    //-----------
+    // Set up snapshot parameters
+    //-----------
+    
+    
+    
     
     snapshot mySnapshot = self.model->snapshot_array[snapshot_id];
     
@@ -145,8 +158,8 @@
 //    [self updateMapDisplayRegion:NO];
 
 //    self.mapView.region = mySnapshot.coordinateRegion;
-    [self.mapView setRegion:mySnapshot.coordinateRegion animated:NO];
- 
+
+    [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
     
     //-----------------
     // Set up viz and device
@@ -222,6 +235,11 @@
     [self updateLocationVisibility];
     
     self.model->updateMdl();
+    
+    if (self.testManager->testManagerMode == CONTROL){
+        self.testManager->updateUI();
+    }    
+    
 #ifndef __IPHONE__
     // Desktop
     [self.compassView display];

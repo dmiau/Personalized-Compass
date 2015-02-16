@@ -12,11 +12,12 @@
 
 @interface DemoSettingViewController : UIViewController
 <UITableViewDelegate, UIAlertViewDelegate>{
+        NSArray* snapshot_file_array;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property DemoManager* demoManager;
-
+@property compassMdl* model;
 @property iOSViewController* rootViewController;
 - (IBAction)generateTests:(id)sender;
 

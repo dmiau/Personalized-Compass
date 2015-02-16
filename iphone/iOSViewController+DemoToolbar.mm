@@ -22,11 +22,11 @@
     // Add the counter
     NSString* counter_str = [NSString stringWithFormat:
                              @"*/%lu", self.model->snapshot_array.size()];
-    counter_button = [[UIBarButtonItem alloc]
+    self.counter_button = [[UIBarButtonItem alloc]
                       initWithTitle:counter_str
                       style:UIBarButtonItemStyleBordered                                             target:self
                       action:nil];
-    [toolbar_items addObject:counter_button];
+    [toolbar_items addObject:self.counter_button];
     
     
     //--------------
@@ -155,7 +155,6 @@
     
     NSString* label = bar_button.title;
     static int snapshot_id = 0;
-    static bool mask_status = false;
     
     if (self.demoManager->device_counter ==-1){
         snapshot_id = 0;
@@ -206,24 +205,15 @@
         [self loopVisualizations:[self resetVisualizationButton]];
     }else if ([label isEqualToString:@"[Mask]"]){
         
-        if (mask_status){
-            [mapMask removeFromSuperlayer];
+        if (self.isBlankMapEnabled){
+            [self toggleBlankMapMode:NO];
         }else{
-            mapMask.backgroundColor = [[UIColor whiteColor] CGColor];
-            mapMask.frame = CGRectMake(0, 0,
-                                       self.mapView.frame.size.width,
-                                       self.mapView.frame.size.height);
-            mapMask.opacity = 1;
-            
-            [self.mapView.layer addSublayer:mapMask];
+            [self toggleBlankMapMode:YES];
         }
-        mask_status = !mask_status;
     }
-    counter_button.title = [NSString stringWithFormat:
+    self.counter_button.title = [NSString stringWithFormat:
                             @"%d/%lu", snapshot_id+1,
-                            self.model->snapshot_array.size()];
-    
-    //
+                            self.model->snapshot_array.size()];    
     [self sendBoundaryLatLon];
 }
 

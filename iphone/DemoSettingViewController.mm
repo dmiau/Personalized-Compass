@@ -8,7 +8,7 @@
 
 #import "DemoSettingViewController.h"
 #import "AppDelegate.h"
-
+#import "snapshotParser.h"
 //--------------------
 // Demo Cell
 //--------------------
@@ -90,6 +90,9 @@
     self = [super initWithCoder:aDecoder];
     if(self) {
         self.demoManager = DemoManager::shareDemoManager();
+        self.model = compassMdl::shareCompassMdl();
+        if (self.model == NULL)
+            throw(runtime_error("compassModel is uninitialized"));
     }
     return self;
 }
@@ -116,6 +119,23 @@
     //-----------------
     [self.myTableView registerClass:[demoCell class]
              forCellReuseIdentifier:@"myTableCell"];
+    
+    [self updateSnapshotFileList];
+}
+
+- (void)updateSnapshotFileList{
+    //-------------------
+    // Collect a list of history files
+    //-------------------
+    // Collect a list of kml files
+    NSArray *dirFiles;
+    if (self.model->filesys_type == IOS_DOC){
+        dirFiles = [self.model->docFilesystem listFiles];
+    }else{
+        dirFiles = [self.model->dbFilesystem listFiles];
+    }
+    
+    snapshot_file_array = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS '.snapshot'"]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -126,7 +146,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
 //    [super viewWillAppear:animated];
-
+    [self updateSnapshotFileList];
     //-------------------
     // Change navigation bar color
     //-------------------
@@ -168,22 +188,24 @@
 #pragma mark -----Table View Data Source Methods-----
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Two sections: 1) Visualizaton; 2) Device    
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (section == 0)
+    if (section == 0){
         return self.demoManager->visualization_vector.size();
-    else
+    }else if (section == 1)
+    {
         return self.demoManager->device_vector.size();
-//    else
-//        return self.demoManager->enabled_device_vector.size();
+    }else{
+        return [snapshot_file_array count];
+    }
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSArray *list = @[@"Visualization Types", @"Device Types", @"Tests"];
+    NSArray *list = @[@"Visualization Types", @"Device Types", @"SnapShot Files"];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
     /* Create custom view to display section header... */
@@ -229,6 +251,10 @@
         param_ptr = &(self.demoManager->device_vector[i]);
         cell.param_ptr = param_ptr;
         cell.mySwitch.on = param_ptr->isEnabled;
+    }else{
+        // Configure Cell
+        cell.textLabel.text = snapshot_file_array[i];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
     }
     
 //    else if (section_id == 2){
@@ -248,5 +274,35 @@
     }
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path {
+    
+    int row_id = [path row];
+    int section_id = [path section];
+    
+    
+    if (section_id == 2){
+        //----------------
+        // User selects a file
+        //----------------
+        
+        [self loadSnapshotWithName:
+         snapshot_file_array[row_id]];
+    }
+}
+
+- (void)loadSnapshotWithName: (NSString*) filename{
+    NSString* filename_cache = self.model->snapshot_filename;
+    self.model->snapshot_filename = filename;
+    if (readSnapshotKml(self.model)!= EXIT_SUCCESS){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+                                                        message:@"Fail to read the snapshot file."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        self.model->snapshot_filename = filename_cache;
+        [alert show];
+    }
 }
 @end

@@ -23,6 +23,7 @@
                 <outlet property="showPinSegmentControl" destination="DFr-EQ-NPg" id="ML9-Uw-chT"/>
                 <outlet property="wedgeCorrectionFactor" destination="vkT-wl-kqH" id="u0A-QG-TrG"/>
                 <outlet property="wedgeSegmentControl" destination="mjH-sm-kuZ" id="xUO-F7-X1G"/>
+                <outlet property="whiteBackgroundCheckbox" destination="smq-eQ-h5s" id="TZp-BQ-HrW"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="SOO-Ww-bDf"/>
             </connections>
         </customObject>

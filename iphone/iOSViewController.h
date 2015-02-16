@@ -47,8 +47,7 @@ typedef struct{
     NSArray *view_array;
     vector<CGSize> view_size_vector;
     
-    // For toolbar
-    UIBarButtonItem *counter_button;
+    
     
     // Coummunication
     SRWebSocket *_webSocket;
@@ -207,6 +206,9 @@ typedef struct{
 - (void) constructDemoToolbar:(NSString*)mode;
 - (void) constructStudyToolbar:(NSString*)mode;
 
+// The counter of the study toolbar. This is exposed so TestManager can update it
+@property UIBarButtonItem *counter_button;
+
 //----------------
 // Update and initialization functions
 //----------------
@@ -217,6 +219,12 @@ typedef struct{
 -(void)updateOverviewMap;
 -(bool)updateModelCompassCenterXY;
 -(void) updateLocationVisibility;
+
+//----------------
+//MapView category
+//----------------
+@property bool isBlankMapEnabled;
+- (void)toggleBlankMapMode:(bool)state;
 
 //----------------
 // Annotations related methods
@@ -236,7 +244,9 @@ typedef struct{
 
 
 // implemented in the communication category
-- (void) sendBoundaryLatLon;
+@property NSString* received_message;
+-(void) sendBoundaryLatLon;
+- (void)sendMessage: (NSString*) message;
 -(void)sendPackage: (NSDictionary *) package;
 -(void)handlePackage: (NSData *) data;
 
@@ -245,9 +255,13 @@ typedef struct{
 //----------------
 @property NSString* system_message;
 
-
 //----------------
 // File saving
 //----------------
 - (void) saveKMLwithType: (KMLTYPE) type;
+
+//----------------
+// System service (implemented in the interaction category)
+//----------------
+- (void) displayPopupMessage: (NSString*) message;
 @end

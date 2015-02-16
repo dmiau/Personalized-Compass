@@ -36,6 +36,7 @@
 //-------------
 // Configurations pane
 //-------------
+@property (weak) IBOutlet NSButton *whiteBackgroundCheckbox;
 
 @property (weak) IBOutlet NSTextField *desktopDropboxDataRoot;
 - (IBAction)changeDesktopDropboxDataRoot:(id)sender;

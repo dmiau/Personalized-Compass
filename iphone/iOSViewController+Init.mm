@@ -52,8 +52,10 @@
         [self.searchDisplayController setDelegate:self];
         [self.ibSearchBar setDelegate:self];
         
+        // Map related initialization
         self.needUpdateDisplayRegion = false;
         self.needUpdateAnnotations = false;
+        self.isBlankMapEnabled = false;
         
         // Initialize location service
         // enable location manager
@@ -70,7 +72,7 @@
         self.landmark_id_toshow     = -1;
         
         self.socket_status = [NSNumber numberWithBool:false];
-        
+        self.received_message = @"NONE";
         //--------------------
         // Initialize a list of UI configurations
         //--------------------

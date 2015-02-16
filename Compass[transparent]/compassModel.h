@@ -138,6 +138,7 @@ public:
     // i.e., indices for rendering
     vector<int> selected_ids;
     vector<int> enabled_list;
+    // The list is used to control whether an annotation should be enabled or not
     
     // Cache screen size for debug purpose
     CGPoint ios_display_wh;

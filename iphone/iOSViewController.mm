@@ -121,12 +121,13 @@
     //---------------
     if (self.landmark_id_toshow >= 0){
         
-        
-        int lid = self.landmark_id_toshow;
-        MKCoordinateRegion temp = MKCoordinateRegionMake
-        (CLLocationCoordinate2DMake(self.model->data_array[lid].latitude, self.model->data_array[lid].longitude),self.mapView.region.span);
-        
-        [self updateMapDisplayRegion: temp withAnimation:NO];
+        if (self.model->data_array.size() >0){
+            int lid = self.landmark_id_toshow;
+            MKCoordinateRegion temp = MKCoordinateRegionMake
+            (CLLocationCoordinate2DMake(self.model->data_array[lid].latitude, self.model->data_array[lid].longitude),self.mapView.region.span);
+            
+            [self updateMapDisplayRegion: temp withAnimation:NO];
+        }
         self.landmark_id_toshow = -1;
     }
     

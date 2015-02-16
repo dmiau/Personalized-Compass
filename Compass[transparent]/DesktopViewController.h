@@ -11,7 +11,6 @@
 #import "compassModel.h"
 #import "compassRender.h"
 #import <iostream>
-//#import "SettingsViewController.h"
 #import "AppDelegate.h"
 
 #import "DemoManager.h"
@@ -34,7 +33,6 @@ typedef struct{
 }LatLons4x2;
 
 @class ConfigurationsWindowController; //Forward declaration
-//@class SettingsViewController; //Forward declaration
 @class MyWebSocket;
 
 //---------------------------------------
@@ -99,12 +97,6 @@ typedef struct{
 - (void) setFactoryCompassHidden: (BOOL) flag;
 
 //-------------------
-// Settings View
-//-------------------
-//@property SettingsViewController *settingsViewController;
-//@property NSView *settingsView;
-
-//-------------------
 // Interactions
 //-------------------
 - (IBAction)toggleMap:(id)sender;
@@ -134,6 +126,12 @@ typedef struct{
 - (vector<CLLocationCoordinate2D>) getBoundaryLatLon;
 
 //----------------
+//MapView category
+//----------------
+@property bool isBlankMapEnabled;
+- (void)toggleBlankMapMode:(bool)state;
+
+//----------------
 //Snapshot category
 //----------------
 - (bool)takeSnapshot;
@@ -160,12 +158,15 @@ typedef struct{
 //Server + iOSEmulation
 //----------------
 @property MyWebSocket* webSocket;
+@property NSNumber* socket_status;
 @property BOOL iOSSyncFlag;
 
 -(void)startServer;
 -(void)syncWithiOS: (NSDictionary*) dict;
 
 // implemented in the communication category
+@property NSString* received_message;
+- (void)sendMessage: (NSString*) message;
 -(void)sendPackage: (NSDictionary *) package;
 -(void)handlePackage: (NSData *) data;
 

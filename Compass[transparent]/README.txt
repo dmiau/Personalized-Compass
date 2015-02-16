@@ -2537,6 +2537,24 @@ toggleWatchMask can be enhanced.
 - study snapshot detail -> crash [11:18AM]
 - clea up self.model->lockLandmarks (use manual selection instead) [11:28AM]
 - add home red box [11:58AM]
+- retired updateMapDisplayRegion
+use
+[self.mapView setRegion:<#(MKCoordinateRegion)#> animated:<#(BOOL)#>]; instead. 
+- somehow the compass thinks its center is located at the center of the screen
+- compass needs an update after it is moved (inprecise) [2:52PM]
+- Test authoring tool strategies (now on iOS):
+- Use TestManager
+- Grow location_dict
+- Grow test_vector
+- Generate snapshot, and store the snapshot into the snapshot vector
+- Test Creator
+- study counter is incorrect when jump to a study [5:33PM]
+- Fixed the threading issue [9:30PM]. The call to handleMessage needs to be on the main thread
+
+dispatch_async(dispatch_get_main_queue(),
+               ^{
+
+               });
 
 ***** ToDo
 - Snapshot loading is too slow on iOS
@@ -2555,61 +2573,239 @@ toggleWatchMask can be enhanced.
 - iWath emulation, watchMode, modify drawOneSide to cut off the legs
 - Naming conventions: .locations, .tests, .history, etc. 
 
-- Test Creator
+maintain a type counter dictionary
+toggleWatchMask can be enhanced.
 
-Test authoring tool strategies (now on iOS):
-- Use TestManager
-- Grow location_dict
-- Grow test_vector
-- Generate snapshot, and store the snapshot into the snapshot vector
+- author drop-pin should be enabled
+- ortho+wedge do not work
+- loading studies is too slow
+
+- implement task type counter
+- work on the study experience
+* need to set up the watch mode correctly
+- renderAnnottions has issues
+looks like I have some threading issues. 
+dispatch_queue_t mainQueue = dispatch_get_main_queue();
+dispatch_async(mainQueue,
+               ^{
+                   // Redraw the compass
+                   // Update GUI components
+                   [self updateOverviewMap];
+                   [self.glkView setNeedsDisplay];
+                   [self updateFindMeView];
+               });
+        
+- iOS cannot receive NSData
+
+-------------------------------------------------------------------
+2.14.2015
+-------------------------------------------------------------------
+***** Done
+- study mode on, location switch->crash bug [12:58PM] UIAlertView returns immediately
+- work on the study experience (figured out a plane)
+
+***** ToDo
+- Snapshot loading is too slow on iOS (annotation and big list of locatinos are main reasons)
+- Implement a StudyLog structure
+- map zoom in/out, pan around
+
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
+
+- Think about tests which involve multiple locations (I can sketch out some ideas)
+- Outline the paper
+- Automatically calculate MapRect for the study
+
+***** Working
+- Sometimes a needle could become too thin
+- iWath emulation, watchMode, modify drawOneSide to cut off the legs
+- Naming conventions: .locations, .tests, .history, etc. 
 
 maintain a type counter dictionary
 toggleWatchMask can be enhanced.
 
 - author drop-pin should be enabled
-
-- implemtn task type counter
-- work on the study experience
 - ortho+wedge do not work
 - loading studies is too slow
 
+- implement task type counter
+
+* need to set up the watch mode correctly
+- renderAnnottions has issues
+
+- iOS cannot receive NSData
 
 
-- compass needs an update after it is moved (inprecise)
-- study counter is incorrect when jump to a study
-- somehow the compass thinks its center is located at the center of the screen
+What needs to be done? Plane for tomorrow
+- message passing:
 
-retired updateMapDisplayRegion
-use
-[self.mapView setRegion:<#(MKCoordinateRegion)#> animated:<#(BOOL)#>]; instead.
+types of message:
+NONE, OK, BAD, NEXT
 
+handlePackage (for the COLLECTOR, desktop)
+START triggers the timer, drop-pin ends the timer, and then click the next
 
-    MKCoordinateRegion temp = MKCoordinateRegionMake
-    (CLLocationCoordinate2DMake(self.model->data_array[ind].latitude, self.model->data_array[ind].longitude),self.rootViewController.mapView.region.span);
-    
-    [self.rootViewController updateMapDisplayRegion: temp withAnimation:NO];
+handleMessage (for the CONTROLLER, iOS)
 
 
+initTestEnv
+- whitebackground, etc. 
+- allocate a vector of studyLog
+- id, startTime, endTime, duration, truth, answer, error
+
+showTestNumber
+(bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
+mode: OFF, CONTROL, COLLECT
 
 
+annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. 
 
 
+study presentation (especially on the COLLECT machine)
+calculate everything in mappoint, then convert the measurements to (lat, lon), and calculate latitudeDelta and longitudeDelta.
 
 
+answers differ based on the types of tasks: LOCATE, LOCALIZE, LCOATE+, ORIENT
+answer_id: when displaying annotatoions, if location_id == answer_id, don't show
 
 
+answer reviewing:
+TestManager: OFF, CONTROL, COLLECT, REVIEW
+
+-------------------------------------------------------------------
+2.15.2015
+-------------------------------------------------------------------
+***** Done
+TestManager: OFF, CONTROL, COLLECT, REVIEW [11:25AM]
+- iOS cannot receive NSData (implement handleMessage) [11:25AM]
+types of message:
+NONE, OK, BAD, NEXT
+promote toggleBlankBackground to be a system methode [1:59PM]
+initTestEnv
+- whitebackground, etc. 
+- allocate a vector of studyLog
+- id, startTime, endTime, duration, truth, answer, error [9:07PM]
+- handlePackage (for the COLLECTOR, desktop) [9:19PM]
+- Think about tests which involve multiple locations (I can sketch out some ideas)
+
+***** ToDo
+- Snapshot loading is too slow on iOS (annotation and big list of locatinos are main reasons)
+- Implement a StudyLog structure
+- map zoom in/out, pan around
+
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
+
+- Outline the paper
+- Automatically calculate MapRect for the study
+
+- Naming conventions: .locations, .tests, .history, etc. 
+
+***** Working
+- Sometimes a needle could become too thin
+- iWath emulation, watchMode, modify drawOneSide to cut off the legs
+
+maintain a type counter dictionary
+toggleWatchMask can be enhanced.
+
+- loading studies is too slow
+
+- ortho+wedge do not work
+
+- implement task type counter
+* need to set up the watch mode correctly
+- renderAnnottions has issues
+
+- message passing:
+START triggers the timer, drop-pin ends the timer, and then click the next
+
+showTestNumber
+(bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
+mode: OFF, CONTROL, COLLECT
+
+annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
+
+answers differ based on the types of tasks: LOCATE, LOCALIZE, LCOATE+, ORIENT
+answer_id: when displaying annotatoions, if location_id == answer_id, don't show
+
+answer reviewing:
+
+-------------------------------------------------------------------
+2.16.2015
+-------------------------------------------------------------------
+
+drop-pin
+- testManagerMode == CONTROL and __IPHONE__, drop pin disabled
+- testManagerMode = AUTHORING, all drop-pins should be enabled
+- testManagerMode = COLLECT, log the time, the answer, and send the NEXT message
+- receving the START message triggers the timer
+
+test authoring
+- calculateMultipleLocationsDisplayRegion (on the desktop)
+study presentation (especially on the COLLECT machine)
+calculate everything in mappoint, then convert the measurements to (lat, lon), and calculate latitudeDelta and longitudeDelta.
+- implement task type counter, integrate the test code with the counter
+
+test presentation
+showTestNumber
+(bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
+mode: OFF, CONTROL, COLLECT
+
+refactor to display watch, and others
+
+- showTestNumber
+* showLocateTest(TestManagerMode mode)
+* showLocalizeTest(TestManagerMode mode)
+* showLocatePlusTest(TestManagerMode mode)
+* showOrientTest(TestManagerMode mode)
+
+test generation
+- latin sq. generation
+- generate LOCALIZE and LOCATE+ tests
+
+annotation control
+- renderAnnotationsIDs (vector<int> id_list, bool labelFlag)
 
 
+***** ToDo
+- Snapshot loading is too slow on iOS (annotation and big list of locatinos are main reasons)
+- Implement a StudyLog structure
+- map zoom in/out, pan around
 
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
 
+- Outline the paper
+- Automatically calculate MapRect for the study
 
+- Naming conventions: .locations, .tests, .history, etc. 
 
+***** Working
+- Sometimes a needle could become too thin
+- iWath emulation, watchMode, modify drawOneSide to cut off the legs
 
+maintain a type counter dictionary
+toggleWatchMask can be enhanced.
 
+- loading studies is too slow
 
+- ortho+wedge do not work
 
+- implement task type counter
+* need to set up the watch mode correctly
+- renderAnnottions has issues
 
+- message passing:
+START triggers the timer, drop-pin ends the timer, and then click the next
 
+showTestNumber
+(bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
+mode: OFF, CONTROL, COLLECT
 
+annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
 
+answers differ based on the types of tasks: LOCATE, LOCALIZE, LCOATE+, ORIENT
+answer_id: when displaying annotatoions, if location_id == answer_id, don't show
+
+answer reviewing:
 

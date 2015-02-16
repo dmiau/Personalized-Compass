@@ -126,6 +126,32 @@
 }
 
 //------------------
+// Toggle the blank map mode
+//------------------
+- (void)toggleBlankMapMode:(bool)state{
+    self.isBlankMapEnabled = state;
+    
+    static MKPolygon* poly;
+    
+    if (state){
+        vector<CLLocationCoordinate2D> latlon_vector =
+        [self getBoundaryLatLon];
+        
+        // Define an overlay that covers Colorado.
+        CLLocationCoordinate2D  points[4];
+        points[0] = latlon_vector[0];
+        points[1] = latlon_vector[1];
+        points[2] = latlon_vector[2];
+        points[3] = latlon_vector[3];
+        poly = [MKPolygon polygonWithCoordinates:points count:4];
+        poly.title = @"Blank";
+        [self.mapView addOverlay:poly];
+    }else{
+        [self.mapView removeOverlay:poly];
+    }
+}
+
+//------------------
 // Coordinate conversion
 //------------------
 - (vector<CLLocationCoordinate2D>) getBoundaryLatLon{

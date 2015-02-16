@@ -20,6 +20,10 @@
     [self.desktopDropboxDataRoot setStringValue:
      self.model->desktopDropboxDataRoot];
     
+    // Update the white background checkbox
+    self.whiteBackgroundCheckbox.state =
+    self.rootViewController.isBlankMapEnabled;    
+    
     // Update compass status
     if ([self.model->configurations[@"personalized_compass_status"]
          isEqualToString:@"off"])
@@ -57,31 +61,8 @@
 // Toggle Blank Background
 //--------------------
 - (IBAction)toggleBlankBackground:(NSButton*)sender {
-    static bool init = false;
-    static MKPolygon* poly;
-    
-    // Initialization
-    if (!init){
-
-    }
-    
-    if ([sender state]){
-        
-        vector<CLLocationCoordinate2D> latlon_vector =
-        [self.rootViewController getBoundaryLatLon];
-        
-        // Define an overlay that covers Colorado.
-        CLLocationCoordinate2D  points[4];
-        points[0] = latlon_vector[0];
-        points[1] = latlon_vector[1];
-        points[2] = latlon_vector[2];
-        points[3] = latlon_vector[3];
-        poly = [MKPolygon polygonWithCoordinates:points count:4];
-        poly.title = @"Blank";
-        [self.rootViewController.mapView addOverlay:poly];
-    }else{
-        [self.rootViewController.mapView removeOverlay:poly];
-    }
+    bool flag = [sender state];
+    [self.rootViewController toggleBlankMapMode:flag];
 }
 
 //--------------------
@@ -161,6 +142,10 @@
             self.serverPort.stringValue =
             [NSString stringWithFormat:@"%@", @"????"];
             self.server_ip = @"ip????";
+            
+            self.rootViewController.socket_status =
+            [NSNumber numberWithBool:NO];
+            
             break;
         case 1:
             [self.rootViewController startServer];

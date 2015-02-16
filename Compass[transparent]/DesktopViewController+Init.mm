@@ -7,7 +7,6 @@
 //
 
 #import "DesktopViewController+Init.h"
-//#import "SettingsViewController.h"
 
 @implementation DesktopViewController (Init)
 
@@ -39,13 +38,15 @@
         
         // Initialize iOSSyncFlag
         self.iOSSyncFlag = false;
-        
+        self.isBlankMapEnabled = false;
         //--------------------
         // Initial testManager
         //--------------------        
         self.testManager = TestManager::shareTestManager();
         self.testManager->rootViewController = self;
         
+        self.received_message = @"NONE";
+        self.socket_status = [NSNumber numberWithBool:NO];
         //--------------------
         // Initialize a list of UI configurations
         //--------------------

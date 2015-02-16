@@ -49,5 +49,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		DDLogError(@"Error starting HTTP Server: %@", error);
 	}
     self.httpServer = httpServer;
+    self.socket_status = [NSNumber numberWithBool:YES];
 }
 @end

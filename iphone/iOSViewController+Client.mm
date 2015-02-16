@@ -111,11 +111,14 @@
     [_messages addObject:[[TCMessage alloc] initWithMessage:message fromMe:NO]];
 }
 
+
+
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
 {
     
     @synchronized(self.socket_status){
-        self.socket_status = [NSNumber numberWithBool:NO];
+        self.socket_status = [NSNumber numberWithBool:NO];        
+        [self displayPopupMessage:@"Connection was dropped."];
     }
     NSLog(@"WebSocket closed");
     self.system_message = @"Connection Closed! (see logs)";

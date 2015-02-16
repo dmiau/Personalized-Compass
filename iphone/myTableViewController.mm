@@ -128,18 +128,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 //    [super viewWillAppear:animated];
-    [self.myTableView reloadData];
-    if (selected_id > -1){
-        UITableViewCell* cell = [self.myTableView
-                                 cellForRowAtIndexPath:
-                                 [NSIndexPath indexPathForRow: selected_id
-                                                    inSection: 2]];
-        cell.textLabel.text =
-        [NSString stringWithUTF8String:
-         self.model->data_array[selected_id].name.c_str()];
-        selected_id = -1;
- 
-    }
     
     // Update the KML list
     [self initKMLList];
@@ -165,6 +153,19 @@
     myNavigationController.navigationBar.barTintColor =
     [UIColor colorWithRed:213.0/255 green:108.0/255 blue:46.0/255 alpha:1];
     myNavigationController.navigationBar.topItem.title = @"Bookmarks";
+    
+    [self.myTableView reloadData];
+    if (selected_id > -1){
+        UITableViewCell* cell = [self.myTableView
+                                 cellForRowAtIndexPath:
+                                 [NSIndexPath indexPathForRow: selected_id
+                                                    inSection: 2]];
+        cell.textLabel.text =
+        [NSString stringWithUTF8String:
+         self.model->data_array[selected_id].name.c_str()];
+        selected_id = -1;
+        
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -319,16 +320,7 @@
         data_ptr = &(self.model->data_array[row_id]);
     }else{
         // Reload and display the landmarks
-        if (self.rootViewController.testManager->testManagerMode != OFF){
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TestManager is ON"
-                                                            message:@"Location file change while the TestManager is ON."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        }
-        
+
         self.model->location_filename = [kml_files objectAtIndex:row_id];
         self.model->reloadFiles();
         
@@ -366,6 +358,10 @@
             [parentVC viewWillAppear:YES];
         }];
 #endif
+    }
+    // UIAlertView has to be in the end, because it will return immediately
+    if (self.rootViewController.testManager->testManagerMode != OFF){
+        [self.rootViewController displayPopupMessage: @"TestManager is ON, and the location has been changed."];
     }
 }
 

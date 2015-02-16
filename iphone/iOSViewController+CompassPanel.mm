@@ -224,17 +224,11 @@
 }
 
 - (void) toggleMapMask{
-
     if (self.renderer->trainingMode){
-        mapMask.backgroundColor = [[UIColor whiteColor] CGColor];
-        mapMask.frame = CGRectMake(0, 0,
-                                   self.mapView.frame.size.width,
-                                   self.mapView.frame.size.height);
+        [self toggleBlankMapMode:YES];
         mapMask.opacity = 0.5;
-        
-        [self.mapView.layer addSublayer:mapMask];
     }else{
-        [mapMask removeFromSuperlayer];
+        [self toggleBlankMapMode:NO];
     }
 }
 

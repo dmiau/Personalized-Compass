@@ -329,8 +329,8 @@
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-        [alert show];
         NSLog(@"Failed to write file.");
+        [alert show];
     }
     
 }
@@ -436,8 +436,8 @@
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-        [alert show];
         NSLog(@"Failed to write file.");
+        [alert show];
         return false;
     }
     return true;

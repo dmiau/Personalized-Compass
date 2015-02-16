@@ -25,7 +25,6 @@
 //---------------
 @implementation DesktopViewController (Annotations)
 -(void) renderAnnotations{
-    
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
     
     // Add annotations one by one
