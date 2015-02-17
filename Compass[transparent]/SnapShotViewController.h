@@ -26,8 +26,6 @@ class compassMdl;
 @property (weak) IBOutlet NSComboBox *kmlComboBox;
 @property (weak) IBOutlet NSSegmentedControl *studyModeSegmentControl;
 
-@property bool isStudyMode;
-
 //-----------
 // kml combo box
 //-----------

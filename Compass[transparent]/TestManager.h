@@ -296,6 +296,7 @@ public:
     void showNextTest();
     void showPreviousTest();
     void showTestNumber(int test_id);
+    void startTest();
     void updateUI();
 
     void saveRecord();
@@ -305,23 +306,5 @@ public:
     //---------------
     void toggleAuthoringMode(bool state);
 };
-
-//class test{
-//public:
-//
-//    VisualizationType visualization;
-//    DeviceType device;
-//    int test_id;
-//    int snapshot_id;
-//    NSString *name;
-//    NSString *instructions;
-//    NSString *sectionMsg;
-//    bool isEnabled;
-//public:
-//    test(){
-//        visualization = VIZPCOMPASS;
-//        device = PHONE;
-//    };
-//};
 
 #endif /* defined(__Compass_transparent___TestManager__) */

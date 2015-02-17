@@ -151,6 +151,21 @@
     }
 }
 
+-(void)enableMapInteraction:(bool)state{
+    if (!state){
+        [self.mapView setPitchEnabled:NO];
+        [self.mapView setZoomEnabled:NO];
+        [self.mapView setRotateEnabled:NO];
+        [self.mapView setScrollEnabled:NO];
+        
+    }else{
+        [self.mapView setPitchEnabled:YES];
+        [self.mapView setZoomEnabled:YES];
+        [self.mapView setRotateEnabled:YES];
+        [self.mapView setScrollEnabled:YES];
+    }
+}
+
 //------------------
 // Coordinate conversion
 //------------------

@@ -92,7 +92,7 @@
             self.testManager->initTestEnv(COLLECT);
 
         }else if ([command isEqualToString: @"LoadSnapshot"]){
-            int test_id = [myDictionary[@"SsnapshotID"] intValue];
+            int test_id = [myDictionary[@"Parameter"] intValue];
             self.testManager->showTestNumber(test_id);
             
         }else if ([command isEqualToString: @"Start"]){

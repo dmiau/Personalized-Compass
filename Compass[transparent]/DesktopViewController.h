@@ -130,12 +130,14 @@ typedef struct{
 //----------------
 @property bool isBlankMapEnabled;
 - (void)toggleBlankMapMode:(bool)state;
+-(void)enableMapInteraction:(bool)state;
 
 //----------------
 //Snapshot category
 //----------------
 - (bool)takeSnapshot;
-- (bool)displaySnapshot: (int) id withStudySettings: (bool) study_settings_flag;
+- (bool)displaySnapshot: (int) tid
+    withStudySettings: (TestManagerMode) mode;
 
 //----------------
 //Annotation category

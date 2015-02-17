@@ -98,12 +98,9 @@
     //---------------
     // Snapshot and history stuff
     //---------------
-    if (self.snapshot_id_toshow >= 0){
-        bool study_mode = false;
-        if (self.testManager->testManagerMode != OFF)
-            study_mode = true;
-        
-        [self displaySnapshot:self.snapshot_id_toshow withStudySettings:study_mode];
+    if (self.snapshot_id_toshow >= 0){      
+        [self displaySnapshot:self.snapshot_id_toshow
+            withStudySettings:self.testManager->testManagerMode];
         self.snapshot_id_toshow = -1;
     }
 

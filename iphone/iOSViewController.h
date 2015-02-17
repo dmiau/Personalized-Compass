@@ -152,7 +152,8 @@ typedef struct{
 // Snapshot related stuff
 //----------------
 - (bool)takeSnapshot;
-- (bool)displaySnapshot: (int) snapshot_id withStudySettings: (bool) study_settings_flag;
+- (bool)displaySnapshot: (int) snapshot_id
+      withStudySettings: (TestManagerMode) mode;
 
 //----------------
 // History related stuff
@@ -225,6 +226,7 @@ typedef struct{
 //----------------
 @property bool isBlankMapEnabled;
 - (void)toggleBlankMapMode:(bool)state;
+-(void)enableMapInteraction:(bool)state;
 
 //----------------
 // Annotations related methods

@@ -7,6 +7,7 @@
 //
 
 #import "myTableViewController.h"
+#import "xmlParser.h"
 #import "DetailViewController.h"
 #import "AppDelegate.h"
 
@@ -320,24 +321,30 @@
         data_ptr = &(self.model->data_array[row_id]);
     }else{
         // Reload and display the landmarks
-
-        self.model->location_filename = [kml_files objectAtIndex:row_id];
-        self.model->reloadFiles();
-        
-        //--------------
-        // new.kml is a speical location file used to creating new data,
-        // it is therefore not necessary to go to the first location
-        //--------------
-        if ([self.model->location_filename isEqualToString:@"new.kml"])
+        if ( ![[kml_files objectAtIndex:row_id] isEqualToString:self.model->location_filename])
         {
-            // Do nothing
-        }else{
-            self.rootViewController.landmark_id_toshow = 0;
-            // updateMapDisplayRegion will be called in unwindSegue
+            self.model->location_filename = [kml_files objectAtIndex:row_id];
+           
+            // Read the location data
+            // texture cache is generated within readLocationKml
+            readLocationKml(self.model, self.model->location_filename);
+            self.model->updateMdl();
+            
+            //--------------
+            // new.kml is a speical location file used to creating new data,
+            // it is therefore not necessary to go to the first location
+            //--------------
+            if ([self.model->location_filename isEqualToString:@"new.kml"])
+            {
+                // Do nothing
+            }else{
+                self.rootViewController.landmark_id_toshow = 0;
+                // updateMapDisplayRegion will be called in unwindSegue
+            }
+            self.rootViewController.needUpdateAnnotations = true;
+            
+            [self.myTableView reloadData];
         }
-        self.rootViewController.needUpdateAnnotations = true;
-        
-        [self.myTableView reloadData];
     }
     
     self.rootViewController.needUpdateAnnotations = true;

@@ -41,6 +41,17 @@
                                    dateStyle:NSDateFormatterShortStyle
                                    timeStyle:NSDateFormatterFullStyle];
     mySnapshot.selected_ids = self.model->indices_for_rendering;
+    
+    // Capture the enable/disable status
+    for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
+        int lid = self.model->indices_for_rendering[i];
+        if (self.model->data_array[lid].isAnswer){
+            mySnapshot.is_answer_list[i] = 1;
+        }else{
+            mySnapshot.is_answer_list[i] = 0;
+        }
+    }
+    
     mySnapshot.name = @"authored_snapshot";
     if (self.testManager->testManagerMode == AUTHORING){
         //--------------
@@ -94,39 +105,20 @@
 // when setup_viz_flag is on, the visualization settings
 // at the time when the snap was taken will be loaded too
 //------------------
-- (bool)displaySnapshot: (int) snapshot_id withStudySettings: (bool) study_settings_flag
+- (bool)displaySnapshot: (int) snapshot_id
+      withStudySettings: (TestManagerMode) mode
 {
 
-    if (self.testManager->testManagerMode == CONTROL){
+    if (mode == CONTROL){
         self.testManager->test_counter = snapshot_id;
     }
     
     //-----------
-    // Set up the parameters
-    //-----------
-    // Default values
-    bool pin_flag = true;
-    bool setup_viz_flag = false;
-    
-    if (study_settings_flag){
-        setup_viz_flag = true;
-        
-        if (self.testManager->testManagerMode == CONTROL){
-            pin_flag = false;
-        }
-    }
-
-    
-    //-----------
     // Set up snapshot parameters
     //-----------
-    
-    
-    
-    
     snapshot mySnapshot = self.model->snapshot_array[snapshot_id];
     
-    if (mySnapshot.kmlFilename != self.model->location_filename){
+    if (![mySnapshot.kmlFilename isEqualToString: self.model->location_filename]){
         self.model->location_filename = mySnapshot.kmlFilename;
         readLocationKml(self.model, self.model->location_filename);
     }
@@ -164,9 +156,11 @@
     //-----------------
     // Set up viz and device
     //-----------------
-    if (setup_viz_flag){
-
-
+    if (self.testManager->testManagerMode == CONTROL){
+        //--------------------
+        // The device is in the control mode
+        // visualization needs to be set up correctly
+        //--------------------
         switch(mySnapshot.visualizationType)
         {
             case VIZPCOMPASS:
@@ -196,50 +190,43 @@
                 cout << "Default" <<endl;
         }
         
-        if (self.testManager->testManagerMode == CONTROL){
-            // Emulate the iOS enironment if on the desktop
-            // (if it is in the control mode)
+        // Emulate the iOS enironment if on the desktop
+        // (if it is in the control mode)
 #ifndef __IPHONE__
-            self.renderer->emulatediOS.is_enabled = true;
-            self.renderer->emulatediOS.is_mask_enabled = true;
-            
-            
-            // Also need to set up the positions of the em iOS
-            // and the compass
-            CGPoint shift;
-            shift.x = -self.renderer->view_width/2 + 100;
-            shift.y = 0;
-            [self shiftTestingEnvironmentBy:shift];
+        self.renderer->emulatediOS.is_enabled = true;
+        self.renderer->emulatediOS.is_mask_enabled = true;
+        
+        
+        // Also need to set up the positions of the em iOS
+        // and the compass
+        CGPoint shift;
+        shift.x = -self.renderer->view_width/2 + 100;
+        shift.y = 0;
+        [self shiftTestingEnvironmentBy:shift];
 #endif
-        }
     }
+
+    self.mapView.camera.heading = -mySnapshot.orientation;
+    
+    [self renderAnnotations];
+    [self updateLocationVisibility];
+    self.model->updateMdl();
     
     //-----------------
     // Set up pin appearance
     //-----------------
-    
-    if (pin_flag){
+    if (self.testManager->testManagerMode == CONTROL){
+        // Do not show pins
+        [self changeAnnotationDisplayMode:@"None"];
+        // This is to update the display message
+        self.testManager->updateUI();
+    }else if (self.testManager->testManagerMode == COLLECT){
         // Show pins
         [self changeAnnotationDisplayMode:@"Enabled"];
     }else{
-        // Do not show pins
-        [self changeAnnotationDisplayMode:@"None"];
+        // Do nothing
     }
-    
-    self.mapView.camera.heading = -mySnapshot.orientation;
-    
-    // Render annotation
-    [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
-    [self renderAnnotations];
-    
-    [self updateLocationVisibility];
-    
-    self.model->updateMdl();
-    
-    if (self.testManager->testManagerMode == CONTROL){
-        self.testManager->updateUI();
-    }    
-    
+        
 #ifndef __IPHONE__
     // Desktop
     [self.compassView display];
@@ -249,4 +236,9 @@
 #endif
     return true;
 }
+
+
+
+
+
 @end

@@ -24,26 +24,41 @@ void TestManager::initTestEnv(TestManagerMode mode){
     testManagerMode = mode;
     showTestNumber(0);
     
+    // Need to turn off map interactions in the study mode
+    [rootViewController enableMapInteraction:NO];
+    
     if (mode == CONTROL){
         //------------------
         // iOS
         //------------------
         testManagerMode = CONTROL;
+        
+        rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
+        [NSNumber numberWithBool:NO];
+        
+        // The following lines has no effect on OSX
+        // sendPackage is only functional when called on iOS
         NSDictionary *myDict = @{@"Type" : @"Instruction",
                                  @"Command" : @"SetupEnv",
                                  @"Parameter" : model->snapshot_filename
                                  };
         [rootViewController sendPackage: myDict];
+        
+        
     }else if (mode == COLLECT){
         //------------------
         // Desktop
         //------------------
         testManagerMode = COLLECT;
+        
+        rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
+        [NSNumber numberWithBool:NO];
+        
+#ifndef __IPHONE__
         // Turn off iOS syncing
         rootViewController.iOSSyncFlag = false;
+#endif
         [rootViewController toggleBlankMapMode:YES];
-        
-        // Need to turn off map interactions too
         
         
         // Create one record for each snapshot
@@ -52,6 +67,11 @@ void TestManager::initTestEnv(TestManagerMode mode){
             record t_record;
             record_vector.push_back(t_record);
         }
+        
+        // Disable all visualizations
+        model->configurations[@"personalized_compass_status"] = @"off";
+        [rootViewController setFactoryCompassHidden:YES];
+        model->configurations[@"wedge_status"] = @"off";
         
         [rootViewController sendMessage:@"OK"];
     }
@@ -62,6 +82,8 @@ void TestManager::cleanupTestEnv(){
     // Turn off the study mode
     //---------------
     testManagerMode = OFF;
+    
+    [rootViewController enableMapInteraction:YES];
     rootViewController.UIConfigurations[@"UIToolbarMode"]
     = @"Development";
     
@@ -127,7 +149,7 @@ void TestManager::showNextTest(){
 }
 
 //------------------
-// Run test by ID
+// Show test by ID
 //------------------
 void TestManager::showTestNumber(int test_id){
     // Do NOT execute this method if test_counter is already 0
@@ -142,9 +164,42 @@ void TestManager::showTestNumber(int test_id){
                                  @"Parameter" : [NSNumber numberWithInt:test_id]
                                  };
         [rootViewController sendPackage: myDict];
+        
+    }else if (testManagerMode == COLLECT){
+        
+        [rootViewController toggleBlankMapMode:YES];
+#ifndef __IPHONE__
+        // Populate the record structure
+        // The disabled annotation is the answer
+        
+        snapshot t_snapshot = model->snapshot_array[test_id];
+        for (int i = 0; i < t_snapshot.is_answer_list.size(); ++i){
+            if (t_snapshot.is_answer_list[i] == 0){
+                int loc_id = t_snapshot.selected_ids[i];
+
+                CLLocationCoordinate2D coord =
+                CLLocationCoordinate2DMake
+                (model->data_array[loc_id].latitude,
+                 model->data_array[loc_id].longitude);
+                
+                CGPoint t_point = [rootViewController.mapView
+                                   convertCoordinate:coord
+                                   toPointToView:rootViewController.compassView];
+                record_vector[test_id].ground_truth = t_point;
+                break;
+            }
+        }
+#endif
     }
     
-    [rootViewController displaySnapshot:test_counter withStudySettings:YES];
-    
-    
+    [rootViewController displaySnapshot:test_counter
+                      withStudySettings:testManagerMode];
+}
+
+
+//------------------
+// Start the test
+//------------------
+void TestManager::startTest(){
+    record_vector[test_counter].start();
 }

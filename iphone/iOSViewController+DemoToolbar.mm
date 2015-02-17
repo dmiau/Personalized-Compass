@@ -177,7 +177,7 @@
                 snapshot_id = 0;
             }
         }
-        [self displaySnapshot:snapshot_id withStudySettings:NO];
+        [self displaySnapshot:snapshot_id withStudySettings:OFF];
 
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];
@@ -199,7 +199,7 @@
             }
         }
         
-        [self displaySnapshot:snapshot_id withStudySettings:NO];
+        [self displaySnapshot:snapshot_id withStudySettings:OFF];
 
         // Set the visualization to the first
         [self loopVisualizations:[self resetVisualizationButton]];

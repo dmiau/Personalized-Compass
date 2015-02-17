@@ -21,17 +21,28 @@
 //------------------
 void TestManager::toggleAuthoringMode(bool state){
     if (state){
+        //-----------------
+        // Authoring mode is on
+        //-----------------
+        
         // Set the orientation to 0, and disable rotation
         rootViewController.mapView.camera.heading = 0;
         testManagerMode = AUTHORING;
         // Manual
         model->configurations[@"filter_type"] = @"MANUAL";
+        rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
+        [NSNumber numberWithBool:YES];
     }else{
+        //-----------------
+        // Authoring mode is off
+        //-----------------
         // Save the file?
         testManagerMode = OFF;
+        rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
+        [NSNumber numberWithBool:NO];
         model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
         [rootViewController saveKMLwithType: LOCATION];
-        [rootViewController saveKMLwithType: SNAPSHOT];
+        [rootViewController saveKMLwithType: SNAPSHOT];        
     }
     
     [rootViewController.mapView setRotateEnabled:!state];

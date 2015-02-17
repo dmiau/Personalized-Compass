@@ -183,12 +183,12 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
         
 
         //-----------------
-        // enabled_list
+        // is_answer_list
         //-----------------
-        temp_str = temp_str + "<enabled_list>";
+        temp_str = temp_str + "<is_answer_list>";
         temp_str = temp_str +
-        genSelectedIDStr(my_snapshot_array[i].enabled_list);
-        temp_str = temp_str + "</enabled_list>\n";
+        genSelectedIDStr(my_snapshot_array[i].is_answer_list);
+        temp_str = temp_str + "</is_answer_list>\n";
         
         //-----------------
         // ios_display_wh

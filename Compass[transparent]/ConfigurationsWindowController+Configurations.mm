@@ -61,7 +61,7 @@
 // Toggle Blank Background
 //--------------------
 - (IBAction)toggleBlankBackground:(NSButton*)sender {
-    bool flag = [sender state];
+    bool flag = (sender.state == NSOnState);
     [self.rootViewController toggleBlankMapMode:flag];
 }
 

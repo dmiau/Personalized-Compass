@@ -35,8 +35,6 @@
         
         selected_snapshot_id = -1;
         [self updateSnapshotFileList];
-        
-        self.isStudyMode = false;
     }
     return self;
 }
@@ -59,7 +57,11 @@
     [self.myTableView reloadData];
     
     // Set the study mode
-    self.studyModeSegmentControl.selectedSegment = (int) self.isStudyMode;
+    if (self.rootViewController.testManager->testManagerMode == OFF){
+        self.studyModeSegmentControl.selectedSegment = 0;
+    }else{
+        self.studyModeSegmentControl.selectedSegment = 1;
+    }
 }
 
 
@@ -132,7 +134,8 @@
         
     // Display a snapshot
     [self.rootViewController displaySnapshot:ind
-                           withStudySettings: self.isStudyMode];
+        withStudySettings:
+     self.rootViewController.testManager->testManagerMode];
 }
 
 //----------------
@@ -159,11 +162,9 @@
     int state = [sender selectedSegment];
     switch (state) {
         case 0:
-            self.isStudyMode = false;
             self.rootViewController.testManager->testManagerMode = OFF;
             break;
         case 1:
-            self.isStudyMode = true;
             self.rootViewController.testManager->testManagerMode = CONTROL;
             break;
         default:

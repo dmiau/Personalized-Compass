@@ -87,7 +87,7 @@ int readSnapshotKml(compassMdl* mdl){
     
     osx_coord_flag      = false;
     osx_span_flag       = false;
-    enabled_list_flag   = false;
+    is_answer_list_flag   = false;
     ios_display_wh_flag = false;
     eios_display_wh_flag= false;
     osx_display_wh_flag = false;
@@ -113,7 +113,7 @@ int readSnapshotKml(compassMdl* mdl){
     
     osx_coord_flag      = false;
     osx_span_flag       = false;
-    enabled_list_flag   = false;
+    is_answer_list_flag   = false;
     ios_display_wh_flag = false;
     eios_display_wh_flag= false;
     osx_display_wh_flag = false;
@@ -177,8 +177,8 @@ int readSnapshotKml(compassMdl* mdl){
         osx_coord_flag = true;
     }else if ([elementName isEqualToString:@"osx_span"]){
         osx_span_flag = true;
-    }else if ([elementName isEqualToString:@"enabled_list"]){
-        enabled_list_flag = true;
+    }else if ([elementName isEqualToString:@"is_answer_list"]){
+        is_answer_list_flag = true;
     }else if ([elementName isEqualToString:@"ios_display_wh"]){
         ios_display_wh_flag = true;
     }else if ([elementName isEqualToString:@"eios_display_wh"]){
@@ -263,12 +263,12 @@ int readSnapshotKml(compassMdl* mdl){
             .osx_coordinateRegion.span.latitudeDelta = [_coord[1] floatValue];
         }
         
-        else if (enabled_list_flag){
+        else if (is_answer_list_flag){
             // Need to somehow split the sting
             NSArray *id_array = [string componentsSeparatedByString:@","];
             for (NSString *anItem in id_array){
                 snapshot_array[snapshot_array.size()-1].
-                enabled_list.push_back([anItem integerValue]);
+                is_answer_list.push_back([anItem integerValue]);
             }
         }
         
@@ -336,8 +336,8 @@ int readSnapshotKml(compassMdl* mdl){
         osx_coord_flag = false;
     }else if ([elementName isEqualToString:@"osx_span"]){
         osx_span_flag = false;
-    }else if ([elementName isEqualToString:@"enabled_list"]){
-        enabled_list_flag = false;
+    }else if ([elementName isEqualToString:@"is_answer_list"]){
+        is_answer_list_flag = false;
     }else if ([elementName isEqualToString:@"ios_display_wh"]){
         ios_display_wh_flag = false;
     }else if ([elementName isEqualToString:@"eios_display_wh"]){

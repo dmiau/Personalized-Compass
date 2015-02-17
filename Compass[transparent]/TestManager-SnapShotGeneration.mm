@@ -63,7 +63,7 @@ void TestManager::generateSnapShots(){
             // Collect all the selected ids
             //------------------
             vector<int> selected_ids;
-            
+            vector<int> is_answer_list;
             // Need to handle the code of t2 slightly different
             if (test_code.find(":t2:") != string::npos) {
                 // code for t2
@@ -75,6 +75,7 @@ void TestManager::generateSnapShots(){
             }else{
                 // code for other tasks
                 selected_ids.push_back(location_code_to_id[test_code]);
+                is_answer_list.push_back(1);
             }
             
             //------------------
@@ -104,6 +105,7 @@ void TestManager::generateSnapShots(){
             t_snapshot.name = [NSString stringWithUTF8String: test_code.c_str()];
             t_snapshot.coordinateRegion = coordinateRegion;
             t_snapshot.selected_ids = selected_ids;
+            t_snapshot.is_answer_list = is_answer_list;
             t_snapshot.kmlFilename = test_kml_filename;
             t_snapshot.orientation = 0;
             t_snapshot_array.push_back(t_snapshot);

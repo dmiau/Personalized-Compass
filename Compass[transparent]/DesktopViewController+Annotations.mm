@@ -30,7 +30,16 @@
     // Add annotations one by one
     for (int i = 0; i < self.model->data_array.size(); ++i){
         data myData = self.model->data_array[i];
-        [self.mapView addAnnotation: myData.annotation];
+        
+        if (self.testManager->testManagerMode == OFF){
+            [self.mapView addAnnotation: myData.annotation];
+        }else if (self.testManager->testManagerMode == CONTROL ||
+                  self.testManager->testManagerMode == COLLECT)
+        {
+            if (myData.isEnabled && !myData.isAnswer){
+                [self.mapView addAnnotation: myData.annotation];
+            }
+        }
     }
 }
 
@@ -358,7 +367,18 @@
         for (CustomPointAnnotation* annotation in annotation_array){
             int i = annotation.data_id;
             if (self.model->data_array[i].isEnabled){
-                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+                if (self.testManager->testManagerMode == CONTROL ||
+                    self.testManager->testManagerMode == COLLECT){
+                    
+                    if (self.model->data_array[i].isAnswer){
+                        [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+                    }else{
+                        [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+                    }
+                }else{
+                    [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+                }
+
             }else{
                 [[self.mapView viewForAnnotation:annotation] setHidden:YES];
             }

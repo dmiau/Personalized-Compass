@@ -177,29 +177,47 @@
 - (void)mouseWasHeld: (NSTimer *)tim {
     // Long mouse held will lead to this function
     
-    //----------------------------
-    // Do nothing when the creation mode is off
-    //----------------------------
-    if (![self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue])
-        return;
-    
-    NSEvent * mouseDownEvent = [tim userInfo];
-    [mouseTimer invalidate];
-    mouseTimer = nil;
-    
-    NSPoint mouseLoc = [self.mapView convertPoint:[mouseDownEvent locationInWindow] fromView:nil];
-    
-    CLLocationCoordinate2D touchMapCoordinate =
-    [self.mapView convertPoint:mouseLoc toCoordinateFromView:self.mapView];
-    
-    // Add drop-pin here
-    CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
-    annotation.coordinate = touchMapCoordinate;
-    annotation.title      = @"Dropped Pin";
-    annotation.subtitle   = @"";
-    annotation.point_type = dropped;
-    
-    [self.mapView addAnnotation:annotation];
+    if ([self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue]){
+        //----------------------------
+        // Create a drop pin only if the drop pin mode is on
+        //----------------------------
+        
+        NSEvent * mouseDownEvent = [tim userInfo];
+        [mouseTimer invalidate];
+        mouseTimer = nil;
+        
+        NSPoint mouseLoc = [self.mapView convertPoint:[mouseDownEvent locationInWindow] fromView:nil];
+        
+        CLLocationCoordinate2D touchMapCoordinate =
+        [self.mapView convertPoint:mouseLoc toCoordinateFromView:self.mapView];
+        
+        // Add drop-pin here
+        CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
+        annotation.coordinate = touchMapCoordinate;
+        annotation.title      = @"Dropped Pin";
+        annotation.subtitle   = @"";
+        annotation.point_type = dropped;
+        
+        [self.mapView addAnnotation:annotation];
+        
+        //----------------------------
+        // Fill in the record when the testManager is in COLLECT mode
+        //----------------------------
+        if (self.testManager->testManagerMode == COLLECT){
+            //------------------
+            // When the testManagerMode is in the COLLECT mode
+            //------------------
+            int tid = self.testManager->test_counter;
+            
+            // Log the time
+            self.testManager->record_vector[tid].end();
+            
+            // Log the location
+            self.testManager->record_vector[tid].answer = mouseLoc;
+            
+            [self sendMessage:@"NEXT"];
+        }
+    }
 }
 
 #pragma mark ------------- Compass Interaction -------------
@@ -214,21 +232,6 @@
     self.UIConfigurations[@"UICompassTouched"] =
     [NSNumber numberWithBool: state];
     [self.compassView setNeedsDisplay:YES];
-}
-
--(void)enableMapInteraction:(bool)state{
-    if (!state){
-        [self.mapView setPitchEnabled:NO];
-        [self.mapView setZoomEnabled:NO];
-        [self.mapView setRotateEnabled:NO];
-        [self.mapView setScrollEnabled:NO];
-
-    }else{
-        [self.mapView setPitchEnabled:YES];
-        [self.mapView setZoomEnabled:YES];
-        [self.mapView setRotateEnabled:YES];
-        [self.mapView setScrollEnabled:YES];
-    }
 }
 
 - (bool)isCompassTouched: (CGPoint) touchPoint{

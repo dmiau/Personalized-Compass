@@ -2733,43 +2733,21 @@ answer reviewing:
 -------------------------------------------------------------------
 2.16.2015
 -------------------------------------------------------------------
+***** Done
+desktop need to shut this off
+self.socket_status = [NSNumber numberWithBool:YES]; [10:24AM]
 
 drop-pin
 - testManagerMode == CONTROL and __IPHONE__, drop pin disabled
 - testManagerMode = AUTHORING, all drop-pins should be enabled
 - testManagerMode = COLLECT, log the time, the answer, and send the NEXT message
 - receving the START message triggers the timer
-
-test authoring
-- calculateMultipleLocationsDisplayRegion (on the desktop)
-study presentation (especially on the COLLECT machine)
-calculate everything in mappoint, then convert the measurements to (lat, lon), and calculate latitudeDelta and longitudeDelta.
-- implement task type counter, integrate the test code with the counter
-
-test presentation
-showTestNumber
-(bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
-mode: OFF, CONTROL, COLLECT
-
-refactor to display watch, and others
-
-- showTestNumber
-* showLocateTest(TestManagerMode mode)
-* showLocalizeTest(TestManagerMode mode)
-* showLocatePlusTest(TestManagerMode mode)
-* showOrientTest(TestManagerMode mode)
-
-test generation
-- latin sq. generation
-- generate LOCALIZE and LOCATE+ tests
-
-annotation control
-- renderAnnotationsIDs (vector<int> id_list, bool labelFlag)
-
+@"UIAcceptsPinCreation" [12:13PM]
+- Snapshot loading is too slow on iOS (annotation and big list of locatinos are main reasons)
+- loading studies is too slow [4:23PM] (need to use isEqualToString)
+- Implement a StudyLog structure [4:23PM]
 
 ***** ToDo
-- Snapshot loading is too slow on iOS (annotation and big list of locatinos are main reasons)
-- Implement a StudyLog structure
 - map zoom in/out, pan around
 
 - Lation square generation
@@ -2786,8 +2764,6 @@ annotation control
 
 maintain a type counter dictionary
 toggleWatchMask can be enhanced.
-
-- loading studies is too slow
 
 - ortho+wedge do not work
 
@@ -2807,5 +2783,101 @@ annotation control, programmatically control the pins/labels, and destroy them. 
 answers differ based on the types of tasks: LOCATE, LOCALIZE, LCOATE+, ORIENT
 answer_id: when displaying annotatoions, if location_id == answer_id, don't show
 
-answer reviewing:
+review the study
+
+
+test presentation
+showTestNumber
+(bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
+mode: OFF, CONTROL, COLLECT, REVIEW
+
+refactor to display watch, and others
+
+- showTestNumber
+* showLocateTest(TestManagerMode mode)
+* showLocalizeTest(TestManagerMode mode)
+* showLocatePlusTest(TestManagerMode mode)
+* showOrientTest(TestManagerMode mode)
+
+
+test authoring
+- calculateMultipleLocationsDisplayRegion (on the desktop)
+study presentation (especially on the COLLECT machine)
+calculate everything in mappoint, then convert the measurements to (lat, lon), and calculate latitudeDelta and longitudeDelta.
+- implement task type counter, integrate the test code with the counter
+
+test generation
+- latin sq. generation
+- generate LOCALIZE and LOCATE+ tests
+
+annotation control
+- renderAnnotationsIDs (vector<int> id_list, bool labelFlag)
+
+
+-------------------------------------------------------------------
+2.17.2015
+-------------------------------------------------------------------
+***** Done
+- moved enableMapInteraction to the class level [10:27AM]
+- showTestNumber
+- (bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
+mode: OFF, CONTROL, COLLECT [10:30AM]
+- toggleWatchMask can be enhanced.
+
+***** ToDo
+- map zoom in/out, pan around
+
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
+
+- Outline the paper
+- Automatically calculate MapRect for the study
+
+- Naming conventions: .locations, .tests, .history, etc. 
+
+- annotation control
+- renderAnnotationsIDs (vector<int> id_list, bool labelFlag)
+
+***** Working
+- Sometimes a needle could become too thin
+- iWath emulation, watchMode, modify drawOneSide to cut off the legs
+
+maintain a type counter dictionary
+
+* need to set up the watch mode correctly
+- renderAnnottions has issues
+
+- message passing:
+START triggers the timer, drop-pin ends the timer, and then click the next
+
+annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
+
+answers differ based on the types of tasks: LOCATE, LOCALIZE, LCOATE+, ORIENT
+answer_id: when displaying annotatoions, if location_id == answer_id, don't show
+
+review the study
+
+refactor to display watch, and others
+
+- showTestNumber
+* showLocateTest(TestManagerMode mode)
+* showLocalizeTest(TestManagerMode mode)
+* showLocatePlusTest(TestManagerMode mode)
+* showOrientTest(TestManagerMode mode)
+
+test authoring
+- calculateMultipleLocationsDisplayRegion (on the desktop)
+study presentation (especially on the COLLECT machine)
+calculate everything in mappoint, then convert the measurements to (lat, lon), and calculate latitudeDelta and longitudeDelta.
+- implement task type counter, integrate the test code with the counter
+
+test generation
+- latin sq. generation
+- generate LOCALIZE and LOCATE+ tests
+
+- ortho+watch do not work
+
+circle overlay
+http://stackoverflow.com/questions/9056451/draw-a-circle-of-1000m-radius-around-users-location-in-mkmapview
+
 

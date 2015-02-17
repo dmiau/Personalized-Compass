@@ -85,4 +85,20 @@
         [mapMask removeFromSuperlayer];
     }
 }
+
+-(void)enableMapInteraction:(bool)state{
+    if (!state){
+        [self.mapView setPitchEnabled:NO];
+        [self.mapView setZoomEnabled:NO];
+        [self.mapView setRotateEnabled:NO];
+        [self.mapView setScrollEnabled:NO];
+        [self.mapView setUserInteractionEnabled:NO];
+    }else{
+        [self.mapView setPitchEnabled:YES];
+        [self.mapView setZoomEnabled:YES];
+        [self.mapView setRotateEnabled:YES];
+        [self.mapView setScrollEnabled:YES];
+        [self.mapView setUserInteractionEnabled:YES];
+    }
+}
 @end

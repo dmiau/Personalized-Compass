@@ -137,8 +137,12 @@ public:
     // This stores the ids of the selected landmarks
     // i.e., indices for rendering
     vector<int> selected_ids;
-    vector<int> enabled_list;
-    // The list is used to control whether an annotation should be enabled or not
+    vector<int> is_answer_list;
+    // The list is used to control whether an annotation should be displayed or not
+    // If a location is an answer, it should not be displayed.
+    // This list only contains 0 and 1. The reason I choose to implemnt it in
+    // vector<int> rather than vector<bool> is that I want to reuse the code
+    // to generate vector<int> to a string
     
     // Cache screen size for debug purpose
     CGPoint ios_display_wh;
@@ -151,7 +155,7 @@ public:
         notes       = @"";
         date_str    = @"";
         selected_ids.clear();
-        enabled_list.clear();
+        is_answer_list.clear();
         
         coordinateRegion.center = CLLocationCoordinate2DMake(0, 0);
         coordinateRegion.span = MKCoordinateSpanMake(0, 0);

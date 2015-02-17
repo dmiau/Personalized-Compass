@@ -48,7 +48,7 @@
     UITextField *searchField =
     [self.ibSearchBar valueForKey:@"_searchField"];
     searchField.textColor = [UIColor blackColor];
-    [self toggleWatchMask];
+    [self toggleWatchMask:NO];
         
     [self.watchSidebar setHidden:YES];
 }
@@ -84,16 +84,19 @@
     UITextField *searchField =
     [self.ibSearchBar valueForKey:@"_searchField"];
     searchField.textColor = [UIColor whiteColor];
-    [self toggleWatchMask];
+    [self toggleWatchMask: YES];
     
     
     //-------------------
-    // Create an UISwitch
+    // Add a side panel when the watch mode is on
+    // (and when testManagerMode is not in AUTHORING mode
     //-------------------
-    self.watchLandmrkLockSwitch.on =self.model->lockLandmarks;
-    self.watchCompassInteractionSwitch.on =
-    [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue];
-    [self.watchSidebar setHidden:NO];
+    if (self.testManager->testManagerMode != AUTHORING){
+        self.watchLandmrkLockSwitch.on =self.model->lockLandmarks;
+        self.watchCompassInteractionSwitch.on =
+        [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue];
+        [self.watchSidebar setHidden:NO];
+    }
     
     //Hide all panels
     [self hideAllPanels];
@@ -181,10 +184,15 @@
             [self.view addSubview:slider];
             break;
     }
-    [self toggleMapMask];
-    [self toggleWatchMask];
-    self.renderer->loadCentroidFromModelConfiguration();
-    [self updateModelCompassCenterXY];
+    
+    if (self.renderer->trainingMode){
+        [self toggleBlankMapMode:YES];
+        mapMask.opacity = 0.5;
+    }else{
+        [self toggleBlankMapMode:NO];
+    }
+//    self.renderer->loadCentroidFromModelConfiguration();
+//    [self updateModelCompassCenterXY];
     [self.glkView setNeedsDisplay];
 }
 
@@ -195,11 +203,11 @@
     mapMask.opacity = value;
 }
 
-- (void) toggleWatchMask{
+- (void) toggleWatchMask: (bool) isWatchOn{
     
     float radius = [self.model->configurations[@"watch_radius"] floatValue];
     
-    if (self.renderer->watchMode){
+    if (isWatchOn){
         double fwidth = self.glkView.frame.size.width;
         double fheight = self.glkView.frame.size.height;
         
@@ -214,21 +222,17 @@
         fillLayer.path = path.CGPath;
         fillLayer.fillRule = kCAFillRuleEvenOdd;
         fillLayer.fillColor = [UIColor blackColor].CGColor;
-        fillLayer.opacity = 1;
+        
+        if (self.testManager->testManagerMode == AUTHORING)
+            fillLayer.opacity = 0.5;
+        else
+            fillLayer.opacity = 1;
+        
         [self.glkView.layer addSublayer:fillLayer];
         self.view.backgroundColor = [UIColor blackColor];
     }else{
         self.view.backgroundColor = [UIColor clearColor];
         self.glkView.layer.sublayers = nil;
-    }
-}
-
-- (void) toggleMapMask{
-    if (self.renderer->trainingMode){
-        [self toggleBlankMapMode:YES];
-        mapMask.opacity = 0.5;
-    }else{
-        [self toggleBlankMapMode:NO];
     }
 }
 

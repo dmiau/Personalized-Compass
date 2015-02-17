@@ -18,9 +18,9 @@
 using namespace std;
 #pragma mark -------------snapshot class-------------
 void snapshot::runSanityCheck(){
-    if (enabled_list.size() == 0){
+    if (is_answer_list.size() == 0){
         for (int i = 0; i < selected_ids.size(); ++i){
-            enabled_list.push_back(1);
+            is_answer_list.push_back(0);
         }
     }
 }

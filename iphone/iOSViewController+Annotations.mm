@@ -13,13 +13,21 @@
 @implementation iOSViewController (Annotations)
 
 -(void) renderAnnotations{
-    
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
     
     // Add annotations one by one
     for (int i = 0; i < self.model->data_array.size(); ++i){
         data myData = self.model->data_array[i];
-        [self.mapView addAnnotation: myData.annotation];
+        
+        if (self.testManager->testManagerMode == OFF){
+            [self.mapView addAnnotation: myData.annotation];
+        }else if (self.testManager->testManagerMode == CONTROL ||
+                  self.testManager->testManagerMode == COLLECT)
+        {
+            if (myData.isEnabled && !myData.isAnswer){
+                [self.mapView addAnnotation: myData.annotation];
+            }
+        }
     }
 }
 
@@ -232,26 +240,40 @@
     
     NSLog(@"Do something");
     MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
+
+    CustomPointAnnotation* myCustomAnnotation =
+    (CustomPointAnnotation*) view.annotation;
     //------------------
     // The pin is a custom pin
     //------------------
     UIButton *myButton = (UIButton *)control;
     if(myButton.tag == 0){
         // Left buttton tapped
-        if ([pinView pinColor] == MKPinAnnotationColorPurple){
+        if (myCustomAnnotation.point_type == dropped){
             // if it is a dropped pin, remove the pin
             [self.mapView removeAnnotation:view.annotation];
         }else{
             // if it is a landmark pin, flip the enable status
-            CustomPointAnnotation* myCustomAnnotation =
-            (CustomPointAnnotation*) view.annotation;
+
             int idx = myCustomAnnotation.data_id;
             data* data_ptr = &(self.model->data_array[idx]);
             
-            data_ptr->isEnabled = !data_ptr->isEnabled;
-            
-            pinView = [self configureLandmarkPinView:pinView];
-            
+            //---------------
+            // The behavior is slightly different in the AUTHORING mode
+            //---------------
+            if (self.testManager->testManagerMode == AUTHORING){                
+                // Flip between red and purple
+                if (data_ptr->isAnswer){
+                    pinView.pinColor = MKPinAnnotationColorRed;
+                }else{
+                    pinView.pinColor = MKPinAnnotationColorPurple;
+                }
+                
+                data_ptr->isAnswer = !data_ptr->isAnswer;
+            }else{
+                data_ptr->isEnabled = !data_ptr->isEnabled;
+                pinView = [self configureLandmarkPinView:pinView];
+            }
         }
     }else if (myButton.tag == 1){
         [self performSegueWithIdentifier:@"DetailVC" sender:view];

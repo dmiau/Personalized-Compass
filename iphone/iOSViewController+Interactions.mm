@@ -179,25 +179,60 @@
     }
     
     //----------------------------
-    // Do nothing when the creation mode is off
+    // Only accept drop pins when the drop pin creation mode is enabled
     //----------------------------
-    if (![self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue])
-        return;
-    
-    
-    CLLocationCoordinate2D touchMapCoordinate =
-    [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-    
-    CustomPointAnnotation *pa = [[CustomPointAnnotation alloc] init];
-    pa.coordinate = touchMapCoordinate;
-    pa.title = @"Dropped Pin";
-    pa.point_type = dropped;
-    
-    if (self.sprinkleBreadCrumbMode){
-        [self addBreadcrumb:touchMapCoordinate];
+    if ([self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue]){
+        CLLocationCoordinate2D touchMapCoordinate =
+        [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+        
+        CustomPointAnnotation *pa = [[CustomPointAnnotation alloc] init];
+        pa.coordinate = touchMapCoordinate;
+        
+
+        if (self.testManager->testManagerMode == AUTHORING){
+            //------------------
+            // When the testManagerMode is in the AUTHORING mode
+            //------------------
+            pa.title = @"Authored Pin";
+            pa.point_type = landmark;
+            
+            
+            //----------------
+            // Add the authored pin to the data_array
+            //----------------
+            data myData;
+            myData.name = "Authored Pin";
+            myData.annotation = pa;
+            myData.annotation.point_type = landmark;
+            
+            myData.annotation.subtitle =
+            [NSString stringWithFormat:@"%lu",
+             self.model->data_array.size()];
+            
+            myData.latitude =  pa.coordinate.latitude;
+            myData.longitude =  pa.coordinate.longitude;
+            
+            myData.annotation.data_id = self.model->data_array.size();
+            
+            myData.my_texture_info = self.model->generateTextureInfo
+            ([NSString stringWithUTF8String:myData.name.c_str()]);
+            // Add the new data to data_array
+            self.model->data_array.push_back(myData);
+            
+        }else{
+            //------------------
+            // When the drop pin creation mode is enabled
+            //------------------
+            pa.title = @"Dropped Pin";
+            pa.point_type = dropped;
+        }
+
+        if (self.sprinkleBreadCrumbMode){
+            [self addBreadcrumb:touchMapCoordinate];
+        }
+        
+        [self.mapView addAnnotation:pa];
     }
-    
-    [self.mapView addAnnotation:pa];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {

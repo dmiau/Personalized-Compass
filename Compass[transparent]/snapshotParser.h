@@ -41,7 +41,7 @@ int readSnapshotKml(compassMdl* mdl);
     
     BOOL osx_coord_flag;
     BOOL osx_span_flag;
-    BOOL enabled_list_flag;
+    BOOL is_answer_list_flag;
     BOOL ios_display_wh_flag;
     BOOL eios_display_wh_flag;
     BOOL osx_display_wh_flag;
