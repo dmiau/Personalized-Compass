@@ -77,7 +77,22 @@ void TestManager::initTestEnv(TestManagerMode mode){
     }
 }
 
-void TestManager::cleanupTestEnv(){
+//-------------------
+// Clean up the environment
+//-------------------
+void TestManager::cleanupTestEnv(TestManagerMode mode){
+    
+ if (mode == CONTROL){
+     // The following lines has no effect on OSX
+     // sendPackage is only functional when called on iOS
+     NSDictionary *myDict = @{@"Type" : @"Instruction",
+                              @"Command" : @"End"
+                              };
+     [rootViewController sendPackage: myDict];
+ }else if (mode == COLLECT){
+     
+ }
+    
     //---------------
     // Turn off the study mode
     //---------------
@@ -91,6 +106,7 @@ void TestManager::cleanupTestEnv(){
     model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
     model->updateMdl();
     
+    [rootViewController toggleBlankMapMode:NO];
     record_vector.clear();
 }
 
@@ -104,7 +120,7 @@ void TestManager::toggleStudyMode(bool state){
         rootViewController.UIConfigurations[@"UIToolbarMode"]
         = @"Study";
     }else{
-        cleanupTestEnv();
+        cleanupTestEnv(CONTROL);
     }
     rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];

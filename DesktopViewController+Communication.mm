@@ -101,7 +101,7 @@
             self.testManager->testManagerMode = CONTROL;
             
         }else if ([command isEqualToString: @"End"]){
-            
+            self.testManager->cleanupTestEnv(COLLECT);
         }else if ([command isEqualToString: @"Sync"]){
 #ifndef __IPHONE__
             //    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];

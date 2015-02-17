@@ -190,20 +190,7 @@
                 cout << "Default" <<endl;
         }
         
-        // Emulate the iOS enironment if on the desktop
-        // (if it is in the control mode)
-#ifndef __IPHONE__
-        self.renderer->emulatediOS.is_enabled = true;
-        self.renderer->emulatediOS.is_mask_enabled = true;
         
-        
-        // Also need to set up the positions of the em iOS
-        // and the compass
-        CGPoint shift;
-        shift.x = -self.renderer->view_width/2 + 100;
-        shift.y = 0;
-        [self shiftTestingEnvironmentBy:shift];
-#endif
     }
 
     self.mapView.camera.heading = -mySnapshot.orientation;
@@ -237,8 +224,45 @@
     return true;
 }
 
+//----------------------
+// Set up the environment to collect the answer for the locate test
+//----------------------
+- (void)showLocateCollectMode: (int) snapshot_id{
+    // Emulate the iOS enironment if on the desktop
+    // (if it is in the control mode)
+#ifndef __IPHONE__
+    self.renderer->emulatediOS.is_enabled = true;
+    self.renderer->emulatediOS.is_mask_enabled = true;
+    
+    
+    // Also need to set up the positions of the em iOS
+    // and the compass
+    CGPoint shift;
+    shift.x = -self.renderer->view_width/2 + 100;
+    shift.y = 0;
+    [self shiftTestingEnvironmentBy:shift];
+#endif
+}
 
+//----------------------
+// Set up the environment to collect the answer for the localize test
+//----------------------
+- (void)showLocalizeCollectMode: (int) snapshot_id{
+    
+}
 
+//----------------------
+// Set up the environment to collect the answer for the locate plus test
+//----------------------
+- (void)showLocatePlusCollectMode: (int) snapshot_id{
+    
+}
 
+//----------------------
+// Set up the environment to collect the answer for the orient test
+//----------------------
+- (void)showOrientCollectMode: (int) snapshot_id{
+    
+}
 
 @end

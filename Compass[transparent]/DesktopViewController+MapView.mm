@@ -130,7 +130,6 @@
 //------------------
 - (void)toggleBlankMapMode:(bool)state{
     self.isBlankMapEnabled = state;
-    
     static MKPolygon* poly;
     
     if (state){
@@ -147,7 +146,9 @@
         poly.title = @"Blank";
         [self.mapView addOverlay:poly];
     }else{
-        [self.mapView removeOverlay:poly];
+//        [self.mapView removeOverlay:poly];
+        // Remove all overlays
+        [self.mapView removeOverlays: self.mapView.overlays];
     }
 }
 

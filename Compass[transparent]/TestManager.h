@@ -290,7 +290,7 @@ public:
     //---------------
     void toggleStudyMode(bool state);
     void initTestEnv(TestManagerMode mode);
-    void cleanupTestEnv();
+    void cleanupTestEnv(TestManagerMode mode);
     
     void resetTestManager();
     void showNextTest();
