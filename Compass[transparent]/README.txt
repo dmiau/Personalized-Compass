@@ -2655,13 +2655,13 @@ initTestEnv
 
 showTestNumber
 (bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
-mode: OFF, CONTROL, COLLECT
+mode: OFF, DEVICESTUDY, OSXSTUDY
 
 
 annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. 
 
 
-study presentation (especially on the COLLECT machine)
+study presentation (especially on the OSXSTUDY machine)
 calculate everything in mappoint, then convert the measurements to (lat, lon), and calculate latitudeDelta and longitudeDelta.
 
 
@@ -2670,13 +2670,13 @@ answer_id: when displaying annotatoions, if location_id == answer_id, don't show
 
 
 answer reviewing:
-TestManager: OFF, CONTROL, COLLECT, REVIEW
+TestManager: OFF, DEVICESTUDY, OSXSTUDY, REVIEW
 
 -------------------------------------------------------------------
 2.15.2015
 -------------------------------------------------------------------
 ***** Done
-TestManager: OFF, CONTROL, COLLECT, REVIEW [11:25AM]
+TestManager: OFF, DEVICESTUDY, OSXSTUDY, REVIEW [11:25AM]
 - iOS cannot receive NSData (implement handleMessage) [11:25AM]
 types of message:
 NONE, OK, BAD, NEXT
@@ -2721,7 +2721,7 @@ START triggers the timer, drop-pin ends the timer, and then click the next
 
 showTestNumber
 (bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
-mode: OFF, CONTROL, COLLECT
+mode: OFF, DEVICESTUDY, OSXSTUDY
 
 annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
 
@@ -2738,9 +2738,9 @@ desktop need to shut this off
 self.socket_status = [NSNumber numberWithBool:YES]; [10:24AM]
 
 drop-pin
-- testManagerMode == CONTROL and __IPHONE__, drop pin disabled
+- testManagerMode == DEVICESTUDY and __IPHONE__, drop pin disabled
 - testManagerMode = AUTHORING, all drop-pins should be enabled
-- testManagerMode = COLLECT, log the time, the answer, and send the NEXT message
+- testManagerMode = OSXSTUDY, log the time, the answer, and send the NEXT message
 - receving the START message triggers the timer
 @"UIAcceptsPinCreation" [12:13PM]
 - Snapshot loading is too slow on iOS (annotation and big list of locatinos are main reasons)
@@ -2776,7 +2776,7 @@ START triggers the timer, drop-pin ends the timer, and then click the next
 
 showTestNumber
 (bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
-mode: OFF, CONTROL, COLLECT
+mode: OFF, DEVICESTUDY, OSXSTUDY
 
 annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
 
@@ -2789,7 +2789,7 @@ review the study
 test presentation
 showTestNumber
 (bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
-mode: OFF, CONTROL, COLLECT, REVIEW
+mode: OFF, DEVICESTUDY, OSXSTUDY, REVIEW
 
 refactor to display watch, and others
 
@@ -2802,7 +2802,7 @@ refactor to display watch, and others
 
 test authoring
 - calculateMultipleLocationsDisplayRegion (on the desktop)
-study presentation (especially on the COLLECT machine)
+study presentation (especially on the OSXSTUDY machine)
 calculate everything in mappoint, then convert the measurements to (lat, lon), and calculate latitudeDelta and longitudeDelta.
 - implement task type counter, integrate the test code with the counter
 
@@ -2821,8 +2821,13 @@ annotation control
 - moved enableMapInteraction to the class level [10:27AM]
 - showTestNumber
 - (bool)displaySnapshot: (int) snapshot_id withStudySettings: (testManagerMode) mode
-mode: OFF, CONTROL, COLLECT [10:30AM]
+mode: OFF, DEVICESTUDY, OSXSTUDY [10:30AM]
 - toggleWatchMask can be enhanced.
+- calculateMultipleLocationsDisplayRegion (on the desktop)
+study presentation (especially on the OSXSTUDY machine)
+calculate everything in mappoint, then convert the measurements to (lat, lon), and calculate latitudeDelta and longitudeDelta. [9:49PM]
+* showLocateTest(TestManagerMode mode)
+* showLocalizeTest(TestManagerMode mode) [9:49PM]
 
 ***** ToDo
 - map zoom in/out, pan around
@@ -2860,15 +2865,10 @@ review the study
 refactor to display watch, and others
 
 - showTestNumber
-* showLocateTest(TestManagerMode mode)
-* showLocalizeTest(TestManagerMode mode)
 * showLocatePlusTest(TestManagerMode mode)
 * showOrientTest(TestManagerMode mode)
 
 test authoring
-- calculateMultipleLocationsDisplayRegion (on the desktop)
-study presentation (especially on the COLLECT machine)
-calculate everything in mappoint, then convert the measurements to (lat, lon), and calculate latitudeDelta and longitudeDelta.
 - implement task type counter, integrate the test code with the counter
 
 test generation
@@ -2879,5 +2879,17 @@ test generation
 
 circle overlay
 http://stackoverflow.com/questions/9056451/draw-a-circle-of-1000m-radius-around-users-location-in-mkmapview
+
+
+
+
+
+
+
+
+
+
+
+
 
 

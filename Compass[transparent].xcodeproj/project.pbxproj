@@ -401,6 +401,10 @@
 		9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */; };
 		9A3DA0CE19683235009E0073 /* DetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0CD19683235009E0073 /* DetailViewController.mm */; };
 		9A3DA0CF19683235009E0073 /* DetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0CD19683235009E0073 /* DetailViewController.mm */; };
+		9A3DE0A11A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DE0A01A93DC5D00288A55 /* DesktopViewController+RunStudy.mm */; };
+		9A3DE0A21A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DE0A01A93DC5D00288A55 /* DesktopViewController+RunStudy.mm */; };
+		9A3DE0A31A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DE0A01A93DC5D00288A55 /* DesktopViewController+RunStudy.mm */; };
+		9A3DE0A41A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DE0A01A93DC5D00288A55 /* DesktopViewController+RunStudy.mm */; };
 		9A3F1E821A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */; };
 		9A3F1E831A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */; };
 		9A3F1E841A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */; };
@@ -1231,6 +1235,8 @@
 		9A3DA0C91966EAD9009E0073 /* myPinAnnotationViewIOS.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myPinAnnotationViewIOS.xib; sourceTree = "<group>"; };
 		9A3DA0CC19683235009E0073 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9A3DA0CD19683235009E0073 /* DetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DetailViewController.mm; sourceTree = "<group>"; };
+		9A3DE09F1A93DC5D00288A55 /* DesktopViewController+RunStudy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+RunStudy.h"; sourceTree = "<group>"; };
+		9A3DE0A01A93DC5D00288A55 /* DesktopViewController+RunStudy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+RunStudy.mm"; sourceTree = "<group>"; };
 		9A3F1E811A4B22B300D621A9 /* ConfigurationsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurationsWindow.xib; sourceTree = "<group>"; };
 		9A3F1E861A4B247100D621A9 /* ConfigurationsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationsWindowController.h; sourceTree = "<group>"; };
 		9A3F1E871A4B247100D621A9 /* ConfigurationsWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConfigurationsWindowController.mm; sourceTree = "<group>"; };
@@ -2245,6 +2251,8 @@
 				9A42A0BE19A8049F00BB0101 /* DesktopViewController+Server.mm */,
 				9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */,
 				9A4D2B2B1A882E0000BB81DB /* DesktopViewController+Tools.mm */,
+				9A3DE09F1A93DC5D00288A55 /* DesktopViewController+RunStudy.h */,
+				9A3DE0A01A93DC5D00288A55 /* DesktopViewController+RunStudy.mm */,
 				9A42A0C319ABAD7500BB0101 /* Server */,
 				9A42A00219A5819700BB0101 /* Settings */,
 			);
@@ -3301,6 +3309,7 @@
 				9A42A09419A79CA200BB0101 /* GCDAsyncSocket.m in Sources */,
 				9A42A0A019A79CA200BB0101 /* DDASLLogger.m in Sources */,
 				9AB5AD871A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */,
+				9A3DE0A41A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */,
 				9A42A0B019A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
 				9A42A07119A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
@@ -3390,6 +3399,7 @@
 				9A42A0A519A79CA200BB0101 /* DDLog.m in Sources */,
 				9AEA583518DA35E50028B80C /* DesktopViewController.mm in Sources */,
 				9A259D5C199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
+				9A3DE0A11A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */,
 				9A42A0AD19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
 				9A03756F198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A0375BD198DA31900258E95 /* b2Math.cpp in Sources */,
@@ -3590,6 +3600,7 @@
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A03758F198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9AB5AD861A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */,
+				9A3DE0A31A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */,
 				9A36618319A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
 				9A42A07019A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */,
@@ -3694,6 +3705,7 @@
 				9A0375EE198DA31900258E95 /* b2World.cpp in Sources */,
 				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,
 				9A42A0B219A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
+				9A3DE0A21A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */,
 				9A42A06F19A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A037666198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A04719A79C3200BB0101 /* HTTPMessage.m in Sources */,

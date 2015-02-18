@@ -165,10 +165,16 @@
             self.rootViewController.testManager->testManagerMode = OFF;
             break;
         case 1:
-            self.rootViewController.testManager->testManagerMode = CONTROL;
+            self.rootViewController.testManager->testManagerMode = DEVICESTUDY;
             break;
         default:
             break;
     }
 }
+
+- (IBAction)fillInOSXCoordRegion:(id)sender {
+    self.rootViewController.testManager->
+            calculateMultipleLocationsDisplayRegion();
+}
+
 @end

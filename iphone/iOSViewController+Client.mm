@@ -109,6 +109,8 @@
     NSLog(@"Received \"%@\"", message);
     self.system_message = [NSString stringWithFormat:@"Received \"%@\"", message];
     [_messages addObject:[[TCMessage alloc] initWithMessage:message fromMe:NO]];
+    
+    [self handleMessage:(NSString*)message];
 }
 
 

@@ -69,6 +69,7 @@
  */
 -(void)handlePackage: (NSData*) data
 {
+#ifndef __IPHONE__
     //Unpack the data
     NSDictionary *myDictionary = (NSDictionary*)
     [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -89,7 +90,7 @@
                     throw(runtime_error("Failed to load snapshot files"));
                 }
             }
-            self.testManager->initTestEnv(COLLECT);
+            self.testManager->initTestEnv(OSXSTUDY);
 
         }else if ([command isEqualToString: @"LoadSnapshot"]){
             int test_id = [myDictionary[@"Parameter"] intValue];
@@ -98,12 +99,12 @@
         }else if ([command isEqualToString: @"Start"]){
             
         }else if ([command isEqualToString: @"SwitchControl"]){
-            self.testManager->testManagerMode = CONTROL;
+            self.testManager->testManagerMode = DEVICESTUDY;
             
         }else if ([command isEqualToString: @"End"]){
-            self.testManager->cleanupTestEnv(COLLECT);
+            self.testManager->cleanupTestEnv(OSXSTUDY);
         }else if ([command isEqualToString: @"Sync"]){
-#ifndef __IPHONE__
+
             //    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
             
             // Sync with iOS
@@ -113,12 +114,12 @@
                 dispatch_async(dispatch_get_main_queue(),
                                ^{[self syncWithiOS: myDictionary];});
             }
-#endif
         }
                 
     }else{
         throw(runtime_error("Unknown package type."));
     }
+#endif
 }
 
 //---------------------------
@@ -129,6 +130,13 @@
     
     // 
     self.received_message = message;
+
+    // Check if the received message is a number
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    NSNumber *temp = [f numberFromString: message];
+    if ( temp != nil){
+            self.testManager->showTestNumber([temp intValue]);
+    }
     
 //    if ([message isEqualToString:@"NONE"]){
 //        // Default message

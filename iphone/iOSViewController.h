@@ -251,6 +251,7 @@ typedef struct{
 - (void)sendMessage: (NSString*) message;
 -(void)sendPackage: (NSDictionary *) package;
 -(void)handlePackage: (NSData *) data;
+-(void)handleMessage:(NSString*)message;
 
 //----------------
 // System message

@@ -219,6 +219,8 @@
             // Add the new data to data_array
             self.model->data_array.push_back(myData);
             
+            self.model->updateMdl();
+            [self.glkView setNeedsDisplay];
         }else{
             //------------------
             // When the drop pin creation mode is enabled

@@ -129,7 +129,7 @@ public:
 // Test Manager
 //------------------------------
 enum TaskType {LOCATE, TRIANGULATE, ORIENT};
-enum TestManagerMode {OFF, CONTROL, COLLECT, AUTHORING, REVIEW};
+enum TestManagerMode {OFF, DEVICESTUDY, OSXSTUDY, AUTHORING, REVIEW};
 
 class TestManager{
 public:
@@ -305,6 +305,12 @@ public:
     // Manual test authoring
     //---------------
     void toggleAuthoringMode(bool state);
+    void calculateMultipleLocationsDisplayRegion();
+    
+    // Helper functions
+    MKCoordinateRegion calculateCoordRegionFromTwoPoints
+    (int dataID1, int dataID2);
+    vector<int> findTwoFurthestLocationIDs(vector<int> location_ids);
 };
 
 #endif /* defined(__Compass_transparent___TestManager__) */

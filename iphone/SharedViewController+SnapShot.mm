@@ -26,8 +26,12 @@
 //@property vector<snapshot> snapshot_array;
 - (bool)takeSnapshot{
     
-    snapshot mySnapshot;
+    // Go back to home first
+    self.mapView.region = self.model->homeCoordinateRegion;
+    self.mapView.camera.heading = 0;
     
+    
+    snapshot mySnapshot;
     // Get the center coordinates
     mySnapshot.coordinateRegion = self.mapView.region;
     
@@ -41,6 +45,7 @@
                                    dateStyle:NSDateFormatterShortStyle
                                    timeStyle:NSDateFormatterFullStyle];
     mySnapshot.selected_ids = self.model->indices_for_rendering;
+    mySnapshot.is_answer_list = self.model->indices_for_rendering; // Just to initialize
     
     // Capture the enable/disable status
     for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
@@ -79,7 +84,7 @@
      
 #ifdef __IPHONE__
         prefix = prefix + "t" +
-        to_string(self.taskSegmentControl.selectedSegmentIndex);
+        to_string(1+self.taskSegmentControl.selectedSegmentIndex);
 #endif
         // Update a new name
         mySnapshot.name = [NSString stringWithUTF8String: prefix.c_str()];
@@ -96,6 +101,10 @@
             self.model->data_array[i].isEnabled = false;
         }
         [self renderAnnotations];
+        self.model->updateMdl();
+#ifdef __IPHONE__
+        [self.glkView setNeedsDisplay];
+#endif
     }
     return true;
 }
@@ -109,7 +118,7 @@
       withStudySettings: (TestManagerMode) mode
 {
 
-    if (mode == CONTROL){
+    if (mode != OFF){
         self.testManager->test_counter = snapshot_id;
     }
     
@@ -156,41 +165,31 @@
     //-----------------
     // Set up viz and device
     //-----------------
-    if (self.testManager->testManagerMode == CONTROL){
+    if (mode == DEVICESTUDY){
+        //--------------------
+        // Phone (iOS)
+        //--------------------
+        
         //--------------------
         // The device is in the control mode
         // visualization needs to be set up correctly
         //--------------------
-        switch(mySnapshot.visualizationType)
+        [self setupVisualization:mySnapshot.visualizationType];
+        
+    }else if (mode == OSXSTUDY){
+        //--------------------
+        // Desktop (OSX)
+        //--------------------
+        [self sendMessage:[NSString stringWithFormat:@"%d", snapshot_id]];
+        
+        // Set up differently, depending on the snapshot code
+        if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)
         {
-            case VIZPCOMPASS:
-                // Turn off the personalized compass and the conventional compass
-                self.model->configurations[@"personalized_compass_status"] = @"on";
-                [self setFactoryCompassHidden:YES];
-                
-                // Turn off the wedge
-                self.model->configurations[@"wedge_status"] = @"off";
-                break;
-            case VIZWEDGE:
-                // Turn off the personalized compass and the conventional compass
-                self.model->configurations[@"personalized_compass_status"] = @"off";
-                [self setFactoryCompassHidden:YES];
-                
-                // Turn off the wedge
-                self.model->configurations[@"wedge_status"] = @"on";
-                self.model->configurations[@"wedge_style"] = @"modified-orthographic";
-                break;
-            case VIZOVERVIEW:
-                // Do nothing
-                break;
-            case VIZNONE:
-                // Do nothing                
-                break;
-            default:
-                cout << "Default" <<endl;
+            [self showLocateCollectMode:mySnapshot];
+        }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound)
+        {
+            [self showLocalizeCollectMode:mySnapshot];
         }
-        
-        
     }
 
     self.mapView.camera.heading = -mySnapshot.orientation;
@@ -202,18 +201,17 @@
     //-----------------
     // Set up pin appearance
     //-----------------
-    if (self.testManager->testManagerMode == CONTROL){
+    if (mode == DEVICESTUDY){
         // Do not show pins
         [self changeAnnotationDisplayMode:@"None"];
         // This is to update the display message
         self.testManager->updateUI();
-    }else if (self.testManager->testManagerMode == COLLECT){
-        // Show pins
+    }else if (mode == OSXSTUDY){
+        // Show picns
         [self changeAnnotationDisplayMode:@"Enabled"];
     }else{
         // Do nothing
     }
-        
 #ifndef __IPHONE__
     // Desktop
     [self.compassView display];
@@ -227,10 +225,11 @@
 //----------------------
 // Set up the environment to collect the answer for the locate test
 //----------------------
-- (void)showLocateCollectMode: (int) snapshot_id{
+- (void)showLocateCollectMode: (snapshot) mySnapshot{
     // Emulate the iOS enironment if on the desktop
     // (if it is in the control mode)
 #ifndef __IPHONE__
+    [self setupVisualization:mySnapshot.visualizationType];
     self.renderer->emulatediOS.is_enabled = true;
     self.renderer->emulatediOS.is_mask_enabled = true;
     
@@ -247,22 +246,66 @@
 //----------------------
 // Set up the environment to collect the answer for the localize test
 //----------------------
-- (void)showLocalizeCollectMode: (int) snapshot_id{
+- (void)showLocalizeCollectMode: (snapshot) mySnapshot{
+    // Need to display the region correctly
     
+    if (mySnapshot.osx_coordinateRegion.span.latitudeDelta > 0){
+        [self updateMapDisplayRegion:mySnapshot.osx_coordinateRegion withAnimation:NO];
+    }else{
+        [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
+    }
+
+    // Need to display the pins correctly
+    // All pins should be displayed in this case
 }
 
 //----------------------
 // Set up the environment to collect the answer for the locate plus test
 //----------------------
-- (void)showLocatePlusCollectMode: (int) snapshot_id{
+- (void)showLocatePlusCollectMode: (snapshot) mySnapshot{
     
 }
 
 //----------------------
 // Set up the environment to collect the answer for the orient test
 //----------------------
-- (void)showOrientCollectMode: (int) snapshot_id{
+- (void)showOrientCollectMode: (snapshot) mySnapshot{
     
 }
 
+//----------------------
+// Set up visualization
+//----------------------
+- (void)setupVisualization: (VisualizationType) visualizationType{
+    switch(visualizationType)
+    {
+        case VIZPCOMPASS:
+            // Turn off the personalized compass and the conventional compass
+            self.model->configurations[@"personalized_compass_status"] = @"on";
+            [self setFactoryCompassHidden:YES];
+            
+            // Turn off the wedge
+            self.model->configurations[@"wedge_status"] = @"off";
+            break;
+        case VIZWEDGE:
+            // Turn off the personalized compass and the conventional compass
+            self.model->configurations[@"personalized_compass_status"] = @"off";
+            [self setFactoryCompassHidden:YES];
+            
+            // Turn off the wedge
+            self.model->configurations[@"wedge_status"] = @"on";
+            self.model->configurations[@"wedge_style"] = @"modified-orthographic";
+            break;
+        case VIZOVERVIEW:
+            // Do nothing
+            break;
+        case VIZNONE:
+            self.model->configurations[@"personalized_compass_status"] = @"off";
+            [self setFactoryCompassHidden:YES];
+            self.model->configurations[@"wedge_status"] = @"off";
+            break;
+        default:
+            cout << "Default" <<endl;
+    }
+}
 @end

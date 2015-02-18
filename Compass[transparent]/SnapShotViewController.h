@@ -36,5 +36,5 @@ class compassMdl;
 - (IBAction)reloadSnapshotFile:(id)sender;
 
 - (IBAction)toggleStudyMode:(id)sender;
-
+- (IBAction)fillInOSXCoordRegion:(id)sender;
 @end

@@ -133,15 +133,15 @@
     static MKPolygon* poly;
     
     if (state){
-        vector<CLLocationCoordinate2D> latlon_vector =
-        [self getBoundaryLatLon];
+//        vector<CLLocationCoordinate2D> latlon_vector =
+//        [self getBoundaryLatLon];
         
         // Define an overlay that covers Colorado.
         CLLocationCoordinate2D  points[4];
-        points[0] = latlon_vector[0];
-        points[1] = latlon_vector[1];
-        points[2] = latlon_vector[2];
-        points[3] = latlon_vector[3];
+        points[0] = CLLocationCoordinate2DMake(1.0, 6.55859375);
+        points[1] = CLLocationCoordinate2DMake(940.99609375, 4.6640625);
+        points[2] = CLLocationCoordinate2DMake(940.99609375, 627.84765625);
+        points[3] = CLLocationCoordinate2DMake(1.0, 603.9765625);
         poly = [MKPolygon polygonWithCoordinates:points count:4];
         poly.title = @"Blank";
         [self.mapView addOverlay:poly];

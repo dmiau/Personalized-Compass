@@ -173,9 +173,9 @@ int readSnapshotKml(compassMdl* mdl){
         device_flag = true;
     }
     
-    else if ([elementName isEqualToString:@"osx_coord"]){
+    else if ([elementName isEqualToString:@"osxcoordinates"]){
         osx_coord_flag = true;
-    }else if ([elementName isEqualToString:@"osx_span"]){
+    }else if ([elementName isEqualToString:@"osxspans"]){
         osx_span_flag = true;
     }else if ([elementName isEqualToString:@"is_answer_list"]){
         is_answer_list_flag = true;
@@ -332,9 +332,9 @@ int readSnapshotKml(compassMdl* mdl){
         device_flag = false;
     }
     
-    else if ([elementName isEqualToString:@"osx_coord"]){
+    else if ([elementName isEqualToString:@"osxcoordinates"]){
         osx_coord_flag = false;
-    }else if ([elementName isEqualToString:@"osx_span"]){
+    }else if ([elementName isEqualToString:@"osxspans"]){
         osx_span_flag = false;
     }else if ([elementName isEqualToString:@"is_answer_list"]){
         is_answer_list_flag = false;

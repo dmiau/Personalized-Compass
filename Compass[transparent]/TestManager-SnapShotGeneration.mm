@@ -149,3 +149,99 @@ void TestManager::saveSnapShotsToKML(){
         
     }
 }
+
+//-------------------
+// Calculate the display region for the tests involving multiple locations
+//-------------------
+void TestManager::calculateMultipleLocationsDisplayRegion(){
+    
+    for (int i = 0; i < model->snapshot_array.size(); ++i){
+        snapshot mySnapshot = model->snapshot_array[i];
+        
+        if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound){
+            // A localize test was found
+            
+            // Find out pair distance in terms of map point
+            
+            MKCoordinateRegion coord_region;
+            // We assume there are at most three locations (at the moment)
+            if (mySnapshot.selected_ids.size() == 2){
+                coord_region = calculateCoordRegionFromTwoPoints
+                (mySnapshot.selected_ids[0], mySnapshot.selected_ids[1]);
+            }else if (mySnapshot.selected_ids.size() == 3){
+                vector<int> answer = findTwoFurthestLocationIDs(mySnapshot.selected_ids);
+                coord_region = calculateCoordRegionFromTwoPoints
+                (answer[0], answer[1]);
+            }else{
+                
+                cout << "# of locations: " << mySnapshot.selected_ids.size() << endl;
+                return;
+            }
+            model->snapshot_array[i].osx_coordinateRegion = coord_region;
+        }
+    }
+    
+    // Save the snapshot
+    [rootViewController saveKMLwithType:SNAPSHOT];
+}
+
+MKCoordinateRegion TestManager::calculateCoordRegionFromTwoPoints
+(int dataID1, int dataID2){
+    data data_a = model->data_array[dataID1];
+    CLLocation *point_a = [[CLLocation alloc]
+                           initWithLatitude:data_a.latitude longitude:data_a.longitude];
+    
+    data data_b = model->data_array[dataID2];
+    CLLocation *point_b = [[CLLocation alloc]
+                           initWithLatitude:data_b.latitude longitude:data_b.longitude];
+    
+    CLLocationDistance distnace = [point_a distanceFromLocation: point_b];
+    
+    CLLocationCoordinate2D centerCoordinate =
+    CLLocationCoordinate2DMake((data_a.latitude + data_b.latitude)/2,
+                               (data_a.longitude + data_b.longitude)/2);
+    
+    
+    MKCoordinateRegion coord_region =
+    MKCoordinateRegionMakeWithDistance
+    (centerCoordinate, distnace * 1.3, distnace * 1.3);
+    return coord_region;
+}
+
+vector<int> TestManager::findTwoFurthestLocationIDs(vector<int> location_ids){
+    vector<int> answer;
+    double max_dist = 0;
+    vector<int> t_id_list = location_ids;
+    t_id_list.push_back(location_ids[0]);
+    
+    for (int i = 0; i < t_id_list.size(); ++i){
+        
+        data data_a = model->data_array[t_id_list[i]];
+        CLLocation *point_a = [[CLLocation alloc]
+                               initWithLatitude:data_a.latitude longitude:data_a.longitude];
+        
+        data data_b = model->data_array[t_id_list[i+1]];
+        CLLocation *point_b = [[CLLocation alloc]
+                               initWithLatitude:data_b.latitude longitude:data_b.longitude];
+        
+        CLLocationDistance distnace = [point_a distanceFromLocation: point_b];
+        if (distnace > max_dist){
+            answer.clear();
+            answer.push_back(t_id_list[i]);
+            answer.push_back(t_id_list[i+1]);
+        }
+    }
+
+    return answer;
+}
+
+
+
+
+
+
+
+
+
+
+

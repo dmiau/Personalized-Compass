@@ -176,4 +176,13 @@ typedef struct{
 //Files
 //----------------
 - (void) saveKMLwithType: (KMLTYPE) type;
+
+//----------------
+//Study
+//----------------
+@property (weak) IBOutlet NSTextField *testMessageTextField;
+@property (weak) IBOutlet NSButton *nextTestButton;
+@property (weak) IBOutlet NSButton *previousTestButton;
+
+
 @end

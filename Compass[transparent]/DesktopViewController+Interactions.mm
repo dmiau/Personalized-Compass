@@ -92,19 +92,6 @@
     //--------------------
     // Check if the compass is pressed
     //--------------------
-    //    NSLog(@"***Mouse down");
-    //	GLint viewport[4];
-    //	GLubyte pixel[3];
-    //
-    //	glReadPixels(mouseLoc.x,mouseLoc.y,1,1,
-    //                 GL_RGB,GL_UNSIGNED_BYTE,(void *)pixel);
-    //
-    //    // Print pixel colors
-    //    printf("%d %d %d\n",pixel[0],pixel[1],pixel[2]);
-
-    //--------------------
-    // Check if the compass is pressed
-    //--------------------
     if ([self isCompassTouched:mouseLoc]){
         [self compassSelectedMode:YES];
         [self.compassView setNeedsDisplay: YES];
@@ -201,11 +188,11 @@
         [self.mapView addAnnotation:annotation];
         
         //----------------------------
-        // Fill in the record when the testManager is in COLLECT mode
+        // Fill in the record when the testManager is in OSXSTUDY mode
         //----------------------------
-        if (self.testManager->testManagerMode == COLLECT){
+        if (self.testManager->testManagerMode == OSXSTUDY){
             //------------------
-            // When the testManagerMode is in the COLLECT mode
+            // When the testManagerMode is in the OSXSTUDY mode
             //------------------
             int tid = self.testManager->test_counter;
             

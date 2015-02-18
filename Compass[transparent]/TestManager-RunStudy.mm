@@ -22,16 +22,14 @@
 //------------------
 void TestManager::initTestEnv(TestManagerMode mode){
     testManagerMode = mode;
-    showTestNumber(0);
-    
     // Need to turn off map interactions in the study mode
     [rootViewController enableMapInteraction:NO];
     
-    if (mode == CONTROL){
+    if (mode == DEVICESTUDY){
         //------------------
         // iOS
         //------------------
-        testManagerMode = CONTROL;
+        testManagerMode = DEVICESTUDY;
         
         rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
         [NSNumber numberWithBool:NO];
@@ -45,22 +43,21 @@ void TestManager::initTestEnv(TestManagerMode mode){
         [rootViewController sendPackage: myDict];
         
         
-    }else if (mode == COLLECT){
+    }else if (mode == OSXSTUDY){
         //------------------
         // Desktop
         //------------------
-        testManagerMode = COLLECT;
+        testManagerMode = OSXSTUDY;
         
         rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
-        [NSNumber numberWithBool:NO];
-        
+        [NSNumber numberWithBool:YES];
+        [rootViewController toggleBlankMapMode:YES];
 #ifndef __IPHONE__
         // Turn off iOS syncing
         rootViewController.iOSSyncFlag = false;
+        [rootViewController.nextTestButton setEnabled:YES];
+        [rootViewController.previousTestButton setEnabled:YES];
 #endif
-        [rootViewController toggleBlankMapMode:YES];
-        
-        
         // Create one record for each snapshot
         record_vector.clear();
         for (int i = 0; i < model->snapshot_array.size(); ++i){
@@ -75,6 +72,7 @@ void TestManager::initTestEnv(TestManagerMode mode){
         
         [rootViewController sendMessage:@"OK"];
     }
+    showTestNumber(0);
 }
 
 //-------------------
@@ -82,22 +80,25 @@ void TestManager::initTestEnv(TestManagerMode mode){
 //-------------------
 void TestManager::cleanupTestEnv(TestManagerMode mode){
     
- if (mode == CONTROL){
-     // The following lines has no effect on OSX
-     // sendPackage is only functional when called on iOS
-     NSDictionary *myDict = @{@"Type" : @"Instruction",
-                              @"Command" : @"End"
-                              };
-     [rootViewController sendPackage: myDict];
- }else if (mode == COLLECT){
-     
- }
+    if (mode == DEVICESTUDY){
+        // The following lines has no effect on OSX
+        // sendPackage is only functional when called on iOS
+        NSDictionary *myDict = @{@"Type" : @"Instruction",
+                                 @"Command" : @"End"
+                                 };
+        [rootViewController sendPackage: myDict];
+    }else if (mode == OSXSTUDY){
+#ifndef __IPHONE__
+        [rootViewController.nextTestButton setEnabled:NO];
+        [rootViewController.previousTestButton setEnabled:NO];
+#endif
+    }
     
     //---------------
     // Turn off the study mode
     //---------------
     testManagerMode = OFF;
-    
+    [rootViewController toggleBlankMapMode:NO];
     [rootViewController enableMapInteraction:YES];
     rootViewController.UIConfigurations[@"UIToolbarMode"]
     = @"Development";
@@ -116,11 +117,11 @@ void TestManager::toggleStudyMode(bool state){
         //---------------
         // Turn on the study mode
         //---------------
-        initTestEnv(CONTROL);
+        initTestEnv(DEVICESTUDY);
         rootViewController.UIConfigurations[@"UIToolbarMode"]
         = @"Study";
     }else{
-        cleanupTestEnv(CONTROL);
+        cleanupTestEnv(DEVICESTUDY);
     }
     rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];
@@ -174,15 +175,15 @@ void TestManager::showTestNumber(int test_id){
     }else{
             test_counter = test_id;
     }
-    if (testManagerMode == CONTROL){
-        NSDictionary *myDict = @{@"Type" : @"Instruction",
-                                 @"Command" : @"LoadSnapshot",
-                                 @"Parameter" : [NSNumber numberWithInt:test_id]
-                                 };
-        [rootViewController sendPackage: myDict];
+    if (testManagerMode == DEVICESTUDY){
+//        NSDictionary *myDict = @{@"Type" : @"Instruction",
+//                                 @"Command" : @"LoadSnapshot",
+//                                 @"Parameter" : [NSNumber numberWithInt:test_id]
+//                                 };
+//        [rootViewController sendPackage: myDict];
         
-    }else if (testManagerMode == COLLECT){
-        
+    }else if (testManagerMode == OSXSTUDY){
+
         [rootViewController toggleBlankMapMode:YES];
 #ifndef __IPHONE__
         // Populate the record structure

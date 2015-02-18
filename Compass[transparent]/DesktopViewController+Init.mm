@@ -152,9 +152,8 @@
     // Set the conventional compass to be invisible
     [self setFactoryCompassHidden:YES];
     
-    
-    // Disable zoom control
-    self.mapView.showsZoomControls = false;
+//    // Disable zoom control
+//    self.mapView.showsZoomControls = false;
 }
 
 @end
