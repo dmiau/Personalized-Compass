@@ -10,6 +10,12 @@
 #include "TestManager.h"
 #import "CHCSVParser.h"
 
+#ifndef __IPHONE__
+#import "DesktopViewController.h"
+#else
+#import "iOSViewController.h"
+#endif
+
 //// Testing NSDate, and trying to build a timer
 ////    http://stackoverflow.com/questions/10787751/current-date-and-time-nsdate
 //
@@ -51,8 +57,20 @@ NSArray* record::genSavableRecord(){
     NSString* idString = [NSString stringWithFormat:@"%d", snapshot_id];
     
     // Generate all the necessary ingredients
-    NSString* startDateString = [formatter stringFromDate:startDate];
-    NSString* endDateString = [formatter stringFromDate:endDate];
+    NSString* startDateString;
+    if (startDate){
+        startDateString = [formatter stringFromDate:startDate];
+    }else{
+        startDateString = @"N/A";
+    }
+    
+    NSString* endDateString;
+    if (endDate){
+        endDateString = [formatter stringFromDate:endDate];
+    }else{
+        endDateString = @"N/A";
+    }
+    
     
     NSString* elapsedTimeString = [NSString stringWithFormat:@"%f", elapsed_time];
 
@@ -85,8 +103,7 @@ NSArray* record::genSavableRecord(){
 void TestManager::saveRecord(){
     // Make sure the output folder exists
     setupOutputFolder();
-    NSString *folder_path = [model->desktopDropboxDataRoot
-                             stringByAppendingString:test_foldername];
+    NSString *folder_path = model->desktopDropboxDataRoot;
     NSString *out_file = [folder_path
                           stringByAppendingPathComponent:record_filename];
     CHCSVWriter *w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
@@ -100,4 +117,6 @@ void TestManager::saveRecord(){
     for (int i = 0; i < record_vector.size(); ++i){
         [w writeLineOfFields: record_vector[i].genSavableRecord()];
     }
+    
+    [rootViewController displayPopupMessage: @"Record file saved successfully."];
 }

@@ -241,4 +241,15 @@
         return false;
 }
 
+#pragma mark ------------- System Services -------------
+- (void) displayPopupMessage: (NSString*) message{
+    NSAlert *alert = [NSAlert alertWithMessageText:
+                      [NSString stringWithFormat:message]
+                                     defaultButton:@"OK"
+                                   alternateButton:nil
+                                       otherButton:nil
+                         informativeTextWithFormat:@""];
+    [alert runModal];
+}
+
 @end

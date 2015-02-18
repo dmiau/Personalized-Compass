@@ -99,6 +99,8 @@
     
     [self addObserver:self forKeyPath:@"mapUpdateFlag"
               options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
+    //http://stackoverflow.com/questions/10295515/nswindow-event-when-change-size-of-window
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidResize:) name:NSWindowDidResizeNotification object:[[self view] window]];
     
     
     //http://stackoverflow.com/questions/10796058/is-it-possible-to-continuously-track-the-mkmapview-region-while-scrolling-zoomin?lq=1
@@ -124,6 +126,7 @@
     AppDelegate *temp = [[NSApplication sharedApplication] delegate];
     temp.rootViewController = self;    
 }
+
 
 //-----------------
 // initMapView may be called whenever configurations.json is reloaded

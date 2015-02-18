@@ -54,62 +54,73 @@ int compassRender::applyStyle(style_enum style_type,
 // Real Ratio
 //------------------------------------
 void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
-    // ------------------
-    // Preprocesing:
-    // Find out the longest distance for normalization
-    // ------------------
-    vector <double> t_dist_list;
-    for (int i = 0; i < indices_for_rendering.size(); ++i){
-        int j = indices_for_rendering[i];
-        t_dist_list.push_back(model->data_array[j].distance);
-    }
-    std::vector<double>::iterator result =
-    std::max_element(t_dist_list.begin(),
-                     t_dist_list.end());
-    max_dist = *result;
 
+    if (indices_for_rendering.size() > 0){
+        // ------------------
+        // Preprocesing:
+        // Find out the longest distance for normalization
+        // ------------------
+        vector <double> t_dist_list;
+        for (int i = 0; i < indices_for_rendering.size(); ++i){
+            int j = indices_for_rendering[i];
+            t_dist_list.push_back(model->data_array[j].distance);
+        }
+        std::vector<double>::iterator result =
+        std::max_element(t_dist_list.begin(),
+                         t_dist_list.end());
+        max_dist = *result;
+        
+        // ---------------
+        // draw the scale box
+        // ---------------
+        drawCompassScaleBox(*result);
+    }
     // ---------------
     // Draw the center circle
     // ---------------
-    glColor4f([model->configurations[@"circle_color"][0] floatValue]/255,
-              [model->configurations[@"circle_color"][1] floatValue]/255,
-              [model->configurations[@"circle_color"][2] floatValue]/255,
-              1);
-    
-    // draw the center circle
-    glPushMatrix();
-    // Translate to the front to avoid broken polygon
-    glTranslatef(0, 0, 1);
-    drawCircle(0, 0, central_disk_radius, 50, true);
-    glPopMatrix();
+    drawCompassCentralCircle();
     
     // ---------------
     // draw the triangle
     // ---------------
     glPushMatrix();
-    for (int i = 0; i < indices_for_rendering.size(); ++i){
-        int j = indices_for_rendering[i];
-
-        //[todo] fix color map (increase the size?)
-        glColor4f((float)model->color_map[j][0]/256,
-                  (float)model->color_map[j][1]/256,
-                  (float)model->color_map[j][2]/256, 1);
-
-        data data_ = model->data_array[j];
-
-        double distance = data_.distance / max_dist * compass_disk_radius * 0.9;
-        glTranslatef(0, 0, 0.001);
-        drawTriangle(central_disk_radius, data_.orientation, distance);
+    for (int i = -1; i < (int)indices_for_rendering.size(); ++i){
+        data data_;
+        if (i == -1){
+            if (model->user_pos.isEnabled && !model->user_pos.isVisible){
+                glColor4f(0, 1, 0, 1);
+                data_ = model->user_pos;
+            }else{
+                continue;
+            }
+        }else{
+            int j = indices_for_rendering[i];
+            
+            //[todo] fix color map (increase the size?)
+            glColor4f(
+                      [model->configurations[@"landmark_color"][0] floatValue]/256,
+                      [model->configurations[@"landmark_color"][1] floatValue]/256,
+                      [model->configurations[@"landmark_color"][2] floatValue]/256,
+                      [model->configurations[@"landmark_color"][3] floatValue]/256);
+            
+            data_ = model->data_array[j];
+            
+            double distance = data_.distance / max_dist * compass_disk_radius;
+            glTranslatef(0, 0, 0.001);
+            drawTriangle(central_disk_radius, data_.orientation, distance);
+        }
     }
     glPopMatrix();
+    
+    // ---------------
+    // draw the north indicator
+    // ---------------
+    drawCompassNorth();
+    
     // ---------------
     // draw the background (transparent) disk
     // ---------------
-    glColor4f([model->configurations[@"disk_color"][0] floatValue]/255,
-              [model->configurations[@"disk_color"][1] floatValue]/255,
-              [model->configurations[@"disk_color"][2] floatValue]/255,
-              [model->configurations[@"disk_color"][3] floatValue]/255);
-    drawCircle(0, 0, compass_disk_radius, 50, true);
+    drawCompassBackgroundDisk();
 }
 
 //------------------------------------

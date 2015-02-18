@@ -89,6 +89,7 @@ typedef struct{
 -(bool)updateModelCompassCenterXY;
 - (void)updateMainGUI;
 -(void) updateLocationVisibility;
+- (void) windowDidResize:(NSNotification *) notification;
 
 //----------------
 // Compass related stuff
@@ -184,5 +185,8 @@ typedef struct{
 @property (weak) IBOutlet NSButton *nextTestButton;
 @property (weak) IBOutlet NSButton *previousTestButton;
 
-
+//----------------
+// System service (implemented in the interaction category)
+//----------------
+- (void) displayPopupMessage: (NSString*) message;
 @end

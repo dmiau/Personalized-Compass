@@ -79,7 +79,4 @@
     = [NSNumber numberWithBool:true];
 }
 
-- (IBAction)fillInOSXCoordRegion:(id)sender {
-    self.rootViewController.testManager->calculateMultipleLocationsDisplayRegion();
-}
 @end

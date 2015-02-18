@@ -42,7 +42,10 @@ void TestManager::toggleAuthoringMode(bool state){
         [NSNumber numberWithBool:NO];
         model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
         [rootViewController saveKMLwithType: LOCATION];
-        [rootViewController saveKMLwithType: SNAPSHOT];        
+        [rootViewController saveKMLwithType: SNAPSHOT];
+        
+        // Fill in OSX CoordRegion if possible
+        calculateMultipleLocationsDisplayRegion();
     }
     
     [rootViewController.mapView setRotateEnabled:!state];

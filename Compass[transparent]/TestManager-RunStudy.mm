@@ -62,6 +62,10 @@ void TestManager::initTestEnv(TestManagerMode mode){
         record_vector.clear();
         for (int i = 0; i < model->snapshot_array.size(); ++i){
             record t_record;
+            
+            // Need to initialize id and code
+            t_record.snapshot_id = i;
+            t_record.code = model->snapshot_array[i].name;
             record_vector.push_back(t_record);
         }
         
@@ -106,9 +110,8 @@ void TestManager::cleanupTestEnv(TestManagerMode mode){
     model->lockLandmarks = false;
     model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
     model->updateMdl();
-    
+    updateUITestMessage();
     [rootViewController toggleBlankMapMode:NO];
-    record_vector.clear();
 }
 
 
@@ -125,16 +128,37 @@ void TestManager::toggleStudyMode(bool state){
     }
     rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];
-    updateUI();
+    updateUITestMessage();
 }
 
-void TestManager::updateUI(){
+void TestManager::updateUITestMessage(){
     
 #ifdef __IPHONE__
-    // Currently only implemented in iOS
-    rootViewController.counter_button.title =
-    [NSString stringWithFormat: @"%d/%lu", test_counter+1,
-     model->snapshot_array.size()];
+    //---------------
+    // iPhone
+    //---------------
+    if (testManagerMode == OFF){
+        rootViewController.counter_button.title =
+        @"StudyMode OFF";
+    }else{
+        rootViewController.counter_button.title =
+        [NSString stringWithFormat: @"%d/%lu", test_counter+1,
+         model->snapshot_array.size()];
+    }
+#else
+    //---------------
+    // OSX, Desktop
+    //---------------
+    
+    if (testManagerMode == OFF){
+        rootViewController.testMessageTextField.stringValue =
+        @"Enable StudyMode from iOS";
+    }else{
+        rootViewController.testMessageTextField.stringValue =
+        [NSString stringWithFormat:@"%@, %d/%lu",
+         model->snapshot_array[test_counter].name,
+         test_counter+1, model->snapshot_array.size()];
+    }
 #endif
 }
 
@@ -212,7 +236,6 @@ void TestManager::showTestNumber(int test_id){
     [rootViewController displaySnapshot:test_counter
                       withStudySettings:testManagerMode];
 }
-
 
 //------------------
 // Start the test

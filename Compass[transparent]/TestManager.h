@@ -63,6 +63,10 @@ public:
     double elapsed_time;
 public:
     record(){
+        snapshot_id     = 0;
+        code            = @"";
+        startDate       = nil;
+        endDate         = nil;
         ground_truth    = CGPointMake(0, 0);
         answer          = CGPointMake(0, 0);
         location_error  = 0;
@@ -297,7 +301,7 @@ public:
     void showPreviousTest();
     void showTestNumber(int test_id);
     void startTest();
-    void updateUI();
+    void updateUITestMessage();
 
     void saveRecord();
     

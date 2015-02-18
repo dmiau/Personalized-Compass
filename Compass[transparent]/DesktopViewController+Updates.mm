@@ -13,6 +13,17 @@
 
 @implementation DesktopViewController (Updates)
 
+- (void) windowDidResize:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    //http://stackoverflow.com/questions/10295515/nswindow-event-when-change-size-of-window
+    
+    if ([[notification name] isEqualToString:@"NSWindowDidResizeNotification"])
+        NSLog (@"Successfully received the test notification!");
+}
 
 - (IBAction)refreshConfigurations:(id)sender {
     

@@ -20,5 +20,4 @@
 @property (weak, nonatomic) IBOutlet UISwitch *authoringModeControl;
 
 - (IBAction)toggleAuthoringMode:(id)sender;
-- (IBAction)fillInOSXCoordRegion:(id)sender;
 @end

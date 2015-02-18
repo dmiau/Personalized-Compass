@@ -286,11 +286,14 @@
         double min_limit, max_limit;
         max_limit = 2.0;
         if (self.renderer->watchMode){
-            min_limit = 0.15;
+            min_limit = 0.5;
         }else{
-            min_limit = 0.2;
+            min_limit = 0.6;
         }
-                
+        
+        NSLog(@"starting scale: %f, scale %f", starting_scale, scale);
+        
+        
         if ((scale >= min_limit) && (scale <= max_limit)){
             // Set a limit to the scale
             self.renderer->adjustAbsoluteCompassScale(scale);

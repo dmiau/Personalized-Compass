@@ -620,11 +620,11 @@
                             </tabViewItem>
                             <tabViewItem label="SnapShots" identifier="" id="0Fw-BV-9HS">
                                 <view key="view" id="a2d-kU-hoH">
-                                    <rect key="frame" x="10" y="33" width="664" height="418"/>
+                                    <rect key="frame" x="10" y="33" width="636" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KbF-5H-0SW">
-                                            <rect key="frame" x="159" y="391" width="95" height="17"/>
+                                            <rect key="frame" x="159" y="379" width="95" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="SnapShot File:" id="CmM-gd-0g1">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -632,7 +632,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="36" horizontalPageScroll="10" verticalLineScroll="36" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGP-0u-SGW" userLabel="SnapShot Scroll- Table View">
-                                            <rect key="frame" x="17" y="29" width="237" height="348"/>
+                                            <rect key="frame" x="17" y="17" width="237" height="348"/>
                                             <clipView key="contentView" misplaced="YES" id="wUv-BV-1pQ">
                                                 <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -698,21 +698,21 @@
                                             </tableHeaderView>
                                         </scrollView>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ogD-r4-tah">
-                                            <rect key="frame" x="267" y="313" width="71" height="32"/>
+                                            <rect key="frame" x="267" y="301" width="71" height="32"/>
                                             <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ihu-Ql-mcf">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5HX-cC-tgN">
-                                            <rect key="frame" x="353" y="313" width="87" height="32"/>
+                                            <rect key="frame" x="353" y="301" width="87" height="32"/>
                                             <buttonCell key="cell" type="push" title="SaveAs" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6Tc-Sm-xkR">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KJn-e1-EDr">
-                                            <rect key="frame" x="448" y="313" width="84" height="32"/>
+                                            <rect key="frame" x="448" y="301" width="84" height="32"/>
                                             <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mPo-WF-KNP">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -722,7 +722,7 @@
                                             </connections>
                                         </button>
                                         <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0v-rk-Z2j" userLabel="SnapShot Combo Box">
-                                            <rect key="frame" x="260" y="386" width="226" height="26"/>
+                                            <rect key="frame" x="260" y="374" width="226" height="26"/>
                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="gXq-fX-Xfb">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -735,7 +735,7 @@
                                             </connections>
                                         </comboBox>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3s-wl-jDi">
-                                            <rect key="frame" x="271" y="277" width="156" height="17"/>
+                                            <rect key="frame" x="271" y="265" width="156" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Snapshot Loading Mode" id="ioe-rX-lMx">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -743,7 +743,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WS3-xR-E3R">
-                                            <rect key="frame" x="432" y="271" width="179" height="24"/>
+                                            <rect key="frame" x="432" y="259" width="179" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="ucO-qE-Zmb">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -756,7 +756,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p7C-cK-xn9">
-                                            <rect key="frame" x="267" y="346" width="189" height="32"/>
+                                            <rect key="frame" x="267" y="334" width="189" height="32"/>
                                             <buttonCell key="cell" type="push" title="Fill in OSX CoordRegion" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rYf-I0-orP">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -768,7 +768,7 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Test Manager" identifier="" id="bcB-ka-Uom">
+                            <tabViewItem label="Test Manager (Gen)" identifier="" id="bcB-ka-Uom">
                                 <view key="view" id="aqh-aY-10O">
                                     <rect key="frame" x="10" y="33" width="636" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1236,24 +1236,61 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Test Creator" identifier="" id="3Ed-Na-fQJ">
+                            <tabViewItem label="User Study" identifier="" id="3Ed-Na-fQJ">
                                 <view key="view" id="U6x-fB-mTO">
                                     <rect key="frame" x="10" y="33" width="636" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                            </tabViewItem>
-                            <tabViewItem label="Study Log" identifier="" id="IHj-6P-GGc">
-                                <view key="view" id="Ufl-ws-Eb3">
-                                    <rect key="frame" x="10" y="33" width="636" height="406"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bt6-MQ-HiK">
-                                            <rect key="frame" x="184" y="264" width="38" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="5gx-Wp-nrl">
+                                        <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwn-IL-rMA">
+                                            <rect key="frame" x="111" y="343" width="186" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="XBW-nX-h6h">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment label="Off" width="57"/>
+                                                    <segment label="Study" width="56" selected="YES" tag="1"/>
+                                                    <segment label="Review"/>
+                                                </segments>
+                                            </segmentedCell>
+                                            <connections>
+                                                <action selector="toggleStudyMode:" target="vjl-Mr-bQu" id="6me-pq-gqJ"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfN-wj-Z9v">
+                                            <rect key="frame" x="15" y="347" width="40" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mode" id="eYy-98-lPp">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2F3-ar-ARo">
+                                            <rect key="frame" x="15" y="307" width="158" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Study Record File Name:" id="DUw-8c-Fry">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4m5-qO-q8Z">
+                                            <rect key="frame" x="180" y="268" width="166" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Save Study Records" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kwo-tM-LFb">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="saveStudyRecords:" target="vjl-Mr-bQu" id="VTL-MH-iiw"/>
+                                            </connections>
+                                        </button>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XfO-d7-eTz">
+                                            <rect key="frame" x="186" y="304" width="233" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Arv-zJ-fJL">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="changeRecordFileName:" target="vjl-Mr-bQu" id="Bqz-Md-qhj"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                 </view>
@@ -1274,7 +1311,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-2638" y="402"/>
+            <point key="canvasLocation" x="-2320" y="432"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
         <viewController id="aLW-cy-kmh" userLabel="SnapShot View Controller" customClass="SnapShotViewController">
@@ -1288,6 +1325,13 @@
         <viewController id="mH8-SB-opV" customClass="TestManagerViewController">
             <connections>
                 <outlet property="view" destination="aqh-aY-10O" id="7uo-3W-zKw"/>
+            </connections>
+        </viewController>
+        <viewController id="vjl-Mr-bQu" customClass="UserStudyViewController">
+            <connections>
+                <outlet property="recordFileNameTextField" destination="XfO-d7-eTz" id="Wch-qa-JtL"/>
+                <outlet property="studyModeSegmentControl" destination="kwn-IL-rMA" id="qLf-pK-xqu"/>
+                <outlet property="view" destination="U6x-fB-mTO" id="4kq-Ee-A4F"/>
             </connections>
         </viewController>
     </objects>

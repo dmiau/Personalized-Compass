@@ -152,15 +152,17 @@
         self.model->configurations[@"filter_type"] = @"MANUAL";
     }
     
-//    // Not sure why, but the following lines are needed for iPad
-//    self.model->camera_pos.latitude = mySnapshot.coordinateRegion.center.latitude;
-//    self.model->camera_pos.longitude = mySnapshot.coordinateRegion.center.longitude;
-//
-//    [self updateMapDisplayRegion:NO];
-
-//    self.mapView.region = mySnapshot.coordinateRegion;
-
+#ifdef __IPHONE__
     [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
+#else
+    if (mySnapshot.osx_coordinateRegion.span.latitudeDelta > 0){
+        // Display the desktop of osx_coordinateRegion if the desktop version
+        // is available.
+        [self updateMapDisplayRegion:mySnapshot.osx_coordinateRegion withAnimation:NO];
+    }else{
+        [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
+    }
+#endif
     
     //-----------------
     // Set up viz and device
@@ -205,13 +207,18 @@
         // Do not show pins
         [self changeAnnotationDisplayMode:@"None"];
         // This is to update the display message
-        self.testManager->updateUI();
     }else if (mode == OSXSTUDY){
         // Show picns
         [self changeAnnotationDisplayMode:@"Enabled"];
     }else{
         // Do nothing
     }
+    
+    
+    if (mode != OFF){
+        self.testManager->updateUITestMessage();
+    }
+    
 #ifndef __IPHONE__
     // Desktop
     [self.compassView display];

@@ -52,10 +52,10 @@ typedef struct {
 
 // Filter functions are defined in compassModel.mm
 enum style_enum {
-    BIMODAL = 1,
-    REAL_RATIO = 2,
-    THRESHOLD_STICK = 3,
-    WEDGE = 4
+    BIMODAL,
+    REAL_RATIO,
+    THRESHOLD_STICK,
+    WEDGE
 };
 
 typedef struct{
@@ -183,7 +183,7 @@ public:
     void drawiOSMask(CGPoint fourCorners[4]);
 private:
     //-----------------
-    // Drawing routines
+    // Primitive Drawing Routines
     //-----------------
     void drawWayfindingAid(RenderParamStruct renderParamStruct);
     void drawTriangle(int central_disk_radius, float rotation, float height);
@@ -200,6 +200,14 @@ private:
     // Wedge drawing routines
     void drawOneSide(double rotation, double width, double height,
                      double tx, double ty, double *out_leg, double *out_aperture);
+    
+    //-----------------
+    // Component Level Drawing Routines
+    //-----------------
+    void drawCompassScaleBox(double longestDistInMeters);
+    void drawCompassCentralCircle();
+    void drawCompassNorth();
+    void drawCompassBackgroundDisk();
     
     //-----------------
     // style related methods

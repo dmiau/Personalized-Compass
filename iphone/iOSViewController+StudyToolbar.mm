@@ -25,6 +25,7 @@
                       initWithTitle:counter_str
                       style:UIBarButtonItemStyleBordered                                             target:self
                       action:nil];
+    self.testManager->updateUITestMessage();
     [toolbar_items addObject:self.counter_button];
     
     
@@ -89,8 +90,8 @@
         self.testManager->showNextTest();
     }
     
-    self.counter_button.title = [NSString stringWithFormat:
-                            @"%d/%lu", self.testManager->test_counter+1,
-                            self.model->snapshot_array.size()];
+//    self.counter_button.title = [NSString stringWithFormat:
+//                            @"%d/%lu", self.testManager->test_counter+1,
+//                            self.model->snapshot_array.size()];
 }
 @end

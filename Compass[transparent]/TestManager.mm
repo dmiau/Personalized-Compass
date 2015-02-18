@@ -70,6 +70,7 @@ int TestManager::initTestManager(){
     test_location_filename  = @"temp.locations";
     alltest_vector_filename = @"allTestVectors.tests";
     test_snapshot_prefix = @"snapshot-participant";
+    record_filename = @"study0.record";
     
     return 0;
 }
