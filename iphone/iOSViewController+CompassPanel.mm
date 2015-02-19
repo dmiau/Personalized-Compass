@@ -191,8 +191,6 @@
     }else{
         [self toggleBlankMapMode:NO];
     }
-//    self.renderer->loadCentroidFromModelConfiguration();
-//    [self updateModelCompassCenterXY];
     [self.glkView setNeedsDisplay];
 }
 
@@ -339,7 +337,7 @@
 #endif
     
     // The order is important
-    [self updateModelCompassCenterXY];
+    [self moveCompassCentroidToOpenGLPoint: self.renderer->compass_centroid];
     [self.glkView setNeedsDisplay];
 }
 

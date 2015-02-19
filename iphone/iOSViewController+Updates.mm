@@ -192,16 +192,33 @@
 //------------------
 // This function should be called after the user moves the compass
 //------------------
--(bool)updateModelCompassCenterXY{
-    self.model->compassCenterXY =
-    [self.mapView convertPoint:
-     CGPointMake(self.glkView.frame.size.width/2
-        + self.renderer->compass_centroid.x,
-        self.glkView.frame.size.height/2
-        - self.renderer->compass_centroid.y)
-        fromView:self.glkView];
-    return true;
+- (void)moveCompassCentroidToOpenGLPoint: (CGPoint) OpenGLPoint{
+    
+    // Update the centroid of the "displayed" compass
+    self.renderer->compass_centroid = OpenGLPoint;
+    
+    // Only called when UICompassCenterLocked is false
+    if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
+        
+        // Update compassCenterXY (compass's centroid coordinates in mapView)
+        self.model->compassCenterXY =
+        [self.mapView convertPoint:
+         CGPointMake(self.glkView.frame.size.width/2
+                     + self.renderer->compass_centroid.x,
+                     self.glkView.frame.size.height/2
+                     - self.renderer->compass_centroid.y)
+                          fromView:self.glkView];
+        // Update compass's (latitude, longitude)
+        CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
+                                                  self.model->compassCenterXY
+                                                       toCoordinateFromView:self.mapView];
+        
+        self.model->camera_pos.latitude = compassCtrCoord.latitude;
+        self.model->camera_pos.longitude = compassCtrCoord.longitude;
+        self.model->updateMdl();
+    }
 }
+
 //------------------
 // Tools
 //------------------

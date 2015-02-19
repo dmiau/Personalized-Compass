@@ -69,6 +69,9 @@
 // emulated iOS visualization control
 @property (weak) IBOutlet NSButton *iOSBoundaryControl;
 @property (weak) IBOutlet NSButton *iOSMaskControl;
+@property (weak) IBOutlet NSSegmentedControl *iOSEmulationSegmentControl;
+- (IBAction)toggleiOSEumulation:(id)sender;
+
 
 // Adjust the iOS screen size
 - (IBAction)adjustiOSScreenSize:(id)sender;
@@ -78,6 +81,7 @@
 // Adjust wedge parameters
 - (IBAction)adjustWedgeCorrectionFactor:(id)sender;
 @property (weak) IBOutlet NSSlider *wedgeCorrectionFactor;
+
 
 //-------------
 // Locations pane

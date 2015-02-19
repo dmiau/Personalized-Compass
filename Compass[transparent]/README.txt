@@ -2941,4 +2941,71 @@ http://stackoverflow.com/questions/9056451/draw-a-circle-of-1000m-radius-around-
 
 - annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
 
+-------------------------------------------------------------------
+2.19.2015
+-------------------------------------------------------------------
+***** Done
+wedge is bigger than the box? 
+* because there is a min_base length in Wedge+Ortho.mm
+* self.model->configurations[@"wedge_correction_x"] needs to be adjusted based on device
+compass scale box is wrong
+* because the update function did not update compass's (lab, lon) [11:48AM]
+- Generate locate tests for the watch [12:19PM]
+
+***** ToDo
+- map zoom in/out, pan around
+
+- Lation square generation
+- Compass needs to be updated in real time when it is moved 
+
+- Outline the paper
+- Automatically calculate MapRect for the study
+
+- Naming conventions: .locations, .tests, .history, etc. 
+
+- annotation control
+- renderAnnotationsIDs (vector<int> id_list, bool labelFlag)
+
+- circle overlay
+http://stackoverflow.com/questions/9056451/draw-a-circle-of-1000m-radius-around-users-location-in-mkmapview
+
+Medium effort:
+- iWath emulation, watchMode, modify drawOneSide to cut off the legs
+* need to set up the watch mode correctly
+- renderAnnottions has issues
+- ortho+watch do not work
+
+answers differ based on the types of tasks: LOCATE, LOCALIZE, LCOATE+, ORIENT
+answer_id: when displaying annotatoions, if location_id == answer_id, don't show
+
+Long term:
+- showTestNumber
+* showLocatePlusTest(TestManagerMode mode)
+* showOrientTest(TestManagerMode mode)
+
+***** Working
+Quick fixes:
+- implement and maintain a type counter dictionary, added to the authoring pane, integrate the test code with the counter
+- review the study
+- lock rotation in the author mode?
+
+- annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
+
+Test Generation (making new levels for the game):
+
+High effort:
+test generation
+- latin sq. generation
+- generate LOCALIZE and LOCATE+ tests
+
+
+
+
+
+
+
+
+
+
+
 

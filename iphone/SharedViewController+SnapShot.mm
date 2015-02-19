@@ -194,6 +194,11 @@
             [self showLocalizeCollectMode:mySnapshot];
         }
     }else if (mode == OFF){
+        //--------------------
+        // Normal mode
+        //--------------------
+        self.model->configurations[@"wedge_correction_x"]
+        = [NSNumber numberWithFloat: 1];
         [self setupVisualization:mySnapshot.visualizationType];
     }
 
@@ -228,30 +233,46 @@
     self.renderer->emulatediOS.is_enabled = true;
     self.renderer->emulatediOS.is_mask_enabled = true;
 
+    switch (mySnapshot.deviceType) {
+        case PHONE:
+            self.model->configurations[@"wedge_correction_x"]
+            = [NSNumber numberWithFloat: 2];
+            self.renderer->emulatediOS.changeDeviceType(PHONE);
+            break;
+        case WATCH:
+            self.model->configurations[@"wedge_correction_x"]
+            = [NSNumber numberWithFloat: 5.78];
+            self.renderer->emulatediOS.changeDeviceType(SQUAREWATCH);
+            break;
+        default:
+            break;
+    }
+    
     // Scale the map correctly, and shift the eiOS
     [self scaleMapForLocateCollectMode:mySnapshot];
+    [self shiftEmulatorAndMapForLocateCollectMode];
 #endif
 }
 
 -(void)scaleMapForLocateCollectMode: (snapshot)mySnapshot{
 #ifndef __IPHONE__
-    CLLocationDegrees osx_latitudeDelta =
-    mySnapshot.coordinateRegion.span.latitudeDelta *
-    self.renderer->view_height/self.renderer->emulatediOS.height;
-
-    CLLocationDegrees osx_longitudeDelta =
-    mySnapshot.coordinateRegion.span.longitudeDelta *
-    self.renderer->view_width/self.renderer->emulatediOS.width;
+    MKCoordinateSpan scaledSpan =
+    [self scaleCoordinateSpanForDevice:mySnapshot.deviceType];
     
-    MKCoordinateRegion osxCoordRegion = MKCoordinateRegionMake(mySnapshot.coordinateRegion.center,
-        MKCoordinateSpanMake(osx_latitudeDelta, osx_longitudeDelta));
+    MKCoordinateRegion osxCoordRegion = MKCoordinateRegionMake
+    (mySnapshot.coordinateRegion.center, scaledSpan);
     [self updateMapDisplayRegion:osxCoordRegion withAnimation:NO];
+#endif
+}
 
-    
+- (void)shiftEmulatorAndMapForLocateCollectMode{
+#ifndef __IPHONE__
+    // There could be a bug somewhere.
     // Also need to set up the positions of the em iOS
     // and the compass
     CGPoint shift;
-    shift.x = -self.renderer->view_width/2 + 100;
+    shift.x = -self.renderer->view_width/2 +
+    self.renderer->emulatediOS.width/2;
     shift.y = 0;
     [self shiftTestingEnvironmentBy:shift];
 #endif

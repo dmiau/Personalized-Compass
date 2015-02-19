@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "compassModel.h"
 
 @class DesktopViewController;
 
@@ -18,7 +19,8 @@
 // emulated iOS
 //----------------------------------
 class compassRender; // Forward declration
-class compassMdl;
+
+
 
 class EmulatediOS{
 public:
@@ -31,17 +33,20 @@ public:
 
     float cached_width;    // emulated ios screen width (in pixels)
     float cached_height;   // emulated ios screen height (in pixels)
+    float cached_square_width;   // emulated square watch width
     float cached_radius;   // emulated watch radius
     
     float true_ios_width;       // ios view width (in pixels)
     float true_ios_height;      // ios view height (in pixels)
     float true_watch_radius;    // watch radius (in pixels)
+    float true_square_watch_width;    // watch radius (in pixels)
     
     bool is_circle;
     bool is_enabled;
     bool is_mask_enabled;
     bool is_touched;
     bool accept_touch;
+    DeviceType deviceType;
 public:
     EmulatediOS(){}; // Default constructor
     EmulatediOS(compassMdl* model);
@@ -54,6 +59,8 @@ public:
     void calculateFourLatLon(MKMapView *mapView);
     MKCoordinateRegion caculateCoordinateRegionForDesktop
     (DesktopViewController *rootViewController);
+    
+    void changeDeviceType(DeviceType deviceType);
 };
 
 #endif /* defined(__Compass_transparent___emulatediOS__) */

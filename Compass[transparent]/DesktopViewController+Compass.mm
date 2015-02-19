@@ -41,12 +41,7 @@
         compassXY.y = compassXY.y - step_size;
     }
 
-    self.renderer->compass_centroid = compassXY;
-    
-    if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
-        [self updateModelCompassCenterXY];
-    }
-//    [self.compassView setNeedsDisplay:YES];
+    [self moveCompassCentroidToOpenGLPoint: compassXY];
     [self.compassView display];
 }
 

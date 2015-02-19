@@ -86,7 +86,7 @@ typedef struct{
 - (void)initMapView;
 - (void)updateMapDisplayRegion: (MKCoordinateRegion) coord_region
                  withAnimation: (bool) animated;
--(bool)updateModelCompassCenterXY;
+- (void)moveCompassCentroidToOpenGLPoint: (CGPoint) OpenGLPoint;
 - (void)updateMainGUI;
 -(void) updateLocationVisibility;
 - (void) windowDidResize:(NSNotification *) notification;
@@ -132,7 +132,8 @@ typedef struct{
 @property bool isBlankMapEnabled;
 - (void)toggleBlankMapMode:(bool)state;
 -(void)enableMapInteraction:(bool)state;
-
+- (MKCoordinateSpan) scaleCoordinateSpanForDevice: (DeviceType)deviceType;
+- (MKCoordinateSpan) calculateCoordinateSpanForDevice: (DeviceType)deviceType;
 //----------------
 //Snapshot category
 //----------------

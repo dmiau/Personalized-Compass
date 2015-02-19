@@ -155,9 +155,7 @@
 
         }
         
-        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
-            [self updateModelCompassCenterXY];
-        }
+        [self moveCompassCentroidToOpenGLPoint: self.renderer->compass_centroid];
         
         [self.glkView setNeedsDisplay];
         return;
@@ -299,9 +297,9 @@
             self.renderer->adjustAbsoluteCompassScale(scale);
         }
                     
-        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
-            [self updateModelCompassCenterXY];
-        }
+//        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
+//            [self updateModelCompassCenterXY];
+//        }
         [self.glkView setNeedsDisplay];
     }
     

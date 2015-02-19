@@ -132,12 +132,7 @@
         CGPoint compassXY;
         compassXY.x = mouseLoc.x - self.compassView.frame.size.width/2;
         compassXY.y = mouseLoc.y - self.compassView.frame.size.height/2;
-        
-        self.renderer->compass_centroid = compassXY;
-              
-        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
-            [self updateModelCompassCenterXY];
-        }
+        [self moveCompassCentroidToOpenGLPoint: compassXY];
     }
     
     if (self.renderer->emulatediOS.is_touched){

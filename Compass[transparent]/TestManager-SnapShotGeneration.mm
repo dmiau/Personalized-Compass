@@ -47,13 +47,19 @@ void TestManager::generateSnapShots(){
             compassRender *p_render = rootViewController.renderer;
 
 #ifndef __IPHONE__
-            coordinateRegion.span.latitudeDelta =
-            rootViewController.mapView.region.span.latitudeDelta *
-            p_render->emulatediOS.height / p_render->view_height;
-            
-            coordinateRegion.span.longitudeDelta =
-            rootViewController.mapView.region.span.latitudeDelta *
-            p_render->emulatediOS.width / p_render->view_width;
+            if (test_code.find("phone:") != string::npos) {
+                //----------------
+                // Phone
+                //----------------
+                coordinateRegion.span =
+                [rootViewController calculateCoordinateSpanForDevice:PHONE];
+            }else{
+                //----------------
+                // Watch
+                //----------------
+                coordinateRegion.span =
+                [rootViewController calculateCoordinateSpanForDevice:SQUAREWATCH];
+            }        
 #else
             coordinateRegion.span =
             rootViewController.mapView.region.span;

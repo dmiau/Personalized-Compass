@@ -227,7 +227,7 @@
     [self updateMapDisplayRegion: temp withAnimation:NO];
     
     // Provide the centroid of compass to the model
-    [self updateModelCompassCenterXY];
+    [self moveCompassCentroidToOpenGLPoint:self.renderer->compass_centroid];
 
     // Add pin annotations
     [self renderAnnotations];

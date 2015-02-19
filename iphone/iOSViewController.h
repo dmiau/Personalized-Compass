@@ -218,7 +218,7 @@ typedef struct{
                   withAnimation:(bool) animated;
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
 -(void)updateOverviewMap;
--(bool)updateModelCompassCenterXY;
+- (void)moveCompassCentroidToOpenGLPoint: (CGPoint) OpenGLPoint;
 -(void) updateLocationVisibility;
 
 //----------------

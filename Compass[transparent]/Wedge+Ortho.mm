@@ -35,7 +35,7 @@ wedge::wedge(compassMdl* myMdl, box screen_box, CGPoint diff_xy){
     // Initialize parameters
     //---------------------
     model = myMdl;
-    min_base = 100;
+    min_base = 50;
     
     //---------------------
     // Figure out if coordinate transform is needed

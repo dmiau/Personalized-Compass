@@ -52,7 +52,23 @@
     }
     
     // Update iOS emulation status
-    self.iOSBoundaryControl.state = self.rootViewController.renderer->emulatediOS.is_enabled;
+    if (!self.rootViewController.renderer->emulatediOS.is_enabled){
+        self.iOSEmulationSegmentControl.selectedSegment = 0;
+    }else{
+        switch (self.rootViewController.renderer->emulatediOS.deviceType) {
+            case PHONE:
+                self.iOSEmulationSegmentControl.selectedSegment = 1;
+                break;
+            case SQUAREWATCH:
+                self.iOSEmulationSegmentControl.selectedSegment = 2;
+                break;
+            case WATCH:
+                self.iOSEmulationSegmentControl.selectedSegment = 3;
+                break;
+            default:
+                break;
+        }
+    }
     self.iOSMaskControl.state = self.rootViewController.renderer->emulatediOS.is_mask_enabled;
 }
 
@@ -176,25 +192,64 @@
     !self.rootViewController.iOSSyncFlag;
 }
 
-- (IBAction)toggleiOSBoundary:(NSButton*)sender {
+//--------------------
+// iOS emulation segment control
+//--------------------
+- (IBAction)toggleiOSEumulation:(NSSegmentedControl*)sender {
+    switch (sender.selectedSegment) {
+        case 0:
+            //----------------
+            // NO
+            //----------------
+            self.rootViewController.renderer->emulatediOS.is_enabled = NO;
+            break;
+        case 1:
+            //----------------
+            // Phone
+            //----------------
+            self.rootViewController.renderer->emulatediOS.is_enabled = YES;
+            [self.iOSMaskControl setState:1];
+            self.rootViewController.renderer->emulatediOS.is_mask_enabled = true;
 
-    // Needs to be reworked 
-    
-    self.rootViewController.renderer->emulatediOS.is_enabled
-    = [sender state];
-    
-    if (self.rootViewController.renderer->emulatediOS.is_enabled){
-        [self.iOSMaskControl setState:1];
-        self.rootViewController.renderer->emulatediOS.is_mask_enabled = true;
-    }
-    
-    // If the syncflag is off and the box mode is enabled,
-    // we need to manually initialize the dimensions of the emulated iOS device
-    if (!self.rootViewController.iOSSyncFlag &&
-        self.rootViewController.renderer->emulatediOS.is_enabled)
-    {
-        float scale = [self.iOSScale floatValue];
-        self.rootViewController.renderer->emulatediOS.changeSizeByScale(scale);
+            self.rootViewController.renderer->emulatediOS.changeDeviceType(PHONE);
+            
+            // If the syncflag is off and the box mode is enabled,
+            // we need to manually initialize the dimensions of the emulated iOS device
+            if (!self.rootViewController.iOSSyncFlag &&
+                self.rootViewController.renderer->emulatediOS.is_enabled)
+            {
+                float scale = [self.iOSScale floatValue];
+                self.rootViewController.renderer->emulatediOS.changeSizeByScale(scale);
+            }
+            
+            break;
+        case 2:
+            //----------------
+            // Square watch
+            //----------------
+            self.rootViewController.renderer->emulatediOS.is_enabled = YES;
+            [self.iOSMaskControl setState:1];
+            self.rootViewController.renderer->emulatediOS.is_mask_enabled = true;
+            
+            self.rootViewController.renderer->emulatediOS.changeDeviceType(SQUAREWATCH);
+            
+            // If the syncflag is off and the box mode is enabled,
+            // we need to manually initialize the dimensions of the emulated iOS device
+            if (!self.rootViewController.iOSSyncFlag &&
+                self.rootViewController.renderer->emulatediOS.is_enabled)
+            {
+                float scale = [self.iOSScale floatValue];
+                self.rootViewController.renderer->emulatediOS.changeSizeByScale(scale);
+            }
+            break;
+        case 3:
+            //----------------
+            // circle watch
+            //----------------
+            // do something
+            break;
+        default:
+            break;
     }
 }
 
@@ -213,6 +268,8 @@
     float value = [sender floatValue];
     self.rootViewController.model->configurations[@"wedge_correction_x"]
     = [NSNumber numberWithFloat: value];
+    NSLog(@"Correction factor value: %@",
+          self.rootViewController.model->configurations[@"wedge_correction_x"]);
 }
 
 - (IBAction)changeDesktopDropboxDataRoot:(id)sender {

@@ -9,7 +9,7 @@
 #include "EmulatediOS.h"
 #import "compassRender.h"
 #import "DesktopViewController.h"
-#import "compassModel.h"
+
 
 /*
  Constructor
@@ -19,7 +19,7 @@ EmulatediOS::EmulatediOS(compassMdl* model){
     centroid_in_opengl = CGPointMake(0, 0);
     
     // iOS true (width, height): (320, 503)
-    
+    deviceType = PHONE;
     width = [model->configurations[@"em_ios_display_wh"][0] floatValue];
     height = [model->configurations[@"em_ios_display_wh"][1] floatValue];
     radius = [model->configurations[@"em_ios_watch_radius"] floatValue];
@@ -27,6 +27,7 @@ EmulatediOS::EmulatediOS(compassMdl* model){
     cached_width = width;
     cached_height = height;
     cached_radius = radius;
+    cached_square_width = [model->configurations[@"em_iwatch_display_wh"][0] floatValue];
     
     true_ios_width =
     [model->configurations[@"true_ios_display_wh"][0] floatValue];
@@ -34,6 +35,7 @@ EmulatediOS::EmulatediOS(compassMdl* model){
     [model->configurations[@"true_ios_display_wh"][1] floatValue];
     true_watch_radius =
     [model->configurations[@"true_ios_watch_radius"] floatValue];
+    true_square_watch_width = [model->configurations[@"true_iwatch_display_wh"][1] floatValue];
     
     // Initialize flags
     is_circle = false;
@@ -42,12 +44,34 @@ EmulatediOS::EmulatediOS(compassMdl* model){
     is_touched = false;
 }
 
+void EmulatediOS::changeDeviceType(DeviceType dType){
+    deviceType = dType;
+    switch (dType) {
+        case PHONE:
+            width = cached_width;
+            height = cached_height;
+            is_circle = false;
+            break;
+        case WATCH:
+            width = cached_square_width;
+            height = cached_square_width;
+            is_circle = true;
+            break;
+        case SQUAREWATCH:
+            width = cached_square_width;
+            height = cached_square_width;
+            is_circle = false;
+            break;
+        default:
+            break;
+    }
+}
+
 /*
- This method draws the emulated iOS device, including the mask, the background 
+ This method draws the emulated iOS device, including the mask, the background
  (when touched), and the mask (if enabled)
 */
 void EmulatediOS::render(compassRender *render){
-    
     if (render->model->tilt < -0.0001)
         return;
     
@@ -134,26 +158,28 @@ bool EmulatediOS::isTouched(CGPoint pointInOpenGL){
 // in OSX's screen coordinate system
 
 void EmulatediOS::changeSizeByScale(float scale){
-    
-    //iOS screen size is 320x503
-    width = cached_width * scale;
-    height = cached_height * scale;
 
-    //    //When one scales the emulated iOS screen, the map zoom level should be
-    //    //adjusted accordingly. Note in my implementation, the iOS is always
-    //    //the golden standard
-    //
-    //    MKCoordinateSpan new_map_span = MKCoordinateSpanMake(
-    //        cached_map_span.latitudeDelta/scale, cached_map_span.longitudeDelta/scale);
-    //    self.rootViewController.mapView.region.span = new_map_span;
-    //
-    //Generate iOSScreenStr
+    switch (deviceType) {
+        case PHONE:
+            //iOS screen size is 320x503
+            width = cached_width * scale;
+            height = cached_height * scale;
+            is_circle = false;
+            break;
+        case WATCH:
+            //iOS screen size is 320x503
+            radius = cached_radius * scale;
+            is_circle = true;
+            break;
+        case SQUAREWATCH:
+            width = cached_square_width * scale;
+            height = cached_square_width * scale;
+            is_circle = false;
+            break;
+        default:
+            break;
+    }
     
-//    if (self.configurationWindowController){
-//        self.configurationWindowController.iOSScreenStr = [NSString stringWithFormat:@"%.1fx%.1f x %.2f = %.2fx%.2f",
-//                                                           cached_iOS_height, cached_iOS_width,
-//                                                           scale, iOS_height, iOS_width];
-//    }
 }
 
 //-----------------

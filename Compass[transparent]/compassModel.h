@@ -40,7 +40,8 @@ public:
 // Device type enum
 typedef enum{
     PHONE,
-    WATCH
+    WATCH,
+    SQUAREWATCH
 }DeviceType;
 
 // Visualization type enum
