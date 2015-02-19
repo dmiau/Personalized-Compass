@@ -80,13 +80,14 @@ void compassRender::drawOneSide(double rotation, double width, double height,
                 aperture = max_aperture;
         }
     }else{
+        //---------------------
+        // Constraint of the watch mode
+        //---------------------
         double max_leg = 0.0;
         
         // This part can be optimized later
         float radius = [model->configurations[@"watch_radius"] floatValue];
-        
-        float max_intrusion = radius * 0.25;
-        
+                
         float max_half_base = sqrt(pow(radius, 2) - pow(radius * 0.75, 2)) * 0.90;
         max_aperture = atan2(max_half_base, dist - radius * 0.75);
         max_leg = sqrt(pow(dist - radius*0.75, 2) + pow(max_half_base, 2));

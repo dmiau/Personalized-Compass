@@ -134,8 +134,26 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
 
         }else{
              double rotation, tx, ty, new_width, new_height;
+            
+            float disp_width = view_width;
+            float disp_height = view_height;
+            
+#ifndef __IPHONE__
+            if (emulatediOS.is_enabled &&
+                model->tilt > -0.0001)
+            {
+                //-------------------
+                // The display area is smaller when the emulated iOS mode is on
+                //-------------------
+                disp_width = emulatediOS.width - 10;
+                disp_height = emulatediOS.height - 10;
+                x_diff = x_diff - emulatediOS.centroid_in_opengl.x;
+                y_diff = y_diff - emulatediOS.centroid_in_opengl.y;
+            }
+#endif
+            
             applyCoordTransform(x_diff, y_diff,
-                                view_width, view_height,
+                                disp_width, disp_height,
                                 &rotation, &tx, &ty,
                                 &new_width, &new_height);
             

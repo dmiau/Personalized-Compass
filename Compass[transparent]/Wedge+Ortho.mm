@@ -54,6 +54,7 @@ wedge::wedge(compassMdl* myMdl, box screen_box, CGPoint diff_xy){
     }else{
         myWedgeParams = calculateRegionOneParams(tx, ty);
     }
+    
     leg = myWedgeParams.leg;
     aperture = myWedgeParams.aperture;
     wedge_rotation = myWedgeParams.wedge_rotation;
@@ -213,6 +214,17 @@ wedgeParams wedge::calculateRegionOneParams(double tx, double ty){
     my_wedgeParams.wedge_rotation = l_wedge_rotation;
     return my_wedgeParams;
 }
+
+////-------------------------
+//// Region One
+////-------------------------
+//wedgeParams wedge::calculateWatchParams(double tx, double ty){
+//    wedgeParams my_wedgeParams;
+//    
+//    
+//    
+//    return my_wedgeParams;
+//}
 
 void wedge::render(){
     //-----------------

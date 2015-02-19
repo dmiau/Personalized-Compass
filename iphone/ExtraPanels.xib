@@ -370,6 +370,7 @@
                     <segments>
                         <segment title="All"/>
                         <segment title="Enabled"/>
+                        <segment title="Study"/>
                         <segment title="Dropped"/>
                         <segment title="None"/>
                     </segments>

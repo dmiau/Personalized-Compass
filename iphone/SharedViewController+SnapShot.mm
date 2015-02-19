@@ -164,6 +164,7 @@
     }
 #endif
     
+    [self renderAnnotations];
     //-----------------
     // Set up viz and device
     //-----------------
@@ -192,28 +193,13 @@
         {
             [self showLocalizeCollectMode:mySnapshot];
         }
+    }else if (mode == OFF){
+        [self setupVisualization:mySnapshot.visualizationType];
     }
 
     self.mapView.camera.heading = -mySnapshot.orientation;
-    
-    [self renderAnnotations];
     [self updateLocationVisibility];
     self.model->updateMdl();
-    
-    //-----------------
-    // Set up pin appearance
-    //-----------------
-    if (mode == DEVICESTUDY){
-        // Do not show pins
-        [self changeAnnotationDisplayMode:@"None"];
-        // This is to update the display message
-    }else if (mode == OSXSTUDY){
-        // Show picns
-        [self changeAnnotationDisplayMode:@"Enabled"];
-    }else{
-        // Do nothing
-    }
-    
     
     if (mode != OFF){
         self.testManager->updateUITestMessage();
@@ -233,13 +219,34 @@
 // Set up the environment to collect the answer for the locate test
 //----------------------
 - (void)showLocateCollectMode: (snapshot) mySnapshot{
+    
     // Emulate the iOS enironment if on the desktop
     // (if it is in the control mode)
 #ifndef __IPHONE__
+    [self changeAnnotationDisplayMode:@"None"];
     [self setupVisualization:mySnapshot.visualizationType];
     self.renderer->emulatediOS.is_enabled = true;
     self.renderer->emulatediOS.is_mask_enabled = true;
+
+    // Scale the map correctly, and shift the eiOS
+    [self scaleMapForLocateCollectMode:mySnapshot];
+#endif
+}
+
+-(void)scaleMapForLocateCollectMode: (snapshot)mySnapshot{
+#ifndef __IPHONE__
+    CLLocationDegrees osx_latitudeDelta =
+    mySnapshot.coordinateRegion.span.latitudeDelta *
+    self.renderer->view_height/self.renderer->emulatediOS.height;
+
+    CLLocationDegrees osx_longitudeDelta =
+    mySnapshot.coordinateRegion.span.longitudeDelta *
+    self.renderer->view_width/self.renderer->emulatediOS.width;
     
+    MKCoordinateRegion osxCoordRegion = MKCoordinateRegionMake(mySnapshot.coordinateRegion.center,
+        MKCoordinateSpanMake(osx_latitudeDelta, osx_longitudeDelta));
+    [self updateMapDisplayRegion:osxCoordRegion withAnimation:NO];
+
     
     // Also need to set up the positions of the em iOS
     // and the compass
@@ -254,8 +261,13 @@
 // Set up the environment to collect the answer for the localize test
 //----------------------
 - (void)showLocalizeCollectMode: (snapshot) mySnapshot{
-    // Need to display the region correctly
+#ifndef __IPHONE__
+    [self setupVisualization:VIZNONE];
+    self.renderer->emulatediOS.is_enabled = FALSE;
+    self.renderer->emulatediOS.is_mask_enabled = FALSE;
     
+    // Need to display the region correctly
+    [self changeAnnotationDisplayMode:@"Study"];
     if (mySnapshot.osx_coordinateRegion.span.latitudeDelta > 0){
         [self updateMapDisplayRegion:mySnapshot.osx_coordinateRegion withAnimation:NO];
     }else{
@@ -264,6 +276,7 @@
 
     // Need to display the pins correctly
     // All pins should be displayed in this case
+#endif
 }
 
 //----------------------

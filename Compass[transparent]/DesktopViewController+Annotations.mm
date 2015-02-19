@@ -36,7 +36,7 @@
         }else if (self.testManager->testManagerMode == DEVICESTUDY ||
                   self.testManager->testManagerMode == OSXSTUDY)
         {
-            if (myData.isEnabled && !myData.isAnswer){
+            if (myData.isEnabled){
                 [self.mapView addAnnotation: myData.annotation];
             }
         }
@@ -367,6 +367,15 @@
         for (CustomPointAnnotation* annotation in annotation_array){
             int i = annotation.data_id;
             if (self.model->data_array[i].isEnabled){
+                [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+            }else{
+                [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+            }
+        }
+    }else if ([mode isEqualToString:@"Study"]){
+        for (CustomPointAnnotation* annotation in annotation_array){
+            int i = annotation.data_id;
+            if (self.model->data_array[i].isEnabled){
                 if (self.testManager->testManagerMode == DEVICESTUDY ||
                     self.testManager->testManagerMode == OSXSTUDY){
                     
@@ -378,7 +387,7 @@
                 }else{
                     [[self.mapView viewForAnnotation:annotation] setHidden:NO];
                 }
-
+                
             }else{
                 [[self.mapView viewForAnnotation:annotation] setHidden:YES];
             }

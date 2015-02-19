@@ -24,6 +24,7 @@ void TestManager::initTestEnv(TestManagerMode mode){
     testManagerMode = mode;
     // Need to turn off map interactions in the study mode
     [rootViewController enableMapInteraction:NO];
+    [rootViewController changeAnnotationDisplayMode:@"None"];
     
     if (mode == DEVICESTUDY){
         //------------------
@@ -41,8 +42,6 @@ void TestManager::initTestEnv(TestManagerMode mode){
                                  @"Parameter" : model->snapshot_filename
                                  };
         [rootViewController sendPackage: myDict];
-        
-        
     }else if (mode == OSXSTUDY){
         //------------------
         // Desktop
@@ -106,7 +105,7 @@ void TestManager::cleanupTestEnv(TestManagerMode mode){
     [rootViewController enableMapInteraction:YES];
     rootViewController.UIConfigurations[@"UIToolbarMode"]
     = @"Development";
-    
+    [rootViewController changeAnnotationDisplayMode:@"All"];
     model->lockLandmarks = false;
     model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
     model->updateMdl();
@@ -116,15 +115,23 @@ void TestManager::cleanupTestEnv(TestManagerMode mode){
 
 
 void TestManager::toggleStudyMode(bool state){
+    
+    TestManagerMode mode;
+#ifdef __IPHONE__
+    mode = DEVICESTUDY;
+#else
+    mode = OSXSTUDY;
+#endif
+    
     if (state){
         //---------------
         // Turn on the study mode
         //---------------
-        initTestEnv(DEVICESTUDY);
+        initTestEnv(mode);
         rootViewController.UIConfigurations[@"UIToolbarMode"]
         = @"Study";
     }else{
-        cleanupTestEnv(DEVICESTUDY);
+        cleanupTestEnv(mode);
     }
     rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];

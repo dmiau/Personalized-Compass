@@ -2893,6 +2893,8 @@ START triggers the timer, drop-pin ends the timer, and then click the next
 Generate a test record [2:27PM]
 - minimal needle size constraints [3:12PM]
 - data clustering control [4:00PM] fixed the REAL_RATIO mode
+- add a pin mode called @"Study" [4:46PM]
+- render the locate tests at the right scale [5:28PM]
 
 ***** ToDo
 - map zoom in/out, pan around
@@ -2909,7 +2911,6 @@ Generate a test record [2:27PM]
 - renderAnnotationsIDs (vector<int> id_list, bool labelFlag)
 
 Medium effort:
-- annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
 - iWath emulation, watchMode, modify drawOneSide to cut off the legs
 * need to set up the watch mode correctly
 - renderAnnottions has issues
@@ -2931,24 +2932,13 @@ Long term:
 ***** Working
 
 Quick fixes:
-- render the locate tests at the right scale
+
 - implement and maintain a type counter dictionary, added to the authoring pane, integrate the test code with the counter
 - review the study
 - lock rotation in the author mode?
 - circle overlay
 http://stackoverflow.com/questions/9056451/draw-a-circle-of-1000m-radius-around-users-location-in-mkmapview
 
-
-
-
-
-
-
-
-
-
-
-
-
+- annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
 
 

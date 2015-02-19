@@ -19,10 +19,12 @@
         self.showPinSegmentControl.selectedSegmentIndex = 0;
     }else if ([self.UIConfigurations[@"ShowPins"] isEqualToString:@"Enabled"]){
         self.showPinSegmentControl.selectedSegmentIndex = 1;
-    }else if([self.UIConfigurations[@"ShowPins"] isEqualToString:@"Dropped"]){
+    }else if([self.UIConfigurations[@"ShowPins"] isEqualToString:@"Study"]){
         self.showPinSegmentControl.selectedSegmentIndex = 2;
-    }else if([self.UIConfigurations[@"ShowPins"] isEqualToString:@"None"]){
+    }else if([self.UIConfigurations[@"ShowPins"] isEqualToString:@"Dropped"]){
         self.showPinSegmentControl.selectedSegmentIndex = 3;
+    }else if([self.UIConfigurations[@"ShowPins"] isEqualToString:@"None"]){
+        self.showPinSegmentControl.selectedSegmentIndex = 4;
     }
     
     // Update pin creation segment control
