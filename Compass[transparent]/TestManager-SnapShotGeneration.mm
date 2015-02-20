@@ -43,9 +43,6 @@ void TestManager::generateSnapShots(){
             MKCoordinateRegion coordinateRegion;
             coordinateRegion.center = rootViewController.mapView.centerCoordinate;
             
-            // Forward declaration
-            compassRender *p_render = rootViewController.renderer;
-
 #ifndef __IPHONE__
             if (test_code.find("phone:") != string::npos) {
                 //----------------
@@ -72,11 +69,13 @@ void TestManager::generateSnapShots(){
             vector<int> is_answer_list;
             // Need to handle the code of t2 slightly different
             if (test_code.find(":t2:") != string::npos) {
-                // code for t2
-                int t_id = location_code_to_id[test_code];
-                for (int t2i = 0; t2i < 3; ++t2i){
+                //------------------
+                // Localization test requires multiple supports
+                //------------------
+                for (int t2i = 0; t2i < localize_test_support_n; ++t2i){
                     selected_ids.push_back
                     (location_code_to_id[test_code + "-" + to_string(t2i)]);
+                    is_answer_list.push_back(0);
                 }
             }else{
                 // code for other tasks
@@ -88,6 +87,31 @@ void TestManager::generateSnapShots(){
             // Assemble a snapshot
             //------------------
             snapshot t_snapshot;
+            
+            //------------------
+            // Calculate the OSX coordinate region
+            // if the test is a localize (triangulation) task
+            //------------------
+            if (test_code.find(":t2:") != string::npos) {
+                MKCoordinateRegion osx_coordinateRegion;
+                // Find out pair distance in terms of map point
+                
+                // We assume there are at most three locations (at the moment)
+                if (selected_ids.size() == 2){
+                    osx_coordinateRegion = calculateCoordRegionFromTwoPoints
+                    (t_data_array, selected_ids[0], selected_ids[1]);
+                }else if (selected_ids.size() == 3){
+                    vector<int> answer = findTwoFurthestLocationIDs
+                    (t_data_array, selected_ids);
+                    osx_coordinateRegion = calculateCoordRegionFromTwoPoints
+                    (t_data_array, answer[0], answer[1]);
+                }else{
+                    throw(runtime_error("More than 3 locations are selected for a localize test."));
+                    return;
+                }
+
+                t_snapshot.osx_coordinateRegion = osx_coordinateRegion;
+            }
             
             //------------------
             // Configure visualization type and the device spec
@@ -173,11 +197,12 @@ void TestManager::calculateMultipleLocationsDisplayRegion(){
             // We assume there are at most three locations (at the moment)
             if (mySnapshot.selected_ids.size() == 2){
                 coord_region = calculateCoordRegionFromTwoPoints
-                (mySnapshot.selected_ids[0], mySnapshot.selected_ids[1]);
+                (model->data_array, mySnapshot.selected_ids[0], mySnapshot.selected_ids[1]);
             }else if (mySnapshot.selected_ids.size() == 3){
-                vector<int> answer = findTwoFurthestLocationIDs(mySnapshot.selected_ids);
+                vector<int> answer = findTwoFurthestLocationIDs
+                (model->data_array, mySnapshot.selected_ids);
                 coord_region = calculateCoordRegionFromTwoPoints
-                (answer[0], answer[1]);
+                (model->data_array, answer[0], answer[1]);
             }else{
                 
                 cout << "# of locations: " << mySnapshot.selected_ids.size() << endl;
@@ -192,12 +217,12 @@ void TestManager::calculateMultipleLocationsDisplayRegion(){
 }
 
 MKCoordinateRegion TestManager::calculateCoordRegionFromTwoPoints
-(int dataID1, int dataID2){
-    data data_a = model->data_array[dataID1];
+(vector<data> &data_array, int dataID1, int dataID2){
+    data data_a = data_array[dataID1];
     CLLocation *point_a = [[CLLocation alloc]
                            initWithLatitude:data_a.latitude longitude:data_a.longitude];
     
-    data data_b = model->data_array[dataID2];
+    data data_b = data_array[dataID2];
     CLLocation *point_b = [[CLLocation alloc]
                            initWithLatitude:data_b.latitude longitude:data_b.longitude];
     
@@ -214,7 +239,9 @@ MKCoordinateRegion TestManager::calculateCoordRegionFromTwoPoints
     return coord_region;
 }
 
-vector<int> TestManager::findTwoFurthestLocationIDs(vector<int> location_ids){
+vector<int> TestManager::findTwoFurthestLocationIDs
+(vector<data> &data_array, vector<int> location_ids)
+{
     vector<int> answer;
     double max_dist = 0;
     vector<int> t_id_list = location_ids;
@@ -222,11 +249,11 @@ vector<int> TestManager::findTwoFurthestLocationIDs(vector<int> location_ids){
     
     for (int i = 0; i < t_id_list.size(); ++i){
         
-        data data_a = model->data_array[t_id_list[i]];
+        data data_a = data_array[t_id_list[i]];
         CLLocation *point_a = [[CLLocation alloc]
                                initWithLatitude:data_a.latitude longitude:data_a.longitude];
         
-        data data_b = model->data_array[t_id_list[i+1]];
+        data data_b = data_array[t_id_list[i+1]];
         CLLocation *point_b = [[CLLocation alloc]
                                initWithLatitude:data_b.latitude longitude:data_b.longitude];
         

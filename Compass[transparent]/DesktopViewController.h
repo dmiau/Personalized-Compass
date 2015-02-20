@@ -132,7 +132,7 @@ typedef struct{
 @property bool isBlankMapEnabled;
 - (void)toggleBlankMapMode:(bool)state;
 -(void)enableMapInteraction:(bool)state;
-- (MKCoordinateSpan) scaleCoordinateSpanForDevice: (DeviceType)deviceType;
+- (MKCoordinateSpan) scaleCoordinateSpanForSnapshot: (snapshot)mySnapshot;
 - (MKCoordinateSpan) calculateCoordinateSpanForDevice: (DeviceType)deviceType;
 //----------------
 //Snapshot category

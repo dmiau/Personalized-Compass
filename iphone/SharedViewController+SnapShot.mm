@@ -199,6 +199,7 @@
         //--------------------
         self.model->configurations[@"wedge_correction_x"]
         = [NSNumber numberWithFloat: 1];
+//        [self scaleiOSMapForDesktopMode:mySnapshot];
         [self setupVisualization:mySnapshot.visualizationType];
     }
 
@@ -249,15 +250,15 @@
     }
     
     // Scale the map correctly, and shift the eiOS
-    [self scaleMapForLocateCollectMode:mySnapshot];
+    [self scaleiOSMapForDesktopMode:mySnapshot];
     [self shiftEmulatorAndMapForLocateCollectMode];
 #endif
 }
 
--(void)scaleMapForLocateCollectMode: (snapshot)mySnapshot{
+-(void)scaleiOSMapForDesktopMode: (snapshot)mySnapshot{
 #ifndef __IPHONE__
     MKCoordinateSpan scaledSpan =
-    [self scaleCoordinateSpanForDevice:mySnapshot.deviceType];
+    [self scaleCoordinateSpanForSnapshot:mySnapshot];
     
     MKCoordinateRegion osxCoordRegion = MKCoordinateRegionMake
     (mySnapshot.coordinateRegion.center, scaledSpan);

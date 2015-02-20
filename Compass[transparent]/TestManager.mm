@@ -7,7 +7,40 @@
 //
 
 #include "TestManager.h"
-#import "compassModel.h"
+
+#ifndef __IPHONE__
+#import "DesktopViewController.h"
+#else
+#import "iOSViewController.h"
+#endif
+
+#import "compassRender.h"
+
+using namespace std;
+
+//--------------
+// Test Spec Class
+//--------------
+void TestSpec::initialize(){
+
+    // Initial location_string_list
+    int trial_counter = 0;
+    vector<string> dist_subfix = {"a", "b"};
+    for (int i = 0; i < boundary_spec_list.size(); ++i){
+        for (int j = 0; j < boundary_spec_list[i].count; ++j){
+            trial_string_list.push_back(to_string(trial_counter) + dist_subfix[i]);
+            ++trial_counter;
+        }
+    }
+    
+    shuffled_order.clear();
+    // Computer a random order
+    // At this point we know this task contains trial_counter trials
+    for (int i = 0; i < trial_counter; ++i){
+        shuffled_order.push_back(i);
+    }    
+    random_shuffle(shuffled_order.begin(), shuffled_order.end());
+}
 
 //--------------
 // Test Manager singleton initializations
@@ -31,7 +64,6 @@ int TestManager::initTestManager(){
     
     visualization_vector.clear();
     device_vector.clear();
-    visualization_counter = 0;
     test_counter = 0;
     testManagerMode = OFF;
     
@@ -59,6 +91,11 @@ int TestManager::initTestManager(){
         device_vector.push_back(myParam);
     }
     
+    //----------------
+    // Parameters for each type of test
+    //----------------
+    localize_test_support_n = 2;
+    
     // Initialize random number generation
     seed = 12345;
     std::mt19937 temp(seed);
@@ -66,7 +103,7 @@ int TestManager::initTestManager(){
     
     // Initialize default output filenames
     test_foldername     = @"study0";
-    test_kml_filename   = @"t_locations.kml";
+    test_kml_filename   = @"studyLocations.kml";
     test_location_filename  = @"temp.locations";
     alltest_vector_filename = @"allTestVectors.tests";
     test_snapshot_prefix = @"snapshot-participant";
@@ -149,7 +186,7 @@ int TestManager::generateTests(){
     //=====================
     // Generate location vector
     //=====================
-    map<string, vector<int>> t_location_dict = generateLocationVector();
+    generateLocationVector();
     
     //=====================
     // Generate Test Vectors
@@ -164,4 +201,85 @@ int TestManager::generateTests(){
     saveSnapShotsToKML();
         
     return 0;
+}
+
+//---------------
+// Initialize watch_boundaries and phone_boundaries
+//---------------
+void TestManager::initializeDeviceBoundaries(){
+    
+    float em_width, em_height;
+    float ios_width, ios_height;
+    
+    double close_begin, close_end;
+    double far_begin, far_end;
+    
+    //         close_n steps    far_n steps
+    // -------|------------|---|---------------|
+    // close_begin  close_end far_begin     far_end
+    
+    
+    // In the study, there are two devices (environments) to be tested: phone and watch
+    // However, in the locate task, phone and watch might be tested on a desktop
+    // So this can be a bit confusing.
+    // Here will call phone and watch as devices
+    // desktop and ios as platform
+    
+    //------------
+    // Phone
+    //------------
+    vector<float> two_heights;
+#ifndef __IPHONE__
+    em_width = rootViewController.renderer->emulatediOS.width;
+    em_height = rootViewController.renderer->emulatediOS.height;
+    ios_width = rootViewController.renderer->emulatediOS.true_ios_width;
+    ios_height = rootViewController.renderer->emulatediOS.true_ios_height;
+    two_heights = {em_height, ios_height};
+#else
+    two_heights = {302, 503};
+#endif
+    
+    
+    // First populate the desktop, second populate the ios
+    for (int i = 0; i < two_heights.size(); ++i){
+        float platform_height = two_heights[i];
+        close_begin = platform_height/2 * close_begin_x;
+        close_end = platform_height/2 * close_end_x;
+        
+        far_begin = platform_height/2 * far_begin_x;
+        far_end = platform_height/2 * far_end_x;
+        
+        // Need to initialize the vector
+        vector<pair<float, float>> temp =
+        {pair<float, float>(close_begin, close_end), pair<float, float>(far_begin, far_end)};
+        
+        phone_boundaries.push_back(temp);
+    }
+    
+    //------------
+    // Watch (may need to change the parameters here)
+    //------------
+#ifndef __IPHONE__
+    em_width = rootViewController.renderer->emulatediOS.width;
+    em_height = rootViewController.renderer->emulatediOS.height;
+    ios_width = rootViewController.renderer->emulatediOS.true_ios_width;
+    ios_height = rootViewController.renderer->emulatediOS.true_ios_height;
+    two_heights = {em_height, ios_height};
+#else
+    two_heights = {302, 503};
+#endif
+    // First populate the desktop, second populate the ios
+    for (int i = 0; i < two_heights.size(); ++i){
+        float platform_height = two_heights[i];
+        close_begin = platform_height/2 * close_begin_x;
+        close_end = platform_height/2 * close_end_x;
+        
+        far_begin = platform_height/2 * far_begin_x;
+        far_end = platform_height/2 * far_end_x;
+        
+        // Need to initialize the vector
+        vector<pair<float, float>> temp =
+        {pair<float, float>(close_begin, close_end), pair<float, float>(far_begin, far_end)};
+        watch_boundaries.push_back(temp);
+    }
 }

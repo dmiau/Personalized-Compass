@@ -300,11 +300,11 @@
                             </tabViewItem>
                             <tabViewItem label="Locations" identifier="2" id="RmZ-Un-VhX">
                                 <view key="view" id="7dD-aM-g2O">
-                                    <rect key="frame" x="10" y="33" width="664" height="418"/>
+                                    <rect key="frame" x="10" y="33" width="636" height="406"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="55" horizontalPageScroll="10" verticalLineScroll="55" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-C1-bTN" userLabel="Landmark Table View">
-                                            <rect key="frame" x="17" y="21" width="258" height="342"/>
+                                            <rect key="frame" x="17" y="9" width="258" height="342"/>
                                             <clipView key="contentView" misplaced="YES" id="hE8-uz-6fo">
                                                 <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,7 +398,7 @@
                                             </tableHeaderView>
                                         </scrollView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H5g-4n-bBy">
-                                            <rect key="frame" x="166" y="398" width="54" height="17"/>
+                                            <rect key="frame" x="166" y="386" width="54" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Kml file:" id="dYj-lw-xaE">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -406,7 +406,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MC7-e1-DOq">
-                                            <rect key="frame" x="11" y="361" width="56" height="32"/>
+                                            <rect key="frame" x="11" y="349" width="56" height="32"/>
                                             <buttonCell key="cell" type="push" title="All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IZr-yj-VNS">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -416,7 +416,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Twf-wT-dop">
-                                            <rect key="frame" x="68" y="361" width="73" height="32"/>
+                                            <rect key="frame" x="68" y="349" width="73" height="32"/>
                                             <buttonCell key="cell" type="push" title="None" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bx2-Tf-pbn">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -426,7 +426,7 @@
                                             </connections>
                                         </button>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Annotation (Debug)" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="O2P-S2-qih">
-                                            <rect key="frame" x="280" y="186" width="359" height="128"/>
+                                            <rect key="frame" x="280" y="174" width="359" height="128"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="357" height="112"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -504,7 +504,7 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-yL-0dW">
-                                            <rect key="frame" x="226" y="391" width="239" height="26"/>
+                                            <rect key="frame" x="226" y="379" width="239" height="26"/>
                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="hhP-v2-Hby">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -517,7 +517,7 @@
                                             </connections>
                                         </comboBox>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKM-7l-7uU">
-                                            <rect key="frame" x="294" y="335" width="71" height="32"/>
+                                            <rect key="frame" x="294" y="323" width="71" height="32"/>
                                             <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Qwc-Tz-8Ep">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -527,7 +527,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEE-GU-AEJ">
-                                            <rect key="frame" x="372" y="335" width="87" height="32"/>
+                                            <rect key="frame" x="372" y="323" width="87" height="32"/>
                                             <buttonCell key="cell" type="push" title="SaveAs" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1C8-6g-t0r">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -537,7 +537,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FEr-xp-v0U">
-                                            <rect key="frame" x="248" y="361" width="80" height="32"/>
+                                            <rect key="frame" x="248" y="349" width="80" height="32"/>
                                             <buttonCell key="cell" type="push" title="Empty" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="C1m-jR-paR">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -547,7 +547,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wZJ-0k-FZ6">
-                                            <rect key="frame" x="149" y="361" width="88" height="32"/>
+                                            <rect key="frame" x="149" y="349" width="88" height="32"/>
                                             <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gbF-7V-JAH">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -557,7 +557,7 @@
                                             </connections>
                                         </button>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Compass Model" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="atX-m7-hqs">
-                                            <rect key="frame" x="280" y="22" width="325" height="134"/>
+                                            <rect key="frame" x="280" y="10" width="325" height="134"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="323" height="118"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1317,7 +1317,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-2000" y="561"/>
+            <point key="canvasLocation" x="-1881" y="573"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
         <viewController id="aLW-cy-kmh" userLabel="SnapShot View Controller" customClass="SnapShotViewController">

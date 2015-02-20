@@ -194,6 +194,14 @@
             // Log the time
             self.testManager->record_vector[tid].end();
             
+            //----------------------
+            // answer needs to be relative to the device center
+            // also, answers will be different, depending on the type of test
+            //----------------------
+            
+            
+            
+            
             // Log the location
             self.testManager->record_vector[tid].answer = mouseLoc;
             

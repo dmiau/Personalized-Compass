@@ -23,7 +23,7 @@
 void TestManager::initTestEnv(TestManagerMode mode){
     testManagerMode = mode;
     // Need to turn off map interactions in the study mode
-    [rootViewController enableMapInteraction:YES];
+    [rootViewController enableMapInteraction:NO];
     [rootViewController changeAnnotationDisplayMode:@"None"];
     
     if (mode == DEVICESTUDY){

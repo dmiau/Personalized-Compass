@@ -199,42 +199,42 @@
     return output;
 }
 
-- (MKCoordinateSpan) scaleCoordinateSpanForDevice: (DeviceType)deviceType{
+- (MKCoordinateSpan) scaleCoordinateSpanForSnapshot: (snapshot)mySnapshot{
     
     MKCoordinateSpan output;
-    if (deviceType == PHONE) {
+    if (mySnapshot.deviceType == PHONE) {
         //----------------
         // Phone
         //----------------
         output.latitudeDelta =
-        self.mapView.region.span.latitudeDelta *
-        self.renderer->view_height/self.renderer->emulatediOS.height;
+        mySnapshot.coordinateRegion.span.latitudeDelta *
+        (double)self.renderer->view_height/ (double)self.renderer->emulatediOS.height;
         
         output.longitudeDelta =
-        self.mapView.region.span.latitudeDelta *
-        self.renderer->view_width/self.renderer->emulatediOS.width;
-    }else if (deviceType == SQUAREWATCH) {
+        mySnapshot.coordinateRegion.span.longitudeDelta *
+        (double)self.renderer->view_width/(double)self.renderer->emulatediOS.width;
+    }else if (mySnapshot.deviceType == SQUAREWATCH) {
         //----------------
         // Square Watch
         //----------------
         output.latitudeDelta =
-        self.mapView.region.span.latitudeDelta *
-        self.renderer->view_height / self.renderer->emulatediOS.cached_square_width;
+        mySnapshot.coordinateRegion.span.latitudeDelta *
+        (double) self.renderer->view_height / (double) self.renderer->emulatediOS.cached_square_width;
         
         output.longitudeDelta =
-        self.mapView.region.span.latitudeDelta *
-        self.renderer->view_width / self.renderer->emulatediOS.cached_square_width;
-    }else if (deviceType == WATCH){
+        mySnapshot.coordinateRegion.span.longitudeDelta *
+        (double) self.renderer->view_width / (double) self.renderer->emulatediOS.cached_square_width;
+    }else if (mySnapshot.deviceType == WATCH){
         //----------------
-        // Square Watch
+        // Circular Watch
         //----------------
         output.latitudeDelta =
-        self.mapView.region.span.latitudeDelta *
-        self.renderer->view_height / self.renderer->emulatediOS.cached_square_width;
+        mySnapshot.coordinateRegion.span.latitudeDelta *
+        (double) self.renderer->view_height / (double) self.renderer->emulatediOS.cached_square_width;
         
         output.longitudeDelta =
-        self.mapView.region.span.latitudeDelta *
-        self.renderer->view_width / self.renderer->emulatediOS.cached_square_width;
+        mySnapshot.coordinateRegion.span.longitudeDelta *
+        (double) self.renderer->view_width / (double) self.renderer->emulatediOS.cached_square_width;
         // TODO: need to implement circle watch face
     }
     return output;
@@ -249,33 +249,33 @@
         //----------------
         output.latitudeDelta =
         self.mapView.region.span.latitudeDelta *
-        self.renderer->emulatediOS.height / self.renderer->view_height;
+        (double) self.renderer->emulatediOS.height / (double) self.renderer->view_height;
         
         output.longitudeDelta =
-        self.mapView.region.span.latitudeDelta *
-        self.renderer->emulatediOS.width / self.renderer->view_width;
+        self.mapView.region.span.longitudeDelta *
+        (double) self.renderer->emulatediOS.width / (double) self.renderer->view_width;
     }else if (deviceType == SQUAREWATCH) {
         //----------------
         // Square Watch
         //----------------
         output.latitudeDelta =
         self.mapView.region.span.latitudeDelta *
-        self.renderer->emulatediOS.cached_square_width / self.renderer->view_height;
+        (double) self.renderer->emulatediOS.cached_square_width / (double) self.renderer->view_height;
         
         output.longitudeDelta =
-        self.mapView.region.span.latitudeDelta *
-        self.renderer->emulatediOS.cached_square_width / self.renderer->view_width;
+        self.mapView.region.span.longitudeDelta *
+        (double) self.renderer->emulatediOS.cached_square_width / (double) self.renderer->view_width;
     }else if (deviceType == WATCH){
         //----------------
         // Square Watch
         //----------------
         output.latitudeDelta =
         self.mapView.region.span.latitudeDelta *
-        self.renderer->emulatediOS.cached_square_width / self.renderer->view_height;
+        (double) self.renderer->emulatediOS.cached_square_width /(double) self.renderer->view_height;
         
         output.longitudeDelta =
-        self.mapView.region.span.latitudeDelta *
-        self.renderer->emulatediOS.cached_square_width / self.renderer->view_width;
+        self.mapView.region.span.longitudeDelta *
+        (double) self.renderer->emulatediOS.cached_square_width /(double) self.renderer->view_width;
         // TODO: need to implement circle watch face
     }
     return output;

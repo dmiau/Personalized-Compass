@@ -314,7 +314,7 @@
         // Dropbox case
         DBError *error = nil;
         DBPath *path = [[DBPath root] childPath:filename];
-        
+
         DBFileInfo *info = [self.db_filesystem fileInfoForPath:path error:&error];
 
         DBFile *file;

@@ -73,6 +73,11 @@
   "property": "disk_color",
   "value": [100, 100, 100, 150],
   "comment": "the color of the compass disk"
+  },
+  {
+  "property": "landmark_color",
+  "value": [214, 55, 116, 255],
+  "comment": "the color of each landmark"
   },  
   {
   "property": "compass_disk_radius",
@@ -81,7 +86,7 @@
   },
   {
   "property": "watch_compass_disk_radius",
-  "value": 14,
+  "value": 40,
   "comment": "Specify the radius of the compass disk (in pixels)."
   },    
   {
@@ -90,8 +95,8 @@
   "comment": "Specify the radius of the compass disk (in pixels)."
   },    
   {
-  "property": "central_disk_to_compass_disk_ratio",
-  "value": 0.14,
+  "property": "central_disk_radius",
+  "value": 4,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },  
   {
@@ -136,7 +141,7 @@
   },
   {
   "property": "iPad_font_size",
-  "value": 14,
+  "value": 11,
   "comment": "the scale needs to be redisgned."
   },
   {
@@ -179,10 +184,35 @@
   "value": [192, 302],
   "comment": "(width, height))"
   },
-{
+  {
   "property": "true_ios_display_wh",
   "value": [320, 503],
   "comment": "(width, height))"
+  },  
+  {
+  "property": "em_ios_watch_radius",
+  "value": 50,
+  "comment": "watch radius"
+  },
+  {
+  "property": "true_ios_watch_radius",
+  "value": 50,
+  "comment": "truewatch radius"
+  },
+  {
+  "property": "em_iwatch_display_wh",
+  "value": [100, 100],
+  "comment": "(width, height))"
+  },
+  {
+  "property": "true_iwatch_display_wh",
+  "value": [168, 168],
+  "comment": "(width, height))"
+  },
+  {
+  "comment": "Color map",  
+  "value": "==================================================",
+  "property": "separator"
   },  
   {
   "property": "color_map",

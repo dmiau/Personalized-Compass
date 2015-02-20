@@ -17,6 +17,7 @@
 #import <MapKit/MapKit.h>
 #import "compassModel.h" //To use the data object
 
+
 #ifndef __IPHONE__
 #import <Cocoa/Cocoa.h>
 @class DesktopViewController;
@@ -26,6 +27,43 @@
 #endif
 
 using namespace std;
+
+//------------------------------
+// Test Specifications
+//------------------------------
+enum TaskType {LOCATE, TRIANGULATE, ORIENT, LOCATEPLUS};
+
+class BoundarySpec{
+public:
+    double close;
+    double far;
+    int count;
+};
+
+class TestSpec{
+public:
+    // Properties
+    TaskType taskType;
+    NSString* deviceVizCode;
+    NSString* taskCode;
+    int support_n;
+    vector<BoundarySpec> boundary_spec_list;
+    vector<string> trial_string_list;
+    vector<int> shuffled_order;
+public:
+    //
+    TestSpec(){
+        taskType = LOCATE;
+        deviceVizCode = @"";
+        taskCode = @"t1";
+        support_n = 1;
+        boundary_spec_list.clear();
+        trial_string_list.clear();
+        shuffled_order.clear();
+    };
+    // Methods
+    void initialize();
+};
 
 //------------------------------
 // Param object
@@ -132,7 +170,6 @@ public:
 //------------------------------
 // Test Manager
 //------------------------------
-enum TaskType {LOCATE, TRIANGULATE, ORIENT};
 enum TestManagerMode {OFF, DEVICESTUDY, OSXSTUDY, AUTHORING, REVIEW};
 
 class TestManager{
@@ -142,7 +179,9 @@ public:
     // Parameters
     //-----------------
     TestManagerMode testManagerMode;
-    bool isPartnerReady;
+    
+    int localize_test_support_n; // specify the numbe of supports available per localize test
+                                 // This is for test generation
     
     // Test generation parameters
     // These parameters specify where the generated tests should go
@@ -156,16 +195,13 @@ public:
     // Connections to other modules
     compassMdl *model;
     
+    // The following two are initialized via dependency injection
+    // (via the viewController itself)
 #ifdef __IPHONE__
     iOSViewController *rootViewController;
 #else
     DesktopViewController *rootViewController;
 #endif
-    // Test configurations
-    // This parameters allow TestManager to decide the number of enabled devices
-    bool phone_flag;
-    bool watch_flag;
-    
     vector<param> visualization_vector;
     vector<param> device_vector;
     
@@ -188,6 +224,8 @@ public:
     // Stores all snapshot vectors (each participant has a snapshot vector)
     vector<vector<snapshot>> all_snapshot_vectors;
     vector<record> record_vector;
+    vector<data> t_data_array; // This structure holds the generated locationss
+
     
     //---------------
     // Parameters for close, far boundaries
@@ -200,6 +238,9 @@ public:
     vector<vector<pair<float, float>>> watch_boundaries;
     vector<vector<pair<float, float>>> phone_boundaries;
     
+    // Why watch_boundaries and phone_boundaries are float?
+    // because device_height/2 could contain fractions
+    
     float close_begin_x;
     float close_end_x;
     float far_begin_x;
@@ -208,19 +249,8 @@ public:
     int far_n;      // # of locations in the far category
     
     //---------------
-    // Parameters for the triangulate test generation
-    //---------------
-    int tri_test_n;
-    
-    //---------------
-    // Parameters for the orient test generation
-    //---------------
-    int orient_test_n;
-    
-    //---------------
     // Counters
     //---------------
-    int visualization_counter;
     int test_counter;
 
     // Structure to keep track of the number of each type of test
@@ -313,8 +343,9 @@ public:
     
     // Helper functions
     MKCoordinateRegion calculateCoordRegionFromTwoPoints
-    (int dataID1, int dataID2);
-    vector<int> findTwoFurthestLocationIDs(vector<int> location_ids);
+    (vector<data> &data_array, int dataID1, int dataID2);
+    vector<int> findTwoFurthestLocationIDs(vector<data> &data_array,
+                                           vector<int> location_ids);
 };
 
 #endif /* defined(__Compass_transparent___TestManager__) */

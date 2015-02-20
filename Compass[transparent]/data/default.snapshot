@@ -15,7 +15,7 @@
 <kmlFilename>SundayTest.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -39,7 +39,7 @@
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -63,7 +63,7 @@
 <kmlFilename>StAndrews723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -87,7 +87,7 @@
 <kmlFilename>StAndrews723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -111,7 +111,7 @@
 <kmlFilename>Taiwan.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -135,7 +135,7 @@
 <kmlFilename>tokyo.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -159,7 +159,7 @@
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -183,7 +183,7 @@
 <kmlFilename>london711.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -207,7 +207,7 @@
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -231,7 +231,7 @@
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -255,7 +255,7 @@
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -279,7 +279,7 @@
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids>5, 6</selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
@@ -303,7 +303,7 @@
 <kmlFilename>SundayTest.kml</kmlFilename>
 <address></address>
 <selected_ids>4, 14, 20, 22</selected_ids>
-<enabled_list></enabled_list>
+<is_answer_list></is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
