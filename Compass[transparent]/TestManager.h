@@ -33,37 +33,34 @@ using namespace std;
 //------------------------------
 enum TaskType {LOCATE, TRIANGULATE, ORIENT, LOCATEPLUS};
 
-class BoundarySpec{
-public:
-    double close;
-    double far;
-    int count;
-};
+//class BoundarySpec{
+//public:
+//    double close;
+//    double far;
+//    int count;
+//};
 
-class TestSpec{
+class TaskSpec{
 public:
     // Properties
     TaskType taskType;
-    NSString* deviceVizCode;
-    NSString* taskCode;
+    DeviceType deviceType;
+    VisualizationType visualizationType;
+    
+    string deviceVizCode;
+    string taskCode;
     int support_n;
-    vector<BoundarySpec> boundary_spec_list;
+    vector<int> trial_n_list;
     vector<string> trial_string_list;
     vector<int> shuffled_order;
+    vector<string> shuffled_trial_string_list;
 public:
-    //
-    TestSpec(){
-        taskType = LOCATE;
-        deviceVizCode = @"";
-        taskCode = @"t1";
-        support_n = 1;
-        boundary_spec_list.clear();
-        trial_string_list.clear();
-        shuffled_order.clear();
-    };
-    // Methods
-    void initialize();
+    // Constructor
+    TaskSpec(TaskType taskType);
+    TaskSpec(string taskTypeString);
 };
+
+TaskType stringToTaskType(string aString);
 
 //------------------------------
 // Param object
@@ -180,9 +177,6 @@ public:
     //-----------------
     TestManagerMode testManagerMode;
     
-    int localize_test_support_n; // specify the numbe of supports available per localize test
-                                 // This is for test generation
-    
     // Test generation parameters
     // These parameters specify where the generated tests should go
     NSString *test_foldername;          //e.g., study0
@@ -225,7 +219,6 @@ public:
     vector<vector<snapshot>> all_snapshot_vectors;
     vector<record> record_vector;
     vector<data> t_data_array; // This structure holds the generated locationss
-
     
     //---------------
     // Parameters for close, far boundaries
@@ -255,7 +248,7 @@ public:
 
     // Structure to keep track of the number of each type of test
     map<string, int> task_type_counter;
-    
+    int localize_test_support_n;
     //---------------
     // Random number generation
     //---------------
@@ -304,10 +297,7 @@ public:
     void generateAllTestVectors(
         vector<string> device_list,
         vector<string> visualization_list,
-        vector<string> task_list,
-        vector<string> distance_list,
-        vector<string> location_list
-    );
+        vector<string> task_list);
     
     void saveLocationCSV();
     void saveAllTestVectorCSV();

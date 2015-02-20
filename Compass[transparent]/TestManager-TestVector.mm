@@ -93,15 +93,15 @@ vector<string> pool::next(){
 void TestManager::generateAllTestVectors(
                                                vector<string> device_list,
                                                vector<string> visualization_list,
-                                               vector<string> task_list,
-                                               vector<string> distance_list,
-                                               vector<string> location_list
+                                               vector<string> task_list
                                                )
 {
     pool device_pool = pool(device_list, FULL, 1); //phone, watch
     pool visualization_pool = pool(visualization_list, FULL, 2); //personalized compass, wedge
     pool task_pool = pool(task_list, FULL, 2);
-    pool location_pool = pool(location_list, FIXED, 1);
+    
+    
+//    pool location_pool = pool(location_list, FIXED, 1);
     
     
     string dprefix = "", dvprefix = "", dvtprefix = "", prefix = "";
@@ -125,15 +125,27 @@ void TestManager::generateAllTestVectors(
                     // Task prefix
                     dvtprefix = dvprefix + ":" + t_task_list[ti];
                     
-                    vector<string> t_location_list = location_pool.next();
-                    for (int li = 0; li < t_location_list.size(); ++li){
-                        prefix = dvtprefix +  ":" + t_location_list[li];
-                        
-                            // Generate test prefix string. Each test has a string
-                            // In the case of t2, there are multiple locations
-                            // associated with a single test
-                            user_test_vector.push_back(prefix);
+                    //-------------
+                    // Generate location postfix
+                    //-------------
+                    TaskSpec aSpec(stringToTaskType(t_task_list[ti]));
+                    
+                    for (int li = 0; li < aSpec.shuffled_trial_string_list.size(); ++li)
+                    {
+                        prefix = dvtprefix +  ":"
+                        + aSpec.shuffled_trial_string_list[li];
+                        user_test_vector.push_back(prefix);
                     }
+                    
+//                    vector<string> t_location_list = location_pool.next();
+//                    for (int li = 0; li < t_location_list.size(); ++li){
+//                        prefix = dvtprefix +  ":" + t_location_list[li];
+//                        
+//                            // Generate test prefix string. Each test has a string
+//                            // In the case of t2, there are multiple locations
+//                            // associated with a single test
+//                            user_test_vector.push_back(prefix);
+//                    }
                     
                 }
             }

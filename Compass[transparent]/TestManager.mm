@@ -21,13 +21,49 @@ using namespace std;
 //--------------
 // Test Spec Class
 //--------------
-void TestSpec::initialize(){
 
+TaskType stringToTaskType(string aString){
+    TaskType output;
+    if (aString == "t1"){
+        output = LOCATE;
+    }else if (aString == "t2"){
+        output = TRIANGULATE;
+    }else if (aString == "t3"){
+        output = ORIENT;
+    }
+    return output;
+}
+
+TaskSpec::TaskSpec(TaskType taskType)
+{
+    trial_string_list.clear();
+    shuffled_order.clear();
+    
+    switch (taskType) {
+        case LOCATE:
+            taskCode = "t1";
+            support_n = 1;
+            trial_n_list = {5, 5};
+            break;
+        case TRIANGULATE:
+            taskCode = "t2";
+            trial_n_list = {16, 16};
+            support_n = 2;
+            break;
+        case ORIENT:
+            taskCode = "t3";
+            trial_n_list = {5, 5};
+            support_n = 1;
+            break;
+        default:
+            break;
+    }
+    
     // Initial location_string_list
     int trial_counter = 0;
     vector<string> dist_subfix = {"a", "b"};
-    for (int i = 0; i < boundary_spec_list.size(); ++i){
-        for (int j = 0; j < boundary_spec_list[i].count; ++j){
+    for (int i = 0; i < trial_n_list.size(); ++i){
+        for (int j = 0; j < trial_n_list[i]; ++j){
             trial_string_list.push_back(to_string(trial_counter) + dist_subfix[i]);
             ++trial_counter;
         }
@@ -38,9 +74,15 @@ void TestSpec::initialize(){
     // At this point we know this task contains trial_counter trials
     for (int i = 0; i < trial_counter; ++i){
         shuffled_order.push_back(i);
-    }    
+    }
     random_shuffle(shuffled_order.begin(), shuffled_order.end());
-}
+    shuffled_trial_string_list.clear();
+    // Generate shuffled trial string list
+    for (int i = 0; i < trial_counter; ++i){
+        int j = shuffled_order[i];
+        shuffled_trial_string_list.push_back(trial_string_list[j]);
+    }
+};
 
 //--------------
 // Test Manager singleton initializations
@@ -94,7 +136,8 @@ int TestManager::initTestManager(){
     //----------------
     // Parameters for each type of test
     //----------------
-    localize_test_support_n = 2;
+    TaskSpec tTaskSpec(TRIANGULATE);
+    localize_test_support_n = tTaskSpec.support_n;
     
     // Initialize random number generation
     seed = 12345;
@@ -166,22 +209,43 @@ int TestManager::generateTests(){
     //=====================
     vector<string> device_list = {"phone", "watch"};
     vector<string> visualization_list = {"pcompass", "wedge"};
+    
+    
     vector<string> task_list = {"t1", "t2", "t3"};
-    vector<string> distance_list = {"c", "f"};
+//    vector<string> distance_list = {"c", "f"};
     
-    // Generate the location pool
-    vector<string> location_list; location_list.clear();
+//    // Generate the location pool
+//    vector<string> location_list; location_list.clear();
+//    
+//    int location_n = 10; // number of locations per distance class
+//    // Initial location list
+//    for (int i = 0; i < location_n; ++i){
+//        
+//        string dist_subfix = distance_list[0];
+//        if (i >= (float)location_n/2){
+//            dist_subfix = distance_list[1];
+//        }
+//        location_list.push_back(to_string(i)+dist_subfix);
+//    }
+//    
+//    // Initialize taskSpecMap
+//    vector<TaskType> taskType_list = {LOCATE, TRIANGULATE, ORIENT};
+//    int task_n = (int) device_list.size() * (int) visualization_list.size();
+//    for (int i = 0; i < taskType_list.size(); ++i){
+//        for (int j = 0; j < task_n; ++j){
+//            
+//            if (j == 0){
+//                vector<TaskSpec> temp;
+//                taskSpecMap[taskType_list[i]] = temp;
+//            }
+//            TaskSpec temp(taskType_list[i]);
+//            
+//            // Initialize boundary spec
+//            
+//            taskSpecMap[taskType_list[i]].push_back(temp);
+//        }
+//    }
     
-    int location_n = 10; // number of locations per distance class
-    // Initial location list
-    for (int i = 0; i < location_n; ++i){
-        
-        string dist_subfix = distance_list[0];
-        if (i >= (float)location_n/2){
-            dist_subfix = distance_list[1];
-        }
-        location_list.push_back(to_string(i)+dist_subfix);
-    }
     
     //=====================
     // Generate location vector
@@ -191,8 +255,7 @@ int TestManager::generateTests(){
     //=====================
     // Generate Test Vectors
     //=====================
-    generateAllTestVectors(device_list, visualization_list, task_list,
-                       distance_list, location_list);
+    generateAllTestVectors(device_list, visualization_list, task_list);
 
     //=====================
     // Save the files

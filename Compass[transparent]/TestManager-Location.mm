@@ -70,24 +70,26 @@ map<string, vector<int>> TestManager::generateLocationsByTask
 
     
     //-----------------------
+    TaskSpec tempTaskSpec(taskType);
+    int t_close_n = tempTaskSpec.trial_n_list[0];
+    int t_far_n = tempTaskSpec.trial_n_list[1];
+    
     // Define the boundaries for the locate tasks
     vector<vector<double>> boundary_spec_list =
-    {{boundary_spec[1][0].first, boundary_spec[1][0].second, (double)close_n},
-        {boundary_spec[1][1].first, boundary_spec[1][1].second, (double)far_n}};
-    
-    string task_prefix;
+    {{boundary_spec[1][0].first, boundary_spec[1][0].second, (double)t_close_n},
+        {boundary_spec[1][1].first, boundary_spec[1][1].second, (double)t_far_n}};
+
+
+    string task_prefix = tempTaskSpec.taskCode;
     switch (taskType) {
         case LOCATE:
-            task_prefix = "t1";
             boundary_spec_list =
-        {{boundary_spec[0][0].first, boundary_spec[0][0].second, (double)close_n},
-            {boundary_spec[1][1].first, boundary_spec[1][1].second, (double)far_n}};
+        {{boundary_spec[0][0].first, boundary_spec[0][0].second, (double)t_close_n},
+            {boundary_spec[1][1].first, boundary_spec[1][1].second, (double)t_far_n}};
             break;
         case TRIANGULATE:
-            task_prefix = "t2";
             break;
         case ORIENT:
-            task_prefix = "t3";
             break;
         default:
             break;
@@ -113,9 +115,9 @@ map<string, vector<int>> TestManager::generateLocationsByTask
             double t_end = boundary_spec_list[bi][1];
             double t_n = boundary_spec_list[bi][2]; // how many tests per distanct range
 
-            string location_class_subfix = "c";
+            string location_class_subfix = "a";
             if (bi == 1)
-                location_class_subfix = "f";
+                location_class_subfix = "b";
             
             //------------------
             vector<vector<int>> t_location_vector;
