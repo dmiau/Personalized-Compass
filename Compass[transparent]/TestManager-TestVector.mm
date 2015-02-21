@@ -136,17 +136,6 @@ void TestManager::generateAllTestVectors(
                         + aSpec.shuffled_trial_string_list[li];
                         user_test_vector.push_back(prefix);
                     }
-                    
-//                    vector<string> t_location_list = location_pool.next();
-//                    for (int li = 0; li < t_location_list.size(); ++li){
-//                        prefix = dvtprefix +  ":" + t_location_list[li];
-//                        
-//                            // Generate test prefix string. Each test has a string
-//                            // In the case of t2, there are multiple locations
-//                            // associated with a single test
-//                            user_test_vector.push_back(prefix);
-//                    }
-                    
                 }
             }
         }

@@ -73,7 +73,6 @@
                                   forKey:@"UIOverviewScaleMode"];
         [self.UIConfigurations setObject:@"All"
                                   forKey:@"ShowPins"];
-        
     }
     return self;
 }

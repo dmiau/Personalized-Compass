@@ -209,44 +209,8 @@ int TestManager::generateTests(){
     //=====================
     vector<string> device_list = {"phone", "watch"};
     vector<string> visualization_list = {"pcompass", "wedge"};
-    
-    
     vector<string> task_list = {"t1", "t2", "t3"};
-//    vector<string> distance_list = {"c", "f"};
-    
-//    // Generate the location pool
-//    vector<string> location_list; location_list.clear();
-//    
-//    int location_n = 10; // number of locations per distance class
-//    // Initial location list
-//    for (int i = 0; i < location_n; ++i){
-//        
-//        string dist_subfix = distance_list[0];
-//        if (i >= (float)location_n/2){
-//            dist_subfix = distance_list[1];
-//        }
-//        location_list.push_back(to_string(i)+dist_subfix);
-//    }
-//    
-//    // Initialize taskSpecMap
-//    vector<TaskType> taskType_list = {LOCATE, TRIANGULATE, ORIENT};
-//    int task_n = (int) device_list.size() * (int) visualization_list.size();
-//    for (int i = 0; i < taskType_list.size(); ++i){
-//        for (int j = 0; j < task_n; ++j){
-//            
-//            if (j == 0){
-//                vector<TaskSpec> temp;
-//                taskSpecMap[taskType_list[i]] = temp;
-//            }
-//            TaskSpec temp(taskType_list[i]);
-//            
-//            // Initialize boundary spec
-//            
-//            taskSpecMap[taskType_list[i]].push_back(temp);
-//        }
-//    }
-    
-    
+
     //=====================
     // Generate location vector
     //=====================

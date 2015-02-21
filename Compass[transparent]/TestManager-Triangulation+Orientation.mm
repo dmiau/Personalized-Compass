@@ -83,3 +83,55 @@ vector<vector<int>> TestManager::generateRandomTriangulateLocations
     }    
     return output;
 }
+
+//--------------
+// Generate Orientation trials
+//--------------
+vector<vector<int>> TestManager::generateRandomOrientLocations
+(double close_boundary, double far_boundary, int location_n){
+    
+    vector<vector<int>> output;
+    
+    double step = (far_boundary - close_boundary) / location_n;
+    
+    using namespace std;
+    // Initialize random number generator
+    
+    // Need to provide a seed
+    std::uniform_int_distribution<int>  distr(0, step);
+    
+    vector<double> base_length_vector; base_length_vector.clear();
+    for (int i = 0; i < location_n; ++i){
+        int temp = close_boundary + step * i + distr(generator);
+        base_length_vector.push_back(temp);
+    }
+    
+    // At this point we have location_n lengths
+    std::uniform_int_distribution<int>  distr2(0, 359);
+    
+    // Draw trial_n thetas
+    
+    // 0 degree is in the positie x direction
+    vector<int> theta_vector;
+    for (int i = 0; i < location_n; ++i){
+        theta_vector.push_back(distr2(generator));
+    }
+
+    //-------------------------
+    // Generate point (x, y) here
+    //-------------------------
+    for (int i = 0; i < location_n; ++i){
+        int x, y;
+        // Calculate point 1
+        float pt1_length = base_length_vector[i];
+        float theta =  (float) theta_vector.back();
+        theta_vector.pop_back();
+        x = pt1_length * cos(theta/180 * M_PI);
+        y = pt1_length * sin(theta/180 * M_PI);
+        
+        vector<int> t_vector = {x, y};
+        output.push_back(t_vector);
+    }
+    
+    return output;
+}

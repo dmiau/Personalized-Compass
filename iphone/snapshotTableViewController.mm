@@ -95,7 +95,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-    [self saveKML:nil];
+    
+//    [self saveKML:nil];
 }
 
 

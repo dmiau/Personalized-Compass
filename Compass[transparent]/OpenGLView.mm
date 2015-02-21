@@ -181,10 +181,8 @@
     {
         [self drawMainWindow:bounds];
     }else{
-//        NSString* original_style = self.renderer->model->configurations[@"style_type"];
-//        self.renderer->model->configurations[@"style_type"] = @"WEDGE";
         [self drawStyleWindow:bounds];
-//        self.renderer->model->configurations[@"style_type"] = original_style;
+
     }
     
     //-----------------

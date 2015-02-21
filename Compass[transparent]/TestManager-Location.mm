@@ -204,35 +204,6 @@ vector<vector<int>> TestManager::generateRandomLocateLocations
     return output;
 }
 
-//--------------
-// place holder...
-//--------------
-vector<vector<int>> TestManager::generateRandomOrientLocations
-(double close_boundary, double far_boundary, int location_n){
-    
-    vector<vector<int>> output;
-    
-    double step = (far_boundary - close_boundary) / location_n;
-    
-    using namespace std;
-    // Initialize random number generator
-    
-    // Need to provide a seed
-    std::uniform_int_distribution<int>  distr(0, step);
-    
-    vector<double> close_vector; close_vector.clear();
-    for (int i = 0; i < location_n; ++i){
-        int temp = close_boundary + step * i + distr(generator);
-        
-        // Need to transform to xy coordinate
-        vector<int> t_vector; // The first is x, and the second is y
-        t_vector.push_back(temp); t_vector.push_back(0);
-        output.push_back(t_vector);
-    }
-    
-    return output;
-}
-
 //----------------
 // Save the locations to CSV
 //----------------

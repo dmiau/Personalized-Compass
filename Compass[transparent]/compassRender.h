@@ -97,6 +97,9 @@ public:
     bool wedgeMode;
     bool watchMode;
     bool trainingMode;
+    bool isCrossEnabled;
+    bool isInteractiveLineEnabled;
+    double interactiveLineRadian;
     
     // Compass presenation parameters    
     float compass_disk_radius;    // Specify the radius of the compass disk (in pixels)
@@ -200,6 +203,8 @@ private:
     // Wedge drawing routines
     void drawOneSide(double rotation, double width, double height,
                      double tx, double ty, double *out_leg, double *out_aperture);
+    void drawCross();
+    void drawInteractiveLine();
     
     //-----------------
     // Component Level Drawing Routines

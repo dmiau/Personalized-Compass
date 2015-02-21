@@ -101,7 +101,7 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
         // Note: the distance of the scale indicator is hardcoded
         //--------------
         if (model->mode_max_dist_array.size() > 1
-            && !wedgeMode)
+            && !wedgeMode && renderParamStruct.style_type != REAL_RATIO)
         {
             double best_orientation = findBestEmptyOrienation(orientation_array);
             
@@ -497,5 +497,31 @@ double compassRender::findBestEmptyOrienation(vector<double> orientation_array){
     return empty_orientation;
 }
 
+void compassRender::drawCross(){
+    glLineWidth(4);
+    glColor4f(1, 0, 0, 1);
 
+    Vertex3D    vertex1 = Vertex3DMake(50, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(-50, 0, 0);
+    Line3D  line = Line3DMake(vertex1, vertex2);
+    glVertexPointer(3, GL_FLOAT, 0, &line);
+    glDrawArrays(GL_LINES, 0, 2);
+    
+    Vertex3D    vertex3 = Vertex3DMake(0, 50, 0);
+    Vertex3D    vertex4 = Vertex3DMake(0, -50, 0);
+    Line3D  line1 = Line3DMake(vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &line1);
+    glDrawArrays(GL_LINES, 0, 2);
+}
 
+void compassRender::drawInteractiveLine(){
+    glLineWidth(4);
+    glColor4f(1, 0, 0, 1);
+    
+    Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(500*cos(interactiveLineRadian),
+                                       500*sin(interactiveLineRadian), 0);
+    Line3D  line = Line3DMake(vertex1, vertex2);
+    glVertexPointer(3, GL_FLOAT, 0, &line);
+    glDrawArrays(GL_LINES, 0, 2);
+}

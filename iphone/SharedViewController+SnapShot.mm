@@ -179,6 +179,20 @@
         //--------------------
         [self setupVisualization:mySnapshot.visualizationType];
         
+        self.renderer->isInteractiveLineEnabled=false;
+        // Set up differently, depending on the snapshot code
+        if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)
+        {
+            self.renderer->isCrossEnabled = false;
+        }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound)
+        {
+            self.renderer->isCrossEnabled = true;
+        }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+            self.renderer->isCrossEnabled = true;
+            
+            self.renderer->isInteractiveLineEnabled=true;
+            self.renderer->interactiveLineRadian   = 0;
+        }
     }else if (mode == OSXSTUDY){
         //--------------------
         // Desktop (OSX)
@@ -192,6 +206,8 @@
         }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound)
         {
             [self showLocalizeCollectMode:mySnapshot];
+        }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+            
         }
     }else if (mode == OFF){
         //--------------------
@@ -225,7 +241,7 @@
 // Set up the environment to collect the answer for the locate test
 //----------------------
 - (void)showLocateCollectMode: (snapshot) mySnapshot{
-    
+    self.renderer->isCrossEnabled = false;
     // Emulate the iOS enironment if on the desktop
     // (if it is in the control mode)
 #ifndef __IPHONE__
@@ -283,6 +299,7 @@
 // Set up the environment to collect the answer for the localize test
 //----------------------
 - (void)showLocalizeCollectMode: (snapshot) mySnapshot{
+
 #ifndef __IPHONE__
     [self setupVisualization:VIZNONE];
     self.renderer->emulatediOS.is_enabled = FALSE;
@@ -298,6 +315,7 @@
 
     // Need to display the pins correctly
     // All pins should be displayed in this case
+
 #endif
 }
 
@@ -305,14 +323,14 @@
 // Set up the environment to collect the answer for the locate plus test
 //----------------------
 - (void)showLocatePlusCollectMode: (snapshot) mySnapshot{
-    
+
 }
 
 //----------------------
 // Set up the environment to collect the answer for the orient test
 //----------------------
 - (void)showOrientCollectMode: (snapshot) mySnapshot{
-    
+
 }
 
 //----------------------

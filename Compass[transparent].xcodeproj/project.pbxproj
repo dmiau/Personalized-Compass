@@ -747,12 +747,12 @@
 		9A8CE9CC1A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9C81A952D6F0070D9D4 /* compassRender+CompassComponents.mm */; };
 		9A8CE9CD1A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9C81A952D6F0070D9D4 /* compassRender+CompassComponents.mm */; };
 		9A8CE9CE1A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9C81A952D6F0070D9D4 /* compassRender+CompassComponents.mm */; };
-		9A8CE9D01A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation.mm */; };
-		9A8CE9D11A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation.mm */; };
-		9A8CE9D21A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation.mm */; };
-		9A8CE9D31A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation.mm */; };
-		9A8CE9D41A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation.mm */; };
-		9A8CE9D51A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation.mm */; };
+		9A8CE9D01A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm */; };
+		9A8CE9D11A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm */; };
+		9A8CE9D21A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm */; };
+		9A8CE9D31A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm */; };
+		9A8CE9D41A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm */; };
+		9A8CE9D51A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm */; };
 		9A8CE9DC1A97871F0070D9D4 /* snapshot-participant0.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 9A8CE9D61A97871F0070D9D4 /* snapshot-participant0.snapshot */; };
 		9A8CE9DD1A97871F0070D9D4 /* snapshot-participant0.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 9A8CE9D61A97871F0070D9D4 /* snapshot-participant0.snapshot */; };
 		9A8CE9DE1A97871F0070D9D4 /* snapshot-participant0.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 9A8CE9D61A97871F0070D9D4 /* snapshot-participant0.snapshot */; };
@@ -1431,7 +1431,7 @@
 		9A8934F51A8BAF5900BCE84C /* iOSTestManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSTestManagerViewController.h; sourceTree = "<group>"; };
 		9A8934F61A8BAF5900BCE84C /* iOSTestManagerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSTestManagerViewController.mm; sourceTree = "<group>"; };
 		9A8CE9C81A952D6F0070D9D4 /* compassRender+CompassComponents.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassRender+CompassComponents.mm"; sourceTree = "<group>"; };
-		9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-Triangulation.mm"; sourceTree = "<group>"; };
+		9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-Triangulation+Orientation.mm"; sourceTree = "<group>"; };
 		9A8CE9D61A97871F0070D9D4 /* snapshot-participant0.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "snapshot-participant0.snapshot"; sourceTree = "<group>"; };
 		9A8CE9D71A97871F0070D9D4 /* default.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.snapshot; sourceTree = "<group>"; };
 		9A8CE9D81A97871F0070D9D4 /* empty.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = empty.snapshot; sourceTree = "<group>"; };
@@ -2228,7 +2228,7 @@
 				9AECA767196A0269008ADAEC /* CustomPointAnnotation.mm */,
 				9A037367198AF8A500258E95 /* DemoManager.mm */,
 				9A037368198AF8A500258E95 /* DemoManager.h */,
-				9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation.mm */,
+				9A8CE9CF1A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm */,
 				9A4AA6611A80297E0009F448 /* TestManager-SnapShotGeneration.mm */,
 				9A5F31FF1A768B44003B0426 /* TestManager-Location.mm */,
 				9AAC65DA1A8BA2C000B9BF2E /* TestManager-RunStudy.mm */,
@@ -3150,7 +3150,7 @@
 				9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */,
 				9A037609198DA31900258E95 /* b2CircleContact.cpp in Sources */,
 				9A259D60199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
-				9A8CE9D41A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */,
+				9A8CE9D41A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */,
 				9A75715C197D804100C23AEE /* historyParser.mm in Sources */,
 				9AB90B98194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9AC314301A840E640091BC88 /* iOSViewController+MapView.mm in Sources */,
@@ -3200,7 +3200,7 @@
 				9AFD8F5F197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A0375D4198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A03757A198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
-				9A8CE9D51A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */,
+				9A8CE9D51A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */,
 				9A0375C8198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A0375B0198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A03761C198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
@@ -3432,7 +3432,7 @@
 				9A42A03519A79C3200BB0101 /* DDData.m in Sources */,
 				9A2E42E1196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A03758A198DA31800258E95 /* b2Distance.cpp in Sources */,
-				9A8CE9D31A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */,
+				9A8CE9D31A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */,
 				9A037668198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A06119A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
 				9A9DD73C1A86C145005376AB /* EmulatediOS.mm in Sources */,
@@ -3599,7 +3599,7 @@
 				9A037611198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A037575198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9A75720A197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
-				9A8CE9D01A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */,
+				9A8CE9D01A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */,
 				9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */,
 				9A03763B198DA31900258E95 /* b2GearJoint.cpp in Sources */,
 				9A42A04A19A79C3200BB0101 /* HTTPServer.m in Sources */,
@@ -3727,7 +3727,7 @@
 				9A42A04819A79C3200BB0101 /* HTTPMessage.m in Sources */,
 				9A3DA0A61964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A9701CD19083B10007C3C19 /* OpenGLView.mm in Sources */,
-				9A8CE9D21A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */,
+				9A8CE9D21A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */,
 				9A176DA819A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9AE2FC8619AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
 				9A9DD73B1A86C145005376AB /* EmulatediOS.mm in Sources */,
@@ -3847,7 +3847,7 @@
 				9A0375C4198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A9F53641A79962900E3744B /* CHCSVParser.m in Sources */,
 				9A36618219A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
-				9A8CE9D11A9676A80070D9D4 /* TestManager-Triangulation.mm in Sources */,
+				9A8CE9D11A9676A80070D9D4 /* TestManager-Triangulation+Orientation.mm in Sources */,
 				9AFB14A218EE639A00063632 /* LocationCellView.mm in Sources */,
 				9A0375DC198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9A037612198DA31900258E95 /* b2ContactSolver.cpp in Sources */,

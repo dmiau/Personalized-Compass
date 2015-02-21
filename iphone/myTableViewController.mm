@@ -171,7 +171,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     // Save kml before exiting
-    [self saveKML:nil];
+//    [self saveKML:nil];
     [super viewWillDisappear:animated];
 }
 

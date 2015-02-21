@@ -26,6 +26,9 @@ void TestManager::initTestEnv(TestManagerMode mode){
     [rootViewController enableMapInteraction:NO];
     [rootViewController changeAnnotationDisplayMode:@"None"];
     
+    model->configurations[@"style_type"] = @"REAL_RATIO";
+    
+    
     if (mode == DEVICESTUDY){
         //------------------
         // iOS
@@ -82,6 +85,9 @@ void TestManager::initTestEnv(TestManagerMode mode){
 // Clean up the environment
 //-------------------
 void TestManager::cleanupTestEnv(TestManagerMode mode){
+    rootViewController.renderer->isCrossEnabled = false;
+    rootViewController.renderer->isInteractiveLineEnabled=false;
+    model->configurations[@"style_type"] = @"BIMODAL";
     
     if (mode == DEVICESTUDY){
         // The following lines has no effect on OSX

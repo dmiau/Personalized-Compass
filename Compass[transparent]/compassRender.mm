@@ -65,7 +65,9 @@ int compassRender::initRenderMdl(){
     trainingMode            = false;
     wedgeMode               = false;
     isOverviewMapEnabled    = false;
-
+    isCrossEnabled          = false;
+    isInteractiveLineEnabled=false;
+    interactiveLineRadian   = 0;
     loadParametersFromModelConfiguration();
 #ifndef __IPHONE__
     emulatediOS = EmulatediOS(model);
@@ -280,6 +282,18 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         wedgeMode = false;
         glPopMatrix();
     }
+    
+    //--------------
+    // Draw cross
+    //--------------
+    if (isCrossEnabled)
+        drawCross();
+
+    //--------------
+    // Draw interactive line
+    //--------------
+    if (isInteractiveLineEnabled)
+        drawInteractiveLine();
     
     glDisableClientState(GL_VERTEX_ARRAY);
     

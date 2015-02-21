@@ -3018,6 +3018,9 @@ working on generateRandomTriangulateLocations
 - working on generateRandomTriangulateLocations [10:55AM]
 * scaleCoordinateSpanForDevice, the base needs to use the information stored in snapShot
 * need to perform double divison [10:55AM]
+- different task should have different location list [4:56PM]
+- generate LOCALIZE [5:03PM]
+- orientation task generation [9:37PM]
 
 ***** ToDo
 - map zoom in/out, pan around
@@ -3048,7 +3051,6 @@ Long term:
 
 - iOS dropbox folder support?
 
-***** Working
 Quick fixes:
 - implement and maintain a type counter dictionary, added to the authoring pane, integrate the test code with the counter
 - review the study
@@ -3060,21 +3062,29 @@ High effort:
 Test Generation (making new levels for the game):
 - latin square generation 
 - alternatively, I can implement shuffle
-- generate LOCALIZE and LOCATE+ tests
+- LOCATE+ tests
 
 
 - estimate the distance (in terms of integer multiple)
 - get the ios beta testing work
 
 - issues that need to be fixed:
-
-
 * calculateLatLonFromiOSX: should be test dependent
-* check location generation
+* enhance location generation
 
 - bugs here:
     self.rootViewController.testManager->
             calculateMultipleLocationsDisplayRegion();
 
-different task should have different location list
+***** Working
+- answer logging
+- answer review mode
+
+
+
+
+
+
+
+
 

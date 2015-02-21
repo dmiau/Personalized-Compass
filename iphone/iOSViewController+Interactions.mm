@@ -16,6 +16,7 @@
     UITouch* touch = [touches anyObject];
     CGPoint pos = [touch locationInView:self.mapView];
     NSLog(@"****Touch detected");
+    NSLog(@"CGPoing: %@", NSStringFromCGPoint(pos));
     NSLog(@"Display Coordinates: %@", NSStringFromCGPoint(pos));
     
     // Convert it to the real coordinate
@@ -91,6 +92,20 @@
 }
 
 
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch* touch = [touches anyObject];
+    CGPoint pos = [touch locationInView:self.mapView];
+    //--------------------
+    // Update interactive line
+    //--------------------
+    if (self.renderer->isInteractiveLineEnabled){
+        double x = pos.x - 0.5*self.renderer->view_width;
+        double_t y = 0.5*self.renderer->view_height - pos.y;
+        self.renderer->interactiveLineRadian = atan2(y, x);
+    }
+    [self.glkView setNeedsDisplay];
+}
+
 - (void) doSingleTapFindMe:(UITapGestureRecognizer *)gestureRecognizer
 {
     [self toggleLocationService:1];
@@ -117,6 +132,7 @@
 {
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CGPoint glkTouchPoint = [gestureRecognizer locationInView:self.glkView];
+    
     if ([self.UIConfigurations[@"UICompassTouched"] boolValue]){
         //-------------------------
         // When the compass is pressed,
