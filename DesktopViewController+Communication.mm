@@ -116,6 +116,9 @@
             }
         }
                 
+    }else if ([package_type isEqualToString:@"Message"]){
+        NSString* content = myDictionary[@"Content"];
+        self.testManager->iOSAnswer = [content doubleValue];
     }else{
         throw(runtime_error("Unknown package type."));
     }

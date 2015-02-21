@@ -13,7 +13,7 @@
 - (IBAction)showNextTest:(id)sender {
     if (self.testManager->testManagerMode == OSXSTUDY){
         self.testManager->showNextTest();
-        self.testManager->startTest();
+
         self.testManager->updateUITestMessage();
     }
 }
@@ -21,7 +21,7 @@
 - (IBAction)showPreviousTest:(id)sender {
     if (self.testManager->testManagerMode == OSXSTUDY){
         self.testManager->showPreviousTest();
-        self.testManager->startTest();
+
         self.testManager->updateUITestMessage();        
     }
 }

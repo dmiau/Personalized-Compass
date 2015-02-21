@@ -112,6 +112,17 @@
     }
     
     //-------------------
+    // Update the phone/watch mode status
+    //-------------------
+    if (!self.rootViewController.renderer->watchMode){
+        // Phone mode
+        self.watchModeControl.selectedSegmentIndex = 0;
+    }else{
+        // Watch mode
+        self.watchModeControl.selectedSegmentIndex = 1;
+    }
+    
+    //-------------------
     // Change navigation bar color
     //-------------------
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
@@ -304,4 +315,20 @@
     [self.ipTextField resignFirstResponder];
 }
 
+- (IBAction)toggleWatchMode:(UISegmentedControl*) segmentedControl {
+    switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            //-----------
+            // Normal
+            //-----------
+            [self.rootViewController setupPhoneViewMode];
+            break;
+        case 1:
+            //-----------
+            // Watch Mode
+            //-----------
+            [self.rootViewController setupWatchViewMode];
+            break;
+    }
+}
 @end

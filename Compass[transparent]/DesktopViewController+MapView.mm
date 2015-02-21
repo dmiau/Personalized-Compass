@@ -125,6 +125,17 @@
     return result;
 }
 
+- (CGPoint) calculateOpenGLPointFromMapCoord: (CLLocationCoordinate2D) coord {
+    CGPoint result;
+    
+    CGPoint nsviewPoint =
+    [self.mapView convertCoordinate:coord toPointToView:self.compassView];
+    result.x = nsviewPoint.x - self.renderer->view_width/2;
+    result.y = nsviewPoint.y - self.renderer->view_height/2;
+    return result;
+}
+
+
 //------------------
 // Toggle the blank map mode
 //------------------

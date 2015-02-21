@@ -44,7 +44,7 @@
     self.close_n = [NSNumber numberWithInteger:5];
     self.far_n = [NSNumber numberWithInteger:5];
     
-    self.participant_n = [NSNumber numberWithInteger:100];
+    self.participant_n = [NSNumber numberWithInteger:5];
     self.participant_id = [NSNumber numberWithInteger:0];
     
     // Visualization check box

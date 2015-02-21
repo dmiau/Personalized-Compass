@@ -53,9 +53,20 @@ NSArray* record::genSavableRecord(){
     
     //Optionally for time zone conversions
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"NYC"]];
+
+    //-------------
+    // isAnswerFlag string
+    //-------------
+    NSString* isAnswerString = [NSString stringWithFormat:@"%d", (int)isAnswered];
     
+    //-------------
+    // idString
+    //-------------
     NSString* idString = [NSString stringWithFormat:@"%d", snapshot_id];
-    
+
+    //-------------
+    // startDateString
+    //-------------
     // Generate all the necessary ingredients
     NSString* startDateString;
     if (startDate){
@@ -63,7 +74,10 @@ NSArray* record::genSavableRecord(){
     }else{
         startDateString = @"N/A";
     }
-    
+
+    //-------------
+    // endDateString
+    //-------------
     NSString* endDateString;
     if (endDate){
         endDateString = [formatter stringFromDate:endDate];
@@ -71,28 +85,43 @@ NSArray* record::genSavableRecord(){
         endDateString = @"N/A";
     }
     
-    
-    NSString* elapsedTimeString = [NSString stringWithFormat:@"%f", elapsed_time];
+    //-------------
+    // elapsedTimeString
+    //-------------
+    NSString* elapsedTimeString = [NSString stringWithFormat:@"%g", abs(elapsed_time)];
 
+    //-------------
+    // truthString
+    //-------------
 #ifndef __IPHONE__
-    NSString* truthString = NSStringFromPoint(ground_truth);
-    NSString* answerString = NSStringFromPoint(answer);
+    NSString* truthCGPointString = NSStringFromPoint(cgPointTruth);
+    NSString* answerCGPointString = NSStringFromPoint(cgPointAnswer);
 #else
-    NSString* truthString = NSStringFromCGPoint(ground_truth);
-    NSString* answerString = NSStringFromCGPoint(answer);
+    NSString* truthCGPointString = NSStringFromCGPoint(cgPointTruth);
+    NSString* answerCGPointString = NSStringFromCGPoint(cgPointAnswer);
 #endif
+    NSString* truthDobuleString = [NSString stringWithFormat:@"%f", doubleTruth];
+    NSString* answerDobuleString = [NSString stringWithFormat:@"%f", doubleAnswer];
     
+    //-------------
+    // errors
+    //-------------
     // Calculate the errors
-    CGFloat xDist = (ground_truth.x - answer.x);
-    CGFloat yDist = (ground_truth.y - answer.y);
+    CGFloat xDist = (cgPointTruth.x - cgPointAnswer.x);
+    CGFloat yDist = (cgPointTruth.y - cgPointAnswer.y);
     CGFloat distance = sqrt((xDist * xDist) + (yDist * yDist));
     
-    NSString* errorString = [NSString stringWithFormat:@"%f", distance];
+    NSString* errorCGPointString = [NSString stringWithFormat:@"%f", distance];
+    NSString* errorDobuleString = [NSString stringWithFormat:@"%f",
+                                   abs(doubleTruth - doubleAnswer)];
     
     NSArray* output = @[idString, code,
                         startDateString, endDateString,
-                        elapsedTimeString, truthString, answerString,
-                        errorString];
+                        elapsedTimeString, isAnswerString,
+                        truthCGPointString, answerCGPointString,
+                        errorCGPointString,
+                        truthDobuleString, answerDobuleString,
+                        errorDobuleString];
     return output;
 }
 
@@ -111,12 +140,17 @@ void TestManager::saveRecord(){
     // http://stackoverflow.com/questions/1443793/iterate-keys-in-a-c-map
     
     // Header
-    [w writeLineOfFields: @[@"ID", @"Code", @"StartTime", @"EndTime",
-                            @"ElapsedTime", @"Truth(x,y)", @"Answer(x, y)",
-                            @"Error"]];
+    [w writeLineOfFields: @[@"SnapshotID", @"Code",
+                            @"StartTime", @"EndTime",
+                            @"ElapsedTime", @"isAnswered",
+                            @"Truth(x,y)", @"Answer(x, y)",
+                            @"Error(CGPoint)",
+                            @"Truth(double)", @"Answer(double)",
+                            @"Error(double)"]];
     for (int i = 0; i < record_vector.size(); ++i){
         [w writeLineOfFields: record_vector[i].genSavableRecord()];
     }
     
-    [rootViewController displayPopupMessage: @"Record file saved successfully."];
+    [rootViewController displayPopupMessage:
+     [NSString stringWithFormat:@"%@ has been saved successfully.", record_filename]];
 }

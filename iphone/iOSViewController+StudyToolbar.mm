@@ -42,6 +42,15 @@
     }
     
     //--------------
+    // Add Compass buttons
+    //--------------
+    UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
+                               initWithTitle:@"[Compass]"
+                               style:UIBarButtonItemStyleBordered                                             target:self
+                               action:@selector(toggleWatchPanel:)];
+    [toolbar_items addObject:anItem];
+    
+    //--------------
     // Add a flexible separator
     //--------------
     UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
@@ -52,7 +61,6 @@
     //--------------
     // Add the bookmark button
     //--------------
-    UIBarButtonItem *anItem;
     anItem = [[UIBarButtonItem alloc]
               initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
               target:self

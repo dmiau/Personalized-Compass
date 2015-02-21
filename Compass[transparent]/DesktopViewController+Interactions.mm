@@ -189,23 +189,32 @@
             //------------------
             // When the testManagerMode is in the OSXSTUDY mode
             //------------------
+            // Convert mouseLoc to openGLPoint
+            NSPoint compassViewPoint = [self.compassView convertPoint:[mouseDownEvent locationInWindow] fromView:nil];
+            CGPoint openGLPoint;
+            openGLPoint.x = compassViewPoint.x - self.renderer->view_width/2;
+            openGLPoint.y = compassViewPoint.y - self.renderer->view_height/2;
+            
             int tid = self.testManager->test_counter;
+            double doubleAnswer;
+            snapshot mySnapshot = self.model->snapshot_array[tid];
             
-            // Log the time
-            self.testManager->record_vector[tid].end();
-            
-            //----------------------
-            // answer needs to be relative to the device center
-            // also, answers will be different, depending on the type of test
-            //----------------------
-            
-            
-            
-            
-            // Log the location
-            self.testManager->record_vector[tid].answer = mouseLoc;
-            
-            [self sendMessage:@"NEXT"];
+            if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound){
+                
+                double x, y;
+                x = openGLPoint.x - self.renderer->emulatediOS.centroid_in_opengl.x;
+                x = openGLPoint.y - self.renderer->emulatediOS.centroid_in_opengl.y;
+                
+                // Log the location
+                self.testManager->endTest(openGLPoint, sqrt(x*x + y*y));
+            } else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound){
+                // Log the location
+                self.testManager->endTest(openGLPoint, 0);
+            } else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+                self.testManager->endTest(CGPointMake(0, 0),
+                                          atan2(openGLPoint.y,openGLPoint.x)
+                                          *180/M_PI);
+            }
         }
     }
 }

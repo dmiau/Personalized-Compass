@@ -86,24 +86,32 @@ public:
 class record{
 public:
     int snapshot_id;
+    bool isAnswered;
     NSString* code;
     
     NSDate *startDate;
     NSDate *endDate;
     
-    CGPoint ground_truth;
-    CGPoint answer;
+    CGPoint cgPointTruth;
+    CGPoint cgPointAnswer;
+    double  doubleTruth;
+    double  doubleAnswer;
+    
     
     double location_error;
     double elapsed_time;
 public:
     record(){
         snapshot_id     = 0;
+        isAnswered      = false;
         code            = @"";
         startDate       = nil;
         endDate         = nil;
-        ground_truth    = CGPointMake(0, 0);
-        answer          = CGPointMake(0, 0);
+        cgPointTruth    = CGPointMake(0, 0);
+        cgPointAnswer   = CGPointMake(0, 0);
+        
+        doubleTruth     = 0;
+        doubleAnswer    = 0;
         location_error  = 0;
         elapsed_time    = 0;
     };
@@ -245,7 +253,8 @@ public:
     // Counters
     //---------------
     int test_counter;
-
+    double iOSAnswer;
+    
     // Structure to keep track of the number of each type of test
     map<string, int> task_type_counter;
     int localize_test_support_n;
@@ -287,7 +296,6 @@ public:
     vector<vector<int>> generateRandomOrientLocations
     (double close_boundary, double far_boundary, int location_n);
     
-    
     void saveTestLocationsToKML();
     
     //---------------
@@ -320,9 +328,12 @@ public:
     void showNextTest();
     void showPreviousTest();
     void showTestNumber(int test_id);
-    void startTest();
     void updateUITestMessage();
 
+    // Start and end the test
+    void startTest();
+    void endTest(CGPoint openGLPoint, double doubleAnswer);
+    
     void saveRecord();
     
     //---------------

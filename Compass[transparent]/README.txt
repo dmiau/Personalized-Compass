@@ -3080,6 +3080,69 @@ Test Generation (making new levels for the game):
 - answer logging
 - answer review mode
 
+-------------------------------------------------------------------
+2.21.2015
+-------------------------------------------------------------------
+***** Done
+- added compass rotation in study toolbar
+- answer logging [12:15PM]
+
+***** ToDo
+- map zoom in/out, pan around
+
+- Outline the paper
+- Naming conventions: .locations, .tests, .history, etc. 
+
+- annotation control
+- renderAnnotationsIDs (vector<int> id_list, bool labelFlag)
+
+- circle overlay
+http://stackoverflow.com/questions/9056451/draw-a-circle-of-1000m-radius-around-users-location-in-mkmapview
+
+Medium effort:
+- modify drawOneSide to cut off the legs
+* need to set up the watch mode correctly
+- renderAnnottions has issues
+- ortho+watch do not work
+
+answers differ based on the types of tasks: LOCATE, LOCALIZE, LCOATE+, ORIENT
+answer_id: when displaying annotatoions, if location_id == answer_id, don't show
+TestManager: need an answer conversion (from mouseLoc to the true answer)
+
+Long term:
+- showTestNumber
+* showLocatePlusTest(TestManagerMode mode)
+* showOrientTest(TestManagerMode mode)
+
+- iOS dropbox folder support?
+
+Quick fixes:
+- implement and maintain a type counter dictionary, added to the authoring pane, integrate the test code with the counter
+- review the study
+- lock rotation in the author mode?
+
+- annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
+
+High effort:
+Test Generation (making new levels for the game):
+- latin square generation 
+- alternatively, I can implement shuffle
+- LOCATE+ tests
+
+
+- estimate the distance (in terms of integer multiple)
+- get the ios beta testing work
+
+- issues that need to be fixed:
+* calculateLatLonFromiOSX: should be test dependent
+* enhance location generation
+
+- bugs here:
+    self.rootViewController.testManager->
+            calculateMultipleLocationsDisplayRegion();
+
+***** Working
+- answer review mode
 
 
 

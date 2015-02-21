@@ -49,6 +49,12 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *serverSegmentControl;
 
+//--------------
+// Normal/Watch mode
+//--------------
+@property (weak, nonatomic) IBOutlet UISegmentedControl *watchModeControl;
+- (IBAction)toggleWatchMode:(id)sender;
+
 
 
 @end

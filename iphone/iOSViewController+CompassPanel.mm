@@ -55,6 +55,7 @@
 
 
 - (void)setupWatchViewMode{
+   
     self.UIConfigurations[@"UIRotationLock"] =
     [NSNumber numberWithBool:NO];
     // rotate the screen

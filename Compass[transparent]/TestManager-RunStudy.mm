@@ -79,6 +79,9 @@ void TestManager::initTestEnv(TestManagerMode mode){
         [rootViewController sendMessage:@"OK"];
     }
     showTestNumber(0);
+#ifndef __IPHONE__
+    startTest();
+#endif
 }
 
 //-------------------
@@ -100,6 +103,7 @@ void TestManager::cleanupTestEnv(TestManagerMode mode){
 #ifndef __IPHONE__
         [rootViewController.nextTestButton setEnabled:NO];
         [rootViewController.previousTestButton setEnabled:NO];
+        rootViewController.testManager->saveRecord();
 #endif
     }
     
@@ -210,7 +214,12 @@ void TestManager::showTestNumber(int test_id){
     if (test_id < 0 || test_id >= model->snapshot_array.size() ){
         return;
     }else{
-            test_counter = test_id;
+        // Before jumping into a new test, end the previous (unanswered) test
+        // The timer of the answered test is stopped in the endTest method
+        if (!record_vector[test_counter].isAnswered){
+            record_vector[test_counter].end();
+        }
+        test_counter = test_id;
     }
     if (testManagerMode == DEVICESTUDY){
 //        NSDictionary *myDict = @{@"Type" : @"Instruction",
@@ -239,7 +248,7 @@ void TestManager::showTestNumber(int test_id){
                 CGPoint t_point = [rootViewController.mapView
                                    convertCoordinate:coord
                                    toPointToView:rootViewController.compassView];
-                record_vector[test_id].ground_truth = t_point;
+                record_vector[test_id].cgPointTruth = t_point;
                 break;
             }
         }
@@ -248,11 +257,73 @@ void TestManager::showTestNumber(int test_id){
     
     [rootViewController displaySnapshot:test_counter
                       withStudySettings:testManagerMode];
+#ifndef __IPHONE__
+    startTest();
+#endif
 }
 
 //------------------
 // Start the test
 //------------------
 void TestManager::startTest(){
-    record_vector[test_counter].start();
+    record_vector[test_counter].start(); // start the time
+    snapshot mySnapshot = model->snapshot_array[test_counter];
+
+    int data_id = mySnapshot.selected_ids[0];
+    // Calculat the ground truth based on task type
+    if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound){
+        //-----------------
+        // Locate test
+        //-----------------
+        CGPoint openGLPoint = [rootViewController calculateOpenGLPointFromMapCoord:
+        CLLocationCoordinate2DMake
+        (model->data_array[data_id].latitude, model->data_array[data_id].longitude)];
+        record_vector[test_counter].cgPointTruth = openGLPoint;
+        
+        double dist = sqrt(openGLPoint.x * openGLPoint.x +
+                           openGLPoint.y * openGLPoint.y);
+        record_vector[test_counter].doubleTruth = (double)dist /
+        (double) rootViewController.renderer->emulatediOS.width;
+    }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound){
+        //-----------------
+        // Localize test
+        //-----------------
+        
+        CGPoint openGLPoint = [rootViewController calculateOpenGLPointFromMapCoord:
+                               mySnapshot.coordinateRegion.center];
+        record_vector[test_counter].cgPointTruth = openGLPoint;
+        
+        double x, y;
+        x = openGLPoint.x- rootViewController.renderer->emulatediOS.centroid_in_opengl.x;
+        y = openGLPoint.y- rootViewController.renderer->emulatediOS.centroid_in_opengl.y;
+        double dist = sqrt(x*x + y*y);
+        record_vector[test_counter].doubleTruth = dist;
+    }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+        iOSAnswer = 10000;
+        //-----------------
+        // Orient test
+        //-----------------
+        CGPoint openGLPoint = [rootViewController calculateOpenGLPointFromMapCoord:
+                               CLLocationCoordinate2DMake
+                               (model->data_array[data_id].latitude, model->data_array[data_id].longitude)];
+        record_vector[test_counter].cgPointTruth = openGLPoint;
+        
+        record_vector[test_counter].doubleTruth =
+        atan2(openGLPoint.y, openGLPoint.x) /M_PI * 180;
+    }
+}
+
+//------------------
+// End the test
+//------------------
+void TestManager::endTest(CGPoint openGLPoint, double doubleAnswer){
+
+    record_vector[test_counter].end(); // Log the time
+    record_vector[test_counter].isAnswered = true;
+    snapshot mySnapshot = model->snapshot_array[test_counter];
+   
+    // Log the location
+    record_vector[test_counter].cgPointAnswer = openGLPoint;
+    record_vector[test_counter].doubleAnswer  = doubleAnswer;
+    [rootViewController sendMessage:@"NEXT"];
 }

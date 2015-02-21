@@ -134,6 +134,7 @@ typedef struct{
 -(void)enableMapInteraction:(bool)state;
 - (MKCoordinateSpan) scaleCoordinateSpanForSnapshot: (snapshot)mySnapshot;
 - (MKCoordinateSpan) calculateCoordinateSpanForDevice: (DeviceType)deviceType;
+- (CGPoint) calculateOpenGLPointFromMapCoord: (CLLocationCoordinate2D) coord;
 //----------------
 //Snapshot category
 //----------------

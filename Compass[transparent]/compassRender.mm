@@ -270,6 +270,19 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     glEnableClientState(GL_VERTEX_ARRAY);
     
     //--------------
+    // Draw cross
+    //--------------
+    if (isCrossEnabled){
+        drawCross();
+    }
+    //--------------
+    // Draw interactive line
+    //--------------
+    if (isInteractiveLineEnabled)
+        drawInteractiveLine();
+    
+    
+    //--------------
     // Draw wedge
     //--------------
     NSString* wedge_status = model->configurations[@"wedge_status"];
@@ -279,21 +292,10 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         hashStyleStr(@"WEDGE");
         glPushMatrix();
         drawWayfindingAid(renderParamStruct);
+                
         wedgeMode = false;
         glPopMatrix();
     }
-    
-    //--------------
-    // Draw cross
-    //--------------
-    if (isCrossEnabled)
-        drawCross();
-
-    //--------------
-    // Draw interactive line
-    //--------------
-    if (isInteractiveLineEnabled)
-        drawInteractiveLine();
     
     glDisableClientState(GL_VERTEX_ARRAY);
     

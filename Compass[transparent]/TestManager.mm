@@ -108,6 +108,7 @@ int TestManager::initTestManager(){
     device_vector.clear();
     test_counter = 0;
     testManagerMode = OFF;
+    iOSAnswer = 10000;
     
     vector<VisualizationType> visualization_enums
     = {VIZNONE, VIZPCOMPASS, VIZWEDGE, VIZOVERVIEW};
