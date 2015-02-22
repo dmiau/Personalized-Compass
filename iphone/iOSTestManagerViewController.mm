@@ -45,6 +45,7 @@
     if (self.model->filesys_type == IOS_DOC){
         dirFiles = [self.model->docFilesystem listFiles];
     }else{
+        self.model->dbFilesystem.folder_name = @"study";
         dirFiles = [self.model->dbFilesystem listFiles];
     }
     
@@ -79,7 +80,13 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-
+    //------------------
+    // Path control
+    //------------------
+    if (self.rootViewController.testManager->testManagerMode == OFF)
+        self.model->dbFilesystem.folder_name = @"";
+    else
+        self.model->dbFilesystem.folder_name = @"study";
 }
 
 

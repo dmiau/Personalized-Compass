@@ -30,12 +30,10 @@
 @property NSNumber* far_end_x;
 @property NSNumber* far_n; // # of locations in the far category
 @property NSNumber* participant_n; // # of users
-@property NSNumber* participant_id;
 
 // Visualization check box
 @property NSNumber* viz_pcompass;
 @property NSNumber* viz_wedge;
-@property NSNumber* viz_overview;
 
 // Display check box
 @property NSNumber* disp_phone;

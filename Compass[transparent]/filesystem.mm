@@ -19,7 +19,8 @@
 //----------------
 - (id) init{
     self = [super init];
-    self.supported_filetypes = @[@"'.kml'", @"'.json'"];
+    self.supported_filetypes = @[@"'.kml'", @"'.json'",
+                                 @"'.snapshot'"];
     
     //---------------
     // initialize parameters
@@ -30,6 +31,7 @@
     self.bundle_path = [[NSBundle mainBundle] resourcePath];
     self.document_path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     self.isReady = YES;
+    self.folder_name = @"";
     return self;
 }
 
@@ -128,6 +130,17 @@
     return self;
 }
 
+//---------------
+// Compute Dropbox path
+//---------------
+- (DBPath*) computeDBPath{
+    DBPath* outpath;
+    if ([self.folder_name length]==0)
+        outpath = [DBPath root];
+    else
+        outpath = [[DBPath alloc] initWithString:self.folder_name];
+    return outpath;
+}
 
 - (void) linkDropbox: (UIVideoEditorController*) controller{
     /*
@@ -181,7 +194,8 @@
              * Read contents of Dropbox app folder
              */
             DBError *error = nil;
-            NSArray *contents = [self.db_filesystem listFolder:[DBPath root] error:&error];
+            NSArray *contents = [self.db_filesystem listFolder:[self computeDBPath]
+                                                         error:&error];
 
             
             if (!contents){
@@ -215,7 +229,7 @@
             fileStatus = [[NSFileManager defaultManager] fileExistsAtPath:path];
             break;
         case DROPBOX:
-            DBPath *path = [[DBPath root] childPath:filename];
+            DBPath *path = [[self computeDBPath] childPath:filename];
             DBError *error = nil;
             DBFileInfo *info = [self.db_filesystem fileInfoForPath:path error:&error];
             if (!info)
@@ -264,7 +278,7 @@
 - (NSData*) readDropboxFileFromName: (NSString*) filename{
     
     DBError *error = nil;
-    DBPath *path = [[DBPath root] childPath:filename];
+    DBPath *path = [[self computeDBPath] childPath:filename];
     
     DBFileInfo *info = [self.db_filesystem fileInfoForPath:path error:&error];
     if (!info){
@@ -313,7 +327,7 @@
     {
         // Dropbox case
         DBError *error = nil;
-        DBPath *path = [[DBPath root] childPath:filename];
+        DBPath *path = [[self computeDBPath] childPath:filename];
 
         DBFileInfo *info = [self.db_filesystem fileInfoForPath:path error:&error];
 
@@ -358,8 +372,8 @@
     if (self.filesys_type == DROPBOX)
     {
         DBError *error = nil;
-        DBPath *old_path = [[DBPath root] childPath:old_name];
-        DBPath *new_path = [[DBPath root] childPath:new_name];
+        DBPath *old_path = [[self computeDBPath] childPath:old_name];
+        DBPath *new_path = [[self computeDBPath] childPath:new_name];
         rename_status = [self.db_filesystem movePath:old_path toPath:new_path error:&error];
     }
     
@@ -381,7 +395,7 @@
     if (self.filesys_type == DROPBOX)
     {
         DBError *error = nil;
-        DBPath *db_path = [[DBPath root] childPath:old_name];
+        DBPath *db_path = [[self computeDBPath] childPath:old_name];
         delete_status = [self.db_filesystem deletePath:db_path error:&error];
     }
     return delete_status;

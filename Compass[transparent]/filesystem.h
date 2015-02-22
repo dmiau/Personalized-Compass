@@ -23,6 +23,7 @@ typedef enum{
 @property DBFilesystem* db_filesystem;
 @property NSMutableString* error_str;
 @property bool isReady;
+@property NSString* folder_name; // Dropbox only at the moment
 
 //--------------
 // Methods
@@ -45,4 +46,5 @@ typedef enum{
 - (BOOL) fileExists: (NSString*) filename;
 
 - (void) copyBundleConfigurations;
+- (DBPath*) computeDBPath;
 @end

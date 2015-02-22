@@ -193,6 +193,20 @@
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
         }
+        
+        //--------------------
+        // Check device setup
+        //--------------------
+        if (mySnapshot.deviceType == WATCH){
+            if (!self.renderer->watchMode){
+                [self displayPopupMessage:@"Please change to the watch mode."];
+            }
+        }else{
+            if (self.renderer->watchMode){
+                [self displayPopupMessage:@"Please change to the phone mode."];
+            }
+        }
+        
     }else if (mode == OSXSTUDY){
         //--------------------
         // Desktop (OSX)
@@ -207,7 +221,7 @@
         {
             [self showLocalizeCollectMode:mySnapshot];
         }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
-            
+            [self showOrientCollectMode:mySnapshot];
         }
     }else if (mode == OFF){
         //--------------------
@@ -330,7 +344,15 @@
 // Set up the environment to collect the answer for the orient test
 //----------------------
 - (void)showOrientCollectMode: (snapshot) mySnapshot{
-
+#ifndef __IPHONE__
+    [self setupVisualization:VIZNONE];
+    self.renderer->emulatediOS.is_enabled = FALSE;
+    self.renderer->emulatediOS.is_mask_enabled = FALSE;
+    
+    // Need to display the region correctly
+    [self changeAnnotationDisplayMode:@"None"];
+    [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
+#endif
 }
 
 //----------------------
@@ -354,7 +376,13 @@
             
             // Turn off the wedge
             self.model->configurations[@"wedge_status"] = @"on";
-            self.model->configurations[@"wedge_style"] = @"modified-orthographic";
+            
+            
+            if (!self.renderer->watchMode){
+                self.model->configurations[@"wedge_style"] = @"modified-orthographic";
+            }else{
+                self.model->configurations[@"wedge_style"] = @"modified-perspective";
+            }
             break;
         case VIZOVERVIEW:
             // Do nothing

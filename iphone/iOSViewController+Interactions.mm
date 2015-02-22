@@ -102,6 +102,14 @@
         double x = pos.x - 0.5*self.renderer->view_width;
         double_t y = 0.5*self.renderer->view_height - pos.y;
         self.renderer->interactiveLineRadian = atan2(y, x);
+        
+        // The following lines has no effect on OSX
+        // sendPackage is only functional when called on iOS
+        NSDictionary *myDict = @{@"Type" : @"Message",
+                                 @"Content" : [NSString stringWithFormat:@"%g",
+                                               atan2(y, x) * 180/M_PI]
+                                 };
+        [self sendPackage: myDict];
     }
     [self.glkView setNeedsDisplay];
 }

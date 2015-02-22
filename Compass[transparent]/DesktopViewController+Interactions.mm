@@ -196,17 +196,12 @@
             openGLPoint.y = compassViewPoint.y - self.renderer->view_height/2;
             
             int tid = self.testManager->test_counter;
-            double doubleAnswer;
             snapshot mySnapshot = self.model->snapshot_array[tid];
             
             if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound){
                 
-                double x, y;
-                x = openGLPoint.x - self.renderer->emulatediOS.centroid_in_opengl.x;
-                x = openGLPoint.y - self.renderer->emulatediOS.centroid_in_opengl.y;
-                
                 // Log the location
-                self.testManager->endTest(openGLPoint, sqrt(x*x + y*y));
+                self.testManager->endTest(openGLPoint, 0);
             } else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound){
                 // Log the location
                 self.testManager->endTest(openGLPoint, 0);

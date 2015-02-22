@@ -185,15 +185,10 @@ public:
     //-----------------
     TestManagerMode testManagerMode;
     
-    // Test generation parameters
-    // These parameters specify where the generated tests should go
-    NSString *test_foldername;          //e.g., study0
-    NSString *test_kml_filename;        //e.g., t_locations.kml
-    NSString *test_location_filename;   //e.g., temp.locations
-    NSString *alltest_vector_filename;     //e.g., allTestVectors.tests
-    NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
-    NSString *record_filename;
     
+    //-----------------
+    // Connection to other components
+    //-----------------
     // Connections to other modules
     compassMdl *model;
     
@@ -204,16 +199,27 @@ public:
 #else
     DesktopViewController *rootViewController;
 #endif
+    
+    //**********************
+    // Test Generation Related Parameters
+    //**********************
+    
+    // Test generation parameters
+    // These parameters specify where the generated tests should go
+    NSString *test_foldername;          //e.g., study0
+    NSString *test_kml_filename;        //e.g., t_locations.kml
+    NSString *test_location_filename;   //e.g., temp.locations
+    NSString *alltest_vector_filename;     //e.g., allTestVectors.tests
+    NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
+    NSString *record_filename;
+    
+
     vector<param> visualization_vector;
     vector<param> device_vector;
     
     vector<param> enabled_visualization_vector;
     vector<param> enabled_device_vector;
     
-    // Number of users
-    int participant_n;
-    int participant_id;
-
     //---------------
     // map and vector
     //---------------
@@ -248,25 +254,44 @@ public:
     float far_end_x;
     int close_n;    // # of locations in the close category
     int far_n;      // # of locations in the far category
-    
-    //---------------
-    // Counters
-    //---------------
-    int test_counter;
-    double iOSAnswer;
-    
+
     // Structure to keep track of the number of each type of test
     map<string, int> task_type_counter;
-    int localize_test_support_n;
+    
     //---------------
     // Random number generation
     //---------------
     int seed;
     std::mt19937  generator;
     
+    
+    //**********************
+    // User Study Related Parameters
+    //**********************
+    
+    // Number of users
+    int participant_n;
+    int participant_id;
+
+    //---------------
+    // Counters
+    //---------------
+    int test_counter;
+    double iOSAnswer;
+    
+
+    int localize_test_support_n; //TODO: should try to get rid of this
 public:
+    //----------------
+    // Methods
+    //----------------
+    
     static TestManager* shareTestManager();
     int initTestManager();
+    
+    //**********************
+    // Test Generation Related Methods
+    //**********************
     
     // Initialize watch_boundaries and phone_boundaries
     void initializeDeviceBoundaries();
@@ -317,24 +342,6 @@ public:
     // Prepare test directory
     void setupOutputFolder();
     
-    //---------------
-    // Test flow control
-    //---------------
-    void toggleStudyMode(bool state);
-    void initTestEnv(TestManagerMode mode);
-    void cleanupTestEnv(TestManagerMode mode);
-    
-    void resetTestManager();
-    void showNextTest();
-    void showPreviousTest();
-    void showTestNumber(int test_id);
-    void updateUITestMessage();
-
-    // Start and end the test
-    void startTest();
-    void endTest(CGPoint openGLPoint, double doubleAnswer);
-    
-    void saveRecord();
     
     //---------------
     // Manual test authoring
@@ -347,6 +354,28 @@ public:
     (vector<data> &data_array, int dataID1, int dataID2);
     vector<int> findTwoFurthestLocationIDs(vector<data> &data_array,
                                            vector<int> location_ids);
+    
+    //**********************
+    // Study Related Methods
+    //**********************
+    void toggleStudyMode(bool state);
+    
+    void initTestEnv(TestManagerMode mode);
+    void cleanupTestEnv(TestManagerMode mode);
+    
+    void resetTestManager();
+    
+    void showNextTest(); // Show the next test
+    void showPreviousTest();
+    void showTestNumber(int test_id);
+    void updateUITestMessage(); // Update the message on the interface
+
+    // Start and end the test
+    void startTest();
+    void endTest(CGPoint openGLPoint, double doubleAnswer);
+    
+    void saveRecord(); // Save test record to a file
+    
 };
 
 #endif /* defined(__Compass_transparent___TestManager__) */

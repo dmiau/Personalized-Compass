@@ -25,16 +25,33 @@ void TestManager::initTestEnv(TestManagerMode mode){
     // Need to turn off map interactions in the study mode
     [rootViewController enableMapInteraction:NO];
     [rootViewController changeAnnotationDisplayMode:@"None"];
+
     
+    //----------------------------
+    // Visualization Parameters
+    //----------------------------
     model->configurations[@"style_type"] = @"REAL_RATIO";
     
-    
+    //----------------------------
+    // Create one record for each snapshot
+    //----------------------------
+    record_vector.clear();
+    for (int i = 0; i < model->snapshot_array.size(); ++i){
+        record t_record;
+        
+        // Need to initialize id and code
+        t_record.snapshot_id = i;
+        t_record.code = model->snapshot_array[i].name;
+        record_vector.push_back(t_record);
+    }
+
+    //----------------------------
+    // Device Specific Settings
+    //----------------------------
     if (mode == DEVICESTUDY){
         //------------------
         // iOS
         //------------------
-        testManagerMode = DEVICESTUDY;
-        
         rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
         [NSNumber numberWithBool:NO];
         
@@ -48,9 +65,7 @@ void TestManager::initTestEnv(TestManagerMode mode){
     }else if (mode == OSXSTUDY){
         //------------------
         // Desktop
-        //------------------
-        testManagerMode = OSXSTUDY;
-        
+        //------------------       
         rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
         [NSNumber numberWithBool:YES];
         [rootViewController toggleBlankMapMode:YES];
@@ -60,16 +75,6 @@ void TestManager::initTestEnv(TestManagerMode mode){
         [rootViewController.nextTestButton setEnabled:YES];
         [rootViewController.previousTestButton setEnabled:YES];
 #endif
-        // Create one record for each snapshot
-        record_vector.clear();
-        for (int i = 0; i < model->snapshot_array.size(); ++i){
-            record t_record;
-            
-            // Need to initialize id and code
-            t_record.snapshot_id = i;
-            t_record.code = model->snapshot_array[i].name;
-            record_vector.push_back(t_record);
-        }
         
         // Disable all visualizations
         model->configurations[@"personalized_compass_status"] = @"off";
@@ -267,6 +272,9 @@ void TestManager::showTestNumber(int test_id){
 //------------------
 void TestManager::startTest(){
     record_vector[test_counter].start(); // start the time
+    
+    
+#ifndef __IPHONE__
     snapshot mySnapshot = model->snapshot_array[test_counter];
 
     int data_id = mySnapshot.selected_ids[0];
@@ -280,8 +288,11 @@ void TestManager::startTest(){
         (model->data_array[data_id].latitude, model->data_array[data_id].longitude)];
         record_vector[test_counter].cgPointTruth = openGLPoint;
         
-        double dist = sqrt(openGLPoint.x * openGLPoint.x +
-                           openGLPoint.y * openGLPoint.y);
+        double x, y;
+        x = openGLPoint.x - rootViewController.renderer->emulatediOS.centroid_in_opengl.x;
+        y = openGLPoint.y - rootViewController.renderer->emulatediOS.centroid_in_opengl.y;
+        
+        double dist = sqrt(x * x + y * y);
         record_vector[test_counter].doubleTruth = (double)dist /
         (double) rootViewController.renderer->emulatediOS.width;
     }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound){
@@ -311,6 +322,7 @@ void TestManager::startTest(){
         record_vector[test_counter].doubleTruth =
         atan2(openGLPoint.y, openGLPoint.x) /M_PI * 180;
     }
+#endif
 }
 
 //------------------

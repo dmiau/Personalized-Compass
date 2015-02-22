@@ -119,6 +119,12 @@
     }else if ([package_type isEqualToString:@"Message"]){
         NSString* content = myDictionary[@"Content"];
         self.testManager->iOSAnswer = [content doubleValue];
+        
+        if (self.testManager->testManagerMode == OSXSTUDY){
+            self.testManager->endTest(CGPointMake(0, 0), [content doubleValue]);
+        }
+        
+        NSLog(@"Received angle: %g", [content doubleValue]);
     }else{
         throw(runtime_error("Unknown package type."));
     }

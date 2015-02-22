@@ -45,12 +45,10 @@
     self.far_n = [NSNumber numberWithInteger:5];
     
     self.participant_n = [NSNumber numberWithInteger:5];
-    self.participant_id = [NSNumber numberWithInteger:0];
     
     // Visualization check box
     self.viz_pcompass = [NSNumber numberWithBool:YES];
     self.viz_wedge = [NSNumber numberWithBool:YES];
-    self.viz_overview = [NSNumber numberWithBool:YES];
     
     // Display check box
     self.disp_phone = [NSNumber numberWithBool:YES];
@@ -61,7 +59,6 @@
     self.task_triangulate = [NSNumber numberWithBool:YES];
     self.task_orient = [NSNumber numberWithBool:YES];
     self.task_closest = [NSNumber numberWithBool:YES];
-    
 }
 
 //--------------------------
@@ -95,9 +92,6 @@
     
     self.rootViewController.testManager->participant_n =
     [self.participant_n intValue];
-    
-    self.rootViewController.testManager->participant_id =
-    [self.participant_id intValue];
     
     // Generate tests
     self.rootViewController.testManager->generateTests();

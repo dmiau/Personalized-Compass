@@ -32,15 +32,24 @@
     //--------------
     // Add buttons
     //--------------
-    
-    for (int i = 0; i < [title_list count]; ++i){
-        UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
-                                   initWithTitle:title_list[i]
-                                   style:UIBarButtonItemStyleBordered                                             target:self
-                                   action:@selector(runStudyAction:)];
-        [toolbar_items addObject:anItem];
+    if (![self.socket_status boolValue]){
+        for (int i = 0; i < [title_list count]; ++i){
+            UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
+                                       initWithTitle:title_list[i]
+                                       style:UIBarButtonItemStyleBordered                                             target:self
+                                       action:@selector(runStudyAction:)];
+            [toolbar_items addObject:anItem];
+        }
     }
-    
+
+    //--------------
+    // Add a flexible separator
+    //--------------
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                 target:nil action:nil];
+    [toolbar_items addObject:flexItem];
+
     //--------------
     // Add Compass buttons
     //--------------
@@ -49,14 +58,6 @@
                                style:UIBarButtonItemStyleBordered                                             target:self
                                action:@selector(toggleWatchPanel:)];
     [toolbar_items addObject:anItem];
-    
-    //--------------
-    // Add a flexible separator
-    //--------------
-    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                 target:nil action:nil];
-    [toolbar_items addObject:flexItem];
     
     //--------------
     // Add the bookmark button
