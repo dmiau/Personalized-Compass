@@ -59,6 +59,17 @@
     self.task_triangulate = [NSNumber numberWithBool:YES];
     self.task_orient = [NSNumber numberWithBool:YES];
     self.task_closest = [NSNumber numberWithBool:YES];
+    
+    // File names
+    // Initialize default output filenames
+    self.test_foldername     = self.rootViewController.testManager->test_foldername;
+    self.test_kml_filename   =self.rootViewController.testManager->test_kml_filename;
+    self.test_location_filename  = self.rootViewController.testManager->test_location_filename;
+    self.alltest_vector_filename = self.rootViewController.testManager->alltest_vector_filename;
+    self.test_snapshot_prefix = self.rootViewController.testManager->test_snapshot_prefix;
+    self.record_filename = self.rootViewController.testManager->record_filename;
+    
+    self.custom_test_vectorname = @"practice";
 }
 
 //--------------------------
@@ -93,8 +104,26 @@
     self.rootViewController.testManager->participant_n =
     [self.participant_n intValue];
     
+    [self assignNamesToTestManager];
+    
     // Generate tests
     self.rootViewController.testManager->generateTests();
+}
+
+- (IBAction)generateTestFromCustomVector:(id)sender {
+    [self assignNamesToTestManager];
+    self.rootViewController.testManager->
+    generateCustomSnapshotFromVectorName(self.custom_test_vectorname);
+}
+
+- (void) assignNamesToTestManager{
+    // Assign the names
+    self.rootViewController.testManager->test_foldername = self.test_foldername;
+    self.rootViewController.testManager->test_kml_filename = self.test_kml_filename;
+    self.rootViewController.testManager->test_location_filename = self.test_location_filename;
+    self.rootViewController.testManager->alltest_vector_filename = self.alltest_vector_filename;
+    self.rootViewController.testManager->test_snapshot_prefix = self.test_snapshot_prefix;
+    self.rootViewController.testManager->record_filename = self.record_filename;
 }
 
 //--------------------------

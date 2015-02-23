@@ -337,7 +337,9 @@ public:
     
     // I will need a snapshot generator too
     void generateSnapShots();
+    vector<snapshot> generateSnapShotsFromTestvector(vector<string> test_vector);
     void saveSnapShotsToKML();
+    void generateCustomSnapshotFromVectorName(NSString* custom_vector_filename);
     
     // Prepare test directory
     void setupOutputFolder();

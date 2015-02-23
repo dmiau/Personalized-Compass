@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 #import "TestManager.h"
+#import "CHCSVParser.h"
+#import "xmlParser.h"
 
 // rootViewController header files
 #ifdef __IPHONE__
@@ -16,6 +18,39 @@
 #import "DesktopViewController.h"
 #endif
 
+@interface Delegate : NSObject <CHCSVParserDelegate>
+
+@property (readonly) NSArray *lines;
+
+@end
+
+@implementation Delegate {
+    NSMutableArray *_lines;
+    NSMutableArray *_currentLine;
+}
+- (void)parserDidBeginDocument:(CHCSVParser *)parser {
+    _lines = [[NSMutableArray alloc] init];
+}
+- (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber {
+    _currentLine = [[NSMutableArray alloc] init];
+}
+- (void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex {
+    NSLog(@"%@", field);
+    [_currentLine addObject:field];
+}
+- (void)parser:(CHCSVParser *)parser didEndLine:(NSUInteger)recordNumber {
+    [_lines addObject:_currentLine];
+    _currentLine = nil;
+}
+- (void)parserDidEndDocument:(CHCSVParser *)parser {
+    //	NSLog(@"parser ended: %@", csvFile);
+}
+- (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error {
+    NSLog(@"ERROR: %@", error);
+    _lines = nil;
+}
+@end
+
 //-------------------
 // Generate snapshot arrays
 //-------------------
@@ -23,11 +58,16 @@ void TestManager::generateSnapShots(){
     
     // Reset all_snapshot_vectors first
     all_snapshot_vectors.clear();
-    
-    for (int ui = 0; ui < all_test_vectors.size(); ++ui){
-        // Start with the first user
-        vector<string> test_vector = all_test_vectors[ui];
-        
+        for (int ui = 0; ui < all_test_vectors.size(); ++ui){
+            vector<string> test_vector = all_test_vectors[ui];
+            vector<snapshot> t_snapshot_array =
+            generateSnapShotsFromTestvector(test_vector);
+            all_snapshot_vectors.push_back(t_snapshot_array);
+        }
+}
+
+vector<snapshot> TestManager::generateSnapShotsFromTestvector(vector<string> test_vector)
+{
         vector<snapshot> t_snapshot_array;
         
         //-------------
@@ -56,7 +96,7 @@ void TestManager::generateSnapShots(){
                 //----------------
                 coordinateRegion.span =
                 [rootViewController calculateCoordinateSpanForDevice:SQUAREWATCH];
-            }        
+            }
 #else
             coordinateRegion.span =
             rootViewController.mapView.region.span;
@@ -107,9 +147,9 @@ void TestManager::generateSnapShots(){
                     (t_data_array, answer[0], answer[1]);
                 }else{
                     throw(runtime_error("More than 3 locations are selected for a localize test."));
-                    return;
+                    return t_snapshot_array;
                 }
-
+                
                 t_snapshot.osx_coordinateRegion = osx_coordinateRegion;
             }
             
@@ -131,7 +171,7 @@ void TestManager::generateSnapShots(){
             }else{
                 t_snapshot.deviceType = PHONE;
             }
-    
+            
             t_snapshot.name = [NSString stringWithUTF8String: test_code.c_str()];
             t_snapshot.coordinateRegion = coordinateRegion;
             t_snapshot.selected_ids = selected_ids;
@@ -140,7 +180,72 @@ void TestManager::generateSnapShots(){
             t_snapshot.orientation = 0;
             t_snapshot_array.push_back(t_snapshot);
         }
-        all_snapshot_vectors.push_back(t_snapshot_array);
+    return t_snapshot_array;
+}
+
+//-------------------
+// Generate custom snapshot from custom test vector
+//-------------------
+void TestManager::generateCustomSnapshotFromVectorName(NSString* custom_vector_filename){
+    //TODO: this piece is ugly and needs clean up
+    
+    
+    // Reset all_snapshot_vectors first
+    all_snapshot_vectors.clear();
+
+    NSString *folder_path = [model->desktopDropboxDataRoot
+                             stringByAppendingString:test_foldername];
+    
+    // Load data
+    rootViewController.model->desktopDropboxDataRoot = folder_path;
+    readLocationKml(rootViewController.model, test_kml_filename);
+    t_data_array = rootViewController.model->data_array;
+    
+    NSString *doc_path = [folder_path
+                          stringByAppendingPathComponent:custom_vector_filename];
+    NSStringEncoding encoding = 0;
+    NSInputStream *stream = [NSInputStream inputStreamWithFileAtPath:doc_path];
+    CHCSVParser * p = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:&encoding delimiter:','];
+    [p setRecognizesBackslashesAsEscapes:YES];
+    [p setSanitizesFields:YES];
+    [p setRecognizesComments:YES];
+    
+    Delegate * d = [[Delegate alloc] init];
+    [p setDelegate:d];
+    [p parse];
+    vector<string> test_vector;
+    
+    // fill the test_vector
+    for (NSString* item in [d lines][0]){
+        test_vector.push_back(string([item UTF8String]));
+    }
+    
+    vector<snapshot> t_snapshot_array =
+    generateSnapShotsFromTestvector(test_vector);
+
+
+    // Make sure the output folder exists
+    setupOutputFolder();
+    
+    //-------------------
+    // Process one participant per iteration
+    //-------------------
+    NSString *snapshot_filename =
+    [NSString stringWithFormat:@"%@.snapshot", custom_vector_filename];
+    
+    NSString *content = genSnapshotString(t_snapshot_array);
+    
+
+    
+    NSError* error;
+    doc_path = [folder_path
+                          stringByAppendingPathComponent:snapshot_filename];
+    
+    if (![content writeToFile:doc_path
+                   atomically:YES encoding: NSASCIIStringEncoding
+                        error:&error])
+    {
+        throw(runtime_error("Failed to write snapshot kml file"));
     }
 }
 

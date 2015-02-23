@@ -139,12 +139,7 @@ int TestManager::initTestManager(){
     //----------------
     TaskSpec tTaskSpec(TRIANGULATE);
     localize_test_support_n = tTaskSpec.support_n;
-    
-    // Initialize random number generation
-    seed = 12345;
-    std::mt19937 temp(seed);
-    generator = temp;
-    
+    // File names
     // Initialize default output filenames
     test_foldername     = @"study0";
     test_kml_filename   = @"studyLocations.kml";
@@ -152,7 +147,12 @@ int TestManager::initTestManager(){
     alltest_vector_filename = @"allTestVectors.tests";
     test_snapshot_prefix = @"snapshot-participant";
     record_filename = @"study0.record";
+
     
+    // Initialize random number generation
+    seed = 12345;
+    std::mt19937 temp(seed);
+    generator = temp;
     return 0;
 }
 

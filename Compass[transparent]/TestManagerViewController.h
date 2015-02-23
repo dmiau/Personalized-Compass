@@ -20,7 +20,7 @@
 //-------------
 // Test Manager
 //-------------
-- (IBAction)generateTests:(id)sender;
+
 
 // Properties for parameter binding
 @property NSNumber* close_begin_x;
@@ -45,12 +45,26 @@
 @property NSNumber* task_orient;
 @property NSNumber* task_closest;
 
+// File names
+// Test generation parameters
+// These parameters specify where the generated tests should go
+@property NSString *test_foldername;          //e.g., study0
+@property NSString *test_kml_filename;        //e.g., t_locations.kml
+@property NSString *test_location_filename;   //e.g., temp.locations
+@property NSString *alltest_vector_filename;     //e.g., allTestVectors.tests
+@property NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
+@property NSString *record_filename;
+@property NSString *custom_test_vectorname;
+
 //-------------
 // Manual test creation
 //-------------
 
 // Temporary structures
 
+
+- (IBAction)generateTests:(id)sender;
+- (IBAction)generateTestFromCustomVector:(id)sender;
 
 // Actions
 - (IBAction)resetManualTestCreation:(id)sender;

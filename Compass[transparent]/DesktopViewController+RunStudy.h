@@ -11,5 +11,6 @@
 @interface DesktopViewController (RunStudy)
 - (IBAction)showNextTest:(id)sender;
 - (IBAction)showPreviousTest:(id)sender;
+- (IBAction)toggleAnswer:(id)sender;
 
 @end

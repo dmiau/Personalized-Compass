@@ -38,6 +38,9 @@
         {
             if (myData.isEnabled){
                 [self.mapView addAnnotation: myData.annotation];
+                
+                // visible will be controlled by the changeAnnotation method
+                [[self.mapView viewForAnnotation:myData.annotation] setHidden:YES];
             }
         }
     }

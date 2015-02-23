@@ -60,11 +60,11 @@
     switch (sender.selectedSegment) {
         case 0:
             // Study mode is switched OFF
-            self.rootViewController.testManager->cleanupTestEnv(OSXSTUDY);
+            self.rootViewController.testManager->toggleStudyMode(NO);
             break;
         case 1:
             // Study mode is switched ON            
-            self.rootViewController.testManager->initTestEnv(OSXSTUDY);
+            self.rootViewController.testManager->toggleStudyMode(YES);
             break;
         case 2:
             // Do nothing at the moment
@@ -73,6 +73,7 @@
             break;
     }
 }
+
 
 //-----------------
 // Save the study record

@@ -3149,6 +3149,8 @@ Test Generation (making new levels for the game):
 ***** Done
 - alternatively, shuffle implemented
 - iOS dropbox folder support [2:48PM]
+- generate cases for the test runs [6:28PM]
+- Show Answer button [7:59PM]
 
 ***** ToDo
 - map zoom in/out, pan around
@@ -3186,7 +3188,7 @@ Quick fixes:
             calculateMultipleLocationsDisplayRegion();
 
 - answer the estimate of the distance (in terms of integer multiple)
-- generate cases for the test runs
+
 - disable labels in the testing mode, add north indicator in the testing mode
 - answer review mode, review test statistics 
 - add user map interaction control
@@ -3202,9 +3204,8 @@ Test Generation (making new levels for the game):
 - disable address lookup
 - test flow control
 - cleanupTestEnv saved the record (sometimes I don't want this to happen)
+- as fast as possible, and there is a time limit
+- phone <-> watch transition, and I need to verify the study in watch mode
 
 - check the quality of the data
-
-
-
 
