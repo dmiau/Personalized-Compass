@@ -210,6 +210,7 @@ public:
     NSString *test_kml_filename;        //e.g., t_locations.kml
     NSString *test_location_filename;   //e.g., temp.locations
     NSString *alltest_vector_filename;     //e.g., allTestVectors.tests
+    NSString *practice_filename;
     NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
     NSString *record_filename;
     
@@ -279,8 +280,10 @@ public:
     int test_counter;
     double iOSAnswer;
     
-
     int localize_test_support_n; //TODO: should try to get rid of this
+    
+    BOOL isRecordAutoSaved;
+    
 public:
     //----------------
     // Methods
@@ -360,10 +363,10 @@ public:
     //**********************
     // Study Related Methods
     //**********************
-    void toggleStudyMode(bool state);
+    void toggleStudyMode(bool state, bool instructPartner);
     
-    void initTestEnv(TestManagerMode mode);
-    void cleanupTestEnv(TestManagerMode mode);
+    void initTestEnv(TestManagerMode mode, bool instructPartner);
+    void cleanupTestEnv(TestManagerMode mode, bool instructPartner);
     
     void resetTestManager();
     
@@ -372,12 +375,17 @@ public:
     void showTestNumber(int test_id);
     void updateUITestMessage(); // Update the message on the interface
 
+    // Speical test environment configuration
+    void applyDevConfigurations();
+    void applyPracticeConfigurations();
+    void applyStudyConfigurations();
+    
     // Start and end the test
+    void verifyThenStart();
     void startTest();
     void endTest(CGPoint openGLPoint, double doubleAnswer);
     
     void saveRecord(); // Save test record to a file
-    
 };
 
 #endif /* defined(__Compass_transparent___TestManager__) */

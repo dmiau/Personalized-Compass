@@ -56,11 +56,6 @@
 // Control to show or hide the wedge
 - (IBAction)wedgeSegmentControl:(id)sender;
 
-
-
-// Disable/enable the server
-- (IBAction)toggleServer:(id)sender;
-
 // Disable/enable iOS sync
 - (IBAction)toggleiOSSyncFlag:(id)sender;
 - (IBAction)toggleiOSBoundary:(id)sender;
@@ -82,6 +77,9 @@
 - (IBAction)adjustWedgeCorrectionFactor:(id)sender;
 @property (weak) IBOutlet NSSlider *wedgeCorrectionFactor;
 
+// Disable/enable the server
+@property NSNumber* serverSegmentIndex;
+- (IBAction)toggleServer:(id)sender;
 
 //-------------
 // Locations pane

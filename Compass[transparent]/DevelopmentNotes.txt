@@ -178,7 +178,7 @@ Type: Instruction, Message
 *Parameter: SnapshotID, YES, NO, Filename
 
 - Message (NSString)
-* Status: OK, BAD, NEXT, NONE
+* Content: double (angle answer), Goodbye
 
 
 

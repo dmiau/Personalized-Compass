@@ -201,7 +201,7 @@
             if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound){
                 
                 // Log the location
-                self.testManager->endTest(openGLPoint, 0);
+                self.testManager->endTest(openGLPoint, [self.studyIntAnswer integerValue]);
             } else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound){
                 // Log the location
                 self.testManager->endTest(openGLPoint, 0);
@@ -250,13 +250,19 @@
 
 #pragma mark ------------- System Services -------------
 - (void) displayPopupMessage: (NSString*) message{
-    NSAlert *alert = [NSAlert alertWithMessageText:
-                      [NSString stringWithFormat:message]
-                                     defaultButton:@"OK"
-                                   alternateButton:nil
-                                       otherButton:nil
-                         informativeTextWithFormat:@""];
-    [alert runModal];
+    
+    // UI update needs to be on main queue?
+    dispatch_async(dispatch_get_main_queue(),
+                   ^{
+                       NSAlert *alert = [NSAlert alertWithMessageText:
+                                         [NSString stringWithFormat:message]
+                                                        defaultButton:@"OK"
+                                                      alternateButton:nil
+                                                          otherButton:nil
+                                            informativeTextWithFormat:@""];
+                       [alert runModal];
+                       
+                   });
 }
 
 @end

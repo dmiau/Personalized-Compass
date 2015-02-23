@@ -162,10 +162,10 @@
     int state = [sender selectedSegment];
     switch (state) {
         case 0:
-            self.rootViewController.testManager->toggleStudyMode(NO);
+            self.rootViewController.testManager->toggleStudyMode(NO, YES);
             break;
         case 1:
-            self.rootViewController.testManager->toggleStudyMode(YES);
+            self.rootViewController.testManager->toggleStudyMode(YES, YES);
             break;
         default:
             break;

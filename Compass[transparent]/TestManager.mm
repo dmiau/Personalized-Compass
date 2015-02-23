@@ -109,6 +109,7 @@ int TestManager::initTestManager(){
     test_counter = 0;
     testManagerMode = OFF;
     iOSAnswer = 10000;
+    isRecordAutoSaved = NO;
     
     vector<VisualizationType> visualization_enums
     = {VIZNONE, VIZPCOMPASS, VIZWEDGE, VIZOVERVIEW};
@@ -146,6 +147,7 @@ int TestManager::initTestManager(){
     test_location_filename  = @"temp.locations";
     alltest_vector_filename = @"allTestVectors.tests";
     test_snapshot_prefix = @"snapshot-participant";
+    practice_filename = @"practice.snapshot";
     record_filename = @"study0.record";
 
     

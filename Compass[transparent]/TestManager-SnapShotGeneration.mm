@@ -197,9 +197,20 @@ void TestManager::generateCustomSnapshotFromVectorName(NSString* custom_vector_f
                              stringByAppendingString:test_foldername];
     
     // Load data
+    NSString *cachedDBRoot = rootViewController.model->desktopDropboxDataRoot;
     rootViewController.model->desktopDropboxDataRoot = folder_path;
     readLocationKml(rootViewController.model, test_kml_filename);
     t_data_array = rootViewController.model->data_array;
+    
+    // Change the dropbox root back
+    rootViewController.model->desktopDropboxDataRoot = cachedDBRoot;
+    
+    
+    // Populate the location_code_to_id structure
+    location_code_to_id.clear();
+    for (int i = 0; i < t_data_array.size(); ++i){
+        location_code_to_id[t_data_array[i].name] = i;
+    }
     
     NSString *doc_path = [folder_path
                           stringByAppendingPathComponent:custom_vector_filename];

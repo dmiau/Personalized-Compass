@@ -70,6 +70,23 @@
         }
     }
     self.iOSMaskControl.state = self.rootViewController.renderer->emulatediOS.is_mask_enabled;
+    
+    // Update the server pane
+
+    if ([self.rootViewController.socket_status boolValue]){
+        self.serverSegmentIndex = [NSNumber numberWithInt:1];
+        //---------------
+        // Display port information
+        //---------------
+        int port = [[self.rootViewController.httpServer asyncSocket] localPort];
+        
+        self.serverPort.stringValue =
+        [NSString stringWithFormat:@"%d", port];
+        
+        self.server_ip = [[[NSHost currentHost] addresses] objectAtIndex:1];
+    }else{
+        self.serverSegmentIndex = [NSNumber numberWithInt:0];
+    }
 }
 
 

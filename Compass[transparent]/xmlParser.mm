@@ -101,7 +101,26 @@ void readLocationKml(compassMdl* mdl, NSString* filename){
     
     // test the result
     if (!success){
-        throw(std::runtime_error("Failed to parse the document!"));
+        NSString *message = @"Failed to parse the kml file.";
+#ifndef __IPHONE__
+        NSAlert *alert = [NSAlert alertWithMessageText: message
+                                         defaultButton:@"OK"
+                                       alternateButton:nil
+                                           otherButton:nil
+                             informativeTextWithFormat:@""];
+        [alert runModal];
+#else
+        UIAlertController* alert = [UIAlertController
+                                    alertControllerWithTitle:@"System Message"
+                                    message:message preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction =
+        [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+         {[alert dismissViewControllerAnimated:YES completion:nil];}];
+        
+        [alert addAction:defaultAction];
+#endif
     }
     return success;
 }

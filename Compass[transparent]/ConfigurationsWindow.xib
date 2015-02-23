@@ -44,11 +44,10 @@
                         <tabViewItems>
                             <tabViewItem label="Configurations" identifier="1" id="nx7-Bc-yFc">
                                 <view key="view" id="nna-1c-K5N">
-                                    <rect key="frame" x="10" y="33" width="636" height="383"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jGa-Mo-rnn">
-                                            <rect key="frame" x="96" y="271" width="292" height="24"/>
+                                            <rect key="frame" x="96" y="-112" width="292" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="APK-hX-Yjy">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -62,7 +61,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2f3-4N-Rvh">
-                                            <rect key="frame" x="15" y="275" width="61" height="17"/>
+                                            <rect key="frame" x="15" y="-108" width="61" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Compass" id="OWp-Jw-EB5">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -70,7 +69,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MfE-2A-V0r">
-                                            <rect key="frame" x="15" y="241" width="46" height="17"/>
+                                            <rect key="frame" x="15" y="-142" width="46" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Wedge" id="jAg-Mu-3ga">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -78,7 +77,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjH-sm-kuZ">
-                                            <rect key="frame" x="96" y="237" width="428" height="24"/>
+                                            <rect key="frame" x="96" y="-146" width="428" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="jDL-kJ-Nf4">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -93,7 +92,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8R-2a-zvp">
-                                            <rect key="frame" x="15" y="161" width="91" height="17"/>
+                                            <rect key="frame" x="15" y="-222" width="91" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sync with iOS" id="mf9-Pd-OyE">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -101,7 +100,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8F-Le-2s4">
-                                            <rect key="frame" x="116" y="157" width="71" height="24"/>
+                                            <rect key="frame" x="116" y="-226" width="71" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Va1-3i-Lxe">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -114,7 +113,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhs-3K-j8j">
-                                            <rect key="frame" x="15" y="122" width="100" height="17"/>
+                                            <rect key="frame" x="15" y="-261" width="100" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="iOS screen size" id="uvw-JF-3IV">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -122,7 +121,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8R-z1-WXZ">
-                                            <rect key="frame" x="84" y="208" width="153" height="17"/>
+                                            <rect key="frame" x="84" y="-175" width="153" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Wedge correction factor" id="0hm-ru-kbw">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -130,21 +129,21 @@
                                             </textFieldCell>
                                         </textField>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vkT-wl-kqH">
-                                            <rect key="frame" x="267" y="206" width="215" height="21"/>
+                                            <rect key="frame" x="267" y="-177" width="215" height="21"/>
                                             <sliderCell key="cell" state="on" alignment="left" maxValue="10" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="bLG-Ah-Yc7"/>
                                             <connections>
                                                 <action selector="adjustWedgeCorrectionFactor:" target="-2" id="HDk-HH-CwE"/>
                                             </connections>
                                         </slider>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSQ-zP-kZe">
-                                            <rect key="frame" x="145" y="118" width="215" height="21"/>
+                                            <rect key="frame" x="145" y="-265" width="215" height="21"/>
                                             <sliderCell key="cell" state="on" alignment="left" minValue="0.20000000000000001" maxValue="3" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="Xtw-su-V7i"/>
                                             <connections>
                                                 <action selector="adjustiOSScreenSize:" target="-2" id="H8i-gz-eYI"/>
                                             </connections>
                                         </slider>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8H-dj-SN1">
-                                            <rect key="frame" x="17" y="97" width="263" height="17"/>
+                                            <rect key="frame" x="17" y="-286" width="263" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="????" id="q2L-Bh-mmk">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -155,7 +154,7 @@
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hSa-N5-OYi">
-                                            <rect key="frame" x="15" y="350" width="121" height="17"/>
+                                            <rect key="frame" x="15" y="-33" width="121" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dropbox data root:" id="Y6v-jx-0EL">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -163,7 +162,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-zc-3va">
-                                            <rect key="frame" x="142" y="347" width="416" height="22"/>
+                                            <rect key="frame" x="142" y="-36" width="416" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="QyE-vF-fTA">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -174,7 +173,7 @@
                                             </connections>
                                         </textField>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Communicaiton with iOS" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="pUI-yr-MHn">
-                                            <rect key="frame" x="350" y="-18" width="268" height="118"/>
+                                            <rect key="frame" x="350" y="-401" width="268" height="118"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="266" height="102"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,6 +197,7 @@
                                                         </segmentedCell>
                                                         <connections>
                                                             <action selector="toggleServer:" target="-2" id="w6Y-Bu-2p5"/>
+                                                            <binding destination="-2" name="selectedIndex" keyPath="self.serverSegmentIndex" id="bDd-2e-6ch"/>
                                                         </connections>
                                                     </segmentedControl>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCQ-aO-U6l">
@@ -241,7 +241,7 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yiH-j9-xb3">
-                                            <rect key="frame" x="401" y="313" width="101" height="18"/>
+                                            <rect key="frame" x="401" y="-70" width="101" height="18"/>
                                             <buttonCell key="cell" type="check" title="Show Labels" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="uB5-ql-xRs">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -251,7 +251,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sp0-lE-LyV">
-                                            <rect key="frame" x="198" y="313" width="191" height="18"/>
+                                            <rect key="frame" x="198" y="-70" width="191" height="18"/>
                                             <buttonCell key="cell" type="check" title="Show OpenGL Layer" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Cy7-aZ-x72">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -261,7 +261,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smq-eQ-h5s">
-                                            <rect key="frame" x="15" y="313" width="136" height="18"/>
+                                            <rect key="frame" x="15" y="-70" width="136" height="18"/>
                                             <buttonCell key="cell" type="check" title="White Background" bezelStyle="regularSquare" imagePosition="left" inset="2" id="kLW-nh-qIJ">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -271,7 +271,7 @@
                                             </connections>
                                         </button>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWZ-Cd-DHg">
-                                            <rect key="frame" x="191" y="157" width="274" height="24"/>
+                                            <rect key="frame" x="191" y="-226" width="274" height="24"/>
                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="3PC-VP-Ggg">
                                                 <font key="font" metaFont="system"/>
                                                 <segments>
@@ -286,7 +286,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfp-XC-UKD">
-                                            <rect key="frame" x="469" y="160" width="158" height="18"/>
+                                            <rect key="frame" x="469" y="-223" width="158" height="18"/>
                                             <buttonCell key="cell" type="check" title="Show iOS screen only" bezelStyle="regularSquare" imagePosition="left" inset="2" id="EJE-24-5SL">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -771,6 +771,14 @@
                                                 <action selector="fillInOSXCoordRegion:" target="aLW-cy-kmh" id="sRd-1Z-6ku"/>
                                             </connections>
                                         </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ZI-WJ-ZwO">
+                                            <rect key="frame" x="370" y="213" width="241" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* Records needs to be saved manually" id="Doh-xc-bqF">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -939,7 +947,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WT8-dG-iMe">
-                                                        <rect key="frame" x="16" y="58" width="169" height="17"/>
+                                                        <rect key="frame" x="16" y="38" width="169" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Custom Test Vector Name:" id="GTx-G8-SGO">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -947,7 +955,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uPA-Qs-WTy">
-                                                        <rect key="frame" x="203" y="56" width="161" height="22"/>
+                                                        <rect key="frame" x="203" y="36" width="161" height="22"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="u0h-nw-spy">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -958,7 +966,7 @@
                                                         </connections>
                                                     </textField>
                                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vZ-kQ-OCd">
-                                                        <rect key="frame" x="194" y="20" width="288" height="32"/>
+                                                        <rect key="frame" x="194" y="0.0" width="288" height="32"/>
                                                         <buttonCell key="cell" type="push" title="Generate a Test from the Custom Vector" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OV4-0j-MU0">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -967,6 +975,25 @@
                                                             <action selector="generateTestFromCustomVector:" target="mH8-SB-opV" id="UCo-LC-P0V"/>
                                                         </connections>
                                                     </button>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3bU-iy-UnZ">
+                                                        <rect key="frame" x="18" y="68" width="97" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Practice name:" id="wOH-qA-qM5">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPl-QZ-ddi">
+                                                        <rect key="frame" x="201" y="65" width="163" height="22"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="34f-NK-ICK">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.practice_filename" id="35h-Yx-f5w"/>
+                                                        </connections>
+                                                    </textField>
                                                 </subviews>
                                             </view>
                                             <constraints>
@@ -1305,7 +1332,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2F3-ar-ARo">
-                                            <rect key="frame" x="15" y="73" width="158" height="17"/>
+                                            <rect key="frame" x="6" y="57" width="158" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Study Record File Name:" id="DUw-8c-Fry">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1313,8 +1340,8 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4m5-qO-q8Z">
-                                            <rect key="frame" x="250" y="33" width="153" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Save Study Records" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kwo-tM-LFb">
+                                            <rect key="frame" x="241" y="21" width="153" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Save Study Records" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kwo-tM-LFb">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -1323,7 +1350,7 @@
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XfO-d7-eTz">
-                                            <rect key="frame" x="15" y="39" width="233" height="22"/>
+                                            <rect key="frame" x="6" y="27" width="233" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Arv-zJ-fJL">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1334,30 +1361,17 @@
                                             </connections>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8o-bI-YNK">
-                                            <rect key="frame" x="15" y="15" width="267" height="18"/>
+                                            <rect key="frame" x="6" y="3" width="267" height="18"/>
                                             <buttonCell key="cell" type="check" title="Save record when the test is completed" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3Cx-oG-4vC">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="toggleAutoSave:" target="vjl-Mr-bQu" id="bqx-jT-dfJ"/>
+                                            </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nSY-Ra-ene">
-                                            <rect key="frame" x="122" y="354" width="96" height="22"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mpQ-cM-0pZ">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRn-eA-u2S">
-                                            <rect key="frame" x="17" y="356" width="92" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Participant ID:" id="GXC-92-omp">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Dev. Control" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="qcw-wH-ne3">
-                                            <rect key="frame" x="417" y="287" width="219" height="89"/>
+                                            <rect key="frame" x="416" y="268" width="219" height="89"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="217" height="73"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1390,7 +1404,7 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Study Status" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="73z-2y-3Iv">
-                                            <rect key="frame" x="417" y="18" width="219" height="265"/>
+                                            <rect key="frame" x="416" y="-1" width="219" height="265"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="217" height="249"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1398,55 +1412,127 @@
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SYa-yr-vul">
-                                            <rect key="frame" x="48" y="325" width="244" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="***Initialize the Study Mode from iOS***" id="KcT-bQ-vbr">
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nSY-Ra-ene">
+                                            <rect key="frame" x="120" y="304" width="96" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mpQ-cM-0pZ">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="vjl-Mr-bQu" name="value" keyPath="self.participant_id" id="elY-M9-rm8"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRn-eA-u2S">
+                                            <rect key="frame" x="15" y="306" width="92" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Participant ID:" id="GXC-92-omp">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGg-JA-dzN">
-                                            <rect key="frame" x="110" y="275" width="91" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Practice" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0US-pm-K7Q">
+                                            <rect key="frame" x="60" y="264" width="188" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Pair and start practicing" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0US-pm-K7Q">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="checkPairingAndStartPracticing:" target="vjl-Mr-bQu" id="gkj-nk-lvy"/>
+                                                <binding destination="vjl-Mr-bQu" name="enabled" keyPath="self.isPracticeButtonEnabled" id="Yfp-9K-rTY"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i9O-wH-iAU">
-                                            <rect key="frame" x="220" y="347" width="100" height="32"/>
+                                            <rect key="frame" x="218" y="297" width="100" height="32"/>
                                             <buttonCell key="cell" type="push" title="Load files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7sj-vz-WgF">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="loadStudyFiles:" target="vjl-Mr-bQu" id="0lK-1j-SL5"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrn-SZ-DOI">
+                                            <rect key="frame" x="15" y="334" width="288" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* This panel uses the files in the &quot;study&quot; folder" id="pC7-KX-5gE">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCa-59-489">
+                                            <rect key="frame" x="17" y="363" width="435" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Server info:" id="li7-qT-ntp">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="vjl-Mr-bQu" name="value" keyPath="self.serverInfoString" id="pce-QY-bkU"/>
+                                            </connections>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46o-To-Kp5">
+                                            <rect key="frame" x="28" y="207" width="271" height="51"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="* To enable the followin options, initialize the study mode from iOS, and click &quot;Pair and start practice&quot;" id="r3w-CZ-2Cl">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDN-Is-8ZY">
+                                            <rect key="frame" x="11" y="170" width="351" height="32"/>
+                                            <buttonCell key="cell" type="push" title="End the practicing session and load the study files" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fAQ-De-nAz">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="endPracticingAndStartStudy:" target="vjl-Mr-bQu" id="LXG-HH-Pbs"/>
+                                                <binding destination="vjl-Mr-bQu" name="enabled" keyPath="self.isEndPracticeButtonEnabled" id="ol9-q2-quB"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1l-SY-cOs">
-                                            <rect key="frame" x="116" y="214" width="70" height="32"/>
+                                            <rect key="frame" x="130" y="137" width="70" height="32"/>
                                             <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jr4-dD-8xx">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="startStudy:" target="vjl-Mr-bQu" id="waw-uq-fxe"/>
+                                                <binding destination="vjl-Mr-bQu" name="enabled" keyPath="self.isStartButtonEnabled" id="CeX-yv-xqM"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WP3-VO-fCY">
-                                            <rect key="frame" x="68" y="181" width="79" height="32"/>
+                                            <rect key="frame" x="79" y="108" width="79" height="32"/>
                                             <buttonCell key="cell" type="push" title="Pause" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vgo-jD-HnF">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="pauseStudy:" target="vjl-Mr-bQu" id="GnS-BM-sqY"/>
+                                                <binding destination="vjl-Mr-bQu" name="enabled" keyPath="self.isPauseButtonEnabled" id="3xH-KV-XKP"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y4k-Ea-6Vh">
-                                            <rect key="frame" x="155" y="181" width="91" height="32"/>
+                                            <rect key="frame" x="166" y="108" width="91" height="32"/>
                                             <buttonCell key="cell" type="push" title="Resume" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Avb-ZN-kgM">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="resumeStudy:" target="vjl-Mr-bQu" id="NOR-1A-xHX"/>
+                                                <binding destination="vjl-Mr-bQu" name="enabled" keyPath="self.isResumeButtonEnabled" id="Tk6-5r-lG7"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M5B-BI-LY7">
-                                            <rect key="frame" x="119" y="148" width="65" height="32"/>
+                                            <rect key="frame" x="130" y="75" width="65" height="32"/>
                                             <buttonCell key="cell" type="push" title="End" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QNE-SO-1ki">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="endStudy:" target="vjl-Mr-bQu" id="hWV-A7-r9W"/>
+                                                <binding destination="vjl-Mr-bQu" name="enabled" keyPath="self.isEndButtonEnabled" id="w7E-nQ-6pF"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -1461,7 +1547,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-1860" y="683"/>
+            <point key="canvasLocation" x="-1852" y="622"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
         <viewController id="aLW-cy-kmh" userLabel="SnapShot View Controller" customClass="SnapShotViewController">
@@ -1479,6 +1565,7 @@
         </viewController>
         <viewController id="vjl-Mr-bQu" customClass="UserStudyViewController">
             <connections>
+                <outlet property="autoSaveCheckbox" destination="j8o-bI-YNK" id="4xo-jo-uXF"/>
                 <outlet property="recordFileNameTextField" destination="XfO-d7-eTz" id="Wch-qa-JtL"/>
                 <outlet property="studyModeSegmentControl" destination="kwn-IL-rMA" id="qLf-pK-xqu"/>
                 <outlet property="view" destination="U6x-fB-mTO" id="4kq-Ee-A4F"/>

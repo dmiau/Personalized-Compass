@@ -23,9 +23,12 @@
             <connections>
                 <outlet property="compassView" destination="UCa-0f-w4g" id="hRx-r8-sIb"/>
                 <outlet property="currentCoord" destination="th9-iC-Vy8" id="8Fy-fK-MjE"/>
+                <outlet property="distEstimationLabel" destination="Uld-Dd-MmX" id="sm7-AR-WrC"/>
+                <outlet property="distEstimationTextField" destination="hod-E4-kMk" id="qav-Bb-dcr"/>
                 <outlet property="mapView" destination="mWq-Lx-RbY" id="1w7-uy-mYl"/>
                 <outlet property="nextTestButton" destination="bL8-al-boT" id="dF9-cz-56B"/>
                 <outlet property="previousTestButton" destination="yld-F9-pN4" id="iUZ-PX-voP"/>
+                <outlet property="showAnswerButton" destination="xGq-Y6-qVt" id="7ou-nk-930"/>
                 <outlet property="testMessageTextField" destination="yWO-fh-YjW" id="lLg-Mi-zsx"/>
                 <outlet property="toolbarSearchField" destination="AxC-dk-J1g" id="Gsp-TB-GBF"/>
                 <outlet property="view" destination="EiT-Mj-1SZ" id="BKl-Ab-Cbt"/>
@@ -807,7 +810,7 @@
                         </connections>
                     </mapView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bL8-al-boT">
-                        <rect key="frame" x="736" y="7" width="69" height="32"/>
+                        <rect key="frame" x="751" y="7" width="69" height="32"/>
                         <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DIN-jB-5xE">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -817,7 +820,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yld-F9-pN4">
-                        <rect key="frame" x="642" y="7" width="94" height="32"/>
+                        <rect key="frame" x="657" y="7" width="94" height="32"/>
                         <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Q7I-Fe-Msu">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -827,16 +830,35 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yWO-fh-YjW">
-                        <rect key="frame" x="20" y="18" width="268" height="17"/>
+                        <rect key="frame" x="7" y="18" width="268" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Enable StudyMode from iOS" id="uuw-0d-z63">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGq-Y6-qVt">
-                        <rect key="frame" x="508" y="7" width="125" height="32"/>
-                        <buttonCell key="cell" type="push" title="Show Answer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kMn-3m-kZh">
+                    <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hod-E4-kMk">
+                        <rect key="frame" x="559" y="13" width="96" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="QXv-Y9-SRI">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="3Bp-Mg-e5g" name="value" keyPath="self.studyIntAnswer" id="Rmf-LV-Hna"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uld-Dd-MmX">
+                        <rect key="frame" x="426" y="17" width="127" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Distance Estimation" id="YYZ-IG-pPe">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xGq-Y6-qVt">
+                        <rect key="frame" x="303" y="8" width="117" height="32"/>
+                        <buttonCell key="cell" type="push" title="Show Answer" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kMn-3m-kZh">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -850,17 +872,21 @@
                     <constraint firstAttribute="trailing" secondItem="UCa-0f-w4g" secondAttribute="trailing" id="422-Cs-1zs"/>
                     <constraint firstItem="UCa-0f-w4g" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="6vN-ZJ-E4E"/>
                     <constraint firstItem="yWO-fh-YjW" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="22" id="8nK-D3-X1J"/>
-                    <constraint firstAttribute="trailing" secondItem="xGq-Y6-qVt" secondAttribute="trailing" constant="200" id="8t1-nU-Ema"/>
+                    <constraint firstAttribute="trailing" secondItem="hod-E4-kMk" secondAttribute="trailing" constant="172" id="9Au-Vq-c6I"/>
+                    <constraint firstAttribute="bottom" secondItem="yld-F9-pN4" secondAttribute="bottom" constant="14" id="DWm-qd-iXb"/>
                     <constraint firstAttribute="bottom" secondItem="mWq-Lx-RbY" secondAttribute="bottom" constant="50" id="E1b-Lg-h7M"/>
                     <constraint firstItem="mWq-Lx-RbY" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="E5v-th-f9G"/>
-                    <constraint firstAttribute="bottom" secondItem="bL8-al-boT" secondAttribute="bottom" constant="14" id="M8e-gm-i9M"/>
+                    <constraint firstAttribute="bottom" secondItem="Uld-Dd-MmX" secondAttribute="bottom" constant="17" id="JYJ-Wv-dQx"/>
+                    <constraint firstAttribute="bottom" secondItem="hod-E4-kMk" secondAttribute="bottom" constant="13" id="Yh7-ie-LBO"/>
                     <constraint firstItem="UCa-0f-w4g" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="aI8-mO-uTj"/>
                     <constraint firstItem="mWq-Lx-RbY" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="aMt-MQ-QPy"/>
+                    <constraint firstAttribute="trailing" secondItem="yld-F9-pN4" secondAttribute="trailing" constant="82" id="bud-kM-eGa"/>
                     <constraint firstAttribute="trailing" secondItem="mWq-Lx-RbY" secondAttribute="trailing" id="cQ6-pz-2pF"/>
-                    <constraint firstAttribute="bottom" secondItem="xGq-Y6-qVt" secondAttribute="bottom" constant="14" id="dEl-vX-xpd"/>
-                    <constraint firstItem="bL8-al-boT" firstAttribute="leading" secondItem="yld-F9-pN4" secondAttribute="trailing" constant="12" id="fDZ-t9-jzG"/>
-                    <constraint firstAttribute="trailing" secondItem="bL8-al-boT" secondAttribute="trailing" constant="28" id="vgx-JA-IM9"/>
-                    <constraint firstAttribute="bottom" secondItem="yld-F9-pN4" secondAttribute="bottom" constant="14" id="wHJ-CE-MCc"/>
+                    <constraint firstAttribute="trailing" secondItem="bL8-al-boT" secondAttribute="trailing" constant="13" id="h7R-Ge-2PS"/>
+                    <constraint firstAttribute="trailing" secondItem="Uld-Dd-MmX" secondAttribute="trailing" constant="276" id="mLx-0c-2Yq"/>
+                    <constraint firstAttribute="bottom" secondItem="xGq-Y6-qVt" secondAttribute="bottom" constant="15" id="pAi-ib-dd0"/>
+                    <constraint firstAttribute="bottom" secondItem="bL8-al-boT" secondAttribute="bottom" constant="14" id="skb-ou-CcP"/>
+                    <constraint firstAttribute="trailing" secondItem="xGq-Y6-qVt" secondAttribute="trailing" constant="413" id="vo4-cG-qxE"/>
                     <constraint firstAttribute="bottom" secondItem="yWO-fh-YjW" secondAttribute="bottom" constant="18" id="xJt-iv-EGX"/>
                 </constraints>
             </view>
@@ -948,7 +974,8 @@
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="-163.5" y="316.5"/>
+            <point key="canvasLocation" x="-219.5" y="391.5"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="EYl-3r-NII"/>
     </objects>
 </document>

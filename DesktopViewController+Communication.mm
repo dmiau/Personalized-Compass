@@ -80,8 +80,14 @@
         NSString* command = myDictionary[@"Command"];
         
         if ([command isEqualToString: @"SetupEnv"]){
-            // Load the snapshot file
             
+            if ([self.model->desktopDropboxDataRoot rangeOfString:@"study"].location == NSNotFound){
+                // Change the folder to the study folder
+                self.model->desktopDropboxDataRoot =
+                [self.model->desktopDropboxDataRoot stringByAppendingPathComponent: @"study"];
+            }
+            
+            // Load the snapshot file
             if (![myDictionary[@"Parameter"] isEqualToString:
                   self.model->snapshot_filename]){
                 self.model->snapshot_filename = myDictionary[@"Parameter"];
@@ -90,7 +96,7 @@
                     throw(runtime_error("Failed to load snapshot files"));
                 }
             }
-            self.testManager->initTestEnv(OSXSTUDY);
+            self.testManager->toggleStudyMode(YES, NO);
 
         }else if ([command isEqualToString: @"LoadSnapshot"]){
             int test_id = [myDictionary[@"Parameter"] intValue];
@@ -102,7 +108,7 @@
             self.testManager->testManagerMode = DEVICESTUDY;
             
         }else if ([command isEqualToString: @"End"]){
-            self.testManager->cleanupTestEnv(OSXSTUDY);
+            self.testManager->toggleStudyMode(NO, NO);
         }else if ([command isEqualToString: @"Sync"]){
 
             //    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
@@ -118,13 +124,26 @@
                 
     }else if ([package_type isEqualToString:@"Message"]){
         NSString* content = myDictionary[@"Content"];
-        self.testManager->iOSAnswer = [content doubleValue];
         
-        if (self.testManager->testManagerMode == OSXSTUDY){
-            self.testManager->endTest(CGPointMake(0, 0), [content doubleValue]);
+        
+        NSCharacterSet* nonNumbers = [NSCharacterSet decimalDigitCharacterSet];
+        if ([content rangeOfCharacterFromSet:nonNumbers].location != NSNotFound){
+            //-------------
+            // Contains numbers
+            //-------------
+            self.testManager->iOSAnswer = [content doubleValue];
+            
+            if (self.testManager->testManagerMode == OSXSTUDY){
+                self.testManager->endTest(CGPointMake(0, 0), [content doubleValue]);
+            }
+            
+            NSLog(@"Received angle: %g", [content doubleValue]);
+        }else{
+            //-------------
+            // Contains message
+            //-------------
+            [self displayPopupMessage:[NSString stringWithFormat:@"Received message: %@", content]];
         }
-        
-        NSLog(@"Received angle: %g", [content doubleValue]);
     }else{
         throw(runtime_error("Unknown package type."));
     }
@@ -136,27 +155,39 @@
 // This is for iOS, since iOS cannot handle NSData
 //---------------------------
 -(void)handleMessage:(NSString*)message{
-    
-    // 
     self.received_message = message;
 
+#ifndef __IPHONE__
     // Check if the received message is a number
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     NSNumber *temp = [f numberFromString: message];
     if ( temp != nil){
             self.testManager->showTestNumber([temp intValue]);
     }
-    
-//    if ([message isEqualToString:@"NONE"]){
-//        // Default message
-//        
-//    }else if ([message isEqualToString:@"OK"]){
-//        
-//    }else if ([message isEqualToString:@"BAD"]){
-//        
-//    }else if ([message isEqualToString:@"NEXT"]){
-//        
-//    }
+#else
+    // Check if the received message is a number
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    NSNumber *temp = [f numberFromString: message];
+    if ( temp != nil){
+        self.testManager->showTestNumber([temp intValue]);
+    }else{
+        // Handle the message only if the received message is a KML file name
+        if ([message rangeOfString:@".snapshot"].location != NSNotFound){
+            if (![message isEqualToString:
+                  self.model->snapshot_filename]){
+                self.model->snapshot_filename = message;
+                
+                if (readSnapshotKml(self.model) != EXIT_SUCCESS){
+                    [self displayPopupMessage:
+                     [NSString stringWithFormat:@"Failed to load %@", message]];
+                }
+            }
+            self.testManager->toggleStudyMode(YES, NO);
+        }else if ([message isEqualToString:@"End"]){
+            self.testManager->toggleStudyMode(NO, NO);
+        }
+    }
+#endif
 }
 
 

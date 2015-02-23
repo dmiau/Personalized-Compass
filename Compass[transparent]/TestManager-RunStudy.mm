@@ -20,7 +20,7 @@
 //------------------
 // Setup the environment for the next test
 //------------------
-void TestManager::initTestEnv(TestManagerMode mode){
+void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     testManagerMode = mode;
     // Need to turn off map interactions in the study mode
     [rootViewController enableMapInteraction:NO];
@@ -55,13 +55,15 @@ void TestManager::initTestEnv(TestManagerMode mode){
         rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
         [NSNumber numberWithBool:NO];
         
-        // The following lines has no effect on OSX
-        // sendPackage is only functional when called on iOS
-        NSDictionary *myDict = @{@"Type" : @"Instruction",
-                                 @"Command" : @"SetupEnv",
-                                 @"Parameter" : model->snapshot_filename
-                                 };
-        [rootViewController sendPackage: myDict];
+        if (instructPartner){
+            // The following lines has no effect on OSX
+            // sendPackage is only functional when called on iOS
+            NSDictionary *myDict = @{@"Type" : @"Instruction",
+                                     @"Command" : @"SetupEnv",
+                                     @"Parameter" : model->snapshot_filename
+                                     };
+            [rootViewController sendPackage: myDict];
+        }
     }else if (mode == OSXSTUDY){
         //------------------
         // Desktop
@@ -83,6 +85,7 @@ void TestManager::initTestEnv(TestManagerMode mode){
         
         [rootViewController sendMessage:@"OK"];
     }
+    updateUITestMessage();
     showTestNumber(0);
 #ifndef __IPHONE__
     startTest();
@@ -92,23 +95,31 @@ void TestManager::initTestEnv(TestManagerMode mode){
 //-------------------
 // Clean up the environment
 //-------------------
-void TestManager::cleanupTestEnv(TestManagerMode mode){
+void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
     rootViewController.renderer->isCrossEnabled = false;
     rootViewController.renderer->isInteractiveLineEnabled=false;
     model->configurations[@"style_type"] = @"BIMODAL";
     
     if (mode == DEVICESTUDY){
-        // The following lines has no effect on OSX
-        // sendPackage is only functional when called on iOS
-        NSDictionary *myDict = @{@"Type" : @"Instruction",
-                                 @"Command" : @"End"
-                                 };
-        [rootViewController sendPackage: myDict];
+        if (instructPartner){
+            // The following lines has no effect on OSX
+            // sendPackage is only functional when called on iOS
+            NSDictionary *myDict = @{@"Type" : @"Instruction",
+                                     @"Command" : @"End"
+                                     };
+            [rootViewController sendPackage: myDict];
+        }
     }else if (mode == OSXSTUDY){
 #ifndef __IPHONE__
         [rootViewController.nextTestButton setEnabled:NO];
         [rootViewController.previousTestButton setEnabled:NO];
-        rootViewController.testManager->saveRecord();
+        [rootViewController.showAnswerButton setEnabled:NO];
+        
+        if (isRecordAutoSaved)
+            rootViewController.testManager->saveRecord();
+        if (instructPartner){
+            [rootViewController sendMessage: @"End"];
+        }
 #endif
     }
     
@@ -129,7 +140,7 @@ void TestManager::cleanupTestEnv(TestManagerMode mode){
 }
 
 
-void TestManager::toggleStudyMode(bool state){
+void TestManager::toggleStudyMode(bool state, bool instructPartner){
     
     TestManagerMode mode;
 #ifdef __IPHONE__
@@ -142,15 +153,14 @@ void TestManager::toggleStudyMode(bool state){
         //---------------
         // Turn on the study mode
         //---------------
-        initTestEnv(mode);
+        initTestEnv(mode, instructPartner);
         rootViewController.UIConfigurations[@"UIToolbarMode"]
         = @"Study";
     }else{
-        cleanupTestEnv(mode);
+        cleanupTestEnv(mode, instructPartner);
     }
     rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];
-    updateUITestMessage();
 }
 
 void TestManager::updateUITestMessage(){
@@ -270,6 +280,13 @@ void TestManager::showTestNumber(int test_id){
 //------------------
 // Start the test
 //------------------
+void TestManager::verifyThenStart(){
+    
+}
+
+//------------------
+// Start the test
+//------------------
 void TestManager::startTest(){
     record_vector[test_counter].start(); // start the time
     
@@ -339,3 +356,60 @@ void TestManager::endTest(CGPoint openGLPoint, double doubleAnswer){
     record_vector[test_counter].doubleAnswer  = doubleAnswer;
     [rootViewController sendMessage:@"NEXT"];
 }
+
+//------------------
+// Special Environment Configurations
+//------------------
+void TestManager::applyDevConfigurations(){
+    rootViewController.renderer->label_flag = true;
+    
+#ifndef __IPHONE__
+    rootViewController.showAnswerButton.hidden = NO;
+    rootViewController.showAnswerButton.enabled = YES;
+    rootViewController.distEstimationTextField.enabled = YES;
+#endif
+    
+    rootViewController.mapView.layer.borderColor =
+    [NSColor redColor].CGColor;
+    rootViewController.mapView.layer.borderWidth
+    = 2.0f;
+}
+
+void TestManager::applyPracticeConfigurations(){
+    rootViewController.renderer->label_flag = false;
+    isRecordAutoSaved = NO;
+    
+#ifndef __IPHONE__
+    rootViewController.showAnswerButton.hidden = NO;
+    rootViewController.showAnswerButton.enabled = YES;
+    rootViewController.distEstimationTextField.enabled = YES;
+#endif
+    
+    rootViewController.mapView.layer.borderColor =
+    [NSColor blueColor].CGColor;
+    rootViewController.mapView.layer.borderWidth
+    = 2.0f;
+}
+
+void TestManager::applyStudyConfigurations(){
+    rootViewController.renderer->label_flag = false;
+    isRecordAutoSaved = YES;
+#ifndef __IPHONE__
+    // Hide the answer button
+    rootViewController.showAnswerButton.hidden = YES;
+#endif
+    rootViewController.mapView.layer.borderColor =
+    [NSColor clearColor].CGColor;
+    rootViewController.mapView.layer.borderWidth
+    = 0.0f;
+}
+
+
+
+
+
+
+
+
+
+

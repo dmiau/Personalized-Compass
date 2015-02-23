@@ -67,6 +67,7 @@
     self.test_location_filename  = self.rootViewController.testManager->test_location_filename;
     self.alltest_vector_filename = self.rootViewController.testManager->alltest_vector_filename;
     self.test_snapshot_prefix = self.rootViewController.testManager->test_snapshot_prefix;
+    self.practice_filename = self.rootViewController.testManager->practice_filename;
     self.record_filename = self.rootViewController.testManager->record_filename;
     
     self.custom_test_vectorname = @"practice";

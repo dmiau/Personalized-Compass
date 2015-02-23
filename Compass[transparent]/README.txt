@@ -3200,8 +3200,10 @@ Test Generation (making new levels for the game):
 - latin square generation 
 - LOCATE+ tests
 
-***** Working
 - disable address lookup
+
+***** Working
+
 - test flow control
 - cleanupTestEnv saved the record (sometimes I don't want this to happen)
 - as fast as possible, and there is a time limit
@@ -3209,3 +3211,64 @@ Test Generation (making new levels for the game):
 
 - check the quality of the data
 
+-------------------------------------------------------------------
+2.23.2015
+-------------------------------------------------------------------
+***** Done
+- answer the estimate of the distance (in terms of integer multiple) [10:27AM]
+- cleanupTestEnv saved the record (sometimes I don't want this to happen) [10:48AM]
+- send a Goodbye message from iOS [4:07PM]
+- disable labels in the study mode, add north indicator in the testing mode [4:07PM]
+- test flow control [4:24PM]
+
+***** ToDo
+- map zoom in/out, pan around
+
+- Naming conventions: .locations, .tests, .history, etc. 
+- annotation control
+- renderAnnotationsIDs (vector<int> id_list, bool labelFlag)
+
+- circle overlay
+http://stackoverflow.com/questions/9056451/draw-a-circle-of-1000m-radius-around-users-location-in-mkmapview
+
+Medium effort:
+- modify drawOneSide to cut off the legs
+* need to set up the watch mode correctly
+- renderAnnottions has issues
+- ortho+watch do not work
+
+Quick fixes:
+- implement and maintain a type counter dictionary, added to the authoring pane, integrate the test code with the counter
+- review the study
+- lock rotation in the author mode?
+
+- annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
+
+- get the ios beta testing work (iTunes connect)
+
+- issues that need to be fixed:
+* calculateLatLonFromiOSX: should be task dependent
+* enhance location generation
+
+- bugs here:
+    self.rootViewController.testManager->
+            calculateMultipleLocationsDisplayRegion();
+
+- answer review mode, review test statistics 
+- add user map interaction control
+- add a start session pop-up, add an end session pop-up
+- add intruction support (espeically for the practice run), see the answer, get the feedback?
+
+High effort:
+Test Generation (making new levels for the game):
+- latin square generation 
+
+- disable address lookup
+
+***** Working
+- as fast as possible, and there is a time limit
+- phone <-> watch transition, and I need to verify the study in watch mode
+
+- check the quality of the data
+
+- LOCATE+ tests

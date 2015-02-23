@@ -265,8 +265,15 @@
 
 
 - (IBAction)toggleServerConnection:(UISegmentedControl*) segmentedControl {
+    NSMutableDictionary *myDict = [NSMutableDictionary
+                                   dictionaryWithDictionary:
+                                   @{@"Type" : @"Message"}];
     switch ([segmentedControl selectedSegmentIndex]) {
         case 0:
+            // The following lines has no effect on OSX
+            // sendPackage is only functional when called on iOS
+            myDict[@"Content"] = @"Goodbye!";
+            [self.rootViewController sendPackage: myDict];
             [self.rootViewController toggleServerConnection:NO];
             break;
         case 1:

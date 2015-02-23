@@ -32,6 +32,7 @@
 	[super didOpen];
 	
 	[self sendMessage:@"Welcome to my WebSocket"];
+    [self.rootViewController displayPopupMessage:@"Accepted a connection request."];
 }
 
 - (void)didReceiveMessage:(NSString *)msg

@@ -47,6 +47,8 @@
         
         self.received_message = @"NONE";
         self.socket_status = [NSNumber numberWithBool:NO];
+        self.studyIntAnswer = [NSNumber numberWithInt:0];
+        
         //--------------------
         // Initialize a list of UI configurations
         //--------------------
@@ -123,7 +125,12 @@
     
     // Inject to AppDelegate
     AppDelegate *temp = [[NSApplication sharedApplication] delegate];
-    temp.rootViewController = self;    
+    temp.rootViewController = self;
+        
+    //-------------------
+    // Start the server by default
+    //-------------------
+    [self startServer];
 }
 
 

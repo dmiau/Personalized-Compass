@@ -319,6 +319,6 @@
 // Toggle study mode
 //-----------------
 - (IBAction)toggleStudyMode:(UISwitch*)sender {
-    self.rootViewController.testManager->toggleStudyMode(sender.on);
+    self.rootViewController.testManager->toggleStudyMode(sender.on, YES);
 }
 @end
