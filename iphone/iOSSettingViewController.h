@@ -38,6 +38,11 @@
 - (IBAction)dismissModalVC:(id)sender;
 - (IBAction)refreshConfiguraitons:(id)sender;
 
+//--------------
+// Label Control
+//--------------
+- (IBAction)labelSegmentControl:(id)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *labelControl;
 
 //--------------
 // Communication

@@ -84,15 +84,22 @@ void compassRender::drawCompassScaleBox(double longestDistInMeters){
     }
 }
 
-
+//--------------
+// The center circle of the compass
+//--------------
 void compassRender::drawCompassCentralCircle(){
     // ---------------
     // Draw the center circle
     // ---------------
-    glColor4f([model->configurations[@"circle_color"][0] floatValue]/255,
-              [model->configurations[@"circle_color"][1] floatValue]/255,
-              [model->configurations[@"circle_color"][2] floatValue]/255,
-              1);
+    
+    if (!isCompassRefPointEnabled){
+        glColor4f([model->configurations[@"circle_color"][0] floatValue]/255,
+                  [model->configurations[@"circle_color"][1] floatValue]/255,
+                  [model->configurations[@"circle_color"][2] floatValue]/255,
+                  1);
+    }else{
+        glColor4f(1, 0, 0, 1);
+    }
     
     // draw the center circle
     glPushMatrix();
@@ -107,8 +114,8 @@ void compassRender::drawCompassCentralCircle(){
 // Compass Reference Point
 //--------------
 void compassRender::drawCompassRefPoint(){
-    glColor4f(0, 0, 6, 0.3);
-    drawCircle(0, 0, 5, 50, YES);
+    glColor4f(0, 0, 1, 0.7);
+    drawCircle(0, 0, 6, 50, YES);
     glColor4f(1, 1, 1, 0.3);
     drawCircle(0, 0, 8, 50, YES);
     glColor4f(0, 0, 0, 0.3);

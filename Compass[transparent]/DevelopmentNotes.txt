@@ -32,7 +32,7 @@ v
 --------u
 
 =====================
-OSX Map View (u, v) self.model->compassCenterXY [in MapView]
+OSX Map View (u, v) self.model->compassRefMapViewPoint [in MapView]
 =====================
 --------u
 |
@@ -68,7 +68,7 @@ These two are supposed to be the same [in OpenGL coordinate]
 self.render->compass_centroid
 self.model->configurations[@"compass_centroid"]
 
-self.model->compassCenterXY [in MapView]
+self.model->compassRefMapViewPoint [in MapView]
 
 Map convention:
 (latitude, longitude)

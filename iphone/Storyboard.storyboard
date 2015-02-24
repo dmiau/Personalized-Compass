@@ -139,98 +139,129 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bxU-r8-r8B">
-                                <rect key="frame" x="130" y="82" width="123" height="29"/>
-                                <segments>
-                                    <segment title="Normal"/>
-                                    <segment title="Watch"/>
-                                </segments>
-                                <connections>
-                                    <action selector="toggleWatchMode:" destination="9xM-YS-8bl" eventType="valueChanged" id="jT5-M1-HfC"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pH-aR-XOJ">
-                                <rect key="frame" x="15" y="85" width="45" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jTW-lk-cfK">
-                                <rect key="frame" x="181" y="163" width="123" height="29"/>
-                                <segments>
-                                    <segment title="Disconnect"/>
-                                    <segment title="Connect"/>
-                                </segments>
-                                <connections>
-                                    <action selector="toggleServerConnection:" destination="9xM-YS-8bl" eventType="valueChanged" id="bPj-0d-hqI"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Port" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kB-Tx-viA">
-                                <rect key="frame" x="15" y="166" width="33" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fVC-a3-Ra2">
-                                <rect key="frame" x="65" y="162" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FE-gg-Nlt">
-                                <rect key="frame" x="15" y="126" width="16" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="localhost" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Agp-Nj-C0p">
-                                <rect key="frame" x="65" y="122" width="222" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="System Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIh-1Y-aSC">
-                                <rect key="frame" x="16" y="202" width="155" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd7-gx-PpC">
                                 <rect key="frame" x="16" y="224" width="237" height="43"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B2u-Zp-sZD">
-                                <rect key="frame" x="130" y="297" width="167" height="29"/>
-                                <segments>
-                                    <segment title="Local"/>
-                                    <segment title="Dropbox"/>
-                                    <segment title="Bundle"/>
-                                </segments>
-                                <connections>
-                                    <action selector="toggleDataSource:" destination="9xM-YS-8bl" eventType="valueChanged" id="dJr-jE-zQa"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgp-rZ-gJf">
-                                <rect key="frame" x="15" y="300" width="107" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xps-vu-bXI">
-                                <rect key="frame" x="130" y="330" width="157" height="30"/>
-                                <state key="normal" title="Configuraitons Refresh">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="refreshConfiguraitons:" destination="9xM-YS-8bl" eventType="touchUpInside" id="E6E-0h-4Xw"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXd-Zz-drN">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B2u-Zp-sZD">
+                                        <rect key="frame" x="134" y="206" width="167" height="29"/>
+                                        <segments>
+                                            <segment title="Local"/>
+                                            <segment title="Dropbox"/>
+                                            <segment title="Bundle"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="toggleDataSource:" destination="9xM-YS-8bl" eventType="valueChanged" id="dJr-jE-zQa"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgp-rZ-gJf">
+                                        <rect key="frame" x="19" y="209" width="107" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xps-vu-bXI">
+                                        <rect key="frame" x="134" y="239" width="157" height="30"/>
+                                        <state key="normal" title="Configuraitons Refresh">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="refreshConfiguraitons:" destination="9xM-YS-8bl" eventType="touchUpInside" id="E6E-0h-4Xw"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jTW-lk-cfK">
+                                        <rect key="frame" x="182" y="91" width="123" height="29"/>
+                                        <segments>
+                                            <segment title="Disconnect"/>
+                                            <segment title="Connect"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="toggleServerConnection:" destination="9xM-YS-8bl" eventType="valueChanged" id="bPj-0d-hqI"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Port" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kB-Tx-viA">
+                                        <rect key="frame" x="16" y="94" width="33" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fVC-a3-Ra2">
+                                        <rect key="frame" x="66" y="90" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FE-gg-Nlt">
+                                        <rect key="frame" x="16" y="54" width="16" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="localhost" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Agp-Nj-C0p">
+                                        <rect key="frame" x="66" y="50" width="222" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="System Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIh-1Y-aSC">
+                                        <rect key="frame" x="17" y="130" width="155" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bxU-r8-r8B">
+                                        <rect key="frame" x="134" y="286" width="123" height="29"/>
+                                        <segments>
+                                            <segment title="Normal"/>
+                                            <segment title="Watch"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="toggleWatchMode:" destination="9xM-YS-8bl" eventType="valueChanged" id="jT5-M1-HfC"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pH-aR-XOJ">
+                                        <rect key="frame" x="19" y="289" width="45" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKa-Hl-I7w">
+                                        <rect key="frame" x="16" y="14" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2P8-fn-eHz">
+                                        <rect key="frame" x="66" y="8" width="123" height="29"/>
+                                        <segments>
+                                            <segment title="On"/>
+                                            <segment title="Off"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="labelSegmentControl:" destination="9xM-YS-8bl" eventType="valueChanged" id="2iJ-dp-1wI"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="455" id="xML-Gw-Tjc"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="uXd-Zz-drN" secondAttribute="trailing" constant="-16" id="9Rn-0n-ybR"/>
+                            <constraint firstItem="uXd-Zz-drN" firstAttribute="leading" secondItem="uXz-bo-CYy" secondAttribute="leadingMargin" constant="-16" id="KnB-Iz-5lQ"/>
+                            <constraint firstItem="FcN-QP-2ia" firstAttribute="top" secondItem="uXd-Zz-drN" secondAttribute="bottom" id="S95-3Z-Q05"/>
+                            <constraint firstItem="uXd-Zz-drN" firstAttribute="top" secondItem="iBa-Ev-hVc" secondAttribute="bottom" id="TCw-va-Z7N"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="General" image="general.png" id="nfG-7J-1IE"/>
                     <navigationItem key="navigationItem" id="qjZ-da-ipz"/>
                     <connections>
                         <outlet property="dataSource" destination="B2u-Zp-sZD" id="zUP-3R-tOp"/>
                         <outlet property="ipTextField" destination="Agp-Nj-C0p" id="P8U-7v-dkL"/>
+                        <outlet property="labelControl" destination="2P8-fn-eHz" id="bug-fs-0Y2"/>
                         <outlet property="portTextfield" destination="fVC-a3-Ra2" id="nXc-hu-05Q"/>
                         <outlet property="serverSegmentControl" destination="jTW-lk-cfK" id="haJ-y6-byC"/>
                         <outlet property="systemMessage" destination="Xd7-gx-PpC" id="Klu-n7-Aku"/>

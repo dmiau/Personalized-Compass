@@ -52,8 +52,8 @@ int compassMdl::initMdl(){
     // Parameter initialization
     //--------------
     tilt = 0;
-    compassCenterXY.x = 0.0;
-    compassCenterXY.y = 0.0;
+    compassRefMapViewPoint.x = 0.0;
+    compassRefMapViewPoint.y = 0.0;
     lockLandmarks = false;
     configurations = [[NSMutableDictionary alloc] init];
 

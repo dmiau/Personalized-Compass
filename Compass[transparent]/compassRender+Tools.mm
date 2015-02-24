@@ -13,7 +13,7 @@ CGPoint compassRender::convertCompassPointToMapUV(CGPoint point,
     // render compass_centroid
     // Compass center in OpenGL coordinate system
     
-    // model compassCenterXY
+    // model compassRefMapViewPoint
     // indicates the centroid of compass in the map window coordinate frame
     // (in terms of u, v, not in terms of latitude and longitude)
     
@@ -24,8 +24,8 @@ CGPoint compassRender::convertCompassPointToMapUV(CGPoint point,
     
     // Note: Here I need to use compass_centroid, which reflect
     // true compass centroid in the OpenGL coordinate system
-    // I cannot use model->compassCenterXY because when the compass center is
-    // locked, compassCenterXY remains to be zero
+    // I cannot use model->compassRefMapViewPoint because when the compass center is
+    // locked, compassRefMapViewPoint remains to be zero
         
     return result_pt;
 }

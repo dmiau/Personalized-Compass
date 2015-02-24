@@ -333,15 +333,27 @@
 - (IBAction)toggleCompassCenterLock:(UISwitch*)sender {
     
     if (sender.on){
-//        [self changeCompassLocationTo:@"Center"];
-    
+        self.renderer->isCompassRefPointEnabled = YES;
+        [self moveCompassRefToMapViewPoint:
+         CGPointMake(self.mapView.frame.size.width/2,
+                     self.mapView.frame.size.height/2)
+         ];
+        
         self.UIConfigurations[@"UICompassCenterLocked"] =
         [NSNumber numberWithBool:true];
+        
     }else{
+        self.renderer->isCompassRefPointEnabled = NO;
         self.UIConfigurations[@"UICompassCenterLocked"] =
         [NSNumber numberWithBool:false];
+        [self moveCompassRefToMapViewPoint:
+         CGPointMake(self.renderer->compass_centroid.x +
+                     self.mapView.frame.size.width/2,
+                     self.mapView.frame.size.height/2 -
+                     self.renderer->compass_centroid.y)
+         ];
     }
-    
+    [self.glkView setNeedsDisplay];
 }
 
 //--------------------
@@ -378,19 +390,21 @@
 
 - (void) updateAnswerLines{
     if (self.renderer->isAnswerLinesEnabled){
-        self.renderer->degree_vector.clear();
         data centroid_data;
         centroid_data.latitude = self.mapView.centerCoordinate.latitude;
         centroid_data.longitude = self.mapView.centerCoordinate.longitude;
         
+        self.renderer->degree_vector.clear();
         // Calculat the angles
         for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
             int j = self.model->indices_for_rendering[i];
             
-            double degree =
+            double degree = -(
             centroid_data.computeOrientationFromLocation(self.model->data_array[j])
-            -90;
+            -90);
             
+//            cout << self.model->data_array[j].name << endl;
+//            cout << "Degree: " << degree << endl;
             self.renderer->degree_vector.push_back(degree);
         }
     }

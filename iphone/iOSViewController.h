@@ -219,6 +219,7 @@ typedef struct{
 -(void)rotate:(UIRotationGestureRecognizer *)gesture;
 -(void)updateOverviewMap;
 - (void)moveCompassCentroidToOpenGLPoint: (CGPoint) OpenGLPoint;
+- (void)moveCompassRefToMapViewPoint:(CGPoint) MapViewPoint;
 -(void) updateLocationVisibility;
 
 //----------------

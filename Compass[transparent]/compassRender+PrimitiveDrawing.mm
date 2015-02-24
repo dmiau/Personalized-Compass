@@ -227,20 +227,20 @@ BOOL compassRender::drawBoxInCompass(double renderD2realDRatio)
     // Then the origin of the box (the top left corner)
     double x, y;
     
-    CGPoint compassCenterXYInCompassView = model->compassCenterXY;
-    compassCenterXYInCompassView.y = mapView.frame.size.height -
-    compassCenterXYInCompassView.y;
+    CGPoint compassRefMapViewPointInCompassView = model->compassRefMapViewPoint;
+    compassRefMapViewPointInCompassView.y = mapView.frame.size.height -
+    compassRefMapViewPointInCompassView.y;
     
-    x = -render_width * compassCenterXYInCompassView.x / mapView.frame.size.width;
-    y = render_height * (mapView.frame.size.height - compassCenterXYInCompassView.y) / mapView.frame.size.height;
+    x = -render_width * compassRefMapViewPointInCompassView.x / mapView.frame.size.width;
+    y = render_height * (mapView.frame.size.height - compassRefMapViewPointInCompassView.y) / mapView.frame.size.height;
     
 #ifndef __IPHONE__
     if (emulatediOS.is_enabled){
         x = -render_width * -(emulatediOS.centroid_in_opengl.x - emulatediOS.width/2-
-                             compassCenterXYInCompassView.x + view_width/2)
+                             compassRefMapViewPointInCompassView.x + view_width/2)
                             / emulatediOS.width;
         y = render_height * (emulatediOS.centroid_in_opengl.y + emulatediOS.height/2-
-                             compassCenterXYInCompassView.y + view_height/2)
+                             compassRefMapViewPointInCompassView.y + view_height/2)
                             / emulatediOS.height;
     }
 #endif
@@ -532,6 +532,7 @@ void compassRender::drawAnswerLines(){
     
     
     for (int i = 0; i < degree_vector.size(); ++i){
+                
         double radian = degree_vector[i] * M_PI/180;
         Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
         Vertex3D    vertex2 = Vertex3DMake(500*cos(radian),

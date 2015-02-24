@@ -75,7 +75,7 @@
     if ([keyPath isEqual:@"mapUpdateFlag"]) {
         
         CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
-                                                  self.model->compassCenterXY
+                                                  self.model->compassRefMapViewPoint
                                                    toCoordinateFromView:self.mapView];
         
         [self feedModelLatitude: compassCtrCoord.latitude
@@ -141,7 +141,7 @@
     
     // Update the model
     CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
-                                              self.model->compassCenterXY
+                                              self.model->compassRefMapViewPoint
                                                    toCoordinateFromView:self.mapView];
     self.model->camera_pos.latitude = compassCtrCoord.latitude;
     self.model->camera_pos.longitude = compassCtrCoord.longitude;
@@ -163,8 +163,8 @@
     // Only called when UICompassCenterLocked is false
     if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
 
-        // Update compassCenterXY (compass's centroid coordinates in mapView)
-        self.model->compassCenterXY =
+        // Update compassRefMapViewPoint (compass's centroid coordinates in mapView)
+        self.model->compassRefMapViewPoint =
         [self.mapView convertPoint:
          CGPointMake(self.compassView.frame.size.width/2
                      + self.renderer->compass_centroid.x,
@@ -173,7 +173,7 @@
                           fromView:self.compassView];
         // Update compass's (latitude, longitude)
         CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
-                                                  self.model->compassCenterXY
+                                                  self.model->compassRefMapViewPoint
                                                        toCoordinateFromView:self.mapView];
         
         self.model->camera_pos.latitude = compassCtrCoord.latitude;

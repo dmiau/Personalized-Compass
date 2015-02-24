@@ -71,7 +71,7 @@ int compassRender::initRenderMdl(){
     isAnswerLinesEnabled    = false;
     degree_vector.clear();
     loadParametersFromModelConfiguration();
-    isCompassRefPointEnabled = true;
+    isCompassRefPointEnabled = NO;
     compassRefOpenGLPoint = CGPointMake(0, 0);
 #ifndef __IPHONE__
     emulatediOS = EmulatediOS(model);

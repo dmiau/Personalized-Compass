@@ -1007,7 +1007,7 @@ http://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-co
 - refactory the pinview code
 - need to connect detail view from the table view
 - hook up table view with detail view
-- need to do something about compassCenterXY (model) and compass_centroid (render)
+- need to do something about compassRefMapViewPoint (model) and compass_centroid (render)
 - should implement KVO to resolve configuration file update issues
 
 Todo:
@@ -3282,6 +3282,8 @@ Test Generation (making new levels for the game):
 modified-orthographic and others
 modified-perspective [1:31PM]
 - add an study review pane in iOS [2:09PM]
+- compass, relative to the blue circle
+- detach the centroid from the compass [4:13PM] (some infrastructure work)
 
 ***** ToDo
 - map zoom in/out, pan around
@@ -3326,33 +3328,19 @@ Test Generation (making new levels for the game):
 - latin square generation 
 
 - disable address lookup
+- CustomPointAnnotation has an address field
 
 ***** Working
 - as fast as possible, and there is a time limit
 - phone <-> watch transition, and I need to verify the study in watch mode
 - LOCATE+ tests
 
-- CustomPointAnnotation has an address field
+
 - update wedge algorithm so there is a fixed intrusion
 
 
 
-- compass, relative to the blue circle
-- detach the centroid from the compass
 
-- (IBAction)toggleCompassCenterLock:(UISwitch*)sender {
-    
-    if (sender.on){
-        [self changeCompassLocationTo:@"Center"];
-    
-        self.UIConfigurations[@"UICompassCenterLocked"] =
-        [NSNumber numberWithBool:true];
-    }else{
-        self.UIConfigurations[@"UICompassCenterLocked"] =
-        [NSNumber numberWithBool:false];
-    }
-    
-}
 
 
 
