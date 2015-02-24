@@ -68,7 +68,11 @@ int compassRender::initRenderMdl(){
     isCrossEnabled          = false;
     isInteractiveLineEnabled=false;
     interactiveLineRadian   = 0;
+    isAnswerLinesEnabled    = false;
+    degree_vector.clear();
     loadParametersFromModelConfiguration();
+    isCompassRefPointEnabled = true;
+    compassRefOpenGLPoint = CGPointMake(0, 0);
 #ifndef __IPHONE__
     emulatediOS = EmulatediOS(model);
 #endif
@@ -211,6 +215,12 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     glMatrixMode(GL_MODELVIEW);
     
     //--------------
+    // Draw compass ref point
+    //--------------
+    if (isCompassRefPointEnabled)
+        drawCompassRefPoint();
+    
+    //--------------
     // Draw a box in the overview view
     //--------------
     // This is strange, I couldn't place this block below the draw compass code...
@@ -225,6 +235,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         drawBoxInView(box4Corners, false);
         glPopMatrix();
     }
+
 #ifndef __IPHONE__
     //--------------
     // Draw the emulated iOS
@@ -278,9 +289,11 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //--------------
     // Draw interactive line
     //--------------
+    if (isAnswerLinesEnabled)
+        drawAnswerLines();
+    
     if (isInteractiveLineEnabled)
         drawInteractiveLine();
-    
     
     //--------------
     // Draw wedge

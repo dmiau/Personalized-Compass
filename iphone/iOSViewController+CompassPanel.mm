@@ -151,21 +151,6 @@
             break;
         case 1:
             //-----------
-            // Explorer Mode
-            //-----------
-            // Change background color
-            for (int i = 0; i<4; ++i){
-                self.renderer->model->configurations[@"bg_color"][i] =
-                [NSNumber numberWithFloat:255];
-            }
-            // Change compass ctr
-            [self changeCompassLocationTo: @"Center"];
-            self.renderer->model->configurations[@"font_size"] =
-            [NSNumber numberWithFloat:14];
-            self.renderer->adjustAbsoluteCompassScale(0.9);
-            break;
-        case 2:
-            //-----------
             // Watch Mode
             //-----------
             [self setupWatchViewMode];
@@ -262,25 +247,17 @@
 }
 
 
-//-----------------------
-// Compass Lcoation Control
-//-----------------------
-- (IBAction)resetUICompass:(id)sender {
-    
-    if (self.renderer->watchMode){
-            [self changeCompassLocationTo:@"Center"];
-    }else{
-            [self changeCompassLocationTo:@"UR"];
-    }
-}
-
-- (IBAction)compassLocationSegmentControl:(id)sender {
-    
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
-    NSString *label = [segmentedControl
-                       titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
-    [self changeCompassLocationTo:label];
-}
+////-----------------------
+//// Compass Lcoation Control
+////-----------------------
+//- (IBAction)resetUICompass:(id)sender {
+//    
+//    if (self.renderer->watchMode){
+//            [self changeCompassLocationTo:@"Center"];
+//    }else{
+//            [self changeCompassLocationTo:@"UR"];
+//    }
+//}
 
 
 - (void) changeCompassLocationTo: (NSString*) label{
@@ -342,39 +319,6 @@
     [self.glkView setNeedsDisplay];
 }
 
-//------------------
-// Label Control
-//------------------
-- (IBAction)labelSegmentControl:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
-    
-    switch (segmentedControl.selectedSegmentIndex) {
-        case 0:
-            //-----------
-            // None
-            //-----------
-            self.renderer->label_flag = false;
-            break;
-        case 1:
-            //-----------
-            // Abbreviation
-            //-----------
-            self.renderer->label_flag = true;
-            break;
-        case 2:
-            //-----------
-            // Full
-            //-----------
-            self.renderer->label_flag = true;
-            break;
-        default:
-            throw(runtime_error("Undefined control, update needed"));
-            break;
-            
-    }
-    [self.glkView setNeedsDisplay];
-}
-
 - (IBAction)toggleCompassInteraction:(UISwitch*)sender {
     
     if (sender.on){
@@ -389,7 +333,7 @@
 - (IBAction)toggleCompassCenterLock:(UISwitch*)sender {
     
     if (sender.on){
-        [self changeCompassLocationTo:@"Center"];
+//        [self changeCompassLocationTo:@"Center"];
     
         self.UIConfigurations[@"UICompassCenterLocked"] =
         [NSNumber numberWithBool:true];
@@ -400,4 +344,55 @@
     
 }
 
+//--------------------
+// Toggle Study Related Tools
+//--------------------
+- (IBAction)toggleStudySegmentControl:(UISegmentedControl*)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            [self enableMapInteraction:YES];
+            self.renderer->isAnswerLinesEnabled = NO;
+            self.renderer->isCrossEnabled = NO;
+            self.renderer->isInteractiveLineEnabled = NO;
+            break;
+        case 1:
+            [self enableMapInteraction:NO];
+            self.renderer->isAnswerLinesEnabled = NO;
+            self.renderer->isCrossEnabled = YES;
+            self.renderer->isInteractiveLineEnabled = YES;
+            break;
+        case 2:
+            // Diplay answers
+            self.renderer->isAnswerLinesEnabled = YES;
+            [self updateAnswerLines];
+            [self enableMapInteraction:NO];
+            self.renderer->isCrossEnabled = YES;
+            self.renderer->isInteractiveLineEnabled = YES;
+            break;
+        default:
+            break;
+    }
+    [self.glkView setNeedsDisplay];
+}
+
+
+- (void) updateAnswerLines{
+    if (self.renderer->isAnswerLinesEnabled){
+        self.renderer->degree_vector.clear();
+        data centroid_data;
+        centroid_data.latitude = self.mapView.centerCoordinate.latitude;
+        centroid_data.longitude = self.mapView.centerCoordinate.longitude;
+        
+        // Calculat the angles
+        for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
+            int j = self.model->indices_for_rendering[i];
+            
+            double degree =
+            centroid_data.computeOrientationFromLocation(self.model->data_array[j])
+            -90;
+            
+            self.renderer->degree_vector.push_back(degree);
+        }
+    }
+}
 @end

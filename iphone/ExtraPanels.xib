@@ -66,9 +66,8 @@
                     <rect key="frame" x="73" y="88" width="238" height="29"/>
                     <segments>
                         <segment title="None"/>
-                        <segment title="Original"/>
                         <segment title="[M]Ortho"/>
-                        <segment title="[M]Radial"/>
+                        <segment title="[M]Perspective"/>
                     </segments>
                     <connections>
                         <action selector="wedgeSegmentControl:" destination="-1" eventType="valueChanged" id="8Qg-y8-9vl"/>
@@ -214,14 +213,13 @@
             <point key="canvasLocation" x="512" y="188.5"/>
         </view>
         <view contentMode="scaleToFill" restorationIdentifier="WatchPanel" id="Sug-eX-yGZ" userLabel="WatchPanel">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JZD-YD-lpV">
-                    <rect key="frame" x="92" y="70" width="207" height="29"/>
+                    <rect key="frame" x="92" y="70" width="220" height="29"/>
                     <segments>
                         <segment title="Normal"/>
-                        <segment title="Explorer"/>
                         <segment title="Watch"/>
                         <segment title="Training"/>
                     </segments>
@@ -250,11 +248,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tN-uZ-hxR">
-                    <rect key="frame" x="9" y="160" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interactions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRX-aP-Tju">
                     <rect key="frame" x="9" y="24" width="90" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -279,32 +272,28 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpb-Fs-oAT">
-                    <rect key="frame" x="234" y="155" width="65" height="30"/>
-                    <state key="normal" title="Reset CP">
-                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="resetUICompass:" destination="-1" eventType="touchUpInside" id="YQl-Xq-cEk"/>
-                    </connections>
-                </button>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="EeU-zQ-Enw">
-                    <rect key="frame" x="64" y="157" width="145" height="29"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Study" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffL-Tx-xLq">
+                    <rect key="frame" x="9" y="158" width="45" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xmW-me-iMI">
+                    <rect key="frame" x="92" y="155" width="220" height="29"/>
                     <segments>
                         <segment title="None"/>
-                        <segment title="Abbrev."/>
-                        <segment title="Full"/>
+                        <segment title="ITLine"/>
+                        <segment title="Answer"/>
                     </segments>
                     <connections>
-                        <action selector="labelSegmentControl:" destination="-1" eventType="valueChanged" id="wMh-ZV-g9L"/>
+                        <action selector="toggleStudySegmentControl:" destination="-1" eventType="valueChanged" id="xcb-3Q-s7e"/>
                     </connections>
                 </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="476" y="751"/>
+            <point key="canvasLocation" x="512" y="745.5"/>
         </view>
         <view contentMode="scaleToFill" restorationIdentifier="DebugPanel" id="DNm-dP-7Ec" userLabel="DebugPanel">
             <rect key="frame" x="0.0" y="0.0" width="320" height="227"/>

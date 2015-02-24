@@ -13,11 +13,11 @@
 
 
 - (IBAction)compassSegmentControl:(id)sender;
-- (IBAction)compassLocationSegmentControl:(id)sender;
-- (IBAction)labelSegmentControl:(id)sender;
+//- (IBAction)compassLocationSegmentControl:(id)sender;
+//- (IBAction)labelSegmentControl:(id)sender;
 
 - (IBAction)toggleCompassInteraction:(id)sender;
 - (IBAction)toggleCompassCenterLock:(id)sender;
-- (IBAction)resetUICompass:(id)sender;
-
+//- (IBAction)resetUICompass:(id)sender;
+- (IBAction)toggleStudySegmentControl:(id)sender;
 @end

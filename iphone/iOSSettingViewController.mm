@@ -338,4 +338,39 @@
             break;
     }
 }
+
+
+////------------------
+//// Label Control
+////------------------
+//- (IBAction)labelSegmentControl:(id)sender {
+//    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+//    
+//    switch (segmentedControl.selectedSegmentIndex) {
+//        case 0:
+//            //-----------
+//            // None
+//            //-----------
+//            self.renderer->label_flag = false;
+//            break;
+//        case 1:
+//            //-----------
+//            // Abbreviation
+//            //-----------
+//            self.renderer->label_flag = true;
+//            break;
+//        case 2:
+//            //-----------
+//            // Full
+//            //-----------
+//            self.renderer->label_flag = true;
+//            break;
+//        default:
+//            throw(runtime_error("Undefined control, update needed"));
+//            break;
+//            
+//    }
+//    [self.glkView setNeedsDisplay];
+//}
+
 @end

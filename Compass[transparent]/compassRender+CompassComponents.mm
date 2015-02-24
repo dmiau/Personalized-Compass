@@ -102,6 +102,19 @@ void compassRender::drawCompassCentralCircle(){
     glPopMatrix();
 }
 
+
+//--------------
+// Compass Reference Point
+//--------------
+void compassRender::drawCompassRefPoint(){
+    glColor4f(0, 0, 6, 0.3);
+    drawCircle(0, 0, 5, 50, YES);
+    glColor4f(1, 1, 1, 0.3);
+    drawCircle(0, 0, 8, 50, YES);
+    glColor4f(0, 0, 0, 0.3);
+    drawCircle(0, 0, 9, 50, YES);
+}
+
 void compassRender::drawCompassNorth(){
     // ---------------
     // draw the north indicator

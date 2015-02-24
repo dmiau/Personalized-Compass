@@ -231,11 +231,9 @@
         {
             if ([self.model->configurations[@"wedge_style"]
                  isEqualToString:@"modified-perspective"])
-                self.wedgeSegmentControl.selectedSegmentIndex = 3;
+                self.wedgeSegmentControl.selectedSegmentIndex = 2;
             else if ([self.model->configurations[@"wedge_style"]
                       isEqualToString:@"modified-orthographic"])
-                self.wedgeSegmentControl.selectedSegmentIndex = 2;
-            else
                 self.wedgeSegmentControl.selectedSegmentIndex = 1;
         }else{
             self.wedgeSegmentControl.selectedSegmentIndex = 0;

@@ -3278,6 +3278,10 @@ Test Generation (making new levels for the game):
 ***** Done
 - answer+truth should be based on the ones stored in record
 - answer calculation has issues [11:39AM]
+- fixed available wedge style
+modified-orthographic and others
+modified-perspective [1:31PM]
+- add an study review pane in iOS [2:09PM]
 
 ***** ToDo
 - map zoom in/out, pan around
@@ -3329,11 +3333,28 @@ Test Generation (making new levels for the game):
 - LOCATE+ tests
 
 - CustomPointAnnotation has an address field
+- update wedge algorithm so there is a fixed intrusion
 
-- add an study review pane in iOS
+
 
 - compass, relative to the blue circle
 - detach the centroid from the compass
+
+- (IBAction)toggleCompassCenterLock:(UISwitch*)sender {
+    
+    if (sender.on){
+        [self changeCompassLocationTo:@"Center"];
+    
+        self.UIConfigurations[@"UICompassCenterLocked"] =
+        [NSNumber numberWithBool:true];
+    }else{
+        self.UIConfigurations[@"UICompassCenterLocked"] =
+        [NSNumber numberWithBool:false];
+    }
+    
+}
+
+
 
 
 

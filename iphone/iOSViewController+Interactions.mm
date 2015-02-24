@@ -15,16 +15,16 @@
     
     UITouch* touch = [touches anyObject];
     CGPoint pos = [touch locationInView:self.mapView];
-    NSLog(@"****Touch detected");
-    NSLog(@"CGPoing: %@", NSStringFromCGPoint(pos));
-    NSLog(@"Display Coordinates: %@", NSStringFromCGPoint(pos));
+
     
     // Convert it to the real coordinate
     CLLocationCoordinate2D myCoord = [self.mapView convertPoint:pos toCoordinateFromView:self.mapView];
-    
-    
-    NSLog(@"Map latitude: %f, longitude: %f", myCoord.latitude, myCoord.longitude);
     MKMapPoint mappoint = MKMapPointForCoordinate(myCoord);
+    
+    NSLog(@"****Touch detected");
+    NSLog(@"MapViewPoint: %@", NSStringFromCGPoint(pos));
+    NSLog(@"CGViewPoint: %@", NSStringFromCGPoint([touch locationInView:self.glkView]));
+    NSLog(@"Map latitude: %f, longitude: %f", myCoord.latitude, myCoord.longitude);
     NSLog(@"Mappoint X: %f, Y: %f", mappoint.x, mappoint.y);
     
     // pass touch event to super
@@ -62,15 +62,15 @@
             CGPoint label_pt_compass =
             self.model->data_array[j].my_label_info.centroid;
             
-            NSLog(@"Name: %@",
-                  [NSString stringWithUTF8String: self.model->data_array[j].name.c_str()]);
-            NSLog(@"Centroid: %@", NSStringFromCGPoint(label_pt_compass));
+//            NSLog(@"Name: %@",
+//                  [NSString stringWithUTF8String: self.model->data_array[j].name.c_str()]);
+//            NSLog(@"Centroid: %@", NSStringFromCGPoint(label_pt_compass));
             CGPoint label_pt = self.renderer->
             convertCompassPointToMapUV(label_pt_compass,
                                        self.glkView.frame.size.width,
                                        self.glkView.frame.size.height);
             
-            NSLog(@"%@", NSStringFromCGPoint(label_pt));
+//            NSLog(@"%@", NSStringFromCGPoint(label_pt));
             double width = self.model->data_array[j].my_texture_info.size.width;
             double height = self.model->data_array[j].my_texture_info.size.height;
             

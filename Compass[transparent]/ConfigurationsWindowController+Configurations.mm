@@ -46,12 +46,10 @@
     }else{
         // Wedge is on
         
-        if ([self.model->configurations[@"wedge_style"] isEqualToString: @"original"]){
+        if ([self.model->configurations[@"wedge_style"] isEqualToString: @"modified-orthographic"]){
             self.wedgeSegmentControl.selectedSegment = 1;
-        }else if ([self.model->configurations[@"wedge_style"] isEqualToString: @"orthographic"]){
-            self.wedgeSegmentControl.selectedSegment = 2;
         }else{
-            self.wedgeSegmentControl.selectedSegment = 3;
+            self.wedgeSegmentControl.selectedSegment = 2;
         }
     }
     
@@ -147,19 +145,12 @@
             break;
         case 1:
             //-----------
-            // Original
-            //-----------
-            self.model->configurations[@"wedge_status"] = @"on";
-            self.model->configurations[@"wedge_style"] = @"original";
-            break;
-        case 2:
-            //-----------
             // Modified-Orthographic
             //-----------
             self.model->configurations[@"wedge_status"] = @"on";
             self.model->configurations[@"wedge_style"] = @"modified-orthographic";
             break;
-        case 3:
+        case 2:
             //-----------
             // Modified-Perspctive
             //-----------

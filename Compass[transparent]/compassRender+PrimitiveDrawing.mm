@@ -525,3 +525,20 @@ void compassRender::drawInteractiveLine(){
     glVertexPointer(3, GL_FLOAT, 0, &line);
     glDrawArrays(GL_LINES, 0, 2);
 }
+
+void compassRender::drawAnswerLines(){
+    glLineWidth(4);
+    glColor4f(0, 1, 0, 1);
+    
+    
+    for (int i = 0; i < degree_vector.size(); ++i){
+        double radian = degree_vector[i] * M_PI/180;
+        Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
+        Vertex3D    vertex2 = Vertex3DMake(500*cos(radian),
+                                           500*sin(radian), 0);
+        Line3D  line = Line3DMake(vertex1, vertex2);
+        glVertexPointer(3, GL_FLOAT, 0, &line);
+        glDrawArrays(GL_LINES, 0, 2);
+    }
+}
+

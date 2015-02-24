@@ -27,19 +27,12 @@
             break;
         case 1:
             //-----------
-            // Original
-            //-----------
-            self.model->configurations[@"wedge_status"] = @"on";
-            self.model->configurations[@"wedge_style"] = @"original";
-            break;
-        case 2:
-            //-----------
             // Modified-Orthographic
             //-----------
             self.model->configurations[@"wedge_status"] = @"on";
             self.model->configurations[@"wedge_style"] = @"modified-orthographic";
             break;
-        case 3:
+        case 2:
             //-----------
             // Modified-Perspctive
             //-----------

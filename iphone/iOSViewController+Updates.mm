@@ -126,7 +126,6 @@
     self.model->updateMdl();
 }
 
-
 - (float) calculateCameraHeading{
     // calculateCameraHeading calculates the heading of camera relative to
     // the magnetic north
@@ -217,6 +216,10 @@
         self.model->camera_pos.longitude = compassCtrCoord.longitude;
         self.model->updateMdl();
     }
+}
+
+- (void)moveCompassRefToMapViewPoint:(CGPoint) MapViewPoint{
+    
 }
 
 //------------------

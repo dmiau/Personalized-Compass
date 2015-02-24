@@ -51,17 +51,9 @@ y
 |
 -y
 
-=====================
-iOS (u, v), note: the coordinate system is flipped 
-=====================
-v
-|
-|
-|
---------u
 
 =====================
-iOS GLK View (mapView confirmed)
+iOS GLK View and MapView
 =====================
 --------u
 |

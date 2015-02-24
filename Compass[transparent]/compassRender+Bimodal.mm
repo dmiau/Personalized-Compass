@@ -37,7 +37,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // ---------------
     drawCompassCentralCircle();
 
-    
     // ---------------
     // draw the triangle
     // ---------------

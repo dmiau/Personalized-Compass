@@ -100,13 +100,16 @@ public:
     bool isCrossEnabled;
     bool isInteractiveLineEnabled;
     double interactiveLineRadian;
+    bool isAnswerLinesEnabled;
+    vector<double> degree_vector;
+    bool isCompassRefPointEnabled;
     
     // Compass presenation parameters    
     float compass_disk_radius;    // Specify the radius of the compass disk (in pixels)
 
     float central_disk_radius;  // Specify the radius of the blue dots of the compass
     CGPoint compass_centroid;    // Specify the centroid of the compass *in OpenGL frame*
-
+    CGPoint compassRefOpenGLPoint;
     //----------------
     // Parameters for setting up perspective projection, etc.
     //----------------
@@ -204,7 +207,8 @@ private:
     void drawOneSide(double rotation, double width, double height,
                      double tx, double ty, double *out_leg, double *out_aperture);
     void drawCross();
-    void drawInteractiveLine();
+    void drawInteractiveLine(); //controlled by interactiveLineRadian
+    void drawAnswerLines();     //controlled by degree_vector;
     
     //-----------------
     // Component Level Drawing Routines
@@ -213,7 +217,7 @@ private:
     void drawCompassCentralCircle();
     void drawCompassNorth();
     void drawCompassBackgroundDisk();
-    
+    void drawCompassRefPoint();
     //-----------------
     // style related methods
     //-----------------
