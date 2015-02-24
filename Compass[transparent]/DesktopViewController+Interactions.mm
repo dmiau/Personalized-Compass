@@ -199,13 +199,24 @@
             snapshot mySnapshot = self.model->snapshot_array[tid];
             
             if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound){
-                
+                //--------------
+                // Locate task
+                //--------------
+                CGPoint ptInEiOSCoord;
+                ptInEiOSCoord.x = openGLPoint.x - self.renderer->emulatediOS.centroid_in_opengl.x;
+                ptInEiOSCoord.y = openGLPoint.y - self.renderer->emulatediOS.centroid_in_opengl.y;
                 // Log the location
-                self.testManager->endTest(openGLPoint, [self.studyIntAnswer integerValue]);
+                self.testManager->endTest(ptInEiOSCoord, [self.studyIntAnswer doubleValue]);
             } else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound){
+                //--------------
+                // Localize task
+                //--------------
                 // Log the location
                 self.testManager->endTest(openGLPoint, 0);
             } else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+                //--------------
+                // Orient task
+                //--------------
                 self.testManager->endTest(CGPointMake(0, 0),
                                           atan2(openGLPoint.y,openGLPoint.x)
                                           *180/M_PI);

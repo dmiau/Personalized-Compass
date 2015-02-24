@@ -41,6 +41,8 @@
 @property (weak) IBOutlet NSTextField *desktopDropboxDataRoot;
 - (IBAction)changeDesktopDropboxDataRoot:(id)sender;
 - (IBAction)toggleLabels:(id)sender;
+- (IBAction)toggleMapInteractions:(id)sender;
+@property (weak) IBOutlet NSButton *mapInteractionCheckbox;
 
 
 // Control the visibility of OpenGL view

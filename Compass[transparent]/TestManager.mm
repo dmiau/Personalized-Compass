@@ -47,7 +47,7 @@ TaskSpec::TaskSpec(TaskType taskType)
             break;
         case TRIANGULATE:
             taskCode = "t2";
-            trial_n_list = {16, 16};
+            trial_n_list = {12, 12};
             support_n = 2;
             break;
         case ORIENT:

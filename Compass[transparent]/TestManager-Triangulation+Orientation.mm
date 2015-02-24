@@ -34,7 +34,7 @@ vector<vector<int>> TestManager::generateRandomTriangulateLocations
     //-----------------
     vector<vector<int>> output;
     vector<float> base_length_vector = {(float)far_boundary};
-    vector<int> ratio_vecotr = {1, 2, 3, 4};
+    vector<int> ratio_vecotr = {1, 2, 3};
     vector<int> delta_theta_vecotr = {90, 150, 210, 270};
 
     int trial_n = (int)delta_theta_vecotr.size() * (int)ratio_vecotr.size()

@@ -382,7 +382,7 @@
             // Note we need to skip the dropped pin
             if (annotation.point_type != dropped){
                 int i = annotation.data_id;
-                if (self.model->data_array[i].isEnabled){
+                if (annotation.point_type == landmark  && self.model->data_array[i].isEnabled){
                     [[self.mapView viewForAnnotation:annotation] setHidden:NO];
                 }else{
                     [[self.mapView viewForAnnotation:annotation] setHidden:YES];
@@ -407,8 +407,10 @@
             // Note we need to skip the dropped pin
             if (annotation.point_type != dropped){
                 int i = annotation.data_id;
-                if (self.model->data_array[i].isEnabled &&
-                    !self.model->data_array[i].isAnswer){
+                if (annotation.point_type == landmark  &&
+                    self.model->data_array[i].isEnabled &&
+                    !self.model->data_array[i].isAnswer)
+                {
                     [[self.mapView viewForAnnotation:annotation] setHidden:NO];
                 }else{
                     [[self.mapView viewForAnnotation:annotation] setHidden:YES];

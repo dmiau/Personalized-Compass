@@ -48,6 +48,8 @@
         self.received_message = @"NONE";
         self.socket_status = [NSNumber numberWithBool:NO];
         self.studyIntAnswer = [NSNumber numberWithInt:0];
+        self.isDistanceEstControlAvailable = [NSNumber numberWithBool:NO];
+        self.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
         
         //--------------------
         // Initialize a list of UI configurations
@@ -100,10 +102,7 @@
     
     [self addObserver:self forKeyPath:@"mapUpdateFlag"
               options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
-    //http://stackoverflow.com/questions/10295515/nswindow-event-when-change-size-of-window
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidResize:) name:NSWindowDidResizeNotification object:[[self view] window]];
-    
-    
+
     //http://stackoverflow.com/questions/10796058/is-it-possible-to-continuously-track-the-mkmapview-region-while-scrolling-zoomin?lq=1
     
     _updateUITimer = [NSTimer timerWithTimeInterval:0.1

@@ -89,15 +89,16 @@
             
             // Load the snapshot file
             if (![myDictionary[@"Parameter"] isEqualToString:
-                  self.model->snapshot_filename]){
+                  self.model->snapshot_filename])
+            {
                 self.model->snapshot_filename = myDictionary[@"Parameter"];
-                
                 if (readSnapshotKml(self.model) != EXIT_SUCCESS){
-                    throw(runtime_error("Failed to load snapshot files"));
+                    // readSnapshotKml should pop up a dialog alread, so we will return from here
+                    return;
                 }
             }
-            self.testManager->toggleStudyMode(YES, NO);
 
+            self.testManager->toggleStudyMode(YES, NO);
         }else if ([command isEqualToString: @"LoadSnapshot"]){
             int test_id = [myDictionary[@"Parameter"] intValue];
             self.testManager->showTestNumber(test_id);

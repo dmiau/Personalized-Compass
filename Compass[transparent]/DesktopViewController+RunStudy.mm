@@ -42,38 +42,68 @@
         [self displayPopupMessage:@"record_vector's size is not right."];
         return;        
     }
-    
-    snapshot mySnapshot = self.model->snapshot_array[sid];
 
     // Find the answer
-    for (int i = 0; i < mySnapshot.is_answer_list.size(); ++i){
-        if (mySnapshot.is_answer_list[i]){
-            int data_id = mySnapshot.selected_ids[i];
-            data myData = self.model->data_array[data_id];
-            [self.mapView addAnnotation: myData.annotation];
-            [[self.mapView viewForAnnotation:myData.annotation] setHidden:NO];
-        }
+    CGPoint cgTruth = self.testManager->record_vector[sid].cgPointTruth;
+    
+    //-------------
+    // For task I, the coordinates are calculated relative to eiOS centroid, so we need
+    // to convert them back to the OpenGL coordinates
+    //-------------
+    if ([self.testManager->record_vector[sid].code rangeOfString:@"t1"].location
+        != NSNotFound)
+    {
+        cgTruth.x = cgTruth.x + self.renderer->emulatediOS.centroid_in_opengl.x;
+        cgTruth.y = cgTruth.y + self.renderer->emulatediOS.centroid_in_opengl.y;
     }
     
+    CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgTruth withType:answer];
+    [self.mapView addAnnotation:annotation];
+    [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+    
+
+    self.studyIntAnswer = [NSNumber numberWithDouble:self.testManager->record_vector[sid].doubleTruth];
     
     // Show the user's answer
     if (self.testManager->record_vector[sid].isAnswered){
         CGPoint cgAnswer = self.testManager->record_vector[sid].cgPointAnswer;
-        CGPoint cpviewPoint;
-        cpviewPoint.x = cgAnswer.x + self.renderer->view_width/2;
-        cpviewPoint.y = cgAnswer.y + self.renderer->view_height/2;
         
-        CLLocationCoordinate2D coord = [self.mapView convertPoint:cpviewPoint toCoordinateFromView:self.compassView];
-
-        // Need to make a drop pin
-        // Add drop-pin here
-        CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
-        annotation.coordinate = coord;
-        annotation.title      = @"Dropped Pin";
-        annotation.subtitle   = @"";
-        annotation.point_type = dropped;
+        //-------------
+        // For task I, the coordinates are calculated relative to eiOS centroid, so we need
+        // to convert them back to the OpenGL coordinates
+        //-------------
+        if ([self.testManager->record_vector[sid].code rangeOfString:@"t1"].location
+            != NSNotFound)
+        {
+            cgAnswer.x = cgAnswer.x + self.renderer->emulatediOS.centroid_in_opengl.x;
+            cgAnswer.y = cgAnswer.y + self.renderer->emulatediOS.centroid_in_opengl.y;
+        }
+        
+        CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgAnswer withType:dropped];
         
         [self.mapView addAnnotation:annotation];
     }
+}
+
+//---------------------
+// Generates an CustomPointAnnotation from a given Open GL point
+//---------------------
+- (CustomPointAnnotation*) createAnnotationFromGLPoint: (CGPoint) glPoint withType:(location_enum) location_type
+{
+    CGPoint cpviewPoint;
+    cpviewPoint.x = glPoint.x + self.renderer->view_width/2;
+    cpviewPoint.y = glPoint.y + self.renderer->view_height/2;
+    
+    CLLocationCoordinate2D coord = [self.mapView convertPoint:cpviewPoint toCoordinateFromView:self.compassView];
+    
+    // Need to make a drop pin
+    // Add drop-pin here
+    CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
+    annotation.coordinate = coord;
+    annotation.title      = @"Temp";
+    annotation.address    = @"";
+    annotation.subtitle   = @"";
+    annotation.point_type = location_type;
+    return annotation;
 }
 @end

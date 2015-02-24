@@ -24,11 +24,9 @@
                 <outlet property="compassView" destination="UCa-0f-w4g" id="hRx-r8-sIb"/>
                 <outlet property="currentCoord" destination="th9-iC-Vy8" id="8Fy-fK-MjE"/>
                 <outlet property="distEstimationLabel" destination="Uld-Dd-MmX" id="sm7-AR-WrC"/>
-                <outlet property="distEstimationTextField" destination="hod-E4-kMk" id="qav-Bb-dcr"/>
                 <outlet property="mapView" destination="mWq-Lx-RbY" id="1w7-uy-mYl"/>
                 <outlet property="nextTestButton" destination="bL8-al-boT" id="dF9-cz-56B"/>
                 <outlet property="previousTestButton" destination="yld-F9-pN4" id="iUZ-PX-voP"/>
-                <outlet property="showAnswerButton" destination="xGq-Y6-qVt" id="7ou-nk-930"/>
                 <outlet property="testMessageTextField" destination="yWO-fh-YjW" id="lLg-Mi-zsx"/>
                 <outlet property="toolbarSearchField" destination="AxC-dk-J1g" id="Gsp-TB-GBF"/>
                 <outlet property="view" destination="EiT-Mj-1SZ" id="BKl-Ab-Cbt"/>
@@ -845,6 +843,8 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
+                            <binding destination="3Bp-Mg-e5g" name="editable" keyPath="self.studyIntAnswer" id="AMn-vx-DjD"/>
+                            <binding destination="3Bp-Mg-e5g" name="enabled" keyPath="self.isDistanceEstControlAvailable" previousBinding="AMn-vx-DjD" id="up4-8T-ydT"/>
                             <binding destination="3Bp-Mg-e5g" name="value" keyPath="self.studyIntAnswer" id="Rmf-LV-Hna"/>
                         </connections>
                     </textField>
@@ -858,12 +858,13 @@
                     </textField>
                     <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xGq-Y6-qVt">
                         <rect key="frame" x="303" y="8" width="117" height="32"/>
-                        <buttonCell key="cell" type="push" title="Show Answer" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kMn-3m-kZh">
+                        <buttonCell key="cell" type="push" title="Show Answer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kMn-3m-kZh">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
                             <action selector="toggleAnswer:" target="3Bp-Mg-e5g" id="lgI-Bs-gh2"/>
+                            <binding destination="3Bp-Mg-e5g" name="enabled" keyPath="self.isShowAnswerAvailable" id="Lvr-QV-hbQ"/>
                         </connections>
                     </button>
                 </subviews>

@@ -13,18 +13,6 @@
 
 @implementation DesktopViewController (Updates)
 
-- (void) windowDidResize:(NSNotification *) notification
-{
-    // [notification name] should always be @"TestNotification"
-    // unless you use this method for observation of other notifications
-    // as well.
-    
-    //http://stackoverflow.com/questions/10295515/nswindow-event-when-change-size-of-window
-    
-    if ([[notification name] isEqualToString:@"NSWindowDidResizeNotification"])
-        NSLog (@"Successfully received the test notification!");
-}
-
 - (IBAction)refreshConfigurations:(id)sender {
     
     // [todo] update code can be refactored
@@ -62,7 +50,9 @@
     }else{
         // This condition is reached when the model just comes to a stop.
         if (hasChanged){
-            [self updateMainGUI];
+            [self updateLocationVisibility];
+            self.model->updateMdl();
+            [self.compassView setNeedsDisplay:YES];
             hasChanged = false;
         }
     }

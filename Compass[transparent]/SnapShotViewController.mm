@@ -42,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-
+    
 }
 
 - (void)viewWillAppear{
@@ -105,7 +105,7 @@
 // Populate each row of the table
 //----------------
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-
+    
     NSTableCellView *cell;
     
     cell = [tableView makeViewWithIdentifier:@"myTableCell" owner:self];
@@ -115,7 +115,6 @@
     }
     // Configure Cell
     cell.textField.stringValue = self.model->snapshot_array[row].name;
-    
     //        cell.textLabel.text =
     //        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", row];
     
@@ -131,11 +130,23 @@
     NSIndexSet *idx = [tableView selectedRowIndexes];
     //    NSLog(@"Selected Row: %@", idx);
     int ind = (int)[idx firstIndex];
-        
-    // Display a snapshot
-    [self.rootViewController displaySnapshot:ind
-        withStudySettings:
-     self.rootViewController.testManager->testManagerMode];
+    
+    if (self.rootViewController.testManager->testManagerMode ==
+        OFF)
+    {
+        //--------------
+        // Call displaySnapshot directly when testManager is OFF
+        //--------------
+        [self.rootViewController displaySnapshot:ind
+                               withStudySettings:OFF];
+    }else{
+        //--------------
+        // During the study, need to call showTestNumber to
+        // log some extra data and start a new test.
+        // This is very important!
+        //--------------
+        self.rootViewController.testManager->showTestNumber(ind);
+    }
 }
 
 //----------------
@@ -149,7 +160,7 @@
         NSAlert *alert = [[NSAlert alloc] init];
         [alert setMessageText:@"Fail to read the snapshot file."];
         self.model->snapshot_filename = filename_cache;
-        [alert runModal];        
+        [alert runModal];
     }else{
         [self.myTableView reloadData];
     }
@@ -163,9 +174,23 @@
     switch (state) {
         case 0:
             self.rootViewController.testManager->toggleStudyMode(NO, YES);
+            self.rootViewController.renderer->label_flag = true;
+#ifndef __IPHONE__
+            self.rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
+            self.rootViewController.isDistanceEstControlAvailable =
+            [NSNumber numberWithBool:NO];
+#endif
+            
             break;
         case 1:
             self.rootViewController.testManager->toggleStudyMode(YES, YES);
+            self.rootViewController.testManager->isRecordAutoSaved = NO;
+            self.rootViewController.renderer->label_flag = false;
+#ifndef __IPHONE__
+            self.rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:YES];
+            self.rootViewController.isDistanceEstControlAvailable =
+            [NSNumber numberWithBool:YES];
+#endif
             break;
         default:
             break;
@@ -174,7 +199,7 @@
 
 - (IBAction)fillInOSXCoordRegion:(id)sender {
     self.rootViewController.testManager->
-            calculateMultipleLocationsDisplayRegion();
+    calculateMultipleLocationsDisplayRegion();
 }
 
 @end

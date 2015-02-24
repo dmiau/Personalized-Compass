@@ -24,6 +24,10 @@
     self.whiteBackgroundCheckbox.state =
     self.rootViewController.isBlankMapEnabled;    
     
+    // Update map interaction status
+    self.mapInteractionCheckbox.state =
+    self.rootViewController.mapView.zoomEnabled;
+    
     // Update compass status
     if ([self.model->configurations[@"personalized_compass_status"]
          isEqualToString:@"off"])
@@ -96,6 +100,10 @@
 - (IBAction)toggleBlankBackground:(NSButton*)sender {
     bool flag = (sender.state == NSOnState);
     [self.rootViewController toggleBlankMapMode:flag];
+}
+
+- (IBAction)toggleMapInteractions:(NSButton*)sender {
+    [self.rootViewController enableMapInteraction:[sender state]];    
 }
 
 //--------------------

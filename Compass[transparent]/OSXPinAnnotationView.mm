@@ -55,7 +55,7 @@
                      [NSString stringWithFormat:@"%@ %@ , %@ , %@",
                       [placemark subThoroughfare],
                       [placemark thoroughfare],[placemark locality],[placemark administrativeArea]];
-                     NSLog(@"New Address Is:%@",address);
+//                     NSLog(@"New Address Is:%@",address);
                      self.addressView.stringValue = address;
                  }
              }];

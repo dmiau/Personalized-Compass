@@ -101,6 +101,11 @@
             // Search pin
             //---------------
             pinView = [self configureUserDroppedPinView: pinView];
+        }else if ([annotation point_type] == answer){
+            //---------------
+            // Search pin
+            //---------------
+            pinView = [self configureAnswerPinView: pinView];
         }
         return pinView;
     }else{
@@ -132,12 +137,13 @@
 //---------------
 - (OSXPinAnnotationView *) configureUserDroppedPinView: (OSXPinAnnotationView *) pinView
 {
-    
-    
     //-----------------
     // Only do address look up when the Test Manager is off
     //-----------------
-    if (self.testManager->testManagerMode == OFF){
+    if (self.testManager->testManagerMode == OFF &&
+        [((CustomPointAnnotation *)pinView.annotation).address
+         isEqualToString: @""] )
+    {
         NSString *address;
         CLLocation *location = [[CLLocation alloc]
                                 initWithLatitude:[pinView.annotation coordinate].latitude
@@ -160,6 +166,8 @@
                  
                  CustomPointAnnotation *copyAnnotation = pinView.annotation;
                  copyAnnotation.subtitle = address;
+                 copyAnnotation.address = address;
+                 pinView.annotation = copyAnnotation;
              }
          }];
     }
@@ -195,7 +203,7 @@
 //---------------
 // Landmark pin
 //---------------
-- (MKPinAnnotationView *) configureLandmarkPinView: (MKPinAnnotationView *) pinView
+- (OSXPinAnnotationView *) configureLandmarkPinView: (OSXPinAnnotationView *) pinView
 {
     NSImage *btnImage;
     CustomPointAnnotation *myAnnotation =
@@ -253,8 +261,17 @@
     pinView.rightCalloutAccessoryView = rightButton;
 }
 
-- (MKPinAnnotationView *) configureSearchPinView: (MKPinAnnotationView *) pinView
+- (OSXPinAnnotationView *) configureSearchPinView: (OSXPinAnnotationView *) pinView
 {
+    return pinView;
+}
+
+//-----------------
+// Answer pin
+//-----------------
+- (OSXPinAnnotationView *) configureAnswerPinView: (OSXPinAnnotationView *) pinView
+{
+    pinView.pinColor = MKPinAnnotationColorRed;
     return pinView;
 }
 
@@ -262,6 +279,8 @@
 {
     return pinView;
 }
+
+
 
 //------------------
 // When the callout of a pin is tapped
@@ -369,7 +388,7 @@
     }else if ([mode isEqualToString:@"Enabled"]){
         for (CustomPointAnnotation* annotation in annotation_array){
             int i = annotation.data_id;
-            if (self.model->data_array[i].isEnabled){
+            if (annotation.point_type == landmark && self.model->data_array[i].isEnabled){
                 [[self.mapView viewForAnnotation:annotation] setHidden:NO];
             }else{
                 [[self.mapView viewForAnnotation:annotation] setHidden:YES];
@@ -378,7 +397,8 @@
     }else if ([mode isEqualToString:@"Study"]){
         for (CustomPointAnnotation* annotation in annotation_array){
             int i = annotation.data_id;
-            if (self.model->data_array[i].isEnabled){
+            if (annotation.point_type == landmark &&
+                self.model->data_array[i].isEnabled){
                 if (self.testManager->testManagerMode == DEVICESTUDY ||
                     self.testManager->testManagerMode == OSXSTUDY){
                     

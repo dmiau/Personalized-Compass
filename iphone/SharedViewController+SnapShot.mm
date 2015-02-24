@@ -93,7 +93,7 @@
     self.model->snapshot_array.push_back(mySnapshot);
     
     //--------------
-    // Set up the environment to author the next test
+    // Configure the environment so we can author the next test
     //--------------
     if (self.testManager->testManagerMode == AUTHORING){
         // Disable all landmarks
@@ -147,7 +147,13 @@
         for(vector<int>::iterator it = mySnapshot.selected_ids.begin();
             it != mySnapshot.selected_ids.end(); ++it)
         {
-            self.model->data_array[*it].isEnabled = true;
+            if (*it >= self.model->data_array.size()){
+                [self displayPopupMessage:[NSString stringWithFormat:
+                                           @"Data ID: %d does not exist in %@",
+                                           *it, self.model->location_filename]];
+            }else{
+                self.model->data_array[*it].isEnabled = true;
+            }
         }
         self.model->configurations[@"filter_type"] = @"MANUAL";
     }

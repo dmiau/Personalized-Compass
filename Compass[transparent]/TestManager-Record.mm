@@ -131,7 +131,6 @@ NSArray* record::genSavableRecord(){
 
 void TestManager::saveRecord(){
     // Make sure the output folder exists
-    setupOutputFolder();
     NSString *folder_path = model->desktopDropboxDataRoot;
     NSString *out_file = [folder_path
                           stringByAppendingPathComponent:record_filename];

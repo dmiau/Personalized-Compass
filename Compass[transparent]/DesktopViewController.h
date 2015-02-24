@@ -186,11 +186,10 @@ typedef struct{
 @property (weak) IBOutlet NSTextField *testMessageTextField;
 @property (weak) IBOutlet NSButton *nextTestButton;
 @property (weak) IBOutlet NSButton *previousTestButton;
-@property (weak) IBOutlet NSButton *showAnswerButton;
-@property (weak) IBOutlet NSTextField *distEstimationTextField;
-@property (weak) IBOutlet NSTextField *distEstimationLabel;
 
 @property NSNumber* studyIntAnswer;
+@property NSNumber* isDistanceEstControlAvailable;
+@property NSNumber* isShowAnswerAvailable;
 
 //----------------
 // System service (implemented in the interaction category)

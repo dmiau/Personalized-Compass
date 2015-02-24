@@ -121,9 +121,16 @@
     
     NSString* practice_filepath = [dbRoot stringByAppendingPathComponent:
                                    practice_filename];
+    
     NSString* snapshot_filepath = [dbRoot stringByAppendingPathComponent:
                [self.rootViewController.testManager->test_snapshot_prefix
                 stringByAppendingFormat:@"%@.snapshot", self.participant_id]                    ];
+    
+    NSString* record_filename = [self.rootViewController.testManager->test_snapshot_prefix
+                                 stringByAppendingFormat:@"%@.record", self.participant_id];
+    NSString* record_filepath = [dbRoot stringByAppendingPathComponent:
+                                 record_filename];
+    
     NSString* test_kml_path = [dbRoot stringByAppendingPathComponent:
                                self.rootViewController.testManager->test_kml_filename];
 
@@ -148,6 +155,13 @@
         return;
     }
     
+
+    // Check if a record file already exists
+    if ([[NSFileManager defaultManager] fileExistsAtPath:
+          record_filepath]){
+        [self.rootViewController displayPopupMessage:
+         [NSString stringWithFormat:@"%@ already exists.", record_filepath]];
+    }
     
     // Load the practice file and enable other buttons
     self.rootViewController.model->snapshot_filename = practice_filename;
@@ -232,6 +246,10 @@
     // Load the practice file and enable other buttons
     self.rootViewController.model->snapshot_filename = snapshot_filename;
     
+    NSString* record_filename = [self.rootViewController.testManager->test_snapshot_prefix
+                                 stringByAppendingFormat:@"%@.record", self.participant_id];
+    self.rootViewController.testManager->record_filename = record_filename;
+    self.recordFileNameTextField.stringValue = record_filename;
     
     if (readSnapshotKml(self.rootViewController.model) != EXIT_SUCCESS){
         [self.rootViewController displayPopupMessage:@"Failed to load the study snapshot file"];
@@ -245,14 +263,16 @@
         self.autoSaveCheckbox.state =
         self.rootViewController.testManager->isRecordAutoSaved;
         [self.rootViewController displayPopupMessage:@"Study snapshot files have been loaded successfully."];
+        
+        self.rootViewController.testManager->toggleStudyMode(YES, YES);
+        self.rootViewController.testManager->applyStudyConfigurations();
         [self.rootViewController sendMessage:snapshot_filename];
     }
 }
 
 - (IBAction)startStudy:(id)sender {
     // TODO: need to think about this a bit more
-    self.rootViewController.testManager->initTestEnv(OSXSTUDY, YES);
-    self.rootViewController.testManager->applyStudyConfigurations();
+
 }
 
 - (IBAction)pauseStudy:(id)sender {
