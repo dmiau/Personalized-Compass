@@ -117,6 +117,16 @@ vector<snapshot> TestManager::generateSnapShotsFromTestvector(vector<string> tes
                     (location_code_to_id[test_code + "-" + to_string(t2i)]);
                     is_answer_list.push_back(0);
                 }
+            }else if (test_code.find(":t4:") != string::npos){
+                //------------------
+                // Locateplus test requires multiple supports
+                //------------------
+                for (int t4i = 0; t4i < localize_test_support_n; ++t4i){
+                    selected_ids.push_back
+                    (location_code_to_id[test_code + "-" + to_string(t4i)]);
+                    is_answer_list.push_back(0);
+                }
+                is_answer_list[1] =1;
             }else{
                 // code for other tasks
                 selected_ids.push_back(location_code_to_id[test_code]);
@@ -151,6 +161,26 @@ vector<snapshot> TestManager::generateSnapShotsFromTestvector(vector<string> tes
                 }
                 
                 t_snapshot.osx_coordinateRegion = osx_coordinateRegion;
+            }else if (test_code.find(":t4:") != string::npos) {
+                
+                CLLocation *center = [[CLLocation alloc]
+                                       initWithLatitude: rootViewController.mapView.centerCoordinate.latitude
+                                       longitude: rootViewController.mapView.centerCoordinate.longitude];
+                CLLocation *support = [[CLLocation alloc]
+                                      initWithLatitude:
+                                       t_data_array[selected_ids[0]].latitude
+                                      longitude:
+                                       t_data_array[selected_ids[0]].longitude];
+                
+                CLLocationDistance distnace = [center distanceFromLocation: support];
+                
+                CLLocationCoordinate2D centerCoordinate =
+                rootViewController.mapView.centerCoordinate;
+                
+                MKCoordinateRegion coord_region =
+                MKCoordinateRegionMakeWithDistance
+                (centerCoordinate, distnace * 10, distnace * 10);
+                t_snapshot.osx_coordinateRegion = coord_region;
             }
             
             //------------------

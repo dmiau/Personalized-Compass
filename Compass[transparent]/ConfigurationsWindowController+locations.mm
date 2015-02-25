@@ -281,7 +281,7 @@
     self.model->location_filename = [self.model->desktopDropboxDataRoot
                                      stringByAppendingPathComponent:astr];
     readLocationKml(self.model, self.model->location_filename);
-    
+    self.model->updateMdl();
 //    self.model->camera_pos.name = self.model->data_array[0].name;
     // Set the initial orientation to 0
     
@@ -294,7 +294,7 @@
     
     [self.rootViewController renderAnnotations];
     [self.locationTableView reloadData];
-    NSLog(@"json combo triggered %@", astr);
+    NSLog(@"KML combo triggered %@", astr);
 }
 
 - (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox {

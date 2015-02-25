@@ -144,17 +144,24 @@
         for (int i = 0; i < self.model->data_array.size(); ++i){
             self.model->data_array[i].isEnabled = false;
         }
-        for(vector<int>::iterator it = mySnapshot.selected_ids.begin();
-            it != mySnapshot.selected_ids.end(); ++it)
-        {
-            if (*it >= self.model->data_array.size()){
+        
+        // Need to configure the answer status
+        for (int i = 0; i < mySnapshot.selected_ids.size(); ++i){
+            int data_id = mySnapshot.selected_ids[i];
+            if (data_id >= self.model->data_array.size()){
                 [self displayPopupMessage:[NSString stringWithFormat:
                                            @"Data ID: %d does not exist in %@",
-                                           *it, self.model->location_filename]];
+                                           data_id, self.model->location_filename]];
             }else{
-                self.model->data_array[*it].isEnabled = true;
+                self.model->data_array[data_id].isEnabled = true;
+                if (mySnapshot.is_answer_list[i] == 0){
+                    self.model->data_array[data_id].isAnswer = false;
+                }else{
+                    self.model->data_array[data_id].isAnswer = true;
+                }
             }
         }
+        
         self.model->configurations[@"filter_type"] = @"MANUAL";
     }
     
@@ -218,7 +225,7 @@
         // Desktop (OSX)
         //--------------------
         [self sendMessage:[NSString stringWithFormat:@"%d", snapshot_id]];
-        
+            self.renderer->isCrossEnabled = false;
         // Set up differently, depending on the snapshot code
         if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)
         {
@@ -228,6 +235,9 @@
             [self showLocalizeCollectMode:mySnapshot];
         }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
             [self showOrientCollectMode:mySnapshot];
+        }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound){
+            [self showLocalizeCollectMode:mySnapshot];
+            self.renderer->isCrossEnabled = true;
         }
     }else if (mode == OFF){
         //--------------------

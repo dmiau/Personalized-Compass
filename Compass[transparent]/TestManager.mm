@@ -30,6 +30,8 @@ TaskType stringToTaskType(string aString){
         output = TRIANGULATE;
     }else if (aString == "t3"){
         output = ORIENT;
+    }else if (aString == "t4"){
+        output = LOCATEPLUS;
     }
     return output;
 }
@@ -54,6 +56,11 @@ TaskSpec::TaskSpec(TaskType taskType)
             taskCode = "t3";
             trial_n_list = {5, 5};
             support_n = 1;
+            break;
+        case LOCATEPLUS:
+            taskCode = "t4";
+            trial_n_list = {12, 12};
+            support_n = 2;
             break;
         default:
             break;
@@ -104,36 +111,10 @@ int TestManager::initTestManager(){
     
     model = compassMdl::shareCompassMdl();
     
-    visualization_vector.clear();
-    device_vector.clear();
     test_counter = 0;
     testManagerMode = OFF;
     iOSAnswer = 10000;
     isRecordAutoSaved = NO;
-    
-    vector<VisualizationType> visualization_enums
-    = {VIZNONE, VIZPCOMPASS, VIZWEDGE, VIZOVERVIEW};
-    NSArray* visualization_strings =
-    @[@"None", @"PComp", @"Wedge", @"OverV"];
-    
-    for (int i = 0; i < visualization_enums.size(); ++i){
-        param myParam;
-        myParam.type = visualization_enums[i];
-        myParam.isEnabled = true;
-        myParam.name = visualization_strings[i];
-        visualization_vector.push_back(myParam);
-    }
-    
-    vector<DeviceType> device_enums = {PHONE, WATCH};
-    
-    NSArray* device_strings = @[@"Phone", @"Watch"];
-    for (int i = 0; i < device_enums.size(); ++i){
-        param myParam;
-        myParam.type = device_enums[i];
-        myParam.isEnabled = true;
-        myParam.name = device_strings[i];
-        device_vector.push_back(myParam);
-    }
     
     //----------------
     // Parameters for each type of test
@@ -191,28 +172,12 @@ int TestManager::generateTests(){
     //--------------
     initializeDeviceBoundaries();
     
-    enabled_visualization_vector.clear();
-    for (int i = 0; i < visualization_vector.size(); ++i){
-        if (visualization_vector[i].isEnabled){
-            enabled_visualization_vector.push_back
-            (visualization_vector[i]);
-        }
-    }
-    
-    enabled_device_vector.clear();
-    for (int i = 0; i < device_vector.size(); ++i){
-        if (device_vector[i].isEnabled){
-            enabled_device_vector.push_back
-            (device_vector[i]);
-        }
-    }
-
     //=====================
     // Test Parameters
     //=====================
     vector<string> device_list = {"phone", "watch"};
     vector<string> visualization_list = {"pcompass", "wedge"};
-    vector<string> task_list = {"t1", "t2", "t3"};
+    vector<string> task_list = {"t1", "t2", "t3", "t4"};
 
     //=====================
     // Generate location vector

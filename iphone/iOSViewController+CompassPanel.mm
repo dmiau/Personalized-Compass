@@ -360,14 +360,20 @@
 // Toggle Study Related Tools
 //--------------------
 - (IBAction)toggleStudySegmentControl:(UISegmentedControl*)sender {
+    
+    static bool cachedMapInteractionStatus =
+    self.mapView.rotateEnabled;
+    
     switch (sender.selectedSegmentIndex) {
         case 0:
-            [self enableMapInteraction:YES];
+            [self enableMapInteraction:cachedMapInteractionStatus];
             self.renderer->isAnswerLinesEnabled = NO;
             self.renderer->isCrossEnabled = NO;
             self.renderer->isInteractiveLineEnabled = NO;
             break;
         case 1:
+            cachedMapInteractionStatus = self.mapView.rotateEnabled;
+            
             [self enableMapInteraction:NO];
             self.renderer->isAnswerLinesEnabled = NO;
             self.renderer->isCrossEnabled = YES;

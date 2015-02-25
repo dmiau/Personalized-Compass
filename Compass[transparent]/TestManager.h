@@ -184,12 +184,10 @@ public:
     // Parameters
     //-----------------
     TestManagerMode testManagerMode;
-    
-    
+        
     //-----------------
     // Connection to other components
     //-----------------
-    // Connections to other modules
     compassMdl *model;
     
     // The following two are initialized via dependency injection
@@ -213,13 +211,6 @@ public:
     NSString *practice_filename;
     NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
     NSString *record_filename;
-    
-
-    vector<param> visualization_vector;
-    vector<param> device_vector;
-    
-    vector<param> enabled_visualization_vector;
-    vector<param> enabled_device_vector;
     
     //---------------
     // map and vector

@@ -337,6 +337,23 @@ void TestManager::startTest(){
         
         record_vector[test_counter].doubleTruth =
         atan2(openGLPoint.y, openGLPoint.x) /M_PI * 180;
+    }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound){
+        //-----------------
+        // Locate plus
+        //-----------------
+        int ans_id =0;
+        // Find out the answer ID
+        for (int i = 0; i < mySnapshot.selected_ids.size(); ++i){
+            if (mySnapshot.is_answer_list[i] == 1)
+                ans_id = mySnapshot.selected_ids[i];
+        }
+        
+        CGPoint openGLPoint = [rootViewController calculateOpenGLPointFromMapCoord:
+                               CLLocationCoordinate2DMake
+                               (model->data_array[ans_id].latitude,
+                                model->data_array[ans_id].longitude)];
+        record_vector[test_counter].cgPointTruth = openGLPoint;
+        record_vector[test_counter].doubleTruth = 0;
     }
 #endif
 }

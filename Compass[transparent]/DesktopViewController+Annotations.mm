@@ -398,7 +398,8 @@
         for (CustomPointAnnotation* annotation in annotation_array){
             int i = annotation.data_id;
             if (annotation.point_type == landmark &&
-                self.model->data_array[i].isEnabled){
+                self.model->data_array[i].isEnabled)
+            {
                 if (self.testManager->testManagerMode == DEVICESTUDY ||
                     self.testManager->testManagerMode == OSXSTUDY){
                     

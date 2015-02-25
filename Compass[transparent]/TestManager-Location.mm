@@ -21,7 +21,7 @@ map<string, vector<int>> TestManager::generateLocationVector(){
     
     location_dict.clear();
     
-    vector<TaskType> task_list = {LOCATE, TRIANGULATE, ORIENT};
+    vector<TaskType> task_list = {LOCATE, TRIANGULATE, ORIENT, LOCATEPLUS};
     vector<DeviceType> device_list = {PHONE, WATCH};
     
     map<string, vector<int>> temp_locations;
@@ -134,6 +134,10 @@ map<string, vector<int>> TestManager::generateLocationsByTask
                     t_location_vector =  generateRandomOrientLocations
                     (t_begin, t_end, (int)t_n);
                     break;
+                case LOCATEPLUS:
+                    t_location_vector =  generateRandomTriangulateLocations
+                    (t_begin, t_end, (int)t_n);
+                    break;
                 default:
                     break;
             }
@@ -142,7 +146,8 @@ map<string, vector<int>> TestManager::generateLocationsByTask
             while (li < t_location_vector.size()){
                 
                 // Each TRIANGULATE task requires three landmarks
-                if (taskType == TRIANGULATE){
+                if (taskType == TRIANGULATE ||
+                    taskType == LOCATEPLUS){
                     //--------------------
                     // Localize tests use multiple supports
                     //--------------------

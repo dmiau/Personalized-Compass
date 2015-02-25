@@ -3284,6 +3284,7 @@ modified-perspective [1:31PM]
 - add an study review pane in iOS [2:09PM]
 - compass, relative to the blue circle
 - detach the centroid from the compass [4:13PM] (some infrastructure work)
+- LOCATE+ tests [6:56PM]
 
 ***** ToDo
 - map zoom in/out, pan around
@@ -3333,8 +3334,6 @@ Test Generation (making new levels for the game):
 ***** Working
 - as fast as possible, and there is a time limit
 - phone <-> watch transition, and I need to verify the study in watch mode
-- LOCATE+ tests
-
 
 - update wedge algorithm so there is a fixed intrusion
 
