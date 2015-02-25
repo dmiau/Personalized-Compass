@@ -282,8 +282,9 @@
                     <rect key="frame" x="92" y="155" width="220" height="29"/>
                     <segments>
                         <segment title="None"/>
+                        <segment title="Truth"/>
                         <segment title="ITLine"/>
-                        <segment title="Answer"/>
+                        <segment title="T+ITLine"/>
                     </segments>
                     <connections>
                         <action selector="toggleStudySegmentControl:" destination="-1" eventType="valueChanged" id="xcb-3Q-s7e"/>

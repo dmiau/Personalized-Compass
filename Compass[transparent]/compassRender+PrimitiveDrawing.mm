@@ -498,17 +498,24 @@ double compassRender::findBestEmptyOrienation(vector<double> orientation_array){
 }
 
 void compassRender::drawCross(){
+    float cross_length;
+#ifdef __IPHONE__
     glLineWidth(4);
+    cross_length = 50;
+#else
+    glLineWidth(2);
+    cross_length = 25;
+#endif
     glColor4f(1, 0, 0, 1);
-
-    Vertex3D    vertex1 = Vertex3DMake(50, 0, 0);
-    Vertex3D    vertex2 = Vertex3DMake(-50, 0, 0);
+    
+    Vertex3D    vertex1 = Vertex3DMake(cross_length, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(-cross_length, 0, 0);
     Line3D  line = Line3DMake(vertex1, vertex2);
     glVertexPointer(3, GL_FLOAT, 0, &line);
     glDrawArrays(GL_LINES, 0, 2);
     
-    Vertex3D    vertex3 = Vertex3DMake(0, 50, 0);
-    Vertex3D    vertex4 = Vertex3DMake(0, -50, 0);
+    Vertex3D    vertex3 = Vertex3DMake(0, cross_length, 0);
+    Vertex3D    vertex4 = Vertex3DMake(0, -cross_length, 0);
     Line3D  line1 = Line3DMake(vertex3, vertex4);
     glVertexPointer(3, GL_FLOAT, 0, &line1);
     glDrawArrays(GL_LINES, 0, 2);
@@ -528,7 +535,7 @@ void compassRender::drawInteractiveLine(){
 
 void compassRender::drawAnswerLines(){
     glLineWidth(4);
-    glColor4f(0, 1, 0, 1);
+    glColor4f(30.0/256, 88.0/256, 45.0/256, 1);
     
     
     for (int i = 0; i < degree_vector.size(); ++i){

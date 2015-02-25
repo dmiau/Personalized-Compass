@@ -56,6 +56,12 @@ typedef struct{
 
 @property NSMutableDictionary* UIConfigurations;
 
+
+//----------------
+// Message label
+//----------------
+@property UILabel *messageLabel;
+
 //----------------
 // Cache MapView parameters
 //----------------
@@ -221,7 +227,7 @@ typedef struct{
 - (void)moveCompassCentroidToOpenGLPoint: (CGPoint) OpenGLPoint;
 - (void)moveCompassRefToMapViewPoint:(CGPoint) MapViewPoint;
 -(void) updateLocationVisibility;
-
+-(void) updateAnswerLines;
 //----------------
 //MapView category
 //----------------

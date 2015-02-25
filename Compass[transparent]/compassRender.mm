@@ -289,9 +289,13 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //--------------
     // Draw interactive line
     //--------------
-    if (isAnswerLinesEnabled)
+    if (isAnswerLinesEnabled){
+        glPushMatrix();
+        glRotatef(model->camera_pos.orientation, 0, 0, -1);
         drawAnswerLines();
-    
+        
+        glPopMatrix();
+    }
     if (isInteractiveLineEnabled)
         drawInteractiveLine();
     

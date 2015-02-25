@@ -124,6 +124,45 @@
     self.model->camera_pos.latitude = lat_float;
     self.model->camera_pos.longitude = lon_float;
     self.model->updateMdl();
+    if (self.renderer->isAnswerLinesEnabled)
+        [self updateAnswerLines];
+}
+
+- (void) updateAnswerLines{
+    if (self.renderer->isAnswerLinesEnabled){
+        data centroid_data;
+        centroid_data.latitude = self.mapView.centerCoordinate.latitude;
+        centroid_data.longitude = self.mapView.centerCoordinate.longitude;
+        
+        self.renderer->degree_vector.clear();
+        double maxDist = 0;
+        // Calculat the angles
+        for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
+            int j = self.model->indices_for_rendering[i];
+            
+            double degree = -(
+                              centroid_data.computeOrientationFromLocation(self.model->data_array[j])
+                              -90);
+            
+            //            cout << self.model->data_array[j].name << endl;
+            //            cout << "Degree: " << degree << endl;
+            self.renderer->degree_vector.push_back(degree);
+            
+            data myData = self.model->data_array[j];
+            
+            // Also update distances here
+            CGPoint point = [self.mapView convertCoordinate:
+                             CLLocationCoordinate2DMake(myData.latitude, myData.longitude)
+                                              toPointToView:self.mapView];
+            point.x = point.x - self.mapView.frame.size.width/2;
+            point.y = point.y - self.mapView.frame.size.height/2;
+            double dist = sqrt(point.x*point.x + point.y * point.y);
+            if (dist > maxDist)
+                maxDist =dist;
+        }
+        self.messageLabel.text = [NSString stringWithFormat:@"%.2f",
+                                  (float)maxDist / (float)self.mapView.frame.size.width];
+    }
 }
 
 - (float) calculateCameraHeading{

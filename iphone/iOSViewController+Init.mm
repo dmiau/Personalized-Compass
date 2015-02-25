@@ -112,6 +112,14 @@
     // Do any additional setup after loading the view.
     
     //-------------------
+    // Initialize the message label
+    //-------------------
+    self.messageLabel = [[UILabel alloc] initWithFrame:
+                    CGRectMake(10, 10, 150, 20)];
+    [self.messageLabel setBackgroundColor:[UIColor clearColor]];
+    [self.messageLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 16.0f]];
+    
+    //-------------------
     // Initialize OpenGL ES
     //-------------------
     

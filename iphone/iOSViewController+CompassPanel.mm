@@ -360,27 +360,41 @@
 // Toggle Study Related Tools
 //--------------------
 - (IBAction)toggleStudySegmentControl:(UISegmentedControl*)sender {
-    
-    static bool cachedMapInteractionStatus =
-    self.mapView.rotateEnabled;
-    
+
     switch (sender.selectedSegmentIndex) {
         case 0:
-            [self enableMapInteraction:cachedMapInteractionStatus];
+            [self.messageLabel removeFromSuperview];
+            [self enableMapInteraction:YES];
             self.renderer->isAnswerLinesEnabled = NO;
             self.renderer->isCrossEnabled = NO;
             self.renderer->isInteractiveLineEnabled = NO;
             break;
         case 1:
-            cachedMapInteractionStatus = self.mapView.rotateEnabled;
-            
+            //-------------
+            // Truth
+            //-------------
+            [self addMessageLabelToView];
+            self.renderer->isAnswerLinesEnabled = YES;
+            [self updateAnswerLines];
+            [self enableMapInteraction:YES];
+            self.renderer->isCrossEnabled = YES;
+            self.renderer->isInteractiveLineEnabled = NO;
+            break;
+        case 2:
+            //-------------
+            // IT Line
+            //-------------
+            [self addMessageLabelToView];
             [self enableMapInteraction:NO];
             self.renderer->isAnswerLinesEnabled = NO;
             self.renderer->isCrossEnabled = YES;
             self.renderer->isInteractiveLineEnabled = YES;
             break;
-        case 2:
-            // Diplay answers
+        case 3:
+            //-------------
+            // Truth+IT Line
+            //-------------
+            [self addMessageLabelToView];
             self.renderer->isAnswerLinesEnabled = YES;
             [self updateAnswerLines];
             [self enableMapInteraction:NO];
@@ -393,26 +407,10 @@
     [self.glkView setNeedsDisplay];
 }
 
-
-- (void) updateAnswerLines{
-    if (self.renderer->isAnswerLinesEnabled){
-        data centroid_data;
-        centroid_data.latitude = self.mapView.centerCoordinate.latitude;
-        centroid_data.longitude = self.mapView.centerCoordinate.longitude;
-        
-        self.renderer->degree_vector.clear();
-        // Calculat the angles
-        for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
-            int j = self.model->indices_for_rendering[i];
-            
-            double degree = -(
-            centroid_data.computeOrientationFromLocation(self.model->data_array[j])
-            -90);
-            
-//            cout << self.model->data_array[j].name << endl;
-//            cout << "Degree: " << degree << endl;
-            self.renderer->degree_vector.push_back(degree);
-        }
+- (void) addMessageLabelToView{
+    if (![self.messageLabel isDescendantOfView:self.glkView]){
+        [self.glkView addSubview:self.messageLabel];
     }
 }
+
 @end

@@ -50,8 +50,10 @@ wedge::wedge(compassMdl* myMdl, box screen_box, CGPoint diff_xy){
     //---------------------
     wedgeParams myWedgeParams;
     if ((ty <= t_height/2) && (ty >= -t_height/2)){
+        // Region Two is the edge case, the easy case
         myWedgeParams = calculateRegionTwoParams(tx, ty);
     }else{
+        // Region Two is the corner case, the hard case
         myWedgeParams = calculateRegionOneParams(tx, ty);
     }
     
@@ -200,6 +202,9 @@ wedgeParams wedge::calculateRegionOneParams(double tx, double ty){
 
     l_leg = (1-k) * l_leg + k * mid_leg;
     
+    // Calculate the max allowable leg length
+    
+    
     //----------------
     // Set constraints to the base and legs
     //----------------
@@ -215,16 +220,6 @@ wedgeParams wedge::calculateRegionOneParams(double tx, double ty){
     return my_wedgeParams;
 }
 
-////-------------------------
-//// Region One
-////-------------------------
-//wedgeParams wedge::calculateWatchParams(double tx, double ty){
-//    wedgeParams my_wedgeParams;
-//    
-//    
-//    
-//    return my_wedgeParams;
-//}
 
 void wedge::render(){
     //-----------------

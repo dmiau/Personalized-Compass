@@ -53,7 +53,7 @@ string taskTypeToString(TaskType type){
             break;
         default:
             break;
-    }    
+    }
     return code;
 }
 

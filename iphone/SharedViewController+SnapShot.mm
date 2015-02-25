@@ -271,6 +271,7 @@
 // Set up the environment to collect the answer for the locate test
 //----------------------
 - (void)showLocateCollectMode: (snapshot) mySnapshot{
+    [self enableMapInteraction:NO];    
     self.renderer->isCrossEnabled = false;
     // Emulate the iOS enironment if on the desktop
     // (if it is in the control mode)
@@ -329,7 +330,7 @@
 // Set up the environment to collect the answer for the localize test
 //----------------------
 - (void)showLocalizeCollectMode: (snapshot) mySnapshot{
-
+    [self enableMapInteraction:NO];
 #ifndef __IPHONE__
     [self setupVisualization:VIZNONE];
     self.renderer->emulatediOS.is_enabled = FALSE;
@@ -353,13 +354,14 @@
 // Set up the environment to collect the answer for the locate plus test
 //----------------------
 - (void)showLocatePlusCollectMode: (snapshot) mySnapshot{
-
+    [self enableMapInteraction:NO];
 }
 
 //----------------------
 // Set up the environment to collect the answer for the orient test
 //----------------------
 - (void)showOrientCollectMode: (snapshot) mySnapshot{
+    [self enableMapInteraction:NO];
 #ifndef __IPHONE__
     [self setupVisualization:VIZNONE];
     self.renderer->emulatediOS.is_enabled = FALSE;
