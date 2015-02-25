@@ -10,7 +10,8 @@
 #import "CHCSVParser.h"
 using namespace std;
 
-vector<vector<vector<string>>> permute(vector<vector<string>> input, int leaf_n){
+template <class type>
+vector<vector<vector<type>>> permute(vector<vector<type>> input, int leaf_n){
     vector<vector<vector<string>>> output; output.clear();
     
     for (int i = 0; i < input.size(); ++i){
@@ -34,12 +35,13 @@ vector<vector<vector<string>>> permute(vector<vector<string>> input, int leaf_n)
 //---------------
 // Pool object
 //---------------
-pool::pool(vector<string> conditions, POOLMODE mode, int leaf_n){
+template <class type>
+pool<type>::pool(vector<type> conditions, POOLMODE mode, int leaf_n){
     counter = 0;
     content.clear();
     // Do one permutation and another special permute
     // example input {1, 2}
-    vector<vector<string>> temp; temp.clear();
+    vector<vector<type>> temp; temp.clear();
     
     switch (mode) {
         case FULL:
@@ -75,7 +77,7 @@ pool::pool(vector<string> conditions, POOLMODE mode, int leaf_n){
 // {{{1, 2}, {2, 1}},
 // {{2, 1}, {1, 2}}}
 // So I will use row_i and col_i to access an item
-vector<string> pool::next(){
+template <class type> vector<type> pool<type>::next(){
     vector<string> output;
     
     int i = counter % (content.size()*content[0].size());
@@ -96,9 +98,9 @@ void TestManager::generateAllTestVectors(
                                                vector<string> task_list
                                                )
 {
-    pool device_pool = pool(device_list, FULL, 1); //phone, watch
-    pool visualization_pool = pool(visualization_list, FULL, 2); //personalized compass, wedge
-    pool task_pool = pool(task_list, FULL, 2);
+    pool<string> device_pool = pool<string>(device_list, FULL, 1); //phone, watch
+    pool<string> visualization_pool = pool<string>(visualization_list, FULL, 2); //personalized compass, wedge
+    pool<string> task_pool = pool<string>(task_list, FULL, 2);
     
     
 //    pool location_pool = pool(location_list, FIXED, 1);

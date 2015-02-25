@@ -36,6 +36,32 @@ TaskType stringToTaskType(string aString){
     return output;
 }
 
+string taskTypeToString(TaskType type){
+    string code;
+    switch (type) {
+        case LOCATE:
+            code = "t1";
+            break;
+        case TRIANGULATE:
+            code = "t2";
+            break;
+        case ORIENT:
+            code = "t3";
+            break;
+        case LOCATEPLUS:
+            code = "t4";
+            break;
+        default:
+            break;
+    }    
+    return code;
+}
+
+// Delegate constructor
+TaskSpec::TaskSpec(string aString):TaskSpec(stringToTaskType(aString)){
+    
+}
+
 TaskSpec::TaskSpec(TaskType taskType)
 {
     trial_string_list.clear();

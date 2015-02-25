@@ -132,7 +132,7 @@ public:
 //LATIN: Latin square
 enum POOLMODE {FULL, FIXED, LATIN};
 
-class pool{
+template <class type> class pool{
 public:
     string name;
     int counter;
@@ -140,7 +140,7 @@ public:
     // content:
     // {{{1, 2}, {2, 1}},
     // {{2, 1}, {1, 2}}}
-    vector< vector<vector<string>> > content;
+    vector< vector<vector<type>> > content;
 public:
     // pool takes a list of conditions (e.g., device types, viz types, etc.)
     // and generates a pool of string bundles, which can be used to generate
@@ -163,19 +163,22 @@ public:
     // visualizations, pcompass and wedge)
     
     // leaf_n controls the number of items per pool unit
-    pool(vector<string>, POOLMODE mode, int leaf_n);
+    pool(vector<type> conditions, POOLMODE mode, int leaf_n);
     
     // Next should return the following in sequence
     // {1, 2}, {2, 1},   {2, 1}, {1, 2}
     // Note that next should be able to go through the boundary of cells.
     // so vector<string>
-    vector<string> next();
+    vector<type> next();
 };
 
 //------------------------------
 // Test Manager
 //------------------------------
 enum TestManagerMode {OFF, DEVICESTUDY, OSXSTUDY, AUTHORING, REVIEW};
+
+TaskType stringToTaskType(string aString);
+string taskTypeToString(TaskType type);
 
 class TestManager{
 public:
@@ -184,7 +187,7 @@ public:
     // Parameters
     //-----------------
     TestManagerMode testManagerMode;
-        
+    
     //-----------------
     // Connection to other components
     //-----------------
