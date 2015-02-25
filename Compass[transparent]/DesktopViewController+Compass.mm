@@ -73,4 +73,30 @@
 - (void) setFactoryCompassHidden: (BOOL) flag {
     [self mapView].showsCompass =!flag;
 }
+
+- (void)lockCompassRefToScreenCenter: (bool)state{
+    if (state){
+        self.renderer->isCompassRefPointEnabled = YES;
+        [self moveCompassRefToMapViewPoint:
+         CGPointMake(self.mapView.frame.size.width/2,
+                     self.mapView.frame.size.height/2)
+         ];
+        
+        self.UIConfigurations[@"UICompassCenterLocked"] =
+        [NSNumber numberWithBool:true];
+        
+    }else{
+        self.renderer->isCompassRefPointEnabled = NO;
+        self.UIConfigurations[@"UICompassCenterLocked"] =
+        [NSNumber numberWithBool:false];
+        [self moveCompassRefToMapViewPoint:
+         CGPointMake(self.renderer->compass_centroid.x +
+                     self.mapView.frame.size.width/2,
+                     self.mapView.frame.size.height/2 -
+                     self.renderer->compass_centroid.y)
+         ];
+    }
+    [self.compassView setNeedsDisplay:YES];
+}
+
 @end

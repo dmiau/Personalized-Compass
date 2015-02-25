@@ -76,7 +76,10 @@ void compassRender::drawCompassScaleBox(double longestDistInMeters){
     // (to indicate that there is a boudary indicator
     // ---------------
     if (!isBoundaryIndicatorDrawn){
-        glColor4f(1, 0, 0, 1);
+        glColor4f([model->configurations[@"scale_box_color"][0] floatValue]/255.0,
+                  [model->configurations[@"scale_box_color"][1] floatValue]/255.0,
+                  [model->configurations[@"scale_box_color"][2] floatValue]/255.0,
+                  [model->configurations[@"scale_box_color"][3] floatValue]/255.0);
         glPushMatrix();
         glTranslatef(0, 0, 2);
         drawCircle(0, 0, central_disk_radius/2, 50, true);
@@ -114,12 +117,17 @@ void compassRender::drawCompassCentralCircle(){
 // Compass Reference Point
 //--------------
 void compassRender::drawCompassRefPoint(){
-    glColor4f(0, 0, 1, 0.7);
-    drawCircle(0, 0, 6, 50, YES);
-    glColor4f(1, 1, 1, 0.3);
-    drawCircle(0, 0, 8, 50, YES);
-    glColor4f(0, 0, 0, 0.3);
-    drawCircle(0, 0, 9, 50, YES);
+    
+    if ([model->configurations[@"personalized_compass_status"]
+         isEqualToString:@"on"])
+    {
+        glColor4f(0, 0, 1, 0.7);
+        drawCircle(0, 0, 6, 50, YES);
+        glColor4f(1, 1, 1, 0.3);
+        drawCircle(0, 0, 8, 50, YES);
+        glColor4f(0, 0, 0, 0.3);
+        drawCircle(0, 0, 9, 50, YES);
+    }
 }
 
 void compassRender::drawCompassNorth(){
@@ -133,13 +141,15 @@ void compassRender::drawCompassNorth(){
         //                  50/256, 0.6);
         glColor4f(1,
                   0,
-                  0, 1);
+                  0, 0.3);
         
     }else{
         glColor4f(228/256,
                   101/256,
                   42/256, 1);
     }
+    
+    // Note the radius is fixed to 1
     drawTriangle(1, 0, compass_disk_radius *
                  [model->configurations[@"north_indicator_to_compass_disk_ratio"] floatValue]);
 }

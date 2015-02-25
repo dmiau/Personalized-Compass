@@ -331,8 +331,15 @@
 }
 
 - (IBAction)toggleCompassCenterLock:(UISwitch*)sender {
-    
     if (sender.on){
+        [self lockCompassRefToScreenCenter:YES];
+    }else{
+        [self lockCompassRefToScreenCenter:NO];
+    }
+}
+
+- (void)lockCompassRefToScreenCenter: (bool)state{
+    if (state){
         self.renderer->isCompassRefPointEnabled = YES;
         [self moveCompassRefToMapViewPoint:
          CGPointMake(self.mapView.frame.size.width/2,

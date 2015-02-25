@@ -175,22 +175,27 @@
         case 0:
             self.rootViewController.testManager->toggleStudyMode(NO, YES);
             self.rootViewController.renderer->label_flag = true;
-#ifndef __IPHONE__
+
             self.rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
             self.rootViewController.isDistanceEstControlAvailable =
             [NSNumber numberWithBool:NO];
-#endif
+
             
             break;
         case 1:
+            if (self.rootViewController.socket_status)
+            {
+                [self.rootViewController displayPopupMessage:
+                 @"An open connection is detected. To sync with iOS, iOS needs to be manually set to the study mode (and choose the correct snapshot file)."];
+            }
             self.rootViewController.testManager->toggleStudyMode(YES, YES);
             self.rootViewController.testManager->isRecordAutoSaved = NO;
             self.rootViewController.renderer->label_flag = false;
-#ifndef __IPHONE__
+
             self.rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:YES];
             self.rootViewController.isDistanceEstControlAvailable =
             [NSNumber numberWithBool:YES];
-#endif
+
             break;
         default:
             break;

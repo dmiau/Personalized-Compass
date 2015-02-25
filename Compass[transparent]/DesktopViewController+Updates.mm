@@ -182,6 +182,19 @@
     }
 }
 
+- (void)moveCompassRefToMapViewPoint:(CGPoint) MapViewPoint{
+    // Update compassRefMapViewPoint (compass's centroid coordinates in mapView)
+    self.model->compassRefMapViewPoint = MapViewPoint;
+    // Update compass's (latitude, longitude)
+    CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
+                                              self.model->compassRefMapViewPoint
+                                                   toCoordinateFromView:self.mapView];
+    
+    self.model->camera_pos.latitude = compassCtrCoord.latitude;
+    self.model->camera_pos.longitude = compassCtrCoord.longitude;
+    self.model->updateMdl();
+}
+
 //------------------
 // Refresh the main GUI
 //------------------

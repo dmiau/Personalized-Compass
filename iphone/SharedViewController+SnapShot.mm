@@ -191,7 +191,7 @@
         // visualization needs to be set up correctly
         //--------------------
         [self setupVisualization:mySnapshot.visualizationType];
-        
+        [self lockCompassRefToScreenCenter:YES];
         self.renderer->isInteractiveLineEnabled=false;
         // Set up differently, depending on the snapshot code
         if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)

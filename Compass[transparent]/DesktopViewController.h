@@ -90,12 +90,13 @@ typedef struct{
 - (void)updateMainGUI;
 -(void) updateLocationVisibility;
 - (void) windowDidResize:(NSNotification *) notification;
-
+- (void)moveCompassRefToMapViewPoint:(CGPoint) MapViewPoint;
 //----------------
 // Compass related stuff
 //----------------
 - (void) changeCompassLocationTo: (NSString*) label;
 - (void) setFactoryCompassHidden: (BOOL) flag;
+- (void)lockCompassRefToScreenCenter: (bool)state;
 
 //-------------------
 // Interactions

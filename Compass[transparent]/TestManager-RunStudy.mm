@@ -83,7 +83,11 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
         [rootViewController setFactoryCompassHidden:YES];
         model->configurations[@"wedge_status"] = @"off";
         
-        [rootViewController sendMessage:@"OK"];
+        if (instructPartner){
+            [rootViewController sendMessage:model->snapshot_filename];
+        }else{
+            [rootViewController sendMessage:@"OK"];
+        }
     }
     updateUITestMessage();
     showTestNumber(0);

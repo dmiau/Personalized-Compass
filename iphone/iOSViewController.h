@@ -188,7 +188,7 @@ typedef struct{
 //----------------
 - (void) changeCompassLocationTo: (NSString*) label;
 - (void) setFactoryCompassHidden: (BOOL) flag;
-
+- (void)lockCompassRefToScreenCenter: (bool)state;
 //----------------
 // Functions attached to the timer
 //----------------

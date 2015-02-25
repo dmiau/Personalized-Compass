@@ -169,18 +169,21 @@
     // Check if the received message is a number
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     NSNumber *temp = [f numberFromString: message];
-    if ( temp != nil){
-        self.testManager->showTestNumber([temp intValue]);
+    if ( temp != nil){        
+        if (self.testManager->testManagerMode != OFF)
+            self.testManager->showTestNumber([temp intValue]);
     }else{
         // Handle the message only if the received message is a KML file name
         if ([message rangeOfString:@".snapshot"].location != NSNotFound){
             if (![message isEqualToString:
-                  self.model->snapshot_filename]){
+                  self.model->snapshot_filename])
+            {
                 self.model->snapshot_filename = message;
                 
                 if (readSnapshotKml(self.model) != EXIT_SUCCESS){
                     [self displayPopupMessage:
                      [NSString stringWithFormat:@"Failed to load %@", message]];
+                    return;
                 }
             }
             self.testManager->toggleStudyMode(YES, NO);

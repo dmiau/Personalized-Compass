@@ -261,7 +261,11 @@ BOOL compassRender::drawBoxInCompass(double renderD2realDRatio)
 #else
     glLineWidth(2);
 #endif
-    glColor4f(1, 0, 0, 0.5);
+    glColor4f([model->configurations[@"scale_box_color"][0] floatValue]/255.0,
+              [model->configurations[@"scale_box_color"][1] floatValue]/255.0,
+              [model->configurations[@"scale_box_color"][2] floatValue]/255.0,
+              [model->configurations[@"scale_box_color"][3] floatValue]/255.0);
+    
     glPushMatrix();
     // Plot the triangle first, then rotate and translate
     

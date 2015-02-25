@@ -27,10 +27,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     }
     
     
-    // ---------------
-    // draw the scale box
-    // ---------------
-    drawCompassScaleBox(mode_max_dist_array[0]);
+
     
     // ---------------
     // Draw the center circle
@@ -84,6 +81,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
             mode_max_dist_array[0] * compass_disk_radius;
         }else{
             base_radius = central_disk_radius/4;
+            base_radius = max((float)1.0, base_radius);
             
             glColor4f(48/256,
                       217/256,
@@ -114,6 +112,10 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // ---------------
     drawCompassNorth();
     
+    // ---------------
+    // draw the scale box
+    // ---------------
+    drawCompassScaleBox(mode_max_dist_array[0]);
     
     // ---------------
     // draw the scale indicator (for Binodal mode)

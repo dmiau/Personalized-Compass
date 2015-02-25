@@ -3388,6 +3388,10 @@ Test Generation (making new levels for the game):
 - CustomPointAnnotation has an address field
 
 - update wedge algorithm so there is a fixed intrusion
+
+- need to generate a practicing file. 
+- need to load the record file and review the study.
+
 ***** Working
 - as fast as possible, and there is a time limit
 - phone <-> watch transition, and I need to verify the study in watch mode
