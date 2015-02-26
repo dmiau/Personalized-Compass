@@ -98,7 +98,9 @@
     //--------------------
     // Update interactive line
     //--------------------
-    if (self.renderer->isInteractiveLineEnabled){
+    if (self.renderer->isInteractiveLineVisible
+        && self.renderer->isInteractiveLineEnabled)
+    {
         double x = pos.x - 0.5*self.renderer->view_width;
         double_t y = 0.5*self.renderer->view_height - pos.y;
         self.renderer->interactiveLineRadian = atan2(y, x);

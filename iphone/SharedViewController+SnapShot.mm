@@ -192,19 +192,26 @@
         //--------------------
         [self setupVisualization:mySnapshot.visualizationType];
         [self lockCompassRefToScreenCenter:YES];
-        self.renderer->isInteractiveLineEnabled=false;
+        self.renderer->isInteractiveLineVisible=false;
         // Set up differently, depending on the snapshot code
         if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)
         {
+            [self enableMapInteraction:NO];
             self.renderer->isCrossEnabled = false;
         }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound)
         {
+            [self enableMapInteraction:NO];
             self.renderer->isCrossEnabled = true;
         }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+            [self enableMapInteraction:NO];
             self.renderer->isCrossEnabled = true;
-            
+            self.renderer->isInteractiveLineVisible=true;
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
+        }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound)
+        {
+            [self enableMapInteraction:NO];
+            self.renderer->isCrossEnabled = true;
         }
         
         //--------------------

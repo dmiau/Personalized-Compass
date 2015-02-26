@@ -297,6 +297,19 @@ void TestManager::saveSnapShotsToKML(){
     // Make sure the output folder exists
     setupOutputFolder();
     
+    NSString *folder_path = [model->desktopDropboxDataRoot
+                             stringByAppendingString:test_foldername];
+    NSError* error;
+    
+    // Snapshot generation date
+    NSDate *startDate = [NSDate date];
+    NSDateFormatter *formatter =
+    [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+    
+    //Optionally for time zone conversions
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"NYC"]];
+    
     for (int ui = 0; ui < all_snapshot_vectors.size(); ++ui){
         //-------------------
         // Process one participant per iteration
@@ -304,14 +317,12 @@ void TestManager::saveSnapShotsToKML(){
         NSString *snapshot_filename =
         [NSString stringWithFormat:@"%@%d.snapshot", test_snapshot_prefix, ui];
         
+        // Store the generated time into the note of the first snapshot
+        
+
+        all_snapshot_vectors[ui][0].notes = [formatter stringFromDate:startDate];
+        
         NSString *content = genSnapshotString(all_snapshot_vectors[ui]);
-
-        
-
-        NSString *folder_path = [model->desktopDropboxDataRoot
-                                 stringByAppendingString:test_foldername];
-        
-        NSError* error;
         NSString *doc_path = [folder_path
                               stringByAppendingPathComponent:snapshot_filename];
         
@@ -321,11 +332,27 @@ void TestManager::saveSnapShotsToKML(){
         {
             throw(runtime_error("Failed to write snapshot kml file"));
         }
-        
-        
     }
+    
+    // Save the first one as a practice
+    // TODO: need some improvement
+    //-------------------
+    // Process one participant per iteration
+    //-------------------
+    NSString *content = genSnapshotString(all_snapshot_vectors[0]);
+    NSString *doc_path = [folder_path
+                          stringByAppendingPathComponent:
+                          @"practice.snapshot"];
+    
+    if (![content writeToFile:doc_path
+                   atomically:YES encoding: NSASCIIStringEncoding
+                        error:&error])
+    {
+        throw(runtime_error("Failed to write snapshot kml file"));
+    }    
 }
 
+#pragma mark -------------- Distance Calculation Tools --------------
 //-------------------
 // Calculate the display region for the tests involving multiple locations
 //-------------------

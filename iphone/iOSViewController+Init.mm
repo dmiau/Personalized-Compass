@@ -214,6 +214,11 @@
     // Initilize socket message array
     //---------------
     _messages = [[NSMutableArray alloc] init];
+    
+    //---------------
+    // Make center lock mode the default compass mode
+    //---------------
+    [self lockCompassRefToScreenCenter:YES];
 }
 
 @end

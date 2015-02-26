@@ -66,7 +66,9 @@ int compassRender::initRenderMdl(){
     wedgeMode               = false;
     isOverviewMapEnabled    = false;
     isCrossEnabled          = false;
+    isInteractiveLineVisible=false;
     isInteractiveLineEnabled=false;
+    
     interactiveLineRadian   = 0;
     isAnswerLinesEnabled    = false;
     degree_vector.clear();
@@ -296,7 +298,7 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         
         glPopMatrix();
     }
-    if (isInteractiveLineEnabled)
+    if (isInteractiveLineVisible)
         drawInteractiveLine();
     
     //--------------

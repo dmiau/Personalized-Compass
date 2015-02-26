@@ -40,7 +40,7 @@
     // revert
     // Change compass ctr
     [self changeCompassLocationTo: @"Default"];
-    
+    self.model->configurations[@"wedge_style"] = @"modified-orthographic";    
     
     // Reset the compss scale back to the default scale
     self.renderer->adjustAbsoluteCompassScale(1);
@@ -54,6 +54,9 @@
 }
 
 
+//-----------------
+// Set up the watch mode
+//-----------------
 - (void)setupWatchViewMode{
    
     self.UIConfigurations[@"UIRotationLock"] =
@@ -72,8 +75,14 @@
         self.model->cache_configurations[@"bg_color"][i];
     }
 
+    
+    // Need some work here
+    
     // Change compass ctr
     [self changeCompassLocationTo: @"Center"];
+    
+    // The wedge has to be in the perspective mode to funciton correctly
+    self.model->configurations[@"wedge_style"] = @"modified-perspective";
     
     float watch_scale =
     [self.model->configurations[@"watch_compass_disk_radius"]
@@ -138,9 +147,10 @@
     searchField.textColor = [UIColor blackColor];
     
     
-    [self toggleWedge:NO];
-    [self toggleOverviewMap:NO];
-    [self togglePCompass:YES];
+    // Do not change visualization status
+//    [self toggleWedge:NO];
+//    [self toggleOverviewMap:NO];
+//    [self togglePCompass:YES];
     
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
@@ -155,7 +165,7 @@
             //-----------
             [self setupWatchViewMode];
             break;
-        case 3:
+        case 2:
             //-----------
             // Training Mode
             //-----------
@@ -164,7 +174,6 @@
             // Change compass ctr
             [self changeCompassLocationTo: @"Center"];
             
-            self.renderer->adjustAbsoluteCompassScale(0.8);
             self.renderer->model->configurations[@"font_size"] =
             [NSNumber numberWithFloat:14];
             [self.view addSubview:slider];
@@ -374,7 +383,7 @@
             [self enableMapInteraction:YES];
             self.renderer->isAnswerLinesEnabled = NO;
             self.renderer->isCrossEnabled = NO;
-            self.renderer->isInteractiveLineEnabled = NO;
+            self.renderer->isInteractiveLineVisible = NO;
             break;
         case 1:
             //-------------
@@ -385,7 +394,7 @@
             [self updateAnswerLines];
             [self enableMapInteraction:YES];
             self.renderer->isCrossEnabled = YES;
-            self.renderer->isInteractiveLineEnabled = NO;
+            self.renderer->isInteractiveLineVisible = NO;
             break;
         case 2:
             //-------------
@@ -395,6 +404,7 @@
             [self enableMapInteraction:NO];
             self.renderer->isAnswerLinesEnabled = NO;
             self.renderer->isCrossEnabled = YES;
+            self.renderer->isInteractiveLineVisible = YES;
             self.renderer->isInteractiveLineEnabled = YES;
             break;
         case 3:
@@ -406,7 +416,8 @@
             [self updateAnswerLines];
             [self enableMapInteraction:NO];
             self.renderer->isCrossEnabled = YES;
-            self.renderer->isInteractiveLineEnabled = YES;
+            self.renderer->isInteractiveLineVisible = YES;
+            self.renderer->isInteractiveLineEnabled = NO;
             break;
         default:
             break;

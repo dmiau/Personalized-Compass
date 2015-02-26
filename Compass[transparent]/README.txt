@@ -3341,6 +3341,8 @@ Test Generation (making new levels for the game):
 -------------------------------------------------------------------
 ***** Done
 - added iOS distance debuging label
+- need to generate a practicing file. Had a temporary solution. [5:01PM]
+- review mode - lock the interactive line [9:43PM]
 
 ***** ToDo
 - map zoom in/out, pan around
@@ -3389,12 +3391,105 @@ Test Generation (making new levels for the game):
 
 - update wedge algorithm so there is a fixed intrusion
 
-- need to generate a practicing file. 
 - need to load the record file and review the study.
 
-***** Working
 - as fast as possible, and there is a time limit
 - phone <-> watch transition, and I need to verify the study in watch mode
+* the visualization is set to default after visualization is changed
+- annotation loading is too slow.
+
+- test mode - color coded the object of interest
+- some generated locations were invalid
+- what are the conditions under each factor?
+- add a scale on iOS for distance estimation
+
+- block visualization, control, test reviewing
+
+- tutorial mode (also for demo purpose)
+- review mode - show the actual box
+***** Working
+
+
+-------------------------------------------------------------------
+2.26.2015
+-------------------------------------------------------------------
+***** Done
+- make compass center lock mode the default mode
+- preserve visualization type when switch devices
+
+***** ToDo
+- map zoom in/out, pan around
+
+- Naming conventions: .locations, .tests, .history, etc. 
+- annotation control
+- renderAnnotationsIDs (vector<int> id_list, bool labelFlag)
+
+- circle overlay
+http://stackoverflow.com/questions/9056451/draw-a-circle-of-1000m-radius-around-users-location-in-mkmapview
+
+Medium effort:
+- modify drawOneSide to cut off the legs
+* need to set up the watch mode correctly
+- renderAnnottions has issues
+- ortho+watch do not work
+
+Quick fixes:
+- implement and maintain a type counter dictionary, added to the authoring pane, integrate the test code with the counter
+- review the study
+- lock rotation in the author mode?
+
+- annotation control, programmatically control the pins/labels, and destroy them. smarter annotation management. think about the case that multiple annotations need to be displayed simultaneously.
+
+- get the ios beta testing work (iTunes connect)
+
+- issues that need to be fixed:
+* calculateLatLonFromiOSX: should be task dependent
+* enhance location generation
+
+- bugs here:
+    self.rootViewController.testManager->
+            calculateMultipleLocationsDisplayRegion();
+
+- answer review mode, review test statistics 
+
+- add a start session pop-up, add an end session pop-up
+- add intruction support (espeically for the practice run), see the answer, get the feedback?
+
+High effort:
+Test Generation (making new levels for the game):
+- latin square generation 
+
+- disable address lookup
+- CustomPointAnnotation has an address field
+
+- update wedge algorithm so there is a fixed intrusion
+
+- need to load the record file and review the study.
+
+- as fast as possible, and there is a time limit
+- phone <-> watch transition, and I need to verify the study in watch mode
+* the visualization is set to default after visualization is changed
+- annotation loading is too slow.
+
+- test mode - color coded the object of interest
+- some generated locations were invalid
+- what are the conditions under each factor?
+- add a scale on iOS for distance estimation
+
+- block visualization, control, test reviewing
+
+- tutorial mode (also for demo purpose)
+- review mode - show the actual box
+***** Working
+
+
+
+
+
+
+
+
+
 
 
 

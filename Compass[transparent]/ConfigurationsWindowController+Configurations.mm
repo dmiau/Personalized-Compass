@@ -237,7 +237,6 @@
                 float scale = [self.iOSScale floatValue];
                 self.rootViewController.renderer->emulatediOS.changeSizeByScale(scale);
             }
-            
             break;
         case 2:
             //----------------
@@ -267,6 +266,8 @@
         default:
             break;
     }
+    self.iOSScreenStr = [NSString stringWithFormat:
+                         @"WxH: %.0fx%.0f", self.rootViewController.renderer->emulatediOS.width, self.rootViewController.renderer->emulatediOS.height ];
 }
 
 - (IBAction)toggleiOSScreenOnly:(NSButton*)sender {
@@ -277,6 +278,8 @@
 - (IBAction)adjustiOSScreenSize:(NSSlider *)sender {
     float scale = [self.iOSScale floatValue];
     self.rootViewController.renderer->emulatediOS.changeSizeByScale(scale);
+    self.iOSScreenStr = [NSString stringWithFormat:
+                         @"WxH: %.0fx%.0f", self.rootViewController.renderer->emulatediOS.width, self.rootViewController.renderer->emulatediOS.height ];
 }
 
 

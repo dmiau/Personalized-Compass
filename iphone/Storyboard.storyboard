@@ -1017,7 +1017,7 @@
                                 <rect key="frame" x="0.0" y="166" width="320" height="353"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myTableCell" textLabel="fUF-YJ-NOI" detailTextLabel="zb4-FV-Rbi" style="IBUITableViewCellStyleSubtitle" id="fPh-Rv-txS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="myTableCell" textLabel="fUF-YJ-NOI" detailTextLabel="zb4-FV-Rbi" style="IBUITableViewCellStyleSubtitle" id="fPh-Rv-txS">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fPh-Rv-txS" id="C64-nh-CJC">
@@ -1165,8 +1165,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WDh-6L-UAq"/>
         <segue reference="K1H-er-9a7"/>
+        <segue reference="WDh-6L-UAq"/>
         <segue reference="VT9-KB-V4S"/>
         <segue reference="9at-fG-ath"/>
     </inferredMetricsTieBreakers>

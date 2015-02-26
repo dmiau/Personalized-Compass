@@ -101,6 +101,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
 //-------------------
 void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
     rootViewController.renderer->isCrossEnabled = false;
+    rootViewController.renderer->isInteractiveLineVisible=false;
     rootViewController.renderer->isInteractiveLineEnabled=false;
     model->configurations[@"style_type"] = @"BIMODAL";
     

@@ -98,6 +98,7 @@ public:
     bool watchMode;
     bool trainingMode;
     bool isCrossEnabled;
+    bool isInteractiveLineVisible;
     bool isInteractiveLineEnabled;
     double interactiveLineRadian;
     bool isAnswerLinesEnabled;
