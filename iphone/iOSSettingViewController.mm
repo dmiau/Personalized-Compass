@@ -181,27 +181,26 @@
 //--------------
 // Data source selector
 //--------------
-- (IBAction)toggleDataSource:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
-    NSString *label = [segmentedControl
-                       titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
+- (IBAction)toggleDataSource:(UISegmentedControl *)sender {
     
-    if ([label isEqualToString:@"Local"]){
-        if (model->filesys_type == DROPBOX){
+    switch ([sender selectedSegmentIndex]) {
+        case 0:
             model->filesys_type = IOS_DOC;
-        }
-    }else{
-        if (!model->dbFilesystem.isReady){
-            [model->dbFilesystem linkDropbox:(UIViewController*)self];
-        }
-        
-        if ([model->dbFilesystem.db_filesystem completedFirstSync]){
-            // reload
-            model->filesys_type = DROPBOX;
-        }else{
-            self.systemMessage.text = @"Dropbox is not ready. Try again later.";
-            self.dataSource.selectedSegmentIndex = 0;
-        }
+            break;
+        case 1:
+            if (!model->dbFilesystem.isReady){
+                [model->dbFilesystem linkDropbox:(UIViewController*)self];
+            }
+            if ([model->dbFilesystem.db_filesystem completedFirstSync]){
+                // reload
+                model->filesys_type = DROPBOX;
+            }else{
+                self.systemMessage.text = @"Dropbox is not ready. Try again later.";
+                self.dataSource.selectedSegmentIndex = 0;
+            }
+            break;
+        default:
+            break;
     }
 }
 

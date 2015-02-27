@@ -23,92 +23,6 @@
 @implementation DesktopViewController (SnapShot)
 #endif
 
-//@property vector<snapshot> snapshot_array;
-- (bool)takeSnapshot{
-    
-    // Go back to home first
-    self.mapView.region = self.model->homeCoordinateRegion;
-    self.mapView.camera.heading = 0;
-    
-    
-    snapshot mySnapshot;
-    // Get the center coordinates
-    mySnapshot.coordinateRegion = self.mapView.region;
-    
-    // Get the orientation
-    mySnapshot.orientation = self.model->camera_pos.orientation;
-    
-    // Need to save the file name too
-    mySnapshot.kmlFilename = self.model->location_filename;
-    mySnapshot.date_str =
-    [NSDateFormatter localizedStringFromDate:[NSDate date]
-                                   dateStyle:NSDateFormatterShortStyle
-                                   timeStyle:NSDateFormatterFullStyle];
-    mySnapshot.selected_ids = self.model->indices_for_rendering;
-    mySnapshot.is_answer_list = self.model->indices_for_rendering; // Just to initialize
-    
-    // Capture the enable/disable status
-    for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
-        int lid = self.model->indices_for_rendering[i];
-        if (self.model->data_array[lid].isAnswer){
-            mySnapshot.is_answer_list[i] = 1;
-        }else{
-            mySnapshot.is_answer_list[i] = 0;
-        }
-    }
-    
-    mySnapshot.name = @"authored_snapshot";
-    if (self.testManager->testManagerMode == AUTHORING){
-        //--------------
-        // Test authoring mode
-        //--------------
-        string prefix = "";
-        
-        // Log device type and visualization type
-        if (self.renderer->watchMode){
-            mySnapshot.deviceType = WATCH;
-            prefix = prefix + "watch:";
-        }else{
-            mySnapshot.deviceType = PHONE;
-            prefix = prefix + "phone:";
-        }
-        
-        if ([self.model->configurations[@"wedge_status"]
-             isEqualToString:@"on"]){
-            mySnapshot.visualizationType = VIZWEDGE;
-            prefix = prefix + "wedge:";
-        }else{
-            mySnapshot.visualizationType = VIZPCOMPASS;
-            prefix = prefix + "pcompass:";
-        }
-     
-#ifdef __IPHONE__
-        prefix = prefix + "t" +
-        to_string(1+self.taskSegmentControl.selectedSegmentIndex);
-#endif
-        // Update a new name
-        mySnapshot.name = [NSString stringWithUTF8String: prefix.c_str()];
-    }
-    
-    self.model->snapshot_array.push_back(mySnapshot);
-    
-    //--------------
-    // Configure the environment so we can author the next test
-    //--------------
-    if (self.testManager->testManagerMode == AUTHORING){
-        // Disable all landmarks
-        for (int i = 0; i < self.model->data_array.size(); ++i) {
-            self.model->data_array[i].isEnabled = false;
-        }
-        [self renderAnnotations];
-        self.model->updateMdl();
-#ifdef __IPHONE__
-        [self.glkView setNeedsDisplay];
-#endif
-    }
-    return true;
-}
-
 //------------------
 // displaySnapshot loads and displays a snapshot
 // when setup_viz_flag is on, the visualization settings
@@ -127,6 +41,8 @@
     //-----------
     snapshot mySnapshot = self.model->snapshot_array[snapshot_id];
     
+
+    // Do not reload the location if it is already loaded
     if (![mySnapshot.kmlFilename isEqualToString: self.model->location_filename]){
         self.model->location_filename = mySnapshot.kmlFilename;
         readLocationKml(self.model, self.model->location_filename);
@@ -152,6 +68,8 @@
                 [self displayPopupMessage:[NSString stringWithFormat:
                                            @"Data ID: %d does not exist in %@",
                                            data_id, self.model->location_filename]];
+                
+                return false;
             }else{
                 self.model->data_array[data_id].isEnabled = true;
                 if (mySnapshot.is_answer_list[i] == 0){
@@ -165,6 +83,16 @@
         self.model->configurations[@"filter_type"] = @"MANUAL";
     }
     
+//    NSLog(@"SnapShot");
+//    NSLog(@"Center:");
+//    NSLog(@"latitude: %f, longitude: %f", mySnapshot.coordinateRegion.center.latitude,
+//          mySnapshot.coordinateRegion.center.longitude);
+//    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", mySnapshot.coordinateRegion.span.latitudeDelta,
+//          mySnapshot.coordinateRegion.span.longitudeDelta);
+    
+    
+    self.mapView.camera.heading = -mySnapshot.orientation;
+    
 #ifdef __IPHONE__
     [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
 #else
@@ -176,42 +104,55 @@
         [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
     }
 #endif
-    
+
+//    NSLog(@"True");
+//    NSLog(@"Center:");
+//    NSLog(@"latitude: %f, longitude: %f", self.mapView.centerCoordinate.latitude,
+//          self.mapView.centerCoordinate.longitude);
+//    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", self.mapView.region.span.latitudeDelta,
+//          self.mapView.region.span.longitudeDelta);
+
+    //-----------------
+    // Render annotations (may be too heavy?)
+    //-----------------
     [self renderAnnotations];
+    
     //-----------------
     // Set up viz and device
     //-----------------
     if (mode == DEVICESTUDY){
+#ifdef __IPHONE__
         //--------------------
         // Phone (iOS)
         //--------------------
         
-        //--------------------
-        // The device is in the control mode
-        // visualization needs to be set up correctly
-        //--------------------
         [self setupVisualization:mySnapshot.visualizationType];
         [self lockCompassRefToScreenCenter:YES];
         self.renderer->isInteractiveLineVisible=false;
+        [self enableMapInteraction:NO];
+        
         // Set up differently, depending on the snapshot code
         if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)
         {
-            [self enableMapInteraction:NO];
             self.renderer->isCrossEnabled = false;
+
+            [self.glkView addSubview:self.scaleView];
+
         }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound)
         {
-            [self enableMapInteraction:NO];
             self.renderer->isCrossEnabled = true;
+            [self.scaleView removeFromSuperview];
         }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
-            [self enableMapInteraction:NO];
+
             self.renderer->isCrossEnabled = true;
             self.renderer->isInteractiveLineVisible=true;
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
+            [self.scaleView removeFromSuperview];
         }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound)
         {
-            [self enableMapInteraction:NO];
             self.renderer->isCrossEnabled = true;
+            [self.scaleView removeFromSuperview];
         }
         
         //--------------------
@@ -226,7 +167,7 @@
                 [self displayPopupMessage:@"Please change to the phone mode."];
             }
         }
-        
+#endif
     }else if (mode == OSXSTUDY){
         //--------------------
         // Desktop (OSX)

@@ -52,9 +52,11 @@
 @end
 
 //-------------------
-// Generate snapshot arrays
+// Generate all the snapshot vectors
+// Each participant has one snapshot vector
+// This method generates vecotr of vector of snapshots
 //-------------------
-void TestManager::generateSnapShots(){
+void TestManager::generateAllSnapShotVectors(){
     
     // Reset all_snapshot_vectors first
     all_snapshot_vectors.clear();
@@ -66,6 +68,9 @@ void TestManager::generateSnapShots(){
         }
 }
 
+//------------------
+// Generate a collection of snapshots from test vector
+//------------------
 vector<snapshot> TestManager::generateSnapShotsFromTestvector(vector<string> test_vector)
 {
         vector<snapshot> t_snapshot_array;
@@ -212,6 +217,8 @@ vector<snapshot> TestManager::generateSnapShotsFromTestvector(vector<string> tes
         }
     return t_snapshot_array;
 }
+
+#pragma mark ------------------practice snapshot generation------------------
 
 //-------------------
 // Generate custom snapshot from custom test vector

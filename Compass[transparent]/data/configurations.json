@@ -80,6 +80,11 @@
   "comment": "the color of each landmark"
   },  
   {
+  "property": "scale_box_color",
+  "value": [0, 0, 0, 125],
+  "comment": "the color of each landmark"
+  },    
+  {
   "property": "compass_disk_radius",
   "value": 47,
   "comment": "Specify the radius of the compass disk (in pixels)."
@@ -96,8 +101,8 @@
   },    
   {
   "property": "central_disk_radius",
-  "value": 4,
-  "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
+  "value": 3,
+  "comment": "(in pixels)"
   },  
   {
   "property": "north_indicator_to_compass_disk_ratio",

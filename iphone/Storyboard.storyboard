@@ -44,10 +44,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-jM-ph6" userLabel="Locate Button">
-                                <rect key="frame" x="270" y="474" width="40" height="40"/>
+                                <rect key="frame" x="270" y="474" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="F5l-yN-wc1"/>
-                                    <constraint firstAttribute="height" constant="40" id="UEz-mT-mUe"/>
+                                    <constraint firstAttribute="width" constant="30" id="F5l-yN-wc1"/>
+                                    <constraint firstAttribute="height" constant="30" id="UEz-mT-mUe"/>
                                 </constraints>
                                 <state key="normal" image="location.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,7 +63,7 @@
                             <constraint firstAttribute="trailing" secondItem="MuN-zz-sjI" secondAttribute="trailing" constant="7" id="1QL-O9-B2J"/>
                             <constraint firstItem="eEI-mU-khp" firstAttribute="top" secondItem="RNx-RU-M1b" secondAttribute="bottom" id="DCg-Wz-jpA"/>
                             <constraint firstItem="we6-xT-3ZG" firstAttribute="top" secondItem="YGn-3v-wZY" secondAttribute="top" constant="21" id="Dgl-es-oow"/>
-                            <constraint firstAttribute="trailing" secondItem="xmf-jM-ph6" secondAttribute="trailing" constant="10" id="EoV-Ib-toj"/>
+                            <constraint firstAttribute="trailing" secondItem="xmf-jM-ph6" secondAttribute="trailing" constant="20" id="EoV-Ib-toj"/>
                             <constraint firstAttribute="trailing" secondItem="w6C-r0-bI1" secondAttribute="trailing" id="Jhb-uH-Js9"/>
                             <constraint firstItem="Nfb-xm-KgJ" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="PE4-BJ-Hls"/>
                             <constraint firstItem="w6C-r0-bI1" firstAttribute="top" secondItem="we6-xT-3ZG" secondAttribute="bottom" id="WkB-hV-dHw"/>
@@ -74,7 +74,7 @@
                             <constraint firstItem="w6C-r0-bI1" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="bbx-lT-f6G"/>
                             <constraint firstAttribute="trailing" secondItem="RNx-RU-M1b" secondAttribute="trailing" id="dX8-HO-Ntb"/>
                             <constraint firstItem="RNx-RU-M1b" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="dY8-pU-Avc"/>
-                            <constraint firstItem="RNx-RU-M1b" firstAttribute="top" secondItem="xmf-jM-ph6" secondAttribute="bottom" constant="10" id="fOJ-Hw-VD5"/>
+                            <constraint firstItem="RNx-RU-M1b" firstAttribute="top" secondItem="xmf-jM-ph6" secondAttribute="bottom" constant="20" id="fOJ-Hw-VD5"/>
                             <constraint firstItem="we6-xT-3ZG" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" constant="6" id="hAc-mC-kbg"/>
                             <constraint firstItem="eEI-mU-khp" firstAttribute="bottom" secondItem="w6C-r0-bI1" secondAttribute="bottom" id="rtM-3g-9o7"/>
                         </constraints>
@@ -1014,7 +1014,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zvj-5t-Cip">
-                                <rect key="frame" x="0.0" y="166" width="320" height="353"/>
+                                <rect key="frame" x="0.0" y="129" width="320" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="myTableCell" textLabel="fUF-YJ-NOI" detailTextLabel="zb4-FV-Rbi" style="IBUITableViewCellStyleSubtitle" id="fPh-Rv-txS">
@@ -1045,19 +1045,19 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Study Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJG-vO-7wB">
-                                <rect key="frame" x="16" y="87" width="94" height="21"/>
+                                <rect key="frame" x="9" y="84" width="94" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b0t-3h-xik">
-                                <rect key="frame" x="136" y="82" width="51" height="31"/>
+                                <rect key="frame" x="111" y="79" width="51" height="31"/>
                                 <connections>
                                     <action selector="toggleStudyMode:" destination="avv-ds-Vn2" eventType="valueChanged" id="twX-gp-Woy"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkx-c7-mnD">
-                                <rect key="frame" x="16" y="121" width="137" height="30"/>
+                                <rect key="frame" x="177" y="80" width="137" height="30"/>
                                 <state key="normal" title="Reset Test Manager">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1068,7 +1068,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zvj-5t-Cip" firstAttribute="top" secondItem="F68-PY-8iw" secondAttribute="topMargin" constant="166" id="9QD-f8-xU8"/>
+                            <constraint firstItem="zvj-5t-Cip" firstAttribute="top" secondItem="F68-PY-8iw" secondAttribute="topMargin" constant="129" id="8fA-U3-O7a"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Study" id="SXQ-9W-98f"/>
@@ -1166,8 +1166,8 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="K1H-er-9a7"/>
-        <segue reference="WDh-6L-UAq"/>
-        <segue reference="VT9-KB-V4S"/>
+        <segue reference="yng-bX-3xc"/>
+        <segue reference="WS4-yg-Oj7"/>
         <segue reference="9at-fG-ath"/>
     </inferredMetricsTieBreakers>
 </document>

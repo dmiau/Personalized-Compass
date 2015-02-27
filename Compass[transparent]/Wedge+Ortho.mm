@@ -35,7 +35,11 @@ wedge::wedge(compassMdl* myMdl, box screen_box, CGPoint diff_xy){
     // Initialize parameters
     //---------------------
     model = myMdl;
+#ifndef __IPHONE__
     min_base = 50;
+#else
+    min_base = 100;
+#endif
     
     //---------------------
     // Figure out if coordinate transform is needed

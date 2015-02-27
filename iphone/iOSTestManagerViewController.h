@@ -20,10 +20,12 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;
 @property iOSViewController* rootViewController;
-- (IBAction)resetTestManager:(id)sender;
+@property NSString *folderAfterExit;
+// Keeps tracking the folder path AFTER leaving this pane
 
 @property (weak, nonatomic) IBOutlet UISwitch *studyModeSwitch;
 - (IBAction)toggleStudyMode:(id)sender;
 
-- (IBAction)reloadSnapshotFile:(id)sender;
+- (IBAction)resetTestManager:(id)sender;
+
 @end

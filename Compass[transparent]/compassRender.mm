@@ -217,12 +217,6 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     glMatrixMode(GL_MODELVIEW);
     
     //--------------
-    // Draw compass ref point
-    //--------------
-    if (isCompassRefPointEnabled)
-        drawCompassRefPoint();
-    
-    //--------------
     // Draw a box in the overview view
     //--------------
     // This is strange, I couldn't place this block below the draw compass code...
@@ -253,6 +247,14 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     model->configurations[@"personalized_compass_status"];
     
     if ([personalized_compass_status isEqualToString:@"on"]){
+        
+        //--------------
+        // Draw compass ref point
+        //--------------
+        if (isCompassRefPointEnabled)
+            drawCompassRefPoint();
+        
+        
         glPushMatrix();
         // Do NOT do the following for wedge
         

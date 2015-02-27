@@ -218,7 +218,7 @@ int TestManager::generateTests(){
     //=====================
     // Save the files
     //=====================
-    generateSnapShots();
+    generateAllSnapShotVectors();
     saveSnapShotsToKML();
         
     return 0;

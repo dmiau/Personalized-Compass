@@ -68,6 +68,11 @@ typedef struct{
 @property LatLons4x2 latLons4x2;
 - (void) updateCornerLatLon;
 
+//----------------
+// Scalar view
+//----------------
+@property UIView *scaleView;
+
 
 //----------------
 // Views in ExtraPanels.xib

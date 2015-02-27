@@ -65,6 +65,12 @@ typedef struct{
 
 RenderParamStruct makeRenderParams(filter_enum filter_type, style_enum style_type);
 
+//----------------------------------
+// Graphics components
+//----------------------------------
+
+
+
 
 //----------------------------------
 // compassRender class

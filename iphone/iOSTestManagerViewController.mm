@@ -38,9 +38,8 @@
 
 - (void)updateSnapshotFileList{
     //-------------------
-    // Collect a list of history files
+    // Collect a list of kml files (under the study folder)
     //-------------------
-    // Collect a list of kml files
     NSArray *dirFiles;
     if (self.model->filesys_type == IOS_DOC){
         dirFiles = [self.model->docFilesystem listFiles];
@@ -55,6 +54,25 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     //    [super viewWillAppear:animated];
+    
+    //-------------------
+    // In this TestManager pane, make the root always to be the study folder
+    // At the end of this dialog, the folder_name will be set based on the
+    // status of the TestManager
+    //-------------------
+    self.folderAfterExit = @"";
+    self.model->dbFilesystem.folder_name = @"study";
+
+    //-------------------
+    // Update the test manager state
+    //-------------------
+    self.studyModeSwitch.on =
+    (self.rootViewController.testManager->testManagerMode == DEVICESTUDY);
+    
+    //-------------------
+    // This is to update the display name of a snapshot,
+    // since the user may rename a snapshot in the detail view
+    //-------------------
     if (selected_snapshot_id > -1){
         UITableViewCell* cell = [self.myTableView
                                  cellForRowAtIndexPath:
@@ -67,8 +85,6 @@
         [self.myTableView reloadData];
     }
     
-    self.studyModeSwitch.on = [self.rootViewController.UIConfigurations[@"UIToolbarMode"]
-                                       isEqualToString:@"Study"];
     //-------------------
     // Change navigation bar color
     //-------------------
@@ -82,11 +98,9 @@
 - (void)viewWillDisappear:(BOOL)animated{
     //------------------
     // Path control
+    // The path will be revert back to the drobpox root if the TestManager is OFF
     //------------------
-    if (self.rootViewController.testManager->testManagerMode == OFF)
-        self.model->dbFilesystem.folder_name = @"";
-    else
-        self.model->dbFilesystem.folder_name = @"study";
+    self.model->dbFilesystem.folder_name = self.folderAfterExit;
 }
 
 
@@ -184,7 +198,7 @@
         // User selects a snapshot
         //----------------
         self.rootViewController.snapshot_id_toshow = row_id;
-        
+        self.folderAfterExit = @"study";
         //--------------
         // We might need to do something for iPad
         //--------------
@@ -268,28 +282,6 @@
     }
 }
 
-- (IBAction)reloadSnapshotFile:(id)sender {
-    //------------
-    // Load snapshot if the file is available
-    //------------
-    NSString* filename = self.model->snapshot_filename;
-    bool snapshotFileExists = false;
-    // Check if a snapshot file exists
-    if (self.model->filesys_type == DROPBOX){
-        snapshotFileExists = [self.model->dbFilesystem fileExists:filename];
-    }else{
-        snapshotFileExists = [self.model->docFilesystem fileExists:filename];
-    }
-    
-    if (snapshotFileExists){
-        self.model->snapshot_filename = filename;
-        if (readSnapshotKml(self.model) != EXIT_SUCCESS){
-            throw(runtime_error("Failed to load snapshot files"));
-        }
-    }
-    [self.myTableView reloadData];
-}
-
 - (void)loadSnapshotWithName: (NSString*) filename{
     NSString* filename_cache = self.model->snapshot_filename;
     self.model->snapshot_filename = filename;
@@ -320,5 +312,10 @@
 //-----------------
 - (IBAction)toggleStudyMode:(UISwitch*)sender {
     self.rootViewController.testManager->toggleStudyMode(sender.on, YES);
+    if (sender.on){
+        self.folderAfterExit = @"study";
+    }else{
+        self.folderAfterExit = @"";
+    }
 }
 @end

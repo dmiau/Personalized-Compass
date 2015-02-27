@@ -27,6 +27,14 @@
     NSLog(@"Map latitude: %f, longitude: %f", myCoord.latitude, myCoord.longitude);
     NSLog(@"Mappoint X: %f, Y: %f", mappoint.x, mappoint.y);
     
+    
+    NSLog(@"True");
+    NSLog(@"Center:");
+    NSLog(@"latitude: %f, longitude: %f", self.mapView.centerCoordinate.latitude,
+          self.mapView.centerCoordinate.longitude);
+    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", self.mapView.region.span.latitudeDelta,
+          self.mapView.region.span.longitudeDelta);
+    
     // pass touch event to super
     [super touchesBegan:touches withEvent:event];
     

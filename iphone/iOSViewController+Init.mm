@@ -99,6 +99,23 @@
                                   forKey:@"UIOverviewScaleMode"];
         [self.UIConfigurations setObject:@"All"
                                   forKey:@"ShowPins"];
+        
+        
+        // Add the walking man symbol
+        
+        // Initialization code here.
+        NSRect img_rect;
+        
+        // Some tools I can use to specify the size of a view
+        // NSMakeRect, CGRectMake
+        img_rect = CGRectMake(0, 0, 320, 503); //orig_x, y, width, height
+        
+        // Add the scale image
+        NSString *fileString =
+        [[NSBundle mainBundle] pathForResource:@"walking.tif" ofType:@""];
+        self.scaleView = [[UIView alloc]initWithFrame:img_rect];
+        [self.scaleView setBackgroundColor:[UIColor colorWithPatternImage:
+                                            [UIImage imageNamed:fileString]]];
     }
     return self;
 }

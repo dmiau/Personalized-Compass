@@ -333,7 +333,7 @@ public:
     void saveAllTestVectorCSV();
     
     // I will need a snapshot generator too
-    void generateSnapShots();
+    void generateAllSnapShotVectors();
     vector<snapshot> generateSnapShotsFromTestvector(vector<string> test_vector);
     void saveSnapShotsToKML();
     void generateCustomSnapshotFromVectorName(NSString* custom_vector_filename);

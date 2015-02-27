@@ -111,9 +111,6 @@
         }else if ([command isEqualToString: @"End"]){
             self.testManager->toggleStudyMode(NO, NO);
         }else if ([command isEqualToString: @"Sync"]){
-
-            //    [self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
-            
             // Sync with iOS
             if (self.iOSSyncFlag)
             {

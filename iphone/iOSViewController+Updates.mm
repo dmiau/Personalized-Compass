@@ -206,10 +206,17 @@
         isInited = true;
     }
     
-    [self.mapView setRegion:coord_region animated:animated];
+
     // Not sure why I need the following two lines.
-    self.mapView.centerCoordinate = coord_region.center;
-    self.mapView.region = coord_region;
+//    [self.mapView setRegion:coord_region animated:animated];
+//    self.mapView.centerCoordinate = coord_region.center;
+//    self.mapView.region = coord_region;
+
+    
+    // use mapRect instead?
+    self.mapView.visibleMapRect =
+    [self MKMapRectForCoordinateRegion:coord_region];
+    
     
     // Update the model
     CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint:
@@ -225,6 +232,17 @@
 #else
     [self.glkView setNeedsDisplay];
 #endif
+}
+
+- (MKMapRect)MKMapRectForCoordinateRegion:(MKCoordinateRegion)region
+{
+    MKMapPoint a = MKMapPointForCoordinate(CLLocationCoordinate2DMake(
+                                                                      region.center.latitude + region.span.latitudeDelta / 2,
+                                                                      region.center.longitude - region.span.longitudeDelta / 2));
+    MKMapPoint b = MKMapPointForCoordinate(CLLocationCoordinate2DMake(
+                                                                      region.center.latitude - region.span.latitudeDelta / 2,
+                                                                      region.center.longitude + region.span.longitudeDelta / 2));
+    return MKMapRectMake(MIN(a.x,b.x), MIN(a.y,b.y), ABS(a.x-b.x), ABS(a.y-b.y));
 }
 
 //------------------
