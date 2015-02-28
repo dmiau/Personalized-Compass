@@ -3440,6 +3440,10 @@ folder changing code has some issues
 -------------------------------------------------------------------
 ***** Done
 - folder path related issues [11:11AM]
+snapshot taking and displaying code needs to be cleaned up [5:08PM]
+- self.UIConfigurations[@"UICompassInteractionEnabled"] disable label interaction [8:03PM]
+* compassRef blue dot blocks the view (center lock mode)
+* the center cross is too big [8:41PM] temporary fixes
 
 ***** Working
 - update wedge algorithm so there is a fixed intrusion
@@ -3457,8 +3461,7 @@ folder changing code has some issues
 - scalar mode needs to be removed when the test mode is off
 
 - watch mode issues
-* compassRef blue dot blocks the view (center lock mode)
-* the center cross is too big
+
 * scale in the watch mode?
 * compass cannot be moved in the watch mode
 
@@ -3468,8 +3471,5 @@ folder changing code has some issues
 Data generation
 - data generation control
 
-snapshot taking and display code needs to be cleaned up
-
-
-
+- warning on zoom levels
 

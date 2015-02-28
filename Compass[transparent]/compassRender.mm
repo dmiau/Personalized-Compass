@@ -65,7 +65,6 @@ int compassRender::initRenderMdl(){
     trainingMode            = false;
     wedgeMode               = false;
     isOverviewMapEnabled    = false;
-    isCrossEnabled          = false;
     isInteractiveLineVisible=false;
     isInteractiveLineEnabled=false;
     
@@ -73,10 +72,11 @@ int compassRender::initRenderMdl(){
     isAnswerLinesEnabled    = false;
     degree_vector.clear();
     loadParametersFromModelConfiguration();
-    isCompassRefPointEnabled = NO;
-    compassRefOpenGLPoint = CGPointMake(0, 0);
 #ifndef __IPHONE__
     emulatediOS = EmulatediOS(model);
+    cross.applyDeviceStyle(DESKTOP);
+#else
+    cross.applyDeviceStyle(PHONE);
 #endif
     // near and far are calculated from the point of view of an observer
     return EXIT_SUCCESS;
@@ -251,10 +251,9 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
         //--------------
         // Draw compass ref point
         //--------------
-        if (isCompassRefPointEnabled)
-            drawCompassRefPoint();
-        
-        
+        if (compassRefDot.isVisible)
+            compassRefDot.render();
+                
         glPushMatrix();
         // Do NOT do the following for wedge
         
@@ -287,8 +286,8 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //--------------
     // Draw cross
     //--------------
-    if (isCrossEnabled){
-        drawCross();
+    if (cross.isVisible){
+        cross.render();
     }
     //--------------
     // Draw interactive line

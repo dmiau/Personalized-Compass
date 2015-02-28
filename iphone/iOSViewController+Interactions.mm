@@ -60,7 +60,8 @@
     // Check if any of the label is clicked (only when the compass is enabled)
     //------------------
     if ([self.model->configurations[@"personalized_compass_status"]
-        isEqualToString: @"on"])
+        isEqualToString: @"on"]
+        && [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue])
     {
         CGPoint touch_pt = [touch locationInView:self.mapView];
         NSLog(@"MapUV U: %f, V: %f", touch_pt.x, touch_pt.y);

@@ -52,8 +52,13 @@ void compassRender::drawCompassScaleBox(double longestDistInMeters){
                     glLineWidth(2);
                     glColor4f(1, 0, 0, 0.5);
                     glRotatef(-model->camera_pos.orientation, 0, 0, -1);
-                    drawCircle(-compass_centroid.x/radius * boundary_radius,
-                               -compass_centroid.y/radius * boundary_radius,
+                    
+                    CGPoint refGLPoint;
+                    refGLPoint.x = model->compassRefMapViewPoint.x - view_width/2;
+                    refGLPoint.y = view_height/2 - model->compassRefMapViewPoint.y;
+                    
+                    drawCircle(-refGLPoint.x/radius * boundary_radius,
+                               -refGLPoint.y/radius * boundary_radius,
                                boundary_radius, 50, false);
                     isBoundaryIndicatorDrawn = true;
                 }
@@ -90,12 +95,13 @@ void compassRender::drawCompassScaleBox(double longestDistInMeters){
 //--------------
 // The center circle of the compass
 //--------------
+
 void compassRender::drawCompassCentralCircle(){
     // ---------------
     // Draw the center circle
     // ---------------
     
-    if (!isCompassRefPointEnabled){
+    if (!compassRefDot.isVisible){
         glColor4f([model->configurations[@"circle_color"][0] floatValue]/255,
                   [model->configurations[@"circle_color"][1] floatValue]/255,
                   [model->configurations[@"circle_color"][2] floatValue]/255,
@@ -116,20 +122,40 @@ void compassRender::drawCompassCentralCircle(){
 //--------------
 // Compass Reference Point
 //--------------
-void compassRender::drawCompassRefPoint(){
-    
-    if ([model->configurations[@"personalized_compass_status"]
-         isEqualToString:@"on"])
-    {
-        glColor4f(0, 0, 1, 0.7);
-        drawCircle(0, 0, 6, 50, YES);
-        glColor4f(1, 1, 1, 0.3);
-        drawCircle(0, 0, 8, 50, YES);
-        glColor4f(0, 0, 0, 0.3);
-        drawCircle(0, 0, 9, 50, YES);
+
+void CompassRefDot::render(){
+
+    switch (deviceType) {
+        case PHONE:
+            glColor4f(0, 0, 1, 0.7);
+            drawCircle(0, 0, 6, 50, YES);
+            glColor4f(1, 1, 1, 0.3);
+            drawCircle(0, 0, 8, 50, YES);
+            glColor4f(0, 0, 0, 0.3);
+            drawCircle(0, 0, 9, 50, YES);
+            break;
+        case WATCH:
+            glColor4f(0, 0, 1, 0.7);
+            drawCircle(0, 0, 3, 50, YES);
+            break;
+        case DESKTOP:
+            glColor4f(0, 0, 1, 0.7);
+            drawCircle(0, 0, 6, 50, YES);
+            glColor4f(1, 1, 1, 0.3);
+            drawCircle(0, 0, 8, 50, YES);
+            glColor4f(0, 0, 0, 0.3);
+            drawCircle(0, 0, 9, 50, YES);
+            break;
+        default:
+            break;
     }
+    
+
 }
 
+//--------------
+// Draw the north indicator
+//--------------
 void compassRender::drawCompassNorth(){
     // ---------------
     // draw the north indicator
@@ -173,4 +199,55 @@ void compassRender::drawCompassBackgroundDisk(){
     glTranslatef(0, 0, -1);
     drawCircle(0, 0, compass_disk_radius, 50, true);
     glPopMatrix();
+}
+
+void compassRender::drawInteractiveLine(){
+    glLineWidth(4);
+    glColor4f(1, 0, 0, 1);
+    
+    Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(500*cos(interactiveLineRadian),
+                                       500*sin(interactiveLineRadian), 0);
+    Line3D  line = Line3DMake(vertex1, vertex2);
+    glVertexPointer(3, GL_FLOAT, 0, &line);
+    glDrawArrays(GL_LINES, 0, 2);
+}
+
+//--------------------
+// Central Cross
+//--------------------
+void Cross::applyDeviceStyle(DeviceType deviceType){
+    switch (deviceType) {
+        case PHONE:
+            thickness = 4;
+            radius = 35;
+            break;
+        case WATCH:
+            thickness = 4;
+            radius = 20;
+            break;
+        case DESKTOP:
+            thickness = 2;
+            radius = 25;
+            break;
+        default:
+            break;
+    }
+}
+
+void Cross::render(){
+    glLineWidth(thickness);
+    glColor4f(1, 0, 0, 1);
+    
+    Vertex3D    vertex1 = Vertex3DMake(radius, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(-radius, 0, 0);
+    Line3D  line = Line3DMake(vertex1, vertex2);
+    glVertexPointer(3, GL_FLOAT, 0, &line);
+    glDrawArrays(GL_LINES, 0, 2);
+    
+    Vertex3D    vertex3 = Vertex3DMake(0, radius, 0);
+    Vertex3D    vertex4 = Vertex3DMake(0, -radius, 0);
+    Line3D  line1 = Line3DMake(vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &line1);
+    glDrawArrays(GL_LINES, 0, 2);
 }

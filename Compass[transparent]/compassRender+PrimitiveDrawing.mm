@@ -144,7 +144,7 @@ void compassRender::drawTriangle(int central_disk_radius, float rotation, float 
 // coreCircle
 // http://slabode.exofire.net/circle_draw.shtml
 //-------------
-void compassRender::drawCircle(float cx, float cy, float r,
+void drawCircle(float cx, float cy, float r,
                                int num_segments, bool isSolid)
 {
     float* p_vertex_array = new float[num_segments * 2 + 2];
@@ -499,42 +499,6 @@ double compassRender::findBestEmptyOrienation(vector<double> orientation_array){
         empty_orientation = 0.5*(orientation_array[idx] + orientation_array[idx-1]);
     }
     return empty_orientation;
-}
-
-void compassRender::drawCross(){
-    float cross_length;
-#ifdef __IPHONE__
-    glLineWidth(4);
-    cross_length = 50;
-#else
-    glLineWidth(2);
-    cross_length = 25;
-#endif
-    glColor4f(1, 0, 0, 1);
-    
-    Vertex3D    vertex1 = Vertex3DMake(cross_length, 0, 0);
-    Vertex3D    vertex2 = Vertex3DMake(-cross_length, 0, 0);
-    Line3D  line = Line3DMake(vertex1, vertex2);
-    glVertexPointer(3, GL_FLOAT, 0, &line);
-    glDrawArrays(GL_LINES, 0, 2);
-    
-    Vertex3D    vertex3 = Vertex3DMake(0, cross_length, 0);
-    Vertex3D    vertex4 = Vertex3DMake(0, -cross_length, 0);
-    Line3D  line1 = Line3DMake(vertex3, vertex4);
-    glVertexPointer(3, GL_FLOAT, 0, &line1);
-    glDrawArrays(GL_LINES, 0, 2);
-}
-
-void compassRender::drawInteractiveLine(){
-    glLineWidth(4);
-    glColor4f(1, 0, 0, 1);
-    
-    Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
-    Vertex3D    vertex2 = Vertex3DMake(500*cos(interactiveLineRadian),
-                                       500*sin(interactiveLineRadian), 0);
-    Line3D  line = Line3DMake(vertex1, vertex2);
-    glVertexPointer(3, GL_FLOAT, 0, &line);
-    glDrawArrays(GL_LINES, 0, 2);
 }
 
 void compassRender::drawAnswerLines(){

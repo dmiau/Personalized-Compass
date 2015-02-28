@@ -68,9 +68,41 @@ RenderParamStruct makeRenderParams(filter_enum filter_type, style_enum style_typ
 //----------------------------------
 // Graphics components
 //----------------------------------
+class CompassRefDot{
+public:
+    float radius;       //radis of the ref dot
+    float color4f[4];   //color of the ref dot
+    bool isVisible;     //visibility control
+    CGPoint openGLPoint;//(x,y) in OpenGL coordinates
+    DeviceType deviceType;
+public:
+    CompassRefDot(){
+        isVisible = NO;
+        openGLPoint = CGPointMake(0, 0);
+        deviceType = PHONE;
+    };
+    void render();
+};
 
+class Cross{
+public:
+    int thickness;
+    bool isVisible;     //control the visibility
+    int radius;         //length of the cross
+public:
+    Cross(){
+        thickness = 4;
+        isVisible = NO;
+        radius = 50;
+    };
+    void applyDeviceStyle(DeviceType deviceType);
+    void render();
+};
 
-
+//----------------------------------
+// Primitive Drawing Functions
+//----------------------------------
+void drawCircle(float cx, float cy, float r, int num_segments, bool isSolid);
 
 //----------------------------------
 // compassRender class
@@ -95,6 +127,11 @@ public:
     //----------------
     EmulatediOS emulatediOS;
 #endif
+    //----------------
+    // Components
+    //----------------
+    Cross cross;
+    CompassRefDot compassRefDot;
     
     //----------------
     // Parameters for compass drawing
@@ -103,13 +140,13 @@ public:
     bool wedgeMode;
     bool watchMode;
     bool trainingMode;
-    bool isCrossEnabled;
+
     bool isInteractiveLineVisible;
     bool isInteractiveLineEnabled;
     double interactiveLineRadian;
     bool isAnswerLinesEnabled;
     vector<double> degree_vector;
-    bool isCompassRefPointEnabled;
+//    bool isCompassRefPointEnabled;
     
     // Compass presenation parameters    
     float compass_disk_radius;    // Specify the radius of the compass disk (in pixels)
@@ -202,7 +239,7 @@ private:
     void drawTriangle(int central_disk_radius, float rotation, float height);
     label_info drawLabel(float rotation, float height,
                    texture_info my_texture_info);
-    void drawCircle(float cx, float cy, float r, int num_segments, bool isSolid);
+
     
     BOOL drawBoxInCompass(double renderD2realDRatio);
     BOOL drawBoundaryCircle(double renderD2realDRatio);

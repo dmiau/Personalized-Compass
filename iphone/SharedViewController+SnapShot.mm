@@ -134,24 +134,26 @@
         // Set up differently, depending on the snapshot code
         if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)
         {
-            self.renderer->isCrossEnabled = false;
+            self.renderer->cross.isVisible = false;
 
             [self.glkView addSubview:self.scaleView];
 
         }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound)
         {
-            self.renderer->isCrossEnabled = true;
+            if (!self.renderer->watchMode)
+                self.renderer->cross.isVisible = true;
             [self.scaleView removeFromSuperview];
         }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
-
-            self.renderer->isCrossEnabled = true;
+            if (!self.renderer->watchMode)
+                self.renderer->cross.isVisible = true;
             self.renderer->isInteractiveLineVisible=true;
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
             [self.scaleView removeFromSuperview];
         }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound)
         {
-            self.renderer->isCrossEnabled = true;
+            if (!self.renderer->watchMode)
+                self.renderer->cross.isVisible = true;
             [self.scaleView removeFromSuperview];
         }
         
@@ -173,7 +175,7 @@
         // Desktop (OSX)
         //--------------------
         [self sendMessage:[NSString stringWithFormat:@"%d", snapshot_id]];
-            self.renderer->isCrossEnabled = false;
+            self.renderer->cross.isVisible = false;
         // Set up differently, depending on the snapshot code
         if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)
         {
@@ -185,7 +187,7 @@
             [self showOrientCollectMode:mySnapshot];
         }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound){
             [self showLocalizeCollectMode:mySnapshot];
-            self.renderer->isCrossEnabled = true;
+            self.renderer->cross.isVisible = true;
         }
     }else if (mode == OFF){
         //--------------------
@@ -220,7 +222,7 @@
 //----------------------
 - (void)showLocateCollectMode: (snapshot) mySnapshot{
     [self enableMapInteraction:NO];    
-    self.renderer->isCrossEnabled = false;
+    self.renderer->cross.isVisible = false;
     // Emulate the iOS enironment if on the desktop
     // (if it is in the control mode)
 #ifndef __IPHONE__

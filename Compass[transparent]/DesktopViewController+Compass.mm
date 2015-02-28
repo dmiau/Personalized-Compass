@@ -76,7 +76,7 @@
 
 - (void)lockCompassRefToScreenCenter: (bool)state{
     if (state){
-        self.renderer->isCompassRefPointEnabled = YES;
+        self.renderer->compassRefDot.isVisible = YES;
         [self moveCompassRefToMapViewPoint:
          CGPointMake(self.mapView.frame.size.width/2,
                      self.mapView.frame.size.height/2)
@@ -86,7 +86,7 @@
         [NSNumber numberWithBool:true];
         
     }else{
-        self.renderer->isCompassRefPointEnabled = NO;
+        self.renderer->compassRefDot.isVisible = NO;
         self.UIConfigurations[@"UICompassCenterLocked"] =
         [NSNumber numberWithBool:false];
         [self moveCompassRefToMapViewPoint:

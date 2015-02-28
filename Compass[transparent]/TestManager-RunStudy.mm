@@ -25,7 +25,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     // Need to turn off map interactions in the study mode
     [rootViewController enableMapInteraction:NO];
     [rootViewController changeAnnotationDisplayMode:@"None"];
-
+    rootViewController.renderer->label_flag = false;
     
     //----------------------------
     // Visualization Parameters
@@ -100,7 +100,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
 // Clean up the environment
 //-------------------
 void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
-    rootViewController.renderer->isCrossEnabled = false;
+    rootViewController.renderer->cross.isVisible = false;
     rootViewController.renderer->isInteractiveLineVisible=false;
     rootViewController.renderer->isInteractiveLineEnabled=false;
     model->configurations[@"style_type"] = @"BIMODAL";

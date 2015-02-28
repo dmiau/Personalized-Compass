@@ -16,7 +16,7 @@
     //-----------
     // Normal
     //-----------
-    
+    self.renderer->cross.applyDeviceStyle(PHONE);
     self.UIConfigurations[@"UIRotationLock"] =
     [NSNumber numberWithBool:NO];
     
@@ -38,10 +38,13 @@
          [self.model->cache_configurations[@"bg_color"][i] floatValue]];
     }
     // revert
+    
+    self.renderer->compassRefDot.deviceType = PHONE;
     // Change compass ctr
+    [self lockCompassRefToScreenCenter:NO];
     [self changeCompassLocationTo: @"Default"];
     self.model->configurations[@"wedge_style"] = @"modified-orthographic";    
-    
+    [self lockCompassRefToScreenCenter:YES];
     // Reset the compss scale back to the default scale
     self.renderer->adjustAbsoluteCompassScale(1);
     
@@ -58,7 +61,7 @@
 // Set up the watch mode
 //-----------------
 - (void)setupWatchViewMode{
-   
+    self.renderer->cross.applyDeviceStyle(WATCH);
     self.UIConfigurations[@"UIRotationLock"] =
     [NSNumber numberWithBool:NO];
     // rotate the screen
@@ -74,12 +77,13 @@
         self.model->configurations[@"bg_color"][i] =
         self.model->cache_configurations[@"bg_color"][i];
     }
-
     
-    // Need some work here
+    self.renderer->compassRefDot.deviceType = WATCH;
     
+    [self lockCompassRefToScreenCenter:NO];
     // Change compass ctr
     [self changeCompassLocationTo: @"Center"];
+//    [self lockCompassRefToScreenCenter:YES];
     
     // The wedge has to be in the perspective mode to funciton correctly
     self.model->configurations[@"wedge_style"] = @"modified-perspective";
@@ -281,7 +285,6 @@
         cached_flag = true;
     }
     
-    
     //---------------
     // iPhone case
     //---------------
@@ -294,6 +297,8 @@
     }else if ([label isEqualToString:@"Center"]){
         self.renderer->compass_centroid.x = 0;
         self.renderer->compass_centroid.y = 0;
+        
+        self.renderer->compassRefDot.isVisible = NO;
     }else if ([label isEqualToString:@"BL"]){
         self.renderer->compass_centroid.x = -70;
         self.renderer->compass_centroid.y = -150;
@@ -322,9 +327,16 @@
     }
     
 #endif
+    bool origLockStatus = [self.UIConfigurations[@"UICompassCenterLocked"]
+                           boolValue];
+    
+    self.UIConfigurations[@"UICompassCenterLocked"] =
+    [NSNumber numberWithBool:false];
     
     // The order is important
     [self moveCompassCentroidToOpenGLPoint: self.renderer->compass_centroid];
+    self.UIConfigurations[@"UICompassCenterLocked"] =
+    [NSNumber numberWithBool:origLockStatus];
     [self.glkView setNeedsDisplay];
 }
 
@@ -349,7 +361,7 @@
 
 - (void)lockCompassRefToScreenCenter: (bool)state{
     if (state){
-        self.renderer->isCompassRefPointEnabled = YES;
+        self.renderer->compassRefDot.isVisible = YES;
         [self moveCompassRefToMapViewPoint:
          CGPointMake(self.mapView.frame.size.width/2,
                      self.mapView.frame.size.height/2)
@@ -359,7 +371,7 @@
         [NSNumber numberWithBool:true];
         
     }else{
-        self.renderer->isCompassRefPointEnabled = NO;
+        self.renderer->compassRefDot.isVisible = NO;
         self.UIConfigurations[@"UICompassCenterLocked"] =
         [NSNumber numberWithBool:false];
         [self moveCompassRefToMapViewPoint:
@@ -379,10 +391,13 @@
 
     switch (sender.selectedSegmentIndex) {
         case 0:
+            //-------------
+            // None
+            //-------------
             [self.messageLabel removeFromSuperview];
             [self enableMapInteraction:YES];
             self.renderer->isAnswerLinesEnabled = NO;
-            self.renderer->isCrossEnabled = NO;
+            self.renderer->cross.isVisible = NO;
             self.renderer->isInteractiveLineVisible = NO;
             break;
         case 1:
@@ -393,7 +408,7 @@
             self.renderer->isAnswerLinesEnabled = YES;
             [self updateAnswerLines];
             [self enableMapInteraction:YES];
-            self.renderer->isCrossEnabled = YES;
+            self.renderer->cross.isVisible = YES;
             self.renderer->isInteractiveLineVisible = NO;
             break;
         case 2:
@@ -403,7 +418,7 @@
             [self addMessageLabelToView];
             [self enableMapInteraction:NO];
             self.renderer->isAnswerLinesEnabled = NO;
-            self.renderer->isCrossEnabled = YES;
+            self.renderer->cross.isVisible = YES;
             self.renderer->isInteractiveLineVisible = YES;
             self.renderer->isInteractiveLineEnabled = YES;
             break;
@@ -415,7 +430,7 @@
             self.renderer->isAnswerLinesEnabled = YES;
             [self updateAnswerLines];
             [self enableMapInteraction:NO];
-            self.renderer->isCrossEnabled = YES;
+            self.renderer->cross.isVisible = YES;
             self.renderer->isInteractiveLineVisible = YES;
             self.renderer->isInteractiveLineEnabled = NO;
             break;
