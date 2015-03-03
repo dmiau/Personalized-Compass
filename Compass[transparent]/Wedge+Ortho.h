@@ -52,16 +52,25 @@ public:
     double leg;
     double aperture;
     double base;
-    double min_base;
-    double visible_leg;
+    double min_base;             //The base may become too small as a location
+                                 //gets closer and closer to the edge.
+                                 //This parameter assigns a min allowable base
+    
+    double intrusions[2];        //The lengths of two visible legs (called intrusion in the paper)
+    double axis_intrusion;       //The length of the axis intrusion
     
     label_info wedgeLabelinfo;
+    
+    // Wedge drawing constraints
+    double edge_padding;
+    double max_intrusion;
 public:
     wedge(compassMdl* myMdl, box screen_box, CGPoint diff_xy);
     wedgeParams calculateRegionOneParams(double tx, double ty);
     wedgeParams calculateRegionTwoParams(double tx, double ty);
     void render();
     void correctWedgeParams();
+    void showInfo();
 };
 
 
@@ -76,6 +85,8 @@ void applyCoordTransform(double x_diff, double y_diff,
                          double *new_width, double *new_height);
 
 
+double applyVisibleIntrusionConstraint(DoublePoint wh, DoublePoint diff_xy, double wedge_rotation,
+                                       double aperture, double min_visible_intrusion);
 
 
 #endif /* defined(__Compass_transparent___wedgeClass__) */

@@ -8,6 +8,8 @@
 
 #include "Wedge+Radial.h"
 
+// Before calling drawOneSide, the location needs to be rotated such that it
+// fells into the positive triangle
 void compassRender::drawOneSide(double rotation, double width, double height,
                                 double tx, double ty,
                                 double *out_leg, double *out_aperture)
@@ -67,18 +69,31 @@ void compassRender::drawOneSide(double rotation, double width, double height,
     //-------------------
     // Apply constraints
     //-------------------
-
-        
+    
     if (!watchMode){
+        //---------------------
+        // The normal case
+        //---------------------
         if (aperture > max_aperture)
         {
             // Calculate the distance of base
-            double base = leg*tan(max_aperture/2)*2;
+            double base = leg*sin(max_aperture/2)*2;
             if (base < 100)
+                // When the aperture > max_aperture and
+                // base is smal (<100),
+                // it means the wedge is at the corner of the display.
+                // In this case, the base can not be continously decreasing.
+                // Therefore we need to set the aperture in a way that the 
+
                 aperture = atan2(50, leg) * 2;
             else
                 aperture = max_aperture;
         }
+        
+//        // Calculate the leg length based on the aperture and minimal visible
+//        // instrusion
+//        leg = applyVisibleIntrusionConstraint(CGPointMake(width, height),
+//            CGPointMake(tx, ty), wedge_rotation, aperture, 100);
     }else{
         //---------------------
         // Constraint of the watch mode
@@ -135,6 +150,7 @@ void compassRender::drawOneSide(double rotation, double width, double height,
     glPopMatrix();
 }
 
+
 void calculateDistInBox(double height, double width,
                         double tx, double ty,
                         double* dist, double* rotation, double* max_aperture)
@@ -161,4 +177,8 @@ void calculateDistInBox(double height, double width,
     a2 = pow(tx-xx, 2) + pow(ty-yy, 2);
     theta = acos((a2 + b2 -c2)/(2*sqrt(a2*b2)));
     *max_aperture = 2 * theta;
+    
+    // Note the aperture cannot be too small either    
 }
+
+

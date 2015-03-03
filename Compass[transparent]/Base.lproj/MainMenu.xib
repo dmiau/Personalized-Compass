@@ -788,7 +788,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Compass[v0.7]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Compass[v0.9]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -843,8 +843,8 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="3Bp-Mg-e5g" name="editable" keyPath="self.studyIntAnswer" id="AMn-vx-DjD"/>
                             <binding destination="3Bp-Mg-e5g" name="enabled" keyPath="self.isDistanceEstControlAvailable" previousBinding="AMn-vx-DjD" id="up4-8T-ydT"/>
+                            <binding destination="3Bp-Mg-e5g" name="editable" keyPath="self.studyIntAnswer" id="AMn-vx-DjD"/>
                             <binding destination="3Bp-Mg-e5g" name="value" keyPath="self.studyIntAnswer" id="Rmf-LV-Hna"/>
                         </connections>
                     </textField>
@@ -975,7 +975,7 @@
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="-219.5" y="391.5"/>
+            <point key="canvasLocation" x="-166.5" y="392.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="EYl-3r-NII"/>
     </objects>

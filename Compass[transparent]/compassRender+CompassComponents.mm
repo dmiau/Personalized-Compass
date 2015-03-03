@@ -25,11 +25,14 @@ void compassRender::drawCompassScaleBox(double longestDistInMeters){
     if (fabs(model->tilt - 0) < 0.1 ){
         
         if (watchMode){
-            
-            // May need to shift the disk if the compass is not at the center
-            
+            glLineWidth(3);
+            glColor4f([model->configurations[@"scale_box_color"][0] floatValue]/255.0,
+                      [model->configurations[@"scale_box_color"][1] floatValue]/255.0,
+                      [model->configurations[@"scale_box_color"][2] floatValue]/255.0,
+                      [model->configurations[@"scale_box_color"][3] floatValue]/255.0);
             
             if (compass_centroid.x != 0 || compass_centroid.y != 0){
+                // May need to shift the disk if the compass is not at the center
                 
                 //[todo] need to clean up this part
                 
@@ -48,9 +51,7 @@ void compassRender::drawCompassScaleBox(double longestDistInMeters){
                 {
                     isBoundaryIndicatorDrawn = false;
                 }else{
-                    // Draw the circle
-                    glLineWidth(2);
-                    glColor4f(1, 0, 0, 0.5);
+                    // Draw the scale circle
                     glRotatef(-model->camera_pos.orientation, 0, 0, -1);
                     
                     CGPoint refGLPoint;

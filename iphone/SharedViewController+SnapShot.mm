@@ -140,20 +140,14 @@
 
         }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound)
         {
-            if (!self.renderer->watchMode)
-                self.renderer->cross.isVisible = true;
             [self.scaleView removeFromSuperview];
         }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
-            if (!self.renderer->watchMode)
-                self.renderer->cross.isVisible = true;
             self.renderer->isInteractiveLineVisible=true;
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
             [self.scaleView removeFromSuperview];
         }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound)
         {
-            if (!self.renderer->watchMode)
-                self.renderer->cross.isVisible = true;
             [self.scaleView removeFromSuperview];
         }
         

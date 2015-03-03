@@ -13,8 +13,11 @@
 #include "compassRender.h"
 #include "commonInclude.h"
 
+
 void calculateDistInBox(double width, double height,
                         double tx, double ty,
                         double* dist, double* rotation, double* max_aperture);
+
+
 
 #endif /* defined(__Compass_transparent___Wedge_Radial__) */

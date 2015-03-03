@@ -38,6 +38,16 @@ typedef struct {
     GLfloat x,y,z;
 } recVec;
 
+struct DoublePoint{
+    double x;
+    double y;
+};
+
+inline DoublePoint DoublePointMake(double x, double y){
+    DoublePoint output;
+    output.x = x; output.y = y;
+    return output;
+}
 
 typedef struct {
 	recVec viewPos; // View position

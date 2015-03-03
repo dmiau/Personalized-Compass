@@ -102,10 +102,14 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
              isEqualToString:@"modified-orthographic"])
         {
             float wedge_disp_width, wedge_disp_height;
+
+            //------------------------
+            // Wedge (othographic style)
+            //------------------------
+// This control the visible area where a wedge can be plotted.
             
-            
-            wedge_disp_width = view_width-30; // This control the visible area where a wedge can be plotted.
-            wedge_disp_height = view_height - 30;
+            wedge_disp_width = view_width;
+            wedge_disp_height = view_height;
 #ifndef __IPHONE__
             if (emulatediOS.is_enabled &&
                 model->tilt > -0.0001)
@@ -125,6 +129,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             wedge my_wedge(model, screen_box,
                            CGPointMake(x_diff, y_diff));
             my_wedge.render();
+            my_wedge.showInfo();
             leg = my_wedge.leg;
             aperture = my_wedge.aperture;
             //---------------------
@@ -133,6 +138,10 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             myLabelinfo = my_wedge.wedgeLabelinfo;
 
         }else{
+            
+            //------------------------
+            // Wedge (other style)
+            //------------------------
              double rotation, tx, ty, new_width, new_height;
             
             float disp_width = view_width;

@@ -2701,7 +2701,7 @@
 						};
 					};
 					9AEA57CC18D9EBB20028B80C = {
-						DevelopmentTeam = ZW2ULQ7FDF;
+						DevelopmentTeam = T8L89L97Z5;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;

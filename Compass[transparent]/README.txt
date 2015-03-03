@@ -3444,6 +3444,8 @@ snapshot taking and displaying code needs to be cleaned up [5:08PM]
 - self.UIConfigurations[@"UICompassInteractionEnabled"] disable label interaction [8:03PM]
 * compassRef blue dot blocks the view (center lock mode)
 * the center cross is too big [8:41PM] temporary fixes
+- scalar mode needs to be removed when the test mode is off [8:56PM]
+- snapshot missing data crash issue [8:57PM]
 
 ***** Working
 - update wedge algorithm so there is a fixed intrusion
@@ -3458,18 +3460,86 @@ folder changing code has some issues
 * Blocked by visualization, further blocked by device type
 * Need to design the questionnaire right, to find the preferences by location distance
 
-- scalar mode needs to be removed when the test mode is off
-
 - watch mode issues
-
 * scale in the watch mode?
 * compass cannot be moved in the watch mode
 
-- snapshot missing data crash issue 
 - watch scale indicator
 
 Data generation
 - data generation control
-
 - warning on zoom levels
+
+-------------------------------------------------------------------
+2.28.2015
+-------------------------------------------------------------------
+***** Done
+
+
+***** Working
+- update wedge algorithm so there is a fixed intrusion
+- test mode - color coded the object of interest
+- annotation loading is too slow.
+
+- issues that need to be fixed:
+* calculateLatLonFromiOSX: should be task dependent
+folder changing code has some issues
+
+- Experiment design issues
+* Blocked by visualization, further blocked by distance
+* Need to design the questionnaire right, to find the preferences by location distance
+
+- watch mode issues
+* scale in the watch mode?
+* compass cannot be moved in the watch mode
+
+- watch scale indicator
+
+Data generation
+- data generation control
+- warning on zoom levels
+
+-------------------------------------------------------------------
+3.3.2015
+-------------------------------------------------------------------
+***** Done
+- update wedge algorithm so there is a fixed intrusion
+
+
+***** Working
+- test mode - color coded the object of interest
+- annotation loading is too slow.
+
+- issues that need to be fixed:
+* calculateLatLonFromiOSX: should be task dependent
+folder changing code has some issues
+
+- Experiment design issues
+* Blocked by visualization, further blocked by distance
+* Need to design the questionnaire right, to find the preferences by location distance
+
+- watch mode issues
+* scale in the watch mode?
+* compass cannot be moved in the watch mode
+
+- watch scale indicator
+
+Data generation
+- data generation control
+- warning on zoom levels
+
+- Investigate wedge intrusion, legs, etc. (morning)
+- Finalize the test cases that I am certain about: address lookup, locate+, 
+- Check the wedge study on how the errors are calculated. 
+
+- Check with Steve about the IRB (by the end of the day)
+- Have myself try the tests and log the time
+- Articulate the situations and the motivation of the test cases. 
+
+ infer the location corresponding to the displayed map, or estimate the location and orientation of an off-screen object.
+
+
+
+
+
 
