@@ -72,7 +72,7 @@ typedef struct{
 // Scalar view
 //----------------
 @property UIView *scaleView;
-
+@property UIView *watchScaleView;
 
 //----------------
 // Views in ExtraPanels.xib

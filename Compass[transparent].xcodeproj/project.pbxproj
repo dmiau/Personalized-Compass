@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
+		9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
 		9A006CA319522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
 		9A02792F1A8C1CCD00363514 /* TestManagerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A02792E1A8C1CCD00363514 /* TestManagerViewController.mm */; };
@@ -1146,6 +1148,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A0060C41AA65CCA00E60F10 /* watchScale.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = watchScale.tif; sourceTree = "<group>"; };
 		9A006CA019522918009BB81C /* iOSViewController+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Model.h"; sourceTree = "<group>"; };
 		9A006CA119522918009BB81C /* iOSViewController+Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Model.mm"; sourceTree = "<group>"; };
 		9A02792D1A8C1CCD00363514 /* TestManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManagerViewController.h; sourceTree = "<group>"; };
@@ -2520,6 +2523,7 @@
 				9A4808AF198C2FA30001E188 /* StAndrews723.kml */,
 				9A4808B0198C2FA30001E188 /* tokyo.kml */,
 				9A4808B1198C2FA30001E188 /* training.kml */,
+				9A0060C41AA65CCA00E60F10 /* watchScale.tif */,
 				9AF378861A9FED7600FEB3F3 /* walking.tif */,
 				9A4808B2198C2FA30001E188 /* wedge723.kml */,
 				9A8CE9D71A97871F0070D9D4 /* default.snapshot */,
@@ -2693,7 +2697,7 @@
 						};
 					};
 					9AA789081909FE3000A26C66 = {
-						DevelopmentTeam = ZW2ULQ7FDF;
+						DevelopmentTeam = T8L89L97Z5;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -2709,7 +2713,7 @@
 						};
 					};
 					9AEC5CD518F3956F00A29F75 = {
-						DevelopmentTeam = ZW2ULQ7FDF;
+						DevelopmentTeam = T8L89L97Z5;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -2717,7 +2721,7 @@
 						};
 					};
 					9AFB149A18EE639A00063632 = {
-						DevelopmentTeam = ZW2ULQ7FDF;
+						DevelopmentTeam = T8L89L97Z5;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -2772,6 +2776,7 @@
 				9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9A8DF92C1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */,
+				9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */,
 				9A037567198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
 				9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
@@ -2818,6 +2823,7 @@
 				9A82B6461941518900534A5F /* london.kml in Resources */,
 				9A998D7E194BCB0900778DFC /* setup.jpg in Resources */,
 				9A3DA09C1964E9B1009E0073 /* add.png in Resources */,
+				9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */,
 				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
 				9A8CE9FF1A97871F0070D9D4 /* study.snapshot in Resources */,
 				9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
@@ -3986,7 +3992,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -4017,7 +4023,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -4054,7 +4060,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "iphone copy";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -4088,7 +4094,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "iphone copy";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

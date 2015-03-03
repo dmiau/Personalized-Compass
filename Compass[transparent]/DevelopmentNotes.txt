@@ -61,6 +61,10 @@ iOS GLK View and MapView
 |
 v
 
+=====================
+watch dimension
+=====================
+WxH: 568x255
 
 
 These things are different:

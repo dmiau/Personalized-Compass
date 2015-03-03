@@ -20,7 +20,6 @@ using namespace std;
 // Wedge
 //------------------------------------
 void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){    
-    ostringstream db_stream;
     
     //-------------------
     // Cluster the data
@@ -37,7 +36,6 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     }
     
     // Declarations
-    CLLocationCoordinate2D myCoord;
     CGPoint center_pt;
     center_pt.x = view_width/2;
     center_pt.y = view_height/2;
@@ -57,6 +55,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
     //--------------------
     // Calculate the parameters of each wedge
     //--------------------
+    CLLocationCoordinate2D myCoord;
     for (int i = -1; i < (int)indices_for_rendering.size(); ++i){
         
         if (i == -1){
@@ -72,12 +71,18 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             // Calculate the screen coordinates
             myCoord.latitude = model->data_array[j].latitude;
             myCoord.longitude = model->data_array[j].longitude;
-            
-            if (model->data_array[j].distance > mode_max_dist_array[0])
+
+            glColor4f(1, 0, 0, 1);
+            if ([model->configurations[@"style_type"] isEqualToString: @"BIMODAL"])
             {
-                glColor4f(186.0/255, 54.0/255, 235.0/255, 1);
-            }else{
-                glColor4f(1, 0, 0, 1);
+                //----------------
+                // In bimodal mode, the color of wedge changes based on
+                // the clustering result.
+                //----------------
+                if (model->data_array[j].distance > mode_max_dist_array[0])
+                {
+                    glColor4f(186.0/255, 54.0/255, 235.0/255, 1);
+                }
             }
         }
         
@@ -95,21 +100,20 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         double dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2));
         
 
+        // This control the visible area where a wedge can be plotted.
+        float wedge_disp_width, wedge_disp_height;
+        wedge_disp_width = view_width;
+        wedge_disp_height = view_height;
         
         double aperture, leg;
         label_info myLabelinfo;
         if ([model->configurations[@"wedge_style"]
              isEqualToString:@"modified-orthographic"])
         {
-            float wedge_disp_width, wedge_disp_height;
-
             //------------------------
             // Wedge (othographic style)
             //------------------------
-// This control the visible area where a wedge can be plotted.
-            
-            wedge_disp_width = view_width;
-            wedge_disp_height = view_height;
+
 #ifndef __IPHONE__
             if (emulatediOS.is_enabled &&
                 model->tilt > -0.0001)
@@ -138,14 +142,9 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             myLabelinfo = my_wedge.wedgeLabelinfo;
 
         }else{
-            
             //------------------------
             // Wedge (other style)
             //------------------------
-             double rotation, tx, ty, new_width, new_height;
-            
-            float disp_width = view_width;
-            float disp_height = view_height;
             
 #ifndef __IPHONE__
             if (emulatediOS.is_enabled &&
@@ -154,19 +153,19 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
                 //-------------------
                 // The display area is smaller when the emulated iOS mode is on
                 //-------------------
-                disp_width = emulatediOS.width - 10;
-                disp_height = emulatediOS.height - 10;
+                wedge_disp_width = emulatediOS.width - 10;
+                wedge_disp_height = emulatediOS.height - 10;
                 x_diff = x_diff - emulatediOS.centroid_in_opengl.x;
                 y_diff = y_diff - emulatediOS.centroid_in_opengl.y;
             }
 #endif
-            
+            double rotation, tx, ty, new_width, new_height;
             applyCoordTransform(x_diff, y_diff,
-                                disp_width, disp_height,
+                                wedge_disp_width, wedge_disp_height,
                                 &rotation, &tx, &ty,
                                 &new_width, &new_height);
             
-            
+
             drawOneSide(rotation, new_width, new_height, tx, ty,
                         &leg, &aperture);
             //---------------------
@@ -188,13 +187,5 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         }
     }
     glPopMatrix();
-    
-    db_stream << "Done!" << endl;
-    
-    if ([this->model->configurations[@"db_stream_flag"] isEqualToString:@"on"])
-    {
-        cout << db_stream.str() << endl;
-    }
-
 }
 

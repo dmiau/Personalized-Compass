@@ -107,6 +107,7 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
 
 #ifdef __IPHONE__
     [rootViewController.scaleView removeFromSuperview];
+    [rootViewController.watchScaleView removeFromSuperview];
 #endif
     
     if (mode == DEVICESTUDY){

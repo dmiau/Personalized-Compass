@@ -116,6 +116,16 @@
         self.scaleView = [[UIView alloc]initWithFrame:img_rect];
         [self.scaleView setBackgroundColor:[UIColor colorWithPatternImage:
                                             [UIImage imageNamed:fileString]]];
+        
+        
+
+        // Add the watch scale image
+        img_rect = CGRectMake(0, 0, 568, 255); //orig_x, y, width, height
+        fileString =
+        [[NSBundle mainBundle] pathForResource:@"watchScale.tif" ofType:@""];
+        self.watchScaleView = [[UIView alloc]initWithFrame:img_rect];
+        [self.watchScaleView setBackgroundColor:[UIColor colorWithPatternImage:
+                                            [UIImage imageNamed:fileString]]];
     }
     return self;
 }

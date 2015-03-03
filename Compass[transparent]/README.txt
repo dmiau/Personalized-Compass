@@ -3503,8 +3503,12 @@ Data generation
 3.3.2015
 -------------------------------------------------------------------
 ***** Done
-- update wedge algorithm so there is a fixed intrusion
-
+- update wedge algorithm so there is a fixed intrusion [3:28PM]
+- Investigate wedge intrusion, legs, etc. (morning)
+-  infer the location corresponding to the displayed map, or estimate the location and orientation of an off-screen object.
+* compass cannot be moved in the watch mode
+- watch mode issues
+* scale in the watch mode? [4:30PM]
 
 ***** Working
 - test mode - color coded the object of interest
@@ -3518,28 +3522,13 @@ folder changing code has some issues
 * Blocked by visualization, further blocked by distance
 * Need to design the questionnaire right, to find the preferences by location distance
 
-- watch mode issues
-* scale in the watch mode?
-* compass cannot be moved in the watch mode
-
-- watch scale indicator
-
 Data generation
 - data generation control
 - warning on zoom levels
 
-- Investigate wedge intrusion, legs, etc. (morning)
 - Finalize the test cases that I am certain about: address lookup, locate+, 
 - Check the wedge study on how the errors are calculated. 
-
-- Check with Steve about the IRB (by the end of the day)
 - Have myself try the tests and log the time
 - Articulate the situations and the motivation of the test cases. 
-
- infer the location corresponding to the displayed map, or estimate the location and orientation of an off-screen object.
-
-
-
-
 
 
