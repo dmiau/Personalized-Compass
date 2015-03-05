@@ -3532,3 +3532,46 @@ Data generation
 - Articulate the situations and the motivation of the test cases. 
 
 
+-------------------------------------------------------------------
+3.5.2015
+-------------------------------------------------------------------
+***** Done
+- Finalize the test cases that I am certain about: address lookup, locate+ [10:52PM]
+- Check the wedge study on how the errors are calculated. Not clear/was not mentioned. [10:57PM]
+test generation is exclusive on the desktop [12:40PM]
+generate a speparate practice snapshot [4:41PM]
+- need to generate practice data set, and decide the layout of snapshot [4:42PM]
+
+***** Working
+- test mode - color coded the object of interest
+- annotation loading is too slow.
+
+- Experiment design issues
+* Blocked by visualization, further blocked by distance
+* Need to design the questionnaire right, to find the preferences by location distance
+
+Data generation
+- warning on zoom levels
+
+- Have myself try the tests and log the time
+- Articulate the situations and the motivation of the test cases. 
+
+- issues that need to be fixed:
+* calculateLatLonFromiOSX: should be task dependent
+
+
+- need to scale the watch CoordinateRegion correctly
+calculateCoordinateSpanForDevice issues with watch
+
+take advantage of trialString
+types of ending:
+a
+b
+c
+p
+
+folder bug?
+when a connection is established, start the study mode from the desktop -> bug
+a task should be only on one platform
+
+new pool function to take into account the dependency of devices and tasks

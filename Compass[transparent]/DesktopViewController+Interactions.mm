@@ -198,7 +198,7 @@
             int tid = self.testManager->test_counter;
             snapshot mySnapshot = self.model->snapshot_array[tid];
             
-            if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound){
+            if ([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound){
                 //--------------
                 // Locate task
                 //--------------
@@ -207,13 +207,13 @@
                 ptInEiOSCoord.y = openGLPoint.y - self.renderer->emulatediOS.centroid_in_opengl.y;
                 // Log the location
                 self.testManager->endTest(ptInEiOSCoord, [self.studyIntAnswer doubleValue]);
-            } else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound){
+            } else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound){
                 //--------------
                 // Localize task
                 //--------------
                 // Log the location
                 self.testManager->endTest(openGLPoint, 0);
-            } else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+            } else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
                 //--------------
                 // Orient task
                 //--------------

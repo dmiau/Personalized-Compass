@@ -975,7 +975,7 @@
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="-166.5" y="392.5"/>
+            <point key="canvasLocation" x="-46.5" y="438.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="EYl-3r-NII"/>
     </objects>

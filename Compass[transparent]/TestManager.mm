@@ -14,108 +14,10 @@
 #import "iOSViewController.h"
 #endif
 
+#import "CHCSVParser.h"
 #import "compassRender.h"
 
 using namespace std;
-
-//--------------
-// Test Spec Class
-//--------------
-
-TaskType stringToTaskType(string aString){
-    TaskType output;
-    if (aString == "t1"){
-        output = LOCATE;
-    }else if (aString == "t2"){
-        output = TRIANGULATE;
-    }else if (aString == "t3"){
-        output = ORIENT;
-    }else if (aString == "t4"){
-        output = LOCATEPLUS;
-    }
-    return output;
-}
-
-string taskTypeToString(TaskType type){
-    string code;
-    switch (type) {
-        case LOCATE:
-            code = "t1";
-            break;
-        case TRIANGULATE:
-            code = "t2";
-            break;
-        case ORIENT:
-            code = "t3";
-            break;
-        case LOCATEPLUS:
-            code = "t4";
-            break;
-        default:
-            break;
-    }
-    return code;
-}
-
-// Delegate constructor
-TaskSpec::TaskSpec(string aString):TaskSpec(stringToTaskType(aString)){
-    
-}
-
-TaskSpec::TaskSpec(TaskType taskType)
-{
-    trial_string_list.clear();
-    shuffled_order.clear();
-    
-    switch (taskType) {
-        case LOCATE:
-            taskCode = "t1";
-            support_n = 1;
-            trial_n_list = {5, 5};
-            break;
-        case TRIANGULATE:
-            taskCode = "t2";
-            trial_n_list = {12, 12};
-            support_n = 2;
-            break;
-        case ORIENT:
-            taskCode = "t3";
-            trial_n_list = {5, 5};
-            support_n = 1;
-            break;
-        case LOCATEPLUS:
-            taskCode = "t4";
-            trial_n_list = {12, 12};
-            support_n = 2;
-            break;
-        default:
-            break;
-    }
-    
-    // Initial location_string_list
-    int trial_counter = 0;
-    vector<string> dist_subfix = {"a", "b"};
-    for (int i = 0; i < trial_n_list.size(); ++i){
-        for (int j = 0; j < trial_n_list[i]; ++j){
-            trial_string_list.push_back(to_string(trial_counter) + dist_subfix[i]);
-            ++trial_counter;
-        }
-    }
-    
-    shuffled_order.clear();
-    // Computer a random order
-    // At this point we know this task contains trial_counter trials
-    for (int i = 0; i < trial_counter; ++i){
-        shuffled_order.push_back(i);
-    }
-    random_shuffle(shuffled_order.begin(), shuffled_order.end());
-    shuffled_trial_string_list.clear();
-    // Generate shuffled trial string list
-    for (int i = 0; i < trial_counter; ++i){
-        int j = shuffled_order[i];
-        shuffled_trial_string_list.push_back(trial_string_list[j]);
-    }
-};
 
 //--------------
 // Test Manager singleton initializations
@@ -145,8 +47,6 @@ int TestManager::initTestManager(){
     //----------------
     // Parameters for each type of test
     //----------------
-    TaskSpec tTaskSpec(TRIANGULATE);
-    localize_test_support_n = tTaskSpec.support_n;
     // File names
     // Initialize default output filenames
     test_foldername     = @"study0";
@@ -192,23 +92,51 @@ void TestManager::setupOutputFolder(){
 // Test Generation
 //--------------
 int TestManager::generateTests(){
-    
-    //--------------
-    // Initialize boundaries
-    //--------------
-    initializeDeviceBoundaries();
-    
+#ifndef __IPHONE__
+ 
     //=====================
     // Test Parameters
     //=====================
-    vector<string> device_list = {"phone", "watch"};
-    vector<string> visualization_list = {"pcompass", "wedge"};
-    vector<string> task_list = {"t1", "t2", "t3", "t4"};
+    device_list = {PHONE, WATCH};
+    visualization_list = {VIZWEDGE, VIZPCOMPASS};
+    task_list = {LOCATE, TRIANGULATE, ORIENT, LOCATEPLUS}; //DISTANCE
+    
+    //=====================
+    // Initialize taskSpec_dict
+    //=====================
+    taskSpec_dict.clear();
+    t_data_array.clear();
+    code_xy_vector.clear();
+    practice_snapshot_vector.clear();
+    for (auto vit = visualization_list.begin(); vit != visualization_list.end(); ++vit){
+        for (auto tit = task_list.begin(); tit != task_list.end(); ++tit){
+            for (auto dit = device_list.begin(); dit != device_list.end(); ++dit){
+                string code = toString(*dit) + ":" + toString(*vit) + ":" +
+                toString(*tit);
+                TaskSpec myTaskSpec(*tit, rootViewController);
+                myTaskSpec.identifier = code;
+                myTaskSpec.deviceType = *dit;
+                myTaskSpec.generateLocationAndSnapshots(t_data_array);
+                taskSpec_dict[code] = myTaskSpec;
+                
+                // For debug purpose
+                code_xy_vector.insert(code_xy_vector.end(),
+                                      myTaskSpec.code_location_vector.begin(),
+                                      myTaskSpec.code_location_vector.end());
+                
+                // Deposit practice snapshots
+                practice_snapshot_vector.insert(practice_snapshot_vector.end(),
+                                                myTaskSpec.practice_snapshot_array.begin(),myTaskSpec.practice_snapshot_array.end()
+                                                );
+            }
+        }
+    }
 
     //=====================
     // Generate location vector
+    // based on the device, visualization and task specified in the list
     //=====================
-    generateLocationVector();
+    saveLocationVector();
     
     //=====================
     // Generate Test Vectors
@@ -218,89 +146,48 @@ int TestManager::generateTests(){
     //=====================
     // Save the files
     //=====================
-    generateAllSnapShotVectors();
     saveSnapShotsToKML();
-        
+#endif
     return 0;
 }
 
-//---------------
-// Initialize watch_boundaries and phone_boundaries
-//---------------
-void TestManager::initializeDeviceBoundaries(){
+void TestManager::saveLocationVector(){
     
-    float em_width, em_height;
-    float ios_width, ios_height;
+    // Make sure the output folder exists
+    setupOutputFolder();
+    //---------------------
+    // Save code_xy to CSV
+    //---------------------
+    NSString *folder_path = [model->desktopDropboxDataRoot
+                             stringByAppendingString:test_foldername];
+    NSString *out_file = [folder_path
+                          stringByAppendingPathComponent:test_location_filename];
+    CHCSVWriter *w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
     
-    double close_begin, close_end;
-    double far_begin, far_end;
+    // http://stackoverflow.com/questions/1443793/iterate-keys-in-a-c-map
     
-    //         close_n steps    far_n steps
-    // -------|------------|---|---------------|
-    // close_begin  close_end far_begin     far_end
-    
-    
-    // In the study, there are two devices (environments) to be tested: phone and watch
-    // However, in the locate task, phone and watch might be tested on a desktop
-    // So this can be a bit confusing.
-    // Here will call phone and watch as devices
-    // desktop and ios as platform
-    
-    //------------
-    // Phone
-    //------------
-    vector<float> two_heights;
-#ifndef __IPHONE__
-    em_width = rootViewController.renderer->emulatediOS.width;
-    em_height = rootViewController.renderer->emulatediOS.height;
-    ios_width = rootViewController.renderer->emulatediOS.true_ios_width;
-    ios_height = rootViewController.renderer->emulatediOS.true_ios_height;
-    two_heights = {em_height, ios_height};
-#else
-    two_heights = {302, 503};
-#endif
-    
-    
-    // First populate the desktop, second populate the ios
-    for (int i = 0; i < two_heights.size(); ++i){
-        float platform_height = two_heights[i];
-        close_begin = platform_height/2 * close_begin_x;
-        close_end = platform_height/2 * close_end_x;
-        
-        far_begin = platform_height/2 * far_begin_x;
-        far_end = platform_height/2 * far_end_x;
-        
-        // Need to initialize the vector
-        vector<pair<float, float>> temp =
-        {pair<float, float>(close_begin, close_end), pair<float, float>(far_begin, far_end)};
-        
-        phone_boundaries.push_back(temp);
+    // map<string, vector<int>> location_dict;
+    for (int i = 0; i <code_xy_vector.size(); ++i){
+        string code = code_xy_vector[i].first;
+        vector<int> xy = code_xy_vector[i].second;
+        [w writeLineOfFields:@[[NSString stringWithUTF8String:code.c_str()],
+                               [NSNumber numberWithInteger:xy[0]],
+                               [NSNumber numberWithInteger:xy[1]]]];
     }
     
-    //------------
-    // Watch (may need to change the parameters here)
-    //------------
-#ifndef __IPHONE__
-    em_width = rootViewController.renderer->emulatediOS.width;
-    em_height = rootViewController.renderer->emulatediOS.height;
-    ios_width = rootViewController.renderer->emulatediOS.true_ios_width;
-    ios_height = rootViewController.renderer->emulatediOS.true_ios_height;
-    two_heights = {em_height, ios_height};
-#else
-    two_heights = {302, 503};
-#endif
-    // First populate the desktop, second populate the ios
-    for (int i = 0; i < two_heights.size(); ++i){
-        float platform_height = two_heights[i];
-        close_begin = platform_height/2 * close_begin_x;
-        close_end = platform_height/2 * close_end_x;
-        
-        far_begin = platform_height/2 * far_begin_x;
-        far_end = platform_height/2 * far_end_x;
-        
-        // Need to initialize the vector
-        vector<pair<float, float>> temp =
-        {pair<float, float>(close_begin, close_end), pair<float, float>(far_begin, far_end)};
-        watch_boundaries.push_back(temp);
+    //---------------------
+    // Save t_data_array to KML
+    //---------------------
+    NSString *content = genKMLString(t_data_array);
+    
+    NSError* error;
+    NSString *doc_path = [folder_path
+                          stringByAppendingPathComponent:test_kml_filename];
+    
+    if (![content writeToFile:doc_path
+                   atomically:YES encoding: NSASCIIStringEncoding
+                        error:&error])
+    {
+        throw(runtime_error("Failed to write test kml file"));
     }
 }

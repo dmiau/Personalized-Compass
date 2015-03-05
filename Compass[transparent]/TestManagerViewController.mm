@@ -86,21 +86,21 @@
     }
     
     // Populate the parameters to Testmanager
-    self.rootViewController.testManager->close_begin_x =
-    [self.close_begin_x floatValue];
-    self.rootViewController.testManager->close_end_x =
-    [self.close_end_x floatValue];
-    
-    self.rootViewController.testManager->far_begin_x =
-    [self.far_begin_x floatValue];
-    self.rootViewController.testManager->far_end_x =
-    [self.far_end_x floatValue];
-    
-    self.rootViewController.testManager->close_n =
-    [self.close_n intValue];
-    
-    self.rootViewController.testManager->far_n =
-    [self.far_n intValue];
+//    self.rootViewController.testManager->close_begin_x =
+//    [self.close_begin_x floatValue];
+//    self.rootViewController.testManager->close_end_x =
+//    [self.close_end_x floatValue];
+//    
+//    self.rootViewController.testManager->far_begin_x =
+//    [self.far_begin_x floatValue];
+//    self.rootViewController.testManager->far_end_x =
+//    [self.far_end_x floatValue];
+//    
+//    self.rootViewController.testManager->close_n =
+//    [self.close_n intValue];
+//    
+//    self.rootViewController.testManager->far_n =
+//    [self.far_n intValue];
     
     self.rootViewController.testManager->participant_n =
     [self.participant_n intValue];
@@ -113,8 +113,8 @@
 
 - (IBAction)generateTestFromCustomVector:(id)sender {
     [self assignNamesToTestManager];
-    self.rootViewController.testManager->
-    generateCustomSnapshotFromVectorName(self.custom_test_vectorname);
+//    self.rootViewController.testManager->
+//    generateCustomSnapshotFromVectorName(self.custom_test_vectorname);
 }
 
 - (void) assignNamesToTestManager{

@@ -130,9 +130,9 @@
         [self lockCompassRefToScreenCenter:YES];
         self.renderer->isInteractiveLineVisible=false;
         [self enableMapInteraction:NO];
-        
+        self.renderer->cross.isVisible = false;
         // Set up differently, depending on the snapshot code
-        if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)
+        if ([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
         {
             self.renderer->cross.isVisible = false;
             
@@ -142,18 +142,21 @@
                 [self.glkView addSubview:self.scaleView];
             }
 
-        }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound)
+        }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
+            self.renderer->cross.isVisible = true;
             [self.scaleView removeFromSuperview];
             [self.watchScaleView removeFromSuperview];
-        }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+        }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
+            self.renderer->cross.isVisible = true;
             self.renderer->isInteractiveLineVisible=true;
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
             [self.scaleView removeFromSuperview];
             [self.watchScaleView removeFromSuperview];
-        }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound)
+        }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound)
         {
+            self.renderer->cross.isVisible = true;            
             [self.scaleView removeFromSuperview];
             [self.watchScaleView removeFromSuperview];
         }
@@ -178,15 +181,15 @@
         [self sendMessage:[NSString stringWithFormat:@"%d", snapshot_id]];
             self.renderer->cross.isVisible = false;
         // Set up differently, depending on the snapshot code
-        if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound)
+        if ([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
         {
             [self showLocateCollectMode:mySnapshot];
-        }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound)
+        }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
             [self showLocalizeCollectMode:mySnapshot];
-        }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+        }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
             [self showOrientCollectMode:mySnapshot];
-        }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound){
+        }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
             [self showLocalizeCollectMode:mySnapshot];
             self.renderer->cross.isVisible = true;
         }

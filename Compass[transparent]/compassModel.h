@@ -45,6 +45,30 @@ typedef enum{
     DESKTOP
 }DeviceType;
 
+
+inline string toString(DeviceType deviceType){
+    string output;
+    switch (deviceType) {
+        case PHONE:
+            output = "phone";
+            break;
+        case WATCH:
+            output = "watch";
+            break;
+        case SQUAREWATCH:
+            output = "squarewatch";
+            break;
+        case DESKTOP:
+            output = "desktop";
+            break;
+        default:
+            output = "unknown";
+            break;
+    }
+    return output;
+}
+
+
 // Visualization type enum
 typedef enum{
     VIZNONE,
@@ -52,6 +76,28 @@ typedef enum{
     VIZWEDGE,
     VIZOVERVIEW
 }VisualizationType;
+
+inline string toString(VisualizationType visualizationType){
+    string output;
+    switch (visualizationType) {
+        case VIZWEDGE:
+            output = "wedge";
+            break;
+        case VIZPCOMPASS:
+            output = "pcompass";
+            break;
+        default:
+            output = "unknown";
+            break;
+    }
+        
+    return output;
+}
+
+inline NSString* toNSString(VisualizationType visualizationType){
+    string code = toString(visualizationType);    
+    return [NSString stringWithUTF8String:code.c_str()];
+}
 
 //--------------
 // label info

@@ -50,7 +50,8 @@
     // For task I, the coordinates are calculated relative to eiOS centroid, so we need
     // to convert them back to the OpenGL coordinates
     //-------------
-    if ([self.testManager->record_vector[sid].code rangeOfString:@"t1"].location
+    if ([self.testManager->record_vector[sid].code rangeOfString:
+         toNSString(LOCATE)].location
         != NSNotFound)
     {
         cgTruth.x = cgTruth.x + self.renderer->emulatediOS.centroid_in_opengl.x;
@@ -72,7 +73,8 @@
         // For task I, the coordinates are calculated relative to eiOS centroid, so we need
         // to convert them back to the OpenGL coordinates
         //-------------
-        if ([self.testManager->record_vector[sid].code rangeOfString:@"t1"].location
+        if ([self.testManager->record_vector[sid].code rangeOfString:
+             toNSString(LOCATE)].location
             != NSNotFound)
         {
             cgAnswer.x = cgAnswer.x + self.renderer->emulatediOS.centroid_in_opengl.x;

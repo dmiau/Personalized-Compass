@@ -8,18 +8,19 @@
 
 #import "TestManager.h"
 #import "CHCSVParser.h"
+
 using namespace std;
 
 template <class type>
 vector<vector<vector<type>>> permute(vector<vector<type>> input, int leaf_n){
-    vector<vector<vector<string>>> output; output.clear();
+    vector<vector<vector<type>>> output; output.clear();
     
     for (int i = 0; i < input.size(); ++i){
         if (leaf_n > 1){
-            vector<vector<string>> temp = input;
+            vector<vector<type>> temp = input;
             temp.erase(temp.begin() + i);
             
-            vector<vector<vector<string>>> t_output = permute(temp, leaf_n-1);
+            vector<vector<vector<type>>> t_output = permute(temp, leaf_n-1);
             
             for (int j = 0; j < t_output.size(); ++j){
                 t_output[j].insert(t_output[j].begin(), input[i]);
@@ -78,7 +79,7 @@ pool<type>::pool(vector<type> conditions, POOLMODE mode, int leaf_n){
 // {{2, 1}, {1, 2}}}
 // So I will use row_i and col_i to access an item
 template <class type> vector<type> pool<type>::next(){
-    vector<string> output;
+    vector<type> output;
     
     int i = counter % (content.size()*content[0].size());
     
@@ -89,64 +90,100 @@ template <class type> vector<type> pool<type>::next(){
     return output;
 }
 
+#ifndef __IPHONE__
+#import "DesktopViewController.h"
 //--------------
 // Testvector Generation
 //--------------
 void TestManager::generateAllTestVectors(
-                                               vector<string> device_list,
-                                               vector<string> visualization_list,
-                                               vector<string> task_list
-                                               )
+    vector<DeviceType> device_list,vector<VisualizationType> visualization_list,
+    vector<TaskType> task_list)
 {
-    pool<string> device_pool = pool<string>(device_list, FULL, 1); //phone, watch
-    pool<string> visualization_pool = pool<string>(visualization_list, FULL, 2); //personalized compass, wedge
-    pool<string> task_pool = pool<string>(task_list, FULL, 2);
-    
-    
-//    pool location_pool = pool(location_list, FIXED, 1);
+    pool<VisualizationType> visualization_pool = pool<VisualizationType>(visualization_list, FULL, 1); //personalized compass, wedge
+    pool<DeviceType> device_pool = pool<DeviceType>(device_list, FULL, 1); //phone, watch
+    pool<TaskType> task_pool = pool<TaskType>(task_list, FULL, 1);
     
     
     string dprefix = "", dvprefix = "", dvtprefix = "", prefix = "";
     vector<string> user_test_vector;
     all_test_vectors.clear();
+    all_snapshot_vectors.clear();
     for (int ui = 0; ui < participant_n; ++ui){
         
+        //------------------------
+        // Generate test vector and snapshot for each participant
+        // Note the extensive use of the next method
+        //------------------------
+        
         user_test_vector.clear();
-        vector<string> t_device_list = device_pool.next();
+        vector<snapshot> t_snapshot_array;
+        vector<DeviceType> t_device_list = device_pool.next();
         for (int di = 0; di < device_list.size(); ++di){
             // Device prefix
-            dprefix = t_device_list[di];
+            dprefix = toString(t_device_list[di]);
             
-            vector<string> t_visualization_list = visualization_pool.next();
+            vector<VisualizationType> t_visualization_list = visualization_pool.next();
             for (int vi = 0; vi < visualization_list.size(); ++vi){
                 // Visualization prefix
-                dvprefix = dprefix + ":" + t_visualization_list[vi];
+                dvprefix = dprefix + ":" + toString(t_visualization_list[vi]);
                 
-                vector<string> t_task_list = task_pool.next();
+                vector<TaskType> t_task_list = task_pool.next();
                 for (int ti = 0; ti < task_list.size(); ++ti){
                     // Task prefix
-                    dvtprefix = dvprefix + ":" + t_task_list[ti];
+                    dvtprefix = dvprefix + ":" + toString(t_task_list[ti]);
                     
-                    //-------------
-                    // Generate location postfix
-                    //-------------
-                    TaskSpec aSpec(stringToTaskType(t_task_list[ti]));
-                    
-                    for (int li = 0; li < aSpec.shuffled_trial_string_list.size(); ++li)
-                    {
-                        prefix = dvtprefix +  ":"
-                        + aSpec.shuffled_trial_string_list[li];
-                        user_test_vector.push_back(prefix);
+                    //--------------------------
+                    // Retrive the taskSpec object from taskSpec_dict
+                    //--------------------------
+                    if (taskSpec_dict.find(dvtprefix) == taskSpec_dict.end()){
+                        NSString *t_str = [NSString stringWithUTF8String:dvtprefix.c_str()];
+                        [rootViewController displayPopupMessage:
+                         [NSString stringWithFormat:@"%@ cannot be found in taskSpec_dict",
+                          t_str]];
+                    }else{
+                        
+                        //-------------------
+                        // Need to set the visualization here,
+                        // because two visualizations may share the same
+                        // snapshot
+                        //-------------------
+                        
+                        TaskSpec myTaskSpec = taskSpec_dict[dvtprefix];
+                        vector<int> shuffled_order = myTaskSpec.shuffleTests();
+                        for (auto it = shuffled_order.begin(); it < shuffled_order.end(); ++it)
+                        {
+                            string snapshot_name = string
+                            ([myTaskSpec.snapshot_array[*it].name UTF8String]);
+                            user_test_vector.push_back(snapshot_name);
+                            
+                            //-----------
+                            // Make a copy of the snapshot object and put it
+                            // to t_snapshot_array
+                            // Note some extra configurations are needed
+                            //-----------
+                            t_snapshot_array.push_back(myTaskSpec.snapshot_array[*it]);
+                            t_snapshot_array.back().visualizationType =
+                            t_visualization_list[vi];
+                            t_snapshot_array.back().deviceType =
+                            t_device_list[di];
+                            t_snapshot_array.back().kmlFilename =
+                            test_kml_filename;
+                        }
                     }
+
+                    
                 }
             }
         }
+        // Each participant has a code vector
         all_test_vectors.push_back(user_test_vector);
+        // Each participant has a snapshot vector
+        all_snapshot_vectors.push_back(t_snapshot_array);
     }
     // Save the generated test vectors to a file
     saveAllTestVectorCSV();
 }
-
+#endif
 //--------------
 // Save all test vectors (each participant has a test vector)
 //--------------

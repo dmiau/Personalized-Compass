@@ -258,7 +258,7 @@ void TestManager::showTestNumber(int test_id){
         // The timer of the answered test is stopped in the endTest method
         if (record_vector[test_counter].isAnswered){
 
-            if ([record_vector[test_counter].code rangeOfString:@"t1"].location
+            if ([record_vector[test_counter].code rangeOfString:toNSString(LOCATE)].location
                 != NSNotFound)
 
             {
@@ -308,7 +308,7 @@ void TestManager::startTest(){
     //------------------------
     // Calculat the ground truth based on task type
     //------------------------
-    if ([mySnapshot.name rangeOfString:@"t1"].location != NSNotFound){
+    if ([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound){
         //-----------------
         // Locate test
         //-----------------
@@ -326,7 +326,7 @@ void TestManager::startTest(){
         double dist = sqrt(x * x + y * y);
         record_vector[test_counter].doubleTruth = (double)dist /
         (double) rootViewController.renderer->emulatediOS.width;
-    }else if ([mySnapshot.name rangeOfString:@"t2"].location != NSNotFound){
+    }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound){
         //-----------------
         // Localize test
         //-----------------
@@ -335,7 +335,7 @@ void TestManager::startTest(){
                                mySnapshot.coordinateRegion.center];
         record_vector[test_counter].cgPointTruth = openGLPoint;
         record_vector[test_counter].doubleTruth = 0;
-    }else if ([mySnapshot.name rangeOfString:@"t3"].location != NSNotFound){
+    }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
         iOSAnswer = 10000;
         //-----------------
         // Orient test
@@ -347,7 +347,7 @@ void TestManager::startTest(){
         
         record_vector[test_counter].doubleTruth =
         atan2(openGLPoint.y, openGLPoint.x) /M_PI * 180;
-    }else if ([mySnapshot.name rangeOfString:@"t4"].location != NSNotFound){
+    }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
         //-----------------
         // Locate plus
         //-----------------

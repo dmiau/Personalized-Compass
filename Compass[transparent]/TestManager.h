@@ -26,41 +26,10 @@
 @class iOSViewController;
 #endif
 
+#include "TaskSpec.h"
 using namespace std;
 
-//------------------------------
-// Test Specifications
-//------------------------------
-enum TaskType {LOCATE, TRIANGULATE, ORIENT, LOCATEPLUS};
 
-//class BoundarySpec{
-//public:
-//    double close;
-//    double far;
-//    int count;
-//};
-
-class TaskSpec{
-public:
-    // Properties
-    TaskType taskType;
-    DeviceType deviceType;
-    VisualizationType visualizationType;
-    
-    string deviceVizCode;
-    string taskCode;
-    int support_n;
-    vector<int> trial_n_list;
-    vector<string> trial_string_list;
-    vector<int> shuffled_order;
-    vector<string> shuffled_trial_string_list;
-public:
-    // Constructor
-    TaskSpec(TaskType taskType);
-    TaskSpec(string taskTypeString);
-};
-
-TaskType stringToTaskType(string aString);
 
 //------------------------------
 // Param object
@@ -177,9 +146,6 @@ public:
 //------------------------------
 enum TestManagerMode {OFF, DEVICESTUDY, OSXSTUDY, AUTHORING, REVIEW};
 
-TaskType stringToTaskType(string aString);
-string taskTypeToString(TaskType type);
-
 class TestManager{
 public:
     
@@ -214,51 +180,46 @@ public:
     NSString *practice_filename;
     NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
     NSString *record_filename;
+
+    //---------------
+    // test generation specification
+    //---------------
+    vector<DeviceType> device_list;
+    vector<VisualizationType> visualization_list;
+    vector<TaskType> task_list;
     
     //---------------
     // map and vector
     //---------------
+    
+    /*
+    code: 
+    phone:pcompass:locate
+    phone:wedge:locate
+     
+    watch:pcompass:locate
+    watch:wedge:locate
+     
+    In reality, each task most likely associates with a device only.
+     */
+    map<string, TaskSpec> taskSpec_dict;
+    
     // A map holds all the IDs and (x, y) coordinates
-    map<string, vector<int>> location_dict;
-    // This map is for code to ID lookup
-    map<string, int> location_code_to_id;
+    vector<pair<string, vector<int>>> code_xy_vector;
+    
     // Stores all test vectors (each participant has a test vector)
     vector<vector<string>> all_test_vectors;
     // Stores all snapshot vectors (each participant has a snapshot vector)
     vector<vector<snapshot>> all_snapshot_vectors;
+    vector<snapshot> practice_snapshot_vector; // To store the practice snapshots
     vector<record> record_vector;
     vector<data> t_data_array; // This structure holds the generated locationss
-    
-    //---------------
-    // Parameters for close, far boundaries
-    //---------------
-    
-    // watch_boundaries and phone_boundaries layout
-    //              close       |   far
-    // [0]desktop  [float, float]  | [float, float]
-    // [1]mobile   [float, float]  | [float, float]
-    vector<vector<pair<float, float>>> watch_boundaries;
-    vector<vector<pair<float, float>>> phone_boundaries;
-    
-    // Why watch_boundaries and phone_boundaries are float?
-    // because device_height/2 could contain fractions
-    
-    float close_begin_x;
-    float close_end_x;
-    float far_begin_x;
-    float far_end_x;
-    int close_n;    // # of locations in the close category
-    int far_n;      // # of locations in the far category
-
-    // Structure to keep track of the number of each type of test
-    map<string, int> task_type_counter;
-    
+        
     //---------------
     // Random number generation
     //---------------
     int seed;
     std::mt19937  generator;
-    
     
     //**********************
     // User Study Related Parameters
@@ -274,10 +235,7 @@ public:
     int test_counter;
     double iOSAnswer;
     
-    int localize_test_support_n; //TODO: should try to get rid of this
-    
     BOOL isRecordAutoSaved;
-    
 public:
     //----------------
     // Methods
@@ -290,57 +248,26 @@ public:
     // Test Generation Related Methods
     //**********************
     
-    // Initialize watch_boundaries and phone_boundaries
-    void initializeDeviceBoundaries();
-    
-    // Methods to generate tests
+    // Methods to generate tests    
     int generateTests();
-    
-    //---------------
-    // Location vector generation
-    //---------------
-    map<string, vector<int>> generateLocationVector();
-
-    map<string, vector<int>> generateLocationsByTask
-    (DeviceType deviceType, TaskType taskType);
-    
-    //--------------
-    // Generate  close_bounary<  n random locations < far_boundary
-    // The n random locations fall into n equally distant segments
-    // btween close_boundary and far_boundary
-    //--------------
-    vector<vector<int>> generateRandomLocateLocations
-    (double close_boundary, double far_boundary, int location_n);
-    
-    vector<vector<int>> generateRandomTriangulateLocations
-    (double close_boundary, double far_boundary, int location_n);
-    
-    vector<vector<int>> generateRandomOrientLocations
-    (double close_boundary, double far_boundary, int location_n);
-    
-    void saveTestLocationsToKML();
     
     //---------------
     // Test vector generation
     //---------------
-    
+#ifndef __IPHONE__
     void generateAllTestVectors(
-        vector<string> device_list,
-        vector<string> visualization_list,
-        vector<string> task_list);
-    
-    void saveLocationCSV();
+        vector<DeviceType> device_list,
+        vector<VisualizationType> visualization_list,
+        vector<TaskType> task_list);
+#endif
+    void saveLocationVector();
     void saveAllTestVectorCSV();
     
-    // I will need a snapshot generator too
-    void generateAllSnapShotVectors();
-    vector<snapshot> generateSnapShotsFromTestvector(vector<string> test_vector);
     void saveSnapShotsToKML();
-    void generateCustomSnapshotFromVectorName(NSString* custom_vector_filename);
+    void configureSnapshots(vector<snapshot> &snapshot_vector);
     
     // Prepare test directory
     void setupOutputFolder();
-    
     
     //---------------
     // Manual test authoring
