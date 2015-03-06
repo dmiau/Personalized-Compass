@@ -99,8 +99,11 @@ int TestManager::generateTests(){
     //=====================
     device_list = {PHONE, WATCH};
     visualization_list = {VIZWEDGE, VIZPCOMPASS};
-    task_list = {LOCATE, TRIANGULATE, ORIENT, LOCATEPLUS}; //DISTANCE
-    
+    task_list = {LOCATE, TRIANGULATE, ORIENT, LOCATEPLUS, DISTANCE}; //DISTANCE
+
+    phone_task_list = {LOCATE, ORIENT, DISTANCE};
+    watch_task_list = {TRIANGULATE, LOCATEPLUS};
+
     //=====================
     // Initialize taskSpec_dict
     //=====================
@@ -111,7 +114,7 @@ int TestManager::generateTests(){
     for (auto vit = visualization_list.begin(); vit != visualization_list.end(); ++vit){
         for (auto tit = task_list.begin(); tit != task_list.end(); ++tit){
             for (auto dit = device_list.begin(); dit != device_list.end(); ++dit){
-                string code = toString(*dit) + ":" + toString(*vit) + ":" +
+                string code = toString(*vit) + ":" + toString(*dit) + ":" +
                 toString(*tit);
                 TaskSpec myTaskSpec(*tit, rootViewController);
                 myTaskSpec.identifier = code;

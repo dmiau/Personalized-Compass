@@ -146,7 +146,8 @@ typedef struct{
 //----------------
 //Annotation category
 //----------------
--(void) renderAnnotations;
+-(void) resetAnnotations;
+- (void) renderAllDataAnnotations;
 
 // Change how annotations should be displayed
 - (void)changeAnnotationDisplayMode: (NSString*) mode;

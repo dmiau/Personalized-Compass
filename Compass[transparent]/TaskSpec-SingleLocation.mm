@@ -216,7 +216,7 @@ void TaskSpec::addOneDataAndSnapshot(string trialString,
                         toCoordinateFromView:rootViewController.mapView];
     t_data.latitude = coord.latitude;
     t_data.longitude = coord.longitude;
-    t_data.name = identifier;
+    t_data.name = identifier + ":" + trialString;
     t_data_array.push_back(t_data);
     
     //--------------

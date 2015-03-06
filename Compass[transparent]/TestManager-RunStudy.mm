@@ -7,6 +7,7 @@
 //
 
 #include "TestManager.h"
+#include "xmlParser.h"
 
 #ifdef __IPHONE__
 // iOS
@@ -31,6 +32,16 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     // Visualization Parameters
     //----------------------------
     model->configurations[@"style_type"] = @"REAL_RATIO";
+    
+    
+    //-----------
+    // Do a forced preload of the files
+    //-----------
+    snapshot mySnapshot = model->snapshot_array[0];
+    // Do not reload the location if it is already loaded
+    model->location_filename = mySnapshot.kmlFilename;
+    readLocationKml(model, model->location_filename);
+
     
     //----------------------------
     // Create one record for each snapshot
@@ -67,7 +78,12 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     }else if (mode == OSXSTUDY){
         //------------------
         // Desktop
-        //------------------       
+        //------------------
+        
+        // Remove all the annotations
+        [rootViewController.mapView removeAnnotations:
+         rootViewController.mapView.annotations];
+        
         rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
         [NSNumber numberWithBool:YES];
         [rootViewController toggleBlankMapMode:YES];
@@ -308,7 +324,9 @@ void TestManager::startTest(){
     //------------------------
     // Calculat the ground truth based on task type
     //------------------------
-    if ([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound){
+    if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
+        ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
+    {
         //-----------------
         // Locate test
         //-----------------

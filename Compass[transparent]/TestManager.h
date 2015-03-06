@@ -187,7 +187,10 @@ public:
     vector<DeviceType> device_list;
     vector<VisualizationType> visualization_list;
     vector<TaskType> task_list;
-    
+
+    vector<TaskType> phone_task_list;
+    vector<TaskType> watch_task_list;
+
     //---------------
     // map and vector
     //---------------

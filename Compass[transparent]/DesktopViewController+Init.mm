@@ -155,7 +155,7 @@
     [self moveCompassCentroidToOpenGLPoint: self.renderer->compass_centroid];
     
     // Add pin annotations
-    [self renderAnnotations];
+    [self resetAnnotations];
     
     // Set the conventional compass to be invisible
     [self setFactoryCompassHidden:YES];

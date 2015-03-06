@@ -202,7 +202,7 @@
     //    [self.rootViewController updateMapDisplayRegion];
     [self updateLocationVisibility];
     self.model->updateMdl();
-    [self renderAnnotations];
+    [self resetAnnotations];
     [self.compassView setNeedsDisplay:YES];
 }
 

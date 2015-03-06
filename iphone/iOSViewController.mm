@@ -81,7 +81,7 @@
     if (self.needUpdateAnnotations){
         self.needUpdateAnnotations = false;
 
-        [self renderAnnotations];
+        [self resetAnnotations];
 //        [self updateDataAnnotations];
     }
     
@@ -230,7 +230,7 @@
     [self moveCompassCentroidToOpenGLPoint:self.renderer->compass_centroid];
 
     // Add pin annotations
-    [self renderAnnotations];
+    [self resetAnnotations];
     
     // Set the conventional compass to be invisible
     self.conventionalCompassVisible = false;

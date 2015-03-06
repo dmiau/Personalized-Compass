@@ -12,7 +12,7 @@
 
 @implementation iOSViewController (Annotations)
 
--(void) renderAnnotations{
+-(void) resetAnnotations{
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
     
     // Add annotations one by one
@@ -28,6 +28,17 @@
                 [self.mapView addAnnotation: myData.annotation];
             }
         }
+    }
+}
+
+- (void) renderAllDataAnnotations{
+    [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
+    
+    // Add annotations one by one
+    for (int i = 0; i < self.model->data_array.size(); ++i){
+        data myData = self.model->data_array[i];
+        [self.mapView addAnnotation: myData.annotation];
+        [[self.mapView viewForAnnotation:myData.annotation] setHidden:YES];
     }
 }
 

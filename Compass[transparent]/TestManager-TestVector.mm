@@ -61,7 +61,7 @@ pool<type>::pool(vector<type> conditions, POOLMODE mode, int leaf_n){
             throw(runtime_error("Unknown mode."));
             break;
     }
-        
+    
     // Need to use recursion
     content = permute(temp, leaf_n);
     // At this point
@@ -96,12 +96,16 @@ template <class type> vector<type> pool<type>::next(){
 // Testvector Generation
 //--------------
 void TestManager::generateAllTestVectors(
-    vector<DeviceType> device_list,vector<VisualizationType> visualization_list,
-    vector<TaskType> task_list)
+                                         vector<DeviceType> device_list,vector<VisualizationType> visualization_list,
+                                         vector<TaskType> task_list)
 {
     pool<VisualizationType> visualization_pool = pool<VisualizationType>(visualization_list, FULL, 1); //personalized compass, wedge
     pool<DeviceType> device_pool = pool<DeviceType>(device_list, FULL, 1); //phone, watch
     pool<TaskType> task_pool = pool<TaskType>(task_list, FULL, 1);
+    
+    
+    pool<TaskType> phone_task_pool = pool<TaskType>(phone_task_list, FULL, 1);
+    pool<TaskType> watch_task_pool = pool<TaskType>(watch_task_list, FULL, 1);
     
     
     string dprefix = "", dvprefix = "", dvtprefix = "", prefix = "";
@@ -114,29 +118,95 @@ void TestManager::generateAllTestVectors(
         // Generate test vector and snapshot for each participant
         // Note the extensive use of the next method
         //------------------------
-        
         user_test_vector.clear();
         vector<snapshot> t_snapshot_array;
-        vector<DeviceType> t_device_list = device_pool.next();
-        for (int di = 0; di < device_list.size(); ++di){
-            // Device prefix
-            dprefix = toString(t_device_list[di]);
+        
+        /*
+         vector<DeviceType> t_device_list = device_pool.next();
+         for (int di = 0; di < device_list.size(); ++di){
+         // Device prefix
+         dprefix = toString(t_device_list[di]);
+         
+         vector<VisualizationType> t_visualization_list = visualization_pool.next();
+         for (int vi = 0; vi < visualization_list.size(); ++vi){
+         // Visualization prefix
+         dvprefix = dprefix + ":" + toString(t_visualization_list[vi]);
+         
+         vector<TaskType> t_task_list = task_pool.next();
+         for (int ti = 0; ti < task_list.size(); ++ti){
+         // Task prefix
+         dvtprefix = dvprefix + ":" + toString(t_task_list[ti]);
+         
+         //--------------------------
+         // Retrive the taskSpec object from taskSpec_dict
+         //--------------------------
+         if (taskSpec_dict.find(dvtprefix) == taskSpec_dict.end()){
+         NSString *t_str = [NSString stringWithUTF8String:dvtprefix.c_str()];
+         [rootViewController displayPopupMessage:
+         [NSString stringWithFormat:@"%@ cannot be found in taskSpec_dict",
+         t_str]];
+         }else{
+         
+         //-------------------
+         // Need to set the visualization here,
+         // because two visualizations may share the same
+         // snapshot
+         //-------------------
+         
+         TaskSpec myTaskSpec = taskSpec_dict[dvtprefix];
+         vector<int> shuffled_order = myTaskSpec.shuffleTests();
+         for (auto it = shuffled_order.begin(); it < shuffled_order.end(); ++it)
+         {
+         string snapshot_name = string
+         ([myTaskSpec.snapshot_array[*it].name UTF8String]);
+         user_test_vector.push_back(snapshot_name);
+         
+         //-----------
+         // Make a copy of the snapshot object and put it
+         // to t_snapshot_array
+         // Note some extra configurations are needed
+         //-----------
+         t_snapshot_array.push_back(myTaskSpec.snapshot_array[*it]);
+         t_snapshot_array.back().visualizationType =
+         t_visualization_list[vi];
+         t_snapshot_array.back().deviceType =
+         t_device_list[di];
+         t_snapshot_array.back().kmlFilename =
+         test_kml_filename;
+         }
+         }
+         }
+         }
+         */
+        
+        //--------------------
+        // Alternative configurations
+        //--------------------
+        vector<VisualizationType> t_visualization_list = visualization_pool.next();
+        for (int vi = 0; vi < t_visualization_list.size(); ++vi){
             
-            vector<VisualizationType> t_visualization_list = visualization_pool.next();
-            for (int vi = 0; vi < visualization_list.size(); ++vi){
-                // Visualization prefix
-                dvprefix = dprefix + ":" + toString(t_visualization_list[vi]);
+            vector<DeviceType> t_device_list = device_pool.next();
+            for (int di = 0; di < t_device_list.size(); ++di){
                 
-                vector<TaskType> t_task_list = task_pool.next();
-                for (int ti = 0; ti < task_list.size(); ++ti){
-                    // Task prefix
-                    dvtprefix = dvprefix + ":" + toString(t_task_list[ti]);
+                vector<TaskType> t_task_list;
+                if (t_device_list[di] == PHONE){
+                    t_task_list = phone_task_pool.next();
+                }else{
+                    t_task_list = watch_task_pool.next();
+                }
+                
+                for (int ti = 0; ti < t_task_list.size(); ++ti){
+                    // Task code
+                    string task_code =
+                    toString(t_visualization_list[vi]) + ":" +
+                    toString(t_device_list[di]) + ":" +
+                    toString(t_task_list[ti]);
                     
                     //--------------------------
                     // Retrive the taskSpec object from taskSpec_dict
                     //--------------------------
-                    if (taskSpec_dict.find(dvtprefix) == taskSpec_dict.end()){
-                        NSString *t_str = [NSString stringWithUTF8String:dvtprefix.c_str()];
+                    if (taskSpec_dict.find(task_code) == taskSpec_dict.end()){
+                        NSString *t_str = [NSString stringWithUTF8String:task_code.c_str()];
                         [rootViewController displayPopupMessage:
                          [NSString stringWithFormat:@"%@ cannot be found in taskSpec_dict",
                           t_str]];
@@ -148,7 +218,7 @@ void TestManager::generateAllTestVectors(
                         // snapshot
                         //-------------------
                         
-                        TaskSpec myTaskSpec = taskSpec_dict[dvtprefix];
+                        TaskSpec myTaskSpec = taskSpec_dict[task_code];
                         vector<int> shuffled_order = myTaskSpec.shuffleTests();
                         for (auto it = shuffled_order.begin(); it < shuffled_order.end(); ++it)
                         {
@@ -170,10 +240,9 @@ void TestManager::generateAllTestVectors(
                             test_kml_filename;
                         }
                     }
-
-                    
                 }
             }
+            
         }
         // Each participant has a code vector
         all_test_vectors.push_back(user_test_vector);
@@ -183,12 +252,14 @@ void TestManager::generateAllTestVectors(
     // Save the generated test vectors to a file
     saveAllTestVectorCSV();
 }
+
+
 #endif
 //--------------
 // Save all test vectors (each participant has a test vector)
 //--------------
 void TestManager::saveAllTestVectorCSV(){
-
+    
     //--------------
     // Make sure the output folder exists
     setupOutputFolder();

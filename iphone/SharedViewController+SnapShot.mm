@@ -48,6 +48,7 @@
         readLocationKml(self.model, self.model->location_filename);
     }
     
+    vector<int> annotation_id_vector;
     if (mySnapshot.selected_ids.size() == 0){
         // If no landmarks are specified, let the model to decide which
         // landmark to show (use the K_ORIENTATIONS method)
@@ -68,12 +69,12 @@
                 [self displayPopupMessage:[NSString stringWithFormat:
                                            @"Data ID: %d does not exist in %@",
                                            data_id, self.model->location_filename]];
-                
                 return false;
             }else{
                 self.model->data_array[data_id].isEnabled = true;
                 if (mySnapshot.is_answer_list[i] == 0){
                     self.model->data_array[data_id].isAnswer = false;
+                    annotation_id_vector.push_back(data_id);
                 }else{
                     self.model->data_array[data_id].isAnswer = true;
                 }
@@ -81,6 +82,24 @@
         }
         
         self.model->configurations[@"filter_type"] = @"MANUAL";
+    }
+    
+    //-----------
+    // Annotation configurations (for desktop only)
+    //-----------
+    if (mode == OSXSTUDY){
+        [self.mapView removeAnnotations:
+         self.mapView.annotations];
+        
+        for (int i = 0; i < annotation_id_vector.size(); ++i)
+        {
+            int data_id = annotation_id_vector[i];
+            [self.mapView addAnnotation:
+             self.model->data_array[data_id].annotation];
+            [[self.mapView viewForAnnotation:
+              self.model->data_array[data_id].annotation]
+             setHidden:NO];
+        }
     }
     
 //    NSLog(@"SnapShot");
@@ -112,10 +131,13 @@
 //    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", self.mapView.region.span.latitudeDelta,
 //          self.mapView.region.span.longitudeDelta);
 
-    //-----------------
-    // Render annotations (may be too heavy?)
-    //-----------------
-    [self renderAnnotations];
+//    //-----------------
+//    // Render annotations (may be too heavy?)
+//    //-----------------
+//    if (mode == OFF)
+//        [self resetAnnotations];
+//    else
+//        [self changeAnnotationDisplayMode:@"Study"];
     
     //-----------------
     // Set up viz and device
@@ -132,7 +154,8 @@
         [self enableMapInteraction:NO];
         self.renderer->cross.isVisible = false;
         // Set up differently, depending on the snapshot code
-        if ([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
+        if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
+            ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
         {
             self.renderer->cross.isVisible = false;
             
@@ -181,7 +204,8 @@
         [self sendMessage:[NSString stringWithFormat:@"%d", snapshot_id]];
             self.renderer->cross.isVisible = false;
         // Set up differently, depending on the snapshot code
-        if ([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
+        if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
+            ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
         {
             [self showLocateCollectMode:mySnapshot];
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)

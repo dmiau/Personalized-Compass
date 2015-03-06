@@ -122,7 +122,7 @@
     self.statusSegmentControl.selectedSegment = 0;
     
 //    [self.rootViewController updateDataAnnotations];
-    [self.rootViewController renderAnnotations];
+    [self.rootViewController resetAnnotations];
 }
 
 - (IBAction)removeLocation:(id)sender {

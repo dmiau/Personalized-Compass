@@ -107,7 +107,7 @@
         for (int i = 0; i < self.model->data_array.size(); ++i) {
             self.model->data_array[i].isEnabled = false;
         }
-        [self renderAnnotations];
+        [self resetAnnotations];
         self.model->updateMdl();
 #ifdef __IPHONE__
         [self.glkView setNeedsDisplay];

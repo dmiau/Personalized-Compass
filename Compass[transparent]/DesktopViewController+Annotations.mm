@@ -24,7 +24,7 @@
 // DesktopViewController (Annotations)
 //---------------
 @implementation DesktopViewController (Annotations)
--(void) renderAnnotations{
+-(void) resetAnnotations{
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
     
     // Add annotations one by one
@@ -43,6 +43,17 @@
                 [[self.mapView viewForAnnotation:myData.annotation] setHidden:YES];
             }
         }
+    }
+}
+
+- (void) renderAllDataAnnotations{
+    [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
+    
+    // Add annotations one by one
+    for (int i = 0; i < self.model->data_array.size(); ++i){
+        data myData = self.model->data_array[i];
+        [self.mapView addAnnotation: myData.annotation];
+        [[self.mapView viewForAnnotation:myData.annotation] setHidden:YES];
     }
 }
 
@@ -397,16 +408,21 @@
     }else if ([mode isEqualToString:@"Study"]){
         for (CustomPointAnnotation* annotation in annotation_array){
             int i = annotation.data_id;
+            
+//            cout << self.model->data_array[i].name << endl;
             if (annotation.point_type == landmark &&
                 self.model->data_array[i].isEnabled)
             {
                 if (self.testManager->testManagerMode == DEVICESTUDY ||
-                    self.testManager->testManagerMode == OSXSTUDY){
-                    
+                    self.testManager->testManagerMode == OSXSTUDY)
+                {
                     if (self.model->data_array[i].isAnswer){
                         [[self.mapView viewForAnnotation:annotation] setHidden:YES];
                     }else{
                         [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+                        OSXPinAnnotationView* temp = (OSXPinAnnotationView*)
+                        [self.mapView viewForAnnotation:annotation];
+                        temp.pinColor = MKPinAnnotationColorRed;
                     }
                 }else{
                     [[self.mapView viewForAnnotation:annotation] setHidden:NO];

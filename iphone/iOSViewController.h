@@ -243,7 +243,8 @@ typedef struct{
 //----------------
 // Annotations related methods
 //----------------
-- (void) renderAnnotations;
+- (void) resetAnnotations;
+- (void) renderAllDataAnnotations;
 -(void) updateDataAnnotations;
 // Change how annotations should be displayed
 - (void)changeAnnotationDisplayMode: (NSString*) mode;

@@ -133,7 +133,7 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
             wedge my_wedge(model, screen_box,
                            CGPointMake(x_diff, y_diff));
             my_wedge.render();
-            my_wedge.showInfo();
+//            my_wedge.showInfo();
             leg = my_wedge.leg;
             aperture = my_wedge.aperture;
             //---------------------

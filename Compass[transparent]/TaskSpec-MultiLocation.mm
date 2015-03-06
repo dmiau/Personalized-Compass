@@ -92,6 +92,8 @@ vector<vector<int>> generateRandomTriangulateLocations(std::mt19937  generator,
 //-----------------------
 void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
 {
+    snapshot_array.clear();
+    code_location_vector.clear();
     vector<float> base_length_vector = {300.0, 1000.0};
     vector<int> ratio_vecotr = {1, 2, 3};
     vector<int> delta_theta_vecotr = {90, 150, 210, 270};
@@ -121,6 +123,8 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
 //-----------------------
 void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array)
 {
+    snapshot_array.clear();
+    code_location_vector.clear();
     vector<float> base_length_vector = {300.0, 1000.0};
     vector<int> ratio_vecotr = {1, 2, 3};
     vector<int> delta_theta_vecotr = {90, 150, 210, 270};
@@ -158,8 +162,7 @@ void TaskSpec::batchCommitLocationPairs(string postfix,
                                         vector<data> &t_data_array)
 {
     int trial_n = (int)location_pair_vector.size()/2;
-    snapshot_array.clear();
-    code_location_vector.clear();
+
     for (int i = 0; i < trial_n; ++i)
     {
         int x1 = location_pair_vector[i*2][0];

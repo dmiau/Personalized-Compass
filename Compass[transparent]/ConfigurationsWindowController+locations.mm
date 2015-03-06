@@ -292,7 +292,7 @@
         [self.rootViewController updateMapDisplayRegion: temp withAnimation:NO];
     }
     
-    [self.rootViewController renderAnnotations];
+    [self.rootViewController resetAnnotations];
     [self.locationTableView reloadData];
     NSLog(@"KML combo triggered %@", astr);
 }
@@ -390,7 +390,7 @@
     [self.locationTableView reloadData];
 
     self.model->updateMdl();
-    [self.rootViewController renderAnnotations];
+    [self.rootViewController resetAnnotations];
     [self.locationTableView reloadData];    
 }
 @end

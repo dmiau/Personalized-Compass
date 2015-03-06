@@ -95,7 +95,7 @@ DesktopViewController.updateMapDisplayRegion
 DesktopViewController.updateMainGUI{
 	DesktopViewController.updateLocationVisibility
 	model->updateMdl
-	DesktopViewController.renderAnnotations
+	DesktopViewController.resetAnnotations
 	compassView setNeedsDisplay:YES	
 }                                        
 
