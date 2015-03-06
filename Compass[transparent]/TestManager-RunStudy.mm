@@ -167,7 +167,6 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
     model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
     model->updateMdl();
     updateUITestMessage();
-    [rootViewController toggleBlankMapMode:NO];
     
 #ifndef __IPHONE__
     rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:YES];

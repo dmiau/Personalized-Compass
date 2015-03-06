@@ -171,6 +171,8 @@ public:
     // Test Generation Related Parameters
     //**********************
     
+    NSMutableDictionary* testSpecDictionary;
+    
     // Test generation parameters
     // These parameters specify where the generated tests should go
     NSString *test_foldername;          //e.g., study0
@@ -250,6 +252,9 @@ public:
     //**********************
     // Test Generation Related Methods
     //**********************
+    
+    // Load test spec plist
+    void loadTestSpecPlist();
     
     // Methods to generate tests    
     int generateTests();

@@ -1133,6 +1133,12 @@
 		9AFB14B618EE639A00063632 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57DF18D9EBB20028B80C /* Credits.rtf */; };
 		9AFB14B718EE639A00063632 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA581C18D9EC680028B80C /* README.txt */; };
 		9AFB14BF18EE655F00063632 /* tabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5F3FC518EE606200953336 /* tabView.xib */; };
+		9AFC0BA31AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
+		9AFC0BA41AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
+		9AFC0BA51AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
+		9AFC0BA61AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
+		9AFC0BA71AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
+		9AFC0BA81AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
 		9AFD8F4C197B2E460099BD88 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F4B197B2E460099BD88 /* snapshotTableViewController.mm */; };
 		9AFD8F4D197B2E460099BD88 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F4B197B2E460099BD88 /* snapshotTableViewController.mm */; };
 		9AFD8F56197C20000099BD88 /* genSnapshotString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F55197C20000099BD88 /* genSnapshotString.mm */; };
@@ -1594,6 +1600,7 @@
 		9AF7EB2D190175F900983C2F /* configurations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configurations.json; sourceTree = "<group>"; };
 		9AFB14BC18EE639A00063632 /* tabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AFB14BD18EE639A00063632 /* tabView.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = tabView.plist; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/tabView.plist"; sourceTree = "<absolute>"; };
+		9AFC0BA21AAA505F0085543C /* testSpec.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = testSpec.plist; path = ../../../../Apps/pcompass_x/testSpec.plist; sourceTree = "<group>"; };
 		9AFD8F4A197B2E460099BD88 /* snapshotTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snapshotTableViewController.h; sourceTree = "<group>"; };
 		9AFD8F4B197B2E460099BD88 /* snapshotTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = snapshotTableViewController.mm; sourceTree = "<group>"; };
 		9AFD8F55197C20000099BD88 /* genSnapshotString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = genSnapshotString.mm; sourceTree = "<group>"; };
@@ -2553,6 +2560,7 @@
 				9ACCECFF18EF5425006E9CA4 /* london.kml */,
 				9AF523B718DC8E95005823A2 /* newyork.kml */,
 				9AF523B818DC8E95005823A2 /* montreal.kml */,
+				9AFC0BA21AAA505F0085543C /* testSpec.plist */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -2787,6 +2795,7 @@
 				9A8DF92C1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */,
+				9AFC0BA71AAA505F0085543C /* testSpec.plist in Resources */,
 				9A037567198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
 				9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
@@ -2815,6 +2824,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AECA775196B1545008ADAEC /* ExtraPanels.xib in Resources */,
+				9AFC0BA81AAA505F0085543C /* testSpec.plist in Resources */,
 				9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A037568198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9A239EE2196EFF410064BDC9 /* new.kml in Resources */,
@@ -2891,6 +2901,7 @@
 				9AF273151982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AB2A71B196372AA0001E96F /* selected.png in Resources */,
 				9A4808A1198BF1F70001E188 /* general.png in Resources */,
+				9AFC0BA61AAA505F0085543C /* testSpec.plist in Resources */,
 				9A48089B198BF1F70001E188 /* debug.png in Resources */,
 				9A4808B6198C2FA30001E188 /* london711.kml in Resources */,
 				9A8CE9FD1A97871F0070D9D4 /* study.snapshot in Resources */,
@@ -2964,6 +2975,7 @@
 				9A4808BB198C2FA30001E188 /* snapshot.kml in Resources */,
 				9A4808C3198C2FA30001E188 /* StAndrews723.kml in Resources */,
 				9A998D7C194BCB0900778DFC /* setup.jpg in Resources */,
+				9AFC0BA31AAA505F0085543C /* testSpec.plist in Resources */,
 				9AF29F2A18F4C90000A28AC3 /* moto360_wrist.jpg in Resources */,
 				9A4808CF198C2FA30001E188 /* wedge723.kml in Resources */,
 				9AEA57E118D9EBB20028B80C /* Credits.rtf in Resources */,
@@ -3004,6 +3016,7 @@
 				9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */,
 				9A4808B9198C2FA30001E188 /* newyork723.kml in Resources */,
 				9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */,
+				9AFC0BA51AAA505F0085543C /* testSpec.plist in Resources */,
 				9A42A0B719A79CA200BB0101 /* README.txt in Resources */,
 				9AEC5CED18F3956F00A29F75 /* Images.xcassets in Resources */,
 				9A3DA0991964E9B1009E0073 /* add.png in Resources */,
@@ -3076,6 +3089,7 @@
 				9A42A09619A79CA200BB0101 /* About.txt in Resources */,
 				9A480899198BF1F70001E188 /* debug.png in Resources */,
 				9A4808BC198C2FA30001E188 /* snapshot.kml in Resources */,
+				9AFC0BA41AAA505F0085543C /* testSpec.plist in Resources */,
 				9A4808B4198C2FA30001E188 /* london711.kml in Resources */,
 				9A4808B8198C2FA30001E188 /* newyork723.kml in Resources */,
 				9A3DA09E1964E9B1009E0073 /* remove.png in Resources */,

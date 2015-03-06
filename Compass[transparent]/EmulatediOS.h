@@ -41,6 +41,9 @@ public:
     float true_watch_radius;    // watch radius (in pixels)
     float true_square_watch_width;    // watch radius (in pixels)
     
+    float true_landscape_watch_width; // The width and height of the emulated watch (called landscape watch)
+    float true_landscape_watch_height;
+    
     bool is_circle;
     bool is_enabled;
     bool is_mask_enabled;

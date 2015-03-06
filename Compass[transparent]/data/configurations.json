@@ -200,11 +200,6 @@
   "comment": "watch radius"
   },
   {
-  "property": "true_ios_watch_radius",
-  "value": 50,
-  "comment": "truewatch radius"
-  },
-  {
   "property": "em_iwatch_display_wh",
   "value": [100, 100],
   "comment": "(width, height))"
@@ -214,6 +209,11 @@
   "value": [168, 168],
   "comment": "(width, height))"
   },
+  {
+  "property": "true_landscape_watch_wh",
+  "value": [568, 255],
+  "comment": "(width, height))"
+  },  
   {
   "comment": "Color map",  
   "value": "==================================================",

@@ -36,29 +36,8 @@
     //-------------
     // Initialize test parameters
     //-------------
-    self.close_begin_x = [NSNumber numberWithFloat:1.5];
-    self.close_end_x = [NSNumber numberWithFloat:3];
-    self.far_begin_x = [NSNumber numberWithFloat:3];
-    self.far_end_x = [NSNumber numberWithFloat:10];
-    
-    self.close_n = [NSNumber numberWithInteger:5];
-    self.far_n = [NSNumber numberWithInteger:5];
-    
-    self.participant_n = [NSNumber numberWithInteger:5];
-    
-    // Visualization check box
-    self.viz_pcompass = [NSNumber numberWithBool:YES];
-    self.viz_wedge = [NSNumber numberWithBool:YES];
-    
-    // Display check box
-    self.disp_phone = [NSNumber numberWithBool:YES];
-    self.disp_watch = [NSNumber numberWithBool:YES];
-    
-    // Task check box
-    self.task_locate = [NSNumber numberWithBool:YES];
-    self.task_triangulate = [NSNumber numberWithBool:YES];
-    self.task_orient = [NSNumber numberWithBool:YES];
-    self.task_closest = [NSNumber numberWithBool:YES];
+   
+    self.participant_n = [NSNumber numberWithInteger:50];
     
     // File names
     // Initialize default output filenames
@@ -115,6 +94,10 @@
     [self assignNamesToTestManager];
 //    self.rootViewController.testManager->
 //    generateCustomSnapshotFromVectorName(self.custom_test_vectorname);
+}
+
+- (IBAction)reloadTaskSpec:(id)sender {
+    self.rootViewController.testManager->loadTestSpecPlist();
 }
 
 - (void) assignNamesToTestManager{

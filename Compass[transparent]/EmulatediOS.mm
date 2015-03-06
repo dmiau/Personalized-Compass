@@ -34,8 +34,15 @@ EmulatediOS::EmulatediOS(compassMdl* model){
     true_ios_height =
     [model->configurations[@"true_ios_display_wh"][1] floatValue];
     true_watch_radius =
-    [model->configurations[@"true_ios_watch_radius"] floatValue];
-    true_square_watch_width = [model->configurations[@"true_iwatch_display_wh"][1] floatValue];
+    [model->configurations[@"watch_radius"] floatValue];
+    
+    true_square_watch_width =
+    [model->configurations[@"true_iwatch_display_wh"][1] floatValue];
+    
+    true_landscape_watch_width =
+    [model->configurations[@"true_landscape_watch_wh"][0] floatValue];
+    true_landscape_watch_height =
+    [model->configurations[@"true_landscape_watch_wh"][1] floatValue];
     
     // Initialize flags
     is_circle = false;

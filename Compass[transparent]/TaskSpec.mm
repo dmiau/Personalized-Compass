@@ -17,6 +17,27 @@ TaskSpec::TaskSpec(TaskType inTaskType, DesktopViewController* desktopViewContro
 {
     taskType = inTaskType;
     rootViewController = desktopViewController;
+    
+    // Assign default deviceType based on taskType
+    switch (taskType) {
+        case LOCATE:
+            deviceType = PHONE;
+            break;
+        case TRIANGULATE:
+            deviceType = WATCH;
+            break;
+        case ORIENT:
+            deviceType = PHONE;
+            break;
+        case LOCATEPLUS:
+            deviceType = WATCH;
+            break;
+        case DISTANCE:
+            deviceType = PHONE;
+            break;
+        default:
+            break;
+    }
 };
 
 //http://stackoverflow.com/questions/695645/why-does-the-c-map-type-argument-require-an-empty-constructor-when-using
@@ -38,5 +59,13 @@ vector<int> TaskSpec::shuffleTests(){
     return shuffled_order;
 }
 #endif
+
+vector<int> NSArrayToVector(NSArray* inputArray){
+    vector<int> output;
+    for(int i = 0; i < [inputArray count]; ++i){
+        output.push_back([inputArray[i] integerValue]);
+    }
+    return output;
+}
 
 

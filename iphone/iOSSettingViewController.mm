@@ -71,8 +71,6 @@
     self.systemMessage.text =
     [self.rootViewController.system_message stringByAppendingString:
      [NSString stringWithFormat:@"\n%@", self.systemMessage.text]];
-    
-    self.systemMessage.editable = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -88,12 +88,12 @@
     // The wedge has to be in the perspective mode to funciton correctly
     self.model->configurations[@"wedge_style"] = @"modified-perspective";
     
-    float watch_scale =
-    [self.model->configurations[@"watch_compass_disk_radius"]
-                         floatValue] /
-    [self.model->configurations[@"compass_disk_radius"]
-     floatValue];
-    self.renderer->adjustAbsoluteCompassScale(watch_scale);
+//    float watch_scale =
+//    [self.model->configurations[@"watch_compass_disk_radius"]
+//                         floatValue] /
+//    [self.model->configurations[@"compass_disk_radius"]
+//     floatValue];
+//    self.renderer->adjustAbsoluteCompassScale(watch_scale);
     
     UITextField *searchField =
     [self.ibSearchBar valueForKey:@"_searchField"];
@@ -112,6 +112,10 @@
         [self.watchSidebar setHidden:NO];
     }
     
+    // Print screen size
+    cout << "wxh: " << self.renderer->view_width << " x "
+    << self.renderer->view_height << endl;
+
     //Hide all panels
     [self hideAllPanels];
 }
@@ -361,7 +365,7 @@
 
 - (void)lockCompassRefToScreenCenter: (bool)state{
     if (state){
-        self.renderer->compassRefDot.isVisible = YES;
+        self.renderer->compassRefDot.isVisible = NO;
         [self moveCompassRefToMapViewPoint:
          CGPointMake(self.mapView.frame.size.width/2,
                      self.mapView.frame.size.height/2)

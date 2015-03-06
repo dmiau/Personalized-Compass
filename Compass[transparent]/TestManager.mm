@@ -56,7 +56,10 @@ int TestManager::initTestManager(){
     test_snapshot_prefix = @"snapshot-participant";
     practice_filename = @"practice.snapshot";
     record_filename = @"study0.record";
-
+    
+#ifndef __IPHONE__
+    loadTestSpecPlist();
+#endif
     
     // Initialize random number generation
     seed = 12345;
@@ -73,6 +76,22 @@ void TestManager::resetTestManager(){
     test_counter = 0;
 }
 
+//--------------
+// Load test spec plist
+//--------------
+void TestManager::loadTestSpecPlist(){
+    NSPropertyListFormat format;
+    NSString *errorDesc = nil;
+    NSString *plistPath;
+    plistPath = [model->desktopDropboxDataRoot
+                 stringByAppendingPathComponent: @"testSpec.plist"];
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
+    testSpecDictionary = (NSDictionary *)[NSPropertyListSerialization
+                                          propertyListFromData:plistXML
+                                          mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                          format:&format
+                                          errorDescription:&errorDesc];
+}
 
 //--------------
 // Prepare the output environment
@@ -113,24 +132,31 @@ int TestManager::generateTests(){
     practice_snapshot_vector.clear();
     for (auto vit = visualization_list.begin(); vit != visualization_list.end(); ++vit){
         for (auto tit = task_list.begin(); tit != task_list.end(); ++tit){
-            for (auto dit = device_list.begin(); dit != device_list.end(); ++dit){
+            for (auto dit = device_list.begin(); dit != device_list.end(); ++dit)
+            {
                 string code = toString(*vit) + ":" + toString(*dit) + ":" +
                 toString(*tit);
                 TaskSpec myTaskSpec(*tit, rootViewController);
-                myTaskSpec.identifier = code;
-                myTaskSpec.deviceType = *dit;
-                myTaskSpec.generateLocationAndSnapshots(t_data_array);
-                taskSpec_dict[code] = myTaskSpec;
                 
-                // For debug purpose
-                code_xy_vector.insert(code_xy_vector.end(),
-                                      myTaskSpec.code_location_vector.begin(),
-                                      myTaskSpec.code_location_vector.end());
-                
-                // Deposit practice snapshots
-                practice_snapshot_vector.insert(practice_snapshot_vector.end(),
-                                                myTaskSpec.practice_snapshot_array.begin(),myTaskSpec.practice_snapshot_array.end()
-                                                );
+                //--------------
+                // Here we restrict tasks to only be generated on specific platform
+                //--------------
+                if (myTaskSpec.deviceType == *dit){
+                    myTaskSpec.identifier = code;
+                    myTaskSpec.deviceType = *dit;
+                    myTaskSpec.generateLocationAndSnapshots(t_data_array);
+                    taskSpec_dict[code] = myTaskSpec;
+                    
+                    // For debug purpose
+                    code_xy_vector.insert(code_xy_vector.end(),
+                                          myTaskSpec.code_location_vector.begin(),
+                                          myTaskSpec.code_location_vector.end());
+                    
+                    // Deposit practice snapshots
+                    practice_snapshot_vector.insert(practice_snapshot_vector.end(),
+                                                    myTaskSpec.practice_snapshot_array.begin(),myTaskSpec.practice_snapshot_array.end()
+                                                    );
+                }
             }
         }
     }

@@ -73,6 +73,7 @@
         
         self.socket_status = [NSNumber numberWithBool:false];
         self.received_message = @"NONE";
+        self.system_message = @"System initialized.";
         //--------------------
         // Initialize a list of UI configurations
         //--------------------

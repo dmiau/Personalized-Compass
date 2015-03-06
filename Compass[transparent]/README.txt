@@ -3583,12 +3583,18 @@ new pool function to take into account the dependency of devices and tasks
 3.6.2015
 -------------------------------------------------------------------
 ***** Done
+- issue with a large collection of annotations (only render the necessary annotations)
+- the placement of the compass
+- the cross in the watch mode [11:20AM]
+- new pool function to take into account the dependency of devices and tasks [12:52PM]
+* Blocked by visualization, further blocked by distance [2:01PM]
+- need to scale the watch CoordinateRegion correctly
+calculateCoordinateSpanForDevice issues with watch. Fixed [4:35PM]
 
 ***** Working
 - test mode - color coded the object of interest
 
 - Experiment design issues
-* Blocked by visualization, further blocked by distance
 * Need to design the questionnaire right, to find the preferences by location distance
 
 Data generation
@@ -3600,24 +3606,20 @@ Data generation
 - issues that need to be fixed:
 * calculateLatLonFromiOSX: should be task dependent
 
-- need to scale the watch CoordinateRegion correctly
-calculateCoordinateSpanForDevice issues with watch
-
 take advantage of trialString
 types of ending:
 a
 b
 c
 p
-
+study generation has some folder issues
 folder bug?
 when a connection is established, start the study mode from the desktop -> bug
 a task should be only on one platform
 
-new pool function to take into account the dependency of devices and tasks
-
 - issus with removeFromSuperView
-- issue with a large collection of annotations 
 
-
+How to counter-balance test cases? And visualzie data quality?
+generate all, and randomly pick?
+customize test case generation
 

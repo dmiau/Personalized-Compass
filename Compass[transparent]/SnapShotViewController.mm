@@ -188,7 +188,16 @@
                 [self.rootViewController displayPopupMessage:
                  @"An open connection is detected. To sync with iOS, iOS needs to be manually set to the study mode (and choose the correct snapshot file)."];
             }
-            self.rootViewController.testManager->toggleStudyMode(YES, YES);
+            
+            if ([self.rootViewController.model->desktopDropboxDataRoot
+                 rangeOfString:@"study"].location != NSNotFound){
+                [self.rootViewController displayPopupMessage:
+                 @"You are in a study* folder. You need to manually change the folder on the iOS side and enable the study mode."];
+                self.rootViewController.testManager->toggleStudyMode(YES, NO);
+            }else{
+                self.rootViewController.testManager->toggleStudyMode(YES, YES);
+            }
+            
             self.rootViewController.testManager->isRecordAutoSaved = NO;
             self.rootViewController.renderer->label_flag = false;
 

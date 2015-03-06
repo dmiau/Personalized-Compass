@@ -146,19 +146,25 @@
 #ifdef __IPHONE__
         //--------------------
         // Phone (iOS)
-        //--------------------
-        
+        //--------------------        
         [self setupVisualization:mySnapshot.visualizationType];
         [self lockCompassRefToScreenCenter:YES];
         self.renderer->isInteractiveLineVisible=false;
         [self enableMapInteraction:NO];
-        self.renderer->cross.isVisible = false;
+
+
+        // Cross is off in watch+compass mode
+        self.renderer->cross.isVisible = true;
+        
+        if (self.renderer->watchMode &&
+            [self.model->configurations[@"personalized_compass_status"]
+            isEqualToString: @"on"])
+            self.renderer->cross.isVisible = false;
+        
         // Set up differently, depending on the snapshot code
         if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
             ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
         {
-            self.renderer->cross.isVisible = false;
-            
             if (self.renderer->watchMode){
                 [self.glkView addSubview:self.watchScaleView];
             }else{
@@ -167,11 +173,11 @@
 
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
-            self.renderer->cross.isVisible = true;
+
             [self.scaleView removeFromSuperview];
             [self.watchScaleView removeFromSuperview];
         }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
-            self.renderer->cross.isVisible = true;
+
             self.renderer->isInteractiveLineVisible=true;
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
@@ -179,7 +185,7 @@
             [self.watchScaleView removeFromSuperview];
         }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound)
         {
-            self.renderer->cross.isVisible = true;            
+
             [self.scaleView removeFromSuperview];
             [self.watchScaleView removeFromSuperview];
         }

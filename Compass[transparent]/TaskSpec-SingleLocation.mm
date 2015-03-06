@@ -238,7 +238,7 @@ void TaskSpec::addOneDataAndSnapshot(string trialString,
         // Watch
         //----------------
         coordinateRegion.span =
-        [rootViewController calculateCoordinateSpanForDevice:SQUAREWATCH];
+        [rootViewController calculateCoordinateSpanForDevice:WATCH];
     }
     
     //------------------

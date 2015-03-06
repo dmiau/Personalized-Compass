@@ -278,16 +278,25 @@
         (double) self.renderer->emulatediOS.cached_square_width / (double) self.renderer->view_width;
     }else if (deviceType == WATCH){
         //----------------
-        // Square Watch
+        // Circle Watch
         //----------------
+        
+        // It is slightly more complicated for the watch
+        // 1. Find out the lat_span within the emulated watch
+        // 2. scale up a bit true_radius*2/true_landscape_height
+        // or true_radius*2/true_landscape_height for the iPhone
+        
+        float true_watch_radius =  self.renderer->emulatediOS.true_watch_radius;
+        float true_landscape_width = self.renderer->emulatediOS.true_landscape_watch_width;
+        float true_landscape_height = self.renderer->emulatediOS.true_landscape_watch_height;
+        
         output.latitudeDelta =
         self.mapView.region.span.latitudeDelta *
-        (double) self.renderer->emulatediOS.cached_square_width /(double) self.renderer->view_height;
+        (double) self.renderer->emulatediOS.cached_radius /(double) self.renderer->view_height * true_landscape_height / (double)true_watch_radius;
         
         output.longitudeDelta =
         self.mapView.region.span.longitudeDelta *
-        (double) self.renderer->emulatediOS.cached_square_width /(double) self.renderer->view_width;
-        // TODO: need to implement circle watch face
+        (double) self.renderer->emulatediOS.cached_radius /(double) self.renderer->view_width * true_landscape_width / (double)true_watch_radius;
     }
     return output;
 }

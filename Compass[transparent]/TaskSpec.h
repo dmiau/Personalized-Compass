@@ -64,6 +64,8 @@ inline NSString* toNSString(TaskType taskType){
     return [NSString stringWithUTF8String:temp.c_str()];
 }
 
+// Tools
+vector<int> NSArrayToVector(NSArray* inputArray);
 
 class TaskSpec{
 public:

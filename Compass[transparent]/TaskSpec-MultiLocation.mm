@@ -233,7 +233,7 @@ void TaskSpec::addTwoDataAndSnapshot(string trialString,
         // Watch
         //----------------
         coordinateRegion.span =
-        [rootViewController calculateCoordinateSpanForDevice:SQUAREWATCH];
+        [rootViewController calculateCoordinateSpanForDevice:WATCH];
     }
     
     MKCoordinateRegion osx_coordinateRegion;

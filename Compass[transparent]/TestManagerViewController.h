@@ -21,29 +21,9 @@
 // Test Manager
 //-------------
 
-
 // Properties for parameter binding
-@property NSNumber* close_begin_x;
-@property NSNumber* close_end_x;
-@property NSNumber* close_n; // # of locations in the close category
-@property NSNumber* far_begin_x;
-@property NSNumber* far_end_x;
-@property NSNumber* far_n; // # of locations in the far category
 @property NSNumber* participant_n; // # of users
 
-// Visualization check box
-@property NSNumber* viz_pcompass;
-@property NSNumber* viz_wedge;
-
-// Display check box
-@property NSNumber* disp_phone;
-@property NSNumber* disp_watch;
-
-// Tasks check box
-@property NSNumber* task_locate;
-@property NSNumber* task_triangulate;
-@property NSNumber* task_orient;
-@property NSNumber* task_closest;
 
 // File names
 // Test generation parameters
@@ -61,11 +41,10 @@
 // Manual test creation
 //-------------
 
-// Temporary structures
-
-
+// Test generation methods
 - (IBAction)generateTests:(id)sender;
 - (IBAction)generateTestFromCustomVector:(id)sender;
+- (IBAction)reloadTaskSpec:(id)sender;
 
 // Actions
 - (IBAction)resetManualTestCreation:(id)sender;

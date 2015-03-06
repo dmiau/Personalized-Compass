@@ -36,7 +36,21 @@ void readLocationKml(compassMdl* mdl, NSString* filename){
     }
     
     if (!data){
-        throw(runtime_error("Failed to read the location file."));
+        UIAlertController* alert = [UIAlertController
+                                    alertControllerWithTitle:@"System Message"
+                                    message:
+                                    [NSString stringWithFormat:
+                                     @"Failed to read the location file: %@",
+                                     filename]
+                                    preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction =
+        [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+         {[alert dismissViewControllerAnimated:YES completion:nil];}];
+        
+        [alert addAction:defaultAction];
+        return;
     }else{
         myParser = [[xmlParser alloc] initWithData: data];
     }
