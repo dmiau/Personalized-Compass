@@ -3590,6 +3590,11 @@ new pool function to take into account the dependency of devices and tasks
 * Blocked by visualization, further blocked by distance [2:01PM]
 - need to scale the watch CoordinateRegion correctly
 calculateCoordinateSpanForDevice issues with watch. Fixed [4:35PM]
+customize test case generation [11:58PM]
+
+- practice snapshots are not displayed correctly
+need to configure practice snapshot's visualization and device correctly [3/7, 11:50AM]
+- issue with the pool function? [3.8, 2:44PM]
 
 ***** Working
 - test mode - color coded the object of interest
@@ -3621,5 +3626,9 @@ a task should be only on one platform
 
 How to counter-balance test cases? And visualzie data quality?
 generate all, and randomly pick?
-customize test case generation
+
+- log truth information in the note field
+- fix the max base length
+
+implement an instruction layer
 

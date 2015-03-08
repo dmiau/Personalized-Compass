@@ -108,4 +108,34 @@
     annotation.point_type = location_type;
     return annotation;
 }
+
+//---------------------
+// Information view related stuff
+//---------------------
+- (IBAction)clickInformationViewOK:(id)sender {
+    NSLog(@"Information OK was clicked!");
+}
+
+
+- (IBAction)toggleInformationView:(id)sender {
+    if ([self.informationView isHidden]){
+        [self.mapView setHidden:YES];
+        [self.compassView setHidden:YES];
+        [self.informationView setHidden:NO];
+    }else{
+        [self.mapView setHidden:NO];
+        [self.compassView setHidden:NO];
+        [self.informationView setHidden:YES];
+    }
+}
+
+- (void) displayTestInstructionsByTask: (TaskType) taskType
+{
+    
+    
+    
+    
+    
+    
+}
 @end

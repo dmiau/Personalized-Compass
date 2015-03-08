@@ -13,11 +13,12 @@ using namespace std;
 //--------------
 // Test Spec Class
 //--------------
-TaskSpec::TaskSpec(TaskType inTaskType, DesktopViewController* desktopViewController)
+TaskSpec::TaskSpec(TaskType inTaskType, NSMutableDictionary* myTestSpecDictionary,
+                   DesktopViewController* desktopViewController)
 {
     taskType = inTaskType;
     rootViewController = desktopViewController;
-    
+    testSpecDictionary = myTestSpecDictionary;
     // Assign default deviceType based on taskType
     switch (taskType) {
         case LOCATE:

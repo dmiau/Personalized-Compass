@@ -8,6 +8,8 @@
 
 #import "TestManager.h"
 #import "CHCSVParser.h"
+#include <iterator>
+#include <algorithm>
 
 using namespace std;
 
@@ -36,6 +38,7 @@ vector<vector<vector<type>>> permute(vector<vector<type>> input, int leaf_n){
 //---------------
 // Pool object
 //---------------
+
 template <class type>
 pool<type>::pool(vector<type> conditions, POOLMODE mode, int leaf_n){
     counter = 0;
@@ -44,11 +47,24 @@ pool<type>::pool(vector<type> conditions, POOLMODE mode, int leaf_n){
     // example input {1, 2}
     vector<vector<type>> temp; temp.clear();
     
+    vector<int> proxy_vector;
+    for (int i = 0; i < conditions.size(); ++i){
+        proxy_vector.push_back(i);
+    }
+    
     switch (mode) {
         case FULL:
-            do {
-                temp.push_back(conditions);
-            } while (next_permutation(conditions.begin(),conditions.end()));
+            do
+            {
+                // I am not sure why do I need this?
+                vector<type> t_conditions;
+                for (int i = 0; i < conditions.size(); ++i){
+                    t_conditions.push_back(conditions[proxy_vector[i]]);
+                }
+                temp.push_back(t_conditions);
+            }
+            while (next_permutation(proxy_vector.begin(),
+                                    proxy_vector.end()));
             // At this point {{1, 2}, {2, 1}}
             break;
         case FIXED:
@@ -96,17 +112,18 @@ template <class type> vector<type> pool<type>::next(){
 // Testvector Generation
 //--------------
 void TestManager::generateAllTestVectors(
-                                         vector<DeviceType> device_list,vector<VisualizationType> visualization_list,
+                                         vector<DeviceType> device_list,
+                                         vector<VisualizationType> visualization_list,
                                          vector<TaskType> task_list)
 {
-    pool<VisualizationType> visualization_pool = pool<VisualizationType>(visualization_list, FULL, 1); //personalized compass, wedge
-    pool<DeviceType> device_pool = pool<DeviceType>(device_list, FULL, 1); //phone, watch
+    pool<VisualizationType> visualization_pool =
+    pool<VisualizationType>(visualization_list, FULL, 1); //personalized compass, wedge
+    pool<DeviceType> device_pool = pool<DeviceType>(device_list, FULL, 2); //phone, watch
     pool<TaskType> task_pool = pool<TaskType>(task_list, FULL, 1);
     
     
     pool<TaskType> phone_task_pool = pool<TaskType>(phone_task_list, FULL, 1);
     pool<TaskType> watch_task_pool = pool<TaskType>(watch_task_list, FULL, 1);
-    
     
     string dprefix = "", dvprefix = "", dvtprefix = "", prefix = "";
     vector<string> user_test_vector;

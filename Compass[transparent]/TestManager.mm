@@ -136,7 +136,9 @@ int TestManager::generateTests(){
             {
                 string code = toString(*vit) + ":" + toString(*dit) + ":" +
                 toString(*tit);
-                TaskSpec myTaskSpec(*tit, rootViewController);
+                TaskSpec myTaskSpec(*tit,
+                                    testSpecDictionary,
+                                    rootViewController);
                 
                 //--------------
                 // Here we restrict tasks to only be generated on specific platform

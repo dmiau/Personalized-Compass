@@ -197,4 +197,11 @@ typedef struct{
 // System service (implemented in the interaction category)
 //----------------
 - (void) displayPopupMessage: (NSString*) message;
+
+//----------------
+// Information View
+//----------------
+@property (weak) IBOutlet NSView *informationView;
+- (IBAction)clickInformationViewOK:(id)sender;
+
 @end

@@ -24,7 +24,7 @@ vector<int> findTwoFurthestLocationIDs(vector<data> &data_array, vector<int> loc
 // Generate triangulation locations
 //-----------------------
 vector<vector<int>> generateRandomTriangulateLocations(std::mt19937  generator,
-         vector<float> base_length_vector, vector<int> ratio_vecotr, vector<int> delta_theta_vecotr)
+         vector<int> base_length_vector, vector<int> ratio_vecotr, vector<int> delta_theta_vecotr)
 {
     // ratio: 1:4 [4]
     // angels (delta_theta): 90:60:270 [4]
@@ -94,9 +94,12 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
 {
     snapshot_array.clear();
     code_location_vector.clear();
-    vector<float> base_length_vector = {300.0, 1000.0};
-    vector<int> ratio_vecotr = {1, 2, 3};
-    vector<int> delta_theta_vecotr = {90, 150, 210, 270};
+    vector<int> base_length_vector = NSArrayToVector
+    (testSpecDictionary[@"triangulate_trials_base_length"]);
+    vector<int> ratio_vecotr = NSArrayToVector
+    (testSpecDictionary[@"triangulate_trials_ratio"]);;
+    vector<int> delta_theta_vecotr = NSArrayToVector
+    (testSpecDictionary[@"triangulate_trials_theta"]);
     
     vector<vector<int>> location_pair_vector =
     generateRandomTriangulateLocations(generator,
@@ -107,9 +110,12 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
     //--------------
     // Generate practice block
     //--------------
-    base_length_vector = {200.0};
-    ratio_vecotr = {2};
-    delta_theta_vecotr = {90, 210};
+    base_length_vector = NSArrayToVector
+    (testSpecDictionary[@"triangulate_practices_base_length"]);
+    ratio_vecotr = NSArrayToVector
+    (testSpecDictionary[@"triangulate_practices_ratio"]);
+    delta_theta_vecotr = NSArrayToVector
+    (testSpecDictionary[@"triangulate_practices_theta"]);
     
     location_pair_vector =
     generateRandomTriangulateLocations(generator,
@@ -125,9 +131,12 @@ void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array)
 {
     snapshot_array.clear();
     code_location_vector.clear();
-    vector<float> base_length_vector = {300.0, 1000.0};
-    vector<int> ratio_vecotr = {1, 2, 3};
-    vector<int> delta_theta_vecotr = {90, 150, 210, 270};
+    vector<int> base_length_vector = NSArrayToVector
+    (testSpecDictionary[@"lplus_trials_base_length"]);
+    vector<int> ratio_vecotr = NSArrayToVector
+    (testSpecDictionary[@"lplus_trials_ratio"]);
+    vector<int> delta_theta_vecotr = NSArrayToVector
+    (testSpecDictionary[@"lplus_trials_theta"]);
     
     vector<vector<int>> location_pair_vector =
     generateRandomTriangulateLocations(generator,
@@ -139,9 +148,12 @@ void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array)
     //--------------
     // Generate practice block
     //--------------
-    base_length_vector = {200.0};
-    ratio_vecotr = {2};
-    delta_theta_vecotr = {90, 210};
+    base_length_vector = NSArrayToVector
+    (testSpecDictionary[@"lplus_practices_base_length"]);
+    ratio_vecotr = NSArrayToVector
+    (testSpecDictionary[@"lplus_practices_ratio"]);
+    delta_theta_vecotr = NSArrayToVector
+    (testSpecDictionary[@"lplus_practices_theta"]);
     
     location_pair_vector =
     generateRandomTriangulateLocations(generator,

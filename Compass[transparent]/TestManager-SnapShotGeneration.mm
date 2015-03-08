@@ -142,6 +142,13 @@ void TestManager::configureSnapshots(vector<snapshot> &snapshot_vector){
         }else if ([code rangeOfString:toNSString(VIZWEDGE)].location != NSNotFound) {
             snapshot_vector[i].visualizationType = VIZWEDGE;
         }
+
+        // Configure device
+        if ([code rangeOfString:@"phone"].location != NSNotFound){
+            snapshot_vector[i].deviceType = PHONE;
+        }else if ([code rangeOfString:@"watch"].location != NSNotFound) {
+            snapshot_vector[i].deviceType = WATCH;
+        }
         
         snapshot_vector[i].kmlFilename = test_kml_filename;
     }

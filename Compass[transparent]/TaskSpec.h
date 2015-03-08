@@ -78,7 +78,7 @@ public:
     vector<snapshot> practice_snapshot_array; //store the practice snapshot
     
     vector<pair<string, vector<int>>> code_location_vector; // For debug purpose
-    
+    NSMutableDictionary* testSpecDictionary;
     std::mt19937  generator;
 public:
     // Constructor
@@ -86,7 +86,9 @@ public:
 
 #ifndef __IPHONE__
     DesktopViewController* rootViewController;
-    TaskSpec(TaskType inTaskType, DesktopViewController* desktopViewController);
+    TaskSpec(TaskType inTaskType,
+             NSMutableDictionary* testSpecDictionary,
+             DesktopViewController* desktopViewController);
     vector<int> shuffleTests();
     
     // Based on the task type, different data and snapshot will be generated
