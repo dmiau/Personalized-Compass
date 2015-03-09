@@ -3632,3 +3632,42 @@ generate all, and randomly pick?
 
 implement an instruction layer
 
+-------------------------------------------------------------------
+3.9.2015
+-------------------------------------------------------------------
+***** Done
+- implement an instruction layer [11:08AM]
+- fix the ip string issue [11:21PM]
+work on VerifyThenStart (does not seem to be necessary...) [12:40PM]
+***** Working
+- test mode - color coded the object of interest
+
+- Experiment design issues
+* Need to design the questionnaire right, to find the preferences by location distance
+
+Data generation
+- warning on zoom levels
+
+- Have myself try the tests and log the time
+- Articulate the situations and the motivation of the test cases. 
+
+- issues that need to be fixed:
+* calculateLatLonFromiOSX: should be task dependent
+
+take advantage of trialString
+types of ending:
+a
+b
+c
+p
+study generation has some folder issues
+when a connection is established, start the study mode from the desktop -> bug
+a task should be only on one platform
+
+- issus with removeFromSuperView
+
+How to counter-balance test cases? And visualzie data quality?
+generate all, and randomly pick?
+
+- log truth information in the note field
+- fix the max base length

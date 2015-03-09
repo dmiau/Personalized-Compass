@@ -114,15 +114,28 @@
 //---------------------
 - (IBAction)clickInformationViewOK:(id)sender {
     NSLog(@"Information OK was clicked!");
+    
+    // Dismiss the dialog
+    [self toggleInformationView:nil];
+    
+    // Start the test
+    self.testManager->startTest();
+    [self.nextTestButton setEnabled:YES];
+    [self.previousTestButton setEnabled:YES];
 }
-
 
 - (IBAction)toggleInformationView:(id)sender {
     if ([self.informationView isHidden]){
+        //------------------
+        // Show the information view
+        //------------------
         [self.mapView setHidden:YES];
         [self.compassView setHidden:YES];
         [self.informationView setHidden:NO];
     }else{
+        //------------------
+        // Hide the information view
+        //------------------
         [self.mapView setHidden:NO];
         [self.compassView setHidden:NO];
         [self.informationView setHidden:YES];
@@ -131,11 +144,44 @@
 
 - (void) displayTestInstructionsByTask: (TaskType) taskType
 {
+    static NSImage *locate_image = [[NSImage alloc] initWithContentsOfFile:
+            [[NSBundle mainBundle] pathForResource:@"locate.jpg" ofType:@""]];
+    static NSImage *distance_image = [[NSImage alloc] initWithContentsOfFile:
+            [[NSBundle mainBundle] pathForResource:@"distance.jpg" ofType:@""]];
+    static NSImage *triangulate_image = [[NSImage alloc] initWithContentsOfFile:
+            [[NSBundle mainBundle] pathForResource:@"triangulate.jpg" ofType:@""]];
+    static NSImage *orient_image = [[NSImage alloc] initWithContentsOfFile:
+            [[NSBundle mainBundle] pathForResource:@"orient.jpg" ofType:@""]];
+    static NSImage *locateplus_image = [[NSImage alloc] initWithContentsOfFile:
+            [[NSBundle mainBundle] pathForResource:@"lplus.jpg" ofType:@""]];
+
+    //------------------
+    // Show the information view
+    //------------------
+    [self.mapView setHidden:YES];
+    [self.compassView setHidden:YES];
+    [self.informationView setHidden:NO];
     
-    
-    
-    
-    
-    
+    switch (taskType) {
+        case LOCATE:
+            [self.informationImageView setImage:locate_image];
+            break;
+        case DISTANCE:
+            [self.informationImageView setImage:distance_image];
+            break;
+        case TRIANGULATE:
+            [self.informationImageView setImage:triangulate_image];
+            break;
+        case ORIENT:
+            [self.informationImageView setImage:orient_image];
+            break;
+        case LOCATEPLUS:
+            [self.informationImageView setImage:locateplus_image];
+            break;
+        default:
+            break;
+    }
+    [self.nextTestButton setEnabled:NO];
+    [self.previousTestButton setEnabled:NO];
 }
 @end

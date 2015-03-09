@@ -203,5 +203,6 @@ typedef struct{
 //----------------
 @property (weak) IBOutlet NSView *informationView;
 - (IBAction)clickInformationViewOK:(id)sender;
-
+@property (weak) IBOutlet NSImageView *informationImageView;
+- (void) displayTestInstructionsByTask: (TaskType) taskType;
 @end

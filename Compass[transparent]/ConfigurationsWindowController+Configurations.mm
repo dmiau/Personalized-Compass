@@ -85,7 +85,13 @@
         self.serverPort.stringValue =
         [NSString stringWithFormat:@"%d", port];
         
-        self.server_ip = [[[NSHost currentHost] addresses] objectAtIndex:1];
+        // Find the string starting with number
+        for (NSString* anItem : [[NSHost currentHost] addresses]){
+            if (isnumber([anItem characterAtIndex:0])){
+                self.server_ip = anItem;
+                break;
+            }
+        }
     }else{
         self.serverSegmentIndex = [NSNumber numberWithInt:0];
     }
@@ -189,7 +195,14 @@
             self.serverPort.stringValue =
             [NSString stringWithFormat:@"%d", port];
             
-            self.server_ip = [[[NSHost currentHost] addresses] objectAtIndex:1];
+            
+            // Find the string starting with number
+            for (NSString* anItem : [[NSHost currentHost] addresses]){
+                if (isnumber([anItem characterAtIndex:0])){
+                    self.server_ip = anItem;
+                    break;
+                }
+            }
             break;
     }
 }

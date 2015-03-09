@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6249" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6249"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="6249"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -24,6 +24,7 @@
                 <outlet property="compassView" destination="UCa-0f-w4g" id="hRx-r8-sIb"/>
                 <outlet property="currentCoord" destination="th9-iC-Vy8" id="8Fy-fK-MjE"/>
                 <outlet property="distEstimationLabel" destination="Uld-Dd-MmX" id="sm7-AR-WrC"/>
+                <outlet property="informationImageView" destination="jjI-Fq-1rk" id="MIJ-SA-pXN"/>
                 <outlet property="informationView" destination="B7v-tP-wm9" id="TeO-b2-h1J"/>
                 <outlet property="mapView" destination="mWq-Lx-RbY" id="1w7-uy-mYl"/>
                 <outlet property="nextTestButton" destination="bL8-al-boT" id="dF9-cz-56B"/>
@@ -874,12 +875,16 @@
                             <binding destination="3Bp-Mg-e5g" name="enabled" keyPath="self.isShowAnswerAvailable" id="Lvr-QV-hbQ"/>
                         </connections>
                     </button>
-                    <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7v-tP-wm9" userLabel="Information View">
-                        <rect key="frame" x="0.0" y="53" width="777" height="527"/>
+                    <customView hidden="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7v-tP-wm9" userLabel="Information View">
+                        <rect key="frame" x="0.0" y="46" width="827" height="537"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxm-Wc-Be3">
-                                <rect key="frame" x="683" y="32" width="60" height="32"/>
-                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dq1-gj-ZIV">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjI-Fq-1rk">
+                                <rect key="frame" x="100" y="100" width="634" height="357"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Exz-f2-YEV"/>
+                            </imageView>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qD2-qu-8Gn">
+                                <rect key="frame" x="688" y="23" width="103" height="32"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hWK-J3-HKg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">
@@ -887,22 +892,32 @@ DQ
 </string>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="clickInformationViewOK:" target="3Bp-Mg-e5g" id="ctY-kf-7uh"/>
+                                    <action selector="clickInformationViewOK:" target="3Bp-Mg-e5g" id="g47-Hj-cFA"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qD2-qu-8Gn" secondAttribute="bottom" constant="30" id="C3f-WP-e8g"/>
+                            <constraint firstItem="jjI-Fq-1rk" firstAttribute="centerX" secondItem="B7v-tP-wm9" secondAttribute="centerX" id="jP1-Bb-Uk3"/>
+                            <constraint firstAttribute="trailing" secondItem="qD2-qu-8Gn" secondAttribute="trailing" constant="42" id="niY-Vf-1kh"/>
+                            <constraint firstItem="jjI-Fq-1rk" firstAttribute="centerY" secondItem="B7v-tP-wm9" secondAttribute="centerY" id="zxq-VT-Gi8"/>
+                        </constraints>
                     </customView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="UCa-0f-w4g" secondAttribute="bottom" constant="50" id="08c-nJ-cRO"/>
+                    <constraint firstItem="B7v-tP-wm9" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="0pV-d9-p6k"/>
                     <constraint firstAttribute="trailing" secondItem="UCa-0f-w4g" secondAttribute="trailing" id="422-Cs-1zs"/>
                     <constraint firstItem="UCa-0f-w4g" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="6vN-ZJ-E4E"/>
                     <constraint firstItem="yWO-fh-YjW" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="22" id="8nK-D3-X1J"/>
                     <constraint firstAttribute="trailing" secondItem="hod-E4-kMk" secondAttribute="trailing" constant="172" id="9Au-Vq-c6I"/>
+                    <constraint firstItem="B7v-tP-wm9" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="BDw-m9-T2M"/>
                     <constraint firstAttribute="bottom" secondItem="yld-F9-pN4" secondAttribute="bottom" constant="14" id="DWm-qd-iXb"/>
                     <constraint firstAttribute="bottom" secondItem="mWq-Lx-RbY" secondAttribute="bottom" constant="50" id="E1b-Lg-h7M"/>
                     <constraint firstItem="mWq-Lx-RbY" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="E5v-th-f9G"/>
                     <constraint firstAttribute="bottom" secondItem="Uld-Dd-MmX" secondAttribute="bottom" constant="17" id="JYJ-Wv-dQx"/>
+                    <constraint firstAttribute="trailing" secondItem="B7v-tP-wm9" secondAttribute="trailing" id="Qbm-u2-igy"/>
+                    <constraint firstItem="xGq-Y6-qVt" firstAttribute="top" secondItem="B7v-tP-wm9" secondAttribute="bottom" id="Xnd-JU-ntQ"/>
                     <constraint firstAttribute="bottom" secondItem="hod-E4-kMk" secondAttribute="bottom" constant="13" id="Yh7-ie-LBO"/>
                     <constraint firstItem="UCa-0f-w4g" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="aI8-mO-uTj"/>
                     <constraint firstItem="mWq-Lx-RbY" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="aMt-MQ-QPy"/>
@@ -1000,7 +1015,7 @@ DQ
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="-145.5" y="612.5"/>
+            <point key="canvasLocation" x="-768.5" y="485.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="EYl-3r-NII"/>
     </objects>

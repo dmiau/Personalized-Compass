@@ -64,6 +64,24 @@ inline NSString* toNSString(TaskType taskType){
     return [NSString stringWithUTF8String:temp.c_str()];
 }
 
+inline TaskType NSStringToTaskType(NSString* code){
+    TaskType output;
+    if ([code rangeOfString:toNSString(LOCATE)].location != NSNotFound)
+    {
+        output = LOCATE;
+    }else if ([code rangeOfString:toNSString(DISTANCE)].location != NSNotFound){
+        output = DISTANCE;
+    }else if ([code rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound){
+        output = TRIANGULATE;
+    }else if ([code rangeOfString:toNSString(ORIENT)].location != NSNotFound){
+        output = ORIENT;
+    }else if ([code rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
+        output = LOCATEPLUS;
+    }
+    return output;
+}
+
+
 // Tools
 vector<int> NSArrayToVector(NSArray* inputArray);
 

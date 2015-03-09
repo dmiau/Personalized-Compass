@@ -243,9 +243,7 @@ void TestManager::showPreviousTest(){
     // Do NOT execute this method if test_counter is already 0
     if (test_counter == 0)
         return;
-
-    test_counter = test_counter - 1;
-    showTestNumber(test_counter);
+    showTestNumber(test_counter -1);
 }
 
 //------------------
@@ -256,15 +254,15 @@ void TestManager::showNextTest(){
     // Do NOT execute this method if test_counter is already the max
     if (test_counter == (model->snapshot_array.size() - 1))
         return;
-
-    test_counter = test_counter + 1;
-    showTestNumber(test_counter);
+    showTestNumber(test_counter + 1);
 }
 
 //------------------
 // Show test by ID
 //------------------
 void TestManager::showTestNumber(int test_id){
+    int current_id = test_counter;
+    
     // Do NOT execute this method if test_counter is already 0
     if (test_id < 0 || test_id >= model->snapshot_array.size() ){
         return;
@@ -291,21 +289,45 @@ void TestManager::showTestNumber(int test_id){
         rootViewController.studyIntAnswer =
         [NSNumber numberWithInt:0];
 #endif
-        test_counter = test_id;
     }
 
-    [rootViewController displaySnapshot:test_counter
+    [rootViewController displaySnapshot:test_id
                       withStudySettings:testManagerMode];
+    test_counter = test_id;
 #ifndef __IPHONE__
-    startTest();
+    //-----------------
+    // Need to do some checking before updating the counter
+    //-----------------
+    snapshot currentSnapshot = model->snapshot_array[current_id];
+    snapshot nextSnapshot = model->snapshot_array[test_id];
+    
+    if ( NSStringToTaskType(currentSnapshot.name) !=
+        NSStringToTaskType(nextSnapshot.name)
+        ||(test_counter == 0))
+    {
+        [rootViewController displayTestInstructionsByTask:
+         NSStringToTaskType(nextSnapshot.name)];
+    }else{
+        startTest();
+    }
+
 #endif
 }
 
 //------------------
 // Start the test
+// This method performs the following tasks
+// BEFORE starting a test
+// - check if an instruciton needs to be displayed
+//
+// This method is a desktop only method
 //------------------
-void TestManager::verifyThenStart(){
+void TestManager::verifyThenStart()
+{
+#ifndef __IPHONE__
+    snapshot mySnapshot = model->snapshot_array[test_counter];
     
+#endif
 }
 
 //------------------
