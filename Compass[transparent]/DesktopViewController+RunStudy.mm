@@ -120,6 +120,8 @@
     
     // Start the test
     self.testManager->startTest();
+    
+    // Enable the buttons
     [self.nextTestButton setEnabled:YES];
     [self.previousTestButton setEnabled:YES];
 }

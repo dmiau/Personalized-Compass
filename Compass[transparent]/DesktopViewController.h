@@ -185,7 +185,7 @@ typedef struct{
 //----------------
 //Study
 //----------------
-@property (weak) IBOutlet NSTextField *testMessageTextField;
+@property NSString* testInformationMessage;
 @property (weak) IBOutlet NSButton *nextTestButton;
 @property (weak) IBOutlet NSButton *previousTestButton;
 

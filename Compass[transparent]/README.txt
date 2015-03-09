@@ -3639,6 +3639,9 @@ implement an instruction layer
 - implement an instruction layer [11:08AM]
 - fix the ip string issue [11:21PM]
 work on VerifyThenStart (does not seem to be necessary...) [12:40PM]
+save record folder issue? [2:07PM]
+trial counter [3:28PM]
+- test instructions [6:25PM]
 ***** Working
 - test mode - color coded the object of interest
 
@@ -3671,3 +3674,7 @@ generate all, and randomly pick?
 
 - log truth information in the note field
 - fix the max base length
+
+- more meaningful test cases
+- auto data analysis
+

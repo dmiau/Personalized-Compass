@@ -151,5 +151,5 @@ void TestManager::saveRecord(){
     }
     
     [rootViewController displayPopupMessage:
-     [NSString stringWithFormat:@"%@ has been saved successfully.", record_filename]];
+     [NSString stringWithFormat:@"%@ has been saved successfully.", out_file]];
 }

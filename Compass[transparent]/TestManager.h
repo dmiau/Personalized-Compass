@@ -150,9 +150,21 @@ class TestManager{
 public:
     
     //-----------------
-    // Parameters
+    // User Study Related Parameters
     //-----------------
     TestManagerMode testManagerMode;
+    
+    // Number of users
+    int participant_n;
+    int participant_id;
+    
+    //---------------
+    // Counters
+    //---------------
+    int test_counter;
+    double iOSAnswer;
+    
+    BOOL isRecordAutoSaved;
     
     //-----------------
     // Connection to other components
@@ -219,28 +231,14 @@ public:
     vector<snapshot> practice_snapshot_vector; // To store the practice snapshots
     vector<record> record_vector;
     vector<data> t_data_array; // This structure holds the generated locationss
-        
+    map<string, int> snapshotDistributionInfo;
+    vector<int> testCountWithinCategory;
+    
     //---------------
     // Random number generation
     //---------------
     int seed;
     std::mt19937  generator;
-    
-    //**********************
-    // User Study Related Parameters
-    //**********************
-    
-    // Number of users
-    int participant_n;
-    int participant_id;
-
-    //---------------
-    // Counters
-    //---------------
-    int test_counter;
-    double iOSAnswer;
-    
-    BOOL isRecordAutoSaved;
 public:
     //----------------
     // Methods
@@ -317,4 +315,11 @@ public:
     void saveRecord(); // Save test record to a file
 };
 
+//-----------------
+// Tools
+//-----------------
+inline string extractCode(NSString* snapshot_name){
+    NSRange range = [snapshot_name rangeOfString:@":" options:NSBackwardsSearch];
+    return string([[snapshot_name substringToIndex:range.location] UTF8String ]);
+}
 #endif /* defined(__Compass_transparent___TestManager__) */

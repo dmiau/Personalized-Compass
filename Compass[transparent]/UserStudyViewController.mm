@@ -89,8 +89,18 @@
         // Display port information
         //---------------
         int port = [[self.rootViewController.httpServer asyncSocket] localPort];
+        NSString* ip_string;
+        // Find the string starting with number
+        for (NSString* anItem : [[NSHost currentHost] addresses]){
+            if (isnumber([anItem characterAtIndex:0]))
+            {
+                ip_string = anItem;
+                break;
+            }
+        }
+        
         self.serverInfoString = [NSString stringWithFormat:@"Server IP: %@, port: %d",
-                                 [[[NSHost currentHost] addresses] objectAtIndex:1], port];
+                                 ip_string, port];
     }
 }
 
@@ -126,8 +136,8 @@
                [self.rootViewController.testManager->test_snapshot_prefix
                 stringByAppendingFormat:@"%@.snapshot", self.participant_id]                    ];
     
-    NSString* record_filename = [self.rootViewController.testManager->test_snapshot_prefix
-                                 stringByAppendingFormat:@"%@.record", self.participant_id];
+    NSString* record_filename = [NSString stringWithFormat:
+                                 @"participant%@.record", self.participant_id];
     NSString* record_filepath = [dbRoot stringByAppendingPathComponent:
                                  record_filename];
     
@@ -161,6 +171,11 @@
           record_filepath]){
         [self.rootViewController displayPopupMessage:
          [NSString stringWithFormat:@"%@ already exists.", record_filepath]];
+    }else{
+        // Update record filename
+        self.rootViewController.testManager->record_filename =
+        record_filename;
+        self.recordFileNameTextField.stringValue = record_filename;
     }
     
     // Load the practice file and enable other buttons

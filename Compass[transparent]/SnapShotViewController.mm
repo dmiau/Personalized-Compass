@@ -171,8 +171,12 @@
 //----------------
 - (IBAction)toggleStudyMode:(NSSegmentedControl*)sender {
     int state = [sender selectedSegment];
+    string warning_message;
     switch (state) {
         case 0:
+            //-------------------
+            // Disable study mode
+            //-------------------
             self.rootViewController.testManager->toggleStudyMode(NO, YES);
             self.rootViewController.renderer->label_flag = true;
 
@@ -183,17 +187,27 @@
             
             break;
         case 1:
+            //-------------------
+            // Enable study mode
+            //-------------------
             if (self.rootViewController.socket_status)
             {
-                [self.rootViewController displayPopupMessage:
-                 @"An open connection is detected. To sync with iOS, iOS needs to be manually set to the study mode (and choose the correct snapshot file)."];
+                warning_message =
+                 string("An open connection is detected.\n") +
+                 string("To sync with iOS, iOS needs to be manually put to the study mode (and choose the correct snapshot file).\n\n");
             }
             
             if ([self.rootViewController.model->desktopDropboxDataRoot
                  rangeOfString:@"study"].location != NSNotFound){
-                [self.rootViewController displayPopupMessage:
-                 @"You are in a study* folder. You need to manually change the folder on the iOS side and enable the study mode."];
+                warning_message = warning_message +
+                string("You are in a study* folder.") +
+                string("You need to manually change the folder on the iOS side and enable the study mode.");
+            }
+
+            if (warning_message.length() != 0){
                 self.rootViewController.testManager->toggleStudyMode(YES, NO);
+                [self.rootViewController displayPopupMessage:
+                 [NSString stringWithUTF8String:warning_message.c_str()]];
             }else{
                 self.rootViewController.testManager->toggleStudyMode(YES, YES);
             }

@@ -35,7 +35,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     
     
     //-----------
-    // Do a forced preload of the files
+    // Do a forced preload of the location files
     //-----------
     snapshot mySnapshot = model->snapshot_array[0];
     // Do not reload the location if it is already loaded
@@ -44,16 +44,39 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
 
     
     //----------------------------
-    // Create one record for each snapshot
+    // - Create one record for each snapshot
+    // - Collect the snapshot categorical information
     //----------------------------
     record_vector.clear();
+    snapshotDistributionInfo.clear();
+    testCountWithinCategory.clear();
+    int count_within_category = 1;
     for (int i = 0; i < model->snapshot_array.size(); ++i){
+        
+        //-------------
+        // Create a record
+        //-------------
         record t_record;
         
         // Need to initialize id and code
         t_record.snapshot_id = i;
         t_record.code = model->snapshot_array[i].name;
         record_vector.push_back(t_record);
+        
+        //-------------
+        // Create a record
+        //-------------
+        snapshot mySnapshot = model->snapshot_array[i];
+        string code = extractCode(mySnapshot.name);
+        
+        if (snapshotDistributionInfo.find(code) == snapshotDistributionInfo.end()){
+            snapshotDistributionInfo[code] = 1;
+            count_within_category = 1;
+            testCountWithinCategory.push_back(count_within_category);
+        }else{
+            snapshotDistributionInfo[code] = snapshotDistributionInfo[code]+1;
+            testCountWithinCategory.push_back(++count_within_category);
+        }
     }
 
     //----------------------------
@@ -140,8 +163,6 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
         [rootViewController.nextTestButton setEnabled:NO];
         [rootViewController.previousTestButton setEnabled:NO];
         rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
-        
-        rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
         rootViewController.isDistanceEstControlAvailable =
         [NSNumber numberWithBool:NO];
         
@@ -203,6 +224,10 @@ void TestManager::toggleStudyMode(bool state, bool instructPartner){
     = [NSNumber numberWithBool:true];
 }
 
+
+//-------------------
+// Update test message
+//-------------------
 void TestManager::updateUITestMessage(){
     
 #ifdef __IPHONE__
@@ -223,11 +248,17 @@ void TestManager::updateUITestMessage(){
     //---------------
     
     if (testManagerMode == OFF){
-        rootViewController.testMessageTextField.stringValue =
+        rootViewController.testInformationMessage =
         @"Enable StudyMode from iOS";
     }else{
-        rootViewController.testMessageTextField.stringValue =
-        [NSString stringWithFormat:@"%@, %d/%lu",
+        
+        string code = extractCode(model->snapshot_array[test_counter].name);
+        
+        rootViewController.testInformationMessage =
+        [NSString stringWithFormat:@"%@, %d/%d\n%@, %d/%lu",
+         [NSString stringWithUTF8String:code.c_str()],
+         testCountWithinCategory[test_counter],
+         snapshotDistributionInfo[code],
          model->snapshot_array[test_counter].name,
          test_counter+1, model->snapshot_array.size()];
     }

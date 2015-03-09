@@ -87,7 +87,8 @@
         
         // Find the string starting with number
         for (NSString* anItem : [[NSHost currentHost] addresses]){
-            if (isnumber([anItem characterAtIndex:0])){
+            if (isnumber([anItem characterAtIndex:0]))
+            {
                 self.server_ip = anItem;
                 break;
             }

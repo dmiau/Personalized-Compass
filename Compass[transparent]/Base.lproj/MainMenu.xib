@@ -29,7 +29,6 @@
                 <outlet property="mapView" destination="mWq-Lx-RbY" id="1w7-uy-mYl"/>
                 <outlet property="nextTestButton" destination="bL8-al-boT" id="dF9-cz-56B"/>
                 <outlet property="previousTestButton" destination="yld-F9-pN4" id="iUZ-PX-voP"/>
-                <outlet property="testMessageTextField" destination="yWO-fh-YjW" id="lLg-Mi-zsx"/>
                 <outlet property="toolbarSearchField" destination="AxC-dk-J1g" id="Gsp-TB-GBF"/>
                 <outlet property="view" destination="EiT-Mj-1SZ" id="BKl-Ab-Cbt"/>
             </connections>
@@ -815,6 +814,34 @@
                             <outlet property="delegate" destination="3Bp-Mg-e5g" id="NIL-4Z-Qlz"/>
                         </connections>
                     </mapView>
+                    <customView hidden="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7v-tP-wm9" userLabel="Information View">
+                        <rect key="frame" x="0.0" y="46" width="827" height="537"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjI-Fq-1rk">
+                                <rect key="frame" x="100" y="100" width="634" height="357"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Exz-f2-YEV"/>
+                            </imageView>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qD2-qu-8Gn">
+                                <rect key="frame" x="688" y="23" width="103" height="32"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hWK-J3-HKg">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickInformationViewOK:" target="3Bp-Mg-e5g" id="g47-Hj-cFA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qD2-qu-8Gn" secondAttribute="bottom" constant="30" id="C3f-WP-e8g"/>
+                            <constraint firstItem="jjI-Fq-1rk" firstAttribute="centerX" secondItem="B7v-tP-wm9" secondAttribute="centerX" id="jP1-Bb-Uk3"/>
+                            <constraint firstAttribute="trailing" secondItem="qD2-qu-8Gn" secondAttribute="trailing" constant="42" id="niY-Vf-1kh"/>
+                            <constraint firstItem="jjI-Fq-1rk" firstAttribute="centerY" secondItem="B7v-tP-wm9" secondAttribute="centerY" id="zxq-VT-Gi8"/>
+                        </constraints>
+                    </customView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bL8-al-boT">
                         <rect key="frame" x="751" y="7" width="69" height="32"/>
                         <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DIN-jB-5xE">
@@ -842,6 +869,9 @@
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="3Bp-Mg-e5g" name="value" keyPath="self.testInformationMessage" id="5Or-Hl-GKF"/>
+                        </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hod-E4-kMk">
                         <rect key="frame" x="559" y="13" width="96" height="22"/>
@@ -875,34 +905,6 @@
                             <binding destination="3Bp-Mg-e5g" name="enabled" keyPath="self.isShowAnswerAvailable" id="Lvr-QV-hbQ"/>
                         </connections>
                     </button>
-                    <customView hidden="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7v-tP-wm9" userLabel="Information View">
-                        <rect key="frame" x="0.0" y="46" width="827" height="537"/>
-                        <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjI-Fq-1rk">
-                                <rect key="frame" x="100" y="100" width="634" height="357"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Exz-f2-YEV"/>
-                            </imageView>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qD2-qu-8Gn">
-                                <rect key="frame" x="688" y="23" width="103" height="32"/>
-                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hWK-J3-HKg">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="clickInformationViewOK:" target="3Bp-Mg-e5g" id="g47-Hj-cFA"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="qD2-qu-8Gn" secondAttribute="bottom" constant="30" id="C3f-WP-e8g"/>
-                            <constraint firstItem="jjI-Fq-1rk" firstAttribute="centerX" secondItem="B7v-tP-wm9" secondAttribute="centerX" id="jP1-Bb-Uk3"/>
-                            <constraint firstAttribute="trailing" secondItem="qD2-qu-8Gn" secondAttribute="trailing" constant="42" id="niY-Vf-1kh"/>
-                            <constraint firstItem="jjI-Fq-1rk" firstAttribute="centerY" secondItem="B7v-tP-wm9" secondAttribute="centerY" id="zxq-VT-Gi8"/>
-                        </constraints>
-                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="UCa-0f-w4g" secondAttribute="bottom" constant="50" id="08c-nJ-cRO"/>
@@ -917,7 +919,7 @@ DQ
                     <constraint firstItem="mWq-Lx-RbY" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="E5v-th-f9G"/>
                     <constraint firstAttribute="bottom" secondItem="Uld-Dd-MmX" secondAttribute="bottom" constant="17" id="JYJ-Wv-dQx"/>
                     <constraint firstAttribute="trailing" secondItem="B7v-tP-wm9" secondAttribute="trailing" id="Qbm-u2-igy"/>
-                    <constraint firstItem="xGq-Y6-qVt" firstAttribute="top" secondItem="B7v-tP-wm9" secondAttribute="bottom" id="Xnd-JU-ntQ"/>
+                    <constraint firstItem="xGq-Y6-qVt" firstAttribute="bottom" secondItem="B7v-tP-wm9" secondAttribute="bottom" constant="60" id="Xnd-JU-ntQ"/>
                     <constraint firstAttribute="bottom" secondItem="hod-E4-kMk" secondAttribute="bottom" constant="13" id="Yh7-ie-LBO"/>
                     <constraint firstItem="UCa-0f-w4g" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="aI8-mO-uTj"/>
                     <constraint firstItem="mWq-Lx-RbY" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="aMt-MQ-QPy"/>
