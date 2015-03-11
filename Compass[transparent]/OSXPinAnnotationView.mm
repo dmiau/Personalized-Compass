@@ -209,7 +209,10 @@
     if (status) {
         [calloutViewController.landmark_name
          setStringValue: [self.annotation title]];
-
+        CGRect orig_frame = calloutViewController.view.frame;
+        calloutViewController.view.frame =
+        CGRectMake(-orig_frame.size.width/2, -orig_frame.size.height,
+                   orig_frame.size.width, orig_frame.size.height);
         [self addSubview:calloutViewController.view];
     }else{
         //Remove your custom view...

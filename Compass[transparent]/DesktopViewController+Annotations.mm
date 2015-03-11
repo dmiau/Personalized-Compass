@@ -86,6 +86,12 @@
         
         if([self.UIConfigurations[@"UIAllowMultipleAnnotations"] boolValue]){
             [pinView setCanShowCallout:NO];
+            if (self.testManager->testManagerMode == OSXSTUDY
+                && [annotation point_type] == landmark)
+            {
+                [pinView showCustomCallout:YES];
+            }
+            
         }else{
             [pinView setCanShowCallout:YES];
         }

@@ -13,10 +13,16 @@
 
 
 - (void)setupPhoneViewMode{
+    [self toggleScaleView:NO];
     //-----------
     // Normal
     //-----------
     self.renderer->cross.applyDeviceStyle(PHONE);
+    
+    if (self.testManager->testManagerMode != OFF){
+            self.renderer->cross.isVisible = true;
+    }
+    
     self.UIConfigurations[@"UIRotationLock"] =
     [NSNumber numberWithBool:NO];
     
@@ -54,6 +60,11 @@
     [self toggleWatchMask:NO];
         
     [self.watchSidebar setHidden:YES];
+    
+    if (self.testManager->testManagerMode != OFF){
+        self.testManager->showTestNumber
+        (self.testManager->test_counter);
+    }
 }
 
 
@@ -61,7 +72,19 @@
 // Set up the watch mode
 //-----------------
 - (void)setupWatchViewMode{
+
+    [self toggleScaleView:NO];
     self.renderer->cross.applyDeviceStyle(WATCH);
+    
+    if (self.testManager->testManagerMode != OFF){
+        if ([self.model->configurations[@"personalized_compass_status"] isEqualToString:@"on"])
+        {
+            self.renderer->cross.isVisible = false;
+        }else{
+            self.renderer->cross.isVisible = true;
+        }
+    }
+    
     self.UIConfigurations[@"UIRotationLock"] =
     [NSNumber numberWithBool:NO];
     // rotate the screen
@@ -88,12 +111,6 @@
     // The wedge has to be in the perspective mode to funciton correctly
     self.model->configurations[@"wedge_style"] = @"modified-perspective";
     
-//    float watch_scale =
-//    [self.model->configurations[@"watch_compass_disk_radius"]
-//                         floatValue] /
-//    [self.model->configurations[@"compass_disk_radius"]
-//     floatValue];
-//    self.renderer->adjustAbsoluteCompassScale(watch_scale);
     
     UITextField *searchField =
     [self.ibSearchBar valueForKey:@"_searchField"];
@@ -112,12 +129,17 @@
         [self.watchSidebar setHidden:NO];
     }
     
-    // Print screen size
-    cout << "wxh: " << self.renderer->view_width << " x "
-    << self.renderer->view_height << endl;
+//    // Print screen size
+//    cout << "wxh: " << self.renderer->view_width << " x "
+//    << self.renderer->view_height << endl;
 
     //Hide all panels
     [self hideAllPanels];
+    
+    if (self.testManager->testManagerMode != OFF){
+        self.testManager->showTestNumber
+        (self.testManager->test_counter);
+    }
 }
 
 

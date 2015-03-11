@@ -12,5 +12,5 @@
 - (IBAction)showNextTest:(id)sender;
 - (IBAction)showPreviousTest:(id)sender;
 - (IBAction)toggleAnswer:(id)sender;
-
+- (IBAction)confirmAnswer:(id)sender;
 @end

@@ -86,13 +86,15 @@ void compassRender::drawWayfindingAid(RenderParamStruct renderParamStruct){
             //------------------
             // Populate label info here
             //------------------
-            
-            label_info my_label_info = drawLabel(orientation, distance,
-                      model->data_array[j].my_texture_info);
-            if (!wedgeMode){
-                model->data_array[j].my_label_info = my_label_info;
+
+            // Only draw label is the data contains a label
+            if (model->data_array[j].my_texture_info.attr_str.string.length > 0){
+                label_info my_label_info = drawLabel(orientation, distance,
+                                                     model->data_array[j].my_texture_info);
+                if (!wedgeMode){
+                    model->data_array[j].my_label_info = my_label_info;
+                }
             }
-            
             orientation_array.push_back(data_.orientation);
         }
 
@@ -139,6 +141,31 @@ void compassRender::drawTriangle(int central_disk_radius, float rotation, float 
     
     glPopMatrix();
 }
+
+//-------------
+// coreRectangel
+//-------------
+void compassRender::drawRectangle(int central_disk_radius, float rotation, float height)
+{
+    glPushMatrix();
+    glRotatef(rotation, 0, 0, -1);
+    //    cout << "rotation: " << rotation << endl;
+    Vertex3D    vertex1 = Vertex3DMake(central_disk_radius, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(central_disk_radius, height, 0);
+    Vertex3D    vertex3 = Vertex3DMake(-central_disk_radius, height, 0);
+    Vertex3D    vertex4 = Vertex3DMake(-central_disk_radius, 0, 0);
+    
+    Triangle3D  triangle = Triangle3DMake(vertex1, vertex2, vertex3);
+    glVertexPointer(3, GL_FLOAT, 0, &triangle);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    
+    triangle = Triangle3DMake(vertex1, vertex3, vertex4);
+    glVertexPointer(3, GL_FLOAT, 0, &triangle);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    
+    glPopMatrix();
+}
+
 
 //-------------
 // coreCircle

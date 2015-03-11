@@ -247,6 +247,7 @@ private:
     //-----------------
     void drawWayfindingAid(RenderParamStruct renderParamStruct);
     void drawTriangle(int central_disk_radius, float rotation, float height);
+    void drawRectangle(int central_disk_radius, float rotation, float height);
     label_info drawLabel(float rotation, float height,
                    texture_info my_texture_info);
 

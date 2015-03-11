@@ -19,6 +19,8 @@
 @property DesktopViewController *rootViewController;
 
 @property NSString* serverInfoString;
+@property NSString* testMessage;
+
 
 // Dev mode
 @property (weak) IBOutlet NSSegmentedControl *studyModeSegmentControl;
@@ -28,11 +30,15 @@
 @property NSNumber* participant_id;
 - (IBAction)loadStudyFiles:(id)sender;
 
+// File paths
+@property NSString* practice_filepath;
+@property NSString* snapshot_filepath;
+@property NSString* record_filepath;
+@property NSString* test_kml_path;
 
 // Test flow buttons
 @property NSNumber* isPracticeButtonEnabled;
 @property NSNumber* isEndPracticeButtonEnabled;
-@property NSNumber* isStartButtonEnabled;
 @property NSNumber* isPauseButtonEnabled;
 @property NSNumber* isResumeButtonEnabled;
 @property NSNumber* isEndButtonEnabled;
@@ -40,7 +46,6 @@
 // Test flow controls
 - (IBAction)checkPairingAndStartPracticing:(id)sender;
 - (IBAction)endPracticingAndStartStudy:(id)sender;
-- (IBAction)startStudy:(id)sender;
 - (IBAction)pauseStudy:(id)sender;
 - (IBAction)resumeStudy:(id)sender;
 - (IBAction)endStudy:(id)sender;

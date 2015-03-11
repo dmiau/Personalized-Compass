@@ -12,16 +12,16 @@
 
 - (IBAction)showNextTest:(id)sender {
     if (self.testManager->testManagerMode == OSXSTUDY){
+        self.studyIntAnswer = [NSNumber numberWithInt:0];
         self.testManager->showNextTest();
-
         self.testManager->updateUITestMessage();
     }
 }
 
 - (IBAction)showPreviousTest:(id)sender {
     if (self.testManager->testManagerMode == OSXSTUDY){
+        self.studyIntAnswer = [NSNumber numberWithInt:0];
         self.testManager->showPreviousTest();
-
         self.testManager->updateUITestMessage();        
     }
 }
@@ -113,7 +113,11 @@
 // Information view related stuff
 //---------------------
 - (IBAction)clickInformationViewOK:(id)sender {
-    NSLog(@"Information OK was clicked!");
+    
+    if (self.testManager->isLocked){
+        [self displayPopupMessage:@"TestManager is locked."];
+        return;
+    }
     
     // Dismiss the dialog
     [self toggleInformationView:nil];
@@ -122,8 +126,8 @@
     self.testManager->startTest();
     
     // Enable the buttons
-    [self.nextTestButton setEnabled:YES];
-    [self.previousTestButton setEnabled:YES];
+    [self.nextTestButton setEnabled:NO];
+    [self.confirmButton setEnabled:YES];
 }
 
 - (IBAction)toggleInformationView:(id)sender {
@@ -163,6 +167,8 @@
     [self.mapView setHidden:YES];
     [self.compassView setHidden:YES];
     [self.informationView setHidden:NO];
+    [self.informationImageView setHidden:NO];
+    [self.informationTextField setHidden:YES];
     
     switch (taskType) {
         case LOCATE:
@@ -184,6 +190,66 @@
             break;
     }
     [self.nextTestButton setEnabled:NO];
-    [self.previousTestButton setEnabled:NO];
+    [self.confirmButton setEnabled:NO];
+}
+
+- (void) displayInformationText
+{
+    
+    self.informationTextField.stringValue = @"Hello World!";
+    
+    //------------------
+    // Show the information view
+    //------------------
+    [self.mapView setHidden:YES];
+    [self.compassView setHidden:YES];
+    [self.informationView setHidden:NO];
+    [self.informationImageView setHidden:YES];
+    [self.informationTextField setHidden:NO];
+}
+
+//-------------------
+// Confirm the answer
+// Do some basic checking and decide whether to enable the next button or not
+//-------------------
+- (IBAction)confirmAnswer:(id)sender {
+    
+    // Before jumping into a new test, end the previous (unanswered) test
+    // The timer of the answered test is stopped in the endTest method
+    
+    int test_counter = self.testManager->test_counter;
+    if ([self.model->snapshot_array[test_counter].name
+         rangeOfString:toNSString(DISTANCE)].location!= NSNotFound)
+        
+    {
+        if (NumberIsFraction(self.studyIntAnswer)){
+            [self displayPopupMessage:@"Distance estimation must be an integer."];
+            return;
+        }
+        
+        // Collect the distance estimation answer if the task is t1
+        self.testManager->endTest(CGPointMake(0,0),
+                                  [self.studyIntAnswer doubleValue]);
+    }
+    
+    // Stop the timer if the test has not been answered
+    if (!self.testManager->record_vector[test_counter].isAnswered)
+    {
+        self.testManager->record_vector[test_counter].end();
+    }
+    
+    // Enable the next button if the answer is verified
+    if (self.testManager->verifyAnswerQuality()){
+        [self.nextTestButton setEnabled:YES];
+    }
+}
+
+
+BOOL NumberIsFraction(NSNumber *number) {
+    double dValue = [number doubleValue];
+    if (dValue < 0.0)
+        return (dValue != ceil(dValue));
+    else
+        return (dValue != floor(dValue));
 }
 @end

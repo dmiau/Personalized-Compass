@@ -143,11 +143,17 @@
     
     switch (sender.selectedSegment) {
         case 0:
+            //-----------------
+            // Allow single
+            //-----------------
             self.rootViewController.UIConfigurations
             [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:NO];
             canShowCallout = true;
             break;
         case 1:
+            //-----------------
+            // Allow multiple
+            //-----------------
             self.rootViewController.UIConfigurations
             [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
             canShowCallout = false;

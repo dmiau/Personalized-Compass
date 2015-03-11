@@ -161,21 +161,8 @@ void compassRender::drawCompassNorth(){
     // ---------------
     // draw the north indicator
     // ---------------
-    
-    if (fabs(model->tilt) < 0.1 ){
-        //        glColor4f(50/256,
-        //                  50/256,
-        //                  50/256, 0.6);
-        glColor4f(1,
-                  0,
-                  0, 0.3);
-        
-    }else{
-        glColor4f(228/256,
-                  101/256,
-                  42/256, 1);
-    }
-    
+   
+    glColor4f(0.7,0.7, 0.7, 1);
     // Note the radius is fixed to 1
     drawTriangle(1, 0, compass_disk_radius *
                  [model->configurations[@"north_indicator_to_compass_disk_ratio"] floatValue]);

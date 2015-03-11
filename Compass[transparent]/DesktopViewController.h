@@ -188,6 +188,7 @@ typedef struct{
 @property NSString* testInformationMessage;
 @property (weak) IBOutlet NSButton *nextTestButton;
 @property (weak) IBOutlet NSButton *previousTestButton;
+@property (weak) IBOutlet NSButton *confirmButton;
 
 @property NSNumber* studyIntAnswer;
 @property NSNumber* isDistanceEstControlAvailable;
@@ -204,5 +205,8 @@ typedef struct{
 @property (weak) IBOutlet NSView *informationView;
 - (IBAction)clickInformationViewOK:(id)sender;
 @property (weak) IBOutlet NSImageView *informationImageView;
+@property (weak) IBOutlet NSTextField *informationTextField;
+
 - (void) displayTestInstructionsByTask: (TaskType) taskType;
+- (void) displayInformationText;
 @end

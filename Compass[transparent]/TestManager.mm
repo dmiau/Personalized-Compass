@@ -43,6 +43,7 @@ int TestManager::initTestManager(){
     testManagerMode = OFF;
     iOSAnswer = 10000;
     isRecordAutoSaved = NO;
+    isLocked = NO;
     
     //----------------
     // Parameters for each type of test

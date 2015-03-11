@@ -71,8 +71,8 @@ typedef struct{
 //----------------
 // Scalar view
 //----------------
-@property UIView *scaleView;
-@property UIView *watchScaleView;
+@property (retain) UIView *scaleView;
+@property (retain) UIView *watchScaleView;
 
 //----------------
 // Views in ExtraPanels.xib
@@ -165,6 +165,7 @@ typedef struct{
 - (bool)takeSnapshot;
 - (bool)displaySnapshot: (int) snapshot_id
       withStudySettings: (TestManagerMode) mode;
+- (void)toggleScaleView: (bool) state;
 
 //----------------
 // History related stuff

@@ -190,6 +190,7 @@
             //-------------------
             // Enable study mode
             //-------------------
+         
             if (self.rootViewController.socket_status)
             {
                 warning_message =
@@ -211,14 +212,7 @@
             }else{
                 self.rootViewController.testManager->toggleStudyMode(YES, YES);
             }
-            
-            self.rootViewController.testManager->isRecordAutoSaved = NO;
-            self.rootViewController.renderer->label_flag = false;
-
-            self.rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:YES];
-            self.rootViewController.isDistanceEstControlAvailable =
-            [NSNumber numberWithBool:YES];
-
+            self.rootViewController.testManager->applyDevConfigurations();               
             break;
         default:
             break;

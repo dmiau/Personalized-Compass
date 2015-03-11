@@ -26,7 +26,6 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     // Need to turn off map interactions in the study mode
     [rootViewController enableMapInteraction:NO];
     [rootViewController changeAnnotationDisplayMode:@"None"];
-    rootViewController.renderer->label_flag = false;
     
     //----------------------------
     // Visualization Parameters
@@ -99,6 +98,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
             [rootViewController sendPackage: myDict];
         }
     }else if (mode == OSXSTUDY){
+#ifndef __IPHONE__
         //------------------
         // Desktop
         //------------------
@@ -110,12 +110,10 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
         rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
         [NSNumber numberWithBool:YES];
         [rootViewController toggleBlankMapMode:YES];
-#ifndef __IPHONE__
+
         // Turn off iOS syncing
         rootViewController.iOSSyncFlag = false;
-        [rootViewController.nextTestButton setEnabled:YES];
-        [rootViewController.previousTestButton setEnabled:YES];
-#endif
+        applyStudyConfigurations();
         
         // Disable all visualizations
         model->configurations[@"personalized_compass_status"] = @"off";
@@ -127,12 +125,10 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
         }else{
             [rootViewController sendMessage:@"OK"];
         }
+#endif
     }
     updateUITestMessage();
     showTestNumber(0);
-#ifndef __IPHONE__
-    startTest();
-#endif
 }
 
 //-------------------
@@ -162,16 +158,25 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
 #ifndef __IPHONE__
         [rootViewController.nextTestButton setEnabled:NO];
         [rootViewController.previousTestButton setEnabled:NO];
+        [rootViewController.confirmButton setEnabled:NO];
         rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
         rootViewController.isDistanceEstControlAvailable =
         [NSNumber numberWithBool:NO];
         
-        
         if (isRecordAutoSaved)
-            rootViewController.testManager->saveRecord();
+            rootViewController.testManager->saveRecord(
+            [rootViewController.model->desktopDropboxDataRoot
+             stringByAppendingPathComponent:
+             record_filename]
+            );
         if (instructPartner){
             [rootViewController sendMessage: @"End"];
         }
+        
+        rootViewController.mapView.layer.borderColor =
+        [NSColor clearColor].CGColor;
+        rootViewController.mapView.layer.borderWidth
+        = 0.0f;
 #endif
     }
     
@@ -188,18 +193,7 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
     model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
     model->updateMdl();
     updateUITestMessage();
-    
-#ifndef __IPHONE__
-    rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:YES];
-    rootViewController.isDistanceEstControlAvailable =
-    [NSNumber numberWithBool:YES];
-    rootViewController.mapView.layer.borderColor =
-    [NSColor clearColor].CGColor;
-    rootViewController.mapView.layer.borderWidth
-    = 0.0f;
-#endif
 }
-
 
 void TestManager::toggleStudyMode(bool state, bool instructPartner){
     
@@ -297,29 +291,6 @@ void TestManager::showTestNumber(int test_id){
     // Do NOT execute this method if test_counter is already 0
     if (test_id < 0 || test_id >= model->snapshot_array.size() ){
         return;
-    }else{
-        // Before jumping into a new test, end the previous (unanswered) test
-        // The timer of the answered test is stopped in the endTest method
-        if (record_vector[test_counter].isAnswered){
-
-            if ([record_vector[test_counter].code rangeOfString:toNSString(LOCATE)].location
-                != NSNotFound)
-
-            {
-#ifndef __IPHONE__
-                // Collect the distance estimation answer if the task is t1
-                record_vector[test_counter].doubleAnswer =
-                [rootViewController.studyIntAnswer doubleValue];
-#endif                
-            }
-
-        }else{
-            record_vector[test_counter].end();
-        }
-#ifndef __IPHONE__
-        rootViewController.studyIntAnswer =
-        [NSNumber numberWithInt:0];
-#endif
     }
 
     [rootViewController displaySnapshot:test_id
@@ -340,35 +311,66 @@ void TestManager::showTestNumber(int test_id){
          NSStringToTaskType(nextSnapshot.name)];
     }else{
         startTest();
+        
+        if (!rootViewController.isShowAnswerAvailable)
+        {
+            [rootViewController.previousTestButton setEnabled:NO];
+            [rootViewController.nextTestButton setEnabled:NO];
+        }
     }
 
 #endif
 }
 
-//------------------
-// Start the test
-// This method performs the following tasks
-// BEFORE starting a test
-// - check if an instruciton needs to be displayed
-//
-// This method is a desktop only method
-//------------------
-void TestManager::verifyThenStart()
-{
-#ifndef __IPHONE__
+bool TestManager::verifyAnswerQuality(){
+    
     snapshot mySnapshot = model->snapshot_array[test_counter];
     
-#endif
+    int data_id = mySnapshot.selected_ids[0];
+    
+    //------------------------
+    // Calculat the ground truth based on task type
+    //------------------------
+    if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound))
+    {
+        //-----------------
+        // Locate test
+        //-----------------
+        
+        
+    }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound)
+    {
+    
+    }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
+    {
+        //-----------------
+        // Localize test
+        //-----------------
+
+    }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound)
+    {
+        iOSAnswer = 10000;
+        //-----------------
+        // Orient test
+        //-----------------
+
+    }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound)
+    {
+        //-----------------
+        // Locate plus
+        //-----------------
+
+    }
+    return true;
 }
+
 
 //------------------
 // Start the test
 //------------------
 void TestManager::startTest(){
-    record_vector[test_counter].start(); // start the time
-    
-    
 #ifndef __IPHONE__
+    record_vector[test_counter].start(); // start the time
     snapshot mySnapshot = model->snapshot_array[test_counter];
 
     int data_id = mySnapshot.selected_ids[0];
@@ -444,9 +446,7 @@ void TestManager::startTest(){
 void TestManager::endTest(CGPoint openGLPoint, double doubleAnswer){
 
     record_vector[test_counter].end(); // Log the time
-    record_vector[test_counter].isAnswered = true;
-    snapshot mySnapshot = model->snapshot_array[test_counter];
-   
+    record_vector[test_counter].isAnswered = true;   
     // Log the location
     record_vector[test_counter].cgPointAnswer = openGLPoint;
     record_vector[test_counter].doubleAnswer  = doubleAnswer;
@@ -454,16 +454,12 @@ void TestManager::endTest(CGPoint openGLPoint, double doubleAnswer){
 }
 
 //------------------
-// Special Environment Configurations
+// Development Configurations
 //------------------
 void TestManager::applyDevConfigurations(){
-    rootViewController.renderer->label_flag = true;
-    
-#ifndef __IPHONE__
-    rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:YES];
-    rootViewController.isDistanceEstControlAvailable =
-    [NSNumber numberWithBool:YES];
-#endif
+//    rootViewController.renderer->label_flag = true;
+    isRecordAutoSaved = NO;
+    applyPracticeConfigurations();
     
     rootViewController.mapView.layer.borderColor =
     [NSColor redColor].CGColor;
@@ -471,14 +467,20 @@ void TestManager::applyDevConfigurations(){
     = 2.0f;
 }
 
+//------------------
+// Practice Configurations
+//------------------
 void TestManager::applyPracticeConfigurations(){
-    rootViewController.renderer->label_flag = false;
+
     isRecordAutoSaved = NO;
     
 #ifndef __IPHONE__
     rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:YES];
     rootViewController.isDistanceEstControlAvailable =
     [NSNumber numberWithBool:YES];
+    [rootViewController.nextTestButton setEnabled:YES];
+    [rootViewController.previousTestButton setEnabled:YES];
+    [rootViewController.confirmButton setEnabled:YES];
 #endif
     
     rootViewController.mapView.layer.borderColor =
@@ -487,14 +489,19 @@ void TestManager::applyPracticeConfigurations(){
     = 2.0f;
 }
 
+//------------------
+// Study Configurations
+//------------------
 void TestManager::applyStudyConfigurations(){
-    rootViewController.renderer->label_flag = false;
     isRecordAutoSaved = YES;
 #ifndef __IPHONE__
     // Hide the answer button
     rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
     rootViewController.isDistanceEstControlAvailable =
     [NSNumber numberWithBool:YES];
+    [rootViewController.nextTestButton setEnabled:NO];
+    [rootViewController.previousTestButton setEnabled:NO];
+    [rootViewController.confirmButton setEnabled:YES];
 #endif
     rootViewController.mapView.layer.borderColor =
     [NSColor clearColor].CGColor;

@@ -186,6 +186,7 @@ void TestManager::saveSnapShotsToKML(){
         
 
         all_snapshot_vectors[ui][0].notes = [formatter stringFromDate:startDate];
+        all_snapshot_vectors[ui][0].date_str = [formatter stringFromDate:startDate];
         
         NSString *content = genSnapshotString(all_snapshot_vectors[ui]);
         NSString *doc_path = [folder_path
@@ -213,7 +214,22 @@ void TestManager::saveSnapShotsToKML(){
                         error:&error])
     {
         throw(runtime_error("Failed to write snapshot kml file"));
-    }    
+    }
+    
+    
+    //-------------------
+    // Save the dummy snapshot
+    //-------------------
+    doc_path = [folder_path
+                          stringByAppendingPathComponent:
+    [NSString stringWithFormat:@"%@.snapshot", [formatter stringFromDate:startDate]]];
+
+    if (![content writeToFile:doc_path
+                   atomically:YES encoding: NSASCIIStringEncoding
+                        error:&error])
+    {
+        throw(runtime_error("Failed to write dummy kml file"));
+    }
 }
 
 #pragma mark -------------- Distance Calculation Tools --------------

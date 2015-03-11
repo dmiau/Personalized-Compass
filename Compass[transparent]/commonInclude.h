@@ -90,6 +90,27 @@ static inline Triangle3D Triangle3DMake(Vertex3D vertex1, Vertex3D vertex2, Vert
 };
 
 //------------------
+// Rectangle
+//------------------
+struct Rectangle3D{
+    Vertex3D v1;
+    Vertex3D v2;
+    Vertex3D v3;
+    Vertex3D v4;
+};
+
+static inline Rectangle3D Rectangle3DMake(Vertex3D vertex1, Vertex3D vertex2,
+                                          Vertex3D vertex3, Vertex3D vertex4)
+{
+    Rectangle3D recangle;
+    recangle.v1 = vertex1;
+    recangle.v2 = vertex2;
+    recangle.v3 = vertex3;
+    recangle.v4 = vertex4;
+    return recangle;
+};
+
+//------------------
 // Simple Line
 //------------------
 struct Line3D{

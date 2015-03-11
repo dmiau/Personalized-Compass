@@ -19,6 +19,7 @@
 //-------------------
 // Desktop (osx)
 //-------------------
+#import "OSXPinAnnotationView.h"
 #import "DesktopViewController.h"
 @implementation DesktopViewController (SnapShot)
 #endif
@@ -48,6 +49,7 @@
         readLocationKml(self.model, self.model->location_filename);
     }
     
+    // indicates which annotation should be added
     vector<int> annotation_id_vector;
     if (mySnapshot.selected_ids.size() == 0){
         // If no landmarks are specified, let the model to decide which
@@ -74,6 +76,7 @@
                 self.model->data_array[data_id].isEnabled = true;
                 if (mySnapshot.is_answer_list[i] == 0){
                     self.model->data_array[data_id].isAnswer = false;
+                    // indicates which annotation should be added
                     annotation_id_vector.push_back(data_id);
                 }else{
                     self.model->data_array[data_id].isAnswer = true;
@@ -83,10 +86,70 @@
         
         self.model->configurations[@"filter_type"] = @"MANUAL";
     }
+
+    self.UIConfigurations
+    [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:NO];
+
+#ifndef __IPHONE__
+    // Clean up custom callout
+    for (id<MKAnnotation> annotation in
+         self.mapView.annotations)
+    {
+        OSXPinAnnotationView* pinView =
+        (OSXPinAnnotationView*)
+        [self.mapView
+         viewForAnnotation: annotation];
+        pinView.canShowCallout = NO;
+        [pinView showCustomCallout:NO];
+
+    }
+#endif
+    
+    //-----------
+    // Label configuration (for the study only)
+    //-----------
+    if (mode != OFF)
+    {
+        NSArray* label_array;
+        
+        // Depending on the task type, labels will be different
+        if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
+            ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
+        {
+            label_array = @[@"Subway"];
+        }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
+        {
+            label_array = @[@"Hotel", @"Train St."];
+            self.UIConfigurations
+            [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
+        }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
+            label_array = @[@"Subway"];
+        }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
+            label_array = @[@"Subway", @"Coffee"];
+            self.UIConfigurations
+            [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
+        }
+        
+        
+        for (int i = 0; i < mySnapshot.selected_ids.size(); ++i){
+            int data_id = mySnapshot.selected_ids[i];
+
+            if (mySnapshot.is_answer_list[i] == 0){
+                self.model->data_array[data_id].my_texture_info =
+                self.model->generateTextureInfo(label_array[i]);
+                self.model->data_array[data_id].annotation.title = label_array[i];
+            }else{
+                self.model->data_array[data_id].my_texture_info =
+                self.model->generateTextureInfo(label_array[i]);
+                self.model->data_array[data_id].annotation.title = label_array[i];                
+            }
+        }
+    }
     
     //-----------
     // Annotation configurations (for desktop only)
     //-----------
+#ifndef __IPHONE__
     if (mode == OSXSTUDY){
         [self.mapView removeAnnotations:
          self.mapView.annotations];
@@ -96,12 +159,9 @@
             int data_id = annotation_id_vector[i];
             [self.mapView addAnnotation:
              self.model->data_array[data_id].annotation];
-            [[self.mapView viewForAnnotation:
-              self.model->data_array[data_id].annotation]
-             setHidden:NO];
         }
     }
-    
+#endif
 //    NSLog(@"SnapShot");
 //    NSLog(@"Center:");
 //    NSLog(@"latitude: %f, longitude: %f", mySnapshot.coordinateRegion.center.latitude,
@@ -161,33 +221,37 @@
             isEqualToString: @"on"])
             self.renderer->cross.isVisible = false;
         
+        
+        if (self.mapView.isHidden){
+            [self.mapView setHidden:NO];
+            [self.glkView setHidden:NO];
+        }
+        
         // Set up differently, depending on the snapshot code
-        if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
-            ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
+        if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound))
         {
-            if (self.renderer->watchMode){
-                [self.glkView addSubview:self.watchScaleView];
-            }else{
-                [self.glkView addSubview:self.scaleView];
+            if ([self.socket_status boolValue])
+            {
+                [self.mapView setHidden:YES];
+                [self.glkView setHidden:YES];
             }
-
+            [self toggleScaleView:NO];
+        }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound)
+        {
+            [self toggleScaleView:YES];
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
-
-            [self.scaleView removeFromSuperview];
-            [self.watchScaleView removeFromSuperview];
+            
+            [self toggleScaleView:NO];
         }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
-
+            
             self.renderer->isInteractiveLineVisible=true;
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
-            [self.scaleView removeFromSuperview];
-            [self.watchScaleView removeFromSuperview];
+            [self toggleScaleView:NO];
         }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound)
         {
-
-            [self.scaleView removeFromSuperview];
-            [self.watchScaleView removeFromSuperview];
+            [self toggleScaleView:NO];
         }
         
         //--------------------
@@ -210,10 +274,13 @@
         [self sendMessage:[NSString stringWithFormat:@"%d", snapshot_id]];
             self.renderer->cross.isVisible = false;
         // Set up differently, depending on the snapshot code
-        if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
-            ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
+        if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound))
         {
             [self showLocateCollectMode:mySnapshot];
+        }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location
+                  != NSNotFound)
+        {
+            
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
             [self showLocalizeCollectMode:mySnapshot];
@@ -250,6 +317,35 @@
 #endif
     return true;
 }
+
+#ifdef __IPHONE__
+- (void)toggleScaleView: (bool) state
+{
+    //---------------
+    // Add the scale view
+    //---------------
+    if (state){
+        // Only add if it is NOT a subview
+        if (self.renderer->watchMode){
+            if (![self.watchScaleView isDescendantOfView:self.glkView])
+                [self.glkView addSubview:self.watchScaleView];
+        }else{
+            if (![self.scaleView isDescendantOfView:self.glkView])
+                [self.glkView addSubview:self.scaleView];
+        }
+    }else{
+        //---------------
+        // Remove the scale view
+        //---------------
+        // Only remove if is NOT a subview
+        if ([self.watchScaleView isDescendantOfView:self.glkView])
+            [self.watchScaleView removeFromSuperview];
+        if ([self.scaleView isDescendantOfView:self.glkView])
+            [self.scaleView removeFromSuperview];
+    }
+}
+#endif
+
 
 //----------------------
 // Set up the environment to collect the answer for the locate test

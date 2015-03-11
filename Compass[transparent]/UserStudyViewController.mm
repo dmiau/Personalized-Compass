@@ -28,7 +28,7 @@
         // Initialize the object
         AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
         self.rootViewController = appDelegate.rootViewController;
-        
+        self.testMessage = @"";
     }
     return self;
 }
@@ -48,7 +48,6 @@
     // Make a bunch of buttons disabled at initialization
     self.isPracticeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isResumeButtonEnabled = [NSNumber numberWithBool:NO];
-    self.isStartButtonEnabled = [NSNumber numberWithBool:NO];
     self.isPauseButtonEnabled = [NSNumber numberWithBool:NO];
     self.isResumeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isEndButtonEnabled = [NSNumber numberWithBool:NO];
@@ -102,6 +101,8 @@
         self.serverInfoString = [NSString stringWithFormat:@"Server IP: %@, port: %d",
                                  ip_string, port];
     }
+    self.testMessage = [NSString stringWithFormat:@"Dir: %@",
+                        self.model->desktopDropboxDataRoot];
 }
 
 - (void)viewWillDisappear{
@@ -124,53 +125,53 @@
 //-----------------
 - (IBAction)loadStudyFiles:(id)sender {
     
-    NSString* practice_filename = @"practice.snapshot";
+    NSString* practice_filename = self.rootViewController.testManager->practice_filename;
     
     // Check if the files exist
     NSString* dbRoot = self.rootViewController.model->desktopDropboxDataRoot;
     
-    NSString* practice_filepath = [dbRoot stringByAppendingPathComponent:
+    self.practice_filepath = [dbRoot stringByAppendingPathComponent:
                                    practice_filename];
     
-    NSString* snapshot_filepath = [dbRoot stringByAppendingPathComponent:
+    self.snapshot_filepath = [dbRoot stringByAppendingPathComponent:
                [self.rootViewController.testManager->test_snapshot_prefix
                 stringByAppendingFormat:@"%@.snapshot", self.participant_id]                    ];
     
     NSString* record_filename = [NSString stringWithFormat:
                                  @"participant%@.record", self.participant_id];
-    NSString* record_filepath = [dbRoot stringByAppendingPathComponent:
+    self.record_filepath = [dbRoot stringByAppendingPathComponent:
                                  record_filename];
     
-    NSString* test_kml_path = [dbRoot stringByAppendingPathComponent:
+    self.test_kml_path = [dbRoot stringByAppendingPathComponent:
                                self.rootViewController.testManager->test_kml_filename];
 
     if (![[NSFileManager defaultManager] fileExistsAtPath:
-          practice_filepath]){
+          self.practice_filepath]){
         [self.rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"%@ was not found.", practice_filepath]];
+         [NSString stringWithFormat:@"%@ was not found.", self.practice_filepath]];
         return;
     }
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:
-          snapshot_filepath]){
+          self.snapshot_filepath]){
         [self.rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"%@ was not found.", snapshot_filepath]];
+         [NSString stringWithFormat:@"%@ was not found.", self.snapshot_filepath]];
         return;
     }
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:
-          test_kml_path]){
+          self.test_kml_path]){
         [self.rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"%@ was not found.", test_kml_path]];
+         [NSString stringWithFormat:@"%@ was not found.", self.test_kml_path]];
         return;
     }
     
 
     // Check if a record file already exists
     if ([[NSFileManager defaultManager] fileExistsAtPath:
-          record_filepath]){
+          self.record_filepath]){
         [self.rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"%@ already exists.", record_filepath]];
+         [NSString stringWithFormat:@"%@ already exists.", self.record_filepath]];
     }else{
         // Update record filename
         self.rootViewController.testManager->record_filename =
@@ -186,6 +187,13 @@
     }else{
         self.isPracticeButtonEnabled = [NSNumber numberWithBool:YES];
     }
+    
+    //---------------
+    // Update the study message
+    //---------------
+    self.testMessage = [NSString stringWithFormat:
+            @"%@\n\nLoaded practice file: %@\n\nSnapshot file path: %@",
+        self.testMessage, self.practice_filepath, self.snapshot_filepath];
 }
 
 //-----------------
@@ -215,7 +223,8 @@
 // Save the study record
 //-----------------
 - (IBAction)saveStudyRecords:(id)sender {
-    self.rootViewController.testManager->saveRecord();
+    self.rootViewController.testManager->saveRecord(
+    self.record_filepath);
 }
 
 //-----------------
@@ -234,8 +243,10 @@
 - (IBAction)checkPairingAndStartPracticing:(id)sender {
     if (self.rootViewController.testManager->testManagerMode != OSXSTUDY){
         [self.rootViewController displayPopupMessage:@"Enable the study mode from iOS"];
+        self.rootViewController.testManager->isLocked = YES;
         return;
     }
+    self.rootViewController.testManager->isLocked = NO;
     
     // Load the practice file and enable other buttons
     self.rootViewController.model->snapshot_filename =
@@ -244,6 +255,10 @@
     if (readSnapshotKml(self.rootViewController.model) != EXIT_SUCCESS){
         [self.rootViewController displayPopupMessage:@"Failed to load the practice file"];
     }else{
+        [self.rootViewController displayPopupMessage:
+         [NSString stringWithFormat:@"%@ has been loaded successfully.",
+          self.rootViewController.model->snapshot_filename]];
+        
         self.isEndPracticeButtonEnabled = [NSNumber numberWithBool:YES];
         self.rootViewController.testManager->applyPracticeConfigurations();
         self.autoSaveCheckbox.state =
@@ -251,6 +266,9 @@
     }
 }
 
+//--------------------
+// End practice buttom loads the actual snapshot file
+//--------------------
 - (IBAction)endPracticingAndStartStudy:(id)sender {
     
     NSString* snapshot_filename =
@@ -261,34 +279,25 @@
     // Load the practice file and enable other buttons
     self.rootViewController.model->snapshot_filename = snapshot_filename;
     
-    NSString* record_filename = [self.rootViewController.testManager->test_snapshot_prefix
-                                 stringByAppendingFormat:@"%@.record", self.participant_id];
-    self.rootViewController.testManager->record_filename = record_filename;
-    self.recordFileNameTextField.stringValue = record_filename;
-    
     if (readSnapshotKml(self.rootViewController.model) != EXIT_SUCCESS){
-        [self.rootViewController displayPopupMessage:@"Failed to load the study snapshot file"];
+        [self.rootViewController displayPopupMessage:
+         [NSString stringWithFormat:@"Failed to load %@.",
+          snapshot_filename]];
     }else{
-        self.rootViewController.testManager->applyPracticeConfigurations();
-        self.isStartButtonEnabled = [NSNumber numberWithBool:YES];
+        [self.rootViewController sendMessage:snapshot_filename];
         self.isPauseButtonEnabled = [NSNumber numberWithBool:YES];
         self.isResumeButtonEnabled = [NSNumber numberWithBool:YES];
         self.isEndButtonEnabled = [NSNumber numberWithBool:YES];
+        [self.rootViewController displayPopupMessage:
+         [NSString stringWithFormat:@"%@ has been loaded successfully.",
+          snapshot_filename]];
+        self.rootViewController.testManager->toggleStudyMode(YES, YES);
         self.rootViewController.testManager->applyStudyConfigurations();
         self.autoSaveCheckbox.state =
         self.rootViewController.testManager->isRecordAutoSaved;
-        [self.rootViewController displayPopupMessage:@"Study snapshot files have been loaded successfully."];
-        
-        self.rootViewController.testManager->toggleStudyMode(YES, YES);
-        self.rootViewController.testManager->applyStudyConfigurations();
-        [self.rootViewController sendMessage:snapshot_filename];
     }
 }
 
-- (IBAction)startStudy:(id)sender {
-    // TODO: need to think about this a bit more
-
-}
 
 - (IBAction)pauseStudy:(id)sender {
 }

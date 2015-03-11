@@ -55,10 +55,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
             //----------------
             // For each landmark, pick a color from the list 
             //----------------
-//            glColor4f((float)model->color_map[i][0]/256,
-//                      (float)model->color_map[i][1]/256,
-//                      (float)model->color_map[i][2]/256, 1);
-
             glColor4f(
                       [model->configurations[@"landmark_color"][0] floatValue]/256,
                       [model->configurations[@"landmark_color"][1] floatValue]/256,
@@ -76,10 +72,16 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         double distance;
         
         if (data_.distance <= mode_max_dist_array[0]){
+            //-----------
+            // Close
+            //-----------
             base_radius = central_disk_radius;
             distance = data_.distance /
             mode_max_dist_array[0] * compass_disk_radius;
         }else{
+            //-----------
+            // Far
+            //-----------
             base_radius = central_disk_radius/4;
             base_radius = max((float)1.0, base_radius);
             
@@ -102,8 +104,11 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         
         // Need to draw on different depth to avoid broken polygon
         glTranslatef(0, 0, 0.0001);
-        drawTriangle(base_radius, data_.orientation,
-                     distance);
+//        drawTriangle(base_radius, data_.orientation,
+//                     distance);
+        
+        drawRectangle(1, data_.orientation,
+                      distance);
     }
     glPopMatrix();
     

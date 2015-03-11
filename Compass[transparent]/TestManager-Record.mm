@@ -129,11 +129,21 @@ NSArray* record::genSavableRecord(){
 // Save the record vector
 //-------------------
 
-void TestManager::saveRecord(){
-    // Make sure the output folder exists
-    NSString *folder_path = model->desktopDropboxDataRoot;
-    NSString *out_file = [folder_path
-                          stringByAppendingPathComponent:record_filename];
+void TestManager::saveRecord(NSString *out_file){
+    
+    //--------------
+    // Check if a file exists already
+    //--------------
+    if ([[NSFileManager defaultManager] fileExistsAtPath:
+          out_file]){
+        [rootViewController displayPopupMessage:
+         [NSString stringWithFormat:@"%@ already exists. _1 postfixed will be added to the saved file", out_file]];
+        
+        // Compute a new name
+        out_file = [out_file stringByReplacingOccurrencesOfString:@".record"
+                                                        withString:@"_1.record"];
+    }
+    
     CHCSVWriter *w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
     
     // http://stackoverflow.com/questions/1443793/iterate-keys-in-a-c-map

@@ -165,7 +165,7 @@ public:
     double iOSAnswer;
     
     BOOL isRecordAutoSaved;
-    
+    BOOL isLocked;
     //-----------------
     // Connection to other components
     //-----------------
@@ -308,11 +308,11 @@ public:
     void applyStudyConfigurations();
     
     // Start and end the test
-    void verifyThenStart();
+    bool verifyAnswerQuality();
     void startTest();
     void endTest(CGPoint openGLPoint, double doubleAnswer);
     
-    void saveRecord(); // Save test record to a file
+    void saveRecord(NSString *out_file); // Save test record to a file
 };
 
 //-----------------

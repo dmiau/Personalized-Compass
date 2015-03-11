@@ -3004,7 +3004,7 @@ working on generateRandomTriangulateLocations
 - issues that need to be fixed:
 * scaleCoordinateSpanForDevice, the base needs to use the information stored in snapShot
 
-* calculateLatLonFromiOSX: should be test dependent
+
 * check location generation
 - iOS dropbox folder support?
 - bugs here:
@@ -3069,7 +3069,6 @@ Test Generation (making new levels for the game):
 - get the ios beta testing work
 
 - issues that need to be fixed:
-* calculateLatLonFromiOSX: should be test dependent
 * enhance location generation
 
 - bugs here:
@@ -3642,13 +3641,16 @@ work on VerifyThenStart (does not seem to be necessary...) [12:40PM]
 save record folder issue? [2:07PM]
 trial counter [3:28PM]
 - test instructions [6:25PM]
+- file save guard [7:58PM]
+- time stamp to make sure all files are the same [8:36PM]
+- good color and shape! [9:48PM]
+
 ***** Working
 - test mode - color coded the object of interest
 
 - Experiment design issues
 * Need to design the questionnaire right, to find the preferences by location distance
 
-Data generation
 - warning on zoom levels
 
 - Have myself try the tests and log the time
@@ -3677,4 +3679,30 @@ generate all, and randomly pick?
 
 - more meaningful test cases
 - auto data analysis
+
+- study dev mode (file status message)
+
+-------------------------------------------------------------------
+3.10.2015
+-------------------------------------------------------------------
+***** Done
+- test mode - label the object of interest [11:50AM]
+- allow multiple labels [2:04PM]
+- issus with removeFromSuperView [2:51PM]
+- Articulate the situations and the motivation of the test cases. (subway scenario) [2:54PM]
+- Added file confirmations on the user study pane.
+***** Working
+- Have myself try the tests and log the time (repeated measure data analysis)
+- prepare a script before talking to Tversky
+
+How to counter-balance test cases? And visualzie data quality?
+generate all, and randomly pick?
+
+- log truth information in the notefield
+- fix the max base length
+
+- more meaningful test cases (repeated measure or multi-level?)
+- study dev mode (file status message, make sure the test is not skipped)
+- resume a study after crash? continuously save record?
+
 
