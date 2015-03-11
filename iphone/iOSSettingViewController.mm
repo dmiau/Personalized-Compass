@@ -114,14 +114,16 @@
     }
     
     //-------------------
-    // Update the phone/watch mode status
+    // Update distance style segment control
     //-------------------
-    if (!self.rootViewController.renderer->watchMode){
-        // Phone mode
-        self.watchModeControl.selectedSegmentIndex = 0;
-    }else{
-        // Watch mode
-        self.watchModeControl.selectedSegmentIndex = 1;
+    if ([model->configurations[@"style_type"]
+        isEqualToString: @"REAL_RATIO"])
+    {
+        self.distStyleSegmentControl.selectedSegmentIndex = 0;
+    }else if ([model->configurations[@"style_type"]
+               isEqualToString:@"BIMODAL"])
+    {
+        self.distStyleSegmentControl.selectedSegmentIndex = 1;
     }
     
     //-------------------
@@ -323,22 +325,6 @@
     [self.ipTextField resignFirstResponder];
 }
 
-- (IBAction)toggleWatchMode:(UISegmentedControl*) segmentedControl {
-    switch (segmentedControl.selectedSegmentIndex) {
-        case 0:
-            //-----------
-            // Normal
-            //-----------
-            [self.rootViewController setupPhoneViewMode];
-            break;
-        case 1:
-            //-----------
-            // Watch Mode
-            //-----------
-            [self.rootViewController setupWatchViewMode];
-            break;
-    }
-}
 
 
 //------------------
@@ -364,4 +350,13 @@
     [self.rootViewController.glkView setNeedsDisplay];
 }
 
+- (IBAction)toggleDistStyleSegment:(UISegmentedControl*)sender {
+    int selected_id = [sender selectedSegmentIndex];
+    if (selected_id == 0)
+    {
+        model->configurations[@"style_type"] = @"REAL_RATIO";
+    }else{
+        model->configurations[@"style_type"] = @"BIMODAL";
+    }
+}
 @end

@@ -222,7 +222,7 @@ void TestManager::saveLocationVector(){
                           stringByAppendingPathComponent:test_kml_filename];
     
     if (![content writeToFile:doc_path
-                   atomically:YES encoding: NSASCIIStringEncoding
+                   atomically:YES encoding: NSUTF8StringEncoding
                         error:&error])
     {
         throw(runtime_error("Failed to write test kml file"));

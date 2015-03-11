@@ -3709,7 +3709,7 @@ generate all, and randomly pick?
 -------------------------------------------------------------------
 ***** Done
 - generate all, and randomly pick?(truth informatino is fixed)  [9:08AM]
-
+- iOS snapshot loading issue
 ***** Working
 How to counter-balance test cases? And visualzie data quality?
 
@@ -3720,13 +3720,9 @@ How to counter-balance test cases? And visualzie data quality?
 - resume a study after crash? continuously save record?
 
 - more meaningful test cases (repeated measure or multi-level?)
+(flip the orientation task)
 - wedge and compass use different but comparable test cases?
 - Have myself try the tests and log the time (repeated measure data analysis)
-- prepare a script before talking to Tversky
-
-
-self.rootViewController.renderer->emulatediOS.is_enabled = YES;
-
 
 
 

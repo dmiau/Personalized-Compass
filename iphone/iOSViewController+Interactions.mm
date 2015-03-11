@@ -350,16 +350,15 @@
         [self.mapView setZoomEnabled:NO];
         [self.mapView setRotateEnabled:NO];
         [self.mapView setScrollEnabled:NO];
-        self.model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:255];
     }else{
         [self.mapView setUserInteractionEnabled:YES];
         [self.mapView setZoomEnabled:YES];
         [self.mapView setRotateEnabled:YES];
         [self.mapView setScrollEnabled:YES];
-        self.model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:150];
     }
     self.UIConfigurations[@"UICompassTouched"] =
     [NSNumber numberWithBool: state];
+    self.renderer->isCompassTouched = state;
     [self.glkView setNeedsDisplay];
 }
 

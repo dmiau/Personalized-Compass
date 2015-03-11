@@ -353,7 +353,7 @@
     NSString *doc_path = [self.model->desktopDropboxDataRoot stringByAppendingPathComponent:filename];
     
     if (![content writeToFile:doc_path
-                   atomically:YES encoding: NSASCIIStringEncoding
+                   atomically:YES encoding: NSUTF8StringEncoding
                         error:&error])
     {
         

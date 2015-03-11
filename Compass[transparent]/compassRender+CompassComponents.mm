@@ -162,7 +162,7 @@ void compassRender::drawCompassNorth(){
     // draw the north indicator
     // ---------------
    
-    glColor4f(0.7,0.7, 0.7, 1);
+    glColor4f(0.5,0.5, 0.5, 1);
     // Note the radius is fixed to 1
     drawTriangle(1, 0, compass_disk_radius *
                  [model->configurations[@"north_indicator_to_compass_disk_ratio"] floatValue]);
@@ -179,13 +179,21 @@ void compassRender::drawCompassBackgroundDisk(){
         alpha = [model->configurations[@"disk_color"][3] floatValue]/255;
     else
         alpha = 0.7;
-    
     glColor4f([model->configurations[@"disk_color"][0] floatValue]/255,
               [model->configurations[@"disk_color"][1] floatValue]/255,
               [model->configurations[@"disk_color"][2] floatValue]/255,
               alpha);
+
+    
     glTranslatef(0, 0, -1);
-    drawCircle(0, 0, compass_disk_radius, 50, true);
+    
+    if (isCompassTouched){
+        glColor4f(0.5, 0.5, 0.5, 1);
+        drawCircle(0, 0, compass_disk_radius, 50, true);
+    }else{
+        
+        drawCircle(0, 0, compass_disk_radius, 50, true);
+    }
     glPopMatrix();
 }
 

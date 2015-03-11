@@ -8,6 +8,7 @@
 
 #include "TestManager.h"
 #include "xmlParser.h"
+#import "snapshotParser.h"
 
 #ifdef __IPHONE__
 // iOS
@@ -36,6 +37,14 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     //-----------
     // Do a forced preload of the location files
     //-----------
+    if (readSnapshotKml(rootViewController.model)!= EXIT_SUCCESS)
+    {
+        [rootViewController displayPopupMessage:
+         [NSString stringWithFormat:@"Failed to read %@",
+          rootViewController.model->snapshot_filename]];
+        return;
+    }
+    
     snapshot mySnapshot = model->snapshot_array[0];
     // Do not reload the location if it is already loaded
     model->location_filename = mySnapshot.kmlFilename;

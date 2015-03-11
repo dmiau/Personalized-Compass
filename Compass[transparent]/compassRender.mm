@@ -70,6 +70,7 @@ int compassRender::initRenderMdl(){
     
     interactiveLineRadian   = 0;
     isAnswerLinesEnabled    = false;
+    isCompassTouched        = false;
     degree_vector.clear();
     loadParametersFromModelConfiguration();
 #ifndef __IPHONE__

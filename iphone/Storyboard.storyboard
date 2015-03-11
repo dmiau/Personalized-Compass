@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xJv-Aa-iHt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xJv-Aa-iHt">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -191,22 +191,6 @@
                                     <action selector="labelSegmentControl:" destination="9xM-YS-8bl" eventType="valueChanged" id="2iJ-dp-1wI"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bxU-r8-r8B">
-                                <rect key="frame" x="131" y="414" width="123" height="29"/>
-                                <segments>
-                                    <segment title="Normal"/>
-                                    <segment title="Watch"/>
-                                </segments>
-                                <connections>
-                                    <action selector="toggleWatchMode:" destination="9xM-YS-8bl" eventType="valueChanged" id="jT5-M1-HfC"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pH-aR-XOJ">
-                                <rect key="frame" x="16" y="417" width="45" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B2u-Zp-sZD">
                                 <rect key="frame" x="131" y="336" width="167" height="29"/>
                                 <segments>
@@ -239,6 +223,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wif-ok-Aq5">
+                                <rect key="frame" x="131" y="423" width="157" height="29"/>
+                                <segments>
+                                    <segment title="Real-Ratio"/>
+                                    <segment title="Bimodal"/>
+                                </segments>
+                                <connections>
+                                    <action selector="toggleDistStyleSegment:" destination="9xM-YS-8bl" eventType="valueChanged" id="xwy-5s-axu"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dist. Style" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqd-MD-FBr">
+                                <rect key="frame" x="16" y="426" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -246,12 +246,12 @@
                     <navigationItem key="navigationItem" id="qjZ-da-ipz"/>
                     <connections>
                         <outlet property="dataSource" destination="B2u-Zp-sZD" id="zUP-3R-tOp"/>
+                        <outlet property="distStyleSegmentControl" destination="wif-ok-Aq5" id="7cs-1P-mkj"/>
                         <outlet property="ipTextField" destination="Agp-Nj-C0p" id="P8U-7v-dkL"/>
                         <outlet property="labelControl" destination="2P8-fn-eHz" id="bug-fs-0Y2"/>
                         <outlet property="portTextfield" destination="fVC-a3-Ra2" id="nXc-hu-05Q"/>
                         <outlet property="serverSegmentControl" destination="jTW-lk-cfK" id="haJ-y6-byC"/>
                         <outlet property="systemMessage" destination="K2N-RJ-jxP" id="L2H-7P-Dkq"/>
-                        <outlet property="watchModeControl" destination="bxU-r8-r8B" id="joL-Kg-7p7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FF-be-GOM" userLabel="First Responder" sceneMemberID="firstResponder"/>

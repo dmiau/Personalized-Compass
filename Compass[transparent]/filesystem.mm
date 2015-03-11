@@ -315,7 +315,7 @@
     NSString *doc_path = [self.document_path stringByAppendingPathComponent:filename];
 
     if (![content writeToFile:doc_path
-                   atomically:YES encoding: NSASCIIStringEncoding
+                   atomically:YES encoding: NSUTF8StringEncoding
                         error:&error])
     {
         NSLog(@"KML write failed");

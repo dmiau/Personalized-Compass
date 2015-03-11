@@ -101,7 +101,6 @@
         [self.UIConfigurations setObject:@"All"
                                   forKey:@"ShowPins"];
         
-        
         // Add the walking man symbol
         
         // Initialization code here.

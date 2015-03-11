@@ -193,7 +193,7 @@ void TestManager::saveSnapShotsToKML(){
                               stringByAppendingPathComponent:snapshot_filename];
         
         if (![content writeToFile:doc_path
-                       atomically:YES encoding: NSASCIIStringEncoding
+                       atomically:YES encoding: NSUTF8StringEncoding
                             error:&error])
         {
             throw(runtime_error("Failed to write snapshot kml file"));
@@ -210,7 +210,7 @@ void TestManager::saveSnapShotsToKML(){
                           @"practice.snapshot"];
     
     if (![content writeToFile:doc_path
-                   atomically:YES encoding: NSASCIIStringEncoding
+                   atomically:YES encoding: NSUTF8StringEncoding
                         error:&error])
     {
         throw(runtime_error("Failed to write snapshot kml file"));
@@ -225,7 +225,7 @@ void TestManager::saveSnapShotsToKML(){
     [NSString stringWithFormat:@"%@.snapshot", [formatter stringFromDate:startDate]]];
 
     if (![content writeToFile:doc_path
-                   atomically:YES encoding: NSASCIIStringEncoding
+                   atomically:YES encoding: NSUTF8StringEncoding
                         error:&error])
     {
         throw(runtime_error("Failed to write dummy kml file"));

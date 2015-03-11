@@ -155,8 +155,8 @@ public:
     bool isInteractiveLineEnabled;
     double interactiveLineRadian;
     bool isAnswerLinesEnabled;
+    bool isCompassTouched;
     vector<double> degree_vector;
-//    bool isCompassRefPointEnabled;
     
     // Compass presenation parameters    
     float compass_disk_radius;    // Specify the radius of the compass disk (in pixels)
