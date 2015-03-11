@@ -83,7 +83,11 @@ inline TaskType NSStringToTaskType(NSString* code){
 
 
 // Tools
-vector<int> NSArrayToVector(NSArray* inputArray);
+// Convert an NSArray of int to a vector of int
+vector<int> NSArrayIntToVector(NSArray* inputArray);
+
+// Convert an NSArray of string to a vector of CGPoint
+vector<vector<int>> NSArrayStringToVector(NSArray* inputArray);
 
 class TaskSpec{
 public:

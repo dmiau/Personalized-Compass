@@ -61,7 +61,8 @@ vector<int> TaskSpec::shuffleTests(){
 }
 #endif
 
-vector<int> NSArrayToVector(NSArray* inputArray){
+
+vector<int> NSArrayIntToVector(NSArray* inputArray){
     vector<int> output;
     for(int i = 0; i < [inputArray count]; ++i){
         output.push_back([inputArray[i] integerValue]);
@@ -69,4 +70,16 @@ vector<int> NSArrayToVector(NSArray* inputArray){
     return output;
 }
 
-
+// Convert an NSArray of string to a vector of CGPoint
+vector<vector<int>> NSArrayStringToVector(NSArray* inputArray)
+{
+    vector<vector<int>> output;
+    for(int i = 0; i < [inputArray count]; ++i){
+        vector<int> temp;
+        NSArray* t_array = [inputArray[i] componentsSeparatedByString:@","];
+        temp.push_back([t_array[0] intValue]);
+        temp.push_back([t_array[1] intValue]);
+        output.push_back(temp);
+    }
+    return output;
+}

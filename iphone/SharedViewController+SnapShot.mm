@@ -116,16 +116,16 @@
         if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
             ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
         {
-            label_array = @[@"Subway"];
+            label_array = @[@"[i]Subway"];
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
             label_array = @[@"Hotel", @"Train St."];
             self.UIConfigurations
             [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
         }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
-            label_array = @[@"Subway"];
+            label_array = @[@"[i]Subway"];
         }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
-            label_array = @[@"Subway", @"Coffee"];
+            label_array = @[@"[i]Subway", @"Coffee"];
             self.UIConfigurations
             [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
         }

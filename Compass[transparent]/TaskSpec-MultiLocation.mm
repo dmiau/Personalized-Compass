@@ -97,11 +97,11 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
 {
     snapshot_array.clear();
     code_location_vector.clear();
-    vector<int> base_length_vector = NSArrayToVector
+    vector<int> base_length_vector = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_trials_base_length"]);
-    vector<int> ratio_vecotr = NSArrayToVector
+    vector<int> ratio_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_trials_ratio"]);;
-    vector<int> delta_theta_vecotr = NSArrayToVector
+    vector<int> delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_trials_theta"]);
     
     pair<vector<string>, vector<vector<int>>> pair_output =
@@ -115,11 +115,11 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
     //--------------
     // Generate practice block
     //--------------
-    base_length_vector = NSArrayToVector
+    base_length_vector = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_practices_base_length"]);
-    ratio_vecotr = NSArrayToVector
+    ratio_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_practices_ratio"]);
-    delta_theta_vecotr = NSArrayToVector
+    delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_practices_theta"]);
     
     pair_output =
@@ -137,11 +137,11 @@ void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array)
 {
     snapshot_array.clear();
     code_location_vector.clear();
-    vector<int> base_length_vector = NSArrayToVector
+    vector<int> base_length_vector = NSArrayIntToVector
     (testSpecDictionary[@"lplus_trials_base_length"]);
-    vector<int> ratio_vecotr = NSArrayToVector
+    vector<int> ratio_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"lplus_trials_ratio"]);
-    vector<int> delta_theta_vecotr = NSArrayToVector
+    vector<int> delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"lplus_trials_theta"]);
     
     pair<vector<string>, vector<vector<int>>> pair_output =
@@ -154,11 +154,11 @@ void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array)
     //--------------
     // Generate practice block
     //--------------
-    base_length_vector = NSArrayToVector
+    base_length_vector = NSArrayIntToVector
     (testSpecDictionary[@"lplus_practices_base_length"]);
-    ratio_vecotr = NSArrayToVector
+    ratio_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"lplus_practices_ratio"]);
-    delta_theta_vecotr = NSArrayToVector
+    delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"lplus_practices_theta"]);
     
     pair_output =

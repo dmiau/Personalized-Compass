@@ -131,15 +131,20 @@ int TestManager::generateTests(){
     t_data_array.clear();
     code_xy_vector.clear();
     practice_snapshot_vector.clear();
-    for (auto vit = visualization_list.begin(); vit != visualization_list.end(); ++vit){
-        for (auto tit = task_list.begin(); tit != task_list.end(); ++tit){
-            for (auto dit = device_list.begin(); dit != device_list.end(); ++dit)
+    for (auto vit = visualization_list.begin(); vit != visualization_list.end(); ++vit)
+    {
+        for (auto dit = device_list.begin(); dit != device_list.end(); ++dit)
+        {
+            for (auto tit = task_list.begin(); tit != task_list.end(); ++tit)
             {
                 string code = toString(*vit) + ":" + toString(*dit) + ":" +
                 toString(*tit);
                 TaskSpec myTaskSpec(*tit,
                                     testSpecDictionary,
                                     rootViewController);
+             
+                if (myTaskSpec.deviceType != *dit)
+                    continue;
                 
                 //--------------
                 // Here we restrict tasks to only be generated on specific platform

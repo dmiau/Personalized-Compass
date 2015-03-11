@@ -64,7 +64,7 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
     //-------------------
     // Generate locations, data, and snapshot
     //-------------------
-    vector<int> trial_dist = NSArrayToVector
+    vector<int> trial_dist = NSArrayIntToVector
     (testSpecDictionary[@"locate_trials"]);
     
     for (int i = 0; i < trial_dist.size(); ++i){
@@ -77,7 +77,7 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
     //-------------------
     // Generate practice trials
     //-------------------
-    vector<int> practice_dist = NSArrayToVector
+    vector<int> practice_dist = NSArrayIntToVector
     (testSpecDictionary[@"locate_practices"]);
     for (int i = 0; i < practice_dist.size(); ++i)
     {
@@ -111,7 +111,7 @@ void TaskSpec::generateDistanceTests(vector<data> &t_data_array)
     //-------------------
     // Generate locations, data, and snapshot
     //-------------------
-    vector<int> trial_dist = NSArrayToVector
+    vector<int> trial_dist = NSArrayIntToVector
     (testSpecDictionary[@"distance_trials"]);
     
     for (int i = 0; i < trial_dist.size(); ++i){
@@ -124,7 +124,7 @@ void TaskSpec::generateDistanceTests(vector<data> &t_data_array)
     //-------------------
     // Generate practice trials
     //-------------------
-    vector<int> practice_dist = NSArrayToVector
+    vector<int> practice_dist = NSArrayIntToVector
     (testSpecDictionary[@"distance_practices"]);
     for (int i = 0; i < practice_dist.size(); ++i)
     {
@@ -144,67 +144,39 @@ void TaskSpec::generateOrientTests(vector<data> &t_data_array)
     //-------------------
     // Parameters
     //-------------------
-    vector<int> base_length_vector = NSArrayToVector
-    (testSpecDictionary[@"orient_trials_base_length"]);
-    int location_n_per_ring = 5;
-    
-    // At this point we have location_n lengths
-    std::uniform_int_distribution<int>  distr2(0, 359);
-    
-    // 0 degree is in the positie x direction
-    vector<int> theta_vector = NSArrayToVector
-    (testSpecDictionary[@"orient_trials_theta"]);
-    
-//    for (int i = 0; i < location_n_per_ring; ++i){
-//        theta_vector.push_back(distr2(generator));
-//    }
+    vector<vector<int>> xy_vector = NSArrayStringToVector
+    (testSpecDictionary[@"orient_trials_xy"]);
     
     snapshot_array.clear();
     code_location_vector.clear();
     //-------------------------
     // Generate point (x, y) here
     //-------------------------
-    for (int i = 0; i < base_length_vector.size(); ++i)
-    {
-        for (int j = 0; j < theta_vector.size(); ++j)
-        {
-            int x, y;
-            // Calculate point 1
-            int pt1_length = base_length_vector[i];
-            int theta =  theta_vector[j];
-            x = (float)pt1_length * cos((float)theta/180 * M_PI);
-            y = (float)pt1_length * sin((float)theta/180 * M_PI);
-            code_location_vector.push_back(
-            make_pair(identifier + ":" + to_string(i * location_n_per_ring + j),
-                                                     vector<int>{pt1_length, theta}));
-            addOneDataAndSnapshot
-            (to_string(i * location_n_per_ring + j), CGPointMake(x, y), t_data_array);
-
-        }
+    for (int i = 0; i < xy_vector.size(); ++i){
+        code_location_vector.push_back(
+                                       make_pair(identifier + ":" + to_string(i),
+                                                 vector<int>{xy_vector[i][0],
+                                                     xy_vector[i][1]}));
+        addOneDataAndSnapshot
+        (to_string(i), CGPointMake(xy_vector[i][0], xy_vector[i][1]), t_data_array);
+        
     }
     
     //-------------------
     // Generate practice trials
     //-------------------
-    vector<int> practice_theta = NSArrayToVector
-    (testSpecDictionary[@"orient_practices_theta"]);
-    for (int i = 1; i <= practice_theta.size(); ++i)
-    {
+    xy_vector = NSArrayStringToVector
+    (testSpecDictionary[@"orient_practices_xy"]);
+    for (int i = 0; i < xy_vector.size(); ++i){
         string trialString = to_string(i) + "t";
-        
-        int x, y;
-        // Calculate point 1
-        int pt1_length = NSArrayToVector
-        (testSpecDictionary[@"orient_practices_base_length"])[0];
-        int theta =  practice_theta[i];
-        x = (float)pt1_length * cos((float)theta/180 * M_PI);
-        y = (float)pt1_length * sin((float)theta/180 * M_PI);
         code_location_vector.push_back(
                                        make_pair(identifier + ":" + trialString,
-                                                 vector<int>{pt1_length, theta}));
-        addOneDataAndSnapshot(trialString, CGPointMake(x, y), t_data_array);
-    }
-    
+                                                 vector<int>{xy_vector[i][0],
+                                                     xy_vector[i][1]}));
+        addOneDataAndSnapshot
+        (trialString, CGPointMake(xy_vector[i][0], xy_vector[i][1]), t_data_array);
+        
+    }    
 }
 
 void TaskSpec::addOneDataAndSnapshot(string trialString,

@@ -3691,6 +3691,7 @@ generate all, and randomly pick?
 - issus with removeFromSuperView [2:51PM]
 - Articulate the situations and the motivation of the test cases. (subway scenario) [2:54PM]
 - Added file confirmations on the user study pane.
+- study dev mode (file status message, make sure the test is not skipped) [9:54PM]
 ***** Working
 - Have myself try the tests and log the time (repeated measure data analysis)
 - prepare a script before talking to Tversky
@@ -3700,9 +3701,40 @@ generate all, and randomly pick?
 
 - log truth information in the notefield
 - fix the max base length
+- more meaningful test cases (repeated measure or multi-level?)
+- resume a study after crash? continuously save record?
+
+-------------------------------------------------------------------
+3.11.2015
+-------------------------------------------------------------------
+***** Done
+- generate all, and randomly pick?(truth informatino is fixed)  [9:08AM]
+
+***** Working
+How to counter-balance test cases? And visualzie data quality?
+
+- should call the off-screen location x, not subway
+- add a background image to the map?
+- log truth information in the notefield
+- fix the max base length
+- resume a study after crash? continuously save record?
 
 - more meaningful test cases (repeated measure or multi-level?)
-- study dev mode (file status message, make sure the test is not skipped)
-- resume a study after crash? continuously save record?
+- wedge and compass use different but comparable test cases?
+- Have myself try the tests and log the time (repeated measure data analysis)
+- prepare a script before talking to Tversky
+
+
+self.rootViewController.renderer->emulatediOS.is_enabled = YES;
+
+
+
+
+
+
+
+
+
+
 
 
