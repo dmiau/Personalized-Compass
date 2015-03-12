@@ -114,7 +114,8 @@
         NSLog(@"Something wrong...");
     }
     // Configure Cell
-    cell.textField.stringValue = self.model->snapshot_array[row].name;
+    cell.textField.stringValue =
+    [NSString stringWithFormat:@"%d: %@", row, self.model->snapshot_array[row].name];
     //        cell.textLabel.text =
     //        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", row];
     

@@ -87,7 +87,7 @@
     NSPoint mouseLoc = [self.compassView convertPoint:[theEvent locationInWindow] fromView:nil];
     
     // This reports the correct mouse position.
-    NSLog(@"ViewController: %@", NSStringFromPoint(mouseLoc));
+    NSLog(@"CompassView (x, y): %@", NSStringFromPoint(mouseLoc));
     
     // Report the mouse location, as if in the real iOS device if iOS emulation is on
     if (self.renderer->emulatediOS.is_enabled)
@@ -97,12 +97,15 @@
         self.renderer->emulatediOS.centroid_in_opengl.x;
         openGLxy.y = mouseLoc.y - self.renderer->view_height/2 -
         self.renderer->emulatediOS.centroid_in_opengl.y;
+
         CGPoint iOSxy;
         iOSxy.x = openGLxy.x * self.renderer->emulatediOS.true_ios_width/
         self.renderer->emulatediOS.width;
         iOSxy.y = openGLxy.y * self.renderer->emulatediOS.true_ios_height/
         self.renderer->emulatediOS.height;
-        NSLog(@"iOS (x,y): %@", NSStringFromPoint(iOSxy));
+        
+        NSLog(@"On screen (x,y): (%.1f, %.1f)", openGLxy.x, openGLxy.y);
+        NSLog(@"iOS (x,y): (%.1f, %.1f)", iOSxy.x, iOSxy.y);
     }
     
     //--------------------

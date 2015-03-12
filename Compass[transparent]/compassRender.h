@@ -49,6 +49,18 @@ inline DoublePoint DoublePointMake(double x, double y){
     return output;
 }
 
+struct IntPoint{
+    int x; int y;
+};
+
+
+inline IntPoint IntPointMake(int x, int y)
+{
+    IntPoint output;
+    output.x = x; output.y = y;
+    return output;
+}
+
 typedef struct {
 	recVec viewPos; // View position
 	recVec viewUp; // View up direction

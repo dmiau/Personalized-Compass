@@ -34,7 +34,7 @@ void TaskSpec::generateLocationAndSnapshots(vector<data> &t_data_array)
             generateLocatePlusTests(t_data_array);
             break;
         case DISTANCE:
-            generateDistanceTests(t_data_array);
+            generateLocateTests(t_data_array);
             break;
         default:
             break;
@@ -47,92 +47,52 @@ void TaskSpec::generateLocationAndSnapshots(vector<data> &t_data_array)
 //-----------------------
 void TaskSpec::generateLocateTests(vector<data> &t_data_array)
 {
-    float device_width;
-    float monitor_width = 1920;
-    //-------------------
-    // Parameters
-    //-------------------
-    if (deviceType == PHONE){
-        device_width = rootViewController.renderer->emulatediOS.width;
-    }else{
-        device_width = rootViewController.renderer->emulatediOS.radius;
-    }
-
     snapshot_array.clear();
     code_location_vector.clear();
+ 
+    NSString* trials;
+    NSString* practices;
+    
+    if (taskType == LOCATE){
+        trials = @"locate_trials";
+        practices = @"locate_practices";
+    }else{
+        trials = @"distance_trials";
+        practices = @"distance_practices";
+    }
     
     //-------------------
     // Generate locations, data, and snapshot
     //-------------------
     vector<int> trial_dist = NSArrayIntToVector
-    (testSpecDictionary[@"locate_trials"]);
+    (testSpecDictionary[trials]);
     
     for (int i = 0; i < trial_dist.size(); ++i){
+        
+        int x = trial_dist[i];
+        if (isMutant){
+            x = -x;
+        }
+        
         addOneDataAndSnapshot
-        (to_string(i), CGPointMake(trial_dist[i], 0), t_data_array);
-        code_location_vector.push_back(make_pair(identifier + ":" + to_string(i),
-                                                 vector<int>{trial_dist[i], 0}));
+        (to_string(i), IntPointMake(x, 0), t_data_array);
     }
 
     //-------------------
     // Generate practice trials
     //-------------------
     vector<int> practice_dist = NSArrayIntToVector
-    (testSpecDictionary[@"locate_practices"]);
+    (testSpecDictionary[practices]);
     for (int i = 0; i < practice_dist.size(); ++i)
     {
+        int x = practice_dist[i];
+        if (isMutant){
+            x = -x;
+        }
+        
         string trialString = to_string(i) + "t";
         addOneDataAndSnapshot
-        (trialString, CGPointMake(practice_dist[i], 0), t_data_array);
-        code_location_vector.push_back(make_pair(identifier + ":" + trialString,
-                                                 vector<int>{practice_dist[i], 0}));
-    }
-}
-
-//-----------------------
-// Distance tests
-//-----------------------
-void TaskSpec::generateDistanceTests(vector<data> &t_data_array)
-{
-    float device_width;
-    float monitor_width = 1920;
-
-    //-------------------
-    // Parameters
-    //-------------------
-    if (deviceType == PHONE){
-        device_width = rootViewController.renderer->emulatediOS.width;
-    }else{
-        device_width = rootViewController.renderer->emulatediOS.radius;
-    }
-    
-    snapshot_array.clear();
-    code_location_vector.clear();
-    //-------------------
-    // Generate locations, data, and snapshot
-    //-------------------
-    vector<int> trial_dist = NSArrayIntToVector
-    (testSpecDictionary[@"distance_trials"]);
-    
-    for (int i = 0; i < trial_dist.size(); ++i){
-        code_location_vector.push_back(make_pair(identifier + ":" + to_string(i),
-                                                 vector<int>{trial_dist[i], 0}));
-        addOneDataAndSnapshot
-        (to_string(i), CGPointMake(trial_dist[i], 0), t_data_array);
-    }
-    
-    //-------------------
-    // Generate practice trials
-    //-------------------
-    vector<int> practice_dist = NSArrayIntToVector
-    (testSpecDictionary[@"distance_practices"]);
-    for (int i = 0; i < practice_dist.size(); ++i)
-    {
-        string trialString = to_string(i) + "t";
-        addOneDataAndSnapshot
-        (trialString, CGPointMake(practice_dist[i], 0), t_data_array);
-        code_location_vector.push_back(make_pair(identifier + ":" + trialString,
-                                                 vector<int>{practice_dist[i], 0}));
+        (trialString, IntPointMake(x, 0), t_data_array);
     }
 }
 
@@ -141,25 +101,29 @@ void TaskSpec::generateDistanceTests(vector<data> &t_data_array)
 //-----------------------
 void TaskSpec::generateOrientTests(vector<data> &t_data_array)
 {
+    snapshot_array.clear();
+    code_location_vector.clear();
+    
     //-------------------
     // Parameters
     //-------------------
     vector<vector<int>> xy_vector = NSArrayStringToVector
     (testSpecDictionary[@"orient_trials_xy"]);
-    
-    snapshot_array.clear();
-    code_location_vector.clear();
     //-------------------------
     // Generate point (x, y) here
     //-------------------------
-    for (int i = 0; i < xy_vector.size(); ++i){
-        code_location_vector.push_back(
-                                       make_pair(identifier + ":" + to_string(i),
-                                                 vector<int>{xy_vector[i][0],
-                                                     xy_vector[i][1]}));
-        addOneDataAndSnapshot
-        (to_string(i), CGPointMake(xy_vector[i][0], xy_vector[i][1]), t_data_array);
+    for (int i = 0; i < xy_vector.size(); ++i)
+    {
+        int x = xy_vector[i][0];
+        int y = xy_vector[i][1];
         
+        if (isMutant)
+        {
+            x = -x; y = -y;
+        }
+        
+        addOneDataAndSnapshot
+        (to_string(i), IntPointMake(x, y), t_data_array);
     }
     
     //-------------------
@@ -167,20 +131,26 @@ void TaskSpec::generateOrientTests(vector<data> &t_data_array)
     //-------------------
     xy_vector = NSArrayStringToVector
     (testSpecDictionary[@"orient_practices_xy"]);
-    for (int i = 0; i < xy_vector.size(); ++i){
+    for (int i = 0; i < xy_vector.size(); ++i)
+    {
+        int x = xy_vector[i][0];
+        int y = xy_vector[i][1];
+        
+        if (isMutant)
+        {
+            x = -x; y = -y;
+        }
+        
         string trialString = to_string(i) + "t";
-        code_location_vector.push_back(
-                                       make_pair(identifier + ":" + trialString,
-                                                 vector<int>{xy_vector[i][0],
-                                                     xy_vector[i][1]}));
+
         addOneDataAndSnapshot
-        (trialString, CGPointMake(xy_vector[i][0], xy_vector[i][1]), t_data_array);
+        (trialString, IntPointMake(x, y), t_data_array);
         
     }    
 }
 
 void TaskSpec::addOneDataAndSnapshot(string trialString,
-                                     CGPoint openGLPoint,
+                                     IntPoint openGLPoint,
                        vector<data> &t_data_array)
 {
     //--------------
@@ -237,10 +207,20 @@ void TaskSpec::addOneDataAndSnapshot(string trialString,
     t_snapshot.selected_ids = selected_ids;
     t_snapshot.is_answer_list = is_answer_list;
     t_snapshot.orientation = 0;
+    t_snapshot.notes = [NSString stringWithFormat:
+                        @"(x, y): (%d, %d)", openGLPoint.x,openGLPoint.y];
     
     if (trialString.find("t") == string::npos)
         snapshot_array.push_back(t_snapshot);
     else
         practice_snapshot_array.push_back(t_snapshot);
+    
+    
+    //-----------------
+    // Log debug information
+    //-----------------
+    code_location_vector.push_back(
+                                   make_pair(identifier + ":" + trialString,
+                                vector<int>{openGLPoint.x,openGLPoint.y}));
 }
 #endif

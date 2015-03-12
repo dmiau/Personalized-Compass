@@ -25,6 +25,9 @@
 // Dev mode
 @property (weak) IBOutlet NSSegmentedControl *studyModeSegmentControl;
 - (IBAction)toggleStudyMode:(id)sender;
+- (IBAction)resetTestEnv:(id)sender;
+
+
 
 // Load files
 @property NSNumber* participant_id;

@@ -19,6 +19,7 @@ TaskSpec::TaskSpec(TaskType inTaskType, NSMutableDictionary* myTestSpecDictionar
     taskType = inTaskType;
     rootViewController = desktopViewController;
     testSpecDictionary = myTestSpecDictionary;
+    isMutant = false;
     // Assign default deviceType based on taskType
     switch (taskType) {
         case LOCATE:

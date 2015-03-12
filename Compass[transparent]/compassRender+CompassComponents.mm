@@ -190,8 +190,7 @@ void compassRender::drawCompassBackgroundDisk(){
     if (isCompassTouched){
         glColor4f(0.5, 0.5, 0.5, 1);
         drawCircle(0, 0, compass_disk_radius, 50, true);
-    }else{
-        
+    }else{        
         drawCircle(0, 0, compass_disk_radius, 50, true);
     }
     glPopMatrix();

@@ -183,9 +183,6 @@ void TestManager::saveSnapShotsToKML(){
         [NSString stringWithFormat:@"%@%d.snapshot", test_snapshot_prefix, ui];
         
         // Store the generated time into the note of the first snapshot
-        
-
-        all_snapshot_vectors[ui][0].notes = [formatter stringFromDate:startDate];
         all_snapshot_vectors[ui][0].date_str = [formatter stringFromDate:startDate];
         
         NSString *content = genSnapshotString(all_snapshot_vectors[ui]);

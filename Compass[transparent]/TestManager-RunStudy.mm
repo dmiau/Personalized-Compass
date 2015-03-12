@@ -24,6 +24,10 @@
 //------------------
 void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     testManagerMode = mode;
+    test_counter = 0; // Reset the test counter
+    iOSAnswer = 10000;
+    isLocked = NO;
+    
     // Need to turn off map interactions in the study mode
     [rootViewController enableMapInteraction:NO];
     [rootViewController changeAnnotationDisplayMode:@"None"];

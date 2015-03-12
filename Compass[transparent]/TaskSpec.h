@@ -32,6 +32,7 @@ using namespace std;
 // Test Specifications
 //------------------------------
 enum TaskType {LOCATE, TRIANGULATE, ORIENT, LOCATEPLUS, DISTANCE};
+enum DataSetType {NORMAL, MUTANT};
 
 inline string toString(TaskType taskType){
     string output;
@@ -58,6 +59,22 @@ inline string toString(TaskType taskType){
     
     return output;
 }
+
+inline string toString(DataSetType dataSetType){
+    string output;
+    switch (dataSetType) {
+        case NORMAL:
+            output = "normal";
+            break;
+        case MUTANT:
+            output = "mutant";
+            break;
+        default:
+            break;
+    }    
+    return output;
+}
+
 
 inline NSString* toNSString(TaskType taskType){
     string temp = toString(taskType);
@@ -89,6 +106,10 @@ vector<int> NSArrayIntToVector(NSArray* inputArray);
 // Convert an NSArray of string to a vector of CGPoint
 vector<vector<int>> NSArrayStringToVector(NSArray* inputArray);
 
+
+//----------------------------------
+// TestSpec class
+//----------------------------------
 class TaskSpec{
 public:
     // Properties
@@ -98,6 +119,8 @@ public:
     
     vector<snapshot> snapshot_array;
     vector<snapshot> practice_snapshot_array; //store the practice snapshot
+    
+    bool isMutant;
     
     vector<pair<string, vector<int>>> code_location_vector; // For debug purpose
     NSMutableDictionary* testSpecDictionary;
@@ -119,20 +142,18 @@ public:
 private:
     // Task specific generation file
     void generateLocateTests(vector<data> &t_data_array);
-
+    
     void generateOrientTests(vector<data> &t_data_array);
 
-    void generateDistanceTests(vector<data> &t_data_array);
-
     // Add one data and snapshot
-    void addOneDataAndSnapshot(string trialString, CGPoint openGLPoint,
+    void addOneDataAndSnapshot(string trialString, IntPoint openGLPoint,
                                vector<data> &t_data_array);
 
     void generateTriangulateTests(vector<data> &t_data_array);
     void generateLocatePlusTests(vector<data> &t_data_array);
 
     void batchCommitLocationPairs(string postfix,
-                                  vector<vector<int>> location_pairs,
+    pair<vector<vector<float>>, vector<vector<int>>> location_pairs,
                                   vector<int> is_answer_list,
                                   vector<data> &t_data_array);
     
@@ -140,6 +161,7 @@ private:
     void addTwoDataAndSnapshot(string trialString,
                                vector<CGPoint> openGLPoints,
                                vector<int> is_answer_list,
+                               vector<float> truth_stats,
                                vector<data> &t_data_array);
 #endif
 };

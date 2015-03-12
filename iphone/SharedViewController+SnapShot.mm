@@ -119,7 +119,7 @@
             label_array = @[@"[i]Subway"];
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
-            label_array = @[@"Hotel", @"Train St."];
+            label_array = @[@"Hotel", @"Train Sta."];
             self.UIConfigurations
             [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
         }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
@@ -378,7 +378,27 @@
     
     // Scale the map correctly, and shift the eiOS
     [self scaleiOSMapForDesktopMode:mySnapshot];
-    [self shiftEmulatorAndMapForLocateCollectMode];
+    
+    
+    // Need to decide which way to shift
+    CGPoint shift;
+    
+    CGPoint offxy = [self.mapView convertCoordinate:CLLocationCoordinate2DMake(self.model->data_array[mySnapshot.selected_ids[0]].latitude,
+        self.model->data_array[mySnapshot.selected_ids[0]].longitude)
+                                      toPointToView:self.compassView];
+    
+    if (offxy.x> self.renderer->view_width/2)
+    {
+        shift.x = -self.renderer->view_width/2 +
+        self.renderer->emulatediOS.width/2;
+    }else{
+        shift.x = self.renderer->view_width/2 -
+        self.renderer->emulatediOS.width/2;
+    }
+    shift.y = 0;
+    [self shiftTestingEnvironmentBy:shift];
+    // Also need to set up the positions of the em iOS
+    // and the compass
 #endif
 }
 
@@ -393,18 +413,6 @@
 #endif
 }
 
-- (void)shiftEmulatorAndMapForLocateCollectMode{
-#ifndef __IPHONE__
-    // There could be a bug somewhere.
-    // Also need to set up the positions of the em iOS
-    // and the compass
-    CGPoint shift;
-    shift.x = -self.renderer->view_width/2 +
-    self.renderer->emulatediOS.width/2;
-    shift.y = 0;
-    [self shiftTestingEnvironmentBy:shift];
-#endif
-}
 
 //----------------------
 // Set up the environment to collect the answer for the localize test

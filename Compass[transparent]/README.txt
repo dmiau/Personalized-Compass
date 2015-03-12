@@ -3705,23 +3705,30 @@ generate all, and randomly pick?
 - resume a study after crash? continuously save record?
 
 -------------------------------------------------------------------
-3.11.2015
+3.11, 12.2015
 -------------------------------------------------------------------
 ***** Done
 - generate all, and randomly pick?(truth informatino is fixed)  [9:08AM]
 - iOS snapshot loading issue
+- save UTF string [7:16PM]
+- convinced Barbara [7:17PM]
+- number the snapshot [1:32PM]
+- wedge and compass use different but comparable test cases? [1:56PM]
+- produceMutant [3:36PM]
+- more meaningful test cases (repeated measure or multi-level?)
+(flip the orientation task) [3:36PM]
+- log truth information in the notefield [3:36PM]
+- how to kill a study session? (added a reset button) [3:41PM]
+
 ***** Working
 How to counter-balance test cases? And visualzie data quality?
 
 - should call the off-screen location x, not subway
 - add a background image to the map?
-- log truth information in the notefield
+
 - fix the max base length
 - resume a study after crash? continuously save record?
 
-- more meaningful test cases (repeated measure or multi-level?)
-(flip the orientation task)
-- wedge and compass use different but comparable test cases?
 - Have myself try the tests and log the time (repeated measure data analysis)
 
 

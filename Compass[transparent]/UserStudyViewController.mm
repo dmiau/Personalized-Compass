@@ -218,6 +218,11 @@
     }
 }
 
+- (IBAction)resetTestEnv:(id)sender {
+    self.rootViewController.testManager->toggleStudyMode(OFF, YES);
+    [self disableStudyButtons];
+}
+
 
 //-----------------
 // Save the study record

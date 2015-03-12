@@ -125,6 +125,10 @@ void TestManager::generateAllTestVectors(
     pool<TaskType> phone_task_pool = pool<TaskType>(phone_task_list, FULL, 1);
     pool<TaskType> watch_task_pool = pool<TaskType>(watch_task_list, FULL, 1);
     
+    pool<DataSetType> dataset_pool = pool<DataSetType>(data_set_list, FULL, 1);
+    dataset_pool.content = {{{NORMAL, MUTANT}}, {{NORMAL, MUTANT}},
+        {{MUTANT, NORMAL}}, {{MUTANT, NORMAL}}};
+    
     string dprefix = "", dvprefix = "", dvtprefix = "", prefix = "";
     vector<string> user_test_vector;
     all_test_vectors.clear();
@@ -138,68 +142,11 @@ void TestManager::generateAllTestVectors(
         user_test_vector.clear();
         vector<snapshot> t_snapshot_array;
         
-        /*
-         vector<DeviceType> t_device_list = device_pool.next();
-         for (int di = 0; di < device_list.size(); ++di){
-         // Device prefix
-         dprefix = toString(t_device_list[di]);
-         
-         vector<VisualizationType> t_visualization_list = visualization_pool.next();
-         for (int vi = 0; vi < visualization_list.size(); ++vi){
-         // Visualization prefix
-         dvprefix = dprefix + ":" + toString(t_visualization_list[vi]);
-         
-         vector<TaskType> t_task_list = task_pool.next();
-         for (int ti = 0; ti < task_list.size(); ++ti){
-         // Task prefix
-         dvtprefix = dvprefix + ":" + toString(t_task_list[ti]);
-         
-         //--------------------------
-         // Retrive the taskSpec object from taskSpec_dict
-         //--------------------------
-         if (taskSpec_dict.find(dvtprefix) == taskSpec_dict.end()){
-         NSString *t_str = [NSString stringWithUTF8String:dvtprefix.c_str()];
-         [rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"%@ cannot be found in taskSpec_dict",
-         t_str]];
-         }else{
-         
-         //-------------------
-         // Need to set the visualization here,
-         // because two visualizations may share the same
-         // snapshot
-         //-------------------
-         
-         TaskSpec myTaskSpec = taskSpec_dict[dvtprefix];
-         vector<int> shuffled_order = myTaskSpec.shuffleTests();
-         for (auto it = shuffled_order.begin(); it < shuffled_order.end(); ++it)
-         {
-         string snapshot_name = string
-         ([myTaskSpec.snapshot_array[*it].name UTF8String]);
-         user_test_vector.push_back(snapshot_name);
-         
-         //-----------
-         // Make a copy of the snapshot object and put it
-         // to t_snapshot_array
-         // Note some extra configurations are needed
-         //-----------
-         t_snapshot_array.push_back(myTaskSpec.snapshot_array[*it]);
-         t_snapshot_array.back().visualizationType =
-         t_visualization_list[vi];
-         t_snapshot_array.back().deviceType =
-         t_device_list[di];
-         t_snapshot_array.back().kmlFilename =
-         test_kml_filename;
-         }
-         }
-         }
-         }
-         */
-        
         //--------------------
         // Alternative configurations
         //--------------------
         vector<VisualizationType> t_visualization_list = visualization_pool.next();
+        vector<DataSetType> t_dataset_list = dataset_pool.next();
         for (int vi = 0; vi < t_visualization_list.size(); ++vi){
             
             vector<DeviceType> t_device_list = device_pool.next();
@@ -215,9 +162,9 @@ void TestManager::generateAllTestVectors(
                 for (int ti = 0; ti < t_task_list.size(); ++ti){
                     // Task code
                     string task_code =
-                    toString(t_visualization_list[vi]) + ":" +
                     toString(t_device_list[di]) + ":" +
-                    toString(t_task_list[ti]);
+                    toString(t_task_list[ti]) + ":" +
+                    toString(t_dataset_list[vi]);
                     
                     //--------------------------
                     // Retrive the taskSpec object from taskSpec_dict
@@ -237,9 +184,11 @@ void TestManager::generateAllTestVectors(
                         
                         TaskSpec myTaskSpec = taskSpec_dict[task_code];
                         vector<int> shuffled_order = myTaskSpec.shuffleTests();
+                        
                         for (auto it = shuffled_order.begin(); it < shuffled_order.end(); ++it)
                         {
-                            string snapshot_name = string
+                            string snapshot_name = toString(t_visualization_list[vi])
+                            + ":" + string
                             ([myTaskSpec.snapshot_array[*it].name UTF8String]);
                             user_test_vector.push_back(snapshot_name);
                             
@@ -249,6 +198,8 @@ void TestManager::generateAllTestVectors(
                             // Note some extra configurations are needed
                             //-----------
                             t_snapshot_array.push_back(myTaskSpec.snapshot_array[*it]);
+                            t_snapshot_array.back().name =
+                            [NSString stringWithUTF8String:snapshot_name.c_str()];
                             t_snapshot_array.back().visualizationType =
                             t_visualization_list[vi];
                             t_snapshot_array.back().deviceType =

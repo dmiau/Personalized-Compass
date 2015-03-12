@@ -120,7 +120,8 @@ int TestManager::generateTests(){
     device_list = {PHONE, WATCH};
     visualization_list = {VIZWEDGE, VIZPCOMPASS};
     task_list = {LOCATE, TRIANGULATE, ORIENT, LOCATEPLUS, DISTANCE}; //DISTANCE
-
+    data_set_list = {NORMAL, MUTANT};
+    
     phone_task_list = {LOCATE, ORIENT, DISTANCE};
     watch_task_list = {TRIANGULATE, LOCATEPLUS};
 
@@ -131,27 +132,35 @@ int TestManager::generateTests(){
     t_data_array.clear();
     code_xy_vector.clear();
     practice_snapshot_vector.clear();
-    for (auto vit = visualization_list.begin(); vit != visualization_list.end(); ++vit)
+
+    
+    //=====================
+    // The following generates two classes of TestSpecs, one normal and one mutant
+    //=====================
+    for (auto dsit = data_set_list.begin(); dsit != data_set_list.end(); ++dsit)
     {
         for (auto dit = device_list.begin(); dit != device_list.end(); ++dit)
         {
             for (auto tit = task_list.begin(); tit != task_list.end(); ++tit)
             {
-                string code = toString(*vit) + ":" + toString(*dit) + ":" +
-                toString(*tit);
+                string code = toString(*dit) + ":" +
+                toString(*tit) + ":" + toString(*dsit);
+                
                 TaskSpec myTaskSpec(*tit,
                                     testSpecDictionary,
                                     rootViewController);
-             
                 if (myTaskSpec.deviceType != *dit)
                     continue;
+                
+                if (*dsit == MUTANT)
+                    myTaskSpec.isMutant = YES;
                 
                 //--------------
                 // Here we restrict tasks to only be generated on specific platform
                 //--------------
                 if (myTaskSpec.deviceType == *dit){
                     myTaskSpec.identifier = code;
-                    myTaskSpec.deviceType = *dit;
+                    myTaskSpec.deviceType = *dit; 
                     myTaskSpec.generateLocationAndSnapshots(t_data_array);
                     taskSpec_dict[code] = myTaskSpec;
                     
@@ -198,7 +207,7 @@ void TestManager::saveLocationVector(){
     NSString *folder_path = [model->desktopDropboxDataRoot
                              stringByAppendingString:test_foldername];
     NSString *out_file = [folder_path
-                          stringByAppendingPathComponent:test_location_filename];
+                          stringByAppendingPathComponent:@"temp.locations.old"];
     CHCSVWriter *w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
     
     // http://stackoverflow.com/questions/1443793/iterate-keys-in-a-c-map
@@ -210,6 +219,38 @@ void TestManager::saveLocationVector(){
         [w writeLineOfFields:@[[NSString stringWithUTF8String:code.c_str()],
                                [NSNumber numberWithInteger:xy[0]],
                                [NSNumber numberWithInteger:xy[1]]]];
+    }
+    
+    out_file = [folder_path
+                          stringByAppendingPathComponent:test_location_filename];
+    w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
+    
+    //---------------------
+    // Pull the information from snapshots in TaskSpec direction
+    //---------------------
+    for (auto iter = taskSpec_dict.begin(); iter != taskSpec_dict.end(); ++iter)
+    {
+        vector<snapshot> t_snapshot = iter->second.snapshot_array;
+        
+        for (int i = 0; i < t_snapshot.size(); ++i)
+        {
+            [w writeLineOfFields:@[t_snapshot[i].name,
+                                   t_snapshot[i].notes]];
+        }
+    }
+
+    //---------------------
+    // Pull the information from snapshots in TaskSpec direction
+    //---------------------
+    for (auto iter = taskSpec_dict.begin(); iter != taskSpec_dict.end(); ++iter)
+    {
+        vector<snapshot> t_snapshot = iter->second.practice_snapshot_array;
+        
+        for (int i = 0; i < t_snapshot.size(); ++i)
+        {
+            [w writeLineOfFields:@[t_snapshot[i].name,
+                                   t_snapshot[i].notes]];
+        }
     }
     
     //---------------------

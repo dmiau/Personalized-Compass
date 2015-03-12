@@ -207,10 +207,15 @@
                                         blue: (float)self.model->color_map[row][2]/256
                                         alpha: 1];
     
-    result.textField.stringValue = [NSString stringWithCString:
-                                    location_name.c_str()
-                                                      encoding:
-                                    [NSString defaultCStringEncoding]];
+    NSString* table_title = [NSString stringWithFormat:@"%d: %@",
+                             row,
+                             [NSString stringWithCString:
+                              location_name.c_str()
+                                                encoding:
+                              [NSString defaultCStringEncoding]]];
+        
+    result.textField.stringValue = table_title;
+    
     // connect data_ptr and rootViewController
     result.data_ptr = &(self.model->data_array[row]);
     result.rootViewController = self.rootViewController;

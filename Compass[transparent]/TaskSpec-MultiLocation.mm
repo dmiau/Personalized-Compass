@@ -23,7 +23,8 @@ vector<int> findTwoFurthestLocationIDs(vector<data> &data_array, vector<int> loc
 //-----------------------
 // Generate triangulation locations
 //-----------------------
-pair<vector<string>, vector<vector<int>>> generateRandomTriangulateLocations(std::mt19937  generator,
+pair<vector<vector<float>>, vector<vector<int>>> generateRandomTriangulateLocations(
+        std::mt19937  generator,
          vector<int> base_length_vector, vector<int> ratio_vecotr, vector<int> delta_theta_vecotr)
 {
     // ratio: 1:4 [4]
@@ -39,7 +40,7 @@ pair<vector<string>, vector<vector<int>>> generateRandomTriangulateLocations(std
     // Test Generation Parameters
     //-----------------
     vector<vector<int>> output;
-    vector<string> truth_string_vector;
+    vector<vector<float>> truth_stats;
     
     int trial_n = (int)delta_theta_vecotr.size() * (int)ratio_vecotr.size()
     * base_length_vector.size();
@@ -76,18 +77,24 @@ pair<vector<string>, vector<vector<int>>> generateRandomTriangulateLocations(std
                 
                 // Calculate point 2
                 float pt2_length = pt1_length * ratio_vecotr[j];
-                theta = theta + delta_theta_vecotr[k];
-                x = pt2_length * cos(theta/180 * M_PI);
-                y = pt2_length * sin(theta/180 * M_PI);
+                float theta2 = theta + delta_theta_vecotr[k];
+                x = pt2_length * cos(theta2/180 * M_PI);
+                y = pt2_length * sin(theta2/180 * M_PI);
                 
                 t_vector = {x, y};
                 output.push_back(t_vector);
-                truth_string_vector.push_back("happy");
+                
+                
+                // base_length, ratio, delta_theta, theta
+                vector<float> temp = {static_cast<float>(base_length_vector[i]),
+                    static_cast<float>(ratio_vecotr[j]),
+                static_cast<float>(delta_theta_vecotr[k]), theta};
+                truth_stats.push_back(temp);
             }
         }
     }
     
-    return make_pair(truth_string_vector, output);
+    return make_pair(truth_stats, output);
 }
 
 //-----------------------
@@ -104,12 +111,10 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
     vector<int> delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_trials_theta"]);
     
-    pair<vector<string>, vector<vector<int>>> pair_output =
+    pair<vector<vector<float>>, vector<vector<int>>> pair_output =
     generateRandomTriangulateLocations(generator,
                         base_length_vector, ratio_vecotr, delta_theta_vecotr);
-    
-    vector<vector<int>> location_pair_vector = pair_output.second;
-    batchCommitLocationPairs("", location_pair_vector,
+    batchCommitLocationPairs("", pair_output,
                              vector<int>{0, 0}, t_data_array);
     
     //--------------
@@ -125,8 +130,7 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
     pair_output =
     generateRandomTriangulateLocations(generator,
                                        base_length_vector, ratio_vecotr, delta_theta_vecotr);
-    location_pair_vector = pair_output.second;
-    batchCommitLocationPairs("t", location_pair_vector,
+    batchCommitLocationPairs("t", pair_output,
                              vector<int>{0, 0}, t_data_array);
 }
 
@@ -144,11 +148,10 @@ void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array)
     vector<int> delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"lplus_trials_theta"]);
     
-    pair<vector<string>, vector<vector<int>>> pair_output =
+    pair<vector<vector<float>>, vector<vector<int>>> pair_output =
     generateRandomTriangulateLocations(generator,
                                        base_length_vector, ratio_vecotr, delta_theta_vecotr);
-    vector<vector<int>> location_pair_vector = pair_output.second;
-    batchCommitLocationPairs("", location_pair_vector,
+    batchCommitLocationPairs("", pair_output,
                              vector<int>{1, 0}, t_data_array);
     
     //--------------
@@ -164,8 +167,7 @@ void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array)
     pair_output =
     generateRandomTriangulateLocations(generator,
                                        base_length_vector, ratio_vecotr, delta_theta_vecotr);
-    location_pair_vector = pair_output.second;
-    batchCommitLocationPairs("t", location_pair_vector,
+    batchCommitLocationPairs("t", pair_output,
                              vector<int>{1, 0}, t_data_array);
 }
 
@@ -176,18 +178,18 @@ void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array)
 // (x2, y2)...
 //-----------------------
 void TaskSpec::batchCommitLocationPairs(string postfix,
-                                        vector<vector<int>> location_pair_vector,
+        pair<vector<vector<float>>, vector<vector<int>>> location_pair_vector,
                                         vector<int> is_answer_list,
                                         vector<data> &t_data_array)
 {
-    int trial_n = (int)location_pair_vector.size()/2;
+    int trial_n = (int)location_pair_vector.first.size()/2;
 
     for (int i = 0; i < trial_n; ++i)
     {
-        int x1 = location_pair_vector[i*2][0];
-        int y1 = location_pair_vector[i*2][1];
-        int x2 = location_pair_vector[i*2+1][0];
-        int y2 = location_pair_vector[i*2+1][1];
+        int x1 = location_pair_vector.second[i*2][0];
+        int y1 = location_pair_vector.second[i*2][1];
+        int x2 = location_pair_vector.second[i*2+1][0];
+        int y2 = location_pair_vector.second[i*2+1][1];
         
         string trialString = to_string(i) + postfix;
         
@@ -197,7 +199,9 @@ void TaskSpec::batchCommitLocationPairs(string postfix,
         code_location_vector.push_back(make_pair(identifier + ":" + trialString + "-1",
                                                  vector<int>{x2, y2}));
         addTwoDataAndSnapshot(trialString, openGLPoints,
-                              is_answer_list, t_data_array);
+                              is_answer_list,
+                              location_pair_vector.first[i],
+                              t_data_array);
     }
 }
 //-----------------------
@@ -206,6 +210,7 @@ void TaskSpec::batchCommitLocationPairs(string postfix,
 void TaskSpec::addTwoDataAndSnapshot(string trialString,
                                      vector<CGPoint> openGLPoints,
                                      vector<int> is_answer_list,
+                                     vector<float> truth_stats,
                                      vector<data> &t_data_array)
 {
     for (int j = 0; j < 2; ++j){
@@ -295,6 +300,12 @@ void TaskSpec::addTwoDataAndSnapshot(string trialString,
     t_snapshot.is_answer_list = is_answer_list;
     t_snapshot.orientation = 0;
     
+    // Generate notes from truth stats
+    NSString* notes = [NSString stringWithFormat:
+        @"base: %.2f, ratio: %.2f, delta_theta: %.2f, theta: %.2f",
+        truth_stats[0], truth_stats[1], truth_stats[2], truth_stats[3]];
+    
+    t_snapshot.notes = notes;
     if (trialString.find("t") == string::npos)
         snapshot_array.push_back(t_snapshot);
     else
