@@ -127,7 +127,8 @@
         NSCharacterSet* nonNumbers = [NSCharacterSet decimalDigitCharacterSet];
         if ([content rangeOfCharacterFromSet:nonNumbers].location != NSNotFound){
             //-------------
-            // Contains numbers
+            // Contains a number
+            // This only happens in the orient test
             //-------------
             self.testManager->iOSAnswer = [content doubleValue];
             

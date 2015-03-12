@@ -169,6 +169,10 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
         }
     }else if (mode == OSXSTUDY){
 #ifndef __IPHONE__
+        
+        // Show text message after the last test
+        [rootViewController displayInformationText];
+        
         [rootViewController.nextTestButton setEnabled:NO];
         [rootViewController.previousTestButton setEnabled:NO];
         [rootViewController.confirmButton setEnabled:NO];
@@ -279,8 +283,13 @@ void TestManager::updateUITestMessage(){
 void TestManager::showPreviousTest(){
     
     // Do NOT execute this method if test_counter is already 0
-    if (test_counter == 0)
+    if (test_counter == 0){
+#ifndef __IPHONE__
+        [rootViewController displayInformationText];
+#endif
         return;
+    }
+
     showTestNumber(test_counter -1);
 }
 
@@ -291,7 +300,12 @@ void TestManager::showNextTest(){
     
     // Do NOT execute this method if test_counter is already the max
     if (test_counter == (model->snapshot_array.size() - 1))
+    {
+#ifndef __IPHONE__
+        [rootViewController displayInformationText];
+#endif
         return;
+    }
     showTestNumber(test_counter + 1);
 }
 
@@ -332,6 +346,12 @@ void TestManager::showTestNumber(int test_id){
         }
     }
 
+    if (test_counter == 0)
+    {
+        // Show text message before the very first
+        [rootViewController displayInformationText];
+    }
+    
 #endif
 }
 
@@ -340,6 +360,13 @@ bool TestManager::verifyAnswerQuality(){
     snapshot mySnapshot = model->snapshot_array[test_counter];
     
     int data_id = mySnapshot.selected_ids[0];
+    
+    record myRecord = record_vector[test_counter];
+    if (!myRecord.isAnswered){
+        [rootViewController displayPopupMessage:
+         @"Please answer before proceeding to the next test."];
+        return false;
+    }
     
     //------------------------
     // Calculat the ground truth based on task type
@@ -362,11 +389,17 @@ bool TestManager::verifyAnswerQuality(){
 
     }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound)
     {
-        iOSAnswer = 10000;
+//        iOSAnswer = 10000;
         //-----------------
         // Orient test
         //-----------------
-
+        if (iOSAnswer > 1000){
+            [rootViewController displayPopupMessage:
+             @"Please answer before proceeding to the next test."];
+            return false;
+        }
+        
+        
     }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound)
     {
         //-----------------

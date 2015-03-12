@@ -119,15 +119,23 @@
         return;
     }
     
+    if (![self.informationTextField isHidden]){
+        [self.informationTextField setHidden:YES];
+        [self.informationImageView setHidden:NO];
+        return;
+    }
+    
     // Dismiss the dialog
     [self toggleInformationView:nil];
     
-    // Start the test
-    self.testManager->startTest();
-    
-    // Enable the buttons
-    [self.nextTestButton setEnabled:NO];
-    [self.confirmButton setEnabled:YES];
+    if (self.testManager->testManagerMode != OFF){
+        // Start the test
+        self.testManager->startTest();
+        
+        // Enable the buttons
+        [self.nextTestButton setEnabled:NO];
+        [self.confirmButton setEnabled:YES];
+    }
 }
 
 - (IBAction)toggleInformationView:(id)sender {
@@ -193,10 +201,40 @@
     [self.confirmButton setEnabled:NO];
 }
 
+//----------------------------
+// Display test information
+//----------------------------
 - (void) displayInformationText
 {
+    [self.informationTextField setHidden:NO];
     
-    self.informationTextField.stringValue = @"Hello World!";
+    string testSpecMsg;
+    for (auto iter = self.testManager->snapshotDistributionInfo.begin();
+         iter != self.testManager->snapshotDistributionInfo.end(); ++iter)
+    {
+        testSpecMsg = testSpecMsg + "\n" + iter->first + ": " + to_string(iter->second);
+    }
+    
+
+    int ans_counter = 0;
+    for (int i = 0; i < self.testManager->record_vector.size(); ++i){
+        if (self.testManager->record_vector[i].isAnswered){
+            ++ans_counter;
+        }
+    }
+    string answerMsg = to_string(ans_counter) + " out of " +
+    to_string((int)self.testManager->record_vector.size()) + " answered.";
+    
+    string fileMsg;
+    fileMsg = "DBRoot: \n" + string([self.model->desktopDropboxDataRoot UTF8String]) + "\n" +
+    "Location file: " + string([self.model->location_filename UTF8String]) + "\n" +
+    "Snapshot file: " + string([self.model->snapshot_filename UTF8String]) + "\n" +
+    "Record file: " + string([self.testManager->record_filename UTF8String]) + "\n\n";
+    
+    string message;
+    message = testSpecMsg + "\n\n" + answerMsg + "\n\n" + fileMsg;
+    
+    self.informationTextField.stringValue = [NSString stringWithUTF8String:message.c_str()];
     
     //------------------
     // Show the information view
@@ -205,7 +243,7 @@
     [self.compassView setHidden:YES];
     [self.informationView setHidden:NO];
     [self.informationImageView setHidden:YES];
-    [self.informationTextField setHidden:NO];
+
 }
 
 //-------------------
@@ -222,6 +260,9 @@
          rangeOfString:toNSString(DISTANCE)].location!= NSNotFound)
         
     {
+        //--------------------
+        // Do a special check for the distance estimation task
+        //--------------------
         if (NumberIsFraction(self.studyIntAnswer)){
             [self displayPopupMessage:@"Distance estimation must be an integer."];
             return;
@@ -238,8 +279,11 @@
         self.testManager->record_vector[test_counter].end();
     }
     
-    // Enable the next button if the answer is verified
-    if (self.testManager->verifyAnswerQuality()){
+    // Enable the next button if the answer is verified,
+    // or when the system is put in dev/practice mode
+    if (self.testManager->verifyAnswerQuality()
+        || [self.isShowAnswerAvailable boolValue])
+    {
         [self.nextTestButton setEnabled:YES];
     }
 }

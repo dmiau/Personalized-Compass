@@ -184,6 +184,7 @@ public:
     //**********************
     
     NSMutableDictionary* testSpecDictionary;
+    // This dictionary contains the specifications loaded from testSpec.plist
     
     // Test generation parameters
     // These parameters specify where the generated tests should go
@@ -194,7 +195,8 @@ public:
     NSString *practice_filename;
     NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
     NSString *record_filename;
-
+    NSString *test_specs_filename;          //e.g., testSpec.plist
+    
     //---------------
     // test generation specification
     //---------------
@@ -232,7 +234,9 @@ public:
     vector<snapshot> practice_snapshot_vector; // To store the practice snapshots
     vector<record> record_vector;
     vector<data> t_data_array; // This structure holds the generated locationss
+
     map<string, int> snapshotDistributionInfo;
+    // Contains the information of test_category/number_of_tests
     vector<int> testCountWithinCategory;
     
     //---------------

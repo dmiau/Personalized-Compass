@@ -48,7 +48,8 @@
     self.test_snapshot_prefix = self.rootViewController.testManager->test_snapshot_prefix;
     self.practice_filename = self.rootViewController.testManager->practice_filename;
     self.record_filename = self.rootViewController.testManager->record_filename;
-    
+    self.test_specs_filename = self.rootViewController.testManager->test_specs_filename;
+
     self.custom_test_vectorname = @"practice";
 }
 
@@ -97,6 +98,7 @@
 }
 
 - (IBAction)reloadTaskSpec:(id)sender {
+    self.rootViewController.testManager->test_specs_filename = self.test_specs_filename;
     self.rootViewController.testManager->loadTestSpecPlist();
 }
 
@@ -108,8 +110,8 @@
     self.rootViewController.testManager->alltest_vector_filename = self.alltest_vector_filename;
     self.rootViewController.testManager->test_snapshot_prefix = self.test_snapshot_prefix;
     self.rootViewController.testManager->record_filename = self.record_filename;
+    self.rootViewController.testManager->test_specs_filename = self.test_specs_filename;
 }
-
 //--------------------------
 // Manually test creation
 //--------------------------

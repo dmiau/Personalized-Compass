@@ -35,6 +35,7 @@
 @property NSString *test_snapshot_prefix;     //e.g., snapshot-participant0.kml
 @property NSString *practice_filename;        //e.g., practice.snapshot
 @property NSString *record_filename;
+@property NSString *test_specs_filename;      //e.g., testSpec.plist
 @property NSString *custom_test_vectorname;
 
 //-------------

@@ -61,6 +61,27 @@
         [self.rootViewController.model->desktopDropboxDataRoot stringByAppendingPathComponent: @"study"];
     }
     
+    // Update file path info
+    
+    // Check if the files exist
+    NSString* dbRoot = self.rootViewController.model->desktopDropboxDataRoot;
+    
+    self.practice_filepath = [dbRoot stringByAppendingPathComponent:
+                              self.rootViewController.testManager->practice_filename];
+    
+    self.snapshot_filepath = [dbRoot stringByAppendingPathComponent:
+                              [self.rootViewController.testManager->test_snapshot_prefix
+                               stringByAppendingFormat:@"%@.snapshot", self.participant_id]];
+    
+    NSString* record_filename = [NSString stringWithFormat:
+                                 @"participant%@.record", self.participant_id];
+    self.record_filepath = [dbRoot stringByAppendingPathComponent:
+                            record_filename];
+    
+    self.test_kml_path = [dbRoot stringByAppendingPathComponent:
+                          self.rootViewController.testManager->test_kml_filename];
+    
+    
     // Update GUI components
     self.recordFileNameTextField.stringValue =
     self.rootViewController.testManager->record_filename;
@@ -124,26 +145,24 @@
 // Load study files
 //-----------------
 - (IBAction)loadStudyFiles:(id)sender {
-    
-    NSString* practice_filename = self.rootViewController.testManager->practice_filename;
-    
     // Check if the files exist
     NSString* dbRoot = self.rootViewController.model->desktopDropboxDataRoot;
     
     self.practice_filepath = [dbRoot stringByAppendingPathComponent:
-                                   practice_filename];
+                              self.rootViewController.testManager->practice_filename];
     
     self.snapshot_filepath = [dbRoot stringByAppendingPathComponent:
-               [self.rootViewController.testManager->test_snapshot_prefix
-                stringByAppendingFormat:@"%@.snapshot", self.participant_id]                    ];
+                              [self.rootViewController.testManager->test_snapshot_prefix
+                               stringByAppendingFormat:@"%@.snapshot", self.participant_id]];
     
     NSString* record_filename = [NSString stringWithFormat:
                                  @"participant%@.record", self.participant_id];
     self.record_filepath = [dbRoot stringByAppendingPathComponent:
-                                 record_filename];
+                            record_filename];
     
     self.test_kml_path = [dbRoot stringByAppendingPathComponent:
-                               self.rootViewController.testManager->test_kml_filename];
+                          self.rootViewController.testManager->test_kml_filename];
+
 
     if (![[NSFileManager defaultManager] fileExistsAtPath:
           self.practice_filepath]){
@@ -180,7 +199,8 @@
     }
     
     // Load the practice file and enable other buttons
-    self.rootViewController.model->snapshot_filename = practice_filename;
+    self.rootViewController.model->snapshot_filename =
+    self.rootViewController.testManager->practice_filename;
     
     if (readSnapshotKml(self.rootViewController.model) != EXIT_SUCCESS){
         [self.rootViewController displayPopupMessage:@"Failed to load practice.snapshot"];
@@ -228,6 +248,9 @@
 // Save the study record
 //-----------------
 - (IBAction)saveStudyRecords:(id)sender {
+    self.record_filepath = [self.model->desktopDropboxDataRoot
+                            stringByAppendingPathComponent:
+                            self.recordFileNameTextField.stringValue];
     self.rootViewController.testManager->saveRecord(
     self.record_filepath);
 }

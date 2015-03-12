@@ -3719,10 +3719,10 @@ generate all, and randomly pick?
 (flip the orientation task) [3:36PM]
 - log truth information in the notefield [3:36PM]
 - how to kill a study session? (added a reset button) [3:41PM]
+- added test information screen [5:35PM]
 
 ***** Working
 How to counter-balance test cases? And visualzie data quality?
-
 - should call the off-screen location x, not subway
 - add a background image to the map?
 
@@ -3730,8 +3730,6 @@ How to counter-balance test cases? And visualzie data quality?
 - resume a study after crash? continuously save record?
 
 - Have myself try the tests and log the time (repeated measure data analysis)
-
-
 
 
 

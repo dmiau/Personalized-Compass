@@ -33,6 +33,7 @@ class compassMdl;
 
 - (IBAction)saveKML:(id)sender;
 - (IBAction)saveSnspahotAs:(id)sender;
+
 - (IBAction)reloadSnapshotFile:(id)sender;
 
 - (IBAction)toggleStudyMode:(id)sender;

@@ -56,7 +56,8 @@ int TestManager::initTestManager(){
     alltest_vector_filename = @"allTestVectors.tests";
     test_snapshot_prefix = @"snapshot-participant";
     practice_filename = @"practice.snapshot";
-    record_filename = @"study0.record";
+    record_filename = @"participant0.record";
+    test_specs_filename = @"testSpec.plist";
     
 #ifndef __IPHONE__
     loadTestSpecPlist();
@@ -85,7 +86,7 @@ void TestManager::loadTestSpecPlist(){
     NSString *errorDesc = nil;
     NSString *plistPath;
     plistPath = [model->desktopDropboxDataRoot
-                 stringByAppendingPathComponent: @"testSpec.plist"];
+                 stringByAppendingPathComponent: test_specs_filename];
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
     testSpecDictionary = (NSDictionary *)[NSPropertyListSerialization
                                           propertyListFromData:plistXML
