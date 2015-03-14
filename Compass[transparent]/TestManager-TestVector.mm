@@ -183,7 +183,47 @@ void TestManager::generateAllTestVectors(
                         //-------------------
                         
                         TaskSpec myTaskSpec = taskSpec_dict[task_code];
-                        vector<int> shuffled_order = myTaskSpec.shuffleTests();
+                        
+                        
+                        
+                        //-------------------
+                        // Insert a set of practice snapshots here
+                        //-------------------
+                        if (di == 0 && ti == 0){
+                            vector<snapshot> t_practice_snapshots =
+                            practice_snapshot_dict[t_dataset_list[vi]];
+                            
+                            // Configure and insert snapshots
+                            for (int i = 0; i < t_practice_snapshots.size(); ++i)
+                            {
+                                string snapshot_name = toString(t_visualization_list[vi])
+                                + ":" + string
+                                ([t_practice_snapshots[i].name UTF8String]);
+                                user_test_vector.push_back(snapshot_name);
+                                
+                                //-----------
+                                // Make a copy of the snapshot object and put it
+                                // to t_snapshot_array
+                                // Note some extra configurations are needed
+                                //-----------
+                                t_snapshot_array.push_back(t_practice_snapshots[i]);
+                                t_snapshot_array.back().name =
+                                [NSString stringWithUTF8String:snapshot_name.c_str()];
+                                t_snapshot_array.back().visualizationType =
+                                t_visualization_list[vi];
+                                
+                                // Device type varies by task,
+                                // and it is already set when taskType is
+                                // initialized
+                                t_snapshot_array.back().kmlFilename =
+                                test_kml_filename;
+                            }
+                        }
+
+                        //-------------------
+                        // Insert test snapshot
+                        //-------------------
+                        vector<int> shuffled_order = myTaskSpec.shuffleTests(generator);
                         
                         for (auto it = shuffled_order.begin(); it < shuffled_order.end(); ++it)
                         {
@@ -202,8 +242,6 @@ void TestManager::generateAllTestVectors(
                             [NSString stringWithUTF8String:snapshot_name.c_str()];
                             t_snapshot_array.back().visualizationType =
                             t_visualization_list[vi];
-                            t_snapshot_array.back().deviceType =
-                            t_device_list[di];
                             t_snapshot_array.back().kmlFilename =
                             test_kml_filename;
                         }

@@ -24,7 +24,7 @@ vector<int> findTwoFurthestLocationIDs(vector<data> &data_array, vector<int> loc
 // Generate triangulation locations
 //-----------------------
 pair<vector<vector<float>>, vector<vector<int>>> generateRandomTriangulateLocations(
-        std::mt19937  generator,
+        std::mt19937  &generator,
          vector<int> base_length_vector, vector<int> ratio_vecotr, vector<int> delta_theta_vecotr)
 {
     // ratio: 1:4 [4]
@@ -100,7 +100,7 @@ pair<vector<vector<float>>, vector<vector<int>>> generateRandomTriangulateLocati
 //-----------------------
 // Triangulate tests
 //-----------------------
-void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
+void TaskSpec::generateTriangulateTests(vector<data> &t_data_array, std::mt19937 &generator)
 {
     snapshot_array.clear();
     code_location_vector.clear();
@@ -137,7 +137,7 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array)
 //-----------------------
 // LocatePlus tests
 //-----------------------
-void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array)
+void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array, std::mt19937 &generator)
 {
     snapshot_array.clear();
     code_location_vector.clear();
@@ -182,7 +182,9 @@ void TaskSpec::batchCommitLocationPairs(string postfix,
                                         vector<int> is_answer_list,
                                         vector<data> &t_data_array)
 {
-    int trial_n = (int)location_pair_vector.first.size()/2;
+    // The first vector<vector<float>> hold truth stats,
+    // one vector per test
+    int trial_n = (int)location_pair_vector.first.size();
 
     for (int i = 0; i < trial_n; ++i)
     {
@@ -298,6 +300,8 @@ void TaskSpec::addTwoDataAndSnapshot(string trialString,
     t_snapshot.coordinateRegion = coordinateRegion;
     t_snapshot.selected_ids = selected_ids;
     t_snapshot.is_answer_list = is_answer_list;
+    // Each task is associated with a device
+    t_snapshot.deviceType = deviceType;
     t_snapshot.orientation = 0;
     
     // Generate notes from truth stats

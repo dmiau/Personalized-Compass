@@ -124,7 +124,6 @@ public:
     
     vector<pair<string, vector<int>>> code_location_vector; // For debug purpose
     NSMutableDictionary* testSpecDictionary;
-    std::mt19937  generator;
 public:
     // Constructor
     TaskSpec();
@@ -134,11 +133,12 @@ public:
     TaskSpec(TaskType inTaskType,
              NSMutableDictionary* testSpecDictionary,
              DesktopViewController* desktopViewController);
-    vector<int> shuffleTests();
+    vector<int> shuffleTests(std::mt19937 &generator);
     
     // Based on the task type, different data and snapshot will be generated
     // Task generation only takes place on OSX
-    void generateLocationAndSnapshots(vector<data> &t_data_array);
+    void generateLocationAndSnapshots(vector<data> &t_data_array,
+                                      std::mt19937 &generator);
 private:
     // Task specific generation file
     void generateLocateTests(vector<data> &t_data_array);
@@ -149,8 +149,8 @@ private:
     void addOneDataAndSnapshot(string trialString, IntPoint openGLPoint,
                                vector<data> &t_data_array);
 
-    void generateTriangulateTests(vector<data> &t_data_array);
-    void generateLocatePlusTests(vector<data> &t_data_array);
+    void generateTriangulateTests(vector<data> &t_data_array, std::mt19937 &generator);
+    void generateLocatePlusTests(vector<data> &t_data_array, std::mt19937 &generator);
 
     void batchCommitLocationPairs(string postfix,
     pair<vector<vector<float>>, vector<vector<int>>> location_pairs,

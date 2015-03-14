@@ -81,24 +81,39 @@
         
         if ([command isEqualToString: @"SetupEnv"]){
             
-            if ([self.model->desktopDropboxDataRoot rangeOfString:@"study"].location == NSNotFound){
+            //-----------------
+            // Recevie setup env request from iOS, the dbroot must be in study
+            //-----------------
+            if (![[self.model->desktopDropboxDataRoot lastPathComponent] isEqualToString:@"study"])
+            {
                 // Change the folder to the study folder
                 self.model->desktopDropboxDataRoot =
                 [self.model->desktopDropboxDataRoot stringByAppendingPathComponent: @"study"];
-            }
-            
-            // Load the snapshot file
-            if (![myDictionary[@"Parameter"] isEqualToString:
-                  self.model->snapshot_filename])
-            {
-                self.model->snapshot_filename = myDictionary[@"Parameter"];
-                if (readSnapshotKml(self.model) != EXIT_SUCCESS){
-                    // readSnapshotKml should pop up a dialog alread, so we will return from here
-                    return;
+            }else{
+                if (self.testManager->testManagerMode == OSXSTUDY){
+                    // OSX is already in the study mode, and the directory is
+                    // correct
+                    
+                    if (![self.model->snapshot_filename isEqualToString:
+                          myDictionary[@"Parameter"]])
+                    {
+                        [self displayPopupMessage:
+                         [NSString stringWithFormat:@"iOS: %@\nOSX: %@\n Snapshot files mismatch between OSX and iOS.", myDictionary[@"Parameter"],
+                          self.model->snapshot_filename]];
+                        
+                         return;
+                    }
                 }
             }
-
+            // Load the snapshot file (a forced load)
+            self.model->snapshot_filename = myDictionary[@"Parameter"];
+            if (readSnapshotKml(self.model) != EXIT_SUCCESS){
+                // readSnapshotKml should pop up a dialog alread, so we will return from here
+                return;
+            }
+            
             self.testManager->toggleStudyMode(YES, NO);
+            self.testManager->isLocked = YES;            
         }else if ([command isEqualToString: @"LoadSnapshot"]){
             int test_id = [myDictionary[@"Parameter"] intValue];
             self.testManager->showTestNumber(test_id);

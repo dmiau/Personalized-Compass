@@ -13,7 +13,8 @@ using namespace std;
 //--------------
 // Test Spec Class
 //--------------
-TaskSpec::TaskSpec(TaskType inTaskType, NSMutableDictionary* myTestSpecDictionary,
+TaskSpec::TaskSpec(TaskType inTaskType,
+                   NSMutableDictionary* myTestSpecDictionary,
                    DesktopViewController* desktopViewController)
 {
     taskType = inTaskType;
@@ -48,7 +49,7 @@ TaskSpec::TaskSpec(){
 }
 
 
-vector<int> TaskSpec::shuffleTests(){
+vector<int> TaskSpec::shuffleTests(std::mt19937 &generator){
     vector<int> shuffled_order;
     shuffled_order.clear();
 
@@ -57,7 +58,7 @@ vector<int> TaskSpec::shuffleTests(){
     for (int i = 0; i < snapshot_array.size(); ++i){
         shuffled_order.push_back(i);
     }
-    random_shuffle(shuffled_order.begin(), shuffled_order.end());
+    shuffle(shuffled_order.begin(), shuffled_order.end(), generator);
     return shuffled_order;
 }
 #endif

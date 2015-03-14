@@ -51,6 +51,7 @@
         self.isDistanceEstControlAvailable = [NSNumber numberWithBool:NO];
         self.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
         self.testInformationMessage = @"Enable Study Mode from iOS";
+        self.isVerboseMessageOn = [NSNumber numberWithBool:NO];
         
         //--------------------
         // Initialize a list of UI configurations
@@ -78,6 +79,17 @@
                                   forKey:@"UIOverviewScaleMode"];
         [self.UIConfigurations setObject:@"All"
                                   forKey:@"ShowPins"];
+        
+        //--------------------
+        // Registering Users Defaults from plist
+        //--------------------
+        NSString *defaultsPath = [[NSBundle mainBundle] pathForResource:@"UserDefaults"
+                                                                 ofType:@"plist"];
+        NSDictionary *appDefaults = [NSDictionary dictionaryWithContentsOfFile:defaultsPath];
+        
+        [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+//        [[NSUserDefaults standardUserDefaults] setObject:@"Yes." forKey:@"TestStatus"];
+        
     }
     return self;
 }

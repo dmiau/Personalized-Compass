@@ -223,6 +223,7 @@ public:
     In reality, each task most likely associates with a device only.
      */
     map<string, TaskSpec> taskSpec_dict;
+    map<DataSetType, vector<snapshot>> practice_snapshot_dict;
     
     // A map holds all the IDs and (x, y) coordinates
     vector<pair<string, vector<int>>> code_xy_vector;
@@ -325,6 +326,11 @@ public:
 //-----------------
 inline string extractCode(NSString* snapshot_name){
     NSRange range = [snapshot_name rangeOfString:@":" options:NSBackwardsSearch];
-    return string([[snapshot_name substringToIndex:range.location] UTF8String ]);
+    string output = string([[snapshot_name substringToIndex:range.location] UTF8String ]);
+    if ([snapshot_name hasSuffix:@"t"]){
+        output = output + ":t";
+    }
+    
+    return output;
 }
 #endif /* defined(__Compass_transparent___TestManager__) */

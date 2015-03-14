@@ -3730,12 +3730,30 @@ How to counter-balance test cases? And visualzie data quality?
 - resume a study after crash? continuously save record?
 
 - Have myself try the tests and log the time (repeated measure data analysis)
+- hide the snapshot name, end the test and directly start.
+- test code counting is wrong
 
+-------------------------------------------------------------------
+3.11, 12.2015
+-------------------------------------------------------------------
+***** Done
+- test code counting is wrong [9:32PM]
+- How to counter-balance test cases? And visualzie data quality? [9:51AM]
+- 
 
+***** Working
+- should call the off-screen location x, not subway
+- add a background image to the map?
 
+- fix the max base length
+- resume a study after crash? continuously save record?
 
+- Have myself try the tests and log the time (repeated measure data analysis)
+- hide the snapshot name, end the test and directly start.
 
+Issues after my trials:
 
-
-
-
+- next button is not disabled in the test mode
+- message is not clear (a day in the city scenario?)
+- ending (reviewing screen) does not show answering stats.
+- lplus labels are blocked

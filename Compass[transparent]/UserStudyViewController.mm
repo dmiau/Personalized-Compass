@@ -66,9 +66,6 @@
     // Check if the files exist
     NSString* dbRoot = self.rootViewController.model->desktopDropboxDataRoot;
     
-    self.practice_filepath = [dbRoot stringByAppendingPathComponent:
-                              self.rootViewController.testManager->practice_filename];
-    
     self.snapshot_filepath = [dbRoot stringByAppendingPathComponent:
                               [self.rootViewController.testManager->test_snapshot_prefix
                                stringByAppendingFormat:@"%@.snapshot", self.participant_id]];
@@ -97,11 +94,6 @@
         throw(runtime_error("Unknown testManagerMode"));
     }
     
-    // Configure the auto-save checkbox
-    if (self.rootViewController.testManager->isRecordAutoSaved)
-        self.autoSaveCheckbox.state = NSOnState;
-    else
-        self.autoSaveCheckbox.state = NSOffState;
     
     if ([self.rootViewController.socket_status boolValue]){
         
@@ -148,8 +140,6 @@
     // Check if the files exist
     NSString* dbRoot = self.rootViewController.model->desktopDropboxDataRoot;
     
-    self.practice_filepath = [dbRoot stringByAppendingPathComponent:
-                              self.rootViewController.testManager->practice_filename];
     
     self.snapshot_filepath = [dbRoot stringByAppendingPathComponent:
                               [self.rootViewController.testManager->test_snapshot_prefix
@@ -162,14 +152,6 @@
     
     self.test_kml_path = [dbRoot stringByAppendingPathComponent:
                           self.rootViewController.testManager->test_kml_filename];
-
-
-    if (![[NSFileManager defaultManager] fileExistsAtPath:
-          self.practice_filepath]){
-        [self.rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"%@ was not found.", self.practice_filepath]];
-        return;
-    }
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:
           self.snapshot_filepath]){
@@ -188,9 +170,11 @@
 
     // Check if a record file already exists
     if ([[NSFileManager defaultManager] fileExistsAtPath:
-          self.record_filepath]){
+          self.record_filepath])
+    {
         [self.rootViewController displayPopupMessage:
          [NSString stringWithFormat:@"%@ already exists.", self.record_filepath]];
+        return;
     }else{
         // Update record filename
         self.rootViewController.testManager->record_filename =
@@ -198,22 +182,20 @@
         self.recordFileNameTextField.stringValue = record_filename;
     }
     
-    // Load the practice file and enable other buttons
+    // Load the snapshot file and enable other buttons
     self.rootViewController.model->snapshot_filename =
-    self.rootViewController.testManager->practice_filename;
+    [self.snapshot_filepath lastPathComponent];
     
     if (readSnapshotKml(self.rootViewController.model) != EXIT_SUCCESS){
-        [self.rootViewController displayPopupMessage:@"Failed to load practice.snapshot"];
+        [self.rootViewController displayPopupMessage:
+         [NSString stringWithFormat:@"Failed to laod %@",
+          self.rootViewController.model->snapshot_filename]];
+        return;
     }else{
         self.isPracticeButtonEnabled = [NSNumber numberWithBool:YES];
+        self.rootViewController.testManager->applyPracticeConfigurations();
+        self.rootViewController.testManager->isLocked = YES;
     }
-    
-    //---------------
-    // Update the study message
-    //---------------
-    self.testMessage = [NSString stringWithFormat:
-            @"%@\n\nLoaded practice file: %@\n\nSnapshot file path: %@",
-        self.testMessage, self.practice_filepath, self.snapshot_filepath];
 }
 
 //-----------------
@@ -223,12 +205,14 @@
     
     switch (sender.selectedSegment) {
         case 0:
-            // Study mode is switched OFF
-            self.rootViewController.testManager->toggleStudyMode(NO, YES);
+            // Study mode
+            self.rootViewController.isVerboseMessageOn =
+            [NSNumber numberWithBool:NO];
             break;
         case 1:
-            // Study mode is switched ON            
-            self.rootViewController.testManager->toggleStudyMode(YES, YES);
+            // Dev
+            self.rootViewController.isVerboseMessageOn =
+            [NSNumber numberWithBool:YES];
             break;
         case 2:
             // Do nothing at the moment
@@ -262,68 +246,48 @@
     self.rootViewController.testManager->record_filename =
     self.recordFileNameTextField.stringValue;
 }
-- (IBAction)toggleAutoSave:(NSButton*)sender {
-    self.rootViewController.testManager->isRecordAutoSaved =
-    [sender state];
-}
-
 
 - (IBAction)checkPairingAndStartPracticing:(id)sender {
-    if (self.rootViewController.testManager->testManagerMode != OSXSTUDY){
+    if (self.rootViewController.testManager->testManagerMode != OSXSTUDY)
+    {
         [self.rootViewController displayPopupMessage:@"Enable the study mode from iOS"];
         self.rootViewController.testManager->isLocked = YES;
         return;
     }
+
+    if (![[self.snapshot_filepath lastPathComponent] isEqualToString:
+          self.model->snapshot_filename])
+    {
+        [self.rootViewController displayPopupMessage:@"Snapshot files mismatch (between iOS and OSX)"];
+        self.rootViewController.testManager->isRecordAutoSaved = NO;
+        self.rootViewController.testManager->toggleStudyMode(NO, NO);
+        [self.rootViewController.informationView setHidden:YES];
+        [self.rootViewController.mapView setHidden:NO];
+        [self.rootViewController.compassView setHidden:NO];
+
+        self.rootViewController.testManager->applyPracticeConfigurations();
+        self.rootViewController.testManager->isLocked = YES;
+        return;
+    }
+    
     self.rootViewController.testManager->isLocked = NO;
     
-    // Load the practice file and enable other buttons
-    self.rootViewController.model->snapshot_filename =
-    self.rootViewController.testManager->practice_filename;
-    
-    if (readSnapshotKml(self.rootViewController.model) != EXIT_SUCCESS){
-        [self.rootViewController displayPopupMessage:@"Failed to load the practice file"];
-    }else{
-        [self.rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"%@ has been loaded successfully.",
-          self.rootViewController.model->snapshot_filename]];
-        
-        self.isEndPracticeButtonEnabled = [NSNumber numberWithBool:YES];
-        self.rootViewController.testManager->applyPracticeConfigurations();
-        self.autoSaveCheckbox.state =
-        self.rootViewController.testManager->isRecordAutoSaved;
-    }
+    self.rootViewController.testManager->applyPracticeConfigurations();    
+    self.isEndPracticeButtonEnabled = [NSNumber numberWithBool:YES];
+    self.isPauseButtonEnabled = [NSNumber numberWithBool:YES];
+    self.isResumeButtonEnabled = [NSNumber numberWithBool:YES];
+    self.isEndButtonEnabled = [NSNumber numberWithBool:YES];
 }
 
 //--------------------
 // End practice buttom loads the actual snapshot file
 //--------------------
 - (IBAction)endPracticingAndStartStudy:(id)sender {
+    self.rootViewController.testManager->applyStudyConfigurations();
+    self.rootViewController.testManager->isLocked = NO;
     
-    NSString* snapshot_filename =
-    [self.rootViewController.testManager->test_snapshot_prefix
-     stringByAppendingFormat:@"%@.snapshot", self.participant_id];
-    
-    
-    // Load the practice file and enable other buttons
-    self.rootViewController.model->snapshot_filename = snapshot_filename;
-    
-    if (readSnapshotKml(self.rootViewController.model) != EXIT_SUCCESS){
-        [self.rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"Failed to load %@.",
-          snapshot_filename]];
-    }else{
-        [self.rootViewController sendMessage:snapshot_filename];
-        self.isPauseButtonEnabled = [NSNumber numberWithBool:YES];
-        self.isResumeButtonEnabled = [NSNumber numberWithBool:YES];
-        self.isEndButtonEnabled = [NSNumber numberWithBool:YES];
-        [self.rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"%@ has been loaded successfully.",
-          snapshot_filename]];
-        self.rootViewController.testManager->toggleStudyMode(YES, YES);
-        self.rootViewController.testManager->applyStudyConfigurations();
-        self.autoSaveCheckbox.state =
-        self.rootViewController.testManager->isRecordAutoSaved;
-    }
+    // This is necessary since the test environment is locked at the point.
+    self.rootViewController.testManager->showNextTest();
 }
 
 

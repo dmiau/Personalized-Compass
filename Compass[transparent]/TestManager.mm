@@ -134,6 +134,12 @@ int TestManager::generateTests(){
     code_xy_vector.clear();
     practice_snapshot_vector.clear();
 
+    // Reset the practice snapshots
+    practice_snapshot_dict.clear();
+    practice_snapshot_dict[NORMAL] = vector<snapshot>();
+    practice_snapshot_dict[NORMAL].clear();
+    practice_snapshot_dict[MUTANT] = vector<snapshot>();
+    practice_snapshot_dict[MUTANT].clear();
     
     //=====================
     // The following generates two classes of TestSpecs, one normal and one mutant
@@ -162,7 +168,7 @@ int TestManager::generateTests(){
                 if (myTaskSpec.deviceType == *dit){
                     myTaskSpec.identifier = code;
                     myTaskSpec.deviceType = *dit; 
-                    myTaskSpec.generateLocationAndSnapshots(t_data_array);
+                    myTaskSpec.generateLocationAndSnapshots(t_data_array, generator);
                     taskSpec_dict[code] = myTaskSpec;
                     
                     // For debug purpose
@@ -170,10 +176,19 @@ int TestManager::generateTests(){
                                           myTaskSpec.code_location_vector.begin(),
                                           myTaskSpec.code_location_vector.end());
                     
+                    //---------------------
                     // Deposit practice snapshots
+                    //---------------------
                     practice_snapshot_vector.insert(practice_snapshot_vector.end(),
                                                     myTaskSpec.practice_snapshot_array.begin(),myTaskSpec.practice_snapshot_array.end()
                                                     );
+                    
+                    // Shuffle then insert
+                    shuffle(myTaskSpec.practice_snapshot_array.begin(),
+                                   myTaskSpec.practice_snapshot_array.end(), generator);
+                    practice_snapshot_dict[*dsit].insert(practice_snapshot_dict[*dsit].end(),
+                                    myTaskSpec.practice_snapshot_array.begin(),
+                                    myTaskSpec.practice_snapshot_array.end());
                 }
             }
         }

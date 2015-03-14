@@ -76,7 +76,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
         record_vector.push_back(t_record);
         
         //-------------
-        // Create a record
+        // Collect test information
         //-------------
         snapshot mySnapshot = model->snapshot_array[i];
         string code = extractCode(mySnapshot.name);
@@ -265,13 +265,21 @@ void TestManager::updateUITestMessage(){
         
         string code = extractCode(model->snapshot_array[test_counter].name);
         
-        rootViewController.testInformationMessage =
-        [NSString stringWithFormat:@"%@, %d/%d\n%@, %d/%lu",
-         [NSString stringWithUTF8String:code.c_str()],
-         testCountWithinCategory[test_counter],
-         snapshotDistributionInfo[code],
-         model->snapshot_array[test_counter].name,
-         test_counter+1, model->snapshot_array.size()];
+        if ([rootViewController.isVerboseMessageOn boolValue]){
+            rootViewController.testInformationMessage =
+            [NSString stringWithFormat:@"%@, %d/%d\n%@, %d/%lu",
+             [NSString stringWithUTF8String:code.c_str()],
+             testCountWithinCategory[test_counter],
+             snapshotDistributionInfo[code],
+             model->snapshot_array[test_counter].name,
+             test_counter+1, model->snapshot_array.size()];
+        }else{
+            rootViewController.testInformationMessage =
+            [NSString stringWithFormat:@"section: %@ \n %d out of %d\n",
+             [NSString stringWithUTF8String:code.c_str()],
+             testCountWithinCategory[test_counter],
+             snapshotDistributionInfo[code]];
+        }
     }
 #endif
 }
@@ -297,7 +305,6 @@ void TestManager::showPreviousTest(){
 // Setup the environment for the next test
 //------------------
 void TestManager::showNextTest(){
-    
     // Do NOT execute this method if test_counter is already the max
     if (test_counter == (model->snapshot_array.size() - 1))
     {
@@ -319,7 +326,7 @@ void TestManager::showTestNumber(int test_id){
     if (test_id < 0 || test_id >= model->snapshot_array.size() ){
         return;
     }
-
+    
     [rootViewController displaySnapshot:test_id
                       withStudySettings:testManagerMode];
     test_counter = test_id;
@@ -337,6 +344,7 @@ void TestManager::showTestNumber(int test_id){
         [rootViewController displayTestInstructionsByTask:
          NSStringToTaskType(nextSnapshot.name)];
     }else{
+        rootViewController.studyIntAnswer = [NSNumber numberWithInt:0];
         startTest();
         
         if (!rootViewController.isShowAnswerAvailable)
@@ -351,7 +359,7 @@ void TestManager::showTestNumber(int test_id){
         // Show text message before the very first
         [rootViewController displayInformationText];
     }
-    
+    updateUITestMessage();
 #endif
 }
 

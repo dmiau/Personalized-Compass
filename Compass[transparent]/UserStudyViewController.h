@@ -34,7 +34,6 @@
 - (IBAction)loadStudyFiles:(id)sender;
 
 // File paths
-@property NSString* practice_filepath;
 @property NSString* snapshot_filepath;
 @property NSString* record_filepath;
 @property NSString* test_kml_path;
@@ -57,9 +56,4 @@
 - (IBAction)changeRecordFileName:(id)sender;
 @property (weak) IBOutlet NSTextField *recordFileNameTextField;
 - (IBAction)saveStudyRecords:(id)sender;
-
-// Auto save button
-@property (weak) IBOutlet NSButton *autoSaveCheckbox;
-- (IBAction)toggleAutoSave:(id)sender;
-
 @end

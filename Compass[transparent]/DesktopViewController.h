@@ -186,6 +186,7 @@ typedef struct{
 //Study
 //----------------
 @property NSString* testInformationMessage;
+@property NSNumber* isVerboseMessageOn;
 @property (weak) IBOutlet NSButton *nextTestButton;
 @property (weak) IBOutlet NSButton *previousTestButton;
 @property (weak) IBOutlet NSButton *confirmButton;

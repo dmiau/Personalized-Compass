@@ -18,20 +18,21 @@ using namespace std;
 //--------------------
 // TestGeneration Dispatcher
 //--------------------
-void TaskSpec::generateLocationAndSnapshots(vector<data> &t_data_array)
+void TaskSpec::generateLocationAndSnapshots(vector<data> &t_data_array,
+                                            std::mt19937 &generator)
 {
     switch (taskType) {
         case LOCATE:
             generateLocateTests(t_data_array);
             break;
         case TRIANGULATE:
-            generateTriangulateTests(t_data_array);
+            generateTriangulateTests(t_data_array, generator);
             break;
         case ORIENT:
             generateOrientTests(t_data_array);
             break;
         case LOCATEPLUS:
-            generateLocatePlusTests(t_data_array);
+            generateLocatePlusTests(t_data_array, generator);
             break;
         case DISTANCE:
             generateLocateTests(t_data_array);
@@ -207,6 +208,7 @@ void TaskSpec::addOneDataAndSnapshot(string trialString,
     t_snapshot.selected_ids = selected_ids;
     t_snapshot.is_answer_list = is_answer_list;
     t_snapshot.orientation = 0;
+    t_snapshot.deviceType = deviceType;
     t_snapshot.notes = [NSString stringWithFormat:
                         @"(x, y): (%d, %d)", openGLPoint.x,openGLPoint.y];
     

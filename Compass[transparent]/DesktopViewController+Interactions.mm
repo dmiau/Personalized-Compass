@@ -226,11 +226,11 @@
                 ptInEiOSCoord.y = openGLPoint.y - self.renderer->emulatediOS.centroid_in_opengl.y;
                 // Log the location
                 self.testManager->endTest(ptInEiOSCoord, [self.studyIntAnswer doubleValue]);
-            } else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound){
+            } else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
+            {
                 //--------------
                 // Localize task
                 //--------------
-                // Log the location
                 self.testManager->endTest(openGLPoint, 0);
             } else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
                 //--------------
@@ -239,6 +239,11 @@
                 self.testManager->endTest(CGPointMake(0, 0),
                                           atan2(openGLPoint.y,openGLPoint.x)
                                           *180/M_PI);
+            }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
+                //--------------
+                // Locate plus task
+                //--------------
+                self.testManager->endTest(openGLPoint, 0);
             }
         }
     }

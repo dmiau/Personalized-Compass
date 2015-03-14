@@ -995,6 +995,12 @@
 		9AD1B2F61AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1B2F21AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm */; };
 		9AD1B2F71AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1B2F21AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm */; };
 		9AD1B2F81AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1B2F21AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm */; };
+		9AD52F681AB3C63B00430FE7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */; };
+		9AD52F691AB3C63B00430FE7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */; };
+		9AD52F6A1AB3C63B00430FE7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */; };
+		9AD52F6B1AB3C63B00430FE7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */; };
+		9AD52F6C1AB3C63B00430FE7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */; };
+		9AD52F6D1AB3C63B00430FE7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */; };
 		9AD5AB0E199D1C3900B351FA /* iPadTabBarController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5AB0D199D1C3900B351FA /* iPadTabBarController.mm */; };
 		9AD5AB11199D202700B351FA /* iPadNavigationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5AB10199D202700B351FA /* iPadNavigationViewController.mm */; };
 		9AE020B2198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
@@ -1551,6 +1557,7 @@
 		9ACF5D8618EB572100F03872 /* DesktopViewController+Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Table.h"; sourceTree = "<group>"; };
 		9ACF5D8718EB572100F03872 /* DesktopViewController+Table.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Table.mm"; sourceTree = "<group>"; };
 		9AD1B2F21AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "DesktopViewController+SnapShotcapture.mm"; path = "Compass[transparent]/DesktopViewController+SnapShotcapture.mm"; sourceTree = "<group>"; };
+		9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		9AD5AB0C199D1C3900B351FA /* iPadTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadTabBarController.h; sourceTree = "<group>"; };
 		9AD5AB0D199D1C3900B351FA /* iPadTabBarController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iPadTabBarController.mm; sourceTree = "<group>"; };
 		9AD5AB0F199D202700B351FA /* iPadNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadNavigationViewController.h; sourceTree = "<group>"; };
@@ -2596,6 +2603,7 @@
 				9AF523B718DC8E95005823A2 /* newyork.kml */,
 				9AF523B818DC8E95005823A2 /* montreal.kml */,
 				9AFC0BA21AAA505F0085543C /* testSpec.plist */,
+				9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -2832,6 +2840,7 @@
 				9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */,
 				9AFC0BA71AAA505F0085543C /* testSpec.plist in Resources */,
 				9A037567198DA31800258E95 /* CMakeLists.txt in Resources */,
+				9AD52F6C1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
 				9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A037561198DA31800258E95 /* Box2DConfig.cmake in Resources */,
@@ -2877,6 +2886,7 @@
 				9A9482121991D46A0036249C /* setup.png in Resources */,
 				9A82B6461941518900534A5F /* london.kml in Resources */,
 				9A998D7E194BCB0900778DFC /* setup.jpg in Resources */,
+				9AD52F6D1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9A3DA09C1964E9B1009E0073 /* add.png in Resources */,
 				9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */,
 				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
@@ -2937,6 +2947,7 @@
 				9A4808CA198C2FA30001E188 /* tokyo.kml in Resources */,
 				9A037560198DA31800258E95 /* Box2DConfig.cmake in Resources */,
 				9AECA772196AEAB7008ADAEC /* UKLondon.kml in Resources */,
+				9AD52F6B1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9AF273151982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AB2A71B196372AA0001E96F /* selected.png in Resources */,
 				9A4808A1198BF1F70001E188 /* general.png in Resources */,
@@ -3007,6 +3018,7 @@
 				9A25D9B61AADF7810050C4CD /* locate.jpg in Resources */,
 				9ACCED0018EF5425006E9CA4 /* london.kml in Resources */,
 				9A4808C7198C2FA30001E188 /* tokyo.kml in Resources */,
+				9AD52F681AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9A8CE9FA1A97871F0070D9D4 /* study.snapshot in Resources */,
 				9A8CE9EE1A97871F0070D9D4 /* iosSnapshots.snapshot in Resources */,
 				9AF378871A9FED7600FEB3F3 /* walking.tif in Resources */,
@@ -3074,6 +3086,7 @@
 				9AEC5CEE18F3956F00A29F75 /* london.kml in Resources */,
 				9A25D9BC1AADF7810050C4CD /* lplus.jpg in Resources */,
 				9AEC5CEF18F3956F00A29F75 /* montreal.kml in Resources */,
+				9AD52F6A1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9A25D9B81AADF7810050C4CD /* locate.jpg in Resources */,
 				9A6F53F41910069F00F35FED /* DebugInfoWindow.xib in Resources */,
 				9AECA771196AEAB7008ADAEC /* UKLondon.kml in Resources */,
@@ -3148,6 +3161,7 @@
 				9A480899198BF1F70001E188 /* debug.png in Resources */,
 				9A4808BC198C2FA30001E188 /* snapshot.kml in Resources */,
 				9AFC0BA41AAA505F0085543C /* testSpec.plist in Resources */,
+				9AD52F691AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9A4808B4198C2FA30001E188 /* london711.kml in Resources */,
 				9A4808B8198C2FA30001E188 /* newyork723.kml in Resources */,
 				9A3DA09E1964E9B1009E0073 /* remove.png in Resources */,

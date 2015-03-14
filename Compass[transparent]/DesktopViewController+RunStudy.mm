@@ -13,16 +13,35 @@
 - (IBAction)showNextTest:(id)sender {
     if (self.testManager->testManagerMode == OSXSTUDY){
         self.studyIntAnswer = [NSNumber numberWithInt:0];
+        
+        
+        //-------------------
+        // Safe guard for practice session
+        //-------------------
+        int test_counter = self.testManager->test_counter;
+        
+        if ([self.model->snapshot_array[test_counter].name hasSuffix:@"t"]
+                 && ![self.model->snapshot_array[test_counter+1].name hasSuffix:@"t"])
+        {
+            [self displayPopupMessage:
+             @"You have reached the end of the practice session.\nPlease notify the test coordinator to proceed."];
+            return;
+        }else if (![self.model->snapshot_array[test_counter].name hasSuffix:@"t"]
+                  && [self.model->snapshot_array[test_counter+1].name hasSuffix:@"t"])
+        {
+            [self displayPopupMessage:
+             @"You have reached the end of a test session.\nPlease notify the test coordinator to proceed."];
+            return;
+        }
+        
         self.testManager->showNextTest();
-        self.testManager->updateUITestMessage();
     }
 }
 
 - (IBAction)showPreviousTest:(id)sender {
     if (self.testManager->testManagerMode == OSXSTUDY){
         self.studyIntAnswer = [NSNumber numberWithInt:0];
-        self.testManager->showPreviousTest();
-        self.testManager->updateUITestMessage();        
+        self.testManager->showPreviousTest();      
     }
 }
 
