@@ -829,11 +829,14 @@
                                     <constraint firstAttribute="height" constant="500" id="EKe-IM-9P7"/>
                                     <constraint firstAttribute="width" constant="700" id="t5X-9O-PSz"/>
                                 </constraints>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ra8-OW-e7m">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="ra8-OW-e7m">
                                     <font key="font" metaFont="system" size="16"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <binding destination="EYl-3r-NII" name="value" keyPath="values.DisplayedSessionInfo" id="9ZG-e3-k8d"/>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qD2-qu-8Gn">
                                 <rect key="frame" x="726" y="33" width="88" height="32"/>

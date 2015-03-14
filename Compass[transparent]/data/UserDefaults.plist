@@ -2,7 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DisplayedSessionInfo</key>
+	<string></string>
+	<key>iOSTestStatus</key>
+	<string>0/0</string>
+	<key>AdminSessionInfo</key>
+	<string>Welcome!</string>
+	<key>UserSessionInfo</key>
+	<string>Welcome!</string>
 	<key>TestStatus</key>
-	<string>Hello World!</string>
+	<string>Welcome!</string>
 </dict>
 </plist>

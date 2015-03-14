@@ -51,7 +51,6 @@
         self.isDistanceEstControlAvailable = [NSNumber numberWithBool:NO];
         self.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
         self.testInformationMessage = @"Enable Study Mode from iOS";
-        self.isVerboseMessageOn = [NSNumber numberWithBool:NO];
         
         //--------------------
         // Initialize a list of UI configurations

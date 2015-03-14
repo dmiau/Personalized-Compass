@@ -99,6 +99,17 @@ inline NSString* toNSString(VisualizationType visualizationType){
     return [NSString stringWithUTF8String:code.c_str()];
 }
 
+inline VisualizationType NSStringToVisualizationType(NSString* code){
+    VisualizationType output;
+    if ([code rangeOfString:toNSString(VIZWEDGE)].location != NSNotFound)
+    {
+        output = VIZWEDGE;
+    }else if ([code rangeOfString:toNSString(VIZPCOMPASS)].location != NSNotFound){
+        output = VIZPCOMPASS;
+    }
+    return output;
+}
+
 //--------------
 // label info
 //--------------

@@ -3734,13 +3734,22 @@ How to counter-balance test cases? And visualzie data quality?
 - test code counting is wrong
 
 -------------------------------------------------------------------
-3.11, 12.2015
+3.14, 15.2015
 -------------------------------------------------------------------
 ***** Done
 - test code counting is wrong [9:32PM]
 - How to counter-balance test cases? And visualzie data quality? [9:51AM]
-- 
-
+- checked in a series of issues found in the morning [11:35PM]
+- message is not clear (a day in the city scenario?)
+5 Chapters
+* Where is the subway[i] statsion?
+* Which direction is the subway[i] statsion?
+* How far is the subway[i] statsion?
+* Where am I?
+* Where is the coffee shop? [5:13PM]
+- next button is not disabled in the test mode [5:43PM]
+- lplus labels are blocked [5:43PM]
+- hide the snapshot name, end the practices and directly start. [5:44PM]
 ***** Working
 - should call the off-screen location x, not subway
 - add a background image to the map?
@@ -3749,11 +3758,12 @@ How to counter-balance test cases? And visualzie data quality?
 - resume a study after crash? continuously save record?
 
 - Have myself try the tests and log the time (repeated measure data analysis)
-- hide the snapshot name, end the test and directly start.
 
 Issues after my trials:
-
-- next button is not disabled in the test mode
-- message is not clear (a day in the city scenario?)
+- training material?
 - ending (reviewing screen) does not show answering stats.
-- lplus labels are blocked
+
+- data logging (comma)
+- derivate derivations
+- show distance and orientation answer?
+record string generation (, vs ;, also other supporting locations for debug purposes)?

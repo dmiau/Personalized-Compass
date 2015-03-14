@@ -284,7 +284,7 @@ void TaskSpec::addTwoDataAndSnapshot(string trialString,
         
         osx_coordinateRegion =
         MKCoordinateRegionMakeWithDistance
-        (centerCoordinate, distnace * 2.2, distnace * 2.2);
+        (centerCoordinate, distnace * 2.2, distnace * 2.2 * 1912.0/992.0);
     }else{
         [rootViewController displayPopupMessage:
          @"Unknown taskType in addTwoDataAndSnapshot."];

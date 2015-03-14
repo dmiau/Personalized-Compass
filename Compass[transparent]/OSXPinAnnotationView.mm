@@ -211,7 +211,7 @@
          setStringValue: [self.annotation title]];
         CGRect orig_frame = calloutViewController.view.frame;
         calloutViewController.view.frame =
-        CGRectMake(-orig_frame.size.width/2, -orig_frame.size.height,
+        CGRectMake(-orig_frame.size.width/2, -orig_frame.size.height*0.6,
                    orig_frame.size.width, orig_frame.size.height);
         [self addSubview:calloutViewController.view];
     }else{

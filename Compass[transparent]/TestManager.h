@@ -29,8 +29,6 @@
 #include "TaskSpec.h"
 using namespace std;
 
-
-
 //------------------------------
 // Param object
 //------------------------------
@@ -239,6 +237,7 @@ public:
     map<string, int> snapshotDistributionInfo;
     // Contains the information of test_category/number_of_tests
     vector<int> testCountWithinCategory;
+    vector<string> testSequenceVector;
     
     //---------------
     // Random number generation
@@ -319,18 +318,16 @@ public:
     void endTest(CGPoint openGLPoint, double doubleAnswer);
     
     void saveRecord(NSString *out_file); // Save test record to a file
+    
+    // Display test information
+    void updateSessionInformation();
+    
 };
 
 //-----------------
 // Tools
 //-----------------
-inline string extractCode(NSString* snapshot_name){
-    NSRange range = [snapshot_name rangeOfString:@":" options:NSBackwardsSearch];
-    string output = string([[snapshot_name substringToIndex:range.location] UTF8String ]);
-    if ([snapshot_name hasSuffix:@"t"]){
-        output = output + ":t";
-    }
-    
-    return output;
-}
+string extractCode(NSString* snapshot_name);
+string extractUerVisibleCode(NSString* snapshot_name);
+
 #endif /* defined(__Compass_transparent___TestManager__) */

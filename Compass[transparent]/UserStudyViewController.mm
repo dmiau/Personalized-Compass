@@ -206,13 +206,9 @@
     switch (sender.selectedSegment) {
         case 0:
             // Study mode
-            self.rootViewController.isVerboseMessageOn =
-            [NSNumber numberWithBool:NO];
             break;
         case 1:
             // Dev
-            self.rootViewController.isVerboseMessageOn =
-            [NSNumber numberWithBool:YES];
             break;
         case 2:
             // Do nothing at the moment
