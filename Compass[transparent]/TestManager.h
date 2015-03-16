@@ -235,6 +235,7 @@ public:
     vector<data> t_data_array; // This structure holds the generated locationss
 
     map<string, int> snapshotDistributionInfo;
+    map<string, int> chapterInfo;
     // Contains the information of test_category/number_of_tests
     vector<int> testCountWithinCategory;
     vector<string> testSequenceVector;

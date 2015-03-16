@@ -121,6 +121,12 @@
     @synchronized(self.socket_status){
         self.socket_status = [NSNumber numberWithBool:NO];        
         [self displayPopupMessage:@"Connection was dropped."];
+        
+        if (self.testManager->testManagerMode != OFF){
+            // Shutdown the study mode if a connection is dropped
+            self.testManager->isRecordAutoSaved = YES;
+            self.testManager->toggleStudyMode(NO, NO);
+        }
     }
     NSLog(@"WebSocket closed");
     self.system_message = @"Connection Closed! (see logs)";

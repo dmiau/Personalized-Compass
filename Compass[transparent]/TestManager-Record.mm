@@ -140,11 +140,16 @@ void TestManager::saveRecord(NSString *out_file){
          [NSString stringWithFormat:@"%@ already exists. _1 postfixed will be added to the saved file", out_file]];
         
         // Compute a new name
-        out_file = [out_file stringByReplacingOccurrencesOfString:@".record"
-                                                        withString:@"_1.record"];
+        out_file = [out_file stringByReplacingOccurrencesOfString:@".dat"
+                                                        withString:@"_1.dat"];
     }
     
-    CHCSVWriter *w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
+    NSOutputStream *output = [NSOutputStream outputStreamToFileAtPath:out_file append:NO];
+    [output open];
+    
+//    CHCSVWriter *w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
+    
+    CHCSVWriter *w = [[CHCSVWriter alloc] initWithOutputStream:output encoding:NSUTF8StringEncoding delimiter:';'];
     
     // http://stackoverflow.com/questions/1443793/iterate-keys-in-a-c-map
     
@@ -159,6 +164,7 @@ void TestManager::saveRecord(NSString *out_file){
     for (int i = 0; i < record_vector.size(); ++i){
         [w writeLineOfFields: record_vector[i].genSavableRecord()];
     }
+    [output close];
     
     [rootViewController displayPopupMessage:
      [NSString stringWithFormat:@"%@ has been saved successfully.", out_file]];

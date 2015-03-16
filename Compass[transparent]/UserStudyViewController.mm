@@ -47,6 +47,7 @@
 - (void)disableStudyButtons{
     // Make a bunch of buttons disabled at initialization
     self.isPracticeButtonEnabled = [NSNumber numberWithBool:NO];
+    self.isEndPracticeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isResumeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isPauseButtonEnabled = [NSNumber numberWithBool:NO];
     self.isResumeButtonEnabled = [NSNumber numberWithBool:NO];
@@ -71,7 +72,7 @@
                                stringByAppendingFormat:@"%@.snapshot", self.participant_id]];
     
     NSString* record_filename = [NSString stringWithFormat:
-                                 @"participant%@.record", self.participant_id];
+                                 @"participant%@.dat", self.participant_id];
     self.record_filepath = [dbRoot stringByAppendingPathComponent:
                             record_filename];
     
@@ -146,7 +147,7 @@
                                stringByAppendingFormat:@"%@.snapshot", self.participant_id]];
     
     NSString* record_filename = [NSString stringWithFormat:
-                                 @"participant%@.record", self.participant_id];
+                                 @"participant%@.dat", self.participant_id];
     self.record_filepath = [dbRoot stringByAppendingPathComponent:
                             record_filename];
     
@@ -193,7 +194,6 @@
         return;
     }else{
         self.isPracticeButtonEnabled = [NSNumber numberWithBool:YES];
-        self.rootViewController.testManager->applyPracticeConfigurations();
         self.rootViewController.testManager->isLocked = YES;
     }
 }
@@ -257,7 +257,7 @@
         [self.rootViewController displayPopupMessage:@"Snapshot files mismatch (between iOS and OSX)"];
         self.rootViewController.testManager->isRecordAutoSaved = NO;
         self.rootViewController.testManager->toggleStudyMode(NO, NO);
-        [self.rootViewController.informationView setHidden:YES];
+        [self.rootViewController setInformationViewVisibility: NO];
         [self.rootViewController.mapView setHidden:NO];
         [self.rootViewController.compassView setHidden:NO];
 

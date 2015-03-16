@@ -56,7 +56,7 @@ int TestManager::initTestManager(){
     alltest_vector_filename = @"allTestVectors.tests";
     test_snapshot_prefix = @"snapshot-participant";
     practice_filename = @"practice.snapshot";
-    record_filename = @"participant0.record";
+    record_filename = @"participant0.dat";
     test_specs_filename = @"testSpec.plist";
     
 #ifndef __IPHONE__

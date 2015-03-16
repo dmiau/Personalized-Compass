@@ -192,7 +192,7 @@ typedef struct{
 
 @property NSNumber* studyIntAnswer;
 @property NSNumber* isDistanceEstControlAvailable;
-@property NSNumber* isShowAnswerAvailable;
+@property NSNumber* isPracticingMode;
 
 //----------------
 // System service (implemented in the interaction category)
@@ -202,10 +202,14 @@ typedef struct{
 //----------------
 // Information View
 //----------------
+- (void)setInformationViewVisibility: (BOOL)state;
+@property NSNumber* isInformationViewVisible;
+@property NSString* studyTitle;
 @property (weak) IBOutlet NSView *informationView;
 - (IBAction)clickInformationViewOK:(id)sender;
 @property (weak) IBOutlet NSImageView *informationImageView;
 @property (weak) IBOutlet NSTextField *informationTextField;
+
 
 - (void) displayTestInstructionsByTask: (TaskType) taskType;
 - (void) displayInformationText;

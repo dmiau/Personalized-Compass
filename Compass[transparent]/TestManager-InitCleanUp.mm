@@ -92,7 +92,9 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     snapshotDistributionInfo.clear();
     testCountWithinCategory.clear();
     testSequenceVector.clear();
+    chapterInfo.clear();
     int count_within_category = 1;
+    int chapter_count = 1;
     for (int i = 0; i < model->snapshot_array.size(); ++i){
         
         //-------------
@@ -116,6 +118,11 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
             count_within_category = 1;
             testCountWithinCategory.push_back(count_within_category);
             testSequenceVector.push_back(code);
+            
+            if (![mySnapshot.name hasSuffix:@"t"]){
+                chapterInfo[code] = chapter_count++;
+            }
+            
         }else{
             snapshotDistributionInfo[code] = snapshotDistributionInfo[code]+1;
             testCountWithinCategory.push_back(++count_within_category);
@@ -169,6 +176,9 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
         }else{
             [rootViewController sendMessage:@"OK"];
         }
+        
+        // Show text message before the very first
+        [rootViewController displayInformationText];
 #endif
     }
     updateSessionInformation();
@@ -206,9 +216,9 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
         [rootViewController displayInformationText];
         
         [rootViewController.nextTestButton setEnabled:NO];
-        [rootViewController.previousTestButton setEnabled:NO];
+
         [rootViewController.confirmButton setEnabled:NO];
-        rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
+        rootViewController.isPracticingMode = [NSNumber numberWithBool:NO];
         rootViewController.isDistanceEstControlAvailable =
         [NSNumber numberWithBool:NO];
         
@@ -299,51 +309,56 @@ void TestManager::updateSessionInformation()
     //------------------
     
     // Assume the layout of testSequenceVector is fixed
-    
-    string user_string = "A Day in the City\n\n";
-
-
-    // Note the test sequence string is reset here
-    if (NSStringToVisualizationType
-        ([NSString stringWithUTF8String:testSequenceVector[5].c_str()]) == VIZPCOMPASS)
-    {
-        test_sequence = "Technique C\nPractices\n";
+    string user_string;
+    if (testSequenceVector.size() >= 20){
+        user_string = "A Day in the City\n\n";
+        
+        
+        // Note the test sequence string is reset here
+        if (NSStringToVisualizationType
+            ([NSString stringWithUTF8String:testSequenceVector[5].c_str()]) == VIZPCOMPASS)
+        {
+            test_sequence = "Technique C\nPractices\n";
+        }else{
+            test_sequence = "Technique W\nPractices\n";
+        }
+        
+        for (int i = 0; i < 5; ++i){
+            
+            // Skip the practice tasks
+            if (hasEnding(testSequenceVector[i+5], ":t"))
+                continue;
+            TestCodeInterpreter codeInterpreter(testSequenceVector[i+5]);
+            
+            test_sequence = test_sequence + "Chapter " + to_string(i+1) + ": " +
+            codeInterpreter.genTitle() + "\n";
+        }
+        
+        test_sequence = test_sequence + "\n--- Intermission ---\n\n";
+        if (NSStringToVisualizationType
+            ([NSString stringWithUTF8String:testSequenceVector[10].c_str()]) == VIZPCOMPASS)
+        {
+            test_sequence = test_sequence + "Technique C\nPractices\n";
+        }else{
+            test_sequence = test_sequence + "Technique W\nPractices\n";
+        }
+        for (int i = 0; i < 5; ++i){
+            
+            // Skip the practice tasks
+            if (hasEnding(testSequenceVector[i+15], ":t"))
+                continue;
+            TestCodeInterpreter codeInterpreter(testSequenceVector[i+15]);
+            
+            test_sequence = test_sequence + "Chapter " + to_string(i+6) + ": " +
+            codeInterpreter.genTitle() + "\n";
+        }
+        test_sequence = test_sequence + "\n--- The End ---\n\n";
+        
+        user_string = user_string + test_sequence;
     }else{
-        test_sequence = "Technique W\nPractices\n";
+        user_string = string("testSequenceVector is empty.\n") +
+        string("TestManager needs to be initialized");
     }
-
-    for (int i = 0; i < 5; ++i){
-        
-        // Skip the practice tasks
-        if (hasEnding(testSequenceVector[i+5], ":t"))
-            continue;
-        TestCodeInterpreter codeInterpreter(testSequenceVector[i+5]);
-        
-        test_sequence = test_sequence + "Chapter " + to_string(i+1) + ": " +
-        codeInterpreter.genTitle() + "\n";
-    }
-    
-    test_sequence = test_sequence + "\n\n--- Intermission ---\n\n";
-    if (NSStringToVisualizationType
-        ([NSString stringWithUTF8String:testSequenceVector[10].c_str()]) == VIZPCOMPASS)
-    {
-        test_sequence = test_sequence + "Technique C\nPractices\n";
-    }else{
-        test_sequence = test_sequence + "Technique W\nPractices\n";
-    }
-    for (int i = 0; i < 5; ++i){
-        
-        // Skip the practice tasks
-        if (hasEnding(testSequenceVector[i+15], ":t"))
-            continue;
-        TestCodeInterpreter codeInterpreter(testSequenceVector[i+15]);
-        
-        test_sequence = test_sequence + "Chapter " + to_string(i+6) + ": " +
-        codeInterpreter.genTitle() + "\n";
-    }
-    test_sequence = test_sequence + "\n\n--- The End ---\n\n";
-    
-    user_string = user_string + test_sequence;
     
     [[NSUserDefaults standardUserDefaults]
      setObject:[NSString stringWithUTF8String:user_string.c_str()]

@@ -12,6 +12,9 @@
 
 @class DesktopViewController;
 
+//--------------------
+// CalloutViewController
+//--------------------
 @interface CalloutViewController : NSViewController
 
 @property CustomPointAnnotation *annotation;
@@ -41,8 +44,23 @@
 
 @end
 
-
+//--------------------
+// OSXPinAnnovationView
+//--------------------
 @interface OSXPinAnnotationView : MKPinAnnotationView{
+    CalloutViewController *calloutViewController;
+    bool detailViewVisible;
+}
+@property bool customCalloutStatus;
+-(void)showCustomCallout:(bool)status;
+-(void)showDetailCallout:(bool)status;
+@end
+
+
+//--------------------
+// OSXAnnovationView (generic)
+//--------------------
+@interface OSXAnnotationView : MKAnnotationView{
     CalloutViewController *calloutViewController;
     bool detailViewVisible;
 }

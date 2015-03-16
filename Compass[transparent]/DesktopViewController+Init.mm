@@ -49,8 +49,10 @@
         self.socket_status = [NSNumber numberWithBool:NO];
         self.studyIntAnswer = [NSNumber numberWithInt:0];
         self.isDistanceEstControlAvailable = [NSNumber numberWithBool:NO];
-        self.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
+        self.isPracticingMode = [NSNumber numberWithBool:NO];
         self.testInformationMessage = @"Enable Study Mode from iOS";
+        self.studyTitle = @"Welcome";
+        self.isInformationViewVisible = [NSNumber numberWithBool:NO];
         
         //--------------------
         // Initialize a list of UI configurations

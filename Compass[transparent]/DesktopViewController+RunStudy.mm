@@ -7,6 +7,7 @@
 //
 
 #import "DesktopViewController+RunStudy.h"
+#import "testCodeInterpreter.h"
 
 @implementation DesktopViewController (RunStudy)
 
@@ -14,6 +15,15 @@
     if (self.testManager->testManagerMode == OSXSTUDY){
         self.studyIntAnswer = [NSNumber numberWithInt:0];
         
+        
+        // In the test mode,
+        // next button should be disabled after it is clicked
+        if ([self.isPracticingMode boolValue])
+        {
+            [self.nextTestButton setEnabled:YES];
+        }else{
+            [self.nextTestButton setEnabled:NO];
+        }
         
         //-------------------
         // Safe guard for practice session
@@ -32,13 +42,18 @@
             [self displayPopupMessage:
              @"You have reached the end of a test session.\nPlease notify the test coordinator to proceed."];
             return;
+        }else if ( test_counter+1 >= self.model->snapshot_array.size()){
+            [self displayInformationText];
+            [self displayPopupMessage:
+             @"You have reached the end of the study session.\nThansk for your participation!\nPlease notify the test coordinator to proceed."];
+            return;
         }
         
         self.testManager->showNextTest();
         
         // In the test mode,
         // next button should be disabled after it is clicked
-        if ([self.isShowAnswerAvailable boolValue])
+        if ([self.isPracticingMode boolValue])
         {
             [self.nextTestButton setEnabled:YES];
         }else{
@@ -51,7 +66,11 @@
 - (IBAction)showPreviousTest:(id)sender {
     if (self.testManager->testManagerMode == OSXSTUDY){
         self.studyIntAnswer = [NSNumber numberWithInt:0];
-        self.testManager->showPreviousTest();      
+        if (self.testManager->test_counter == 0){
+            [self displayInformationText];
+        }else{
+            self.testManager->showPreviousTest();
+        }
     }
 }
 
@@ -131,7 +150,7 @@
     // Add drop-pin here
     CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
     annotation.coordinate = coord;
-    annotation.title      = @"Temp";
+    annotation.title      = @"Answer";
     annotation.address    = @"";
     annotation.subtitle   = @"";
     annotation.point_type = location_type;
@@ -148,12 +167,32 @@
         return;
     }
     
-    if (![self.informationTextField isHidden]){
+    //--------------------
+    // Hide the text field if it is visible
+    //--------------------
+    if (![self.informationTextField isHidden])
+    {
+
         [self.informationTextField setHidden:YES];
         [self.informationImageView setHidden:NO];
+        [self displayStudyTitle];
+        
+        if ((self.testManager->test_counter ==
+            self.model->snapshot_array.size()-1) ||
+            self.testManager->testManagerMode == OFF)
+        {
+            //----------------------
+            // Dismiss the dialog
+            // if it is at the end of the session
+            //----------------------
+            [self setInformationViewVisibility:NO];
+        }
         return;
     }
     
+    //--------------------
+    // If the image dialog is visible
+    //--------------------
     // Dismiss the dialog
     [self toggleInformationView:nil];
     
@@ -169,12 +208,24 @@
 
 - (IBAction)toggleInformationView:(id)sender {
     if ([self.informationView isHidden]){
+        [self setInformationViewVisibility:YES];
+    }else{
+        //------------------
+        // Hide the information view
+        //------------------
+        [self setInformationViewVisibility:NO];
+    }
+}
+
+- (void)setInformationViewVisibility: (BOOL)state{
+    if (state){
         //------------------
         // Show the information view
         //------------------
         [self.mapView setHidden:YES];
         [self.compassView setHidden:YES];
         [self.informationView setHidden:NO];
+
     }else{
         //------------------
         // Hide the information view
@@ -182,11 +233,15 @@
         [self.mapView setHidden:NO];
         [self.compassView setHidden:NO];
         [self.informationView setHidden:YES];
+
     }
+    self.isInformationViewVisible = [NSNumber numberWithBool:state];
 }
 
 - (void) displayTestInstructionsByTask: (TaskType) taskType
 {
+    self.isInformationViewVisible = [NSNumber numberWithBool:YES];
+    
     static NSImage *locate_image = [[NSImage alloc] initWithContentsOfFile:
             [[NSBundle mainBundle] pathForResource:@"locate.jpg" ofType:@""]];
     static NSImage *distance_image = [[NSImage alloc] initWithContentsOfFile:
@@ -205,7 +260,6 @@
     [self.compassView setHidden:YES];
     [self.informationView setHidden:NO];
     [self.informationImageView setHidden:NO];
-    [self.informationTextField setHidden:YES];
     
     switch (taskType) {
         case LOCATE:
@@ -226,6 +280,7 @@
         default:
             break;
     }
+    [self displayStudyTitle];
     [self.nextTestButton setEnabled:NO];
     [self.confirmButton setEnabled:NO];
 }
@@ -235,8 +290,9 @@
 //----------------------------
 - (void) displayInformationText
 {
+    self.isInformationViewVisible = [NSNumber numberWithBool:YES];
     [self.informationTextField setHidden:NO];
-        
+    [self displayStudyTitle];
     //------------------
     // Show the information view
     //------------------
@@ -244,7 +300,39 @@
     [self.compassView setHidden:YES];
     [self.informationView setHidden:NO];
     [self.informationImageView setHidden:YES];
+}
 
+- (void) displayStudyTitle{
+    
+    if (![self.informationTextField isHidden]){
+        if (self.testManager->test_counter ==0)
+        {
+            self.studyTitle = @"Welcome";
+        }else if (self.testManager->test_counter ==
+                  self.model->snapshot_array.size() -1)
+        {
+            self.studyTitle = @"The End";
+        }
+    }else{
+        // Display chapter info
+        
+        int counter = self.testManager->test_counter;
+        
+        string studyTitle;
+        if ([self.model->snapshot_array[counter].name hasSuffix:@"t"]){
+            studyTitle = "Practice: ";
+        }else{
+            // Get chapter info
+            int chapter_n = self.testManager->chapterInfo
+            [extractCode(self.model->snapshot_array[counter].name)];
+            studyTitle = "Chapter " + to_string(chapter_n) + ": ";
+        }
+        
+        TestCodeInterpreter codeInterpreter(self.model->snapshot_array[counter].name);
+        studyTitle = studyTitle + codeInterpreter.genTitle();
+        
+        self.studyTitle = [NSString stringWithUTF8String:studyTitle.c_str()];
+    }
 }
 
 //-------------------
@@ -283,7 +371,7 @@
     // Enable the next button if the answer is verified,
     // or when the system is put in dev/practice mode
     if (self.testManager->verifyAnswerQuality()
-        || [self.isShowAnswerAvailable boolValue])
+        || [self.isPracticingMode boolValue])
     {
         [self.nextTestButton setEnabled:YES];
     }

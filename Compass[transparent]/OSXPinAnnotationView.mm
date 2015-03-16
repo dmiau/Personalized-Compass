@@ -255,3 +255,101 @@
 }
 
 @end
+
+
+
+
+//-----------------------------
+// OSXAnnovationView (generic), but the implementation is identical
+//-----------------------------
+@implementation OSXAnnotationView
+
+- (id)initWithFrame:(NSRect)frame
+{
+    self = [super initWithFrame:frame];
+    return self;
+}
+
+-(id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.customCalloutStatus = false;
+        
+        //------------------------
+        // Initialize the view controller
+        //------------------------
+        calloutViewController =
+        [[CalloutViewController alloc]
+         initWithNibName:@"OSXCalloutView" bundle:nil
+         annotation:self.annotation];
+        
+        //------------------------
+        // Set up the detail view
+        //------------------------
+        CALayer *viewLayer = [CALayer layer];
+        [viewLayer setBackgroundColor:CGColorCreateGenericRGB(1.0, 1.0, 1.0, 1)]; //RGB plus Alpha Channel
+        [calloutViewController.detailView setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
+        [calloutViewController.detailView setLayer:viewLayer];
+        
+        CGRect orig_frame = calloutViewController.detailView.frame;
+        calloutViewController.detailView.frame =
+        CGRectMake(0, -orig_frame.size.height,
+                   orig_frame.size.width, orig_frame.size.height);
+        
+        detailViewVisible = false;
+    }
+    return self;
+}
+
+
+-(void)showCustomCallout:(bool)status{
+    if (status) {
+        [calloutViewController.landmark_name
+         setStringValue: [self.annotation title]];
+        CGRect orig_frame = calloutViewController.view.frame;
+        calloutViewController.view.frame =
+        CGRectMake(-orig_frame.size.width/2, -orig_frame.size.height*1.5,
+                   orig_frame.size.width, orig_frame.size.height);
+        [self addSubview:calloutViewController.view];
+    }else{
+        //Remove your custom view...
+        [calloutViewController.view removeFromSuperview];
+    }
+    self.customCalloutStatus = status;
+}
+
+//---------------
+// showDetailCallout toggles detail view
+//---------------
+-(void)showDetailCallout:(bool)status{
+    //    [self showCustomCallout:NO];
+    
+    if (status) {
+        [self addSubview:calloutViewController.detailView];
+        
+        detailViewVisible = true;
+    }else{
+        //Remove your custom view...
+        detailViewVisible = false;
+        [calloutViewController.detailView removeFromSuperview];
+    }
+}
+
+// http://stackoverflow.com/questions/9064348/mkannotationview-with-uibutton-as-subview-button-dont-respond
+- (NSView*)hitTest:(NSPoint)aPoint{
+    if (detailViewVisible){
+        //        NSLog(@"Origin: %@", NSStringFromPoint(calloutViewController.detailView.superview.frame.origin));
+        CGPoint origin = calloutViewController.detailView.superview.frame.origin;
+        CGPoint bPoint;
+        bPoint.x = aPoint.x - origin.x;
+        bPoint.y = aPoint.y - origin.y;
+        //        NSView *aView = [calloutViewController.detailView
+        //                         hitTest:  bPoint];
+        return [calloutViewController.detailView hitTest:bPoint];
+    }else{
+        return [super hitTest:aPoint];
+    }
+}
+
+@end

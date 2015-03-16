@@ -31,7 +31,7 @@ string TestCodeInterpreter::genTaskInstruction(){
             output = "Estimate the location of Subway[i], \nthen hold the left button to mark your answer.";
             break;
         case DISTANCE:
-            output = "Estimate the distance to Subway[i], \nthen asnwer in integer mins.";
+            output = "Estimate the distance to Subway[i], \n(in integer multiples of x)";
             break;
         case TRIANGULATE:
             output = "Estimate the location of where you are, \nthen hold the left button to mark your answer.";

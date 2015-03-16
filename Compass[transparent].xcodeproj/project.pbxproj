@@ -313,6 +313,18 @@
 		9A03767A198DA31900258E95 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A03755B198DA31800258E95 /* b2Rope.cpp */; };
 		9A03767B198DA31900258E95 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A03755B198DA31800258E95 /* b2Rope.cpp */; };
 		9A03767C198DA31900258E95 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A03755B198DA31800258E95 /* b2Rope.cpp */; };
+		9A1632A91AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
+		9A1632AA1AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
+		9A1632AB1AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
+		9A1632AC1AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
+		9A1632AD1AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
+		9A1632AE1AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
+		9A1632B01AB619D200F07E45 /* blueDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632AF1AB619D200F07E45 /* blueDot.png */; };
+		9A1632B11AB619D200F07E45 /* blueDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632AF1AB619D200F07E45 /* blueDot.png */; };
+		9A1632B21AB619D200F07E45 /* blueDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632AF1AB619D200F07E45 /* blueDot.png */; };
+		9A1632B31AB619D200F07E45 /* blueDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632AF1AB619D200F07E45 /* blueDot.png */; };
+		9A1632B41AB619D200F07E45 /* blueDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632AF1AB619D200F07E45 /* blueDot.png */; };
+		9A1632B51AB619D200F07E45 /* blueDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632AF1AB619D200F07E45 /* blueDot.png */; };
 		9A176DA619A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A176DA519A437A20032DE3F /* DesktopViewController+Settings.mm */; };
 		9A176DA719A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A176DA519A437A20032DE3F /* DesktopViewController+Settings.mm */; };
 		9A176DA819A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A176DA519A437A20032DE3F /* DesktopViewController+Settings.mm */; };
@@ -1313,6 +1325,8 @@
 		9A03755B198DA31800258E95 /* b2Rope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Rope.cpp; sourceTree = "<group>"; };
 		9A03755C198DA31800258E95 /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
 		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
+		9A1632A81AB6049000F07E45 /* redDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redDot.png; sourceTree = "<group>"; };
+		9A1632AF1AB619D200F07E45 /* blueDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueDot.png; sourceTree = "<group>"; };
 		9A176DA419A437A20032DE3F /* DesktopViewController+Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Settings.h"; sourceTree = "<group>"; };
 		9A176DA519A437A20032DE3F /* DesktopViewController+Settings.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Settings.mm"; sourceTree = "<group>"; };
 		9A239EDC196EFF410064BDC9 /* new.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = new.kml; sourceTree = "<group>"; };
@@ -2596,6 +2610,8 @@
 			isa = PBXGroup;
 			children = (
 				9AC072321AAD362B00B012B2 /* locate.jpg */,
+				9A1632AF1AB619D200F07E45 /* blueDot.png */,
+				9A1632A81AB6049000F07E45 /* redDot.png */,
 				9A25D9AD1AADF7810050C4CD /* distance.jpg */,
 				9A25D9AE1AADF7810050C4CD /* locate.jpg */,
 				9A25D9AF1AADF7810050C4CD /* lplus.jpg */,
@@ -2848,6 +2864,7 @@
 				9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */,
 				9A9482111991D46A0036249C /* setup.png in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
+				9A1632AD1AB6049000F07E45 /* redDot.png in Resources */,
 				9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */,
 				9A239EE1196EFF410064BDC9 /* new.kml in Resources */,
 				9AB2A71C196372AA0001E96F /* selected.png in Resources */,
@@ -2860,6 +2877,7 @@
 				9A3DA09B1964E9B1009E0073 /* add.png in Resources */,
 				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A8CE9E61A97871F0070D9D4 /* default.snapshot in Resources */,
+				9A1632B41AB619D200F07E45 /* blueDot.png in Resources */,
 				9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9A8DF92C1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */,
@@ -2906,12 +2924,14 @@
 				9A82B6541941528600534A5F /* iPad.storyboard in Resources */,
 				9AF273111982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A82B6451941518900534A5F /* New York City [many].kml in Resources */,
+				9A1632B51AB619D200F07E45 /* blueDot.png in Resources */,
 				9A8CE9ED1A97871F0070D9D4 /* empty.snapshot in Resources */,
 				9A998D69194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A037562198DA31800258E95 /* Box2DConfig.cmake in Resources */,
 				9A9482121991D46A0036249C /* setup.png in Resources */,
 				9A82B6461941518900534A5F /* london.kml in Resources */,
 				9A998D7E194BCB0900778DFC /* setup.jpg in Resources */,
+				9A1632AE1AB6049000F07E45 /* redDot.png in Resources */,
 				9AD52F6D1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9A3DA09C1964E9B1009E0073 /* add.png in Resources */,
 				9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */,
@@ -2984,6 +3004,8 @@
 				9A8CE9FD1A97871F0070D9D4 /* study.snapshot in Resources */,
 				9AA7892D1909FE3000A26C66 /* newyork.kml in Resources */,
 				9A4808C6198C2FA30001E188 /* StAndrews723.kml in Resources */,
+				9A1632AC1AB6049000F07E45 /* redDot.png in Resources */,
+				9A1632B31AB619D200F07E45 /* blueDot.png in Resources */,
 				9A3F1E851A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9A8CE9F11A97871F0070D9D4 /* iosSnapshots.snapshot in Resources */,
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
@@ -3010,6 +3032,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AEC4CBE1A5AFB5100B61A3B /* MainMenu.xib in Resources */,
+				9A1632A91AB6049000F07E45 /* redDot.png in Resources */,
+				9A1632B01AB619D200F07E45 /* blueDot.png in Resources */,
 				9A8CE9E21A97871F0070D9D4 /* default.snapshot in Resources */,
 				9A8CE9E81A97871F0070D9D4 /* empty.snapshot in Resources */,
 				9A4808CB198C2FA30001E188 /* training.kml in Resources */,
@@ -3087,12 +3111,14 @@
 				9A2E42E7196C9D2C00CF8862 /* heading.png in Resources */,
 				9AB2A720196372AA0001E96F /* unselected.png in Resources */,
 				9A42A09719A79CA200BB0101 /* About.txt in Resources */,
+				9A1632B21AB619D200F07E45 /* blueDot.png in Resources */,
 				9A4808C1198C2FA30001E188 /* snapshot2.kml in Resources */,
 				9A48089A198BF1F70001E188 /* debug.png in Resources */,
 				9A9701DD19083C9B007C3C19 /* configurations.json in Resources */,
 				9AEECFF81910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9A8CE9EA1A97871F0070D9D4 /* empty.snapshot in Resources */,
 				9A4808BD198C2FA30001E188 /* snapshot.kml in Resources */,
+				9A1632AB1AB6049000F07E45 /* redDot.png in Resources */,
 				9A037565198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9A8CE9F61A97871F0070D9D4 /* one.snapshot in Resources */,
 				9A4808A0198BF1F70001E188 /* general.png in Resources */,
@@ -3157,6 +3183,7 @@
 				9A4808D0198C2FA30001E188 /* wedge723.kml in Resources */,
 				9A25D9BF1AADF7810050C4CD /* orient.jpg in Resources */,
 				9A8CE9E31A97871F0070D9D4 /* default.snapshot in Resources */,
+				9A1632B11AB619D200F07E45 /* blueDot.png in Resources */,
 				9A4808C0198C2FA30001E188 /* snapshot2.kml in Resources */,
 				9AFB14BF18EE655F00063632 /* tabView.xib in Resources */,
 				9A2E42E6196C9D2C00CF8862 /* heading.png in Resources */,
@@ -3164,6 +3191,7 @@
 				9AFB14B118EE639A00063632 /* Images.xcassets in Resources */,
 				9AFB14B218EE639A00063632 /* montreal.kml in Resources */,
 				9A6F53F31910069F00F35FED /* DebugInfoWindow.xib in Resources */,
+				9A1632AA1AB6049000F07E45 /* redDot.png in Resources */,
 				9AB2A71F196372AA0001E96F /* unselected.png in Resources */,
 				9A3F1E831A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9A3DA0BC1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,

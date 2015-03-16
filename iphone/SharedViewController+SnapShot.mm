@@ -99,7 +99,7 @@
         (OSXPinAnnotationView*)
         [self.mapView
          viewForAnnotation: annotation];
-        pinView.canShowCallout = NO;
+        pinView.canShowCallout = NO;        
         [pinView showCustomCallout:NO];
 
     }
@@ -125,7 +125,7 @@
         }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
             label_array = @[@"[i]Subway"];
         }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
-            label_array = @[@"[i]Subway", @"Coffee"];
+            label_array = @[@"Coffee", @"[i]Subway"];
             self.UIConfigurations
             [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
         }
@@ -190,14 +190,6 @@
 //          self.mapView.centerCoordinate.longitude);
 //    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", self.mapView.region.span.latitudeDelta,
 //          self.mapView.region.span.longitudeDelta);
-
-//    //-----------------
-//    // Render annotations (may be too heavy?)
-//    //-----------------
-//    if (mode == OFF)
-//        [self resetAnnotations];
-//    else
-//        [self changeAnnotationDisplayMode:@"Study"];
     
     //-----------------
     // Set up viz and device
@@ -272,7 +264,8 @@
         // Desktop (OSX)
         //--------------------
         [self sendMessage:[NSString stringWithFormat:@"%d", snapshot_id]];
-            self.renderer->cross.isVisible = false;
+        self.renderer->cross.isVisible = false;
+        self.isDistanceEstControlAvailable = [NSNumber numberWithBool:NO];
         // Set up differently, depending on the snapshot code
         if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound))
         {
@@ -280,7 +273,7 @@
         }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location
                   != NSNotFound)
         {
-            
+            self.isDistanceEstControlAvailable = [NSNumber numberWithBool:YES];
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
             [self showLocalizeCollectMode:mySnapshot];

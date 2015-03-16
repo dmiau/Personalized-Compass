@@ -181,7 +181,7 @@
             self.rootViewController.testManager->toggleStudyMode(NO, YES);
             self.rootViewController.renderer->label_flag = true;
 
-            self.rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
+            self.rootViewController.isPracticingMode = [NSNumber numberWithBool:NO];
             self.rootViewController.isDistanceEstControlAvailable =
             [NSNumber numberWithBool:NO];
 

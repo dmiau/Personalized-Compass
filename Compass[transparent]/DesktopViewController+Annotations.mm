@@ -68,6 +68,42 @@
         return nil;
     }
     
+    
+    //----------------
+    // In study mode we will use MKAnnotationView, because we want to use
+    // custom images
+    //----------------
+    if (self.testManager->testManagerMode == OSXSTUDY)
+    {
+        // try to dequeue an existing pin view first
+        static NSString *studyAnnotationID = @"StudyAnnotationID";
+        
+        OSXAnnotationView *pinView =
+        (OSXAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:studyAnnotationID];
+        
+        if (pinView == nil)
+        {
+            pinView = [[OSXAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:studyAnnotationID];
+        }else{
+            // TODO: the callOutViewController needs to be reinitialized!
+            pinView = [pinView initWithAnnotation:annotation reuseIdentifier:studyAnnotationID];
+        }
+        
+        if ([annotation point_type] == dropped){
+            [pinView showCustomCallout:NO];
+            NSImage *blueDot_image = [[NSImage alloc] initWithContentsOfFile:
+                                             [[NSBundle mainBundle] pathForResource:@"blueDot" ofType:@"png"]];
+            pinView.image = blueDot_image;
+        }else{
+            [pinView showCustomCallout:YES];
+            NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
+                                            [[NSBundle mainBundle] pathForResource:@"redDot" ofType:@"png"]];
+            pinView.image = redDot_image;
+        }
+        return pinView;
+    }
+    
+    
     if ([annotation point_type] != heading){
         
         // try to dequeue an existing pin view first
@@ -86,12 +122,6 @@
         
         if([self.UIConfigurations[@"UIAllowMultipleAnnotations"] boolValue]){
             [pinView setCanShowCallout:NO];
-            if (self.testManager->testManagerMode == OSXSTUDY
-                && [annotation point_type] == landmark)
-            {
-                [pinView showCustomCallout:YES];
-            }
-            
         }else{
             [pinView setCanShowCallout:YES];
         }
@@ -374,12 +404,6 @@
     if([self.UIConfigurations[@"UIAllowMultipleAnnotations"] boolValue]){
         [pinView showCustomCallout:!pinView.customCalloutStatus];
     }
-    
-    //    MKPinAnnotationView *pinView = (MKPinAnnotationView *)view;
-    ////    pinView.pinColor = MKPinAnnotationColorPurple;
-    //    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    //    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
-    //    pinView.rightCalloutAccessoryView = rightButton;
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:
@@ -426,9 +450,15 @@
                         [[self.mapView viewForAnnotation:annotation] setHidden:YES];
                     }else{
                         [[self.mapView viewForAnnotation:annotation] setHidden:NO];
-                        OSXPinAnnotationView* temp = (OSXPinAnnotationView*)
+                        OSXAnnotationView* temp = (OSXAnnotationView*)
                         [self.mapView viewForAnnotation:annotation];
-                        temp.pinColor = MKPinAnnotationColorRed;
+
+//                        [temp showCustomCallout:YES];
+                        static NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
+                                                        [[NSBundle mainBundle] pathForResource:@"redDot" ofType:@"png"]];
+                        temp.image = redDot_image;
+                        
+                        
                     }
                 }else{
                     [[self.mapView viewForAnnotation:annotation] setHidden:NO];

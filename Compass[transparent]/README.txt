@@ -3750,20 +3750,45 @@ How to counter-balance test cases? And visualzie data quality?
 - next button is not disabled in the test mode [5:43PM]
 - lplus labels are blocked [5:43PM]
 - hide the snapshot name, end the practices and directly start. [5:44PM]
+- data logging (comma) [5:56PM]
+- add a background image to the map? (no)
+- you have reached the end [7:40PM]
+- chapter info? [8:36PM]
+
+[httpServer setPort:12345]; in DesktopController+Server
+remember the last valid ip [2:02PM]
+- change from pins to dots [4:25PM]
+- font sizes need to be bigger [6:12PM]
+- what should the end test button do? [6:41PM]
+- gray out test message at the beginnig
+- how to shut down and reset a test environment?(end and reset) 9:23PM
+
 ***** Working
 - should call the off-screen location x, not subway
-- add a background image to the map?
-
 - fix the max base length
 - resume a study after crash? continuously save record?
-
 - Have myself try the tests and log the time (repeated measure data analysis)
 
 Issues after my trials:
 - training material?
 - ending (reviewing screen) does not show answering stats.
-
-- data logging (comma)
 - derivate derivations
+
+- test counter issue?
+- check radius?
 - show distance and orientation answer?
 record string generation (, vs ;, also other supporting locations for debug purposes)?
+- save override?
+
+
+- need extra explainations for the distance estimation task
+
+- how far is the subway station?
+- when the phone exists the study mode, what should happen on the desktop?
+(should the buttons be grayed out?)
+
+- reset button
+
+- implement forced save?
+- end did not auto save the record?
+- hold mouse to drop a pin is not obvious (and has issue)

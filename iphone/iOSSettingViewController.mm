@@ -108,9 +108,10 @@
         self.portTextfield.text =
         [NSString stringWithFormat:@"%d", self.rootViewController.port_number];
     }else{
-        self.ipTextField.text = @"localhost";
+        // Cache the last successful connection IP
+        self.ipTextField.text = self.rootViewController.ip_string;
         [self.serverSegmentControl setSelectedSegmentIndex:0];
-        self.portTextfield.text = @"xxxx";
+        self.portTextfield.text = @"10583";
     }
     
     //-------------------
@@ -307,7 +308,7 @@
             [self.serverSegmentControl setSelectedSegmentIndex:1];
         }else{
             [self.serverSegmentControl setSelectedSegmentIndex:0];
-            self.portTextfield.text = @"xxxx";
+            self.portTextfield.text = @"10583";
         }
     }else if ([keyPath isEqual:@"system_message"]){
         

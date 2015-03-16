@@ -38,7 +38,7 @@ void TestManager::updateUITestMessage(){
 //        [NSString stringWithFormat: @"%d/%lu", test_counter+1,
 //         model->snapshot_array.size()];
         rootViewController.counter_button.title =
-        [NSString stringWithFormat: @"%d/%lu", testCountWithinCategory[test_counter],
+        [NSString stringWithFormat: @"Trial: %d/%lu", testCountWithinCategory[test_counter],
          snapshotDistributionInfo[code]];
     }
 #else
@@ -66,7 +66,7 @@ void TestManager::updateUITestMessage(){
         //-----------------
         string userVisibleCode = extractUerVisibleCode(model->snapshot_array[test_counter].name);
         rootViewController.testInformationMessage =
-        [NSString stringWithFormat:@"%@ \n%d out of %d",
+        [NSString stringWithFormat:@"%@ \nTrial: %d out of %d",
         [NSString stringWithUTF8String:
          codeInterpreter.genTaskInstruction().c_str()],
          testCountWithinCategory[test_counter],
@@ -83,9 +83,6 @@ void TestManager::showPreviousTest(){
     
     // Do NOT execute this method if test_counter is already 0
     if (test_counter == 0){
-#ifndef __IPHONE__
-        [rootViewController displayInformationText];
-#endif
         return;
     }
 
@@ -99,9 +96,6 @@ void TestManager::showNextTest(){
     // Do NOT execute this method if test_counter is already the max
     if (test_counter == (model->snapshot_array.size() - 1))
     {
-#ifndef __IPHONE__
-        [rootViewController displayInformationText];
-#endif
         return;
     }
     showTestNumber(test_counter + 1);
@@ -113,7 +107,7 @@ void TestManager::showNextTest(){
 void TestManager::showTestNumber(int test_id){
     int current_id = test_counter;
     
-    // Do NOT execute this method if test_counter is already 0
+    // Do NOT execute this method if test_counter is out of the bound
     if (test_id < 0 || test_id >= model->snapshot_array.size() ){
         return;
     }
@@ -138,17 +132,11 @@ void TestManager::showTestNumber(int test_id){
         rootViewController.studyIntAnswer = [NSNumber numberWithInt:0];
         startTest();
         
-        if (!rootViewController.isShowAnswerAvailable)
+        if (!rootViewController.isPracticingMode)
         {
-            [rootViewController.previousTestButton setEnabled:NO];
+
             [rootViewController.nextTestButton setEnabled:NO];
         }
-    }
-
-    if (test_counter == 0)
-    {
-        // Show text message before the very first
-        [rootViewController displayInformationText];
     }
     updateUITestMessage();
 #endif
@@ -317,17 +305,15 @@ void TestManager::applyDevConfigurations(){
 //------------------
 void TestManager::applyPracticeConfigurations(){
 
-    isRecordAutoSaved = NO;
+
     
 #ifndef __IPHONE__
-    rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:YES];
-    rootViewController.isDistanceEstControlAvailable =
-    [NSNumber numberWithBool:YES];
+    rootViewController.isPracticingMode = [NSNumber numberWithBool:YES];
     [rootViewController.nextTestButton setEnabled:YES];
-    [rootViewController.previousTestButton setEnabled:YES];
+
     [rootViewController.confirmButton setEnabled:YES];
 #endif
-    
+    isRecordAutoSaved = NO;    
     rootViewController.mapView.layer.borderColor =
     [NSColor blueColor].CGColor;
     rootViewController.mapView.layer.borderWidth
@@ -338,16 +324,13 @@ void TestManager::applyPracticeConfigurations(){
 // Study Configurations
 //------------------
 void TestManager::applyStudyConfigurations(){
-    isRecordAutoSaved = YES;
 #ifndef __IPHONE__
     // Hide the answer button
-    rootViewController.isShowAnswerAvailable = [NSNumber numberWithBool:NO];
-    rootViewController.isDistanceEstControlAvailable =
-    [NSNumber numberWithBool:YES];
+    rootViewController.isPracticingMode = [NSNumber numberWithBool:NO];
     [rootViewController.nextTestButton setEnabled:NO];
-    [rootViewController.previousTestButton setEnabled:NO];
     [rootViewController.confirmButton setEnabled:YES];
 #endif
+    isRecordAutoSaved = YES;
     rootViewController.mapView.layer.borderColor =
     [NSColor clearColor].CGColor;
     rootViewController.mapView.layer.borderWidth
