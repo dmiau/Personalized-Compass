@@ -7,6 +7,7 @@
 //
 
 #import "DesktopViewController+Init.h"
+#import <CoreMedia/CoreMedia.h>
 
 @implementation DesktopViewController (Init)
 
@@ -91,11 +92,36 @@
         [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 //        [[NSUserDefaults standardUserDefaults] setObject:@"Yes." forKey:@"TestStatus"];
         
+        //--------------------
+        // Initialize the video player
+        //--------------------
+        
+        // Load a default file
+        NSString *path = [[NSBundle mainBundle]
+                          pathForResource:@"pcompass-phone-locate" ofType:@"mp4"];
+        NSURL *url = [[NSURL alloc] initFileURLWithPath: path];
+        
+        // Configure video
+        self.AVPlayerView.player =
+        [AVPlayer playerWithURL:url];
+        self.AVPlayerView.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(playerItemDidReachEnd:)
+                                                     name:AVPlayerItemDidPlayToEndTimeNotification
+                                                   object:[self.AVPlayerView.player currentItem]];
+        
     }
     return self;
 }
 
-
+//--------------
+// Let the video loop infinitely
+//--------------
+- (void)playerItemDidReachEnd:(NSNotification *)notification {
+    AVPlayerItem *p = [notification object];
+    [p seekToTime:kCMTimeZero];
+}
 
 - (void) awakeFromNib
 {

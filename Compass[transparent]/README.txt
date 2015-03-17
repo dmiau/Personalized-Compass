@@ -3792,3 +3792,50 @@ record string generation (, vs ;, also other supporting locations for debug purp
 - implement forced save?
 - end did not auto save the record?
 - hold mouse to drop a pin is not obvious (and has issue)
+
+- make sure when disaster happens, the data is saved!
+
+-------------------------------------------------------------------
+3.17.2015
+-------------------------------------------------------------------
+***** Done
+- need extra explainations for the distance estimation task [8:55PM]
+- how far is the subway station? [8:55PM]
+- added animation instructions
+***** Working
+- should call the off-screen location x, not subway
+- fix the max base length
+- resume a study after crash? continuously save record?
+- Have myself try the tests and log the time (repeated measure data analysis)
+
+Issues after my trials:
+- training material?
+- ending (reviewing screen) does not show answering stats.
+- derivate derivations
+
+- test counter issue?
+- check radius?
+- show distance and orientation answer?
+record string generation (, vs ;, also other supporting locations for debug purposes)?
+- save override?
+
+- when the phone exists the study mode, what should happen on the desktop?
+(should the buttons be grayed out?)
+
+- reset button
+
+- implement forced save?
+- end did not auto save the record?
+- hold mouse to drop a pin is not obvious (and has issue)
+
+- make sure when disaster happens, the data is saved!
+- generate reasonable data 
+- generate and verify integer distances
+- turn off the north indicator
+- the move compass highlight bug
+
+
+
+
+
+

@@ -23,6 +23,7 @@ public:
     TestCodeInterpreter(NSString* input);
     string genTaskInstruction();
     string genTitle();
+    NSString* genVideoName();
 };
 
 #endif /* defined(__Compass_transparent___testCodeInterpreter__) */

@@ -260,6 +260,7 @@
         }
 #endif
     }else if (mode == OSXSTUDY){
+#ifndef __IPHONE__
         //--------------------
         // Desktop (OSX)
         //--------------------
@@ -283,6 +284,7 @@
             [self showLocalizeCollectMode:mySnapshot];
             self.renderer->cross.isVisible = true;
         }
+#endif
     }else if (mode == OFF){
         //--------------------
         // Normal mode

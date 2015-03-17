@@ -75,3 +75,46 @@ string TestCodeInterpreter::genTitle(){
     }
     return output;
 }
+
+NSString* TestCodeInterpreter::genVideoName(){
+    string output;
+    
+    TaskType taskType = NSStringToTaskType([NSString stringWithUTF8String:code.c_str()]);
+    
+    switch (taskType) {
+        case LOCATE:
+            output = "-phone-locate";
+            break;
+        case DISTANCE:
+            output = "-phone-distance";
+            break;
+        case TRIANGULATE:
+            output = "-watch-triangulate";
+            break;
+        case ORIENT:
+            output = "-phone-direction";
+            break;
+        case LOCATEPLUS:
+            output = "-watch-locate+";
+            break;
+        default:
+            break;
+    }
+    VisualizationType visualizationType = NSStringToVisualizationType
+    ([NSString stringWithUTF8String:code.c_str()]);
+    
+    switch (visualizationType) {
+        case VIZPCOMPASS:
+            output = "pcompass" + output;
+            break;
+        case VIZWEDGE:
+            output = "wedge" + output;
+            break;
+        default:
+            break;
+    }
+    
+    return [NSString stringWithUTF8String:output.c_str()];
+}
+
+

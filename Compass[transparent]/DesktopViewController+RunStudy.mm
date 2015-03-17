@@ -174,7 +174,9 @@
     {
 
         [self.informationTextField setHidden:YES];
-        [self.informationImageView setHidden:NO];
+//        [self.informationImageView setHidden:NO];
+        [self.AVPlayerView setHidden:NO];
+        [self.AVPlayerView.player play];
         [self displayStudyTitle];
         
         if ((self.testManager->test_counter ==
@@ -238,52 +240,84 @@
     self.isInformationViewVisible = [NSNumber numberWithBool:state];
 }
 
-- (void) displayTestInstructionsByTask: (TaskType) taskType
+- (void) displayTestInstructionsByCode: (NSString*) code
 {
     self.isInformationViewVisible = [NSNumber numberWithBool:YES];
     
-    static NSImage *locate_image = [[NSImage alloc] initWithContentsOfFile:
-            [[NSBundle mainBundle] pathForResource:@"locate.jpg" ofType:@""]];
-    static NSImage *distance_image = [[NSImage alloc] initWithContentsOfFile:
-            [[NSBundle mainBundle] pathForResource:@"distance.jpg" ofType:@""]];
-    static NSImage *triangulate_image = [[NSImage alloc] initWithContentsOfFile:
-            [[NSBundle mainBundle] pathForResource:@"triangulate.jpg" ofType:@""]];
-    static NSImage *orient_image = [[NSImage alloc] initWithContentsOfFile:
-            [[NSBundle mainBundle] pathForResource:@"orient.jpg" ofType:@""]];
-    static NSImage *locateplus_image = [[NSImage alloc] initWithContentsOfFile:
-            [[NSBundle mainBundle] pathForResource:@"lplus.jpg" ofType:@""]];
-
+//    static NSImage *locate_image = [[NSImage alloc] initWithContentsOfFile:
+//            [[NSBundle mainBundle] pathForResource:@"locate.gif" ofType:@""]];
+//    static NSImage *distance_image = [[NSImage alloc] initWithContentsOfFile:
+//            [[NSBundle mainBundle] pathForResource:@"distance.jpg" ofType:@""]];
+//    static NSImage *triangulate_image = [[NSImage alloc] initWithContentsOfFile:
+//            [[NSBundle mainBundle] pathForResource:@"triangulate.jpg" ofType:@""]];
+//    static NSImage *orient_image = [[NSImage alloc] initWithContentsOfFile:
+//            [[NSBundle mainBundle] pathForResource:@"orient.jpg" ofType:@""]];
+//    static NSImage *locateplus_image = [[NSImage alloc] initWithContentsOfFile:
+//            [[NSBundle mainBundle] pathForResource:@"lplus.jpg" ofType:@""]];
+    
+    //------------------
+    // Generate video name
+    //------------------
+    TestCodeInterpreter codeInterpreter(code);
+    NSString *path = [[NSBundle mainBundle]
+                      pathForResource:codeInterpreter.genVideoName() ofType:@"mp4"];
+    NSURL *url = [[NSURL alloc] initFileURLWithPath: path];
+    
+    //------------------
+    // Configure the video
+    //------------------
+    [self.AVPlayerView.player pause];
+    self.AVPlayerView.player =
+    [AVPlayer playerWithURL:url];
+    self.AVPlayerView.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+    [self.AVPlayerView.player pause];
+    
     //------------------
     // Show the information view
     //------------------
     [self.mapView setHidden:YES];
     [self.compassView setHidden:YES];
     [self.informationView setHidden:NO];
-    [self.informationImageView setHidden:NO];
     
-    switch (taskType) {
-        case LOCATE:
-            [self.informationImageView setImage:locate_image];
-            break;
-        case DISTANCE:
-            [self.informationImageView setImage:distance_image];
-            break;
-        case TRIANGULATE:
-            [self.informationImageView setImage:triangulate_image];
-            break;
-        case ORIENT:
-            [self.informationImageView setImage:orient_image];
-            break;
-        case LOCATEPLUS:
-            [self.informationImageView setImage:locateplus_image];
-            break;
-        default:
-            break;
+    if (![self.informationTextField isHidden]){
+        [self.informationTextField setHidden:NO];
+        [self.AVPlayerView setHidden:YES];
+    }else{
+        [self.AVPlayerView setHidden:NO];
     }
+    
     [self displayStudyTitle];
     [self.nextTestButton setEnabled:NO];
     [self.confirmButton setEnabled:NO];
+    
+    //------------------
+    // Old code to diplay information
+    //------------------
+    
+//    switch (taskType) {
+//        case LOCATE:
+//            [self.informationImageView setImage:locate_image];
+//            self.informationImageView.imageScaling = NSImageScaleNone;
+//            self.informationImageView.animates = YES;
+//            break;
+//        case DISTANCE:
+//            [self.informationImageView setImage:distance_image];
+//            break;
+//        case TRIANGULATE:
+//            [self.informationImageView setImage:triangulate_image];
+//            break;
+//        case ORIENT:
+//            [self.informationImageView setImage:orient_image];
+//            break;
+//        case LOCATEPLUS:
+//            [self.informationImageView setImage:locateplus_image];
+//            break;
+//        default:
+//            break;
+//    }
 }
+
+
 
 //----------------------------
 // Display test information
@@ -299,6 +333,7 @@
     [self.mapView setHidden:YES];
     [self.compassView setHidden:YES];
     [self.informationView setHidden:NO];
+    [self.AVPlayerView setHidden:YES];
     [self.informationImageView setHidden:YES];
 }
 

@@ -118,6 +118,7 @@ void TestManager::showTestNumber(int test_id){
 #ifndef __IPHONE__
     //-----------------
     // Need to do some checking before updating the counter
+    // The instructions need to be shown when entering a new task
     //-----------------
     snapshot currentSnapshot = model->snapshot_array[current_id];
     snapshot nextSnapshot = model->snapshot_array[test_id];
@@ -126,8 +127,7 @@ void TestManager::showTestNumber(int test_id){
         NSStringToTaskType(nextSnapshot.name)
         ||(test_counter == 0))
     {
-        [rootViewController displayTestInstructionsByTask:
-         NSStringToTaskType(nextSnapshot.name)];
+        [rootViewController displayTestInstructionsByCode: nextSnapshot.name];
     }else{
         rootViewController.studyIntAnswer = [NSNumber numberWithInt:0];
         startTest();
@@ -230,7 +230,7 @@ void TestManager::startTest(){
         
         double dist = sqrt(x * x + y * y);
         record_vector[test_counter].doubleTruth = (double)dist /
-        (double) rootViewController.renderer->emulatediOS.width;
+        (double) rootViewController.renderer->emulatediOS.width * 2;
     }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound){
         //-----------------
         // Localize test

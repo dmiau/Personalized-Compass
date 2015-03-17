@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <MapKit/MapKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
 #import "compassModel.h"
 #import "compassRender.h"
 #import <iostream>
@@ -209,8 +211,8 @@ typedef struct{
 - (IBAction)clickInformationViewOK:(id)sender;
 @property (weak) IBOutlet NSImageView *informationImageView;
 @property (weak) IBOutlet NSTextField *informationTextField;
+@property (weak) IBOutlet AVPlayerView *AVPlayerView;
 
-
-- (void) displayTestInstructionsByTask: (TaskType) taskType;
+- (void) displayTestInstructionsByCode: (NSString*) code;
 - (void) displayInformationText;
 @end
