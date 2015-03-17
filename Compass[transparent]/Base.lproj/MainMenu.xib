@@ -829,7 +829,7 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Exz-f2-YEV"/>
                             </imageView>
-                            <avPlayerView hidden="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fx3-d7-2eF">
+                            <avPlayerView hidden="YES" misplaced="YES" controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="Fx3-d7-2eF">
                                 <rect key="frame" x="50" y="16" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1000" id="8kK-rl-5HL"/>

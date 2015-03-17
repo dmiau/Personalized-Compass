@@ -54,7 +54,7 @@
         self.testInformationMessage = @"Enable Study Mode from iOS";
         self.studyTitle = @"Welcome";
         self.isInformationViewVisible = [NSNumber numberWithBool:NO];
-        
+        self.isStudyMode = [NSNumber numberWithBool:NO];
         //--------------------
         // Initialize a list of UI configurations
         //--------------------

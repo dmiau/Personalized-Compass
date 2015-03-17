@@ -472,4 +472,46 @@
     }
 }
 
+//-----------------
+// Controls whether the answers will be shown or not
+//-----------------
+- (void) toggleAnswersVisibility: (bool) state{
+    if (state){
+        //----------------
+        // Show answers
+        //----------------
+        if ((self.testManager->testManagerMode == OFF) ||
+            (NSStringToTaskType(self.model->snapshot_array
+                                [self.testManager->test_counter].name)  ==
+             DISTANCE))
+        {
+            [self addMessageLabelToView];
+        }
+        
+        if ((self.testManager->testManagerMode == OFF) ||
+            (NSStringToTaskType(self.model->snapshot_array
+                                [self.testManager->test_counter].name)  ==
+             ORIENT))
+        {
+            self.renderer->isAnswerLinesEnabled = YES;
+            [self updateAnswerLines];
+            [self enableMapInteraction:NO];
+            self.renderer->cross.isVisible = YES;
+            self.renderer->isInteractiveLineVisible = YES;
+            self.renderer->isInteractiveLineEnabled = NO;
+            [self.glkView setNeedsDisplay];
+        }
+    }else{
+        //----------------
+        // Do NOT how answers
+        //----------------
+        if ([self.messageLabel isDescendantOfView:self.glkView]){
+            [self.messageLabel removeFromSuperview];
+        }
+        self.renderer->isAnswerLinesEnabled = NO;
+        self.renderer->cross.isVisible = NO;
+        self.renderer->isInteractiveLineVisible = NO;
+    }
+}
+
 @end

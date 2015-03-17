@@ -87,7 +87,7 @@
         
         // Find the string starting with number
         for (NSString* anItem : [[NSHost currentHost] addresses]){
-            if (isnumber([anItem characterAtIndex:0]))
+            if ([anItem rangeOfString:@":"].location == NSNotFound)
             {
                 self.server_ip = anItem;
                 break;
@@ -199,7 +199,8 @@
             
             // Find the string starting with number
             for (NSString* anItem : [[NSHost currentHost] addresses]){
-                if (isnumber([anItem characterAtIndex:0])){
+                if ([anItem rangeOfString:@":"].location == NSNotFound)
+                {
                     self.server_ip = anItem;
                     break;
                 }

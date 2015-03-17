@@ -195,7 +195,7 @@ typedef struct{
 @property NSNumber* studyIntAnswer;
 @property NSNumber* isDistanceEstControlAvailable;
 @property NSNumber* isPracticingMode;
-
+@property NSNumber* isStudyMode;
 //----------------
 // System service (implemented in the interaction category)
 //----------------

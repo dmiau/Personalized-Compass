@@ -172,6 +172,10 @@
     self.received_message = message;
 
 #ifndef __IPHONE__
+    //-----------------
+    // OSX
+    //-----------------
+    
     // Check if the received message is a number
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     NSNumber *temp = [f numberFromString: message];
@@ -179,6 +183,10 @@
             self.testManager->showTestNumber([temp intValue]);
     }
 #else
+    //-----------------
+    // iPhone
+    //-----------------
+    
     // Check if the received message is a number
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     NSNumber *temp = [f numberFromString: message];
@@ -189,12 +197,13 @@
         if (self.testManager->testManagerMode != OFF)
             self.testManager->showTestNumber([temp intValue]);
     }else{
+        //-------------------
+        // Receive an actual message
+        //-------------------
+        
         // Handle the message only if the received message is a KML file name
         if ([message rangeOfString:@".snapshot"].location != NSNotFound)
         {
-//            if (![message isEqualToString:
-//                  self.model->snapshot_filename])
-//            {
                 self.model->snapshot_filename = message;
                 
                 if (readSnapshotKml(self.model) != EXIT_SUCCESS){
@@ -205,10 +214,12 @@
                     [self displayPopupMessage:
                      [NSString stringWithFormat:@"Successfully loaded %@", message]];
                 }
-//            }
             self.testManager->toggleStudyMode(YES, NO);
         }else if ([message isEqualToString:@"End"]){
             self.testManager->toggleStudyMode(NO, NO);
+        }else if ([message isEqualToString:@"ShowAnswers"]){
+            // Display the answer
+            [self toggleAnswersVisibility:YES];
         }
     }
 #endif

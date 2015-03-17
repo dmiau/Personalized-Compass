@@ -154,6 +154,7 @@ public:
     //----------------
     Cross cross;
     CompassRefDot compassRefDot;
+    bool isNorthIndicatorOn;
     
     //----------------
     // Parameters for compass drawing

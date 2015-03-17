@@ -74,6 +74,7 @@
         self.socket_status = [NSNumber numberWithBool:false];
         self.received_message = @"NONE";
         self.system_message = @"System initialized.";
+        self.ip_string = @"scarsdale.cs.columbia.edu";
         //--------------------
         // Initialize a list of UI configurations
         //--------------------
@@ -142,9 +143,9 @@
     // Initialize the message label
     //-------------------
     self.messageLabel = [[UILabel alloc] initWithFrame:
-                    CGRectMake(10, 10, 150, 20)];
-    [self.messageLabel setBackgroundColor:[UIColor clearColor]];
-    [self.messageLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 16.0f]];
+                    CGRectMake(10, 10, 300, 50)];
+    [self.messageLabel setBackgroundColor:[UIColor whiteColor]];
+    [self.messageLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 36.0f]];
     
     //-------------------
     // Initialize OpenGL ES

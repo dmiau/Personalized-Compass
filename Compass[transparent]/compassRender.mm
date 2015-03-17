@@ -67,6 +67,7 @@ int compassRender::initRenderMdl(){
     isOverviewMapEnabled    = false;
     isInteractiveLineVisible=false;
     isInteractiveLineEnabled=false;
+    isNorthIndicatorOn      = true;
     
     interactiveLineRadian   = 0;
     isAnswerLinesEnabled    = false;

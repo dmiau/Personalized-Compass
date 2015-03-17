@@ -53,6 +53,7 @@ void TestManager::toggleStudyMode(bool state, bool instructPartner){
 //------------------
 void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     testManagerMode = mode;
+    rootViewController.renderer->isNorthIndicatorOn = false;
     test_counter = 0; // Reset the test counter
     iOSAnswer = 10000;
     isLocked = NO;
@@ -179,6 +180,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
         
         // Show text message before the very first
         [rootViewController displayInformationText];
+        rootViewController.isStudyMode = [NSNumber numberWithBool:NO];        
 #endif
     }
     updateSessionInformation();
@@ -190,6 +192,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
 // Clean up the environment
 //-------------------
 void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
+    rootViewController.renderer->isNorthIndicatorOn = true;
     rootViewController.renderer->cross.isVisible = false;
     rootViewController.renderer->isInteractiveLineVisible=false;
     rootViewController.renderer->isInteractiveLineEnabled=false;
@@ -222,12 +225,19 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
         rootViewController.isDistanceEstControlAvailable =
         [NSNumber numberWithBool:NO];
         
-        if (isRecordAutoSaved)
+        if (isRecordAutoSaved){
             rootViewController.testManager->saveRecord(
                                                        [rootViewController.model->desktopDropboxDataRoot
                                                         stringByAppendingPathComponent:
                                                         record_filename]
-                                                       );
+                                                       , true);
+        }else{
+            rootViewController.testManager->saveRecord(
+                                                       [rootViewController.model->desktopDropboxDataRoot
+                                                        stringByAppendingPathComponent:
+                                                        @"testEnd.dat"]
+                                                       , true);
+        }
         if (instructPartner){
             [rootViewController sendMessage: @"End"];
         }
@@ -236,6 +246,7 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
         [NSColor clearColor].CGColor;
         rootViewController.mapView.layer.borderWidth
         = 0.0f;
+        rootViewController.isStudyMode = [NSNumber numberWithBool:NO];
 #endif
     }
     

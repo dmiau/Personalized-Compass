@@ -280,12 +280,18 @@
 //--------------------
 - (void)pinchGesture:(UIPinchGestureRecognizer *)recognizer
 {
+    
+    //----------------------
+    // Basically, skip this method is the compass is disabled,
+    // or the interation is disabled.
+    //----------------------
     if (![self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue]
         || [self.glkView isHidden]
         || [self.model->configurations[@"personalized_compass_status"]
          isEqualToString:@"off"])
         return;
 
+    
     static float starting_scale = 1;
     if(recognizer.state == UIGestureRecognizerStateBegan){
         
@@ -305,7 +311,6 @@
             [self.mapView setZoomEnabled:NO];
             [self.mapView setRotateEnabled:NO];
             [self.mapView setScrollEnabled:NO];
-            self.model->configurations[@"disk_color"][3] = [NSNumber numberWithInt:255];
             [self.glkView setNeedsDisplay];
         }
     }

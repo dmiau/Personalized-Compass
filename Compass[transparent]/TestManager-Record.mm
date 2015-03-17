@@ -129,19 +129,23 @@ NSArray* record::genSavableRecord(){
 // Save the record vector
 //-------------------
 
-void TestManager::saveRecord(NSString *out_file){
+void TestManager::saveRecord(NSString *out_file, bool forced){
     
     //--------------
     // Check if a file exists already
     //--------------
     if ([[NSFileManager defaultManager] fileExistsAtPath:
-          out_file]){
-        [rootViewController displayPopupMessage:
-         [NSString stringWithFormat:@"%@ already exists. _1 postfixed will be added to the saved file", out_file]];
-        
-        // Compute a new name
-        out_file = [out_file stringByReplacingOccurrencesOfString:@".dat"
-                                                        withString:@"_1.dat"];
+          out_file])
+    {
+        if (!forced){
+            [rootViewController displayPopupMessage:
+             [NSString stringWithFormat:@"%@ already exists. _1 postfixed will be added to the saved file", out_file]];
+            
+            //----------------------
+            // Compute a new name if it is not in the forced mode
+            //----------------------
+            out_file = [out_file stringByReplacingOccurrencesOfString:@".dat"                                                           withString:@"_1.dat"];
+        }
     }
     
     NSOutputStream *output = [NSOutputStream outputStreamToFileAtPath:out_file append:NO];

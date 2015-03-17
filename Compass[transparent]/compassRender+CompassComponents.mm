@@ -158,6 +158,11 @@ void CompassRefDot::render(){
 // Draw the north indicator
 //--------------
 void compassRender::drawCompassNorth(){
+    
+    // Do NOT draw is the north indicator flag is off
+    if (!isNorthIndicatorOn)
+        return;
+    
     // ---------------
     // draw the north indicator
     // ---------------

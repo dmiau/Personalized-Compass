@@ -29,8 +29,31 @@
         AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
         self.rootViewController = appDelegate.rootViewController;
         self.testMessage = @"";
+        
+        // Watch socket status
+        [self.rootViewController addObserver:self forKeyPath:@"isStudyMode"
+                                     options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
+        
     }
     return self;
+}
+
+//---------------
+// KVO code
+//---------------
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    
+    // [todo] In the browser mode,
+    // updates should not come from map! Need to fix this
+    if ([keyPath isEqual:@"isStudyMode"]) {
+        if (![self.rootViewController.isStudyMode boolValue]){
+            [self disableStudyButtons];
+        }
+    }
 }
 
 - (void)viewDidLoad {
@@ -105,7 +128,7 @@
         NSString* ip_string;
         // Find the string starting with number
         for (NSString* anItem : [[NSHost currentHost] addresses]){
-            if (isnumber([anItem characterAtIndex:0]))
+            if ([anItem rangeOfString:@":"].location == NSNotFound)
             {
                 ip_string = anItem;
                 break;
@@ -232,7 +255,7 @@
                             stringByAppendingPathComponent:
                             self.recordFileNameTextField.stringValue];
     self.rootViewController.testManager->saveRecord(
-    self.record_filepath);
+    self.record_filepath, false);
 }
 
 //-----------------

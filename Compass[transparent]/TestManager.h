@@ -318,7 +318,7 @@ public:
     void startTest();
     void endTest(CGPoint openGLPoint, double doubleAnswer);
     
-    void saveRecord(NSString *out_file); // Save test record to a file
+    void saveRecord(NSString *out_file, bool forced); // Save test record to a file
     
     // Display test information
     void updateSessionInformation();

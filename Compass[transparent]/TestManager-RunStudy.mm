@@ -105,6 +105,12 @@ void TestManager::showNextTest(){
 // Show test by ID
 //------------------
 void TestManager::showTestNumber(int test_id){
+    
+#ifdef __IPHONE__
+    // Make sure the answer is not shown
+    [rootViewController toggleAnswersVisibility:NO];
+#endif
+    
     int current_id = test_counter;
     
     // Do NOT execute this method if test_counter is out of the bound
@@ -139,6 +145,11 @@ void TestManager::showTestNumber(int test_id){
         }
     }
     updateUITestMessage();
+    
+    // Do a forced backup
+    saveRecord([rootViewController.model->desktopDropboxDataRoot
+                stringByAppendingPathComponent:
+                @"midTestBackup.dat"], YES);
 #endif
 }
 
@@ -304,9 +315,6 @@ void TestManager::applyDevConfigurations(){
 // Practice Configurations
 //------------------
 void TestManager::applyPracticeConfigurations(){
-
-
-    
 #ifndef __IPHONE__
     rootViewController.isPracticingMode = [NSNumber numberWithBool:YES];
     [rootViewController.nextTestButton setEnabled:YES];

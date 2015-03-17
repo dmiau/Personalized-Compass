@@ -3801,7 +3801,20 @@ record string generation (, vs ;, also other supporting locations for debug purp
 ***** Done
 - need extra explainations for the distance estimation task [8:55PM]
 - how far is the subway station? [8:55PM]
-- added animation instructions
+- added video instructions [3:19PM]
+- the move compass highlight bug (disk color should not be changed) [3:41PM]
+- turn off the north indicator [3:51PM]
+- always show video controller [5:13PM]
+- video is now played automatically [5:13PM]
+- show/dismiss answers on iOS
+- dismiss button when iOS is disconnected
+- show distance and orientation answer?
+- when the phone exists the study mode, what should happen on the desktop?
+(should the buttons be grayed out?) YES [5:15PM]
+- implement forced save? [5:35PM]
+- save override? [5:35PM]
+- make sure when disaster happens, the data is saved! [5:35PM]
+
 ***** Working
 - should call the off-screen location x, not subway
 - fix the max base length
@@ -3813,29 +3826,14 @@ Issues after my trials:
 - ending (reviewing screen) does not show answering stats.
 - derivate derivations
 
-- test counter issue?
-- check radius?
-- show distance and orientation answer?
-record string generation (, vs ;, also other supporting locations for debug purposes)?
-- save override?
-
-- when the phone exists the study mode, what should happen on the desktop?
-(should the buttons be grayed out?)
-
 - reset button
-
-- implement forced save?
 - end did not auto save the record?
 - hold mouse to drop a pin is not obvious (and has issue)
-
-- make sure when disaster happens, the data is saved!
 - generate reasonable data 
 - generate and verify integer distances
-- turn off the north indicator
-- the move compass highlight bug
 
+- test counter issue?
+- check radius?
 
-
-
-
+record string generation (, vs ;, also other supporting locations for debug purposes)?
 

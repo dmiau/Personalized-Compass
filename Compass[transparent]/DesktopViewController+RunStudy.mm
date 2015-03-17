@@ -91,6 +91,21 @@
         return;        
     }
 
+    //-------------
+    // For the orient task, show the answer on iPhone
+    //-------------
+    if (([self.testManager->record_vector[sid].code rangeOfString:
+         toNSString(ORIENT)].location
+        != NSNotFound) ||
+        ([self.testManager->record_vector[sid].code rangeOfString:
+          toNSString(DISTANCE)].location
+         != NSNotFound))
+    {
+        [self sendMessage:@"ShowAnswers"];
+        // Skip the rest
+        return;
+    }
+    
     // Find the answer
     CGPoint cgTruth = self.testManager->record_vector[sid].cgPointTruth;
     
@@ -208,6 +223,9 @@
     }
 }
 
+//----------------------
+// Menu bar control
+//----------------------
 - (IBAction)toggleInformationView:(id)sender {
     if ([self.informationView isHidden]){
         [self setInformationViewVisibility:YES];
@@ -219,6 +237,9 @@
     }
 }
 
+//----------------------
+// Toggle information view
+//----------------------
 - (void)setInformationViewVisibility: (BOOL)state{
     if (state){
         //------------------
@@ -240,6 +261,9 @@
     self.isInformationViewVisible = [NSNumber numberWithBool:state];
 }
 
+//----------------------
+// Display test instructions
+//----------------------
 - (void) displayTestInstructionsByCode: (NSString*) code
 {
     self.isInformationViewVisible = [NSNumber numberWithBool:YES];
@@ -279,11 +303,13 @@
     [self.compassView setHidden:YES];
     [self.informationView setHidden:NO];
     
+    // If the text field is not hidden, let the text field dispaly on top
     if (![self.informationTextField isHidden]){
         [self.informationTextField setHidden:NO];
         [self.AVPlayerView setHidden:YES];
     }else{
         [self.AVPlayerView setHidden:NO];
+        [self.AVPlayerView.player play];
     }
     
     [self displayStudyTitle];
