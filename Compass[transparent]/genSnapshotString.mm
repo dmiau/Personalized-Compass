@@ -22,7 +22,7 @@ NSString* genSnapshotString(vector<snapshot> my_snapshot_array)
     
     string temp_str, coord_str;
     std::ostringstream stringStream;
-    
+    stringStream.precision(12);
     //-------------
     // Header
     //-------------

@@ -60,10 +60,14 @@ public:
     NSDate *endDate;
     
     CGPoint cgPointTruth;
+    CGPoint cgPointOpenGL; // This record the xy coordinates seen from renderer
     CGPoint cgPointAnswer;
     double  doubleTruth;
     double  doubleAnswer;
     
+    CGPoint cgSupport1;     // There could be two additional points.
+    CGPoint cgSupport2;     // (for the triangulate and locate+ tasks)
+    double  display_radius;
     
     double location_error;
     double elapsed_time;
@@ -76,6 +80,11 @@ public:
         endDate         = nil;
         cgPointTruth    = CGPointMake(0, 0);
         cgPointAnswer   = CGPointMake(0, 0);
+        cgPointOpenGL   = CGPointMake(0, 0);
+        
+        cgSupport1      = CGPointMake(0, 0);
+        cgSupport2      = CGPointMake(0, 0);
+        display_radius  = 0;
         
         doubleTruth     = 0;
         doubleAnswer    = 0;

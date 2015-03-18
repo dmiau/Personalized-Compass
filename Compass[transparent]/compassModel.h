@@ -142,6 +142,8 @@ public:
     // distance and orientation will be updated on the fly
     double distance;
     float orientation;
+    CGPoint openGLPoint; // Log the x, y position relative to the current compass center
+    
     float latitude;
     float longitude;
     CustomPointAnnotation* annotation;
@@ -165,6 +167,9 @@ public:
         longitude = 0;
         distance = 0;
         orientation = 0;
+        
+        openGLPoint = CGPointMake(0, 0);
+        
         isEnabled = YES;
         isVisible = NO;
         isAnswer = NO;

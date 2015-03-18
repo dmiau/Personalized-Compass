@@ -8,6 +8,7 @@ NSString* genKMLString(vector<data> my_data_array)
     
     string temp_str, coord_str;
     std::ostringstream stringStream;
+    stringStream.precision(12);
     
     //-------------
     // Header

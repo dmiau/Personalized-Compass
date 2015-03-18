@@ -152,16 +152,20 @@ private:
     void generateTriangulateTests(vector<data> &t_data_array, std::mt19937 &generator);
     void generateLocatePlusTests(vector<data> &t_data_array, std::mt19937 &generator);
 
+    pair<vector<vector<double>>, vector<vector<double>>> generateRandomTriangulateLocations(
+                        std::mt19937  &generator,
+                        vector<int> base_length_vector, vector<int> ratio_vecotr, vector<int> delta_theta_vecotr);
+
     void batchCommitLocationPairs(string postfix,
-    pair<vector<vector<float>>, vector<vector<int>>> location_pairs,
+    pair<vector<vector<double>>, vector<vector<double>>> location_pairs,
                                   vector<int> is_answer_list,
                                   vector<data> &t_data_array);
     
     // Add two data and snapshot
     void addTwoDataAndSnapshot(string trialString,
-                               vector<CGPoint> openGLPoints,
+                               vector<DoublePoint> openGLPoints,
                                vector<int> is_answer_list,
-                               vector<float> truth_stats,
+                               vector<double> truth_stats,
                                vector<data> &t_data_array);
 #endif
 };

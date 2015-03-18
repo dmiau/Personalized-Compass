@@ -90,8 +90,8 @@
         NSDictionary *appDefaults = [NSDictionary dictionaryWithContentsOfFile:defaultsPath];
         
         [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-//        [[NSUserDefaults standardUserDefaults] setObject:@"Yes." forKey:@"TestStatus"];
-        
+        [[NSUserDefaults standardUserDefaults] setObject:@"N/A" forKey:@"TestStatus"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"N/A" forKey:@"AdminSessionInfo"];        
         //--------------------
         // Initialize the video player
         //--------------------

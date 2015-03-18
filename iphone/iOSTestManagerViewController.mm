@@ -84,6 +84,12 @@
         selected_snapshot_id = -1;
         [self.myTableView reloadData];
     }
+    //-------------------
+    // Update Test Status
+    //-------------------
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    // getting an NSInteger
+    self.testStatus.text = [prefs stringForKey:@"TestStatus"];
     
     //-------------------
     // Change navigation bar color

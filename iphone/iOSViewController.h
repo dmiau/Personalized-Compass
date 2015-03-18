@@ -282,4 +282,5 @@ typedef struct{
 // System service (implemented in the interaction category)
 //----------------
 - (void) displayPopupMessage: (NSString*) message;
+
 @end

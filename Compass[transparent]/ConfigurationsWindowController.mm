@@ -18,14 +18,8 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    // Important, initialize NSMutableArray with empty cells
-//    tableCellCache = [[NSMutableArray alloc] init];
-//    
-//    for (int i = 0; i < self.rootViewController.model->data_array.size(); ++i)
-//    {
-//        [tableCellCache addObject:[NSNull null]];
-//    }
+    self.rootViewController.model->desktopDropboxDataRoot =
+    [self.rootViewController.model->desktopDropboxDataRoot stringByAppendingPathComponent:@"study"];
 }
 
 

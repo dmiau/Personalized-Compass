@@ -34,20 +34,25 @@ wedge::wedge(compassMdl* myMdl, box screen_box, CGPoint diff_xy){
     //---------------------
     // Initialize parameters
     //---------------------
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];   
     model = myMdl;
 #ifndef __IPHONE__
-    min_base = 50;
-    max_intrusion = 24; // This is roughly 1/8 the screen size
+    min_base = [prefs doubleForKey:@"OSX_wedge_min_base"];
+    // This is roughly 1/7 the screen size
+    max_intrusion = [prefs doubleForKey:@"OSX_wedge_max_intrusion"];
+    edge_padding   = [prefs doubleForKey:@"OSX_wedge_edge_padding"];
 #else
-    min_base = 100;
-    max_intrusion = 40;
+    min_base = [prefs doubleForKey:@"iOS_wedge_min_base"];
+    max_intrusion = [prefs doubleForKey:@"iOS_wedge_max_intrusion"];
+    edge_padding   = [prefs doubleForKey:@"iOS_wedge_edge_padding"];
 #endif
     
     // Place holder
     intrusions[0] = -100;
     intrusions[1] = -100;
     axis_intrusion = -100;
-    edge_padding   = 15;
+
     
     //---------------------
     // Figure out if coordinate transform is needed
@@ -192,7 +197,7 @@ wedgeParams wedge::calculateRegionTwoParams(double tx, double ty){
     applyVisibleIntrusionConstraint(DoublePointMake(t_width + edge_padding*2, t_height+ edge_padding*2), DoublePointMake(tx, ty),
         l_wedge_rotation,  l_aperture, max_intrusion);
     
-    // Here we fix the intruction for ALL locations
+    // Here we fix the intrusion for ALL locations
 //    if (l_leg> corrected_leg)
         l_leg = corrected_leg;
     

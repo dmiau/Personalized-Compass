@@ -135,9 +135,10 @@ typedef struct{
 @property bool isBlankMapEnabled;
 - (void)toggleBlankMapMode:(bool)state;
 -(void)enableMapInteraction:(bool)state;
-- (MKCoordinateSpan) scaleCoordinateSpanForSnapshot: (snapshot)mySnapshot;
+- (MKCoordinateSpan) scaleCoordinateSpanForDeviceInSnapshot: (snapshot)mySnapshot;
 - (MKCoordinateSpan) calculateCoordinateSpanForDevice: (DeviceType)deviceType;
 - (CGPoint) calculateOpenGLPointFromMapCoord: (CLLocationCoordinate2D) coord;
+- (MKCoordinateRegion) calculateOSXCoordinateSpanForTriangulateTask: (snapshot)mySnapshot;
 //----------------
 //Snapshot category
 //----------------

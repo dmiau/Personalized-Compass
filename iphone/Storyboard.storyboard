@@ -1000,7 +1000,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zvj-5t-Cip">
-                                <rect key="frame" x="0.0" y="129" width="320" height="390"/>
+                                <rect key="frame" x="0.0" y="195" width="320" height="324"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="myTableCell" textLabel="fUF-YJ-NOI" detailTextLabel="zb4-FV-Rbi" style="IBUITableViewCellStyleSubtitle" id="fPh-Rv-txS">
@@ -1030,20 +1030,20 @@
                                     <outlet property="delegate" destination="avv-ds-Vn2" id="1kK-PI-sBH"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Study Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJG-vO-7wB">
-                                <rect key="frame" x="9" y="84" width="94" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJG-vO-7wB">
+                                <rect key="frame" x="9" y="77" width="94" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b0t-3h-xik">
-                                <rect key="frame" x="111" y="79" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b0t-3h-xik">
+                                <rect key="frame" x="111" y="72" width="51" height="31"/>
                                 <connections>
                                     <action selector="toggleStudyMode:" destination="avv-ds-Vn2" eventType="valueChanged" id="twX-gp-Woy"/>
                                 </connections>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkx-c7-mnD">
-                                <rect key="frame" x="177" y="80" width="137" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkx-c7-mnD">
+                                <rect key="frame" x="177" y="73" width="137" height="30"/>
                                 <state key="normal" title="Reset Test Manager">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1051,20 +1051,36 @@
                                     <action selector="resetTestManager:" destination="avv-ds-Vn2" eventType="touchUpInside" id="vEZ-GP-HGj"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wYi-dh-Aew">
+                                <rect key="frame" x="9" y="111" width="305" height="76"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zvj-5t-Cip" firstAttribute="top" secondItem="F68-PY-8iw" secondAttribute="topMargin" constant="129" id="8fA-U3-O7a"/>
-                            <constraint firstItem="EFI-ta-bCd" firstAttribute="top" secondItem="zvj-5t-Cip" secondAttribute="bottom" id="94n-Fq-rgN"/>
-                            <constraint firstItem="zvj-5t-Cip" firstAttribute="top" secondItem="xkx-c7-mnD" secondAttribute="bottom" constant="19" id="F0f-an-cBi"/>
-                            <constraint firstItem="zvj-5t-Cip" firstAttribute="leading" secondItem="F68-PY-8iw" secondAttribute="leadingMargin" constant="-16" id="ctj-il-dkW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zvj-5t-Cip" secondAttribute="trailing" constant="-16" id="d2h-tP-pyg"/>
+                            <constraint firstItem="b0t-3h-xik" firstAttribute="leading" secondItem="F68-PY-8iw" secondAttribute="leadingMargin" constant="95" id="0oH-GI-15E"/>
+                            <constraint firstItem="b0t-3h-xik" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="8" id="4PX-XJ-VTN"/>
+                            <constraint firstItem="EFI-ta-bCd" firstAttribute="top" secondItem="zvj-5t-Cip" secondAttribute="bottom" id="7od-Eh-bda"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wYi-dh-Aew" secondAttribute="trailing" constant="-10" id="Hzx-q9-des"/>
+                            <constraint firstItem="zvj-5t-Cip" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="131" id="JAR-pG-Vrp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zvj-5t-Cip" secondAttribute="trailing" constant="-16" id="cPL-q8-2Rg"/>
+                            <constraint firstItem="zvj-5t-Cip" firstAttribute="leading" secondItem="F68-PY-8iw" secondAttribute="leadingMargin" constant="-16" id="fSH-IP-nds"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xkx-c7-mnD" secondAttribute="trailing" constant="-10" id="kk8-Fi-S2S"/>
+                            <constraint firstItem="aJG-vO-7wB" firstAttribute="leading" secondItem="F68-PY-8iw" secondAttribute="leadingMargin" constant="-7" id="rmY-uh-Jbn"/>
+                            <constraint firstItem="wYi-dh-Aew" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="47" id="vjy-gm-CyI"/>
+                            <constraint firstItem="wYi-dh-Aew" firstAttribute="leading" secondItem="F68-PY-8iw" secondAttribute="leadingMargin" constant="-7" id="x9G-Gl-lKR"/>
+                            <constraint firstItem="xkx-c7-mnD" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="9" id="xGT-64-Weh"/>
+                            <constraint firstItem="aJG-vO-7wB" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="13" id="xqd-Ze-ueh"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Study" id="SXQ-9W-98f"/>
                     <connections>
                         <outlet property="myTableView" destination="zvj-5t-Cip" id="ugX-Ka-gDO"/>
                         <outlet property="studyModeSwitch" destination="b0t-3h-xik" id="iXu-G4-zxu"/>
+                        <outlet property="testStatus" destination="wYi-dh-Aew" id="NPn-aI-S4c"/>
                         <segue destination="3wt-qb-LGf" kind="push" identifier="ToSnapshotDetailView" id="9at-fG-ath"/>
                     </connections>
                 </viewController>
@@ -1155,9 +1171,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="K1H-er-9a7"/>
         <segue reference="yng-bX-3xc"/>
-        <segue reference="WS4-yg-Oj7"/>
+        <segue reference="K1H-er-9a7"/>
+        <segue reference="VT9-KB-V4S"/>
         <segue reference="9at-fG-ath"/>
     </inferredMetricsTieBreakers>
 </document>

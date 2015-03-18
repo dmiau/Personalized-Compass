@@ -3814,11 +3814,14 @@ record string generation (, vs ;, also other supporting locations for debug purp
 - implement forced save? [5:35PM]
 - save override? [5:35PM]
 - make sure when disaster happens, the data is saved! [5:35PM]
+- end did not auto save the record? [5:47PM]
+- reset button (fixed) [5:47PM]
+- resume a study after crash? continuously save record? [5:47PM]
+- hold mouse to drop a pin is not obvious (and has issue)
 
 ***** Working
 - should call the off-screen location x, not subway
 - fix the max base length
-- resume a study after crash? continuously save record?
 - Have myself try the tests and log the time (repeated measure data analysis)
 
 Issues after my trials:
@@ -3826,14 +3829,51 @@ Issues after my trials:
 - ending (reviewing screen) does not show answering stats.
 - derivate derivations
 
-- reset button
-- end did not auto save the record?
-- hold mouse to drop a pin is not obvious (and has issue)
 - generate reasonable data 
-- generate and verify integer distances
+record string generation (, vs ;, also other supporting locations for debug purposes)?
 
 - test counter issue?
-- check radius?
+- generate and verify integer distances
+- check radius (precision lose?)
+maybe i need to do a fixed scaling? maybe i should scale at run time? check "updateMapDisplayRegion"
 
-record string generation (, vs ;, also other supporting locations for debug purposes)?
+MATLAB data checking tools? MATLAB data summarizer
+* .dat labels cannot contain illegal characters (AnswerXY, Data1_XY, Data2_XY, radius)
+
+-------------------------------------------------------------------
+3.18.2015
+-------------------------------------------------------------------
+***** Done
+- should call the off-screen location x, not subway (I think subway is fine.)
+- debug info in the snapshot pane? [12:11PM]
+- user visible test counter? [4:04PM]
+- control wedge intrusion (watch as well as desktop phone)
+look into constraint of the watch mode [4:04PM]
+- test counter issue? (not initialized properly) [4:09PM]
+- ending (reviewing screen) does not show answering stats. (This is by design. User facing string was shown.) [4:15PM]
+- check radius (precision lose?)
+maybe i need to do a fixed scaling? maybe i should scale at run time? check "updateMapDisplayRegion" [4:30PM]
+- generate and verify integer distances [5:10PM]
+- record string generation (, vs ;, also other supporting locations for debug purposes)? [5:10PM]
+***** Working
+- fix the max base length
+- Have myself try the tests and log the time (repeated measure data analysis), is the time calculated automatically?
+
+Issues after my trials:
+- training material?
+- derivate derivations
+- generate reasonable data 
+
+MATLAB data checking tools? MATLAB data summarizer
+* .dat labels cannot contain illegal characters (AnswerXY, Data1_XY, Data2_XY, radius)
+
+
+
+
+
+
+
+
+
+
 

@@ -2354,6 +2354,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9A856FB21AB8F52900486AE9 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				9AF7EB2D190175F900983C2F /* configurations.json */,
+				9AFC0BA21AAA505F0085543C /* testSpec.plist */,
+				9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */,
+			);
+			name = Configurations;
+			sourceTree = "<group>";
+		};
 		9A8934F41A8BAF0600BCE84C /* TestManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2727,6 +2737,7 @@
 		9AF523B418DC8E95005823A2 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				9A856FB21AB8F52900486AE9 /* Configurations */,
 				9ADA91C01AB8896B009C7552 /* kml */,
 				9ADA91BF1AB888CB009C7552 /* instructions */,
 				9A1632AF1AB619D200F07E45 /* blueDot.png */,
@@ -2735,11 +2746,8 @@
 				9AF378861A9FED7600FEB3F3 /* walking.tif */,
 				9A239EDC196EFF410064BDC9 /* new.kml */,
 				9A9701E7190851A3007C3C19 /* smartWatch.tif */,
-				9AF7EB2D190175F900983C2F /* configurations.json */,
 				9AF29F2718F4C90000A28AC3 /* moto360_bikemap.png */,
 				9AF29F2818F4C90000A28AC3 /* moto360_wrist.jpg */,
-				9AFC0BA21AAA505F0085543C /* testSpec.plist */,
-				9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */,
 			);
 			path = data;
 			sourceTree = "<group>";

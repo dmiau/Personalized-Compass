@@ -88,7 +88,7 @@ NSArray* record::genSavableRecord(){
     //-------------
     // elapsedTimeString
     //-------------
-    NSString* elapsedTimeString = [NSString stringWithFormat:@"%g", abs(elapsed_time)];
+    NSString* elapsedTimeString = [NSString stringWithFormat:@"%f", abs(elapsed_time)];
 
     //-------------
     // truthString
@@ -114,14 +114,34 @@ NSArray* record::genSavableRecord(){
     NSString* errorCGPointString = [NSString stringWithFormat:@"%f", distance];
     NSString* errorDobuleString = [NSString stringWithFormat:@"%f",
                                    abs(doubleTruth - doubleAnswer)];
+
+    //-------------
+    // Debugging/supporting information
+    //-------------
+#ifndef __IPHONE__
+    NSString* cgSupport1String = NSStringFromPoint(cgSupport1);
+    NSString* cgSupport2String = NSStringFromPoint(cgSupport2);
+    NSString* opengGLXYString = NSStringFromPoint(cgPointOpenGL);
+#else
+    NSString* cgSupport1String = NSStringFromCGPoint(cgSupport1);
+    NSString* cgSupport2String = NSStringFromCGPoint(cgSupport2);
+    NSString* opengGLXYString = NSStringFromCGPoint(cgPointOpenGL);
+#endif
+    NSString* display_radiusString = [NSString stringWithFormat:@"%f", display_radius];
     
+    
+    //-------------
+    // Consolidate all strings into an array
+    //-------------
     NSArray* output = @[idString, code,
                         startDateString, endDateString,
                         elapsedTimeString, isAnswerString,
                         truthCGPointString, answerCGPointString,
                         errorCGPointString,
                         truthDobuleString, answerDobuleString,
-                        errorDobuleString];
+                        errorDobuleString,
+                        cgSupport1String, cgSupport2String,
+                        display_radiusString, opengGLXYString];
     return output;
 }
 
@@ -161,15 +181,20 @@ void TestManager::saveRecord(NSString *out_file, bool forced){
     [w writeLineOfFields: @[@"SnapshotID", @"Code",
                             @"StartTime", @"EndTime",
                             @"ElapsedTime", @"isAnswered",
-                            @"Truth(x,y)", @"Answer(x, y)",
-                            @"Error(CGPoint)",
-                            @"Truth(double)", @"Answer(double)",
-                            @"Error(double)"]];
+                            @"Truth_XY", @"Answer_XY",
+                            @"Error_LocationDiff",
+                            @"Truth_double", @"Answer_double",
+                            @"Error_double",
+                            @"Support1", @"Support2",
+                            @"DisplayRadius",
+                            @"OpenGL_XY"]];
     for (int i = 0; i < record_vector.size(); ++i){
         [w writeLineOfFields: record_vector[i].genSavableRecord()];
     }
     [output close];
     
-    [rootViewController displayPopupMessage:
-     [NSString stringWithFormat:@"%@ has been saved successfully.", out_file]];
+    if ([out_file rangeOfString:@"Backup"].location == NSNotFound){
+        [rootViewController displayPopupMessage:
+         [NSString stringWithFormat:@"%@ has been saved successfully.", out_file]];
+    }
 }

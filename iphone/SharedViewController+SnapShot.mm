@@ -32,19 +32,15 @@
 - (bool)displaySnapshot: (int) snapshot_id
       withStudySettings: (TestManagerMode) mode
 {
-
-    if (mode != OFF){
-        self.testManager->test_counter = snapshot_id;
-    }
-    
+ 
     //-----------
     // Set up snapshot parameters
     //-----------
     snapshot mySnapshot = self.model->snapshot_array[snapshot_id];
     
-
     // Do not reload the location if it is already loaded
-    if (![mySnapshot.kmlFilename isEqualToString: self.model->location_filename]){
+    if (![mySnapshot.kmlFilename isEqualToString: self.model->location_filename])
+    {
         self.model->location_filename = mySnapshot.kmlFilename;
         readLocationKml(self.model, self.model->location_filename);
     }
@@ -101,7 +97,6 @@
          viewForAnnotation: annotation];
         pinView.canShowCallout = NO;        
         [pinView showCustomCallout:NO];
-
     }
 #endif
     
@@ -116,16 +111,16 @@
         if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
             ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
         {
-            label_array = @[@"[i]Subway"];
+            label_array = @[@"Subway[i]"];
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
             label_array = @[@"Hotel", @"Train Sta."];
             self.UIConfigurations
             [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
         }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
-            label_array = @[@"[i]Subway"];
+            label_array = @[@"Subway[i]"];
         }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
-            label_array = @[@"Coffee", @"[i]Subway"];
+            label_array = @[@"Coffee", @"Subway[i]"];
             self.UIConfigurations
             [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:YES];
         }
@@ -154,14 +149,30 @@
         [self.mapView removeAnnotations:
          self.mapView.annotations];
         
+        self.renderer->dev_radius=0;
+        
         for (int i = 0; i < annotation_id_vector.size(); ++i)
         {
             int data_id = annotation_id_vector[i];
             [self.mapView addAnnotation:
              self.model->data_array[data_id].annotation];
+            
+            // Compute dev radius
+            CGPoint mapViewPoint = [self.mapView convertCoordinate:
+                                    self.model->data_array[data_id].annotation.coordinate
+                                                     toPointToView:self.mapView];
+            // Calculate the radius
+            CGPoint xy;
+            xy.x = mapViewPoint.x - self.mapView.frame.size.width/2;
+            xy.y = mapViewPoint.y - self.mapView.frame.size.height/2;
+            double temp = sqrt(pow(xy.x, 2)+ pow(xy.y, 2));
+            if (temp > self.renderer->dev_radius)
+                self.renderer->dev_radius = temp;
         }
     }
 #endif
+    
+    
 //    NSLog(@"SnapShot");
 //    NSLog(@"Center:");
 //    NSLog(@"latitude: %f, longitude: %f", mySnapshot.coordinateRegion.center.latitude,
@@ -175,12 +186,15 @@
 #ifdef __IPHONE__
     [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
 #else
-    if (mySnapshot.osx_coordinateRegion.span.latitudeDelta > 0){
-        // Display the desktop of osx_coordinateRegion if the desktop version
-        // is available.
-        [self updateMapDisplayRegion:mySnapshot.osx_coordinateRegion withAnimation:NO];
-    }else{
-        [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
+    if (self.testManager->testManagerMode == OFF){
+        if (mySnapshot.osx_coordinateRegion.span.latitudeDelta > 0){
+            // Display the desktop of osx_coordinateRegion if the desktop version
+            // is available.
+            [self updateMapDisplayRegion:mySnapshot.osx_coordinateRegion withAnimation:NO];
+        }else{
+            [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
+        }
+        
     }
 #endif
 
@@ -204,7 +218,6 @@
         self.renderer->isInteractiveLineVisible=false;
         [self enableMapInteraction:NO];
 
-
         // Cross is off in watch+compass mode
         self.renderer->cross.isVisible = true;
         
@@ -212,7 +225,6 @@
             [self.model->configurations[@"personalized_compass_status"]
             isEqualToString: @"on"])
             self.renderer->cross.isVisible = false;
-        
         
         if (self.mapView.isHidden){
             [self.mapView setHidden:NO];
@@ -222,11 +234,12 @@
         // Set up differently, depending on the snapshot code
         if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound))
         {
-            if ([self.socket_status boolValue])
-            {
-                [self.mapView setHidden:YES];
-                [self.glkView setHidden:YES];
-            }
+            // Per Steve's request, show the visualization
+//            if ([self.socket_status boolValue])
+//            {
+//                [self.mapView setHidden:YES];
+//                [self.glkView setHidden:YES];
+//            }
             [self toggleScaleView:NO];
         }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound)
         {
@@ -274,6 +287,14 @@
         }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location
                   != NSNotFound)
         {
+            [self enableMapInteraction:NO];
+
+            [self setupVisualization:VIZNONE];
+            self.renderer->emulatediOS.is_enabled = FALSE;
+            self.renderer->emulatediOS.is_mask_enabled = FALSE;
+            
+            // Need to display the region correctly
+            [self changeAnnotationDisplayMode:@"None"];            
             self.isDistanceEstControlAvailable = [NSNumber numberWithBool:YES];
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
@@ -291,10 +312,39 @@
         //--------------------
         self.model->configurations[@"wedge_correction_x"]
         = [NSNumber numberWithFloat: 1];
-//        [self scaleiOSMapForDesktopMode:mySnapshot];
         [self setupVisualization:mySnapshot.visualizationType];
     }
 
+    
+    //-----------
+    // Annotation configurations (for desktop only)
+    //-----------
+#ifndef __IPHONE__
+    if (mode == OSXSTUDY){
+       
+        self.renderer->dev_radius=0;
+        
+        for (int i = 0; i < annotation_id_vector.size(); ++i)
+        {
+            int data_id = annotation_id_vector[i];
+            // Compute dev radius
+            CGPoint mapViewPoint = [self.mapView convertCoordinate:
+                                    self.model->data_array[data_id].annotation.coordinate
+                                                     toPointToView:self.mapView];
+            // Calculate the radius
+            CGPoint xy;
+            xy.x = mapViewPoint.x - self.mapView.frame.size.width/2;
+            xy.y = mapViewPoint.y - self.mapView.frame.size.height/2;
+            double temp = sqrt(pow(xy.x, 2)+ pow(xy.y, 2));
+            if (temp > self.renderer->dev_radius)
+                self.renderer->dev_radius = temp;
+        }
+        
+        cout << "dev_radius: " <<self.renderer->dev_radius << endl;
+    }
+#endif
+    
+    
     self.mapView.camera.heading = -mySnapshot.orientation;
     [self updateLocationVisibility];
     self.model->updateMdl();
@@ -358,13 +408,13 @@
 
     switch (mySnapshot.deviceType) {
         case PHONE:
-            self.model->configurations[@"wedge_correction_x"]
-            = [NSNumber numberWithFloat: 2];
+//            self.model->configurations[@"wedge_correction_x"]
+//            = [NSNumber numberWithFloat: 2];
             self.renderer->emulatediOS.changeDeviceType(PHONE);
             break;
         case WATCH:
-            self.model->configurations[@"wedge_correction_x"]
-            = [NSNumber numberWithFloat: 5.78];
+//            self.model->configurations[@"wedge_correction_x"]
+//            = [NSNumber numberWithFloat: 5.78];
             self.renderer->emulatediOS.changeDeviceType(SQUAREWATCH);
             break;
         default:
@@ -400,7 +450,7 @@
 -(void)scaleiOSMapForDesktopMode: (snapshot)mySnapshot{
 #ifndef __IPHONE__
     MKCoordinateSpan scaledSpan =
-    [self scaleCoordinateSpanForSnapshot:mySnapshot];
+    [self scaleCoordinateSpanForDeviceInSnapshot:mySnapshot];
     
     MKCoordinateRegion osxCoordRegion = MKCoordinateRegionMake
     (mySnapshot.coordinateRegion.center, scaledSpan);
@@ -422,14 +472,14 @@
     // Need to display the region correctly
     [self changeAnnotationDisplayMode:@"Study"];
     if (mySnapshot.osx_coordinateRegion.span.latitudeDelta > 0){
-        [self updateMapDisplayRegion:mySnapshot.osx_coordinateRegion withAnimation:NO];
+        
+        MKCoordinateRegion recalculatedRegion =
+        [self calculateOSXCoordinateSpanForTriangulateTask: mySnapshot];
+        
+        [self updateMapDisplayRegion:recalculatedRegion withAnimation:NO];
     }else{
         [self updateMapDisplayRegion:mySnapshot.coordinateRegion withAnimation:NO];
     }
-
-    // Need to display the pins correctly
-    // All pins should be displayed in this case
-
 #endif
 }
 
@@ -497,4 +547,5 @@
             cout << "Default" <<endl;
     }
 }
+
 @end

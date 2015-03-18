@@ -111,9 +111,7 @@ void compassRender::drawOneSide(double rotation, double width, double height,
             aperture = max_aperture;
             leg = max_leg;
         }
-    }
-
-    
+    }    
     *out_aperture = aperture; *out_leg = leg;
     
     //-----------------

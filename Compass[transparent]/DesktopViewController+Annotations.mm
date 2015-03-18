@@ -68,12 +68,17 @@
         return nil;
     }
     
+    static NSImage *blueDot_image = [[NSImage alloc] initWithContentsOfFile:
+                              [[NSBundle mainBundle] pathForResource:@"blueDot" ofType:@"png"]];
+    static NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
+                             [[NSBundle mainBundle] pathForResource:@"redDot" ofType:@"png"]];
     
     //----------------
     // In study mode we will use MKAnnotationView, because we want to use
     // custom images
     //----------------
-    if (self.testManager->testManagerMode == OSXSTUDY)
+    if ((self.testManager->testManagerMode == OSXSTUDY)
+         && [annotation point_type] != answer)
     {
         // try to dequeue an existing pin view first
         static NSString *studyAnnotationID = @"StudyAnnotationID";
@@ -91,13 +96,12 @@
         
         if ([annotation point_type] == dropped){
             [pinView showCustomCallout:NO];
-            NSImage *blueDot_image = [[NSImage alloc] initWithContentsOfFile:
-                                             [[NSBundle mainBundle] pathForResource:@"blueDot" ofType:@"png"]];
             pinView.image = blueDot_image;
+        }else if ([annotation point_type] == landmark){
+            [pinView showCustomCallout:YES];
+            pinView.image = redDot_image;
         }else{
             [pinView showCustomCallout:YES];
-            NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
-                                            [[NSBundle mainBundle] pathForResource:@"redDot" ofType:@"png"]];
             pinView.image = redDot_image;
         }
         return pinView;
@@ -421,6 +425,8 @@
 //-------------------
 - (void)changeAnnotationDisplayMode: (NSString*) mode{
     NSArray* annotation_array = self.mapView.annotations;
+    static NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
+                                    [[NSBundle mainBundle] pathForResource:@"redDot" ofType:@"png"]];
     
     if ([mode isEqualToString:@"All"]){
         for (CustomPointAnnotation* annotation in annotation_array){
@@ -449,16 +455,14 @@
                     if (self.model->data_array[i].isAnswer){
                         [[self.mapView viewForAnnotation:annotation] setHidden:YES];
                     }else{
+                        //-----------
+                        // In the study mode, a landmark, enabled location
+                        // will be displayed as a red dot
+                        //-----------
                         [[self.mapView viewForAnnotation:annotation] setHidden:NO];
                         OSXAnnotationView* temp = (OSXAnnotationView*)
                         [self.mapView viewForAnnotation:annotation];
-
-//                        [temp showCustomCallout:YES];
-                        static NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
-                                                        [[NSBundle mainBundle] pathForResource:@"redDot" ofType:@"png"]];
                         temp.image = redDot_image;
-                        
-                        
                     }
                 }else{
                     [[self.mapView viewForAnnotation:annotation] setHidden:NO];

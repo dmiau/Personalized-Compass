@@ -27,5 +27,5 @@
 - (IBAction)toggleStudyMode:(id)sender;
 
 - (IBAction)resetTestManager:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UITextView *testStatus;
 @end

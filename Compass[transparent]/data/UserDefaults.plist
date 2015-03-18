@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>isDevMode</key>
+	<integer>0</integer>
 	<key>DisplayedSessionInfo</key>
 	<string></string>
 	<key>iOSTestStatus</key>
@@ -12,5 +14,17 @@
 	<string>Welcome!</string>
 	<key>TestStatus</key>
 	<string>Welcome!</string>
+	<key>OSX_wedge_min_base</key>
+	<integer>50</integer>
+	<key>OSX_wedge_max_intrusion</key>
+	<integer>21</integer>
+	<key>OSX_wedge_edge_padding</key>
+	<integer>3</integer>
+	<key>iOS_wedge_min_base</key>
+	<integer>100</integer>
+	<key>iOS_wedge_max_intrusion</key>
+	<integer>45</integer>
+	<key>iOS_wedge_edge_padding</key>
+	<integer>13</integer>
 </dict>
 </plist>

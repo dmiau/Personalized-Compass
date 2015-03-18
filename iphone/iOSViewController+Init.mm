@@ -127,6 +127,17 @@
         self.watchScaleView = [[UIView alloc]initWithFrame:img_rect];
         [self.watchScaleView setBackgroundColor:[UIColor colorWithPatternImage:
                                             [UIImage imageNamed:fileString]]];
+        
+        //--------------------
+        // Registering Users Defaults from plist
+        //--------------------
+        NSString *defaultsPath = [[NSBundle mainBundle] pathForResource:@"UserDefaults"
+                                                                 ofType:@"plist"];
+        NSDictionary *appDefaults = [NSDictionary dictionaryWithContentsOfFile:defaultsPath];
+        
+        [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+        [[NSUserDefaults standardUserDefaults] setObject:@"N/A" forKey:@"TestStatus"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"N/A" forKey:@"AdminSessionInfo"];
     }
     return self;
 }

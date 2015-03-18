@@ -26,6 +26,25 @@ void TestManager::updateUITestMessage(){
     
     TestCodeInterpreter codeInterpreter(model->snapshot_array[test_counter].name);
     string code = extractCode(model->snapshot_array[test_counter].name);
+    
+    
+    NSString* testStatus =@"N/A";
+    if (testManagerMode != OFF){
+        NSString* testStatus =
+        [NSString stringWithFormat:@"%@, %d/%d\n%@, %d/%lu",
+         [NSString stringWithUTF8String:code.c_str()],
+         testCountWithinCategory[test_counter],
+         snapshotDistributionInfo[code],
+         model->snapshot_array[test_counter].name,
+         test_counter+1, model->snapshot_array.size()];
+        [[NSUserDefaults standardUserDefaults] setObject:testStatus forKey:@"TestStatus"];
+    }
+    
+    NSString* prefix;
+    if ([model->snapshot_array[test_counter].name hasSuffix:@"t"])
+        prefix = @"Practice:";
+    else
+        prefix = @"Trial:";
 #ifdef __IPHONE__
     //---------------
     // iPhone
@@ -34,11 +53,9 @@ void TestManager::updateUITestMessage(){
         rootViewController.counter_button.title =
         @"StudyMode OFF";
     }else{
-//        rootViewController.counter_button.title =
-//        [NSString stringWithFormat: @"%d/%lu", test_counter+1,
-//         model->snapshot_array.size()];
         rootViewController.counter_button.title =
-        [NSString stringWithFormat: @"Trial: %d/%lu", testCountWithinCategory[test_counter],
+        [NSString stringWithFormat: @"%@ %d/%d", prefix,
+         testCountWithinCategory[test_counter],
          snapshotDistributionInfo[code]];
     }
 #else
@@ -50,25 +67,15 @@ void TestManager::updateUITestMessage(){
         rootViewController.testInformationMessage =
         @"Enable StudyMode from iOS";
     }else{
-
-        NSString* testStatus =
-        [NSString stringWithFormat:@"%@, %d/%d\n%@, %d/%lu",
-         [NSString stringWithUTF8String:code.c_str()],
-         testCountWithinCategory[test_counter],
-         snapshotDistributionInfo[code],
-         model->snapshot_array[test_counter].name,
-         test_counter+1, model->snapshot_array.size()];
-        [[NSUserDefaults standardUserDefaults] setObject:testStatus forKey:@"TestStatus"];
-        
-        
         //-----------------
         // User visible string
         //-----------------
         string userVisibleCode = extractUerVisibleCode(model->snapshot_array[test_counter].name);
         rootViewController.testInformationMessage =
-        [NSString stringWithFormat:@"%@ \nTrial: %d out of %d",
+        [NSString stringWithFormat:@"%@ \n\n(%@ %d out of %d)",
         [NSString stringWithUTF8String:
          codeInterpreter.genTaskInstruction().c_str()],
+         prefix,
          testCountWithinCategory[test_counter],
          snapshotDistributionInfo[code]];
     }
@@ -144,13 +151,13 @@ void TestManager::showTestNumber(int test_id){
             [rootViewController.nextTestButton setEnabled:NO];
         }
     }
-    updateUITestMessage();
     
     // Do a forced backup
     saveRecord([rootViewController.model->desktopDropboxDataRoot
                 stringByAppendingPathComponent:
                 @"midTestBackup.dat"], YES);
 #endif
+    updateUITestMessage();
 }
 
 bool TestManager::verifyAnswerQuality(){
@@ -242,15 +249,41 @@ void TestManager::startTest(){
         double dist = sqrt(x * x + y * y);
         record_vector[test_counter].doubleTruth = (double)dist /
         (double) rootViewController.renderer->emulatediOS.width * 2;
+        
+        // Log the information as seen from compass renderer
+        record_vector[test_counter].cgPointOpenGL =
+        model->data_array[data_id].openGLPoint;
+        
     }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound){
         //-----------------
-        // Localize test
+        // Triangulate test
         //-----------------
         
         CGPoint openGLPoint = [rootViewController calculateOpenGLPointFromMapCoord:
                                mySnapshot.coordinateRegion.center];
         record_vector[test_counter].cgPointTruth = openGLPoint;
         record_vector[test_counter].doubleTruth = 0;
+        
+        // Fill out the informaiton of two additional points
+        CLLocationCoordinate2D coord;
+        coord = CLLocationCoordinate2DMake(
+                rootViewController.model->data_array[mySnapshot.selected_ids[0]].latitude,
+                rootViewController.model->data_array[mySnapshot.selected_ids[0]].longitude);
+        CGPoint cgData1 = [rootViewController calculateOpenGLPointFromMapCoord:
+                               coord];
+        record_vector[test_counter].cgSupport1 = cgData1;
+        
+        coord = CLLocationCoordinate2DMake(
+                rootViewController.model->data_array[mySnapshot.selected_ids[1]].latitude,
+                rootViewController.model->data_array[mySnapshot.selected_ids[1]].longitude);
+        
+        CGPoint cgData2 = [rootViewController calculateOpenGLPointFromMapCoord:
+                               coord];
+        record_vector[test_counter].cgSupport2 = cgData2;
+        
+        record_vector[test_counter].display_radius =
+        sqrt(pow(cgData1.x - cgData2.x, 2) + pow(cgData1.y - cgData2.y, 2))/2;
+        
     }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
         iOSAnswer = 10000;
         //-----------------
@@ -268,10 +301,13 @@ void TestManager::startTest(){
         // Locate plus
         //-----------------
         int ans_id =0;
+        int nonans_id = 0;
         // Find out the answer ID
         for (int i = 0; i < mySnapshot.selected_ids.size(); ++i){
             if (mySnapshot.is_answer_list[i] == 1)
                 ans_id = mySnapshot.selected_ids[i];
+            else
+                nonans_id = mySnapshot.selected_ids[i];
         }
         
         CGPoint openGLPoint = [rootViewController calculateOpenGLPointFromMapCoord:
@@ -280,6 +316,22 @@ void TestManager::startTest(){
                                 model->data_array[ans_id].longitude)];
         record_vector[test_counter].cgPointTruth = openGLPoint;
         record_vector[test_counter].doubleTruth = 0;
+        
+        
+        // Fill out the informaiton of two additional points
+        CGPoint cgData1 = [rootViewController calculateOpenGLPointFromMapCoord:
+                           mySnapshot.coordinateRegion.center];
+        record_vector[test_counter].cgSupport1 = cgData1;
+        CLLocationCoordinate2D coord;
+        coord = CLLocationCoordinate2DMake(
+                                           rootViewController.model->data_array[nonans_id].latitude,
+                                           rootViewController.model->data_array[nonans_id].longitude);
+        
+        CGPoint cgData2 = [rootViewController calculateOpenGLPointFromMapCoord:
+                           coord];
+        record_vector[test_counter].cgSupport2 = cgData2;
+        record_vector[test_counter].display_radius =
+        sqrt(pow(cgData1.x - cgData2.x, 2) + pow(cgData1.y - cgData2.y, 2));
     }
 #endif
 }

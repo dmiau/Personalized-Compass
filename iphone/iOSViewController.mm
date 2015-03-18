@@ -98,9 +98,24 @@
     //---------------
     // Snapshot and history stuff
     //---------------
-    if (self.snapshot_id_toshow >= 0){      
-        [self displaySnapshot:self.snapshot_id_toshow
-            withStudySettings:self.testManager->testManagerMode];
+    if (self.snapshot_id_toshow >= 0){
+        if (self.testManager->testManagerMode ==
+            OFF)
+        {
+            //--------------
+            // Call displaySnapshot directly when testManager is OFF
+            //--------------
+            [self displaySnapshot:self.snapshot_id_toshow
+                                   withStudySettings:self.testManager->testManagerMode];
+        }else{
+            //--------------
+            // During the study, need to call showTestNumber to
+            // log some extra data and start a new test.
+            // This is very important!
+            //--------------
+            self.testManager->showTestNumber(self.snapshot_id_toshow);
+        }
+        
         self.snapshot_id_toshow = -1;
     }
 

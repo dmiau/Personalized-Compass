@@ -235,7 +235,7 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
             rootViewController.testManager->saveRecord(
                                                        [rootViewController.model->desktopDropboxDataRoot
                                                         stringByAppendingPathComponent:
-                                                        @"testEnd.dat"]
+                                                        @"testEndBackup.dat"]
                                                        , true);
         }
         if (instructPartner){

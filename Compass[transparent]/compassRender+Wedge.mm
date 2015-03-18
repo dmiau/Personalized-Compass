@@ -105,6 +105,11 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         wedge_disp_width = view_width;
         wedge_disp_height = view_height;
         
+        
+        // Log debug information for wedge
+        int data_id = indices_for_rendering[i];
+        model->data_array[data_id].openGLPoint = CGPointMake(x_diff, y_diff);
+        
         double aperture, leg;
         label_info myLabelinfo;
         if ([model->configurations[@"wedge_style"]

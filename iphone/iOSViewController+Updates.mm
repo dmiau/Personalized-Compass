@@ -160,8 +160,8 @@
             if (dist > maxDist)
                 maxDist =dist;
         }
-        self.messageLabel.text = [NSString stringWithFormat:@"Dist: %.2f",
-                                  (float)maxDist / (float)self.mapView.frame.size.width*2];
+        self.messageLabel.text = [NSString stringWithFormat:@"Dist: %.1fx",
+                                  (double)maxDist / (double)self.mapView.frame.size.width*2];
     }
 }
 

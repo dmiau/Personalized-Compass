@@ -130,8 +130,8 @@
     
     CGPoint nsviewPoint =
     [self.mapView convertCoordinate:coord toPointToView:self.compassView];
-    result.x = nsviewPoint.x - self.renderer->view_width/2;
-    result.y = nsviewPoint.y - self.renderer->view_height/2;
+    result.x = nsviewPoint.x - (double)self.renderer->view_width/(double)2;
+    result.y = nsviewPoint.y - (double)self.renderer->view_height/(double)2;
     return result;
 }
 
@@ -210,7 +210,11 @@
     return output;
 }
 
-- (MKCoordinateSpan) scaleCoordinateSpanForSnapshot: (snapshot)mySnapshot{
+//----------------
+// Since all the coordinate span are device specific,
+// the map needs to be scaled accordingly when presenting an iOS map on OSX
+//----------------
+- (MKCoordinateSpan) scaleCoordinateSpanForDeviceInSnapshot: (snapshot)mySnapshot{
     
     MKCoordinateSpan output;
     if (mySnapshot.deviceType == PHONE) {
@@ -251,6 +255,10 @@
     return output;
 }
 
+//----------------
+// Since we are generating iOS test cases on the desktop,
+// we need to calcualt the true iOS coordspan
+//----------------
 - (MKCoordinateSpan) calculateCoordinateSpanForDevice: (DeviceType)deviceType{
     
     MKCoordinateSpan output;
@@ -300,4 +308,64 @@
     }
     return output;
 }
+
+- (MKCoordinateRegion) calculateOSXCoordinateSpanForTriangulateTask: (snapshot)mySnapshot{
+    MKCoordinateRegion osxCoordinateRegion;
+    
+    if ( NSStringToTaskType(mySnapshot.name) == TRIANGULATE){
+        //----------------
+        // TRIANGULATE
+        //----------------
+        
+        data data_a = self.model->data_array[mySnapshot.selected_ids[0]];
+        CLLocation *point_a = [[CLLocation alloc]
+                               initWithLatitude:data_a.latitude longitude:data_a.longitude];
+        
+        data data_b = self.model->data_array[mySnapshot.selected_ids[1]];
+        CLLocation *point_b = [[CLLocation alloc]
+                               initWithLatitude:data_b.latitude longitude:data_b.longitude];
+        
+        CLLocationDistance distnace = [point_a distanceFromLocation: point_b];
+        
+        CLLocationCoordinate2D centerCoordinate =
+        CLLocationCoordinate2DMake(((double)data_a.latitude + (double)data_b.latitude)/(double)2,
+                                   ((double)data_a.longitude + (double)data_b.longitude)/(double)2);
+        
+        
+        osxCoordinateRegion =
+        MKCoordinateRegionMakeWithDistance
+        (centerCoordinate, distnace * 1.1, distnace * 1.1*
+         (double)self.mapView.frame.size.width/(double)self.mapView.frame.size.height);
+    }else if ( NSStringToTaskType(mySnapshot.name) == LOCATEPLUS){
+        
+        //----------------
+        // LOCATEPLUS
+        //----------------
+        CLLocation *center = [[CLLocation alloc]
+                              initWithLatitude: mySnapshot.coordinateRegion.center.latitude
+                              longitude: mySnapshot.coordinateRegion.center.longitude];
+        CLLocation *support = [[CLLocation alloc]
+                               initWithLatitude:
+                               self.model->data_array[mySnapshot.selected_ids[1]].latitude
+                               longitude:
+                               self.model->data_array[mySnapshot.selected_ids[1]].longitude];
+        
+        CLLocationDistance distnace = [center distanceFromLocation: support];
+        
+        CLLocationCoordinate2D centerCoordinate =
+        mySnapshot.coordinateRegion.center;
+        
+        osxCoordinateRegion =
+        MKCoordinateRegionMakeWithDistance
+        (centerCoordinate, distnace * 2.2,
+         distnace * 2.2 *
+         (double)self.mapView.frame.size.width/(double)self.mapView.frame.size.height);
+        
+    }else{
+        throw(runtime_error("Unknown task type"));
+    }
+    
+    return osxCoordinateRegion;
+}
+
 @end

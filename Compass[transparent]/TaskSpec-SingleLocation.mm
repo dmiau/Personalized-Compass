@@ -7,6 +7,7 @@
 //
 
 #include "TaskSpec.h"
+#include "compassRender.h"
 using namespace std;
 
 //------------------
@@ -53,6 +54,7 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
  
     NSString* trials;
     NSString* practices;
+    double scale_factor = 1;
     
     if (taskType == LOCATE){
         trials = @"locate_trials";
@@ -60,6 +62,8 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
     }else{
         trials = @"distance_trials";
         practices = @"distance_practices";
+        scale_factor =
+        (double)rootViewController.renderer->emulatediOS.width / (double)rootViewController.renderer->emulatediOS.true_ios_width;
     }
     
     //-------------------
@@ -75,8 +79,10 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
             x = -x;
         }
         
+        // Need to scale x for the distance tests
+        
         addOneDataAndSnapshot
-        (to_string(i), IntPointMake(x, 0), t_data_array);
+        (to_string(i), IntPointMake(x*scale_factor, 0), t_data_array);
     }
 
     //-------------------
@@ -93,7 +99,7 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
         
         string trialString = to_string(i) + "t";
         addOneDataAndSnapshot
-        (trialString, IntPointMake(x, 0), t_data_array);
+        (trialString, IntPointMake(x*scale_factor, 0), t_data_array);
     }
 }
 
