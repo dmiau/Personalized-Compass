@@ -325,6 +325,7 @@ public:
     // Start and end the test
     bool verifyAnswerQuality();
     void startTest();
+    void collectGroundTruth();
     void endTest(CGPoint openGLPoint, double doubleAnswer);
     
     void saveRecord(NSString *out_file, bool forced); // Save test record to a file

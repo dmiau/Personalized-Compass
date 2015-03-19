@@ -1022,9 +1022,9 @@ DQ
                             <rect key="frame" x="1" y="1" width="517" height="140"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yWO-fh-YjW">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yWO-fh-YjW">
                                     <rect key="frame" x="16" y="14" width="485" height="119"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Enable StudyMode from iOS" id="uuw-0d-z63">
+                                    <textFieldCell key="cell" enabled="NO" sendsActionOnEndEditing="YES" title="Enable StudyMode from iOS" id="uuw-0d-z63">
                                         <font key="font" metaFont="system" size="20"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1153,7 +1153,7 @@ DQ
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="92" y="284.5"/>
+            <point key="canvasLocation" x="219" y="282.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="EYl-3r-NII"/>
     </objects>

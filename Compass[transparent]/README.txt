@@ -3855,6 +3855,8 @@ look into constraint of the watch mode [4:04PM]
 maybe i need to do a fixed scaling? maybe i should scale at run time? check "updateMapDisplayRegion" [4:30PM]
 - generate and verify integer distances [5:10PM]
 - record string generation (, vs ;, also other supporting locations for debug purposes)? [5:10PM]
+* .dat labels cannot contain illegal characters (AnswerXY, Data1_XY, Data2_XY, radius)
+
 ***** Working
 - fix the max base length
 - Have myself try the tests and log the time (repeated measure data analysis), is the time calculated automatically?
@@ -3865,7 +3867,47 @@ Issues after my trials:
 - generate reasonable data 
 
 MATLAB data checking tools? MATLAB data summarizer
-* .dat labels cannot contain illegal characters (AnswerXY, Data1_XY, Data2_XY, radius)
+
+The following code needs to be fixed. 
+    camera.fov = 10;
+    
+    camera.viewPos.x = 0.0;
+    camera.viewPos.y = 0.0;
+    camera.viewPos.z = 900;
+
+-------------------------------------------------------------------
+3.19.2015
+-------------------------------------------------------------------
+***** Done
+- update FOV of the renderer
+- check purple dot works [1:47PM]
+- generate reasonable data [1:47PM]
+- check if the graphics system can produce something meaningful
+* not an issue for the test cases I have [2:14PM]
+* map cannot be zoomed to too fine [3:44]
+* message needs to be corrected [4:33PM]
+
+***** Working
+- fix the max base length
+MATLAB data checking tools? MATLAB data summarizer
+
+Issues after my trials:
+- derivate derivations
+- training material?
+
+- Have myself try the tests and log the time (repeated measure data analysis), is the time calculated automatically?
+
+- check all the messages and instructiosns make sense
+* always, always round your answers
+* reduce the time of the title slide
+
+
+I want to know the following things:
+- How long does it take to complete a study (an estimation)?
+
+
+
+
 
 
 

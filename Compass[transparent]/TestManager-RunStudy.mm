@@ -157,6 +157,7 @@ void TestManager::showTestNumber(int test_id){
                 stringByAppendingPathComponent:
                 @"midTestBackup.dat"], YES);
 #endif
+    collectGroundTruth();
     updateUITestMessage();
 }
 
@@ -222,8 +223,13 @@ bool TestManager::verifyAnswerQuality(){
 void TestManager::startTest(){
 #ifndef __IPHONE__
     record_vector[test_counter].start(); // start the time
-    snapshot mySnapshot = model->snapshot_array[test_counter];
+#endif
+}
 
+void TestManager::collectGroundTruth(){
+#ifndef __IPHONE__
+    snapshot mySnapshot = model->snapshot_array[test_counter];
+    
     int data_id = mySnapshot.selected_ids[0];
     
     //------------------------
@@ -236,13 +242,13 @@ void TestManager::startTest(){
         // Locate test
         //-----------------
         CGPoint openGLPoint = [rootViewController calculateOpenGLPointFromMapCoord:
-        CLLocationCoordinate2DMake
-        (model->data_array[data_id].latitude, model->data_array[data_id].longitude)];
+                               CLLocationCoordinate2DMake
+                               (model->data_array[data_id].latitude, model->data_array[data_id].longitude)];
         
         double x, y;
         x = openGLPoint.x - rootViewController.renderer->emulatediOS.centroid_in_opengl.x;
         y = openGLPoint.y - rootViewController.renderer->emulatediOS.centroid_in_opengl.y;
-
+        
         // Note, we should log the (x, y) based on the centroid of the emulated iOS
         record_vector[test_counter].cgPointTruth = CGPointMake(x, y);
         
@@ -253,6 +259,9 @@ void TestManager::startTest(){
         // Log the information as seen from compass renderer
         record_vector[test_counter].cgPointOpenGL =
         model->data_array[data_id].openGLPoint;
+        
+//        NSLog(@"%@", NSStringFromPoint(model->data_array[data_id].openGLPoint));        
+//        cout << "SystemXY: {" << x << " ," << y << "}" << endl;
         
     }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound){
         //-----------------
@@ -267,18 +276,18 @@ void TestManager::startTest(){
         // Fill out the informaiton of two additional points
         CLLocationCoordinate2D coord;
         coord = CLLocationCoordinate2DMake(
-                rootViewController.model->data_array[mySnapshot.selected_ids[0]].latitude,
-                rootViewController.model->data_array[mySnapshot.selected_ids[0]].longitude);
+                                           rootViewController.model->data_array[mySnapshot.selected_ids[0]].latitude,
+                                           rootViewController.model->data_array[mySnapshot.selected_ids[0]].longitude);
         CGPoint cgData1 = [rootViewController calculateOpenGLPointFromMapCoord:
-                               coord];
+                           coord];
         record_vector[test_counter].cgSupport1 = cgData1;
         
         coord = CLLocationCoordinate2DMake(
-                rootViewController.model->data_array[mySnapshot.selected_ids[1]].latitude,
-                rootViewController.model->data_array[mySnapshot.selected_ids[1]].longitude);
+                                           rootViewController.model->data_array[mySnapshot.selected_ids[1]].latitude,
+                                           rootViewController.model->data_array[mySnapshot.selected_ids[1]].longitude);
         
         CGPoint cgData2 = [rootViewController calculateOpenGLPointFromMapCoord:
-                               coord];
+                           coord];
         record_vector[test_counter].cgSupport2 = cgData2;
         
         record_vector[test_counter].display_radius =
@@ -335,6 +344,8 @@ void TestManager::startTest(){
     }
 #endif
 }
+
+
 
 //------------------
 // End the test

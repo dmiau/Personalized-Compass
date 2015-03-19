@@ -69,7 +69,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     
     
     //-----------
-    // Do a forced preload of the location files
+    // Do a forced reload of the snapshot files
     //-----------
     if (readSnapshotKml(rootViewController.model)!= EXIT_SUCCESS)
     {
@@ -80,7 +80,9 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     }
     
     snapshot mySnapshot = model->snapshot_array[0];
-    // Do not reload the location if it is already loaded
+    //-----------
+    // Do a forced reload of the location files
+    //-----------
     model->location_filename = mySnapshot.kmlFilename;
     readLocationKml(model, model->location_filename);
     

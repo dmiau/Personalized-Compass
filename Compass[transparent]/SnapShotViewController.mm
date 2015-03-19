@@ -208,8 +208,14 @@
 
             if (warning_message.length() != 0){
                 self.rootViewController.testManager->toggleStudyMode(YES, NO);
-                [self.rootViewController displayPopupMessage:
-                 [NSString stringWithUTF8String:warning_message.c_str()]];
+                
+                // Skip the following if it is in the Dve mode
+                NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+                
+                if (![prefs boolForKey:@"isDevMode"]){
+                    [self.rootViewController displayPopupMessage:
+                     [NSString stringWithUTF8String:warning_message.c_str()]];
+                }
             }else{
                 self.rootViewController.testManager->toggleStudyMode(YES, YES);
             }

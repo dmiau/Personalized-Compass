@@ -324,9 +324,9 @@
                                     <rect key="frame" x="10" y="33" width="698" height="439"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="55" horizontalPageScroll="10" verticalLineScroll="55" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-C1-bTN" userLabel="Landmark Table View">
-                                            <rect key="frame" x="17" y="42" width="258" height="342"/>
-                                            <clipView key="contentView" misplaced="YES" id="hE8-uz-6fo">
+                                        <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="55" horizontalPageScroll="10" verticalLineScroll="55" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-C1-bTN" userLabel="Landmark Table View">
+                                            <rect key="frame" x="17" y="7" width="258" height="377"/>
+                                            <clipView key="contentView" ambiguous="YES" misplaced="YES" id="hE8-uz-6fo">
                                                 <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -643,6 +643,11 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vmg-C1-bTN" firstAttribute="leading" secondItem="7dD-aM-g2O" secondAttribute="leading" constant="17" id="cDv-K9-Asl"/>
+                                        <constraint firstItem="vmg-C1-bTN" firstAttribute="top" secondItem="7dD-aM-g2O" secondAttribute="top" constant="55" id="kvq-v4-AAN"/>
+                                        <constraint firstAttribute="bottom" secondItem="vmg-C1-bTN" secondAttribute="bottom" constant="7" id="xwi-3F-2nU"/>
+                                    </constraints>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="SnapShots" identifier="" id="0Fw-BV-9HS">
@@ -658,9 +663,9 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="36" horizontalPageScroll="10" verticalLineScroll="36" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGP-0u-SGW" userLabel="SnapShot Scroll- Table View">
+                                        <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="36" horizontalPageScroll="10" verticalLineScroll="36" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGP-0u-SGW" userLabel="SnapShot Scroll- Table View">
                                             <rect key="frame" x="17" y="12" width="301" height="385"/>
-                                            <clipView key="contentView" misplaced="YES" id="wUv-BV-1pQ">
+                                            <clipView key="contentView" ambiguous="YES" misplaced="YES" id="wUv-BV-1pQ">
                                                 <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -724,7 +729,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableHeaderView>
                                         </scrollView>
-                                        <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0v-rk-Z2j" userLabel="SnapShot Combo Box">
+                                        <comboBox verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0v-rk-Z2j" userLabel="SnapShot Combo Box">
                                             <rect key="frame" x="260" y="407" width="226" height="26"/>
                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="gXq-fX-Xfb">
                                                 <font key="font" metaFont="system"/>
@@ -827,6 +832,11 @@
                                             </textFieldCell>
                                         </textField>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="DGP-0u-SGW" secondAttribute="bottom" constant="12" id="cVT-qg-GUN"/>
+                                        <constraint firstItem="DGP-0u-SGW" firstAttribute="leading" secondItem="a2d-kU-hoH" secondAttribute="leading" constant="17" id="fBL-Te-cZ8"/>
+                                        <constraint firstItem="DGP-0u-SGW" firstAttribute="top" secondItem="i0v-rk-Z2j" secondAttribute="bottom" constant="14" id="zBs-tN-RCh"/>
+                                    </constraints>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Test Genertation" identifier="" id="bcB-ka-Uom">
@@ -1404,7 +1414,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-1117" y="810"/>
+            <point key="canvasLocation" x="-880" y="887"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
         <viewController id="aLW-cy-kmh" userLabel="SnapShot View Controller" customClass="SnapShotViewController">

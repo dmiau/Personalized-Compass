@@ -25,7 +25,7 @@ vector<int> findTwoFurthestLocationIDs(vector<data> &data_array, vector<int> loc
 //-----------------------
 pair<vector<vector<double>>, vector<vector<double>>> TaskSpec::generateRandomTriangulateLocations(
         std::mt19937  &generator,
-         vector<int> base_length_vector, vector<int> ratio_vecotr, vector<int> delta_theta_vecotr)
+         vector<int> base_length_vector, vector<float> ratio_vecotr, vector<int> delta_theta_vecotr)
 {
     // ratio: 1:4 [4]
     // angels (delta_theta): 90:60:270 [4]
@@ -110,7 +110,7 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array, std::mt19937
     code_location_vector.clear();
     vector<int> base_length_vector = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_trials_base_length"]);
-    vector<int> ratio_vecotr = NSArrayIntToVector
+    vector<float> ratio_vecotr = NSArrayFloatToVector
     (testSpecDictionary[@"triangulate_trials_ratio"]);;
     vector<int> delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_trials_theta"]);
@@ -126,7 +126,7 @@ void TaskSpec::generateTriangulateTests(vector<data> &t_data_array, std::mt19937
     //--------------
     base_length_vector = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_practices_base_length"]);
-    ratio_vecotr = NSArrayIntToVector
+    ratio_vecotr = NSArrayFloatToVector
     (testSpecDictionary[@"triangulate_practices_ratio"]);
     delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"triangulate_practices_theta"]);
@@ -147,7 +147,7 @@ void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array, std::mt19937 
     code_location_vector.clear();
     vector<int> base_length_vector = NSArrayIntToVector
     (testSpecDictionary[@"lplus_trials_base_length"]);
-    vector<int> ratio_vecotr = NSArrayIntToVector
+    vector<float> ratio_vecotr = NSArrayFloatToVector
     (testSpecDictionary[@"lplus_trials_ratio"]);
     vector<int> delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"lplus_trials_theta"]);
@@ -163,7 +163,7 @@ void TaskSpec::generateLocatePlusTests(vector<data> &t_data_array, std::mt19937 
     //--------------
     base_length_vector = NSArrayIntToVector
     (testSpecDictionary[@"lplus_practices_base_length"]);
-    ratio_vecotr = NSArrayIntToVector
+    ratio_vecotr = NSArrayFloatToVector
     (testSpecDictionary[@"lplus_practices_ratio"]);
     delta_theta_vecotr = NSArrayIntToVector
     (testSpecDictionary[@"lplus_practices_theta"]);

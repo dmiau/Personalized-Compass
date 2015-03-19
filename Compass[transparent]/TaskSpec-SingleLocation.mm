@@ -56,12 +56,35 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
     NSString* practices;
     double scale_factor = 1;
     
+    
+    vector<int> trial_dist;
+    vector<int> practice_dist;
     if (taskType == LOCATE){
-        trials = @"locate_trials";
-        practices = @"locate_practices";
+        trial_dist = NSArrayIntToVector
+        (testSpecDictionary[@"locate_trials"]);
+        practice_dist = NSArrayIntToVector
+        (testSpecDictionary[@"locate_practices"]);
     }else{
-        trials = @"distance_trials";
-        practices = @"distance_practices";
+        trial_dist = NSArrayIntToVector
+        (testSpecDictionary[@"distance_trials"]);
+        practice_dist = NSArrayIntToVector
+        (testSpecDictionary[@"distance_practices"]);
+
+        vector<int> distractor = NSArrayIntToVector
+        (testSpecDictionary[@"distance_trials_distractor"]);
+        
+        int distractor_count = distractor.size();
+        
+        if (isMutant){
+            for (int i = 0; i < distractor_count/2; ++i){
+                trial_dist.push_back(distractor[i]);
+            }
+        }else{
+            for (int i = distractor_count/2; i < distractor_count; ++i){
+                trial_dist.push_back(distractor[i]);
+            }
+        }
+        
         scale_factor =
         (double)rootViewController.renderer->emulatediOS.width / (double)rootViewController.renderer->emulatediOS.true_ios_width;
     }
@@ -69,27 +92,20 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
     //-------------------
     // Generate locations, data, and snapshot
     //-------------------
-    vector<int> trial_dist = NSArrayIntToVector
-    (testSpecDictionary[trials]);
-    
     for (int i = 0; i < trial_dist.size(); ++i){
-        
         int x = trial_dist[i];
         if (isMutant){
             x = -x;
         }
         
         // Need to scale x for the distance tests
-        
         addOneDataAndSnapshot
-        (to_string(i), IntPointMake(x*scale_factor, 0), t_data_array);
+        (to_string(i), CGPointMake(x*scale_factor, 0), t_data_array);
     }
 
     //-------------------
     // Generate practice trials
     //-------------------
-    vector<int> practice_dist = NSArrayIntToVector
-    (testSpecDictionary[practices]);
     for (int i = 0; i < practice_dist.size(); ++i)
     {
         int x = practice_dist[i];
@@ -98,8 +114,9 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
         }
         
         string trialString = to_string(i) + "t";
+        // Need to scale x for the distance tests
         addOneDataAndSnapshot
-        (trialString, IntPointMake(x*scale_factor, 0), t_data_array);
+        (trialString, CGPointMake(x*scale_factor, 0), t_data_array);
     }
 }
 
@@ -130,7 +147,7 @@ void TaskSpec::generateOrientTests(vector<data> &t_data_array)
         }
         
         addOneDataAndSnapshot
-        (to_string(i), IntPointMake(x, y), t_data_array);
+        (to_string(i), CGPointMake(x, y), t_data_array);
     }
     
     //-------------------
@@ -151,13 +168,13 @@ void TaskSpec::generateOrientTests(vector<data> &t_data_array)
         string trialString = to_string(i) + "t";
 
         addOneDataAndSnapshot
-        (trialString, IntPointMake(x, y), t_data_array);
+        (trialString, CGPointMake(x, y), t_data_array);
         
     }    
 }
 
 void TaskSpec::addOneDataAndSnapshot(string trialString,
-                                     IntPoint openGLPoint,
+                                     CGPoint openGLPoint,
                        vector<data> &t_data_array)
 {
     //--------------
@@ -216,7 +233,7 @@ void TaskSpec::addOneDataAndSnapshot(string trialString,
     t_snapshot.orientation = 0;
     t_snapshot.deviceType = deviceType;
     t_snapshot.notes = [NSString stringWithFormat:
-                        @"(x, y): (%d, %d)", openGLPoint.x,openGLPoint.y];
+                        @"(x, y): (%f, %f)", openGLPoint.x,openGLPoint.y];
     
     if (trialString.find("t") == string::npos)
         snapshot_array.push_back(t_snapshot);
@@ -229,6 +246,6 @@ void TaskSpec::addOneDataAndSnapshot(string trialString,
     //-----------------
     code_location_vector.push_back(
                                    make_pair(identifier + ":" + trialString,
-                                vector<int>{openGLPoint.x,openGLPoint.y}));
+                                vector<int>{(int)openGLPoint.x,(int)openGLPoint.y}));
 }
 #endif

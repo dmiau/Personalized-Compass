@@ -124,7 +124,7 @@
     }else{
         // Detecting long mouse click
         //http://stackoverflow.com/questions/9967118/detect-mouse-being-held-down
-        mouseTimer = [NSTimer scheduledTimerWithTimeInterval:1
+        mouseTimer = [NSTimer scheduledTimerWithTimeInterval:0.2
                                                       target:self
                                                     selector:@selector(mouseWasHeld:)
                                                     userInfo:theEvent

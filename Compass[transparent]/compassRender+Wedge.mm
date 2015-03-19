@@ -106,10 +106,6 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
         wedge_disp_height = view_height;
         
         
-        // Log debug information for wedge
-        int data_id = indices_for_rendering[i];
-        model->data_array[data_id].openGLPoint = CGPointMake(x_diff, y_diff);
-        
         double aperture, leg;
         label_info myLabelinfo;
         if ([model->configurations[@"wedge_style"]
@@ -132,9 +128,12 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
                 y_diff = y_diff - emulatediOS.centroid_in_opengl.y;
             }
 #endif
-            box screen_box(wedge_disp_width, wedge_disp_height);
-        
             
+            // Log debug information for wedge
+            int data_id = indices_for_rendering[i];
+            model->data_array[data_id].openGLPoint = CGPointMake(x_diff, y_diff);
+            
+            box screen_box(wedge_disp_width, wedge_disp_height);
             wedge my_wedge(model, screen_box,
                            CGPointMake(x_diff, y_diff));
             my_wedge.render();

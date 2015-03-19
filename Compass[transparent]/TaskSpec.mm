@@ -72,6 +72,14 @@ vector<int> NSArrayIntToVector(NSArray* inputArray){
     return output;
 }
 
+vector<float> NSArrayFloatToVector(NSArray* inputArray){
+    vector<float> output;
+    for(int i = 0; i < [inputArray count]; ++i){
+        output.push_back([inputArray[i] floatValue]);
+    }
+    return output;
+}
+
 // Convert an NSArray of string to a vector of CGPoint
 vector<vector<int>> NSArrayStringToVector(NSArray* inputArray)
 {

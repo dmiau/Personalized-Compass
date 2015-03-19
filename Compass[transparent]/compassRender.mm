@@ -39,7 +39,7 @@ compassRender::compassRender(){
 // sets the camera data to initial conditions
 void compassRender::resetCamera()
 {
-    camera.fov = 10;
+    camera.fov = 35;
     
     camera.viewPos.x = 0.0;
     camera.viewPos.y = 0.0;

@@ -121,8 +121,9 @@
     self.statusSegmentControl.enabled = true;
     self.statusSegmentControl.selectedSegment = 0;
     
-//    [self.rootViewController updateDataAnnotations];
-    [self.rootViewController resetAnnotations];
+    // To update the pin color
+    [self.rootViewController.mapView removeAnnotation:self.annotation];
+    [self.rootViewController.mapView addAnnotation:self.annotation];
 }
 
 - (IBAction)removeLocation:(id)sender {

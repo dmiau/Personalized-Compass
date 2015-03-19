@@ -68,9 +68,9 @@
         return nil;
     }
     
-    static NSImage *blueDot_image = [[NSImage alloc] initWithContentsOfFile:
+    NSImage *blueDot_image = [[NSImage alloc] initWithContentsOfFile:
                               [[NSBundle mainBundle] pathForResource:@"blueDot" ofType:@"png"]];
-    static NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
+    NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
                              [[NSBundle mainBundle] pathForResource:@"redDot" ofType:@"png"]];
     
     //----------------
@@ -425,7 +425,7 @@
 //-------------------
 - (void)changeAnnotationDisplayMode: (NSString*) mode{
     NSArray* annotation_array = self.mapView.annotations;
-    static NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
+    NSImage *redDot_image = [[NSImage alloc] initWithContentsOfFile:
                                     [[NSBundle mainBundle] pathForResource:@"redDot" ofType:@"png"]];
     
     if ([mode isEqualToString:@"All"]){

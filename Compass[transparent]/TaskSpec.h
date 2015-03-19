@@ -102,7 +102,7 @@ inline TaskType NSStringToTaskType(NSString* code){
 // Tools
 // Convert an NSArray of int to a vector of int
 vector<int> NSArrayIntToVector(NSArray* inputArray);
-
+vector<float> NSArrayFloatToVector(NSArray* inputArray);
 // Convert an NSArray of string to a vector of CGPoint
 vector<vector<int>> NSArrayStringToVector(NSArray* inputArray);
 
@@ -146,7 +146,7 @@ private:
     void generateOrientTests(vector<data> &t_data_array);
 
     // Add one data and snapshot
-    void addOneDataAndSnapshot(string trialString, IntPoint openGLPoint,
+    void addOneDataAndSnapshot(string trialString, CGPoint openGLPoint,
                                vector<data> &t_data_array);
 
     void generateTriangulateTests(vector<data> &t_data_array, std::mt19937 &generator);
@@ -154,7 +154,7 @@ private:
 
     pair<vector<vector<double>>, vector<vector<double>>> generateRandomTriangulateLocations(
                         std::mt19937  &generator,
-                        vector<int> base_length_vector, vector<int> ratio_vecotr, vector<int> delta_theta_vecotr);
+                        vector<int> base_length_vector, vector<float> ratio_vecotr, vector<int> delta_theta_vecotr);
 
     void batchCommitLocationPairs(string postfix,
     pair<vector<vector<double>>, vector<vector<double>>> location_pairs,

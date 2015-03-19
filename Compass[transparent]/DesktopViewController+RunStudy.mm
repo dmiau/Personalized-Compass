@@ -39,13 +39,16 @@
         }else if (![self.model->snapshot_array[test_counter].name hasSuffix:@"t"]
                   && [self.model->snapshot_array[test_counter+1].name hasSuffix:@"t"])
         {
-            [self displayPopupMessage:
-             @"You have reached the end of a test session.\nPlease notify the test coordinator to proceed."];
-            return;
-        }else if ( test_counter+1 >= self.model->snapshot_array.size()){
+            self.studyTitle = @"---Intermission---";
             [self displayInformationText];
             [self displayPopupMessage:
-             @"You have reached the end of the study session.\nThansk for your participation!\nPlease notify the test coordinator to proceed."];
+             @"You have completed the first half the study session.\nPlease notify the test coordinator to proceed."];
+            return;
+        }else if ( test_counter+1 >= self.model->snapshot_array.size()){
+            self.studyTitle = @"Thank You!";
+            [self displayInformationText];
+            [self displayPopupMessage:
+             @"You have reached the end of the study session.\nThank you for your participation!\nPlease notify the test coordinator to proceed."];
             return;
         }
         
@@ -79,6 +82,7 @@
 // as well as the answer, if available
 //------------------
 - (IBAction)toggleAnswer:(id)sender {
+//    self.testManager->collectGroundTruth();
     
     // Get the snapshot object
     int sid = self.testManager->test_counter;
@@ -147,6 +151,18 @@
         CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgAnswer withType:dropped];
         
         [self.mapView addAnnotation:annotation];
+    }
+    
+    
+    // Skip the following if it is in the Dve mode
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    if ([prefs boolForKey:@"isDevMode"]){
+        if ([self.model->configurations[@"wedge_status"]
+             isEqualToString: @"on"])
+        {
+            self.renderer->emulatediOS.is_mask_enabled = NO;
+        }
     }
 }
 
@@ -266,6 +282,12 @@
 //----------------------
 - (void) displayTestInstructionsByCode: (NSString*) code
 {
+    // Skip the following if it is in the Dve mode
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if ([prefs boolForKey:@"isDevMode"])
+        return;
+    
+    
     self.isInformationViewVisible = [NSNumber numberWithBool:YES];
     
 //    static NSImage *locate_image = [[NSImage alloc] initWithContentsOfFile:
@@ -350,6 +372,13 @@
 //----------------------------
 - (void) displayInformationText
 {
+
+    // Skip the following if it is in the Dve mode
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    if ([prefs boolForKey:@"isDevMode"])
+        return;
+    
     self.isInformationViewVisible = [NSNumber numberWithBool:YES];
     [self.informationTextField setHidden:NO];
     [self displayStudyTitle];
@@ -401,6 +430,8 @@
 // Do some basic checking and decide whether to enable the next button or not
 //-------------------
 - (IBAction)confirmAnswer:(id)sender {
+    // Collect ground truth
+    self.testManager->collectGroundTruth();
     
     // Before jumping into a new test, end the previous (unanswered) test
     // The timer of the answered test is stopped in the endTest method
@@ -429,11 +460,19 @@
         self.testManager->record_vector[test_counter].end();
     }
     
-    // Enable the next button if the answer is verified,
-    // or when the system is put in dev/practice mode
-    if (self.testManager->verifyAnswerQuality()
-        || [self.isPracticingMode boolValue])
-    {
+    
+    // Skip the following if it is in the Dve mode
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    if (![prefs boolForKey:@"isDevMode"]){
+        // Enable the next button if the answer is verified,
+        // or when the system is put in dev/practice mode
+        if (self.testManager->verifyAnswerQuality()
+            || [self.isPracticingMode boolValue])
+        {
+            [self.nextTestButton setEnabled:YES];
+        }
+    }else{
         [self.nextTestButton setEnabled:YES];
     }
 }

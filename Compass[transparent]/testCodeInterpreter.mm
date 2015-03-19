@@ -28,19 +28,19 @@ string TestCodeInterpreter::genTaskInstruction(){
     
     switch (taskType) {
         case LOCATE:
-            output = "Estimate the location of Subway[i], \nthen hold the left button to mark your answer.";
+            output = "Estimate the location of Subway[i], then hold the left button to mark your answer.";
             break;
         case DISTANCE:
-            output = "Estimate the distance to Subway[i], \n(in integer multiples of x)";
+            output = "Estimate the distance to Subway[i], then answer in the box on the right. Round your answer if necessary. (Your answer must be an integer multiple of x.)";
             break;
         case TRIANGULATE:
-            output = "Estimate the location of where you are, \nthen hold the left button to mark your answer.";
+            output = "Estimate where you are on the desktop map, then hold the left button to mark your answer.";
             break;
         case ORIENT:
-            output = "Estimate the direction of Subway[i], \nthen rotate the line to indicate your answer.";
+            output = "Estimate the direction of Subway[i], then rotate the red line (on iPhone) to indicate your answer.";
             break;
         case LOCATEPLUS:
-            output = "Estimate the direction of the coffee shop, \nthen hold the left button to mark your answer.";
+            output = "Estimate the location of the coffee shop, then hold the left button to mark your answer.";
             break;
         default:
             break;
