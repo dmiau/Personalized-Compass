@@ -113,7 +113,8 @@
             }
             
             self.testManager->toggleStudyMode(YES, NO);
-            self.testManager->isLocked = YES;            
+            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+            [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
         }else if ([command isEqualToString: @"LoadSnapshot"]){
             int test_id = [myDictionary[@"Parameter"] intValue];
             self.testManager->showTestNumber(test_id);

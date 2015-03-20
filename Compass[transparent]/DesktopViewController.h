@@ -191,12 +191,9 @@ typedef struct{
 @property NSString* testInformationMessage;
 @property (weak) IBOutlet NSButton *nextTestButton;
 @property (weak) IBOutlet NSButton *previousTestButton;
-@property (weak) IBOutlet NSButton *confirmButton;
 
 @property NSNumber* studyIntAnswer;
 @property NSNumber* isDistanceEstControlAvailable;
-@property NSNumber* isPracticingMode;
-@property NSNumber* isStudyMode;
 //----------------
 // System service (implemented in the interaction category)
 //----------------

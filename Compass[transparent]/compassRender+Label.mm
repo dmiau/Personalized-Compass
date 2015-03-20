@@ -58,7 +58,8 @@ label_info compassRender::drawLabel(float rotation, float height,
     glScalef(0.5, 0.5, 0);
     
     // This is a hack
-    [label_string drawAtPoint:NSMakePoint (-label_string.frameSize.width -10, 0)];
+//    [label_string drawAtPoint:NSMakePoint (-label_string.frameSize.width -10, 0)];
+    [label_string drawAtPoint:NSMakePoint (0, 0)];
 #else
     //--------------
     // iOS

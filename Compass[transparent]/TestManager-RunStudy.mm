@@ -137,20 +137,15 @@ void TestManager::showTestNumber(int test_id){
     snapshot nextSnapshot = model->snapshot_array[test_id];
     
     if ( NSStringToTaskType(currentSnapshot.name) !=
-        NSStringToTaskType(nextSnapshot.name)
-        ||(test_counter == 0))
+        NSStringToTaskType(nextSnapshot.name))
     {
         [rootViewController displayTestInstructionsByCode: nextSnapshot.name];
-    }else{
-        rootViewController.studyIntAnswer = [NSNumber numberWithInt:0];
-        startTest();
-        
-        if (!rootViewController.isPracticingMode)
-        {
-
-            [rootViewController.nextTestButton setEnabled:NO];
-        }
     }
+
+    // Start the clock. The time will be restart again if the user goes
+    // through the information view
+    startTest();
+    rootViewController.studyIntAnswer = [NSNumber numberWithInt:0];
     
     // Do a forced backup
     saveRecord([rootViewController.model->desktopDropboxDataRoot
@@ -393,13 +388,10 @@ void TestManager::applyDevConfigurations(){
 // Practice Configurations
 //------------------
 void TestManager::applyPracticeConfigurations(){
-#ifndef __IPHONE__
-    rootViewController.isPracticingMode = [NSNumber numberWithBool:YES];
-    [rootViewController.nextTestButton setEnabled:YES];
-
-    [rootViewController.confirmButton setEnabled:YES];
-#endif
-    isRecordAutoSaved = NO;    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isPracticingMode"];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
+    isRecordAutoSaved = NO;
     rootViewController.mapView.layer.borderColor =
     [NSColor blueColor].CGColor;
     rootViewController.mapView.layer.borderWidth
@@ -410,12 +402,9 @@ void TestManager::applyPracticeConfigurations(){
 // Study Configurations
 //------------------
 void TestManager::applyStudyConfigurations(){
-#ifndef __IPHONE__
-    // Hide the answer button
-    rootViewController.isPracticingMode = [NSNumber numberWithBool:NO];
-    [rootViewController.nextTestButton setEnabled:NO];
-    [rootViewController.confirmButton setEnabled:YES];
-#endif
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isPracticingMode"];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
     isRecordAutoSaved = YES;
     rootViewController.mapView.layer.borderColor =
     [NSColor clearColor].CGColor;

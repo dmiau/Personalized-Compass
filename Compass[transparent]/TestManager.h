@@ -172,7 +172,6 @@ public:
     double iOSAnswer;
     
     BOOL isRecordAutoSaved;
-    BOOL isLocked;
     //-----------------
     // Connection to other components
     //-----------------

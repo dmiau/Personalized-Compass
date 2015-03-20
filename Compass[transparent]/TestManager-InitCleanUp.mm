@@ -56,12 +56,19 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     rootViewController.renderer->isNorthIndicatorOn = false;
     test_counter = 0; // Reset the test counter
     iOSAnswer = 10000;
-    isLocked = NO;
-    
+
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isWaitingAdminCheck"];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isPracticingMode"];
+    [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isTestManagerOn"];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
     // Need to turn off map interactions in the study mode
     [rootViewController enableMapInteraction:NO];
     [rootViewController changeAnnotationDisplayMode:@"None"];
     
+    rootViewController.UIConfigurations[@"UICompassInteractionEnabled"] =
+    [NSNumber numberWithBool:false];
+    rootViewController.mapView.showsPointsOfInterest = false;
     //----------------------------
     // Visualization Parameters
     //----------------------------
@@ -136,6 +143,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     // Device Specific Settings
     //----------------------------
     if (mode == DEVICESTUDY){
+#ifdef __IPHONE__
         //------------------
         // iOS
         //------------------
@@ -151,12 +159,15 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
                                      };
             [rootViewController sendPackage: myDict];
         }
+        [rootViewController.findMeButton setHidden:YES];
+
+#endif
     }else if (mode == OSXSTUDY){
 #ifndef __IPHONE__
         //------------------
         // Desktop
         //------------------
-        
+        rootViewController.renderer->label_flag = false;
         // Remove all the annotations
         [rootViewController.mapView removeAnnotations:
          rootViewController.mapView.annotations];
@@ -182,7 +193,6 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
         
         // Show text message before the very first
         [rootViewController displayInformationText];
-        rootViewController.isStudyMode = [NSNumber numberWithBool:NO];        
 #endif
     }
     updateSessionInformation();
@@ -194,19 +204,27 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
 // Clean up the environment
 //-------------------
 void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
-    isLocked = NO;    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isPracticingMode"];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isWaitingAdminCheck"];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isTestManagerOn"];
     rootViewController.renderer->isNorthIndicatorOn = true;
     rootViewController.renderer->cross.isVisible = false;
     rootViewController.renderer->isInteractiveLineVisible=false;
     rootViewController.renderer->isInteractiveLineEnabled=false;
+    rootViewController.mapView.showsPointsOfInterest = true;
     model->configurations[@"style_type"] = @"BIMODAL";
-    
 #ifdef __IPHONE__
     [rootViewController.scaleView removeFromSuperview];
     [rootViewController.watchScaleView removeFromSuperview];
+    
+    rootViewController.UIConfigurations[@"UICompassInteractionEnabled"] =
+    [NSNumber numberWithBool:true];
 #endif
     
     if (mode == DEVICESTUDY){
+#ifdef __IPHONE__
         if (instructPartner){
             // The following lines has no effect on OSX
             // sendPackage is only functional when called on iOS
@@ -215,16 +233,16 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
                                      };
             [rootViewController sendPackage: myDict];
         }
+        [rootViewController.findMeButton setHidden:NO];
+#endif
     }else if (mode == OSXSTUDY){
 #ifndef __IPHONE__
         
         // Show text message after the last test
         [rootViewController displayInformationText];
         
-        [rootViewController.nextTestButton setEnabled:NO];
+        rootViewController.renderer->label_flag = true;
 
-        [rootViewController.confirmButton setEnabled:NO];
-        rootViewController.isPracticingMode = [NSNumber numberWithBool:NO];
         rootViewController.isDistanceEstControlAvailable =
         [NSNumber numberWithBool:NO];
         
@@ -249,7 +267,6 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
         [NSColor clearColor].CGColor;
         rootViewController.mapView.layer.borderWidth
         = 0.0f;
-        rootViewController.isStudyMode = [NSNumber numberWithBool:NO];
 #endif
     }
     

@@ -29,9 +29,10 @@
         AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
         self.rootViewController = appDelegate.rootViewController;
         self.testMessage = @"";
-        self.isWaiting = NO;
         // Watch socket status
-        [self.rootViewController addObserver:self forKeyPath:@"isStudyMode"
+        [self.rootViewController addObserver:
+         [NSUserDefaults standardUserDefaults]
+                                  forKeyPath:@"isTestManagerOn"
                                      options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
         
     }
@@ -46,11 +47,11 @@
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    
     // [todo] In the browser mode,
     // updates should not come from map! Need to fix this
-    if ([keyPath isEqual:@"isStudyMode"]) {
-        if (![self.rootViewController.isStudyMode boolValue]){
+    if ([keyPath isEqual:@"isTestManagerOn"]) {
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isTestManagerOn"])
+        {
             [self disableStudyButtons];
         }
     }
@@ -69,15 +70,10 @@
 
 - (void)disableStudyButtons{
     // Make a bunch of buttons disabled at initialization
-    self.isEndPracticeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isResumeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isPauseButtonEnabled = [NSNumber numberWithBool:NO];
     self.isResumeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isEndButtonEnabled = [NSNumber numberWithBool:NO];
-    
-    if (self.isWaiting)
-        return;
-    self.isPracticeButtonEnabled = [NSNumber numberWithBool:NO];
 }
 
 - (void)viewWillAppear{
@@ -225,8 +221,8 @@
           self.rootViewController.model->snapshot_filename]];
         return;
     }else{
-        self.isPracticeButtonEnabled = [NSNumber numberWithBool:YES];
-        self.isWaiting = YES;
+        NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+        [pref setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
     }
 }
 
@@ -251,14 +247,13 @@
 }
 
 - (IBAction)resetTestEnv:(id)sender {
-    self.isWaiting = NO;
     self.rootViewController.testManager->toggleStudyMode(OFF, YES);
     [self disableStudyButtons];
 }
 
 - (IBAction)unlockTestManager:(id)sender {
-    self.rootViewController.testManager->isLocked = false;
-    self.isWaiting = NO;
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isWaitingAdminCheck"];
 }
 
 
@@ -282,10 +277,11 @@
 }
 
 - (IBAction)checkPairingAndStartPracticing:(id)sender {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     if (self.rootViewController.testManager->testManagerMode != OSXSTUDY)
     {
         [self.rootViewController displayPopupMessage:@"Enable the study mode from iOS"];
-        self.rootViewController.testManager->isLocked = YES;
+        [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
         return;
     }
 
@@ -300,14 +296,20 @@
         [self.rootViewController.compassView setHidden:NO];
 
         self.rootViewController.testManager->applyPracticeConfigurations();
-        self.rootViewController.testManager->isLocked = YES;
+        [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
         return;
     }
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isWaitingAdminCheck"];
+    self.rootViewController.testManager->applyPracticeConfigurations();
     
-    self.rootViewController.testManager->isLocked = NO;
-    self.isWaiting = NO;
-    self.rootViewController.testManager->applyPracticeConfigurations();    
-    self.isEndPracticeButtonEnabled = [NSNumber numberWithBool:YES];
+    if (self.rootViewController.testManager->test_counter != 0){
+        // First the very first one we don't need to advance
+        self.rootViewController.testManager->showNextTest();
+    }
+    
+    [self.rootViewController displayTestInstructionsByCode:
+     self.model->snapshot_array[self.rootViewController.testManager->test_counter].name];
+    
     self.isPauseButtonEnabled = [NSNumber numberWithBool:YES];
     self.isResumeButtonEnabled = [NSNumber numberWithBool:YES];
     self.isEndButtonEnabled = [NSNumber numberWithBool:YES];
@@ -317,16 +319,18 @@
 // End practice buttom loads the actual snapshot file
 //--------------------
 - (IBAction)endPracticingAndStartStudy:(id)sender {
-    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];    
     int test_counter = self.rootViewController.testManager->test_counter;
     if ([self.model->snapshot_array[test_counter].name hasSuffix:@"t"]
         && ![self.model->snapshot_array[test_counter+1].name hasSuffix:@"t"])
     {
         self.rootViewController.testManager->applyStudyConfigurations();
-        self.rootViewController.testManager->isLocked = NO;
+        [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isWaitingAdminCheck"];
         
         // This is necessary since the test environment is locked at the point.
         self.rootViewController.testManager->showNextTest();
+        [self.rootViewController displayTestInstructionsByCode:
+         self.model->snapshot_array[self.rootViewController.testManager->test_counter].name];
     }else{
         [self.rootViewController displayPopupMessage:
          @"Something is not quite right. You should be at the boundary of practice block and the timed block, but you are not."];
@@ -341,7 +345,6 @@
 }
 
 - (IBAction)endStudy:(id)sender {
-    self.isWaiting = NO;
     self.rootViewController.testManager->toggleStudyMode(OFF, YES);
     [self disableStudyButtons];
 }

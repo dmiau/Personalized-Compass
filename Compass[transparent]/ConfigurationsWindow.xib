@@ -1258,7 +1258,7 @@
                                             </buttonCell>
                                             <connections>
                                                 <action selector="endPracticingAndStartStudy:" target="vjl-Mr-bQu" id="LXG-HH-Pbs"/>
-                                                <binding destination="vjl-Mr-bQu" name="enabled" keyPath="self.isEndPracticeButtonEnabled" id="ol9-q2-quB"/>
+                                                <binding destination="tgg-Kb-NtA" name="enabled" keyPath="values.isPracticingMode" id="EQF-ir-60a"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WP3-VO-fCY">
@@ -1313,17 +1313,6 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGg-JA-dzN">
-                                            <rect key="frame" x="102" y="202" width="188" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Pair and start practicing" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0US-pm-K7Q">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="checkPairingAndStartPracticing:" target="vjl-Mr-bQu" id="gkj-nk-lvy"/>
-                                                <binding destination="vjl-Mr-bQu" name="enabled" keyPath="self.isPracticeButtonEnabled" id="Yfp-9K-rTY"/>
-                                            </connections>
-                                        </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i9O-wH-iAU">
                                             <rect key="frame" x="249" y="344" width="100" height="32"/>
                                             <buttonCell key="cell" type="push" title="Load files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7sj-vz-WgF">
@@ -1386,6 +1375,26 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGg-JA-dzN">
+                                            <rect key="frame" x="52" y="202" width="277" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Confirming pairing and start practicing" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0US-pm-K7Q">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="checkPairingAndStartPracticing:" target="vjl-Mr-bQu" id="gkj-nk-lvy"/>
+                                                <binding destination="tgg-Kb-NtA" name="enabled2" keyPath="values.isPracticingMode" previousBinding="CGd-27-WH4" id="0tN-U0-gcj">
+                                                    <dictionary key="options">
+                                                        <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                        <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                        <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                        <integer key="NSNullPlaceholder" value="-1"/>
+                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="tgg-Kb-NtA" name="enabled" keyPath="values.isWaitingAdminCheck" id="CGd-27-WH4"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                             </tabViewItem>

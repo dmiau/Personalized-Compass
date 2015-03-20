@@ -17,14 +17,12 @@
         
         // Skip the following if it is in the Dve mode
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-
+        [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
         // In the test mode,
         // next button should be disabled after it is clicked
         if ([prefs boolForKey:@"isDevMode"])
         {
             [self.nextTestButton setEnabled:YES];
-        }else{
-            [self.nextTestButton setEnabled:NO];
         }
         
         //-------------------
@@ -37,6 +35,14 @@
         {
             [self displayPopupMessage:
              @"You have reached the end of the practice session.\nPlease notify the test coordinator to proceed."];
+            [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
+            return;
+        }else if ( test_counter+1 >= self.model->snapshot_array.size()){
+            self.studyTitle = @"Thank You!";
+            [self displayInformationText];
+            [self displayPopupMessage:
+             @"You have reached the end of the study session.\nThank you for your participation!\nPlease notify the test coordinator to proceed."];
+            [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];            
             return;
         }else if (![self.model->snapshot_array[test_counter].name hasSuffix:@"t"]
                   && [self.model->snapshot_array[test_counter+1].name hasSuffix:@"t"])
@@ -45,12 +51,9 @@
             [self displayInformationText];
             [self displayPopupMessage:
              @"You have completed the first half the study session.\nPlease notify the test coordinator to proceed."];
-            return;
-        }else if ( test_counter+1 >= self.model->snapshot_array.size()){
-            self.studyTitle = @"Thank You!";
-            [self displayInformationText];
-            [self displayPopupMessage:
-             @"You have reached the end of the study session.\nThank you for your participation!\nPlease notify the test coordinator to proceed."];
+            [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
+            
+            // Note the test proceed
             return;
         }
         
@@ -62,7 +65,7 @@
         {
             [self.nextTestButton setEnabled:YES];
         }else{
-            [self.nextTestButton setEnabled:NO];
+            [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
         }
         
     }
@@ -125,14 +128,17 @@
     {
         cgTruth.x = cgTruth.x + self.renderer->emulatediOS.centroid_in_opengl.x;
         cgTruth.y = cgTruth.y + self.renderer->emulatediOS.centroid_in_opengl.y;
+        
+        if ([self.model->configurations[@"wedge_status"]
+             isEqualToString: @"on"])
+        {
+            self.renderer->emulatediOS.is_mask_enabled = NO;
+        }
+    }else{
+        CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgTruth withType:answer];
+        [self.mapView addAnnotation:annotation];
+        [[self.mapView viewForAnnotation:annotation] setHidden:NO];
     }
-    
-    CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgTruth withType:answer];
-    [self.mapView addAnnotation:annotation];
-    [[self.mapView viewForAnnotation:annotation] setHidden:NO];
-    
-
-    self.studyIntAnswer = [NSNumber numberWithDouble:self.testManager->record_vector[sid].doubleTruth];
     
     // Show the user's answer
     if (self.testManager->record_vector[sid].isAnswered){
@@ -153,18 +159,6 @@
         CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgAnswer withType:dropped];
         
         [self.mapView addAnnotation:annotation];
-    }
-    
-    
-    // Skip the following if it is in the Dve mode
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
-    if ([prefs boolForKey:@"isDevMode"]){
-        if ([self.model->configurations[@"wedge_status"]
-             isEqualToString: @"on"])
-        {
-            self.renderer->emulatediOS.is_mask_enabled = NO;
-        }
     }
 }
 
@@ -195,7 +189,9 @@
 //---------------------
 - (IBAction)clickInformationViewOK:(id)sender {
     
-    if (self.testManager->isLocked){
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+
+    if ([prefs boolForKey:@"isWaitingAdminCheck"]){
         [self displayPopupMessage:@"TestManager is locked."];
         return;
     }
@@ -234,10 +230,8 @@
     if (self.testManager->testManagerMode != OFF){
         // Start the test
         self.testManager->startTest();
-        
-        // Enable the buttons
-        [self.nextTestButton setEnabled:NO];
-        [self.confirmButton setEnabled:YES];
+
+        [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
     }
 }
 
@@ -337,9 +331,9 @@
     }
     
     [self displayStudyTitle];
-    [self.nextTestButton setEnabled:NO];
-    [self.confirmButton setEnabled:NO];
     
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
+
     //------------------
     // Old code to diplay information
     //------------------
@@ -471,9 +465,11 @@
         // or when the system is put in dev/practice mode
         if (self.testManager->verifyAnswerQuality())
         {
-            [self.nextTestButton setEnabled:YES];
+            [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isAnswerConfirmed"];
+            
         }
     }else{
+        [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isAnswerConfirmed"];
         [self.nextTestButton setEnabled:YES];
     }
 }

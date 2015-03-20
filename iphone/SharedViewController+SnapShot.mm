@@ -294,9 +294,32 @@
             
             
             
+            //-----------------
+            // Orient test
+            //-----------------
+            int data_id = mySnapshot.selected_ids[0];
+            // Send the true answer to the server
+            CGPoint mapViewPoint = [self.mapView convertCoordinate:
+                                    CLLocationCoordinate2DMake
+                                    (self.model->data_array[data_id].latitude,
+                                     self.model->data_array[data_id].longitude)
+                                                     toPointToView:self.mapView];
             
+            double x, y;
+            x = mapViewPoint.x - self.mapView.frame.size.width/2;
+            y = mapViewPoint.y - self.mapView.frame.size.height/2;
             
+            double doubleTruth = atan2(y, x) /M_PI * 180;
             
+            if (doubleTruth < 0){
+                doubleTruth = 360 + doubleTruth;
+            }
+                        
+            // Package the data
+            NSDictionary *myDict = @{@"Type"  :@"Truth",
+                                     @"DoubleTruth" :
+                                         [NSNumber numberWithDouble:doubleTruth]};
+            [self sendPackage:myDict];
             
         }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound)
         {
@@ -445,8 +468,10 @@
     // Emulate the iOS enironment if on the desktop
     // (if it is in the control mode)
 #ifndef __IPHONE__
+    
     [self changeAnnotationDisplayMode:@"None"];
     [self setupVisualization:mySnapshot.visualizationType];
+    self.renderer->label_flag = false;
     self.renderer->emulatediOS.is_enabled = true;
     self.renderer->emulatediOS.is_mask_enabled = true;
 

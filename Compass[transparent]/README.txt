@@ -3895,14 +3895,14 @@ The following code needs to be fixed.
 - distance answer label is wrong (iOS) (9:39PM)
 - orientation answer should be between 0 and 360 [9:39PM]
 - distance estimation truth is wrong [9:40PM]
-
-
+- orientation is blocked [9:41PM] 
+- (should be disable the previous button in study?) YES [9:53PM]
 ***** Working
 - fix the max base length
 MATLAB data checking tools? MATLAB data summarizer
 
 Issues after my trials:
-- derivate derivations
+- derive derivations
 - training material?
 
 - Have myself try the tests and log the time (repeated measure data analysis), is the time calculated automatically?
@@ -3915,10 +3915,52 @@ I want to know the following things:
 - How long does it take to complete a study (an estimation)?
 
 - triangulate examples are bad
-(should be disable the previous button in study?)
-
 - orient practices is a bit strange
-- orientation is blocked [9:41PM]
+
+-------------------------------------------------------------------
+3.20.2015
+-------------------------------------------------------------------
+***** Done
+- check all the messages and instructiosns make sense
+* always, always round your answers
+* reduce the time of the title slide [12:23PM]
+- multiple -> multiples
+- How long does it take to complete a study (an estimation)? For me more than 30 mins
+- disable findMeButton in the study
+- need to turn off business information. done. [5:41PM]
+- subway label is wrong 
+- app crash at the very last test. Fixed. [5:50PM]
+- answer button was not available in the 2nd practice session
+- end of the first session -> 2nd session, no lock? [5:50PM]
+***** Working
+- fix the max base length
+MATLAB data checking tools? MATLAB data summarizer
+
+Issues after my trials:
+- derive derivations
+- training material?
+
+- Have myself try the tests and log the time (repeated measure data analysis), is the time calculated automatically?
+
+- triangulate examples are bad
+- orient practices is a bit strange
+
+Issues after my trials:
+- orient (connection lost), iOS needs to stay connected
+- too many tests
+- need to have a forced next button
+- need to have reconnect button
+- need to check connection
+- orientation truth may not be sent after lose of connection 
+
+
+
+
+
+
+
+
+
 
 
 

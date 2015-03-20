@@ -240,10 +240,8 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     // Draw debug info
     //--------------
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    // getting an NSInteger
-    NSInteger myInt = [prefs integerForKey:@"isDevMode"];
     
-    if (myInt == 1){
+    if ([prefs boolForKey:@"isDevMode"]){
         glColor4f(1, 0, 0, 1);
         glLineWidth(2);
         drawCircle(0, 0, dev_radius, 50, false);

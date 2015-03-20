@@ -50,11 +50,10 @@
         self.socket_status = [NSNumber numberWithBool:NO];
         self.studyIntAnswer = [NSNumber numberWithInt:0];
         self.isDistanceEstControlAvailable = [NSNumber numberWithBool:NO];
-        self.isPracticingMode = [NSNumber numberWithBool:NO];
         self.testInformationMessage = @"Enable Study Mode from iOS";
         self.studyTitle = @"Welcome";
         self.isInformationViewVisible = [NSNumber numberWithBool:NO];
-        self.isStudyMode = [NSNumber numberWithBool:NO];
+
         //--------------------
         // Initialize a list of UI configurations
         //--------------------
@@ -91,7 +90,19 @@
         
         [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
         [[NSUserDefaults standardUserDefaults] setObject:@"N/A" forKey:@"TestStatus"];
-        [[NSUserDefaults standardUserDefaults] setObject:@"N/A" forKey:@"AdminSessionInfo"];        
+        [[NSUserDefaults standardUserDefaults] setObject:@"N/A" forKey:@"AdminSessionInfo"];
+        
+        [[NSUserDefaults standardUserDefaults]
+         setObject: [NSNumber numberWithBool:NO]
+                        forKey:@"isWaitingAdminCheck"];
+        [[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithBool:NO]
+         forKey:@"isPracticingMode"];
+        [[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithBool:NO]
+         forKey:@"isDevMode"];
+        [[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithBool:NO]
+                                                  forKey:@"isAnswerConfirmed"];
+        [[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithBool:NO]
+                                                  forKey:@"isTestManagerOn"];
         //--------------------
         // Initialize the video player
         //--------------------

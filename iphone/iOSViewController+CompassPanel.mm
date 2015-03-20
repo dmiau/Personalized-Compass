@@ -129,6 +129,15 @@
         [self.watchSidebar setHidden:NO];
     }
     
+    if (self.testManager->testManagerMode == DEVICESTUDY)
+    {
+        [self.watchSidebar setHidden:YES];
+        [self.ibSearchBar setHidden:YES];
+    }else{
+        [self.watchSidebar setHidden:NO];
+        [self.ibSearchBar setHidden:NO];
+    }
+    
 //    // Print screen size
 //    cout << "wxh: " << self.renderer->view_width << " x "
 //    << self.renderer->view_height << endl;
@@ -318,8 +327,8 @@
     if ([label isEqualToString:@"Default"]){
         self.renderer->compass_centroid = defaultCentroidParams;
     }else if ([label isEqualToString:@"UR"]){
-        self.renderer->compass_centroid.x = 90;
-        self.renderer->compass_centroid.y = 180;
+        self.renderer->compass_centroid.x = 80;
+        self.renderer->compass_centroid.y = 175;
     }else if ([label isEqualToString:@"Center"]){
         self.renderer->compass_centroid.x = 0;
         self.renderer->compass_centroid.y = 0;

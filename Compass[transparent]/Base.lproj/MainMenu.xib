@@ -24,7 +24,6 @@
             <connections>
                 <outlet property="AVPlayerView" destination="Fx3-d7-2eF" id="OGg-3Q-3Iq"/>
                 <outlet property="compassView" destination="UCa-0f-w4g" id="hRx-r8-sIb"/>
-                <outlet property="confirmButton" destination="TqK-he-kpB" id="QOw-A0-Sro"/>
                 <outlet property="currentCoord" destination="th9-iC-Vy8" id="8Fy-fK-MjE"/>
                 <outlet property="distEstimationLabel" destination="Uld-Dd-MmX" id="sm7-AR-WrC"/>
                 <outlet property="informationImageView" destination="jjI-Fq-1rk" id="MIJ-SA-pXN"/>
@@ -909,6 +908,11 @@ DQ
                                     </buttonCell>
                                     <connections>
                                         <action selector="confirmAnswer:" target="3Bp-Mg-e5g" id="fdn-af-Q3G"/>
+                                        <binding destination="EYl-3r-NII" name="enabled" keyPath="values.isAnswerConfirmed" id="GHK-ks-RZ8">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bL8-al-boT">
@@ -919,6 +923,7 @@ DQ
                                     </buttonCell>
                                     <connections>
                                         <action selector="showNextTest:" target="3Bp-Mg-e5g" id="fAt-0G-5ij"/>
+                                        <binding destination="EYl-3r-NII" name="enabled" keyPath="values.isAnswerConfirmed" id="HUF-np-EUx"/>
                                     </connections>
                                 </button>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hod-E4-kMk">
@@ -966,6 +971,15 @@ DQ
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system" size="15"/>
                         <connections>
+                            <binding destination="EYl-3r-NII" name="hidden2" keyPath="values.isTestManagerOn" previousBinding="tIf-H7-Dfm" id="mny-0y-jjv">
+                                <dictionary key="options">
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
                             <binding destination="3Bp-Mg-e5g" name="hidden" keyPath="self.isInformationViewVisible" id="tIf-H7-Dfm"/>
                         </connections>
                     </box>
@@ -983,6 +997,7 @@ DQ
                                     </buttonCell>
                                     <connections>
                                         <action selector="toggleAnswer:" target="3Bp-Mg-e5g" id="lgI-Bs-gh2"/>
+                                        <binding destination="EYl-3r-NII" name="enabled" keyPath="values.isAnswerConfirmed" id="w2e-ZU-Nd7"/>
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yld-F9-pN4">
@@ -1010,7 +1025,7 @@ DQ
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system" size="15"/>
                         <connections>
-                            <binding destination="3Bp-Mg-e5g" name="hidden2" keyPath="self.isInformationViewVisible" previousBinding="nqn-SC-Fnc" id="X0L-qY-TyF">
+                            <binding destination="3Bp-Mg-e5g" name="hidden2" keyPath="self.isInformationViewVisible" previousBinding="oVP-L6-LpX" id="iru-Su-yej">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -1018,7 +1033,7 @@ DQ
                                     <integer key="NSNullPlaceholder" value="-1"/>
                                 </dictionary>
                             </binding>
-                            <binding destination="3Bp-Mg-e5g" name="hidden" keyPath="self.isPracticingMode" id="nqn-SC-Fnc">
+                            <binding destination="EYl-3r-NII" name="hidden" keyPath="values.isPracticingMode" id="oVP-L6-LpX">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>

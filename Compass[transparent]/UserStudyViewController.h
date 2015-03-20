@@ -38,9 +38,6 @@
 @property NSString* test_kml_path;
 
 // Test flow buttons
-@property bool isWaiting;
-@property NSNumber* isPracticeButtonEnabled;
-@property NSNumber* isEndPracticeButtonEnabled;
 @property NSNumber* isPauseButtonEnabled;
 @property NSNumber* isResumeButtonEnabled;
 @property NSNumber* isEndButtonEnabled;

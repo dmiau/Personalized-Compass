@@ -171,6 +171,9 @@
 // Toggle study mode
 //----------------
 - (IBAction)toggleStudyMode:(NSSegmentedControl*)sender {
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
     int state = [sender selectedSegment];
     string warning_message;
     switch (state) {
@@ -181,7 +184,7 @@
             self.rootViewController.testManager->toggleStudyMode(NO, YES);
             self.rootViewController.renderer->label_flag = true;
 
-            self.rootViewController.isPracticingMode = [NSNumber numberWithBool:NO];
+            [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isPracticingMode"];
             self.rootViewController.isDistanceEstControlAvailable =
             [NSNumber numberWithBool:NO];
 
