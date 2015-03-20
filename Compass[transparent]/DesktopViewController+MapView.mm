@@ -300,11 +300,11 @@
         
         output.latitudeDelta =
         self.mapView.region.span.latitudeDelta *
-        (double) self.renderer->emulatediOS.cached_radius /(double) self.renderer->view_height * true_landscape_height / (double)true_watch_radius;
+        (double) self.renderer->emulatediOS.radius /(double) self.renderer->view_height * true_landscape_height / (double)true_watch_radius;
         
         output.longitudeDelta =
         self.mapView.region.span.longitudeDelta *
-        (double) self.renderer->emulatediOS.cached_radius /(double) self.renderer->view_width * true_landscape_width / (double)true_watch_radius;
+        (double) self.renderer->emulatediOS.radius /(double) self.renderer->view_width * true_landscape_width / (double)true_watch_radius;
     }
     return output;
 }

@@ -477,6 +477,7 @@
 //-----------------
 - (void) toggleAnswersVisibility: (bool) state{
     if (state){
+        [self updateAnswerLines];
         //----------------
         // Show answers
         //----------------
@@ -494,7 +495,6 @@
              ORIENT))
         {
             self.renderer->isAnswerLinesEnabled = YES;
-            [self updateAnswerLines];
             [self enableMapInteraction:NO];
             self.renderer->cross.isVisible = YES;
             self.renderer->isInteractiveLineVisible = YES;

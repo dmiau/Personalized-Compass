@@ -114,11 +114,15 @@
         double_t y = 0.5*self.renderer->view_height - pos.y;
         self.renderer->interactiveLineRadian = atan2(y, x);
         
+        double deg_angles = atan2(y, x) * 180/M_PI;
+        if (deg_angles < 0)
+            deg_angles = 360 + deg_angles;
+        
         // The following lines has no effect on OSX
         // sendPackage is only functional when called on iOS
         NSDictionary *myDict = @{@"Type" : @"Message",
                                  @"Content" : [NSString stringWithFormat:@"%g",
-                                               atan2(y, x) * 180/M_PI]
+                                               deg_angles]
                                  };
         [self sendPackage: myDict];
     }

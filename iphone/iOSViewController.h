@@ -242,6 +242,7 @@ typedef struct{
 - (void)toggleBlankMapMode:(bool)state;
 -(void)enableMapInteraction:(bool)state;
 
+
 //----------------
 // Annotations related methods
 //----------------

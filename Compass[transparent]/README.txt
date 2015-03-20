@@ -3887,6 +3887,16 @@ The following code needs to be fixed.
 * map cannot be zoomed to too fine [3:44]
 * message needs to be corrected [4:33PM]
 
+- unlock the TestManager in cleanTestEnv [5:41PM]
+- wedge labels can be too close (applied a hack) [6:28PM]
+- disable next (stay enabled only in dev mode)
+- need a press enter, annoying (fixed) [9:16PM]
+- strange sequence in starting a test [9:39PM]
+- distance answer label is wrong (iOS) (9:39PM)
+- orientation answer should be between 0 and 360 [9:39PM]
+- distance estimation truth is wrong [9:40PM]
+
+
 ***** Working
 - fix the max base length
 MATLAB data checking tools? MATLAB data summarizer
@@ -3901,13 +3911,14 @@ Issues after my trials:
 * always, always round your answers
 * reduce the time of the title slide
 
-
 I want to know the following things:
 - How long does it take to complete a study (an estimation)?
 
+- triangulate examples are bad
+(should be disable the previous button in study?)
 
-
-
+- orient practices is a bit strange
+- orientation is blocked [9:41PM]
 
 
 

@@ -158,6 +158,16 @@
             //-------------
             [self displayPopupMessage:[NSString stringWithFormat:@"Received message: %@", content]];
         }
+    }else if ([package_type isEqualToString:@"Truth"]){
+//        // Unpack the data
+//        NSData *myData;
+//        //Unpack parameters of the map region
+//        myData = myDictionary[@"Record"];
+//        record myRecord;
+//        [myData getBytes:&myRecord length:sizeof(myRecord)];
+    
+        self.testManager->record_vector[self.testManager->test_counter]
+        .doubleTruth = [myDictionary[@"DoubleTruth"] doubleValue];
     }else{
         throw(runtime_error("Unknown package type."));
     }

@@ -1208,6 +1208,16 @@
                                                             <action selector="resetTestEnv:" target="vjl-Mr-bQu" id="1mR-d1-aCe"/>
                                                         </connections>
                                                     </button>
+                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHx-fS-ALz">
+                                                        <rect key="frame" x="80" y="7" width="166" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Unlock TestManager" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e6t-dE-wXq">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="unlockTestManager:" target="vjl-Mr-bQu" id="rJm-D7-NR8"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </view>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -1234,15 +1244,15 @@
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46o-To-Kp5">
                                             <rect key="frame" x="30" y="160" width="351" height="41"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="* To enable the followin options, initialize the study mode from iOS, and click &quot;Pair and start practice&quot;" id="r3w-CZ-2Cl">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="* To enable the followin options, initialize the study mode from iOS, and click &quot;Pair and start practicing&quot;" id="r3w-CZ-2Cl">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDN-Is-8ZY">
-                                            <rect key="frame" x="26" y="125" width="351" height="32"/>
-                                            <buttonCell key="cell" type="push" title="End the practicing session and load the study files" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fAQ-De-nAz">
+                                            <rect key="frame" x="26" y="125" width="360" height="32"/>
+                                            <buttonCell key="cell" type="push" title="End the practicing session and start the actual trials" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fAQ-De-nAz">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -1414,7 +1424,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-880" y="887"/>
+            <point key="canvasLocation" x="-909" y="951"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
         <viewController id="aLW-cy-kmh" userLabel="SnapShot View Controller" customClass="SnapShotViewController">

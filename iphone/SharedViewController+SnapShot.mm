@@ -243,7 +243,44 @@
             [self toggleScaleView:NO];
         }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound)
         {
+            //-----------------
+            // Locate test
+            //-----------------
             [self toggleScaleView:YES];
+            
+            int data_id = mySnapshot.selected_ids[0];
+            // Send the true answer to the server
+            CGPoint mapViewPoint = [self.mapView convertCoordinate:
+                                   CLLocationCoordinate2DMake
+                                   (self.model->data_array[data_id].latitude,
+                                    self.model->data_array[data_id].longitude)
+                                    toPointToView:self.mapView];
+            
+            double x, y;
+            x = mapViewPoint.x - self.mapView.frame.size.width/2;
+            y = mapViewPoint.y - self.mapView.frame.size.height/2;
+
+            record myRecord;
+            
+            // Note, we should log the (x, y) based on the centroid of the emulated iOS
+            myRecord.cgPointTruth = CGPointMake(x, y);
+            
+            double dist = sqrt(x * x + y * y);
+            myRecord.doubleTruth = 2*(double)dist /
+            (double)self.mapView.frame.size.width;
+            
+            // Log the information as seen from compass renderer
+            myRecord.cgPointOpenGL = self.model->data_array[data_id].openGLPoint;
+            
+            
+            // Package the data
+            NSDictionary *myDict = @{@"Type"  :@"Truth",
+                                     @"DoubleTruth" :
+                                         [NSNumber numberWithDouble:myRecord.doubleTruth]};
+//            [NSData dataWithBytes:&(myRecord)
+//                           length:sizeof(myRecord)
+            [self sendPackage:myDict];
+            
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
             
@@ -254,6 +291,13 @@
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
             [self toggleScaleView:NO];
+            
+            
+            
+            
+            
+            
+            
         }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound)
         {
             [self toggleScaleView:NO];
@@ -340,7 +384,7 @@
                 self.renderer->dev_radius = temp;
         }
         
-        cout << "dev_radius: " <<self.renderer->dev_radius << endl;
+//        cout << "dev_radius: " <<self.renderer->dev_radius << endl;
     }
 #endif
     

@@ -934,7 +934,11 @@ DQ
                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                                             </dictionary>
                                         </binding>
-                                        <binding destination="3Bp-Mg-e5g" name="value" keyPath="self.studyIntAnswer" id="Rmf-LV-Hna"/>
+                                        <binding destination="3Bp-Mg-e5g" name="value" keyPath="self.studyIntAnswer" id="to9-ru-v76">
+                                            <dictionary key="options">
+                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                            </dictionary>
+                                        </binding>
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uld-Dd-MmX">
@@ -989,6 +993,11 @@ DQ
                                     </buttonCell>
                                     <connections>
                                         <action selector="showPreviousTest:" target="3Bp-Mg-e5g" id="Igz-a2-F6n"/>
+                                        <binding destination="EYl-3r-NII" name="hidden" keyPath="values.isDevMode" id="7K7-1g-kep">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
                                     </connections>
                                 </button>
                             </subviews>
@@ -1153,7 +1162,7 @@ DQ
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="219" y="282.5"/>
+            <point key="canvasLocation" x="-528" y="247.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="EYl-3r-NII"/>
     </objects>

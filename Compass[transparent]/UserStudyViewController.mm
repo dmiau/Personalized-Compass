@@ -29,7 +29,7 @@
         AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
         self.rootViewController = appDelegate.rootViewController;
         self.testMessage = @"";
-        
+        self.isWaiting = NO;
         // Watch socket status
         [self.rootViewController addObserver:self forKeyPath:@"isStudyMode"
                                      options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionNew) context:NULL];
@@ -69,12 +69,15 @@
 
 - (void)disableStudyButtons{
     // Make a bunch of buttons disabled at initialization
-    self.isPracticeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isEndPracticeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isResumeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isPauseButtonEnabled = [NSNumber numberWithBool:NO];
     self.isResumeButtonEnabled = [NSNumber numberWithBool:NO];
     self.isEndButtonEnabled = [NSNumber numberWithBool:NO];
+    
+    if (self.isWaiting)
+        return;
+    self.isPracticeButtonEnabled = [NSNumber numberWithBool:NO];
 }
 
 - (void)viewWillAppear{
@@ -161,6 +164,12 @@
 // Load study files
 //-----------------
 - (IBAction)loadStudyFiles:(id)sender {
+    
+    // First of all, disable the dev mode
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    // getting an NSInteger
+    [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isDevMode"];
+    
     // Check if the files exist
     NSString* dbRoot = self.rootViewController.model->desktopDropboxDataRoot;
     
@@ -217,7 +226,7 @@
         return;
     }else{
         self.isPracticeButtonEnabled = [NSNumber numberWithBool:YES];
-        self.rootViewController.testManager->isLocked = YES;
+        self.isWaiting = YES;
     }
 }
 
@@ -242,8 +251,14 @@
 }
 
 - (IBAction)resetTestEnv:(id)sender {
+    self.isWaiting = NO;
     self.rootViewController.testManager->toggleStudyMode(OFF, YES);
     [self disableStudyButtons];
+}
+
+- (IBAction)unlockTestManager:(id)sender {
+    self.rootViewController.testManager->isLocked = false;
+    self.isWaiting = NO;
 }
 
 
@@ -290,7 +305,7 @@
     }
     
     self.rootViewController.testManager->isLocked = NO;
-    
+    self.isWaiting = NO;
     self.rootViewController.testManager->applyPracticeConfigurations();    
     self.isEndPracticeButtonEnabled = [NSNumber numberWithBool:YES];
     self.isPauseButtonEnabled = [NSNumber numberWithBool:YES];
@@ -302,11 +317,20 @@
 // End practice buttom loads the actual snapshot file
 //--------------------
 - (IBAction)endPracticingAndStartStudy:(id)sender {
-    self.rootViewController.testManager->applyStudyConfigurations();
-    self.rootViewController.testManager->isLocked = NO;
     
-    // This is necessary since the test environment is locked at the point.
-    self.rootViewController.testManager->showNextTest();
+    int test_counter = self.rootViewController.testManager->test_counter;
+    if ([self.model->snapshot_array[test_counter].name hasSuffix:@"t"]
+        && ![self.model->snapshot_array[test_counter+1].name hasSuffix:@"t"])
+    {
+        self.rootViewController.testManager->applyStudyConfigurations();
+        self.rootViewController.testManager->isLocked = NO;
+        
+        // This is necessary since the test environment is locked at the point.
+        self.rootViewController.testManager->showNextTest();
+    }else{
+        [self.rootViewController displayPopupMessage:
+         @"Something is not quite right. You should be at the boundary of practice block and the timed block, but you are not."];
+    }
 }
 
 
@@ -317,6 +341,7 @@
 }
 
 - (IBAction)endStudy:(id)sender {
+    self.isWaiting = NO;
     self.rootViewController.testManager->toggleStudyMode(OFF, YES);
     [self disableStudyButtons];
 }

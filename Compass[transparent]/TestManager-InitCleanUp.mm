@@ -194,6 +194,7 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
 // Clean up the environment
 //-------------------
 void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
+    isLocked = NO;    
     rootViewController.renderer->isNorthIndicatorOn = true;
     rootViewController.renderer->cross.isVisible = false;
     rootViewController.renderer->isInteractiveLineVisible=false;

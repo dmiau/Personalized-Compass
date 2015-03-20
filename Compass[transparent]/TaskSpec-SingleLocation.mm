@@ -133,13 +133,17 @@ void TaskSpec::generateOrientTests(vector<data> &t_data_array)
     //-------------------
     vector<vector<int>> xy_vector = NSArrayStringToVector
     (testSpecDictionary[@"orient_trials_xy"]);
+    
+    double scale_factor =
+    (double)rootViewController.renderer->emulatediOS.width / (double)rootViewController.renderer->emulatediOS.true_ios_width;
+    
     //-------------------------
     // Generate point (x, y) here
     //-------------------------
     for (int i = 0; i < xy_vector.size(); ++i)
     {
-        int x = xy_vector[i][0];
-        int y = xy_vector[i][1];
+        double x = xy_vector[i][0] * scale_factor;
+        double y = xy_vector[i][1] * scale_factor;
         
         if (isMutant)
         {
@@ -157,8 +161,8 @@ void TaskSpec::generateOrientTests(vector<data> &t_data_array)
     (testSpecDictionary[@"orient_practices_xy"]);
     for (int i = 0; i < xy_vector.size(); ++i)
     {
-        int x = xy_vector[i][0];
-        int y = xy_vector[i][1];
+        double x = xy_vector[i][0] * scale_factor;
+        double y = xy_vector[i][1] * scale_factor;
         
         if (isMutant)
         {

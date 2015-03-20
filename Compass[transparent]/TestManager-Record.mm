@@ -112,8 +112,18 @@ NSArray* record::genSavableRecord(){
     CGFloat distance = sqrt((xDist * xDist) + (yDist * yDist));
     
     NSString* errorCGPointString = [NSString stringWithFormat:@"%f", distance];
-    NSString* errorDobuleString = [NSString stringWithFormat:@"%f",
-                                   abs(doubleTruth - doubleAnswer)];
+    
+    NSString* errorDobuleString;
+    if ([code rangeOfString:toNSString(DISTANCE)].location != NSNotFound){
+        errorDobuleString = [NSString stringWithFormat:@"%d",
+                             static_cast<int>(abs(round(doubleTruth) - round(doubleAnswer)) +0.5)];
+    }else{
+        errorDobuleString = [NSString stringWithFormat:@"%f",
+                             abs(doubleTruth - doubleAnswer)];
+    }
+    
+    
+
 
     //-------------
     // Debugging/supporting information

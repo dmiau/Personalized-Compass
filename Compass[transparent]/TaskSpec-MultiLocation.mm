@@ -68,8 +68,8 @@ pair<vector<vector<double>>, vector<vector<double>>> TaskSpec::generateRandomTri
                 // Calculate point 1
                 // (need a scale so the tests can be generated on desktop)
                 double pt1_length = (double)base_length_vector[i] *
-                (double)rootViewController.renderer->emulatediOS.width /
-                (double)rootViewController.renderer->emulatediOS.true_ios_width;
+                (double)rootViewController.renderer->emulatediOS.radius /
+                (double)rootViewController.renderer->emulatediOS.true_watch_radius;
                 
                 float theta =  (float) theta_vector.back();
                 theta_vector.pop_back();

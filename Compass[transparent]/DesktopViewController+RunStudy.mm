@@ -15,10 +15,12 @@
     if (self.testManager->testManagerMode == OSXSTUDY){
         self.studyIntAnswer = [NSNumber numberWithInt:0];
         
-        
+        // Skip the following if it is in the Dve mode
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+
         // In the test mode,
         // next button should be disabled after it is clicked
-        if ([self.isPracticingMode boolValue])
+        if ([prefs boolForKey:@"isDevMode"])
         {
             [self.nextTestButton setEnabled:YES];
         }else{
@@ -56,7 +58,7 @@
         
         // In the test mode,
         // next button should be disabled after it is clicked
-        if ([self.isPracticingMode boolValue])
+        if ([prefs boolForKey:@"isDevMode"])
         {
             [self.nextTestButton setEnabled:YES];
         }else{
@@ -467,8 +469,7 @@
     if (![prefs boolForKey:@"isDevMode"]){
         // Enable the next button if the answer is verified,
         // or when the system is put in dev/practice mode
-        if (self.testManager->verifyAnswerQuality()
-            || [self.isPracticingMode boolValue])
+        if (self.testManager->verifyAnswerQuality())
         {
             [self.nextTestButton setEnabled:YES];
         }
@@ -485,4 +486,5 @@ BOOL NumberIsFraction(NSNumber *number) {
     else
         return (dValue != floor(dValue));
 }
+
 @end

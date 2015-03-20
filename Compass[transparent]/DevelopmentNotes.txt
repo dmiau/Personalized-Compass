@@ -170,6 +170,10 @@ Type: Instruction, Message
 - Message (NSString)
 * Content: double (angle answer), Goodbye
 
+- Truth
+* DoubleAnswer, NSNumber
+* 
+
 ==================
 Data Generation
 ==================
@@ -212,6 +216,8 @@ Wedge and Compass Constraints
             leg = max_leg;
         }
 
+max base:95% screen edge
+min: 1/5 
 max intrusion 1/7 screen size
 compass radius 1/8
 

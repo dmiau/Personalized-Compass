@@ -164,10 +164,9 @@ void TestManager::showTestNumber(int test_id){
 bool TestManager::verifyAnswerQuality(){
     
     snapshot mySnapshot = model->snapshot_array[test_counter];
-    
+    record myRecord = record_vector[test_counter];
     int data_id = mySnapshot.selected_ids[0];
     
-    record myRecord = record_vector[test_counter];
     if (!myRecord.isAnswered){
         [rootViewController displayPopupMessage:
          @"Please answer before proceeding to the next test."];
@@ -186,7 +185,12 @@ bool TestManager::verifyAnswerQuality(){
         
     }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound)
     {
-    
+        if ((int)myRecord.doubleAnswer == 0){
+            [rootViewController displayPopupMessage:
+             @"Answer cannot be zero"];
+            return false;
+        }
+        
     }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
     {
         //-----------------
@@ -224,8 +228,15 @@ void TestManager::startTest(){
 #ifndef __IPHONE__
     record_vector[test_counter].start(); // start the time
 #endif
+    
+    // Reset the answer status
+    iOSAnswer = 10000;
 }
 
+
+//------------------
+// Calculate ground truth
+//------------------
 void TestManager::collectGroundTruth(){
 #ifndef __IPHONE__
     snapshot mySnapshot = model->snapshot_array[test_counter];
@@ -235,8 +246,7 @@ void TestManager::collectGroundTruth(){
     //------------------------
     // Calculat the ground truth based on task type
     //------------------------
-    if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
-        ||([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound))
+    if ([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound)
     {
         //-----------------
         // Locate test
@@ -294,7 +304,6 @@ void TestManager::collectGroundTruth(){
         sqrt(pow(cgData1.x - cgData2.x, 2) + pow(cgData1.y - cgData2.y, 2))/2;
         
     }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
-        iOSAnswer = 10000;
         //-----------------
         // Orient test
         //-----------------
@@ -305,6 +314,12 @@ void TestManager::collectGroundTruth(){
         
         record_vector[test_counter].doubleTruth =
         atan2(openGLPoint.y, openGLPoint.x) /M_PI * 180;
+        
+        if (record_vector[test_counter].doubleTruth < 0){
+            record_vector[test_counter].doubleTruth = 360 +
+            record_vector[test_counter].doubleTruth;
+        }
+        
     }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
         //-----------------
         // Locate plus

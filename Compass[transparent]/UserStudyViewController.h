@@ -26,8 +26,7 @@
 @property (weak) IBOutlet NSSegmentedControl *studyModeSegmentControl;
 - (IBAction)toggleStudyMode:(id)sender;
 - (IBAction)resetTestEnv:(id)sender;
-
-
+- (IBAction)unlockTestManager:(id)sender;
 
 // Load files
 @property NSNumber* participant_id;
@@ -39,6 +38,7 @@
 @property NSString* test_kml_path;
 
 // Test flow buttons
+@property bool isWaiting;
 @property NSNumber* isPracticeButtonEnabled;
 @property NSNumber* isEndPracticeButtonEnabled;
 @property NSNumber* isPauseButtonEnabled;
