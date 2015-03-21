@@ -177,8 +177,11 @@ typedef struct{
 // implemented in the communication category
 @property NSString* received_message;
 - (void)sendMessage: (NSString*) message;
+- (void)sendMessageAndCheckReceipt: (NSString*) message;
 -(void)sendPackage: (NSDictionary *) package;
 -(void)handlePackage: (NSData *) data;
+-(void)handleMessage: (NSString *) message;
+@property NSTimer *commuicationTimer; // To indicate whether the mouse is held or not
 
 //----------------
 //Files

@@ -273,7 +273,8 @@ typedef struct{
 // System message
 //----------------
 @property NSString* system_message;
-
+- (void) logSystemMessage: (NSString*) message;
+- (void) saveSystemMessage;
 //----------------
 // File saving
 //----------------

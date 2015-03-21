@@ -313,10 +313,7 @@
     }else if ([keyPath isEqual:@"system_message"]){
         
         // Append the new message
-        self.systemMessage.text =
-        [self.rootViewController.system_message
-         stringByAppendingString:
-         [NSString stringWithFormat:@"\n%@",self.systemMessage.text]];
+        self.systemMessage.text = self.rootViewController.system_message;
     }
 }
 

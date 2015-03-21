@@ -41,8 +41,8 @@ void TestManager::toggleAuthoringMode(bool state){
         rootViewController.UIConfigurations[@"UIAcceptsPinCreation"] =
         [NSNumber numberWithBool:NO];
         model->configurations[@"filter_type"] = @"K_ORIENTATIONS";
-        [rootViewController saveKMLwithType: LOCATION];
-        [rootViewController saveKMLwithType: SNAPSHOT];
+//        [rootViewController saveKMLwithType: LOCATION];
+//        [rootViewController saveKMLwithType: SNAPSHOT];
         
         // Fill in OSX CoordRegion if possible
         calculateMultipleLocationsDisplayRegion();

@@ -116,6 +116,8 @@ void TestManager::showTestNumber(int test_id){
 #ifdef __IPHONE__
     // Make sure the answer is not shown
     [rootViewController toggleAnswersVisibility:NO];
+    [rootViewController sendMessage:
+     [NSString stringWithFormat:@"%d", test_id]];
 #endif
     
     int current_id = test_counter;
@@ -129,6 +131,11 @@ void TestManager::showTestNumber(int test_id){
                       withStudySettings:testManagerMode];
     test_counter = test_id;
 #ifndef __IPHONE__
+    
+    // Ask iOS to dispaly the corresponding snapshot
+    [rootViewController sendMessageAndCheckReceipt:
+     [NSString stringWithFormat:@"%d", test_id]];
+    
     //-----------------
     // Need to do some checking before updating the counter
     // The instructions need to be shown when entering a new task
@@ -136,8 +143,9 @@ void TestManager::showTestNumber(int test_id){
     snapshot currentSnapshot = model->snapshot_array[current_id];
     snapshot nextSnapshot = model->snapshot_array[test_id];
     
-    if ( NSStringToTaskType(currentSnapshot.name) !=
-        NSStringToTaskType(nextSnapshot.name))
+    if (( NSStringToTaskType(currentSnapshot.name) !=
+        NSStringToTaskType(nextSnapshot.name)) || (
+        test_id == 0))
     {
         [rootViewController displayTestInstructionsByCode: nextSnapshot.name];
     }
@@ -367,7 +375,7 @@ void TestManager::endTest(CGPoint openGLPoint, double doubleAnswer){
     // Log the location
     record_vector[test_counter].cgPointAnswer = openGLPoint;
     record_vector[test_counter].doubleAnswer  = doubleAnswer;
-    [rootViewController sendMessage:@"NEXT"];
+//    [rootViewController sendMessage:@"NEXT"];
 }
 
 //------------------

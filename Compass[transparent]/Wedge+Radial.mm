@@ -104,19 +104,27 @@ void compassRender::drawOneSide(double rotation, double width, double height,
         float radius = [model->configurations[@"watch_radius"] floatValue];
                 
         float max_half_base = sqrt(pow(radius, 2) - pow(radius * 0.75, 2)) * 0.90;
-        max_aperture = atan2(max_half_base, dist - radius * 0.75);
+        max_aperture = atan2(max_half_base, dist - radius * 0.75) * 2;
         max_leg = sqrt(pow(dist - radius*0.75, 2) + pow(max_half_base, 2));
         
         if (aperture > max_aperture){
+            NSLog(@"aperture: %f, max aperture: %f", aperture, max_aperture);            
             aperture = max_aperture;
             leg = max_leg;
         }
+        
+        // Let's fix the intrusion here
+        double l; // the leg - intrusion
+        l = (2 * dist * cos(aperture/2) -
+             sqrt(pow(2 * dist * cos(aperture/2), 2) - 4*(pow(dist, 2)-pow(radius, 2))))
+        * 0.5;
+        leg = l + radius/4;
     }    
     *out_aperture = aperture; *out_leg = leg;
     
     //-----------------
     // Draw the wedge
-    //-----------------
+    //-------------- ---
     //        v2
     // v1
     //        v3

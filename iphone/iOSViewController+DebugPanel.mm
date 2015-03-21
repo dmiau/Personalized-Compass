@@ -143,4 +143,41 @@
     
 }
 
+
+//-----------------
+// System Message related stuff
+//-----------------
+- (void)logSystemMessage:(NSString *)message{
+    
+    NSDate* startDate = [NSDate date];
+    
+    NSDateFormatter *formatter =
+    [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM-dd HH:mm:ss zzz"];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"NYC"]];
+    NSString* startDateString = [formatter stringFromDate:startDate];
+        
+    self.system_message = [self.system_message stringByAppendingString:
+                           [NSString stringWithFormat:@"\n%@ - %@",
+                            startDateString, message]];
+}
+
+
+- (void) saveSystemMessage{
+    bool hasError = false;
+    NSString* filename = @"iOSLog.txt";
+    if (self.model->filesys_type == DROPBOX){
+        if (![self.model->dbFilesystem
+              writeFileWithName:filename Content:self.system_message])
+        {
+            hasError = true;
+        }
+    }else{
+        if (![self.model->docFilesystem
+              writeFileWithName:filename Content:self.system_message])
+        {
+            hasError = true;
+        }
+    }
+}
 @end

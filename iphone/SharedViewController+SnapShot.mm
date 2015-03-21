@@ -344,7 +344,6 @@
         //--------------------
         // Desktop (OSX)
         //--------------------
-        [self sendMessage:[NSString stringWithFormat:@"%d", snapshot_id]];
         self.renderer->cross.isVisible = false;
         self.isDistanceEstControlAvailable = [NSNumber numberWithBool:NO];
         // Set up differently, depending on the snapshot code

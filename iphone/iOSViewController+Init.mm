@@ -73,7 +73,8 @@
         
         self.socket_status = [NSNumber numberWithBool:false];
         self.received_message = @"NONE";
-        self.system_message = @"System initialized.";
+        self.system_message = @"";
+        [self logSystemMessage:@"System initialized"];
         self.ip_string = @"scarsdale.cs.columbia.edu";
         //--------------------
         // Initialize a list of UI configurations
@@ -248,7 +249,7 @@
     // Construct a default toolbar
     //---------------
     [self constructDebugToolbar: @"Portrait"];
-    
+    self.toolbar.clipsToBounds = YES;    
     //---------------
     // Initilize socket message array
     //---------------

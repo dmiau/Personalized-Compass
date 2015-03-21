@@ -40,7 +40,8 @@
 //	HTTPLogTrace2(@"%@[%p]: didReceiveMessage: %@", THIS_FILE, self, msg);
 	
     NSLog(@"didReceiveMessage: ", msg);
-	[self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
+//	[self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
+    [self.rootViewController handleMessage:msg];
 }
 
 - (void)didReceiveData:(NSData *)data

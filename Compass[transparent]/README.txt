@@ -3932,6 +3932,8 @@ I want to know the following things:
 - app crash at the very last test. Fixed. [5:50PM]
 - answer button was not available in the 2nd practice session
 - end of the first session -> 2nd session, no lock? [5:50PM]
+- Have myself try the tests and log the time (repeated measure data analysis), is the time calculated automatically? Yes. [6:07PM]
+- toolbar alpha [12:24AM]
 ***** Working
 - fix the max base length
 MATLAB data checking tools? MATLAB data summarizer
@@ -3939,8 +3941,6 @@ MATLAB data checking tools? MATLAB data summarizer
 Issues after my trials:
 - derive derivations
 - training material?
-
-- Have myself try the tests and log the time (repeated measure data analysis), is the time calculated automatically?
 
 - triangulate examples are bad
 - orient practices is a bit strange
@@ -3953,16 +3953,42 @@ Issues after my trials:
 - need to check connection
 - orientation truth may not be sent after lose of connection 
 
+- Locate: remove 8, 9, 10 (not meaningful)
+- Locate pcompass should show drop pin answer
+- animation instructions bug
+- wedge_correction_x: 0.45
+- auto reconnect
 
 
+-------------------------------------------------------------------
+3.20.2015
+-------------------------------------------------------------------
+***** Done
+- animation instructions bug
+- Locate: remove 8, 9, 10 (not meaningful)
+- Locate pcompass should show drop pin answer [11:32AM]
+- implmented iOS system logging [12:24PM]
+- auto reconnect
+- need to check connection [12:25PM]
+- orient (connection lost), iOS needs to stay connected
+- orientation truth may not be sent after lose of connection (truth will be calcualted on the desktop, too)
+- snapshot receipt [1:50PM]
 
+***** Working
+MATLAB data checking tools? MATLAB data summarizer
+- training material?
+- triangulate examples are bad
+- orient practices is a bit strange
 
+- need to have a forced next button
 
+- wedge_correction_x: 0.45
+- pcompass locate size?
 
-
-
-
-
+- fix the max base length
+- derive derivations
+- too many tests
+- need to have a verification snapshot
 
 
 

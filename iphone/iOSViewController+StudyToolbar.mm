@@ -79,9 +79,11 @@
     self.toolbar.opaque = NO;
     [self.toolbar setTranslucent:YES];
     
-    [self.toolbar setBackgroundImage:[UIImage new]
-                  forToolbarPosition:UIBarPositionAny
-                          barMetrics:UIBarMetricsDefault];
+//    [self.toolbar setBackgroundImage:[UIImage new]
+//                  forToolbarPosition:UIBarPositionAny
+//                          barMetrics:UIBarMetricsDefault];
+
+    self.toolbar.clipsToBounds = YES;
     [self.toolbar setNeedsDisplay];
 }
 

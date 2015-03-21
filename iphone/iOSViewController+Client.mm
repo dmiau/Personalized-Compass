@@ -58,9 +58,6 @@
     
     _webSocket.delegate = self;
     
-    
-    
-//    self.title = @"Opening Connection...";
     [_webSocket open];
     
 }
@@ -75,7 +72,7 @@
         @synchronized(self.socket_status){
             self.socket_status = [NSNumber numberWithBool:NO];
         }
-        self.system_message = @"Disconnecting...";
+        [self logSystemMessage:@"Disconnecting..."];
     }
 }
 
@@ -88,26 +85,44 @@
     @synchronized(self.socket_status){
         self.socket_status = [NSNumber numberWithBool:YES];
     }
-    self.system_message = @"Connected!";
+    [self logSystemMessage:@"Connected!"];
+    [self saveSystemMessage];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;
 {
     NSLog(@":( Websocket Failed With Error %@", error);
     @synchronized(self.socket_status){
+        // Try reconnect if the previous socket_status was previously true
+        if (self.socket_status){
+            [self attemptReconnect];
+        }else{
+            [self displayPopupMessage:
+             [NSString stringWithFormat: @"Connection failed with error: %@", error]];
+        }
         self.socket_status = [NSNumber numberWithBool:NO];
     }
-    self.system_message = @"Connection Failed! (see logs)";
+    [self logSystemMessage:
+    [NSString stringWithFormat: @"Connection failed with error: %@", error]];
+    [self saveSystemMessage];
     
     _webSocket.delegate = nil;
     [_webSocket close];
     _webSocket = nil;
 }
 
+//--------------
+// Make one attempt to reconnect
+//--------------
+- (void) attemptReconnect{
+    [self toggleServerConnection:YES];
+}
+
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;
 {
     NSLog(@"Received \"%@\"", message);
-    self.system_message = [NSString stringWithFormat:@"Received \"%@\"", message];
+    [self logSystemMessage:[NSString stringWithFormat:@"Received \"%@\"", message]];
+    
     [_messages addObject:[[TCMessage alloc] initWithMessage:message fromMe:NO]];
     
     [self handleMessage:(NSString*)message];
@@ -129,8 +144,9 @@
         }
     }
     NSLog(@"WebSocket closed");
-    self.system_message = @"Connection Closed! (see logs)";
-
+    [self logSystemMessage:[NSString
+                          stringWithFormat: @"Connection Closed! %@", reason]];
+    [self saveSystemMessage];
     _webSocket.delegate = nil;
     [_webSocket close];
     _webSocket = nil;

@@ -58,8 +58,34 @@
     // OSX
     //-------------------
     [self.webSocket sendMessage:message];
+#else
+    [_webSocket send: message];
 #endif
 }
+
+#ifndef __IPHONE__
+//------------------
+// Send the message and check if a receipt is received
+//------------------
+- (void)sendMessageAndCheckReceipt: (NSString*) message{
+    [self sendMessage:message];
+    self.commuicationTimer = [NSTimer scheduledTimerWithTimeInterval:0.2
+                                                  target:self
+                                                selector:@selector(showNoReceiptWarning)
+                                                userInfo:message
+                                                 repeats:NO];
+}
+
+- (void) showNoReceiptWarning{
+    NSString *warningMsg = [NSString stringWithFormat:@"No confirmation was received for test id: %d", self.testManager->test_counter];
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"isDevMode"])
+    {
+        [self displayPopupMessage: warningMsg];
+    }else{
+        NSLog(@"%@", warningMsg);
+    }
+}
+#endif
 
 /*
  -----------------------------------
@@ -191,7 +217,12 @@
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     NSNumber *temp = [f numberFromString: message];
     if ( temp != nil){
-            self.testManager->showTestNumber([temp intValue]);
+        // Invalidate the timer, so no warning message is shown
+        
+        if ([temp integerValue] == self.testManager->test_counter){
+            [self.commuicationTimer invalidate];
+        }
+//            self.testManager->showTestNumber([temp intValue]);
     }
 #else
     //-----------------

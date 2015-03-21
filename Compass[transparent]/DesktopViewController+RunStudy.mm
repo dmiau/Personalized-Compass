@@ -122,18 +122,16 @@
     // For task I, the coordinates are calculated relative to eiOS centroid, so we need
     // to convert them back to the OpenGL coordinates
     //-------------
-    if ([self.testManager->record_vector[sid].code rangeOfString:
+    if (([self.testManager->record_vector[sid].code rangeOfString:
          toNSString(LOCATE)].location
         != NSNotFound)
+        &&
+        [self.model->configurations[@"wedge_status"]
+         isEqualToString: @"on"])
     {
         cgTruth.x = cgTruth.x + self.renderer->emulatediOS.centroid_in_opengl.x;
         cgTruth.y = cgTruth.y + self.renderer->emulatediOS.centroid_in_opengl.y;
-        
-        if ([self.model->configurations[@"wedge_status"]
-             isEqualToString: @"on"])
-        {
-            self.renderer->emulatediOS.is_mask_enabled = NO;
-        }
+        self.renderer->emulatediOS.is_mask_enabled = NO;
     }else{
         CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgTruth withType:answer];
         [self.mapView addAnnotation:annotation];
@@ -283,19 +281,7 @@
     if ([prefs boolForKey:@"isDevMode"])
         return;
     
-    
     self.isInformationViewVisible = [NSNumber numberWithBool:YES];
-    
-//    static NSImage *locate_image = [[NSImage alloc] initWithContentsOfFile:
-//            [[NSBundle mainBundle] pathForResource:@"locate.gif" ofType:@""]];
-//    static NSImage *distance_image = [[NSImage alloc] initWithContentsOfFile:
-//            [[NSBundle mainBundle] pathForResource:@"distance.jpg" ofType:@""]];
-//    static NSImage *triangulate_image = [[NSImage alloc] initWithContentsOfFile:
-//            [[NSBundle mainBundle] pathForResource:@"triangulate.jpg" ofType:@""]];
-//    static NSImage *orient_image = [[NSImage alloc] initWithContentsOfFile:
-//            [[NSBundle mainBundle] pathForResource:@"orient.jpg" ofType:@""]];
-//    static NSImage *locateplus_image = [[NSImage alloc] initWithContentsOfFile:
-//            [[NSBundle mainBundle] pathForResource:@"lplus.jpg" ofType:@""]];
     
     //------------------
     // Generate video name
@@ -333,32 +319,6 @@
     [self displayStudyTitle];
     
     [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
-
-    //------------------
-    // Old code to diplay information
-    //------------------
-    
-//    switch (taskType) {
-//        case LOCATE:
-//            [self.informationImageView setImage:locate_image];
-//            self.informationImageView.imageScaling = NSImageScaleNone;
-//            self.informationImageView.animates = YES;
-//            break;
-//        case DISTANCE:
-//            [self.informationImageView setImage:distance_image];
-//            break;
-//        case TRIANGULATE:
-//            [self.informationImageView setImage:triangulate_image];
-//            break;
-//        case ORIENT:
-//            [self.informationImageView setImage:orient_image];
-//            break;
-//        case LOCATEPLUS:
-//            [self.informationImageView setImage:locateplus_image];
-//            break;
-//        default:
-//            break;
-//    }
 }
 
 
