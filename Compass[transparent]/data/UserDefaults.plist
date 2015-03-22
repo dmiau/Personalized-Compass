@@ -27,7 +27,7 @@
 	<key>OSX_wedge_max_intrusion</key>
 	<integer>21</integer>
 	<key>OSX_wedge_edge_padding</key>
-	<integer>3</integer>
+	<integer>1</integer>
 	<key>iOS_wedge_min_base</key>
 	<integer>100</integer>
 	<key>iOS_wedge_max_intrusion</key>

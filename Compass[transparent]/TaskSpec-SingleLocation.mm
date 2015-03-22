@@ -69,21 +69,6 @@ void TaskSpec::generateLocateTests(vector<data> &t_data_array)
         (testSpecDictionary[@"distance_trials"]);
         practice_dist = NSArrayIntToVector
         (testSpecDictionary[@"distance_practices"]);
-
-        vector<int> distractor = NSArrayIntToVector
-        (testSpecDictionary[@"distance_trials_distractor"]);
-        
-        int distractor_count = distractor.size();
-        
-        if (isMutant){
-            for (int i = 0; i < distractor_count/2; ++i){
-                trial_dist.push_back(distractor[i]);
-            }
-        }else{
-            for (int i = distractor_count/2; i < distractor_count; ++i){
-                trial_dist.push_back(distractor[i]);
-            }
-        }
         
         scale_factor =
         (double)rootViewController.renderer->emulatediOS.width / (double)rootViewController.renderer->emulatediOS.true_ios_width;

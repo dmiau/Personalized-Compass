@@ -3973,26 +3973,37 @@ Issues after my trials:
 - orient (connection lost), iOS needs to stay connected
 - orientation truth may not be sent after lose of connection (truth will be calcualted on the desktop, too)
 - snapshot receipt [1:50PM]
+- update the formulat to true distance (use dpi correction) [5:06PM]
+- fix the max base length (95%) [5:06PM]
+- wedge_correction_x: 0.45, 0.76 [5:07PM]
+- too many tests (basically 8 cases per tasks, 16 if two levels) [5:08PM]
+- derive derivations (tan was easy) [5:32PM]
+- training material? [7:51PM]
 
 ***** Working
 MATLAB data checking tools? MATLAB data summarizer
-- training material?
 - triangulate examples are bad
 - orient practices is a bit strange
+- pcompass locate size? 
+- disable iphone calls/messages, etc.
 
-- need to have a forced next button
+- streamline the test flow
+- MATLAB calculation sheet
 
-- wedge_correction_x: 0.45
-- pcompass locate size?
+-------------------------------------------------------------------
+3.22.2015
+-------------------------------------------------------------------
+***** Done
+- MATLAB calculation sheet
+- triangulate examples are bad
+- orient practices is a bit strange [4:37PM]
 
-- fix the max base length
-- derive derivations
-- too many tests
-- need to have a verification snapshot
+***** Working
+MATLAB data checking tools? MATLAB data summarizer
 
-
-
-
+- pcompass locate size? 
+- disable iphone calls/messages, etc.
+- streamline the test flow
 
 
 
