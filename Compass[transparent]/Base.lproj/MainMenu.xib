@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.AVKitIBPlugin" version="6751"/>
@@ -32,6 +32,7 @@
                 <outlet property="mapView" destination="mWq-Lx-RbY" id="1w7-uy-mYl"/>
                 <outlet property="nextTestButton" destination="bL8-al-boT" id="dF9-cz-56B"/>
                 <outlet property="previousTestButton" destination="yld-F9-pN4" id="iUZ-PX-voP"/>
+                <outlet property="showAnswerButton" destination="xGq-Y6-qVt" id="07d-kN-eBs"/>
                 <outlet property="toolbarSearchField" destination="AxC-dk-J1g" id="Gsp-TB-GBF"/>
                 <outlet property="view" destination="EiT-Mj-1SZ" id="BKl-Ab-Cbt"/>
             </connections>
@@ -798,7 +799,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Compass[v0.9.5]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Compass[v1.0.1]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -971,6 +972,7 @@ DQ
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system" size="15"/>
                         <connections>
+                            <binding destination="3Bp-Mg-e5g" name="hidden" keyPath="self.isInformationViewVisible" id="tIf-H7-Dfm"/>
                             <binding destination="EYl-3r-NII" name="hidden2" keyPath="values.isTestManagerOn" previousBinding="tIf-H7-Dfm" id="mny-0y-jjv">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -980,7 +982,6 @@ DQ
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="3Bp-Mg-e5g" name="hidden" keyPath="self.isInformationViewVisible" id="tIf-H7-Dfm"/>
                         </connections>
                     </box>
                     <box autoresizesSubviews="NO" title="For Practices Only" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="vYb-aR-vJ0">
@@ -990,7 +991,7 @@ DQ
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xGq-Y6-qVt">
-                                    <rect key="frame" x="1" y="7" width="164" height="32"/>
+                                    <rect key="frame" x="1" y="6" width="164" height="32"/>
                                     <buttonCell key="cell" type="push" title="Show Answer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kMn-3m-kZh">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system" size="20"/>
@@ -1177,7 +1178,7 @@ DQ
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="-528" y="247.5"/>
+            <point key="canvasLocation" x="-602" y="281.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="EYl-3r-NII"/>
     </objects>

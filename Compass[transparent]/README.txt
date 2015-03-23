@@ -3997,13 +3997,57 @@ MATLAB data checking tools? MATLAB data summarizer
 - MATLAB calculation sheet
 - triangulate examples are bad
 - orient practices is a bit strange [4:37PM]
+- check dist estimation answer is integer (I did it already. Good job!) [5:20PM]
+- 20 mins, the test can go up to 35 mins [5:38PM]
+- locate practice -> wrong answer
+- current test_counter [5:57PM]
+- relax response time (0.4 too short?)?
+- more practices for triagulation 3? (Fine, there are three now) [6:05PM]
+- log connection issue/warning in .dat [6:56PM]
+- auto save when the test ends [7:04PM]
+- check the logged time is correct, and the start time is updated correctly [7:11PM]
+- check the logged data is correct [8:01PM]
+- pcompass locate size? 1/4 of the screen size for now [8:01PM]
+- disable iphone calls/messages, etc. (added to the check list) [8:16PM]
+- fix wrist band [10:37PM]
 
 ***** Working
 MATLAB data checking tools? MATLAB data summarizer
+- have myself try the entire flow, in a realistic setting
+- streamline the study flow
+- coming up explaination script
 
-- pcompass locate size? 
-- disable iphone calls/messages, etc.
-- streamline the test flow
+-------------------------------------------------------------------
+3.23.2015
+-------------------------------------------------------------------
+***** Done
+- check disaster (wifi drops) recovery [9:57AM]
+- have myself try the entire flow, in a realistic setting (30min) [10:34AM]
+- Should I have four blocks instead? (no)
+- when the test ends, do NOT continue logging [5:32PM]
+- lock the study in device switch [5:32PM]
+- you must configure the device to the watch mode [5:32PM]
+- Let the user knows that notify me to change the setup
+- Notify the administrator, lock the study [5:41PM]
+- ****move the device instruction to the very beginning
+- press OK to start the timer (or start the timer)
+- make the slide run faster [6:55PM]
+
+***** Working
+MATLAB data checking tools? MATLAB data summarizer
+- streamline the study flow
+- coming up explaination script
+- have a demonstration mode to walk through the interface
+- better explaination for the triangulation and locate+ tasks
+* the idea of the triangulation and locate+ task?
+== if, then...aha
+
+- tape to indicate the outside
+
+
+
+
+
 
 
 

@@ -192,6 +192,7 @@ typedef struct{
 //Study
 //----------------
 @property NSString* testInformationMessage;
+@property (weak) IBOutlet NSButton *showAnswerButton;
 @property (weak) IBOutlet NSButton *nextTestButton;
 @property (weak) IBOutlet NSButton *previousTestButton;
 

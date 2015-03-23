@@ -168,7 +168,7 @@ Type: Instruction, Message
 *Parameter: SnapshotID, YES, NO, Filename
 
 - Message (NSString)
-* Content: double (angle answer), Goodbye
+* Content: double (angle answer), PHONE, WATCH, Goodbye
 
 - Truth
 * DoubleAnswer, NSNumber

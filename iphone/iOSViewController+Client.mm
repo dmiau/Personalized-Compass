@@ -145,7 +145,7 @@
     }
     NSLog(@"WebSocket closed");
     [self logSystemMessage:[NSString
-                          stringWithFormat: @"Connection Closed! %@", reason]];
+                          stringWithFormat: @"Connection was dropped! %@", reason]];
     [self saveSystemMessage];
     _webSocket.delegate = nil;
     [_webSocket close];

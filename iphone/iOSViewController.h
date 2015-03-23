@@ -118,6 +118,8 @@ typedef struct{
 
 - (void) setupPhoneViewMode;
 - (void) setupWatchViewMode;
+- (void)pressOKToSwitchToWatchMode;
+- (void)pressOKToSwitchToPhoneMode;
 
 // Debug panel
 -(void)updateDebugPanel;

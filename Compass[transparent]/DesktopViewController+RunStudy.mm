@@ -23,6 +23,7 @@
         if ([prefs boolForKey:@"isDevMode"])
         {
             [self.nextTestButton setEnabled:YES];
+            [self.showAnswerButton setEnabled:YES];
         }
         
         //-------------------
@@ -42,7 +43,18 @@
             [self displayInformationText];
             [self displayPopupMessage:
              @"You have reached the end of the study session.\nThank you for your participation!\nPlease notify the test coordinator to proceed."];
-            [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];            
+            [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
+            
+            // Do a forced save here
+            if (self.testManager->isRecordAutoSaved)
+            {
+                self.testManager->saveRecord(
+                        [self.model->desktopDropboxDataRoot
+                         stringByAppendingPathComponent:
+                         self.testManager->record_filename], true);
+                self.testManager->isRecordAutoSaved = false;
+            }
+            
             return;
         }else if (![self.model->snapshot_array[test_counter].name hasSuffix:@"t"]
                   && [self.model->snapshot_array[test_counter+1].name hasSuffix:@"t"])
@@ -122,16 +134,24 @@
     // For task I, the coordinates are calculated relative to eiOS centroid, so we need
     // to convert them back to the OpenGL coordinates
     //-------------
-    if (([self.testManager->record_vector[sid].code rangeOfString:
+    if ([self.testManager->record_vector[sid].code rangeOfString:
          toNSString(LOCATE)].location
         != NSNotFound)
-        &&
-        [self.model->configurations[@"wedge_status"]
-         isEqualToString: @"on"])
     {
         cgTruth.x = cgTruth.x + self.renderer->emulatediOS.centroid_in_opengl.x;
         cgTruth.y = cgTruth.y + self.renderer->emulatediOS.centroid_in_opengl.y;
-        self.renderer->emulatediOS.is_mask_enabled = NO;
+        
+        
+        // For wedge, we will show triangle only
+        if ([self.model->configurations[@"wedge_status"] isEqualToString: @"on"])
+        {
+            self.renderer->emulatediOS.is_mask_enabled = NO;
+        }else{
+            // For compass, we will show drop pin
+            CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgTruth withType:answer];
+            [self.mapView addAnnotation:annotation];
+            [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+        }
     }else{
         CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgTruth withType:answer];
         [self.mapView addAnnotation:annotation];
@@ -187,13 +207,30 @@
 //---------------------
 - (IBAction)clickInformationViewOK:(id)sender {
     
+    if (self.testManager->testManagerMode == OFF){
+        [self toggleInformationView:nil];
+        return;
+    }
+    
+    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
     if ([prefs boolForKey:@"isWaitingAdminCheck"]){
         [self displayPopupMessage:@"TestManager is locked."];
         return;
     }
+
+    //--------------------
+    // check if iOS has the right device type
+    //--------------------
     
+    if (self.model->snapshot_array[self.testManager->test_counter].deviceType
+        != self.testManager->iOSdeviceType)
+    {
+        [self displayPopupMessage:@"Please configure iOS to the correct device type."];
+        return;
+    }
+
     //--------------------
     // Hide the text field if it is visible
     //--------------------

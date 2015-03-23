@@ -54,6 +54,7 @@ class record{
 public:
     int snapshot_id;
     bool isAnswered;
+    bool hasConnectionIssue;
     NSString* code;
     
     NSDate *startDate;
@@ -75,6 +76,7 @@ public:
     record(){
         snapshot_id     = 0;
         isAnswered      = false;
+        hasConnectionIssue = false;
         code            = @"";
         startDate       = nil;
         endDate         = nil;
@@ -172,6 +174,12 @@ public:
     double iOSAnswer;
     
     BOOL isRecordAutoSaved;
+    
+    //-----------------
+    // Track the status of the phone
+    //-----------------
+    DeviceType iOSdeviceType;
+    
     //-----------------
     // Connection to other components
     //-----------------

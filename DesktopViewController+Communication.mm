@@ -69,7 +69,7 @@
 //------------------
 - (void)sendMessageAndCheckReceipt: (NSString*) message{
     [self sendMessage:message];
-    self.commuicationTimer = [NSTimer scheduledTimerWithTimeInterval:0.2
+    self.commuicationTimer = [NSTimer scheduledTimerWithTimeInterval:0.4
                                                   target:self
                                                 selector:@selector(showNoReceiptWarning)
                                                 userInfo:message
@@ -77,7 +77,10 @@
 }
 
 - (void) showNoReceiptWarning{
-    NSString *warningMsg = [NSString stringWithFormat:@"No confirmation was received for test id: %d", self.testManager->test_counter];
+    NSString *warningMsg = [NSString stringWithFormat:@"Notify the study coordinator! No confirmation was received for test id: %d", self.testManager->test_counter];
+    self.testManager->record_vector
+    [self.testManager->test_counter].hasConnectionIssue = true;
+    
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"isDevMode"])
     {
         [self displayPopupMessage: warningMsg];
@@ -183,7 +186,13 @@
             //-------------
             // Contains message
             //-------------
-            [self displayPopupMessage:[NSString stringWithFormat:@"Received message: %@", content]];
+            if ([content isEqualToString:@"PHONE"]){
+                self.testManager->iOSdeviceType = PHONE;
+            }else if ([content isEqualToString:@"WATCH"]){
+                self.testManager->iOSdeviceType = WATCH;
+            }else{
+                [self displayPopupMessage:[NSString stringWithFormat:@"Received message: %@", content]];
+            }
         }
     }else if ([package_type isEqualToString:@"Truth"]){
 //        // Unpack the data

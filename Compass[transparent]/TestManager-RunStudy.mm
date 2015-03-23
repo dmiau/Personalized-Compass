@@ -27,11 +27,14 @@ void TestManager::updateUITestMessage(){
     TestCodeInterpreter codeInterpreter(model->snapshot_array[test_counter].name);
     string code = extractCode(model->snapshot_array[test_counter].name);
     
-    
+    //-----------------
+    // Admin information
+    //-----------------
     NSString* testStatus =@"N/A";
     if (testManagerMode != OFF){
         NSString* testStatus =
-        [NSString stringWithFormat:@"%@, %d/%d\n%@, %d/%lu",
+        [NSString stringWithFormat:@"test_counter: %d\n%@, %d/%d\n%@, %d/%lu",
+         test_counter,
          [NSString stringWithUTF8String:code.c_str()],
          testCountWithinCategory[test_counter],
          snapshotDistributionInfo[code],
@@ -114,10 +117,10 @@ void TestManager::showNextTest(){
 void TestManager::showTestNumber(int test_id){
     
 #ifdef __IPHONE__
-    // Make sure the answer is not shown
-    [rootViewController toggleAnswersVisibility:NO];
     [rootViewController sendMessage:
      [NSString stringWithFormat:@"%d", test_id]];
+    // Make sure the answer is not shown
+    [rootViewController toggleAnswersVisibility:NO];
 #endif
     
     int current_id = test_counter;

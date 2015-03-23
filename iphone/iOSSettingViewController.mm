@@ -281,6 +281,7 @@
             [self.rootViewController toggleServerConnection:NO];
             break;
         case 1:
+            self.rootViewController.system_message = @"Connecting...";
             self.rootViewController.ip_string =
             self.ipTextField.text;
             self.rootViewController.port_number =

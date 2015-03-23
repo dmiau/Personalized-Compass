@@ -75,7 +75,7 @@
         self.received_message = @"NONE";
         self.system_message = @"";
         [self logSystemMessage:@"System initialized"];
-        self.ip_string = @"scarsdale.cs.columbia.edu";
+        self.ip_string = @"192.168.2.1";
         //--------------------
         // Initialize a list of UI configurations
         //--------------------

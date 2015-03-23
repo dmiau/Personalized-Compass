@@ -58,6 +58,11 @@ NSArray* record::genSavableRecord(){
     // isAnswerFlag string
     //-------------
     NSString* isAnswerString = [NSString stringWithFormat:@"%d", (int)isAnswered];
+
+    //-------------
+    // hasConnectionIssue string
+    //-------------
+    NSString* hasConnectionIssueString = [NSString stringWithFormat:@"%d", (int)hasConnectionIssue];
     
     //-------------
     // idString
@@ -121,9 +126,6 @@ NSArray* record::genSavableRecord(){
         errorDobuleString = [NSString stringWithFormat:@"%f",
                              abs(doubleTruth - doubleAnswer)];
     }
-    
-    
-
 
     //-------------
     // Debugging/supporting information
@@ -138,18 +140,36 @@ NSArray* record::genSavableRecord(){
     NSString* opengGLXYString = NSStringFromCGPoint(cgPointOpenGL);
 #endif
     NSString* display_radiusString = [NSString stringWithFormat:@"%f", display_radius];
+
     
+    //-------------
+    // Task Error
+    //-------------
+    NSString* taskErrorString;
+    
+    if (([code rangeOfString:toNSString(DISTANCE)].location != NSNotFound)
+        || ([code rangeOfString:toNSString(ORIENT)].location != NSNotFound))
+        
+    {
+        taskErrorString = errorDobuleString;
+    }else{
+        taskErrorString = errorCGPointString;
+    }
     
     //-------------
     // Consolidate all strings into an array
     //-------------
-    NSArray* output = @[idString, code,
-                        startDateString, endDateString,
-                        elapsedTimeString, isAnswerString,
-                        truthCGPointString, answerCGPointString,
-                        errorCGPointString,
-                        truthDobuleString, answerDobuleString,
-                        errorDobuleString,
+    // Make the 4rd column time difference
+    // Make the 5th column error
+    
+    NSArray* output = @[idString,
+                        code,
+                        isAnswerString,
+                        taskErrorString,
+                        startDateString, endDateString, elapsedTimeString,
+                        hasConnectionIssueString,
+                        truthCGPointString, answerCGPointString, errorCGPointString,
+                        truthDobuleString, answerDobuleString, errorDobuleString,
                         cgSupport1String, cgSupport2String,
                         display_radiusString, opengGLXYString];
     return output;
@@ -180,7 +200,6 @@ void TestManager::saveRecord(NSString *out_file, bool forced){
     
     NSOutputStream *output = [NSOutputStream outputStreamToFileAtPath:out_file append:NO];
     [output open];
-    
 //    CHCSVWriter *w = [[CHCSVWriter alloc] initForWritingToCSVFile:out_file];
     
     CHCSVWriter *w = [[CHCSVWriter alloc] initWithOutputStream:output encoding:NSUTF8StringEncoding delimiter:';'];
@@ -188,16 +207,16 @@ void TestManager::saveRecord(NSString *out_file, bool forced){
     // http://stackoverflow.com/questions/1443793/iterate-keys-in-a-c-map
     
     // Header
-    [w writeLineOfFields: @[@"SnapshotID", @"Code",
-                            @"StartTime", @"EndTime",
-                            @"ElapsedTime", @"isAnswered",
-                            @"Truth_XY", @"Answer_XY",
-                            @"Error_LocationDiff",
-                            @"Truth_double", @"Answer_double",
-                            @"Error_double",
+    [w writeLineOfFields: @[@"SnapshotID",
+                            @"Code",
+                            @"isAnswered",
+                            @"taskError",
+                            @"StartTime", @"EndTime", @"ElapsedTime",
+                            @"hasConnectionIssue",
+                            @"Truth_XY", @"Answer_XY", @"Error_LocationDiff",
+                            @"Truth_double", @"Answer_double", @"Error_double",
                             @"Support1", @"Support2",
-                            @"DisplayRadius",
-                            @"OpenGL_XY"]];
+                            @"DisplayRadius", @"OpenGL_XY"]];
     for (int i = 0; i < record_vector.size(); ++i){
         [w writeLineOfFields: record_vector[i].genSavableRecord()];
     }

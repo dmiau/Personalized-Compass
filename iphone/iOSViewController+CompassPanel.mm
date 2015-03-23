@@ -13,58 +13,77 @@
 
 
 - (void)setupPhoneViewMode{
-    [self toggleScaleView:NO];
-    //-----------
-    // Normal
-    //-----------
-    self.renderer->cross.applyDeviceStyle(PHONE);
     
-    if (self.testManager->testManagerMode != OFF){
-            self.renderer->cross.isVisible = true;
-    }
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+    dispatch_async(mainQueue,
+                   ^{
+                       
+                       [self toggleScaleView:NO];
+                       //-----------
+                       // Normal
+                       //-----------
+                       self.renderer->cross.applyDeviceStyle(PHONE);
+                       
+                       if (self.testManager->testManagerMode != OFF){
+                           self.renderer->cross.isVisible = true;
+                       }
+                       
+                       self.UIConfigurations[@"UIRotationLock"] =
+                       [NSNumber numberWithBool:NO];
+                       
+                       // rotate the screen
+                       objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationPortrait);
+                       
+                       self.UIConfigurations[@"UIRotationLock"] =
+                       [NSNumber numberWithBool:YES];
+                       
+                       self.renderer->model->configurations[@"font_size"] =
+                       self.model->cache_configurations[@"font_size"];
+                       
+                       
+                       self.renderer->watchMode = false;
+                       for (int i = 0; i<4; ++i){
+                           // deep copy
+                           self.renderer->model->configurations[@"bg_color"][i] =
+                           [NSNumber numberWithFloat:
+                            [self.model->cache_configurations[@"bg_color"][i] floatValue]];
+                       }
+                       // revert
+                       
+                       self.renderer->compassRefDot.deviceType = PHONE;
+                       // Change compass ctr
+                       [self lockCompassRefToScreenCenter:NO];
+                       [self changeCompassLocationTo: @"Default"];
+                       self.model->configurations[@"wedge_style"] = @"modified-orthographic";    
+                       [self lockCompassRefToScreenCenter:YES];
+                       // Reset the compss scale back to the default scale
+                       self.renderer->adjustAbsoluteCompassScale(1);
+                       
+                       UITextField *searchField =
+                       [self.ibSearchBar valueForKey:@"_searchField"];
+                       searchField.textColor = [UIColor blackColor];
+                       [self.ibSearchBar setHidden:NO];
+                       
+                       [self toggleWatchMask:NO];
+                       
+                       [self.watchSidebar setHidden:YES];
+                       
+                       if (self.testManager->testManagerMode != OFF){
+                           self.testManager->showTestNumber
+                           (self.testManager->test_counter);
+                       }
+                       
+                       //--------------------
+                       // Notify the server
+                       //--------------------
+                       // Package the data
+                       NSDictionary *myDict = @{@"Type"  :@"Message",
+                                                @"Content"  :@"PHONE"};
+                       
+                       [self sendPackage:myDict];
+                       
+                   });
     
-    self.UIConfigurations[@"UIRotationLock"] =
-    [NSNumber numberWithBool:NO];
-    
-    // rotate the screen
-    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationPortrait);
-
-    self.UIConfigurations[@"UIRotationLock"] =
-    [NSNumber numberWithBool:YES];
-    
-    self.renderer->model->configurations[@"font_size"] =
-    self.model->cache_configurations[@"font_size"];
-
-    
-    self.renderer->watchMode = false;
-    for (int i = 0; i<4; ++i){
-        // deep copy
-        self.renderer->model->configurations[@"bg_color"][i] =
-        [NSNumber numberWithFloat:
-         [self.model->cache_configurations[@"bg_color"][i] floatValue]];
-    }
-    // revert
-    
-    self.renderer->compassRefDot.deviceType = PHONE;
-    // Change compass ctr
-    [self lockCompassRefToScreenCenter:NO];
-    [self changeCompassLocationTo: @"Default"];
-    self.model->configurations[@"wedge_style"] = @"modified-orthographic";    
-    [self lockCompassRefToScreenCenter:YES];
-    // Reset the compss scale back to the default scale
-    self.renderer->adjustAbsoluteCompassScale(1);
-    
-    UITextField *searchField =
-    [self.ibSearchBar valueForKey:@"_searchField"];
-    searchField.textColor = [UIColor blackColor];
-    [self toggleWatchMask:NO];
-        
-    [self.watchSidebar setHidden:YES];
-    
-    if (self.testManager->testManagerMode != OFF){
-        self.testManager->showTestNumber
-        (self.testManager->test_counter);
-    }
 }
 
 
@@ -73,82 +92,105 @@
 //-----------------
 - (void)setupWatchViewMode{
 
-    [self toggleScaleView:NO];
-    self.renderer->cross.applyDeviceStyle(WATCH);
-    
-    if (self.testManager->testManagerMode != OFF){
-        if ([self.model->configurations[@"personalized_compass_status"] isEqualToString:@"on"])
-        {
-            self.renderer->cross.isVisible = false;
-        }else{
-            self.renderer->cross.isVisible = true;
-        }
-    }
-    
-    self.UIConfigurations[@"UIRotationLock"] =
-    [NSNumber numberWithBool:NO];
-    // rotate the screen
-    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationLandscapeLeft );
-    self.UIConfigurations[@"UIRotationLock"] =
-    [NSNumber numberWithBool:YES];
-    
-    self.renderer->model->configurations[@"font_size"] =
-    self.model->cache_configurations[@"font_size"];
-    
-    self.renderer->watchMode = true;
-    for (int i = 0; i<4; ++i){
-        self.model->configurations[@"bg_color"][i] =
-        self.model->cache_configurations[@"bg_color"][i];
-    }
-    
-    self.renderer->compassRefDot.deviceType = WATCH;
-    
-    [self lockCompassRefToScreenCenter:NO];
-    // Change compass ctr
-    [self changeCompassLocationTo: @"Center"];
-//    [self lockCompassRefToScreenCenter:YES];
-    
-    // The wedge has to be in the perspective mode to funciton correctly
-    self.model->configurations[@"wedge_style"] = @"modified-perspective";
-    
-    
-    UITextField *searchField =
-    [self.ibSearchBar valueForKey:@"_searchField"];
-    searchField.textColor = [UIColor whiteColor];
-    [self toggleWatchMask: YES];
-    
-    
-    //-------------------
-    // Add a side panel when the watch mode is on
-    // (and when testManagerMode is not in AUTHORING mode
-    //-------------------
-    if (self.testManager->testManagerMode != AUTHORING){
-        self.watchLandmrkLockSwitch.on =self.model->lockLandmarks;
-        self.watchCompassInteractionSwitch.on =
-        [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue];
-        [self.watchSidebar setHidden:NO];
-    }
-    
-    if (self.testManager->testManagerMode == DEVICESTUDY)
-    {
-        [self.watchSidebar setHidden:YES];
-        [self.ibSearchBar setHidden:YES];
-    }else{
-        [self.watchSidebar setHidden:NO];
-        [self.ibSearchBar setHidden:NO];
-    }
-    
-//    // Print screen size
-//    cout << "wxh: " << self.renderer->view_width << " x "
-//    << self.renderer->view_height << endl;
-
-    //Hide all panels
-    [self hideAllPanels];
-    
-    if (self.testManager->testManagerMode != OFF){
-        self.testManager->showTestNumber
-        (self.testManager->test_counter);
-    }
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+    dispatch_async(mainQueue,
+                   ^{
+                       
+                       [self toggleScaleView:NO];
+                       self.renderer->cross.applyDeviceStyle(WATCH);
+                       
+                       if (self.testManager->testManagerMode != OFF){
+                           if ([self.model->configurations[@"personalized_compass_status"] isEqualToString:@"on"])
+                           {
+                               self.renderer->cross.isVisible = false;
+                           }else{
+                               self.renderer->cross.isVisible = true;
+                           }
+                       }
+                       
+                       
+                       
+                       
+                       self.UIConfigurations[@"UIRotationLock"] =
+                       [NSNumber numberWithBool:NO];
+                       // rotate the screen
+                       objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationLandscapeLeft );
+                       
+                       //[[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft];
+                       
+                       self.UIConfigurations[@"UIRotationLock"] =
+                       [NSNumber numberWithBool:YES];
+                       
+                       
+                       
+                       self.renderer->model->configurations[@"font_size"] =
+                       self.model->cache_configurations[@"font_size"];
+                       
+                       self.renderer->watchMode = true;
+                       for (int i = 0; i<4; ++i){
+                           self.model->configurations[@"bg_color"][i] =
+                           self.model->cache_configurations[@"bg_color"][i];
+                       }
+                       
+                       self.renderer->compassRefDot.deviceType = WATCH;
+                       
+                       [self lockCompassRefToScreenCenter:NO];
+                       // Change compass ctr
+                       [self changeCompassLocationTo: @"Center"];
+                       //    [self lockCompassRefToScreenCenter:YES];
+                       
+                       // The wedge has to be in the perspective mode to funciton correctly
+                       self.model->configurations[@"wedge_style"] = @"modified-perspective";
+                       
+                       
+                       UITextField *searchField =
+                       [self.ibSearchBar valueForKey:@"_searchField"];
+                       searchField.textColor = [UIColor whiteColor];
+                       [self toggleWatchMask: YES];
+                       
+                       
+                       //-------------------
+                       // Add a side panel when the watch mode is on
+                       // (and when testManagerMode is not in AUTHORING mode
+                       //-------------------
+                       if (self.testManager->testManagerMode != AUTHORING){
+                           self.watchLandmrkLockSwitch.on =self.model->lockLandmarks;
+                           self.watchCompassInteractionSwitch.on =
+                           [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue];
+                           [self.watchSidebar setHidden:NO];
+                       }
+                       
+                       if (self.testManager->testManagerMode == DEVICESTUDY)
+                       {
+                           [self.watchSidebar setHidden:YES];
+                           [self.ibSearchBar setHidden:YES];
+                       }else{
+                           [self.watchSidebar setHidden:NO];
+                           [self.ibSearchBar setHidden:NO];
+                       }
+                       
+                       //    // Print screen size
+                       //    cout << "wxh: " << self.renderer->view_width << " x "
+                       //    << self.renderer->view_height << endl;
+                       
+                       //Hide all panels
+                       [self hideAllPanels];
+                       
+                       if (self.testManager->testManagerMode != OFF){
+                           self.testManager->showTestNumber
+                           (self.testManager->test_counter);
+                       }
+                       
+                       
+                       //--------------------
+                       // Notify the server
+                       //--------------------
+                       // Package the data
+                       NSDictionary *myDict = @{@"Type"  :@"Message",
+                                                @"Content"  :@"WATCH"};
+                       
+                       [self sendPackage:myDict];
+                   });
 }
 
 
@@ -523,4 +565,41 @@
     }
 }
 
+- (void)pressOKToSwitchToWatchMode{
+    
+    UIAlertController* alert = [UIAlertController
+                                alertControllerWithTitle:@"Attention"
+                                message:@"Please slide the phone into the wrist band pocket, then press OK to switch to the watch mode." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction =
+    [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                           handler:^(UIAlertAction * action)
+     {[alert dismissViewControllerAnimated:YES completion:nil];
+         [self setupWatchViewMode];
+     }];
+    
+    [alert addAction:defaultAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+- (void)pressOKToSwitchToPhoneMode{
+    
+    UIAlertController* alert = [UIAlertController
+                                alertControllerWithTitle:@"Attention"
+                                message:@"Please take the phone out of the wrist band pocket, then press OK to switch to the phone mode." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction =
+    [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                           handler:^(UIAlertAction * action)
+     {[alert dismissViewControllerAnimated:YES completion:nil];
+         [self setupPhoneViewMode];
+     }];
+    
+    [alert addAction:defaultAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 @end

@@ -331,11 +331,11 @@
         //--------------------
         if (mySnapshot.deviceType == WATCH){
             if (!self.renderer->watchMode){
-                [self displayPopupMessage:@"Please change to the watch mode."];
+                [self pressOKToSwitchToWatchMode];
             }
         }else{
             if (self.renderer->watchMode){
-                [self displayPopupMessage:@"Please change to the phone mode."];
+                [self pressOKToSwitchToPhoneMode];
             }
         }
 #endif
