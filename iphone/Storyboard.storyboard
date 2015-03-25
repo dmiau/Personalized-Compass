@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xJv-Aa-iHt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xJv-Aa-iHt">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -1044,15 +1044,6 @@
                                     <action selector="toggleStudyMode:" destination="avv-ds-Vn2" eventType="valueChanged" id="twX-gp-Woy"/>
                                 </connections>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkx-c7-mnD">
-                                <rect key="frame" x="177" y="73" width="137" height="30"/>
-                                <state key="normal" title="Reset Test Manager">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetTestManager:" destination="avv-ds-Vn2" eventType="touchUpInside" id="vEZ-GP-HGj"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYi-dh-Aew">
                                 <rect key="frame" x="9" y="111" width="305" height="76"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1060,6 +1051,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytn-v2-jVw">
+                                <rect key="frame" x="219" y="75" width="66" height="30"/>
+                                <state key="normal" title="Ping OSX">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pingOSX:" destination="avv-ds-Vn2" eventType="touchUpInside" id="NrP-rj-yid"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1070,11 +1070,9 @@
                             <constraint firstItem="zvj-5t-Cip" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="131" id="JAR-pG-Vrp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zvj-5t-Cip" secondAttribute="trailing" constant="-16" id="cPL-q8-2Rg"/>
                             <constraint firstItem="zvj-5t-Cip" firstAttribute="leading" secondItem="F68-PY-8iw" secondAttribute="leadingMargin" constant="-16" id="fSH-IP-nds"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xkx-c7-mnD" secondAttribute="trailing" constant="-10" id="kk8-Fi-S2S"/>
                             <constraint firstItem="aJG-vO-7wB" firstAttribute="leading" secondItem="F68-PY-8iw" secondAttribute="leadingMargin" constant="-7" id="rmY-uh-Jbn"/>
                             <constraint firstItem="wYi-dh-Aew" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="47" id="vjy-gm-CyI"/>
                             <constraint firstItem="wYi-dh-Aew" firstAttribute="leading" secondItem="F68-PY-8iw" secondAttribute="leadingMargin" constant="-7" id="x9G-Gl-lKR"/>
-                            <constraint firstItem="xkx-c7-mnD" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="9" id="xGT-64-Weh"/>
                             <constraint firstItem="aJG-vO-7wB" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="13" id="xqd-Ze-ueh"/>
                         </constraints>
                     </view>

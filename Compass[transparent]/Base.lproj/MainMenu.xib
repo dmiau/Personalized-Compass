@@ -1178,7 +1178,7 @@ DQ
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="12" y="98.5"/>
+            <point key="canvasLocation" x="24" y="211.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="EYl-3r-NII"/>
     </objects>

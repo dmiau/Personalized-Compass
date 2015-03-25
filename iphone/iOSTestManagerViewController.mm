@@ -304,15 +304,6 @@
     }
 }
 
-
-//-----------------
-// Test manager control
-//-----------------
-
-- (IBAction)resetTestManager:(id)sender {
-    self.rootViewController.testManager->resetTestManager();
-}
-
 //-----------------
 // Toggle study mode
 //-----------------
@@ -323,5 +314,13 @@
     }else{
         self.folderAfterExit = @"";
     }
+}
+//-----------------
+// Resend test id to osx
+//-----------------
+- (IBAction)pingOSX:(id)sender {
+    [self.rootViewController sendMessage:
+     [NSString stringWithFormat:
+      @"%d", self.rootViewController.testManager->test_counter]];
 }
 @end

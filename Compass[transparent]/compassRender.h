@@ -169,6 +169,7 @@ public:
     double interactiveLineRadian;
     bool isAnswerLinesEnabled;
     bool isCompassTouched;
+    bool isCompassAtCenter;
     float dev_radius;
     vector<double> degree_vector;
     

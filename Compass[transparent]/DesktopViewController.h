@@ -182,6 +182,7 @@ typedef struct{
 -(void)handlePackage: (NSData *) data;
 -(void)handleMessage: (NSString *) message;
 @property NSTimer *commuicationTimer; // To indicate whether the mouse is held or not
+@property NSAlert* alertView;
 
 //----------------
 //Files

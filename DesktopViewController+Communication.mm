@@ -78,47 +78,40 @@
     // UI update needs to be on main queue?
     dispatch_async(dispatch_get_main_queue(),
                    ^{
-//                       NSAlert *alert = [NSAlert alertWithMessageText:@"Waiting iOS..."
-//                                                        defaultButton:@"Cancel"
-//                                                      alternateButton:nil
-//                                                          otherButton:nil
-//                                            informativeTextWithFormat:@""];
-//                       self.waitingModal = alert;
+                       NSAlert *alert = [NSAlert alertWithMessageText:@"Waiting iOS..."
+                                                        defaultButton:@"Cancel"
+                                                      alternateButton:nil
+                                                          otherButton:nil
+                                            informativeTextWithFormat:@""];
+                       self.alertView = alert;
                        [self sendMessage:message];
-
                        
-                        if ( [message integerValue] !=
-                             [self.testManager->iOStestCounter integerValue])
-                        {
-//                            
-//                            [NSApp beginSheet:self.waitingPanel
-//                               modalForWindow:[[self view] window]
-//                                modalDelegate:self
-//                               didEndSelector:@selector(didEndSheet:returnCode:contextInfo:)
-//                                  contextInfo:nil];
-                        }
-//
-//                            NSInteger button = [alert runModal];
-//                            
-//                            
-//                            if (button == NSAlertDefaultReturn) {
-//                                NSLog(@"Cancelled");
-//                            } else if (button == NSAlertAlternateReturn) {
-//                                NSLog(@"User cancelled");
-//                            } else {
-//                                NSLog(@"bla");
-//                            }
-//                        }else{
-//                            self.waitingModal = nil;
-//                        }
                        
-
+                       // DO NOT do the followin when devmode is on
+                       
+                       // Alert will only be shown when devmode is off
+                       if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isDevMode"])
+                       {
+                           if ( [message integerValue] !=
+                               [self.testManager->iOStestCounter integerValue])
+                           {
+                               [alert beginSheetModalForWindow:[[self view] window]
+                                                 modalDelegate:self
+                                                didEndSelector:
+                                @selector(didEndSheet:returnCode:contextInfo:)
+                                                   contextInfo:nil];
+                               
+                           }else{
+                               self.alertView = nil;
+                           }
+                       }
                    });
 }
 
+// This is triggered when the alert dialog is about to be closed
 - (void)didEndSheet:(NSWindow*) sheet returnCode:(NSInteger)returnCode  contextInfo:(void*) contextInfo
 {
-    [sheet orderOut:NSApp];
+//    [sheet orderOut:nil];
 }
 
 - (void) showNoReceiptWarning{
@@ -273,20 +266,32 @@
     if ( temp != nil){
         // Invalidate the timer, so no warning message is shown
         
-        if ([temp integerValue] == self.testManager->test_counter){
-
-
+        
+        // Start the timer only if the iOS counter
+        // matches the OSX counter
+        if (([temp integerValue] == self.testManager->test_counter)
+            && (self.testManager->testManagerMode != OFF))
+        {
             self.testManager->iOStestCounter = temp;
 
-//            if (self.waitingModal){
-//                [NSApp endSheet: [self.waitingModal window]];
-//                [[self.waitingModal window] orderOut:nil];
-//                [NSApp abortModal];
-//                
-//            }
-            
+            if (self.alertView){
+                // The followin has to be on the main (GUI) thread
+                dispatch_async(dispatch_get_main_queue(),
+                               ^{
+                                   [NSApp endSheet: [self.alertView window]];
+//                                   [[self.alertView window] orderOut:nil];
+//                                   [NSApp abortModal];
+                                   
+                                   // Restart the test timer
+                                   self.testManager->startTest();
+                               });
+
+            }
 //            [self.commuicationTimer invalidate];
         }
+        // This is not used.
+        // This line existed because originally I want to drive the study flow
+        // from iOS
 //            self.testManager->showTestNumber([temp intValue]);
     }
 #else

@@ -69,6 +69,7 @@ int compassRender::initRenderMdl(){
     isInteractiveLineVisible=false;
     isInteractiveLineEnabled=false;
     isNorthIndicatorOn      = true;
+    isCompassAtCenter       = false;
     
     interactiveLineRadian   = 0;
     isAnswerLinesEnabled    = false;
@@ -300,7 +301,18 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //--------------
     // Draw cross
     //--------------
-    if (cross.isVisible){
+    if ([model->configurations[@"personalized_compass_status"]
+         isEqualToString:@"on"] && isCompassAtCenter){
+        // Do nothing
+    }else{
+        if (cross.isVisible)
+        {
+            cross.render();
+        }
+    }
+    
+    if (cross.isVisible && !isCompassAtCenter)
+    {
         cross.render();
     }
     //--------------

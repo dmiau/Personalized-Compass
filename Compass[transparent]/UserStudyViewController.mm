@@ -168,8 +168,6 @@
     
     // Check if the files exist
     NSString* dbRoot = self.rootViewController.model->desktopDropboxDataRoot;
-    
-    
     self.snapshot_filepath = [dbRoot stringByAppendingPathComponent:
                               [self.rootViewController.testManager->test_snapshot_prefix
                                stringByAppendingFormat:@"%@.snapshot", self.participant_id]];
@@ -196,7 +194,6 @@
         return;
     }
     
-
     // Check if a record file already exists
     if ([[NSFileManager defaultManager] fileExistsAtPath:
           self.record_filepath])

@@ -26,6 +26,6 @@
 @property (weak, nonatomic) IBOutlet UISwitch *studyModeSwitch;
 - (IBAction)toggleStudyMode:(id)sender;
 
-- (IBAction)resetTestManager:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *testStatus;
+- (IBAction)pingOSX:(id)sender;
 @end

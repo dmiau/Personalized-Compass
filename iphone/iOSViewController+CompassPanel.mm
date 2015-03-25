@@ -99,18 +99,6 @@
                        [self toggleScaleView:NO];
                        self.renderer->cross.applyDeviceStyle(WATCH);
                        
-                       if (self.testManager->testManagerMode != OFF){
-                           if ([self.model->configurations[@"personalized_compass_status"] isEqualToString:@"on"])
-                           {
-                               self.renderer->cross.isVisible = false;
-                           }else{
-                               self.renderer->cross.isVisible = true;
-                           }
-                       }
-                       
-                       
-                       
-                       
                        self.UIConfigurations[@"UIRotationLock"] =
                        [NSNumber numberWithBool:NO];
                        // rotate the screen
@@ -366,6 +354,7 @@
     // iPhone case
     //---------------
 #ifndef __IPAD__
+    self.renderer->isCompassAtCenter = false;
     if ([label isEqualToString:@"Default"]){
         self.renderer->compass_centroid = defaultCentroidParams;
     }else if ([label isEqualToString:@"UR"]){
@@ -376,6 +365,7 @@
         self.renderer->compass_centroid.y = 0;
         
         self.renderer->compassRefDot.isVisible = NO;
+        self.renderer->isCompassAtCenter = true;
     }else if ([label isEqualToString:@"BL"]){
         self.renderer->compass_centroid.x = -70;
         self.renderer->compass_centroid.y = -150;

@@ -221,11 +221,6 @@
         // Cross is off in watch+compass mode
         self.renderer->cross.isVisible = true;
         
-        if (self.renderer->watchMode &&
-            [self.model->configurations[@"personalized_compass_status"]
-            isEqualToString: @"on"])
-            self.renderer->cross.isVisible = false;
-        
         if (self.mapView.isHidden){
             [self.mapView setHidden:NO];
             [self.glkView setHidden:NO];
@@ -247,7 +242,6 @@
             if ([self.model->configurations[@"personalized_compass_status"]
                  isEqualToString: @"on"]){
                 [self changeCompassLocationTo: @"Center"];
-                self.renderer->cross.isVisible = false;
             }
             
             [self toggleScaleView:NO];
@@ -297,7 +291,6 @@
             if ([self.model->configurations[@"personalized_compass_status"]
                  isEqualToString: @"on"]){
                 [self changeCompassLocationTo: @"Center"];
-                self.renderer->cross.isVisible = false;
             }
             
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
@@ -317,7 +310,6 @@
             //-----------------
             if ([self.model->configurations[@"personalized_compass_status"]
                  isEqualToString: @"on"]){
-                self.renderer->cross.isVisible = false;
                 [self changeCompassLocationTo: @"Center"];
             }
             
@@ -622,7 +614,7 @@
             self.model->configurations[@"personalized_compass_status"] = @"off";
             [self setFactoryCompassHidden:YES];
             
-            // Turn off the wedge
+            // Turn on the wedge
             self.model->configurations[@"wedge_status"] = @"on";
             
             

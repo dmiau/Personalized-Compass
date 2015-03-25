@@ -4033,6 +4033,7 @@ MATLAB data checking tools? MATLAB data summarizer
 - press OK to start the timer (or start the timer)
 - make the slide run faster [6:55PM]
 - triangualtion intrucitons could be a bit confusing [1:32PM]
+- parallel (no need)
 
 ***** Working
 MATLAB data checking tools? MATLAB data summarizer
@@ -4041,12 +4042,14 @@ MATLAB data checking tools? MATLAB data summarizer
 - have a demonstration mode to walk through the interface
 - better explaination for the triangulation and locate+ tasks
 * the idea of the triangulation and locate+ task?
+
+
 == known, unknown
 
 - tape to indicate the outside
 - does the data indicate the correct trend?
 
-- parallel
+
 
 - screenshots of the interface
 
@@ -4066,11 +4069,41 @@ MATLAB data checking tools? MATLAB data summarizer
 - networking issues
 
 - systematic errors for compass?
+- replay a record?
 
+-------------------------------------------------------------------
+3.25.2015
+-------------------------------------------------------------------
+***** Done
+- network issue on second practice 
+- no answer is shown?
+- need to figure out the network issue
 
+- usually happens at the beginning of the section switch
+- network at the very last one [10:49PM]
+- reconnecting issues [10:49PM]
+- cross blocks compass in the distance task
+- networking issues [10:49PM]
 
+***** Working
+MATLAB data checking tools? MATLAB data summarizer
+- streamline the study flow
+- coming up explaination script
+- have a demonstration mode to walk through the interface
+- better explaination for the triangulation and locate+ tasks
+* the idea of the triangulation and locate+ task?
 
+- tape to indicate the outside
+- does the data indicate the correct trend?
 
+- screenshots of the interface
+- thickness of the line
+- data saving bugs?
+
+- systematic errors for compass?
+- replay a record?
+
+cross has some issues, is compass at center?
 
 
 

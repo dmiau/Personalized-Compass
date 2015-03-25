@@ -1437,7 +1437,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-789" y="979"/>
+            <point key="canvasLocation" x="-746" y="1014"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
         <viewController id="aLW-cy-kmh" userLabel="SnapShot View Controller" customClass="SnapShotViewController">

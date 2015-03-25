@@ -154,7 +154,9 @@ void TestManager::showTestNumber(int test_id){
     }
 
     // Start the clock. The time will be restart again if the user goes
-    // through the information view
+    // through the information view, or the timer may restart again from the
+    // communication pane
+    
     startTest();
     rootViewController.studyIntAnswer = [NSNumber numberWithInt:0];
     

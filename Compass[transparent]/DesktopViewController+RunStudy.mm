@@ -35,14 +35,14 @@
                  && ![self.model->snapshot_array[test_counter+1].name hasSuffix:@"t"])
         {
             [self displayPopupMessage:
-             @"You have reached the end of the practice session.\nPlease notify the test coordinator to proceed."];
+             @"You have reached the end of the practice session. Please notify the test coordinator to proceed."];
             [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
             return;
         }else if ( test_counter+1 >= self.model->snapshot_array.size()){
             self.studyTitle = @"Thank You!";
             [self displayInformationText];
             [self displayPopupMessage:
-             @"You have reached the end of the study session.\nThank you for your participation!\nPlease notify the test coordinator to proceed."];
+             @"You have reached the end of the study session. Thank you for your participation!\nPlease notify the test coordinator to proceed."];
             [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
             
             // Do a forced save here
@@ -62,7 +62,7 @@
             self.studyTitle = @"---Intermission---";
             [self displayInformationText];
             [self displayPopupMessage:
-             @"You have completed the first half the study session.\nPlease notify the test coordinator to proceed."];
+             @"You have completed the first half the study session. Please notify the test coordinator to proceed."];
             [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
             
             // Note the test proceed
