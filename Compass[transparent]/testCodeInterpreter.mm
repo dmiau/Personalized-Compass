@@ -37,7 +37,7 @@ string TestCodeInterpreter::genTaskInstruction(){
             output = "Estimate where you are on the desktop map, then hold the left button to mark your answer.";
             break;
         case ORIENT:
-            output = "Estimate the direction of Subway[i], then rotate the red line (on iPhone) to indicate your answer.";
+            output = "Estimate the direction of Subway[i], then rotate the blue line (on iPhone) to indicate your answer.";
             break;
         case LOCATEPLUS:
             output = "Estimate the location of the coffee shop, then hold the left button to mark your answer.";

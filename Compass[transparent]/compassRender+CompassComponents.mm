@@ -203,7 +203,7 @@ void compassRender::drawCompassBackgroundDisk(){
 
 void compassRender::drawInteractiveLine(){
     glLineWidth(4);
-    glColor4f(1, 0, 0, 1);
+    glColor4f(33.0/255.0, 93.0/255.0, 223.0/255.0, 1);
     
     Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
     Vertex3D    vertex2 = Vertex3DMake(500*cos(interactiveLineRadian),

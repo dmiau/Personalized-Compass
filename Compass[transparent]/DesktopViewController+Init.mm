@@ -121,7 +121,6 @@
                                                  selector:@selector(playerItemDidReachEnd:)
                                                      name:AVPlayerItemDidPlayToEndTimeNotification
                                                    object:[self.AVPlayerView.player currentItem]];
-        
     }
     return self;
 }

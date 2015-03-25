@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
@@ -1242,14 +1242,6 @@
                                                 <binding destination="vjl-Mr-bQu" name="value" keyPath="self.serverInfoString" id="pce-QY-bkU"/>
                                             </connections>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46o-To-Kp5">
-                                            <rect key="frame" x="30" y="160" width="351" height="41"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="* To enable the followin options, initialize the study mode from iOS, and click &quot;Pair and start practicing&quot;" id="r3w-CZ-2Cl">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDN-Is-8ZY">
                                             <rect key="frame" x="26" y="125" width="360" height="32"/>
                                             <buttonCell key="cell" type="push" title="End the practicing session and start the actual trials" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fAQ-De-nAz">
@@ -1302,7 +1294,11 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="vjl-Mr-bQu" name="value" keyPath="self.participant_id" id="elY-M9-rm8"/>
+                                                <binding destination="vjl-Mr-bQu" name="value" keyPath="self.participant_id" id="VUd-aK-MmZ">
+                                                    <dictionary key="options">
+                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRn-eA-u2S">
@@ -1376,8 +1372,8 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGg-JA-dzN">
-                                            <rect key="frame" x="52" y="202" width="277" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Confirming pairing and start practicing" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0US-pm-K7Q">
+                                            <rect key="frame" x="52" y="202" width="259" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Confirm pairing and start practicing" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0US-pm-K7Q">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -1395,6 +1391,14 @@
                                                 <binding destination="tgg-Kb-NtA" name="enabled" keyPath="values.isWaitingAdminCheck" id="CGd-27-WH4"/>
                                             </connections>
                                         </button>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46o-To-Kp5">
+                                            <rect key="frame" x="30" y="160" width="351" height="41"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="* To enable the followin options, initialize the study mode from iOS, and click &quot;Pair and start practicing&quot;" id="r3w-CZ-2Cl">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -1433,7 +1437,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-909" y="951"/>
+            <point key="canvasLocation" x="-789" y="979"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
         <viewController id="aLW-cy-kmh" userLabel="SnapShot View Controller" customClass="SnapShotViewController">

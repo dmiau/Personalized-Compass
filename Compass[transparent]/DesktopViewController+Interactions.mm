@@ -296,7 +296,6 @@
                                                           otherButton:nil
                                             informativeTextWithFormat:@""];
                        [alert runModal];
-                       
                    });
 }
 

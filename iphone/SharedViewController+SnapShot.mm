@@ -240,11 +240,21 @@
 //                [self.mapView setHidden:YES];
 //                [self.glkView setHidden:YES];
 //            }
+                        
+            //-----------------
+            // Orient test (for compass only)
+            //-----------------
+            if ([self.model->configurations[@"personalized_compass_status"]
+                 isEqualToString: @"on"]){
+                [self changeCompassLocationTo: @"Center"];
+                self.renderer->cross.isVisible = false;
+            }
+            
             [self toggleScaleView:NO];
         }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location != NSNotFound)
         {
             //-----------------
-            // Locate test
+            // Distance test
             //-----------------
             [self toggleScaleView:YES];
             
@@ -281,6 +291,15 @@
 //                           length:sizeof(myRecord)
             [self sendPackage:myDict];
             
+            //-----------------
+            // Do not show the cross for compass only
+            //-----------------
+            if ([self.model->configurations[@"personalized_compass_status"]
+                 isEqualToString: @"on"]){
+                [self changeCompassLocationTo: @"Center"];
+                self.renderer->cross.isVisible = false;
+            }
+            
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
             
@@ -291,6 +310,16 @@
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
             [self toggleScaleView:NO];
+
+            
+            //-----------------
+            // Do not show the cross for compass only
+            //-----------------
+            if ([self.model->configurations[@"personalized_compass_status"]
+                 isEqualToString: @"on"]){
+                self.renderer->cross.isVisible = false;
+                [self changeCompassLocationTo: @"Center"];
+            }
             
             
             

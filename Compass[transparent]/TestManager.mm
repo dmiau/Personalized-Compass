@@ -44,6 +44,7 @@ int TestManager::initTestManager(){
     iOSAnswer = 10000;
     isRecordAutoSaved = NO;
     iOSdeviceType = PHONE;
+    iOStestCounter = [NSNumber numberWithInt:-1];
     
     //----------------
     // Parameters for each type of test

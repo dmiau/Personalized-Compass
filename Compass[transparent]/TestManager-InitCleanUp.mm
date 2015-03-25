@@ -56,7 +56,8 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     rootViewController.renderer->isNorthIndicatorOn = false;
     test_counter = 0; // Reset the test counter
     iOSAnswer = 10000;
-
+    iOStestCounter = [NSNumber numberWithInt:-1];
+    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isWaitingAdminCheck"];
     [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isPracticingMode"];

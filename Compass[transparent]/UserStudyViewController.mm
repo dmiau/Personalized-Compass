@@ -290,12 +290,10 @@
     {
         [self.rootViewController displayPopupMessage:@"Snapshot files mismatch (between iOS and OSX)"];
         self.rootViewController.testManager->isRecordAutoSaved = NO;
-        self.rootViewController.testManager->toggleStudyMode(NO, NO);
+        self.rootViewController.testManager->toggleStudyMode(NO, YES);
         [self.rootViewController setInformationViewVisibility: NO];
         [self.rootViewController.mapView setHidden:NO];
         [self.rootViewController.compassView setHidden:NO];
-
-        self.rootViewController.testManager->applyPracticeConfigurations();
         [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isWaitingAdminCheck"];
         return;
     }

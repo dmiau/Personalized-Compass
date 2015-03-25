@@ -179,6 +179,7 @@ public:
     // Track the status of the phone
     //-----------------
     DeviceType iOSdeviceType;
+    NSNumber* iOStestCounter;
     
     //-----------------
     // Connection to other components

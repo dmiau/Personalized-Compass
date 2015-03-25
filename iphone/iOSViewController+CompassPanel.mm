@@ -53,7 +53,7 @@
                        self.renderer->compassRefDot.deviceType = PHONE;
                        // Change compass ctr
                        [self lockCompassRefToScreenCenter:NO];
-                       [self changeCompassLocationTo: @"Default"];
+                       [self changeCompassLocationTo: @"Center"];
                        self.model->configurations[@"wedge_style"] = @"modified-orthographic";    
                        [self lockCompassRefToScreenCenter:YES];
                        // Reset the compss scale back to the default scale
@@ -67,7 +67,7 @@
                        [self toggleWatchMask:NO];
                        
                        [self.watchSidebar setHidden:YES];
-                       
+                        
                        if (self.testManager->testManagerMode != OFF){
                            self.testManager->showTestNumber
                            (self.testManager->test_counter);

@@ -68,12 +68,57 @@
 // Send the message and check if a receipt is received
 //------------------
 - (void)sendMessageAndCheckReceipt: (NSString*) message{
-    [self sendMessage:message];
-    self.commuicationTimer = [NSTimer scheduledTimerWithTimeInterval:0.4
-                                                  target:self
-                                                selector:@selector(showNoReceiptWarning)
-                                                userInfo:message
-                                                 repeats:NO];
+
+//    self.commuicationTimer = [NSTimer scheduledTimerWithTimeInterval:0.4
+//                                                  target:self
+//                                                selector:@selector(showNoReceiptWarning)
+//                                                userInfo:message
+//                                                 repeats:NO];
+    
+    // UI update needs to be on main queue?
+    dispatch_async(dispatch_get_main_queue(),
+                   ^{
+//                       NSAlert *alert = [NSAlert alertWithMessageText:@"Waiting iOS..."
+//                                                        defaultButton:@"Cancel"
+//                                                      alternateButton:nil
+//                                                          otherButton:nil
+//                                            informativeTextWithFormat:@""];
+//                       self.waitingModal = alert;
+                       [self sendMessage:message];
+
+                       
+                        if ( [message integerValue] !=
+                             [self.testManager->iOStestCounter integerValue])
+                        {
+//                            
+//                            [NSApp beginSheet:self.waitingPanel
+//                               modalForWindow:[[self view] window]
+//                                modalDelegate:self
+//                               didEndSelector:@selector(didEndSheet:returnCode:contextInfo:)
+//                                  contextInfo:nil];
+                        }
+//
+//                            NSInteger button = [alert runModal];
+//                            
+//                            
+//                            if (button == NSAlertDefaultReturn) {
+//                                NSLog(@"Cancelled");
+//                            } else if (button == NSAlertAlternateReturn) {
+//                                NSLog(@"User cancelled");
+//                            } else {
+//                                NSLog(@"bla");
+//                            }
+//                        }else{
+//                            self.waitingModal = nil;
+//                        }
+                       
+
+                   });
+}
+
+- (void)didEndSheet:(NSWindow*) sheet returnCode:(NSInteger)returnCode  contextInfo:(void*) contextInfo
+{
+    [sheet orderOut:NSApp];
 }
 
 - (void) showNoReceiptWarning{
@@ -229,7 +274,18 @@
         // Invalidate the timer, so no warning message is shown
         
         if ([temp integerValue] == self.testManager->test_counter){
-            [self.commuicationTimer invalidate];
+
+
+            self.testManager->iOStestCounter = temp;
+
+//            if (self.waitingModal){
+//                [NSApp endSheet: [self.waitingModal window]];
+//                [[self.waitingModal window] orderOut:nil];
+//                [NSApp abortModal];
+//                
+//            }
+            
+//            [self.commuicationTimer invalidate];
         }
 //            self.testManager->showTestNumber([temp intValue]);
     }
