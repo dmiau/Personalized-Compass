@@ -371,6 +371,8 @@
         if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound))
         {
             [self showLocateCollectMode:mySnapshot];
+            [self setupVisualization:mySnapshot.visualizationType];
+            
         }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location
                   != NSNotFound)
         {
@@ -385,10 +387,14 @@
             self.isDistanceEstControlAvailable = [NSNumber numberWithBool:YES];
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
+            [self setupVisualization:VIZNONE];
             [self showLocalizeCollectMode:mySnapshot];
         }else if ([mySnapshot.name rangeOfString:toNSString(ORIENT)].location != NSNotFound){
+            [self setupVisualization:VIZNONE];
             [self showOrientCollectMode:mySnapshot];
-        }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound){
+        }else if ([mySnapshot.name rangeOfString:toNSString(LOCATEPLUS)].location != NSNotFound)
+        {
+            [self setupVisualization:VIZNONE];
             [self showLocalizeCollectMode:mySnapshot];
             self.renderer->cross.isVisible = true;
         }

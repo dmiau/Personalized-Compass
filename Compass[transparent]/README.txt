@@ -4084,6 +4084,10 @@ MATLAB data checking tools? MATLAB data summarizer
 - reconnecting issues [10:49PM]
 - cross blocks compass in the distance task
 - networking issues [10:49PM]
+- cross has some issues, is compass at center? [11:24AM]
+* the idea of the triangulation and locate+ task?
+- tape to indicate the outside
+- does the data indicate the correct trend?
 
 ***** Working
 MATLAB data checking tools? MATLAB data summarizer
@@ -4091,10 +4095,6 @@ MATLAB data checking tools? MATLAB data summarizer
 - coming up explaination script
 - have a demonstration mode to walk through the interface
 - better explaination for the triangulation and locate+ tasks
-* the idea of the triangulation and locate+ task?
-
-- tape to indicate the outside
-- does the data indicate the correct trend?
 
 - screenshots of the interface
 - thickness of the line
@@ -4102,9 +4102,9 @@ MATLAB data checking tools? MATLAB data summarizer
 
 - systematic errors for compass?
 - replay a record?
+- number the slide
 
-cross has some issues, is compass at center?
-
+- people keep look at screen to see what to do
 
 
 
