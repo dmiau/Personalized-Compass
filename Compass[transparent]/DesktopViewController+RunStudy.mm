@@ -140,17 +140,29 @@
     {
         cgTruth.x = cgTruth.x + self.renderer->emulatediOS.centroid_in_opengl.x;
         cgTruth.y = cgTruth.y + self.renderer->emulatediOS.centroid_in_opengl.y;
-        
-        
-        // For wedge, we will show triangle only
-        if ([self.model->configurations[@"wedge_status"] isEqualToString: @"on"])
-        {
+
             self.renderer->emulatediOS.is_mask_enabled = NO;
-        }else{
-            // For compass, we will show drop pin
-            CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgTruth withType:answer];
-            [self.mapView addAnnotation:annotation];
-            [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+        
+        // For wedge, we will show the triangle
+        // For compass, we will show the line
+        if (![self.model->configurations[@"wedge_status"] isEqualToString: @"on"])
+        {
+            self.renderer->emulatediOS.locateAnswerGLPoint = cgTruth;
+            self.renderer->emulatediOS.isLocateAnswerEnabled = true;
+            
+            // Move the compass to the bottom of the emulator
+            
+            CGPoint shift;
+            shift.x = self.renderer->emulatediOS.centroid_in_opengl.x;
+            shift.y = self.renderer->emulatediOS.centroid_in_opengl.y -  50;
+            
+            [self moveCompassCentroidToOpenGLPoint: shift];
+            
+            
+//            // For compass, we will show drop pin
+//            CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgTruth withType:answer];
+//            [self.mapView addAnnotation:annotation];
+//            [[self.mapView viewForAnnotation:annotation] setHidden:NO];
         }
     }else{
         CustomPointAnnotation *annotation = [self createAnnotationFromGLPoint:cgTruth withType:answer];

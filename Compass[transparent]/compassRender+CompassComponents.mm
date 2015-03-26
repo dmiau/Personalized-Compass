@@ -181,12 +181,12 @@ void compassRender::drawCompassBackgroundDisk(){
     
     glPushMatrix();
     if (model->tilt == 0)
-        alpha = [model->configurations[@"disk_color"][3] floatValue]/255;
+        alpha = [model->configurations[@"disk_color"][3] floatValue]/255.0;
     else
         alpha = 0.7;
-    glColor4f([model->configurations[@"disk_color"][0] floatValue]/255,
-              [model->configurations[@"disk_color"][1] floatValue]/255,
-              [model->configurations[@"disk_color"][2] floatValue]/255,
+    glColor4f([model->configurations[@"disk_color"][0] floatValue]/255.0,
+              [model->configurations[@"disk_color"][1] floatValue]/255.0,
+              [model->configurations[@"disk_color"][2] floatValue]/255.0,
               alpha);
 
     

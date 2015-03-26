@@ -55,6 +55,8 @@ public:
     double min_base;             //The base may become too small as a location
                                  //gets closer and closer to the edge.
                                  //This parameter assigns a min allowable base
+    double max_base;
+    
     
     double intrusions[2];        //The lengths of two visible legs (called intrusion in the paper)
     double axis_intrusion;       //The length of the axis intrusion

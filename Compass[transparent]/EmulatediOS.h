@@ -49,7 +49,12 @@ public:
     bool is_mask_enabled;
     bool is_touched;
     bool accept_touch;
+    bool isLocateAnswerEnabled;
     DeviceType deviceType;
+    
+    // For answer drawing
+    bool isLocateAnswerOn;
+    CGPoint locateAnswerGLPoint;
 public:
     EmulatediOS(){}; // Default constructor
     EmulatediOS(compassMdl* model);

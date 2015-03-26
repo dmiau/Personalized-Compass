@@ -149,6 +149,8 @@ public:
     //----------------
     EmulatediOS emulatediOS;
 #endif
+    CGPoint truthGLPoint; // Store the truth in OpenGL coordinate
+    
     //----------------
     // Components
     //----------------
@@ -178,7 +180,7 @@ public:
 
     float central_disk_radius;  // Specify the radius of the blue dots of the compass
     CGPoint compass_centroid;    // Specify the centroid of the compass *in OpenGL frame*
-    CGPoint compassRefOpenGLPoint;
+    CGPoint compassRefOpenGLPoint; // Specify the location of the compass blue dot
     //----------------
     // Parameters for setting up perspective projection, etc.
     //----------------
@@ -256,6 +258,7 @@ public:
     //-----------------
     void drawBoxInView(CGPoint fourCorners[4], bool isSolid);
     void drawiOSMask(CGPoint fourCorners[4]);
+    void drawLocateVectorFromOrigin(CGPoint vectorFromOrigin);    
 private:
     //-----------------
     // Primitive Drawing Routines

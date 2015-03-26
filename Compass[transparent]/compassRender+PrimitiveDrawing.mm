@@ -285,13 +285,15 @@ BOOL compassRender::drawBoxInCompass(double renderD2realDRatio)
     // Draw the box
 #ifdef __IPHONE__
     glLineWidth(3);
-#else
-    glLineWidth(2);
-#endif
     glColor4f([model->configurations[@"scale_box_color"][0] floatValue]/255.0,
               [model->configurations[@"scale_box_color"][1] floatValue]/255.0,
               [model->configurations[@"scale_box_color"][2] floatValue]/255.0,
               [model->configurations[@"scale_box_color"][3] floatValue]/255.0);
+#else
+    glLineWidth(2);
+    glColor4f(0, 0, 0, 1);
+#endif
+
     
     glPushMatrix();
     // Plot the triangle first, then rotate and translate
@@ -541,4 +543,61 @@ void compassRender::drawAnswerLines(){
         glDrawArrays(GL_LINES, 0, 2);
     }
 }
+
+//---------------------
+// Draw locate vector from origina
+//---------------------
+void compassRender::drawLocateVectorFromOrigin(CGPoint vectorFromOrigin)
+{
+    // ---------------
+    // Draw the center circle
+    // ---------------
+    glColor4f([model->configurations[@"circle_color"][0] floatValue]/255,
+              [model->configurations[@"circle_color"][1] floatValue]/255,
+              [model->configurations[@"circle_color"][2] floatValue]/255,
+              1);
+    
+    // draw the center circle
+    drawCircle(0, 0, 5, 50, true);
+
+    // ---------------
+    // Draw the line
+    // ---------------
+    glLineWidth(2);
+    glColor4f(1, 0, 0, 1);
+
+    glPushMatrix();
+    Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(vectorFromOrigin.x,
+                                       vectorFromOrigin.y, 0);
+    Line3D  line = Line3DMake(vertex1, vertex2);
+    glVertexPointer(3, GL_FLOAT, 0, &line);
+    glDrawArrays(GL_LINES, 0, 2);
+    
+    glPopMatrix();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

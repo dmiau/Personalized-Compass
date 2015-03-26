@@ -26,9 +26,6 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         return;
     }
     
-    
-
-    
     // ---------------
     // Draw the center circle
     // ---------------
@@ -106,9 +103,29 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
         glTranslatef(0, 0, 0.0001);
 //        drawTriangle(base_radius, data_.orientation,
 //                     distance);
-        
+
+#ifdef __IPHONE__
         drawRectangle(1, data_.orientation,
                       distance);
+#else
+//        drawRectangle(0.5, data_.orientation,
+//                      distance);
+        // ---------------
+        // Draw the line
+        // ---------------
+        glLineWidth(1);
+        
+        glPushMatrix();
+        glRotatef(data_.orientation, 0, 0, -1);
+        Vertex3D    vertex1 = Vertex3DMake(0, 0, 0);
+        Vertex3D    vertex2 = Vertex3DMake(0,
+                                           distance, 0);
+        Line3D  line = Line3DMake(vertex1, vertex2);
+        glVertexPointer(3, GL_FLOAT, 0, &line);
+        glDrawArrays(GL_LINES, 0, 2);
+        
+        glPopMatrix();
+#endif
     }
     glPopMatrix();
     

@@ -809,7 +809,7 @@
                 <rect key="frame" x="-1" y="0.0" width="1052" height="727"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <openGLView misplaced="YES" colorSize="5bit_RGB_8bit_Alpha" depthSize="16bit" antiAliasingType="multisample" samplingRate="8" useAuxiliaryDepthBufferStencil="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCa-0f-w4g" customClass="OpenGLView">
+                    <openGLView misplaced="YES" colorSize="5bit_RGB_1bit_Alpha" depthSize="16bit" samplingRate="8" useAuxiliaryDepthBufferStencil="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCa-0f-w4g" customClass="OpenGLView">
                         <rect key="frame" x="185" y="552" width="247" height="175"/>
                     </openGLView>
                     <mapView misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mWq-Lx-RbY" customClass="myMapView">

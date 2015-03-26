@@ -39,11 +39,13 @@ wedge::wedge(compassMdl* myMdl, box screen_box, CGPoint diff_xy){
     model = myMdl;
 #ifndef __IPHONE__
     min_base = [prefs doubleForKey:@"OSX_wedge_min_base"];
+    max_base = [prefs doubleForKey:@"OSX_wedge_max_base"];
     // This is roughly 1/7 the screen size
     max_intrusion = [prefs doubleForKey:@"OSX_wedge_max_intrusion"];
     edge_padding   = [prefs doubleForKey:@"OSX_wedge_edge_padding"];
 #else
     min_base = [prefs doubleForKey:@"iOS_wedge_min_base"];
+    max_base = [prefs doubleForKey:@"iOS_wedge_max_base"];
     max_intrusion = [prefs doubleForKey:@"iOS_wedge_max_intrusion"];
     edge_padding   = [prefs doubleForKey:@"iOS_wedge_edge_padding"];
 #endif
@@ -201,6 +203,22 @@ wedgeParams wedge::calculateRegionTwoParams(double tx, double ty){
 //    if (l_leg> corrected_leg)
         l_leg = corrected_leg;
     
+    
+    //-----------------
+    // Fix the base to max_base
+    //-----------------
+    double max_base_aperture = 2*atan2(max_base/2, off_screen_dist + max_intrusion);
+    
+    if (max_base > 0 ){
+        l_leg = (off_screen_dist + max_intrusion) / cos(l_aperture/2);
+    }
+    
+    if ((l_aperture > max_base_aperture)
+        &&(max_base > 0))
+    {
+        l_leg = (off_screen_dist + max_intrusion) / cos(max_base_aperture/2);
+        l_aperture = max_base_aperture;
+    }    
     
     my_wedgeParams.leg = l_leg;
     my_wedgeParams.aperture = l_aperture;

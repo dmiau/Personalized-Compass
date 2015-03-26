@@ -17,6 +17,7 @@
 EmulatediOS::EmulatediOS(compassMdl* model){
     // Initialize the emulated iOS parameters
     centroid_in_opengl = CGPointMake(0, 0);
+    locateAnswerGLPoint = CGPointMake(0, 0);
     
     // iOS true (width, height): (320, 503)
     deviceType = PHONE;
@@ -49,6 +50,7 @@ EmulatediOS::EmulatediOS(compassMdl* model){
     is_enabled = false;
     is_mask_enabled = false;
     is_touched = false;
+    isLocateAnswerEnabled = false;
 }
 
 void EmulatediOS::changeDeviceType(DeviceType dType){
@@ -123,6 +125,22 @@ void EmulatediOS::render(compassRender *render){
     
     render->drawBoxInView(tempFourCorners, false);
     glPopMatrix();
+
+    //--------------
+    // Draw the locate answer
+    //--------------
+    if (isLocateAnswerEnabled)
+    {
+        // Calculate the vector in the emulated iOS coordiante system
+        CGPoint em_vector;
+        em_vector.x = locateAnswerGLPoint.x - centroid_in_opengl.x;
+        em_vector.y = locateAnswerGLPoint.y - centroid_in_opengl.y;
+        
+        glPushMatrix();
+        glTranslatef(centroid_in_opengl.x, centroid_in_opengl.y, 0);
+        render->drawLocateVectorFromOrigin(em_vector);
+        glPopMatrix();
+    }
     
     //--------------
     // Draw a mask
@@ -136,6 +154,7 @@ void EmulatediOS::render(compassRender *render){
         render->drawiOSMask(tempFourCorners);
         glPopMatrix();
     }
+    
     
     glPopMatrix();
 }

@@ -4088,10 +4088,12 @@ MATLAB data checking tools? MATLAB data summarizer
 * the idea of the triangulation and locate+ task?
 - tape to indicate the outside
 - does the data indicate the correct trend?
+- number the slide [5:45PM]
+- streamline the study flow [5:46PM]
+- people keep look at screen to see what to do (let people watch the intro, and walk them through the practices)
 
 ***** Working
 MATLAB data checking tools? MATLAB data summarizer
-- streamline the study flow
 - coming up explaination script
 - have a demonstration mode to walk through the interface
 - better explaination for the triangulation and locate+ tasks
@@ -4102,10 +4104,32 @@ MATLAB data checking tools? MATLAB data summarizer
 
 - systematic errors for compass?
 - replay a record?
-- number the slide
 
-- people keep look at screen to see what to do
+angel difference calculation
 
+-------------------------------------------------------------------
+3.26.2015
+-------------------------------------------------------------------
+***** Done
+- screenshots of the interface (live demo of an interface is better) [3.26.2015]
+
+***** Working
+MATLAB data checking tools? MATLAB data summarizer
+- coming up explaination script
+- have a demonstration mode to walk through the interface
+- better explaination for the triangulation and locate+ tasks
+
+- thickness of the line
+- data saving bugs?
+
+- systematic errors for compass?
+- replay a record?
+
+angel difference calculation
+- Can I set the limit of base length?
+- add a max base size
+
+compass animation (or a side-by-side comparison), draw the truth
 
 
 

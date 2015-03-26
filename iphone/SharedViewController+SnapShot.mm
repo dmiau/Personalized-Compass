@@ -218,6 +218,9 @@
         self.renderer->isInteractiveLineVisible=false;
         [self enableMapInteraction:NO];
 
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithDouble:-1] forKey:@"iOS_wedge_max_base"];
+        
         // Cross is off in watch+compass mode
         self.renderer->cross.isVisible = true;
         
@@ -235,7 +238,10 @@
 //                [self.mapView setHidden:YES];
 //                [self.glkView setHidden:YES];
 //            }
-                        
+            
+            [[NSUserDefaults standardUserDefaults]
+             setObject:[NSNumber numberWithDouble:175] forKey:@"iOS_wedge_max_base"];
+            
             //-----------------
             // Orient test (for compass only)
             //-----------------
@@ -250,6 +256,10 @@
             //-----------------
             // Distance test
             //-----------------
+            
+            [[NSUserDefaults standardUserDefaults]
+             setObject:[NSNumber numberWithDouble:175] forKey:@"iOS_wedge_max_base"];
+            
             [self toggleScaleView:YES];
             
             int data_id = mySnapshot.selected_ids[0];
@@ -367,11 +377,18 @@
         //--------------------
         self.renderer->cross.isVisible = false;
         self.isDistanceEstControlAvailable = [NSNumber numberWithBool:NO];
+        self.renderer->emulatediOS.isLocateAnswerEnabled = false;
+        
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithDouble:-1] forKey:@"OSX_wedge_max_base"];
+        
         // Set up differently, depending on the snapshot code
         if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound))
         {
+            [[NSUserDefaults standardUserDefaults]
+             setObject:[NSNumber numberWithDouble:184] forKey:@"OSX_wedge_max_base"];
             [self showLocateCollectMode:mySnapshot];
-            [self setupVisualization:mySnapshot.visualizationType];
+//            [self setupVisualization:mySnapshot.visualizationType];
             
         }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location
                   != NSNotFound)
@@ -536,7 +553,14 @@
         self.renderer->emulatediOS.width/2;
     }
     shift.y = 0;
+    
+    self.UIConfigurations[@"UICompassCenterLocked"] =
+    [NSNumber numberWithBool:NO];
+    
     [self shiftTestingEnvironmentBy:shift];
+    
+    self.UIConfigurations[@"UICompassCenterLocked"] =
+    [NSNumber numberWithBool:YES];
     // Also need to set up the positions of the em iOS
     // and the compass
 #endif
