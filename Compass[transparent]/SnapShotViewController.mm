@@ -62,6 +62,16 @@
     }else{
         self.studyModeSegmentControl.selectedSegment = 1;
     }
+    
+    //-------------------
+    // Highlight the row associated with the current snapshot
+    //-------------------
+    if (self.rootViewController.testManager->testManagerMode != OFF)
+    {
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:
+                                self.rootViewController.testManager->test_counter];
+        [self.myTableView selectRowIndexes:indexSet byExtendingSelection:NO];
+    }
 }
 
 

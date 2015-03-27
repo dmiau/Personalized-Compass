@@ -61,6 +61,7 @@ typedef struct{
 // Message label
 //----------------
 @property UILabel *messageLabel;
+@property UILabel *devMessageLabel;
 
 //----------------
 // Cache MapView parameters

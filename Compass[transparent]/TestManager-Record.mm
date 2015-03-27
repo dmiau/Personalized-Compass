@@ -41,6 +41,11 @@ void record::display(){
     NSLog(@"%@", genSavableRecord());
 }
 
+//http://stackoverflow.com/questions/1878907/the-smallest-difference-between-2-angles
+double modplus(double a, double n){
+    return a - floor(a/n) *n;
+}
+
 //-------------------
 // Generate an NSArray for saving
 //-------------------
@@ -122,6 +127,16 @@ NSArray* record::genSavableRecord(){
     if ([code rangeOfString:toNSString(DISTANCE)].location != NSNotFound){
         errorDobuleString = [NSString stringWithFormat:@"%d",
                              static_cast<int>(abs(round(doubleTruth) - round(doubleAnswer)) +0.5)];
+    }else if ([code rangeOfString:toNSString(ORIENT)].location != NSNotFound){
+        // Always get the smallest angle as the error
+        // This is to handle the situation like 315-10,
+        // the correct answer should be 55.
+        double diff;
+        diff = doubleTruth - doubleAnswer;
+        diff = modplus((diff+180), 360)-180;
+        
+        errorDobuleString = [NSString stringWithFormat:@"%f",
+                             abs(diff)];
     }else{
         errorDobuleString = [NSString stringWithFormat:@"%f",
                              abs(doubleTruth - doubleAnswer)];

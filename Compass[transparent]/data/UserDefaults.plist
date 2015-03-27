@@ -12,6 +12,8 @@
 	<false/>
 	<key>isDevMode</key>
 	<false/>
+	<key>iOSDevMode</key>
+	<false/>
 	<key>DisplayedSessionInfo</key>
 	<string></string>
 	<key>iOSTestStatus</key>

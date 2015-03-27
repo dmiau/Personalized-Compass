@@ -56,4 +56,11 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *distStyleSegmentControl;
 - (IBAction)toggleDistStyleSegment:(id)sender;
 
+//--------------
+// Debug
+//--------------
+- (IBAction)toggleDevMode:(id)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *devModeSegmentControl;
+
+
 @end

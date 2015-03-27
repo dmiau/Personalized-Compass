@@ -99,6 +99,29 @@
     UINavigationController *myNavigationController =
     app.window.rootViewController;
     myNavigationController.navigationBar.topItem.title = @"Test Manager";
+    
+    //-------------------
+    // Highlight the row associated with the current snapshot file
+    //-------------------
+    if (self.rootViewController.testManager->testManagerMode != OFF)
+    {
+        int snapshot_id = 0;
+        for (int i = 0; i < [snapshot_file_array count]; ++i)
+        {
+            if ([snapshot_file_array[i] isEqualToString:
+                self.rootViewController.model->snapshot_filename])
+            {
+                snapshot_id = i;
+                break;
+            }
+        }
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow: snapshot_id
+                                                    inSection: 0];
+        [self.myTableView selectRowAtIndexPath:indexPath
+                                      animated:NO
+                                scrollPosition:UITableViewScrollPositionMiddle];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

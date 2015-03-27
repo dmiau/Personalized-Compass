@@ -339,6 +339,10 @@ BOOL compassRender::drawBoundaryCircle(double renderD2realDRatio)
     return true;
 }
 
+
+//--------------------
+// This is used by the emulator
+//--------------------
 void compassRender::drawBoxInView(CGPoint fourCorners[4], bool isSolid){
     // Draw the box
     glLineWidth(2);
@@ -346,7 +350,8 @@ void compassRender::drawBoxInView(CGPoint fourCorners[4], bool isSolid){
     if (isSolid)
         glColor4f(0, 0, 0, 0.5);
     else
-        glColor4f(1, 0, 0, 1);
+        glColor4f(0, 0, 0, 1);
+
     glPushMatrix();
     // Plot the triangle first, then rotate and translate
     
@@ -558,7 +563,7 @@ void compassRender::drawLocateVectorFromOrigin(CGPoint vectorFromOrigin)
               1);
     
     // draw the center circle
-    drawCircle(0, 0, 5, 50, true);
+    drawCircle(0, 0, 3, 50, true);
 
     // ---------------
     // Draw the line

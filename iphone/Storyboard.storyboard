@@ -226,7 +226,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wif-ok-Aq5">
-                                <rect key="frame" x="131" y="423" width="157" height="29"/>
+                                <rect key="frame" x="131" y="407" width="157" height="29"/>
                                 <segments>
                                     <segment title="Real-Ratio"/>
                                     <segment title="Bimodal"/>
@@ -236,11 +236,27 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dist. Style" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqd-MD-FBr">
-                                <rect key="frame" x="16" y="426" width="78" height="21"/>
+                                <rect key="frame" x="16" y="410" width="78" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dev Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnw-u2-FPp">
+                                <rect key="frame" x="16" y="461" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dOZ-EL-2RG">
+                                <rect key="frame" x="131" y="458" width="123" height="29"/>
+                                <segments>
+                                    <segment title="Off"/>
+                                    <segment title="On"/>
+                                </segments>
+                                <connections>
+                                    <action selector="toggleDevMode:" destination="9xM-YS-8bl" eventType="valueChanged" id="MhK-FD-ems"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -248,6 +264,7 @@
                     <navigationItem key="navigationItem" id="qjZ-da-ipz"/>
                     <connections>
                         <outlet property="dataSource" destination="B2u-Zp-sZD" id="zUP-3R-tOp"/>
+                        <outlet property="devModeSegmentControl" destination="dOZ-EL-2RG" id="vFi-BI-f17"/>
                         <outlet property="distStyleSegmentControl" destination="wif-ok-Aq5" id="7cs-1P-mkj"/>
                         <outlet property="ipTextField" destination="Agp-Nj-C0p" id="P8U-7v-dkL"/>
                         <outlet property="labelControl" destination="2P8-fn-eHz" id="bug-fs-0Y2"/>

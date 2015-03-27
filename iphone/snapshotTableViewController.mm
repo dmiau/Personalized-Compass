@@ -91,7 +91,18 @@
     myNavigationController.navigationBar.barTintColor =
     [UIColor colorWithRed:78.0/255 green:199.0/255 blue:40.0/255 alpha:1];
     myNavigationController.navigationBar.topItem.title = @"Snapshot";
-
+    
+    //-------------------
+    // Highlight the row associated with the current snapshot
+    //-------------------
+    if (self.rootViewController.testManager->testManagerMode != OFF)
+    {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:
+        self.rootViewController.testManager->test_counter
+                                                    inSection: 1];
+        [self.myTableView selectRowAtIndexPath:indexPath
+                               animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

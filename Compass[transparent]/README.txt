@@ -4111,25 +4111,52 @@ angel difference calculation
 3.26.2015
 -------------------------------------------------------------------
 ***** Done
-- screenshots of the interface (live demo of an interface is better) [3.26.2015]
+- screenshots of the interface (live demo of an interface is better) 
+- compass animation (or a side-by-side comparison), draw the truth [5:22PM]
+- Can I set the limit of base length?
+- add a max base size [5:23PM]
+- angle difference calculation (315)
+http://stackoverflow.com/questions/1878907/the-smallest-difference-between-2-angles
+[9:06PM]
+- systematic errors for compass? [9:06PM] I should make a fair comparision.
+-iOS isDevMode to show extra debug info [11:01PM]
 
 ***** Working
 MATLAB data checking tools? MATLAB data summarizer
 - coming up explaination script
 - have a demonstration mode to walk through the interface
-- better explaination for the triangulation and locate+ tasks
+- better explaination for the localization and locate+ tasks
 
 - thickness of the line
 - data saving bugs?
 
-- systematic errors for compass?
 - replay a record?
+- the triangulation task should be called localize
+- think about better way to explain "localize"
 
-angel difference calculation
-- Can I set the limit of base length?
-- add a max base size
 
-compass animation (or a side-by-side comparison), draw the truth
+-------------------------------------------------------------------
+3.27.2015
+-------------------------------------------------------------------
+***** Done
+- have a demonstration mode to walk through the interface
+- thickness of the line
+- data saving bugs?
+- the triangulation task should be called localize [10:51AM]
+- update training (aftering modifying locate and distance) [11:35AM]
+- check angle calculations [12:42PM]
+- how can i quickly go to the correct test? (the current row is highlighted) [6:08PM]
+***** Working
+MATLAB data checking tools? MATLAB data summarizer
+- coming up explaination script
+
+- replay a record?
+- better explaination for the localization and locate+ tasks
+- need to check the conditions are fair
+
+- ID 1 vs 01
+
+
 
 
 

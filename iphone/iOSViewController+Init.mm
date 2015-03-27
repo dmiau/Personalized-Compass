@@ -139,6 +139,12 @@
         [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
         [[NSUserDefaults standardUserDefaults] setObject:@"N/A" forKey:@"TestStatus"];
         [[NSUserDefaults standardUserDefaults] setObject:@"N/A" forKey:@"AdminSessionInfo"];
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithDouble:-1] forKey:@"OSX_wedge_max_base"];
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithDouble:-1] forKey:@"iOS_wedge_max_base"];
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithBool:NO] forKey:@"iOSDevMode"];
     }
     return self;
 }
@@ -158,6 +164,20 @@
                     CGRectMake(10, 10, 300, 50)];
     [self.messageLabel setBackgroundColor:[UIColor whiteColor]];
     [self.messageLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 36.0f]];
+    
+
+    // Development message label
+    self.devMessageLabel = [[UILabel alloc] initWithFrame:
+                         CGRectMake(50, 300, 200, 50)];
+    [self.devMessageLabel setBackgroundColor:[UIColor whiteColor]];
+    [self.devMessageLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 12.0f]];
+    self.devMessageLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.devMessageLabel.numberOfLines = 4;
+    
+    self.devMessageLabel.text = @"Hello World!";
+    // Add the label to view
+    [self.mapView addSubview:self.devMessageLabel];
+    [self.devMessageLabel setHidden:YES];
     
     //-------------------
     // Initialize OpenGL ES

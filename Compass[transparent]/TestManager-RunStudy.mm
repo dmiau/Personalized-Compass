@@ -121,6 +121,21 @@ void TestManager::showTestNumber(int test_id){
      [NSString stringWithFormat:@"%d", test_id]];
     // Make sure the answer is not shown
     [rootViewController toggleAnswersVisibility:NO];
+    
+    // Show development message if the dev mode is on
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"iOSDevMode"]
+        boolValue])
+    {
+        
+        NSString *testStatus = [[NSUserDefaults standardUserDefaults]objectForKey:@"TestStatus"];
+        
+        [rootViewController.devMessageLabel setHidden:NO];
+        rootViewController.devMessageLabel.text =
+        [NSString stringWithFormat:@"%d: %@", test_id,
+         model->snapshot_array[test_id].name];
+    }else{
+        [rootViewController.devMessageLabel setHidden:YES];
+    }
 #endif
     
     int current_id = test_counter;

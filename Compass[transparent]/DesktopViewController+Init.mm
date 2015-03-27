@@ -103,6 +103,11 @@
                                                   forKey:@"isAnswerConfirmed"];
         [[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithBool:NO]
                                                   forKey:@"isTestManagerOn"];
+        
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithDouble:-1] forKey:@"OSX_wedge_max_base"];
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithDouble:-1] forKey:@"iOS_wedge_max_base"];
         //--------------------
         // Initialize the video player
         //--------------------

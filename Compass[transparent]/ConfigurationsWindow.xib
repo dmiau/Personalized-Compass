@@ -862,7 +862,11 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="mH8-SB-opV" name="value" keyPath="self.test_specs_filename" id="7HH-yE-bFV"/>
+                                                <binding destination="mH8-SB-opV" name="value" keyPath="self.test_specs_filename" id="9Ri-Bd-OFg">
+                                                    <dictionary key="options">
+                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tfw-x8-2tR">
@@ -905,7 +909,11 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.participant_n" id="C9v-uT-RiE"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.participant_n" id="Ycr-kF-SI5">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pub-De-Ldv">
@@ -916,7 +924,11 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.test_foldername" id="beB-gf-jAO"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.test_foldername" id="PLD-2X-YPL">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CUy-zO-X3n">
@@ -935,7 +947,11 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.test_kml_filename" id="mcV-Po-Jiu"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.test_kml_filename" id="O5a-xp-LpG">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SMR-ol-6Ir">
@@ -954,7 +970,11 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.test_snapshot_prefix" id="Ajw-O2-klv"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.test_snapshot_prefix" id="bgM-ac-eLx">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8Y-WP-2cf">
@@ -981,7 +1001,11 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.custom_test_vectorname" id="HCB-N4-G9f"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.custom_test_vectorname" id="No8-pJ-jc1">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3bU-iy-UnZ">
@@ -1000,7 +1024,11 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.practice_filename" id="35h-Yx-f5w"/>
+                                                            <binding destination="mH8-SB-opV" name="value" keyPath="self.practice_filename" id="Fk9-GA-S5R">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vZ-kQ-OCd">

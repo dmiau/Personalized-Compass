@@ -63,6 +63,10 @@ void TestManager::initTestEnv(TestManagerMode mode, bool instructPartner){
     [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isPracticingMode"];
     [prefs setObject:[NSNumber numberWithBool:YES] forKey:@"isTestManagerOn"];
     [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
+    [prefs
+     setObject:[NSNumber numberWithDouble:-1] forKey:@"OSX_wedge_max_base"];
+    [prefs
+     setObject:[NSNumber numberWithDouble:-1] forKey:@"iOS_wedge_max_base"];
     // Need to turn off map interactions in the study mode
     [rootViewController enableMapInteraction:NO];
     [rootViewController changeAnnotationDisplayMode:@"None"];
@@ -210,6 +214,10 @@ void TestManager::cleanupTestEnv(TestManagerMode mode, bool instructPartner){
     [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isWaitingAdminCheck"];
     [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
     [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isTestManagerOn"];
+    [prefs
+     setObject:[NSNumber numberWithDouble:-1] forKey:@"OSX_wedge_max_base"];
+    [prefs
+     setObject:[NSNumber numberWithDouble:-1] forKey:@"iOS_wedge_max_base"];
     rootViewController.renderer->isNorthIndicatorOn = true;
     rootViewController.renderer->cross.isVisible = false;
     rootViewController.renderer->isInteractiveLineVisible=false;

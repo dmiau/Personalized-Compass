@@ -147,6 +147,18 @@
     myNavigationController.navigationBar.barTintColor =
     [UIColor whiteColor];
     myNavigationController.navigationBar.topItem.title = @"General";
+    
+    //-------------------
+    // Update dev segment control
+    //-------------------
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"iOSDevMode"] boolValue])
+    {
+        self.devModeSegmentControl.selectedSegmentIndex = 1;
+    }else{
+        self.devModeSegmentControl.selectedSegmentIndex = 0;
+    }
+    
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
@@ -356,6 +368,23 @@
         model->configurations[@"style_type"] = @"REAL_RATIO";
     }else{
         model->configurations[@"style_type"] = @"BIMODAL";
+    }
+}
+
+
+- (IBAction)toggleDevMode:(UISegmentedControl*)sender {
+    int selected_id = [sender selectedSegmentIndex];
+    if (selected_id == 0)
+    {
+        // Dev mode is off
+        [[NSUserDefaults standardUserDefaults]
+    setObject:[NSNumber numberWithBool:NO]
+         forKey:@"iOSDevMode"];
+    }else{
+        // Dev mode is on
+        [[NSUserDefaults standardUserDefaults]
+         setObject:[NSNumber numberWithBool:YES]
+         forKey:@"iOSDevMode"];
     }
 }
 @end
