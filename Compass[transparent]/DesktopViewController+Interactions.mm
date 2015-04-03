@@ -199,12 +199,30 @@
         annotation.subtitle   = @"";
         annotation.point_type = dropped;
         
+        
+        // Clear all existing dropped pins before adding a new one
+        for (CustomPointAnnotation* annotation in self.mapView.annotations)
+        {
+            if (annotation.point_type == dropped){
+                [self.mapView removeAnnotation:annotation];
+            }
+        }
+        
         [self.mapView addAnnotation:annotation];
         
         //----------------------------
         // Fill in the record when the testManager is in OSXSTUDY mode
         //----------------------------
         if (self.testManager->testManagerMode == OSXSTUDY){
+            
+            NSNumber *answerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:@"isAnswerConfirmed"];
+            
+            if ([answerStatus boolValue])
+            {
+                // No longer accept anser if the answer has been confirmed
+                return;
+            }
+            
             //------------------
             // When the testManagerMode is in the OSXSTUDY mode
             //------------------

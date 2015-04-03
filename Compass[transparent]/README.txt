@@ -4146,15 +4146,84 @@ MATLAB data checking tools? MATLAB data summarizer
 - update training (aftering modifying locate and distance) [11:35AM]
 - check angle calculations [12:42PM]
 - how can i quickly go to the correct test? (the current row is highlighted) [6:08PM]
+- training material (tips and tricks to make you work faster) [7:54PM]
+- disable informationButton (only in the practicing mode) [9:59PM]
+
 ***** Working
+
 MATLAB data checking tools? MATLAB data summarizer
 - coming up explaination script
 
-- replay a record?
 - better explaination for the localization and locate+ tasks
 - need to check the conditions are fair
 
 - ID 1 vs 01
+- red tape
+- I should communicate to Steve about the types of changes I have made. 
+- replay a record?
+
+
+-------------------------------------------------------------------
+3.29.2015
+-------------------------------------------------------------------
+***** Done
+MATLAB data checking tools? MATLAB data summarizer [11:30PM]
+
+***** Working
+- coming up explaination script
+- better explaination for the localization and locate+ tasks
+- need to check that the conditions are fair
+
+- ID 1 vs 01
+- red tape
+- I should communicate to Steve about the types of changes I have made. 
+- replay a record?
+
+-------------------------------------------------------------------
+3.30.2015
+-------------------------------------------------------------------
+***** Done
+- ID 1 vs 01 [8:56AM]
+- answer heading is a bit confusing (changed to ground truth)
+- orient task, put view and answer in the box
+
+***** Working
+- coming up explaination script
+- better explaination for the localization and locate+ tasks
+- need to check that the conditions are fair
+
+- red tape
+- I should communicate to Steve about the types of changes I have made. 
+- replay a record?
+
+
+-------------------------------------------------------------------
+3.31, 4.1.2015
+-------------------------------------------------------------------
+***** Done
+- combine ping and snapshot tap together [9:51PM]
+- get rid of the dots before dropping a new one [7:43PM]
+
+***** Working
+- coming up explaination script
+- better explaination for the localization and locate+ tasks
+- need to check that the conditions are fair
+
+- replay a record?
+- check which orientation case is problematic
+- corner max intrusion
+
+- save screenshot from iOS device? 
+- outlier rejection
+
+
+
+
+
+
+
+
+
 
 
 

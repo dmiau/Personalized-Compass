@@ -240,7 +240,9 @@
 //            }
             
             [[NSUserDefaults standardUserDefaults]
-             setObject:[NSNumber numberWithDouble:112] forKey:@"iOS_wedge_max_base"];
+             setObject:
+             [[NSUserDefaults standardUserDefaults] objectForKey:@"iOS_wedge_study_base"]
+             forKey:@"iOS_wedge_max_base"];
             
             //-----------------
             // Orient test (for compass only)
@@ -258,7 +260,9 @@
             //-----------------
             
             [[NSUserDefaults standardUserDefaults]
-             setObject:[NSNumber numberWithDouble:112] forKey:@"iOS_wedge_max_base"];
+             setObject:
+             [[NSUserDefaults standardUserDefaults] objectForKey:@"iOS_wedge_study_base"]
+             forKey:@"iOS_wedge_max_base"];
             
             [self toggleScaleView:YES];
             
@@ -386,7 +390,9 @@
         if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound))
         {
             [[NSUserDefaults standardUserDefaults]
-             setObject:[NSNumber numberWithDouble:120] forKey:@"OSX_wedge_max_base"];
+             setObject:
+             [[NSUserDefaults standardUserDefaults] objectForKey:@"OSX_wedge_study_base"]
+             forKey:@"OSX_wedge_max_base"];
             [self showLocateCollectMode:mySnapshot];
 //            [self setupVisualization:mySnapshot.visualizationType];
             

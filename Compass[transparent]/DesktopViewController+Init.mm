@@ -53,7 +53,8 @@
         self.testInformationMessage = @"Enable Study Mode from iOS";
         self.studyTitle = @"Welcome";
         self.isInformationViewVisible = [NSNumber numberWithBool:NO];
-
+        self.isInformationOKEnabled = [NSNumber numberWithBool:YES];
+        
         //--------------------
         // Initialize a list of UI configurations
         //--------------------
@@ -134,6 +135,8 @@
 // Let the video loop infinitely
 //--------------
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
+    // Enabled the OK button
+    self.isInformationOKEnabled = [NSNumber numberWithBool:YES];
     AVPlayerItem *p = [notification object];
     [p seekToTime:kCMTimeZero];
 }

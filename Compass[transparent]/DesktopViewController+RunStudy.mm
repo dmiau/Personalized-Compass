@@ -252,6 +252,11 @@
         [self.informationTextField setHidden:YES];
 //        [self.informationImageView setHidden:NO];
         [self.AVPlayerView setHidden:NO];
+        
+        // Only disable the button in the practicing mode
+        if ([[[NSUserDefaults standardUserDefaults]
+              objectForKey:@"isPracticingMode"] boolValue])
+            self.isInformationOKEnabled = [NSNumber numberWithBool:NO];
         [self.AVPlayerView.player play];
         [self displayStudyTitle];
         
@@ -362,6 +367,11 @@
         [self.AVPlayerView setHidden:YES];
     }else{
         [self.AVPlayerView setHidden:NO];
+
+        // Only disable the button in the practicing mode
+        if ([[[NSUserDefaults standardUserDefaults]
+              objectForKey:@"isPracticingMode"] boolValue])
+            self.isInformationOKEnabled = [NSNumber numberWithBool:NO];
         [self.AVPlayerView.player play];
     }
     

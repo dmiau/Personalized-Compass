@@ -868,6 +868,7 @@ DQ
                                 </buttonCell>
                                 <connections>
                                     <action selector="clickInformationViewOK:" target="3Bp-Mg-e5g" id="g47-Hj-cFA"/>
+                                    <binding destination="3Bp-Mg-e5g" name="enabled" keyPath="self.isInformationOKEnabled" id="Lo0-sS-BrS"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F85-Vc-aOV" userLabel="StudyTitle">
@@ -984,25 +985,14 @@ DQ
                             </binding>
                         </connections>
                     </box>
-                    <box autoresizesSubviews="NO" title="For Practices Only" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="vYb-aR-vJ0">
-                        <rect key="frame" x="767" y="7" width="277" height="65"/>
+                    <box autoresizesSubviews="NO" title="For Practice Only:" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="vYb-aR-vJ0">
+                        <rect key="frame" x="718" y="7" width="326" height="65"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="275" height="45"/>
+                            <rect key="frame" x="1" y="1" width="324" height="45"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xGq-Y6-qVt">
-                                    <rect key="frame" x="1" y="6" width="164" height="32"/>
-                                    <buttonCell key="cell" type="push" title="Show Answer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kMn-3m-kZh">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system" size="20"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="toggleAnswer:" target="3Bp-Mg-e5g" id="lgI-Bs-gh2"/>
-                                        <binding destination="EYl-3r-NII" name="enabled" keyPath="values.isAnswerConfirmed" id="w2e-ZU-Nd7"/>
-                                    </connections>
-                                </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yld-F9-pN4">
-                                    <rect key="frame" x="164" y="7" width="107" height="32"/>
+                                    <rect key="frame" x="213" y="7" width="107" height="32"/>
                                     <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Q7I-Fe-Msu">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system" size="20"/>
@@ -1016,11 +1006,22 @@ DQ
                                         </binding>
                                     </connections>
                                 </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xGq-Y6-qVt">
+                                    <rect key="frame" x="1" y="7" width="214" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Show Ground Truth" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kMn-3m-kZh">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system" size="20"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="toggleAnswer:" target="3Bp-Mg-e5g" id="lgI-Bs-gh2"/>
+                                        <binding destination="EYl-3r-NII" name="enabled" keyPath="values.isAnswerConfirmed" id="w2e-ZU-Nd7"/>
+                                    </connections>
+                                </button>
                             </subviews>
                         </view>
                         <constraints>
                             <constraint firstAttribute="height" constant="61" id="E5A-SQ-tBr"/>
-                            <constraint firstAttribute="width" constant="271" id="Wai-Tl-70e"/>
+                            <constraint firstAttribute="width" constant="320" id="uGN-sx-clX"/>
                         </constraints>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1178,7 +1179,7 @@ DQ
                     <toolbarItem reference="qF0-mf-HJg"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="24" y="211.5"/>
+            <point key="canvasLocation" x="109" y="243.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="EYl-3r-NII"/>
     </objects>

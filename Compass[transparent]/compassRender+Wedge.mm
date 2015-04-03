@@ -122,8 +122,8 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
                 //-------------------
                 // The display area is smaller when the emulated iOS mode is on
                 //-------------------
-                wedge_disp_width = emulatediOS.width - 10;
-                wedge_disp_height = emulatediOS.height - 10;
+                wedge_disp_width = emulatediOS.width;
+                wedge_disp_height = emulatediOS.height;
                 x_diff = x_diff - emulatediOS.centroid_in_opengl.x;
                 y_diff = y_diff - emulatediOS.centroid_in_opengl.y;
             }
@@ -157,8 +157,8 @@ void compassRender::renderStyleWedge(vector<int> &indices_for_rendering){
                 //-------------------
                 // The display area is smaller when the emulated iOS mode is on
                 //-------------------
-                wedge_disp_width = emulatediOS.width - 10;
-                wedge_disp_height = emulatediOS.height - 10;
+                wedge_disp_width = emulatediOS.width;
+                wedge_disp_height = emulatediOS.height;
                 x_diff = x_diff - emulatediOS.centroid_in_opengl.x;
                 y_diff = y_diff - emulatediOS.centroid_in_opengl.y;
             }

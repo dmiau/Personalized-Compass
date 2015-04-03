@@ -31,7 +31,7 @@ string TestCodeInterpreter::genTaskInstruction(){
             output = "Estimate the location of Subway[i] (unlabeled), then hold the left button to mark your answer.";
             break;
         case DISTANCE:
-            output = "Estimate the distance to Subway[i], then answer in the box on the right. Round your answer if necessary. (Your answer must be an integer multiples of x.)";
+            output = "Estimate the distance to Subway[i], then answer in the box on the right. Round your answer if necessary. (Your answer must be an integer multiple of x.)";
             break;
         case TRIANGULATE:
             output = "Estimate where you are on the desktop map, then hold the left button to mark your answer.";

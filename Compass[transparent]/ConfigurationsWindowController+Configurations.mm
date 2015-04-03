@@ -85,14 +85,18 @@
         self.serverPort.stringValue =
         [NSString stringWithFormat:@"%d", port];
         
-        // Find the string starting with number
-        for (NSString* anItem : [[NSHost currentHost] addresses]){
-            if ([anItem rangeOfString:@":"].location == NSNotFound)
-            {
-                self.server_ip = anItem;
-                break;
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+        dispatch_async(queue, ^{
+            // Find the string starting with number
+            for (NSString* anItem : [[NSHost currentHost] addresses]){
+                if ([anItem rangeOfString:@":"].location == NSNotFound)
+                {
+                    self.server_ip = anItem;
+                    break;
+                }
             }
-        }
+        });
     }else{
         self.serverSegmentIndex = [NSNumber numberWithInt:0];
     }
@@ -197,14 +201,17 @@
             [NSString stringWithFormat:@"%d", port];
             
             
-            // Find the string starting with number
-            for (NSString* anItem : [[NSHost currentHost] addresses]){
-                if ([anItem rangeOfString:@":"].location == NSNotFound)
-                {
-                    self.server_ip = anItem;
-                    break;
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+            dispatch_async(queue, ^{
+                // Find the string starting with number
+                for (NSString* anItem : [[NSHost currentHost] addresses]){
+                    if ([anItem rangeOfString:@":"].location == NSNotFound)
+                    {
+                        self.server_ip = anItem;
+                        break;
+                    }
                 }
-            }
+            });
             break;
     }
 }

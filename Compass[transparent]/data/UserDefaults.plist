@@ -27,18 +27,22 @@
 	<key>OSX_wedge_min_base</key>
 	<integer>50</integer>
 	<key>OSX_wedge_max_intrusion</key>
-	<integer>21</integer>
+	<integer>26</integer>
 	<key>OSX_wedge_edge_padding</key>
-	<integer>1</integer>
+	<integer>10</integer>
 	<key>OSX_wedge_max_base</key>
 	<integer>-1</integer>
+	<key>OSX_wedge_study_base</key>
+	<real>225</real>
 	<key>iOS_wedge_min_base</key>
 	<integer>100</integer>
 	<key>iOS_wedge_max_intrusion</key>
-	<integer>45</integer>
+	<integer>40</integer>
 	<key>iOS_wedge_edge_padding</key>
-	<integer>13</integer>
+	<integer>10</integer>
 	<key>iOS_wedge_max_base</key>
 	<integer>-1</integer>
+	<key>iOS_wedge_study_base</key>
+	<integer>290</integer>
 </dict>
 </plist>

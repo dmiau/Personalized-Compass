@@ -124,18 +124,33 @@
         // Display port information
         //---------------
         int port = [[self.rootViewController.httpServer asyncSocket] localPort];
-        NSString* ip_string;
-        // Find the string starting with number
-        for (NSString* anItem : [[NSHost currentHost] addresses]){
-            if ([anItem rangeOfString:@":"].location == NSNotFound)
-            {
-                ip_string = anItem;
-                break;
-            }
-        }
         
-        self.serverInfoString = [NSString stringWithFormat:@"Server IP: %@, port: %d",
-                                 ip_string, port];
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+        dispatch_async(queue, ^{
+            // Find the string starting with number
+            for (NSString* anItem : [[NSHost currentHost] addresses]){
+                if ([anItem rangeOfString:@":"].location == NSNotFound)
+                {
+                    NSString* ip_string;
+                    self.serverInfoString = [NSString stringWithFormat:@"Server IP: %@, port: %d",
+                                             ip_string, port];
+//                    self.server_ip = anItem;
+                    break;
+                }
+            }
+        });
+        
+//        // Find the string starting with number
+//        for (NSString* anItem : [[NSHost currentHost] addresses]){
+//            if ([anItem rangeOfString:@":"].location == NSNotFound)
+//            {
+//                ip_string = anItem;
+//                break;
+//            }
+//        }
+        
+
     }
     self.testMessage = [NSString stringWithFormat:@"Dir: %@",
                         self.model->desktopDropboxDataRoot];

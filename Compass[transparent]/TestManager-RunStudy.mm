@@ -117,6 +117,7 @@ void TestManager::showNextTest(){
 void TestManager::showTestNumber(int test_id){
     
 #ifdef __IPHONE__
+    // Send the confirmation to OSX
     [rootViewController sendMessage:
      [NSString stringWithFormat:@"%d", test_id]];
     // Make sure the answer is not shown

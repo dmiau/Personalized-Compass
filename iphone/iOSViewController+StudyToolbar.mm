@@ -40,8 +40,12 @@
                                        action:@selector(runStudyAction:)];
             [toolbar_items addObject:anItem];
         }
+
+
     }
 
+    UIBarButtonItem *anItem;
+    
     //--------------
     // Add a flexible separator
     //--------------
@@ -49,15 +53,17 @@
                                  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                  target:nil action:nil];
     [toolbar_items addObject:flexItem];
-
-    //--------------
-    // Add Compass buttons
-    //--------------
-    UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
-                               initWithTitle:@"[Compass]"
-                               style:UIBarButtonItemStyleBordered                                             target:self
-                               action:@selector(toggleWatchPanel:)];
-    [toolbar_items addObject:anItem];
+    
+    if (![self.socket_status boolValue]){
+        //--------------
+        // Add Compass buttons
+        //--------------
+        anItem = [[UIBarButtonItem alloc]
+                  initWithTitle:@"[Compass]"
+                  style:UIBarButtonItemStyleBordered                                             target:self
+                  action:@selector(toggleWatchPanel:)];
+        [toolbar_items addObject:anItem];
+    }
     
     //--------------
     // Add the bookmark button
@@ -67,7 +73,6 @@
               target:self
               action:@selector(segueToTabController:)];
     [toolbar_items addObject:anItem];
-    
     
     //--------------
     // Set toolboar style

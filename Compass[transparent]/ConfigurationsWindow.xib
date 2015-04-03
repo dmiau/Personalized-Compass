@@ -1198,59 +1198,6 @@
                                                 <action selector="changeRecordFileName:" target="vjl-Mr-bQu" id="Bqz-Md-qhj"/>
                                             </connections>
                                         </textField>
-                                        <box autoresizesSubviews="NO" fixedFrame="YES" title="Dev. Control" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="qcw-wH-ne3">
-                                            <rect key="frame" x="425" y="318" width="260" height="115"/>
-                                            <view key="contentView">
-                                                <rect key="frame" x="1" y="1" width="258" height="99"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfN-wj-Z9v">
-                                                        <rect key="frame" x="9" y="73" width="40" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mode" id="eYy-98-lPp">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
-                                                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwn-IL-rMA">
-                                                        <rect key="frame" x="9" y="45" width="173" height="24"/>
-                                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="XBW-nX-h6h">
-                                                            <font key="font" metaFont="system"/>
-                                                            <segments>
-                                                                <segment label="Study" selected="YES"/>
-                                                                <segment label="Dev" tag="1"/>
-                                                                <segment label="Review"/>
-                                                            </segments>
-                                                        </segmentedCell>
-                                                        <connections>
-                                                            <action selector="toggleStudyMode:" target="vjl-Mr-bQu" id="6me-pq-gqJ"/>
-                                                        </connections>
-                                                    </segmentedControl>
-                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KQe-Qh-Oiq">
-                                                        <rect key="frame" x="6" y="7" width="76" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="inn-Ph-6nz">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="resetTestEnv:" target="vjl-Mr-bQu" id="1mR-d1-aCe"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHx-fS-ALz">
-                                                        <rect key="frame" x="80" y="7" width="166" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="Unlock TestManager" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e6t-dE-wXq">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="unlockTestManager:" target="vjl-Mr-bQu" id="rJm-D7-NR8"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </view>
-                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </box>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrn-SZ-DOI">
                                             <rect key="frame" x="46" y="396" width="288" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* This panel uses the files in the &quot;study&quot; folder" id="pC7-KX-5gE">
@@ -1427,6 +1374,59 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <box autoresizesSubviews="NO" fixedFrame="YES" title="Dev. Control" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="qcw-wH-ne3">
+                                            <rect key="frame" x="425" y="335" width="260" height="98"/>
+                                            <view key="contentView">
+                                                <rect key="frame" x="1" y="1" width="258" height="82"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfN-wj-Z9v">
+                                                        <rect key="frame" x="9" y="56" width="40" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mode" id="eYy-98-lPp">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwn-IL-rMA">
+                                                        <rect key="frame" x="69" y="49" width="173" height="24"/>
+                                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="XBW-nX-h6h">
+                                                            <font key="font" metaFont="system"/>
+                                                            <segments>
+                                                                <segment label="Study" selected="YES"/>
+                                                                <segment label="Dev" tag="1"/>
+                                                                <segment label="Review"/>
+                                                            </segments>
+                                                        </segmentedCell>
+                                                        <connections>
+                                                            <action selector="toggleStudyMode:" target="vjl-Mr-bQu" id="6me-pq-gqJ"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KQe-Qh-Oiq">
+                                                        <rect key="frame" x="4" y="7" width="76" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="inn-Ph-6nz">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="resetTestEnv:" target="vjl-Mr-bQu" id="1mR-d1-aCe"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHx-fS-ALz">
+                                                        <rect key="frame" x="80" y="7" width="166" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Unlock TestManager" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e6t-dE-wXq">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="unlockTestManager:" target="vjl-Mr-bQu" id="rJm-D7-NR8"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </view>
+                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </box>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -1465,7 +1465,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="d8L-U9-MAJ"/>
             </connections>
-            <point key="canvasLocation" x="-746" y="1014"/>
+            <point key="canvasLocation" x="-794" y="1164"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="tgg-Kb-NtA"/>
         <viewController id="aLW-cy-kmh" userLabel="SnapShot View Controller" customClass="SnapShotViewController">

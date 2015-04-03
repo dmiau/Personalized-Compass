@@ -101,8 +101,6 @@ void compassRender::loadParametersFromModelConfiguration(){
     loadCentroidFromModelConfiguration();
     compass_disk_radius = [model->configurations[@"compass_disk_radius"] floatValue];
     central_disk_radius = [model->configurations[@"central_disk_radius"] floatValue];
-//    compass_disk_radius *
-//    [model->configurations[@"central_disk_to_compass_disk_ratio"] floatValue];
 }
 
 //---------------

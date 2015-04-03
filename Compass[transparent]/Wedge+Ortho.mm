@@ -218,6 +218,8 @@ wedgeParams wedge::calculateRegionTwoParams(double tx, double ty){
     {
         l_leg = (off_screen_dist + max_intrusion) / cos(max_base_aperture/2);
         l_aperture = max_base_aperture;
+        
+        NSLog(@"Exceeding max_base!");
     }    
     
     my_wedgeParams.leg = l_leg;
