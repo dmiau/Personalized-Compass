@@ -197,6 +197,7 @@ typedef struct{
 @property (weak) IBOutlet NSButton *nextTestButton;
 @property (weak) IBOutlet NSButton *previousTestButton;
 @property NSNumber* isInformationOKEnabled;
+@property NSTimer *informationOKTimer; // To enable the information OK button
 
 @property NSNumber* studyIntAnswer;
 @property NSNumber* isDistanceEstControlAvailable;

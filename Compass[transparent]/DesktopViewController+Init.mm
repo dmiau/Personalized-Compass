@@ -48,7 +48,7 @@
         
         self.received_message = @"NONE";
         self.socket_status = [NSNumber numberWithBool:NO];
-        self.studyIntAnswer = [NSNumber numberWithInt:0];
+        self.studyIntAnswer = nil; //[NSNumber numberWithInt:0];
         self.isDistanceEstControlAvailable = [NSNumber numberWithBool:NO];
         self.testInformationMessage = @"Enable Study Mode from iOS";
         self.studyTitle = @"Welcome";

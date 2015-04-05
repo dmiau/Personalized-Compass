@@ -174,7 +174,7 @@ void TestManager::showTestNumber(int test_id){
     // communication pane
     
     startTest();
-    rootViewController.studyIntAnswer = [NSNumber numberWithInt:0];
+    rootViewController.studyIntAnswer = nil;// [NSNumber numberWithInt:0];
     
     // Do a forced backup
     saveRecord([rootViewController.model->desktopDropboxDataRoot

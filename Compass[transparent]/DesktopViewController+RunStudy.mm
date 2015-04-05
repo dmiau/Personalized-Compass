@@ -13,7 +13,7 @@
 
 - (IBAction)showNextTest:(id)sender {
     if (self.testManager->testManagerMode == OSXSTUDY){
-        self.studyIntAnswer = [NSNumber numberWithInt:0];
+        self.studyIntAnswer = nil; //[NSNumber numberWithInt:0];
         
         // Skip the following if it is in the Dve mode
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -85,7 +85,7 @@
 
 - (IBAction)showPreviousTest:(id)sender {
     if (self.testManager->testManagerMode == OSXSTUDY){
-        self.studyIntAnswer = [NSNumber numberWithInt:0];
+        self.studyIntAnswer = nil; //[NSNumber numberWithInt:0];
         if (self.testManager->test_counter == 0){
             [self displayInformationText];
         }else{
@@ -252,11 +252,20 @@
         [self.informationTextField setHidden:YES];
 //        [self.informationImageView setHidden:NO];
         [self.AVPlayerView setHidden:NO];
-        
+
+        self.isInformationOKEnabled = [NSNumber numberWithBool:NO];
         // Only disable the button in the practicing mode
-        if ([[[NSUserDefaults standardUserDefaults]
+        if (![[[NSUserDefaults standardUserDefaults]
               objectForKey:@"isPracticingMode"] boolValue])
-            self.isInformationOKEnabled = [NSNumber numberWithBool:NO];
+        {
+            self.informationOKTimer =
+            [NSTimer scheduledTimerWithTimeInterval:5
+                                             target:self
+                                           selector:@selector(enableInformationOK)
+                                           userInfo:Nil
+                                            repeats:NO];
+        }
+
         [self.AVPlayerView.player play];
         [self displayStudyTitle];
         
@@ -369,9 +378,18 @@
         [self.AVPlayerView setHidden:NO];
 
         // Only disable the button in the practicing mode
-        if ([[[NSUserDefaults standardUserDefaults]
+        self.isInformationOKEnabled = [NSNumber numberWithBool:NO];
+        
+        if (![[[NSUserDefaults standardUserDefaults]
               objectForKey:@"isPracticingMode"] boolValue])
-            self.isInformationOKEnabled = [NSNumber numberWithBool:NO];
+        {
+            self.informationOKTimer =
+            [NSTimer scheduledTimerWithTimeInterval:5
+                    target:self
+                    selector:@selector(enableInformationOK)
+                    userInfo:Nil
+                    repeats:NO];
+        }
         [self.AVPlayerView.player play];
     }
     
@@ -380,7 +398,10 @@
     [prefs setObject:[NSNumber numberWithBool:NO] forKey:@"isAnswerConfirmed"];
 }
 
-
+// Enable information OK button (called by a timer)
+- (void) enableInformationOK{
+    self.isInformationOKEnabled = [NSNumber numberWithBool:YES];
+}
 
 //----------------------------
 // Display test information
@@ -459,6 +480,12 @@
         //--------------------
         // Do a special check for the distance estimation task
         //--------------------
+        if (self.studyIntAnswer == nil)
+        {
+            [self displayPopupMessage:@"Please provide an answer in the text box."];
+            return;
+        }
+        
         if (NumberIsFraction(self.studyIntAnswer)){
             [self displayPopupMessage:@"Distance estimation must be an integer."];
             return;

@@ -195,27 +195,31 @@
         // Add drop-pin here
         CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
         annotation.coordinate = touchMapCoordinate;
-        annotation.title      = @"Dropped Pin";
+        annotation.title      = @"   ";
         annotation.subtitle   = @"";
         annotation.point_type = dropped;
         
+        NSNumber *answerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:@"isAnswerConfirmed"];
         
-        // Clear all existing dropped pins before adding a new one
-        for (CustomPointAnnotation* annotation in self.mapView.annotations)
+        // No more drop pin when the anser is confirmed
+        if (self.testManager->testManagerMode ==OFF ||
+            ![answerStatus boolValue])
         {
-            if (annotation.point_type == dropped){
-                [self.mapView removeAnnotation:annotation];
+            // Clear all existing dropped pins before adding a new one
+            for (CustomPointAnnotation* annotation in self.mapView.annotations)
+            {
+                if (annotation.point_type == dropped){
+                    [self.mapView removeAnnotation:annotation];
+                }
             }
+            
+            [self.mapView addAnnotation:annotation];
         }
-        
-        [self.mapView addAnnotation:annotation];
-        
+
         //----------------------------
         // Fill in the record when the testManager is in OSXSTUDY mode
         //----------------------------
         if (self.testManager->testManagerMode == OSXSTUDY){
-            
-            NSNumber *answerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:@"isAnswerConfirmed"];
             
             if ([answerStatus boolValue])
             {

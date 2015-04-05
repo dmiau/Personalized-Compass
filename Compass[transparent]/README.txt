@@ -4198,33 +4198,27 @@ MATLAB data checking tools? MATLAB data summarizer [11:30PM]
 
 
 -------------------------------------------------------------------
-3.31, 4.1.2015
+3.31, 4.1, 4.3, 4.52015
 -------------------------------------------------------------------
 ***** Done
 - combine ping and snapshot tap together [9:51PM]
 - get rid of the dots before dropping a new one [7:43PM]
+- get rid of the zero [10:44AM]
+- need to check that the conditions are fair [10:56PM]
+- update screenshot from iOS device? [4:48PM]
+- coming up explaination script [4:49PM]
+- no drop pin after confirmation
+- add a timer to enable the information view ok [5:15PM]
+- confirm all task time logging [5:24PM]
 
 ***** Working
-- coming up explaination script
 - better explaination for the localization and locate+ tasks
-- need to check that the conditions are fair
-
 - replay a record?
 - check which orientation case is problematic
-- corner max intrusion
 
-- save screenshot from iOS device? 
 - outlier rejection
-
-
-
-
-
-
-
-
-
-
+- be absolutely sure about the experiment parameters (corner max intrusion)
+- need to have a study build, and a demo build
 
 
 
