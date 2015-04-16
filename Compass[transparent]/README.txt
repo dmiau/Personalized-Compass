@@ -4198,7 +4198,7 @@ MATLAB data checking tools? MATLAB data summarizer [11:30PM]
 
 
 -------------------------------------------------------------------
-3.31, 4.1, 4.3, 4.52015
+3.31, 4.1, 4.3, 4.5, 2015
 -------------------------------------------------------------------
 ***** Done
 - combine ping and snapshot tap together [9:51PM]
@@ -4219,6 +4219,39 @@ MATLAB data checking tools? MATLAB data summarizer [11:30PM]
 - outlier rejection
 - be absolutely sure about the experiment parameters (corner max intrusion)
 - need to have a study build, and a demo build
+
+-------------------------------------------------------------------
+3.31, 4.1, 4.3, 4.5, 2015
+-------------------------------------------------------------------
+***** Done
+- saw the patch 
+- need to balance the device order [10:48AM]
+- summarize task order to make sure I have covered all the combination [10:48AM]
+
+***** Working
+- set up a simple ANOVA? or LME?
+http://stackoverflow.com/questions/6224830/c-trying-to-swap-values-in-a-vector
+
+
+-------------------------------------------------------------------
+4.10.2015
+-------------------------------------------------------------------
+***** Done
+
+
+***** Working
+- set up a simple ANOVA? or LME?
+http://stackoverflow.com/questions/6224830/c-trying-to-swap-values-in-a-vector
+- add error bars to the MATLAB script
+
+- anti-aliasing is not on
+
+
+
+
+
+
+
 
 
 

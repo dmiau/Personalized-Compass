@@ -118,7 +118,7 @@ void TestManager::generateAllTestVectors(
 {
     pool<VisualizationType> visualization_pool =
     pool<VisualizationType>(visualization_list, FULL, 1); //personalized compass, wedge
-    pool<DeviceType> device_pool = pool<DeviceType>(device_list, FULL, 2); //phone, watch
+    pool<DeviceType> device_pool = pool<DeviceType>({WATCH, PHONE}, FULL, 1); //phone, watch
     pool<TaskType> task_pool = pool<TaskType>(task_list, FULL, 1);
     
     
@@ -147,6 +147,10 @@ void TestManager::generateAllTestVectors(
         //--------------------
         vector<VisualizationType> t_visualization_list = visualization_pool.next();
         vector<DataSetType> t_dataset_list = dataset_pool.next();
+        
+//        //swap device order
+//        iter_swap(t_dataset_list.begin(), t_dataset_list.begin() + 1);
+        
         for (int vi = 0; vi < t_visualization_list.size(); ++vi){
             
             vector<DeviceType> t_device_list = device_pool.next();

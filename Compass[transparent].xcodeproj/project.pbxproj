@@ -1614,7 +1614,7 @@
 		9A9F53611A79962900E3744B /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		9A9F53621A79962900E3744B /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 		9AA789341909FE3000A26C66 /* webBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AA789351909FE3100A26C66 /* Compass[transparent] copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Compass[transparent] copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/Compass[transparent] copy-Info.plist"; sourceTree = "<absolute>"; };
+		9AA789351909FE3100A26C66 /* Compass[transparent] copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Compass[transparent] copy-Info.plist"; sourceTree = "<group>"; };
 		9AA789361909FE5A00A26C66 /* browser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = browser.xib; path = "Compass[transparent]/browser.xib"; sourceTree = "<group>"; };
 		9AAC65DA1A8BA2C000B9BF2E /* TestManager-RunStudy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-RunStudy.mm"; sourceTree = "<group>"; };
 		9AAC65E21A8BA87B00B9BF2E /* iOSViewController+StudyToolbar.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+StudyToolbar.mm"; sourceTree = "<group>"; };
@@ -4578,7 +4578,7 @@
 				);
 				OTHER_CPLUSPLUSFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Compass[transparent]";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4606,7 +4606,7 @@
 				);
 				OTHER_CPLUSPLUSFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Compass[transparent]";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};

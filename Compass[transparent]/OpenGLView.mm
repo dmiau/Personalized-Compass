@@ -92,6 +92,20 @@
 //    [self setBackgroundColor:[NSColor clearColor]];
 //    [self setOpaque:NO];
     
+//    NSOpenGLPixelFormatAttribute attributes [] = {
+//        NSOpenGLPFAWindow,
+//        NSOpenGLPFAMultisample, (NSOpenGLPixelFormatAttribute)4,
+//        NSOpenGLPFADoubleBuffer,	// double buffered
+//        NSOpenGLPFADepthSize, (NSOpenGLPixelFormatAttribute)16, // 16 bit depth buffer
+//        NSOpenGLPFASampleBuffers, (NSOpenGLPixelFormatAttribute)2,
+//        NSOpenGLPFASamples, (NSOpenGLPixelFormatAttribute)8
+//    };
+//    NSOpenGLPixelFormat *pf = [[NSOpenGLPixelFormat alloc] initWithAttributes:attributes];
+//    
+//    [self setPixelFormat:pf];
+//    
+//    NSOpenGLContext* context = [[NSOpenGLContext alloc] initWithFormat:pf shareContext:nil];
+//    [self setOpenGLContext:context];
 }
 
 // An excellenct reference from an ex-Microsoft developer
@@ -104,10 +118,17 @@
 {
     NSOpenGLPixelFormatAttribute attributes [] = {
         NSOpenGLPFAWindow,
+//        NSOpenGLPFASampleBuffers,
+//        NSOpenGLPFASamples,
+        NSOpenGLPFAMultisample, (NSOpenGLPixelFormatAttribute)8,
         NSOpenGLPFADoubleBuffer,	// double buffered
-        NSOpenGLPFADepthSize, (NSOpenGLPixelFormatAttribute)16 // 16 bit depth buffer
+        NSOpenGLPFADepthSize, (NSOpenGLPixelFormatAttribute)16, // 16 bit depth buffer
+        NSOpenGLPFASampleBuffers, (NSOpenGLPixelFormatAttribute)2,
+        NSOpenGLPFASamples, (NSOpenGLPixelFormatAttribute)8
     };
-        
+    
+    //https://developer.apple.com/library/prerelease/mac/documentation/GraphicsImaging/Conceptual/OpenGL-MacProgGuide/opengl_fsaa/opengl_fsaa.html
+    
     // (NSOpenGLPixelFormatAttribute)nil
     
     return [[NSOpenGLPixelFormat alloc] initWithAttributes:attributes];

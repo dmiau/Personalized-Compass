@@ -190,9 +190,10 @@ void compassRender::render(RenderParamStruct renderParamStruct) {
     //    glEnable(GL_BLEND);
     //    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //
-    //    glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
-    //    glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST);
-    //    glEnable(GL_MULTISAMPLE);
+    glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
+    glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST);
+//    glEnable(GL_MULTISAMPLE);
+    glEnable(GL_MULTISAMPLE_ARB);
 
 #ifdef __IPHONE__
     //-------------
