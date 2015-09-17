@@ -127,7 +127,6 @@ typedef struct{
 @property (weak, nonatomic) IBOutlet UITextView *snapshotStatusTextView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *showPinSegmentControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *createPinSegmentControl;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *taskSegmentControl;
 
 
 // watch sidebar

@@ -312,8 +312,15 @@ BOOL compassRender::drawBoxInCompass(double renderD2realDRatio)
                                                      vertex3, vertex4);
     glVertexPointer(3, GL_FLOAT, 0, &rectangle);
     glDrawArrays(GL_LINE_STRIP, 0,5);
+
     
+//    // Draw transparent background
+//    glLineWidth(1);
+//    glColor4f(100.0/255.0, 100.0/255.0, 100.0/255.0, 150.0/255.0);
+////    glColor4f(0, 0, 0, 0);
+//    glDrawArrays(GL_TRIANGLE_FAN, 0,5);
     glPopMatrix();
+    
     return true;
 }
 

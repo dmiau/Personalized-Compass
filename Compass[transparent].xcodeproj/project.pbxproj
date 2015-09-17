@@ -438,8 +438,6 @@
 		9A3DA0BC1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0BD1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0BE1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
-		9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
-		9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3DA0BA1966E1F9009E0073 /* myPinAnnotationViewOSX.xib */; };
 		9A3DA0C41966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
 		9A3DA0C81966E563009E0073 /* CustomAnnotationView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DA0C21966E563009E0073 /* CustomAnnotationView.mm */; };
@@ -1024,6 +1022,9 @@
 		9AB5AD851A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */; };
 		9AB5AD861A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */; };
 		9AB5AD871A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5AD831A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm */; };
+		9AB6B7FA1B190102001FB295 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A91940F1AB870F800B3F2B5 /* AVFoundation.framework */; };
+		9AB6B7FB1B190108001FB295 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9194111AB8718200B3F2B5 /* AVKit.framework */; };
+		9AB6B7FC1B190214001FB295 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADA91BD1AB88411009C7552 /* CoreMedia.framework */; };
 		9AB90B8D194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
 		9AB90B8E194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
 		9AB90B8F194DED0B0030BF5B /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB90B8C194DED0B0030BF5B /* Taiwan.kml */; };
@@ -1069,6 +1070,17 @@
 		9AD1B2F61AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1B2F21AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm */; };
 		9AD1B2F71AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1B2F21AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm */; };
 		9AD1B2F81AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1B2F21AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm */; };
+		9AD27B601B190CBC00F2BE7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B5F1B190CBC00F2BE7E /* UIKit.framework */; };
+		9AD27B621B190CC600F2BE7E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B611B190CC600F2BE7E /* MapKit.framework */; };
+		9AD27B641B190CCF00F2BE7E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B631B190CCF00F2BE7E /* GLKit.framework */; };
+		9AD27B661B190CE500F2BE7E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B651B190CE500F2BE7E /* QuartzCore.framework */; };
+		9AD27B681B190CEC00F2BE7E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B671B190CEC00F2BE7E /* CoreLocation.framework */; };
+		9AD27B6A1B190CF500F2BE7E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B691B190CF500F2BE7E /* SystemConfiguration.framework */; };
+		9AD27B6C1B190CFD00F2BE7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B6B1B190CFD00F2BE7E /* Security.framework */; };
+		9AD27B6E1B190D3000F2BE7E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B6D1B190D3000F2BE7E /* CFNetwork.framework */; };
+		9AD27B701B190D3B00F2BE7E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B6F1B190D3B00F2BE7E /* libicucore.dylib */; };
+		9AD27B721B190D4500F2BE7E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B711B190D4500F2BE7E /* libc++.dylib */; };
+		9AD27B741B190D4E00F2BE7E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD27B731B190D4E00F2BE7E /* libz.dylib */; };
 		9AD52F681AB3C63B00430FE7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */; };
 		9AD52F691AB3C63B00430FE7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */; };
 		9AD52F6A1AB3C63B00430FE7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */; };
@@ -1117,17 +1129,6 @@
 		9AE6104A1A6EF3BD00175A79 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE610451A6EF3BD00175A79 /* TestManager.mm */; };
 		9AE6104B1A6EF3BD00175A79 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE610451A6EF3BD00175A79 /* TestManager.mm */; };
 		9AE6104C1A6EF3BD00175A79 /* TestManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE610451A6EF3BD00175A79 /* TestManager.mm */; };
-		9AEA4D471A4A08BE00E452C3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB311A0DB771000F3A23 /* libz.dylib */; };
-		9AEA4D481A4A08CD00E452C3 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB371A0DB791000F3A23 /* libc++.dylib */; };
-		9AEA4D491A4A08DA00E452C3 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB3B1A0DB7A9000F3A23 /* libicucore.dylib */; };
-		9AEA4D4A1A4A08EB00E452C3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB331A0DB77D000F3A23 /* CFNetwork.framework */; };
-		9AEA4D4B1A4A08F800E452C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB351A0DB787000F3A23 /* Security.framework */; };
-		9AEA4D4C1A4A090400E452C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB391A0DB79E000F3A23 /* SystemConfiguration.framework */; };
-		9AEA4D4D1A4A090D00E452C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB2D1A0DB75A000F3A23 /* CoreLocation.framework */; };
-		9AEA4D4E1A4A091600E452C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB2F1A0DB766000F3A23 /* QuartzCore.framework */; };
-		9AEA4D4F1A4A091E00E452C3 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB271A0DB73A000F3A23 /* GLKit.framework */; };
-		9AEA4D501A4A092600E452C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB291A0DB745000F3A23 /* MapKit.framework */; };
-		9AEA4D511A4A092E00E452C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAEDB2B1A0DB74D000F3A23 /* UIKit.framework */; };
 		9AEA57D118D9EBB20028B80C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D018D9EBB20028B80C /* Cocoa.framework */; };
 		9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA57D918D9EBB20028B80C /* InfoPlist.strings */; };
 		9AEA57DD18D9EBB20028B80C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA57DC18D9EBB20028B80C /* main.mm */; };
@@ -1522,7 +1523,7 @@
 		9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SnapShotViewController.mm; sourceTree = "<group>"; };
 		9A4AA6611A80297E0009F448 /* TestManager-SnapShotGeneration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-SnapShotGeneration.mm"; sourceTree = "<group>"; };
 		9A4D2B2B1A882E0000BB81DB /* DesktopViewController+Tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Tools.mm"; sourceTree = "<group>"; };
-		9A4F0F45193E2A8800CF32DE /* iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A4F0F45193E2A8800CF32DE /* pcompass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pcompass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F0F46193E2A8900CF32DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9A4F0F4E193E2A8900CF32DE /* iphone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iphone-Info.plist"; sourceTree = "<group>"; };
@@ -1560,7 +1561,7 @@
 		9A757157197D804100C23AEE /* historyParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = historyParser.mm; sourceTree = "<group>"; };
 		9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassModel+AnalysisTools.mm"; sourceTree = "<group>"; };
 		9A8284DE1A4A32A2000ED4AA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		9A82B64F1941518900534A5F /* iphone copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iphone copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A82B64F1941518900534A5F /* pcompass-ipad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pcompass-ipad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
 		9A82B6531941528600534A5F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		9A856F7B1AB8AEE100486AE9 /* wedge-phone-direction.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "wedge-phone-direction.mp4"; sourceTree = "<group>"; };
@@ -1653,6 +1654,17 @@
 		9ACF5D8618EB572100F03872 /* DesktopViewController+Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Table.h"; sourceTree = "<group>"; };
 		9ACF5D8718EB572100F03872 /* DesktopViewController+Table.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Table.mm"; sourceTree = "<group>"; };
 		9AD1B2F21AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "DesktopViewController+SnapShotcapture.mm"; path = "Compass[transparent]/DesktopViewController+SnapShotcapture.mm"; sourceTree = "<group>"; };
+		9AD27B5F1B190CBC00F2BE7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		9AD27B611B190CC600F2BE7E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		9AD27B631B190CCF00F2BE7E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
+		9AD27B651B190CE500F2BE7E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		9AD27B671B190CEC00F2BE7E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		9AD27B691B190CF500F2BE7E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		9AD27B6B1B190CFD00F2BE7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		9AD27B6D1B190D3000F2BE7E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		9AD27B6F1B190D3B00F2BE7E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
+		9AD27B711B190D4500F2BE7E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
+		9AD27B731B190D4E00F2BE7E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		9AD52F671AB3C63B00430FE7 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		9AD5AB0C199D1C3900B351FA /* iPadTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadTabBarController.h; sourceTree = "<group>"; };
 		9AD5AB0D199D1C3900B351FA /* iPadTabBarController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iPadTabBarController.mm; sourceTree = "<group>"; };
@@ -1675,7 +1687,7 @@
 		9AE57280199CF8D60055799F /* Wedge+Radial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Wedge+Radial.h"; sourceTree = "<group>"; };
 		9AE610451A6EF3BD00175A79 /* TestManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestManager.mm; sourceTree = "<group>"; };
 		9AE610461A6EF3BD00175A79 /* TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManager.h; sourceTree = "<group>"; };
-		9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compass[transparent].app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AEA57CD18D9EBB20028B80C /* CompassMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompassMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEA57D018D9EBB20028B80C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AEA57D318D9EBB20028B80C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		9AEA57D418D9EBB20028B80C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -1749,17 +1761,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AEA4D511A4A092E00E452C3 /* UIKit.framework in Frameworks */,
-				9AEA4D501A4A092600E452C3 /* MapKit.framework in Frameworks */,
-				9AEA4D4F1A4A091E00E452C3 /* GLKit.framework in Frameworks */,
-				9AEA4D4E1A4A091600E452C3 /* QuartzCore.framework in Frameworks */,
-				9AEA4D4D1A4A090D00E452C3 /* CoreLocation.framework in Frameworks */,
-				9AEA4D4C1A4A090400E452C3 /* SystemConfiguration.framework in Frameworks */,
-				9AEA4D4B1A4A08F800E452C3 /* Security.framework in Frameworks */,
-				9AEA4D4A1A4A08EB00E452C3 /* CFNetwork.framework in Frameworks */,
-				9AEA4D491A4A08DA00E452C3 /* libicucore.dylib in Frameworks */,
-				9AEA4D481A4A08CD00E452C3 /* libc++.dylib in Frameworks */,
-				9AEA4D471A4A08BE00E452C3 /* libz.dylib in Frameworks */,
+				9AD27B741B190D4E00F2BE7E /* libz.dylib in Frameworks */,
+				9AD27B721B190D4500F2BE7E /* libc++.dylib in Frameworks */,
+				9AD27B701B190D3B00F2BE7E /* libicucore.dylib in Frameworks */,
+				9AD27B6E1B190D3000F2BE7E /* CFNetwork.framework in Frameworks */,
+				9AD27B6C1B190CFD00F2BE7E /* Security.framework in Frameworks */,
+				9AD27B6A1B190CF500F2BE7E /* SystemConfiguration.framework in Frameworks */,
+				9AD27B681B190CEC00F2BE7E /* CoreLocation.framework in Frameworks */,
+				9AD27B661B190CE500F2BE7E /* QuartzCore.framework in Frameworks */,
+				9AD27B641B190CCF00F2BE7E /* GLKit.framework in Frameworks */,
+				9AD27B621B190CC600F2BE7E /* MapKit.framework in Frameworks */,
+				9AD27B601B190CBC00F2BE7E /* UIKit.framework in Frameworks */,
 				9A02D0F6195C5CE800A64987 /* Dropbox.framework in Frameworks */,
 				9A4F0F49193E2A8900CF32DE /* CoreGraphics.framework in Frameworks */,
 				9A4F0F47193E2A8900CF32DE /* Foundation.framework in Frameworks */,
@@ -1791,6 +1803,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB6B7FC1B190214001FB295 /* CoreMedia.framework in Frameworks */,
+				9AB6B7FB1B190108001FB295 /* AVKit.framework in Frameworks */,
+				9AB6B7FA1B190102001FB295 /* AVFoundation.framework in Frameworks */,
 				9A8284DF1A4A32A2000ED4AA /* WebKit.framework in Frameworks */,
 				9AA7891D1909FE3000A26C66 /* GLUT.framework in Frameworks */,
 				9AA7891E1909FE3000A26C66 /* MapKit.framework in Frameworks */,
@@ -2637,12 +2652,12 @@
 		9AEA57CE18D9EBB20028B80C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */,
+				9AEA57CD18D9EBB20028B80C /* CompassMap.app */,
 				9AFB14BC18EE639A00063632 /* tabView.app */,
 				9AEC5CF918F3956F00A29F75 /* smartWatch.app */,
 				9AA789341909FE3000A26C66 /* webBrowser.app */,
-				9A4F0F45193E2A8800CF32DE /* iphone.app */,
-				9A82B64F1941518900534A5F /* iphone copy.app */,
+				9A4F0F45193E2A8800CF32DE /* pcompass.app */,
+				9A82B64F1941518900534A5F /* pcompass-ipad.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2650,6 +2665,17 @@
 		9AEA57CF18D9EBB20028B80C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9AD27B731B190D4E00F2BE7E /* libz.dylib */,
+				9AD27B711B190D4500F2BE7E /* libc++.dylib */,
+				9AD27B6F1B190D3B00F2BE7E /* libicucore.dylib */,
+				9AD27B6D1B190D3000F2BE7E /* CFNetwork.framework */,
+				9AD27B6B1B190CFD00F2BE7E /* Security.framework */,
+				9AD27B691B190CF500F2BE7E /* SystemConfiguration.framework */,
+				9AD27B671B190CEC00F2BE7E /* CoreLocation.framework */,
+				9AD27B651B190CE500F2BE7E /* QuartzCore.framework */,
+				9AD27B631B190CCF00F2BE7E /* GLKit.framework */,
+				9AD27B611B190CC600F2BE7E /* MapKit.framework */,
+				9AD27B5F1B190CBC00F2BE7E /* UIKit.framework */,
 				9ADA91BD1AB88411009C7552 /* CoreMedia.framework */,
 				9A9194111AB8718200B3F2B5 /* AVKit.framework */,
 				9A91940F1AB870F800B3F2B5 /* AVFoundation.framework */,
@@ -2779,7 +2805,7 @@
 			);
 			name = iphone;
 			productName = iphone;
-			productReference = 9A4F0F45193E2A8800CF32DE /* iphone.app */;
+			productReference = 9A4F0F45193E2A8800CF32DE /* pcompass.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9A82B62F1941518900534A5F /* ipad */ = {
@@ -2796,7 +2822,7 @@
 			);
 			name = ipad;
 			productName = iphone;
-			productReference = 9A82B64F1941518900534A5F /* iphone copy.app */;
+			productReference = 9A82B64F1941518900534A5F /* pcompass-ipad.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9AA789081909FE3000A26C66 /* webBrowser */ = {
@@ -2830,7 +2856,7 @@
 			);
 			name = "Compass[transparent]";
 			productName = "Compass[transparent]";
-			productReference = 9AEA57CD18D9EBB20028B80C /* Compass[transparent].app */;
+			productReference = 9AEA57CD18D9EBB20028B80C /* CompassMap.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9AEC5CD518F3956F00A29F75 /* smartWatch */ = {
@@ -2980,7 +3006,6 @@
 				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A8CE9E61A97871F0070D9D4 /* default.snapshot in Resources */,
 				9A1632B41AB619D200F07E45 /* blueDot.png in Resources */,
-				9A3DA0BF1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9A8DF92C1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */,
@@ -3039,7 +3064,6 @@
 				9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */,
 				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
 				9A8CE9FF1A97871F0070D9D4 /* study.snapshot in Resources */,
-				9A3DA0C01966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AECA774196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A8CE9F31A97871F0070D9D4 /* iosSnapshots.snapshot in Resources */,
 				9A2E42EA196C9D2C00CF8862 /* heading.png in Resources */,
@@ -4313,8 +4337,8 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = pcompass;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -4344,8 +4368,8 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = pcompass;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -4362,6 +4386,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iphone copy.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -4381,8 +4406,8 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				PRODUCT_NAME = "iphone copy";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "pcompass-ipad";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -4398,6 +4423,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iphone copy.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -4415,8 +4441,8 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				PRODUCT_NAME = "iphone copy";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "pcompass-ipad";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -4430,7 +4456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Compass[transparent]/Compass[transparent].entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -4444,7 +4470,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Compass[transparent]",
-					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
 				);
 				PRODUCT_NAME = webBrowser;
 				PROVISIONING_PROFILE = "";
@@ -4457,7 +4482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Compass[transparent]/Compass[transparent].entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -4471,7 +4496,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Compass[transparent]",
-					"$(PROJECT_DIR)/Compass[transparent]/jsoncpp",
 				);
 				PRODUCT_NAME = webBrowser;
 				PROVISIONING_PROFILE = "";
@@ -4512,7 +4536,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LLVM_LTO = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -4547,7 +4571,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LLVM_LTO = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -4578,7 +4602,7 @@
 				);
 				OTHER_CPLUSPLUSFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "Compass[transparent]";
+				PRODUCT_NAME = CompassMap;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4606,7 +4630,7 @@
 				);
 				OTHER_CPLUSPLUSFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "Compass[transparent]";
+				PRODUCT_NAME = CompassMap;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};

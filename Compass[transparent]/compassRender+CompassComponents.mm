@@ -188,7 +188,6 @@ void compassRender::drawCompassBackgroundDisk(){
               [model->configurations[@"disk_color"][1] floatValue]/255.0,
               [model->configurations[@"disk_color"][2] floatValue]/255.0,
               alpha);
-
     
     glTranslatef(0, 0, -1);
     

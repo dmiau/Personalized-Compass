@@ -4246,9 +4246,11 @@ http://stackoverflow.com/questions/6224830/c-trying-to-swap-values-in-a-vector
 
 - anti-aliasing is not on
 
-
-
-
+-------------------------------------------------------------------
+5.29.2015
+-------------------------------------------------------------------
+- plan to clean up the code and continue my app development
+- I want to prepare the app for itune connect
 
 
 

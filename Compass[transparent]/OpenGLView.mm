@@ -92,12 +92,15 @@
 //    [self setBackgroundColor:[NSColor clearColor]];
 //    [self setOpaque:NO];
     
+    
+    //5.29.2015 I could not get NSOpenGLPixelFOrmat to work
+    
 //    NSOpenGLPixelFormatAttribute attributes [] = {
 //        NSOpenGLPFAWindow,
-//        NSOpenGLPFAMultisample, (NSOpenGLPixelFormatAttribute)4,
 //        NSOpenGLPFADoubleBuffer,	// double buffered
 //        NSOpenGLPFADepthSize, (NSOpenGLPixelFormatAttribute)16, // 16 bit depth buffer
-//        NSOpenGLPFASampleBuffers, (NSOpenGLPixelFormatAttribute)2,
+//        NSOpenGLPFAMultisample, (NSOpenGLPixelFormatAttribute)8,
+//        NSOpenGLPFASampleBuffers, (NSOpenGLPixelFormatAttribute)1,
 //        NSOpenGLPFASamples, (NSOpenGLPixelFormatAttribute)8
 //    };
 //    NSOpenGLPixelFormat *pf = [[NSOpenGLPixelFormat alloc] initWithAttributes:attributes];

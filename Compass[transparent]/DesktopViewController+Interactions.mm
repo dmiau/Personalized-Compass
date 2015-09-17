@@ -205,13 +205,13 @@
         if (self.testManager->testManagerMode ==OFF ||
             ![answerStatus boolValue])
         {
-            // Clear all existing dropped pins before adding a new one
-            for (CustomPointAnnotation* annotation in self.mapView.annotations)
-            {
-                if (annotation.point_type == dropped){
-                    [self.mapView removeAnnotation:annotation];
-                }
-            }
+//            // Clear all existing dropped pins before adding a new one
+//            for (CustomPointAnnotation* annotation in self.mapView.annotations)
+//            {
+//                if (annotation.point_type == dropped){
+//                    [self.mapView removeAnnotation:annotation];
+//                }
+//            }
             
             [self.mapView addAnnotation:annotation];
         }

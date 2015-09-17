@@ -64,39 +64,6 @@
     
     
     mySnapshot.name = @"mySnapshot";
-    if (self.testManager->testManagerMode == AUTHORING){
-        //--------------
-        // Test authoring mode
-        //--------------
-        mySnapshot.name = @"authored_snapshot";
-        string prefix = "";
-        
-        // Log device type and visualization type
-        if (self.renderer->watchMode){
-            mySnapshot.deviceType = WATCH;
-            prefix = prefix + "watch:";
-        }else{
-            mySnapshot.deviceType = PHONE;
-            prefix = prefix + "phone:";
-        }
-        
-        if ([self.model->configurations[@"wedge_status"]
-             isEqualToString:@"on"]){
-            mySnapshot.visualizationType = VIZWEDGE;
-            prefix = prefix + "wedge:";
-        }else{
-            mySnapshot.visualizationType = VIZPCOMPASS;
-            prefix = prefix + "pcompass:";
-        }
-        
-#ifdef __IPHONE__
-        prefix = prefix + "t" +
-        to_string(1+self.taskSegmentControl.selectedSegmentIndex);
-#endif
-        // Update a new name
-        mySnapshot.name = [NSString stringWithUTF8String: prefix.c_str()];
-    }
-    
     self.model->snapshot_array.push_back(mySnapshot);
     
     //--------------

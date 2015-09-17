@@ -31,6 +31,9 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // ---------------
     drawCompassCentralCircle();
 
+
+    
+    
     // ---------------
     // draw the triangle
     // ---------------
@@ -98,18 +101,20 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
                       data_.distance / mode_max_dist_array[1]);
             }
         }
-        
-        // Need to draw on different depth to avoid broken polygon
-        glTranslatef(0, 0, 0.0001);
-//        drawTriangle(base_radius, data_.orientation,
-//                     distance);
 
 #ifdef __IPHONE__
+        glPushMatrix();
+        if (data_.distance <= mode_max_dist_array[0]){
+            glTranslatef(0, 0, -1);
+        }else{
+
+        }
         drawRectangle(1, data_.orientation,
                       distance);
+        glPopMatrix();
 #else
-//        drawRectangle(0.5, data_.orientation,
-//                      distance);
+        // Need to draw on different depth to avoid broken polygon
+        glTranslatef(0, 0, 0.0001);
         // ---------------
         // Draw the line
         // ---------------
@@ -130,14 +135,16 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     glPopMatrix();
     
     // ---------------
+    // draw the scale box
+    // ---------------
+    drawCompassScaleBox(mode_max_dist_array[0]);
+    
+    // ---------------
     // draw the north indicator
     // ---------------
     drawCompassNorth();
     
-    // ---------------
-    // draw the scale box
-    // ---------------
-    drawCompassScaleBox(mode_max_dist_array[0]);
+
     
     // ---------------
     // draw the scale indicator (for Binodal mode)
@@ -156,5 +163,9 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // ---------------
     // draw the background (transparent) disk
     // ---------------
+    
+    glPushMatrix();
+//    glTranslatef(0, 0, 0.1);
     drawCompassBackgroundDisk();
+    glPopMatrix();
 }

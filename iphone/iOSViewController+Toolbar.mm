@@ -25,6 +25,23 @@
     NSMutableArray* toolbar_items =[[NSMutableArray alloc] init];
 
     //--------------
+    // Add the bookmark button
+    //--------------
+    
+#ifdef __IPAD__
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                 target:nil action:nil];
+    [toolbar_items addObject:flexItem];
+#endif
+    
+    UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
+                               initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
+                               target:self
+                               action:@selector(segueToTabController:)];
+    [toolbar_items addObject:anItem];
+    
+    //--------------
     // Add buttons
     //--------------
     for (int i = 0; i < [title_list count]; ++i){
@@ -45,22 +62,7 @@
         [toolbar_items addObject:anItem];
     }
     
-    //--------------
-    // Add the bookmark button
-    //--------------
-    
-#ifdef __IPAD__
-    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                 target:nil action:nil];
-    [toolbar_items addObject:flexItem];
-#endif
-    
-    UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
-                                         initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
-                               target:self
-                               action:@selector(segueToTabController:)];
-    [toolbar_items addObject:anItem];
+
     
     //--------------
     // Set toolboar style
