@@ -7,8 +7,10 @@
 //
 
 #import "iOSViewController+Init.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation iOSViewController (Init)
+
 #pragma mark ----Initialization----
 - (void) awakeFromNib
 {
@@ -48,7 +50,7 @@
         self.demoManager = DemoManager::shareDemoManager();
         self.testManager = TestManager::shareTestManager();
         self.testManager->rootViewController = self;
-                
+        
         [self.searchDisplayController setDelegate:self];
         [self.ibSearchBar setDelegate:self];
         
@@ -81,9 +83,9 @@
         //--------------------
         self.UIConfigurations = [[NSMutableDictionary alloc] init];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
-                                       forKey:@"UIRotationLock"];
+                                  forKey:@"UIRotationLock"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
-                                       forKey:@"UIBreadcrumbDisplay"];
+                                  forKey:@"UIBreadcrumbDisplay"];
         [self.UIConfigurations setObject:@"Development"
                                   forKey:@"UIToolbarMode"];
         [self.UIConfigurations setObject:[NSNumber numberWithBool:false]
@@ -120,14 +122,14 @@
                                             [UIImage imageNamed:fileString]]];
         
         
-
+        
         // Add the watch scale image
         img_rect = CGRectMake(0, 0, 568, 255); //orig_x, y, width, height
         fileString =
         [[NSBundle mainBundle] pathForResource:@"watchScale.tif" ofType:@""];
         self.watchScaleView = [[UIView alloc]initWithFrame:img_rect];
         [self.watchScaleView setBackgroundColor:[UIColor colorWithPatternImage:
-                                            [UIImage imageNamed:fileString]]];
+                                                 [UIImage imageNamed:fileString]]];
         
         //--------------------
         // Registering Users Defaults from plist
@@ -161,14 +163,14 @@
     // Initialize the message label
     //-------------------
     self.messageLabel = [[UILabel alloc] initWithFrame:
-                    CGRectMake(10, 10, 300, 50)];
+                         CGRectMake(10, 10, 300, 50)];
     [self.messageLabel setBackgroundColor:[UIColor whiteColor]];
     [self.messageLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 36.0f]];
     
-
+    
     // Development message label
     self.devMessageLabel = [[UILabel alloc] initWithFrame:
-                         CGRectMake(50, 300, 200, 50)];
+                            CGRectMake(50, 300, 200, 50)];
     [self.devMessageLabel setBackgroundColor:[UIColor whiteColor]];
     [self.devMessageLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 12.0f]];
     self.devMessageLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -194,6 +196,7 @@
     self.mapView.delegate = self;
     self.renderer->mapView = [self mapView];
     [self initMapView];
+    
     mapMask = [CALayer layer];
     
     // Recognize long-press gesture
@@ -207,7 +210,9 @@
                                      initWithTarget:self
                                      action:@selector(pinchGesture:)];
     pgr.delegate = self;
+    
     [self.mapView addGestureRecognizer:pgr];
+    
     
     //-------------------
     // Add View, Model, Watch and Debug Panels
@@ -246,8 +251,8 @@
     [self.view addSubview:self.modelPanel];
     [self.view addSubview:self.viewPanel];
     
-//    [self.watchPanel removeFromSuperview];
-//    [self.view insertSubview:self.watchPanel aboveSubview:self.watchSidebar];
+    //    [self.watchPanel removeFromSuperview];
+    //    [self.view insertSubview:self.watchPanel aboveSubview:self.watchSidebar];
     
     //-------------------
     // Add gesture recognizer to the FindMe button
@@ -269,7 +274,7 @@
     // Construct a default toolbar
     //---------------
     [self constructDebugToolbar: @"Portrait"];
-    self.toolbar.clipsToBounds = YES;    
+    self.toolbar.clipsToBounds = YES;
     //---------------
     // Initilize socket message array
     //---------------
@@ -280,5 +285,7 @@
     //---------------
     [self lockCompassRefToScreenCenter:YES];
 }
+
+
 
 @end

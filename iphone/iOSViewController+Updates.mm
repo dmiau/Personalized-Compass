@@ -10,7 +10,8 @@
 #include <cmath>
 
 @implementation iOSViewController (Updates)
-#pragma mark ---- Timer Functon Stuff ----
+#pragma mark ---- Timer Function Stuff ----
+
 -(void)vcTimerFired{
     
     static double latitude_cache = 0.0;
@@ -39,7 +40,7 @@
         if (hasChanged){
             // Do a force refresh
             [self updateLocationVisibility];
-               self.model->updateMdl();
+            self.model->updateMdl();
             [self updateCornerLatLon];
             
             [self sendBoundaryLatLon];
@@ -72,14 +73,14 @@
         [self sendBoundaryLatLon];
         
         CLLocationCoordinate2D compassCtrCoord = [self.mapView convertPoint: self.model->compassRefMapViewPoint
-            toCoordinateFromView:self.mapView];
+                                                       toCoordinateFromView:self.mapView];
         
         [self feedModelLatitude: compassCtrCoord.latitude
                       longitude: compassCtrCoord.longitude
                         heading: [self calculateCameraHeading]
                            tilt: -self.mapView.camera.pitch];
-
-
+        
+        
         // [todo] This code should be put into the gesture recognizer
         // Disable the compass
         
@@ -160,7 +161,7 @@
             maxDist =dist;
     }
     self.messageLabel.text = [NSString stringWithFormat:@"Dist: %.1fx",
-                              (double)maxDist / (double)self.mapView.frame.size.width*2];    
+                              (double)maxDist / (double)self.mapView.frame.size.width*2];
 }
 
 - (float) calculateCameraHeading{
@@ -204,12 +205,13 @@
         isInited = true;
     }
     
-
+    
+    
     // Not sure why I need the following two lines.
-//    [self.mapView setRegion:coord_region animated:animated];
-//    self.mapView.centerCoordinate = coord_region.center;
-//    self.mapView.region = coord_region;
-
+    //    [self.mapView setRegion:coord_region animated:animated];
+    //    self.mapView.centerCoordinate = coord_region.center;
+    //    self.mapView.region = coord_region;
+    
     
     // use mapRect instead?
     self.mapView.visibleMapRect =
@@ -326,7 +328,7 @@
             CLLocation *point_location = [[CLLocation alloc]
                                           initWithLatitude:coord2d.latitude
                                           longitude:coord2d.longitude];
-           CLLocationDistance dist = [orig_location distanceFromLocation:point_location];
+            CLLocationDistance dist = [orig_location distanceFromLocation:point_location];
             
             if (dist <= true_radius_dist)
                 data_ptr->isVisible= true;
@@ -335,7 +337,7 @@
         }else{
             // testing if someLocation is on rotating mapView
             CGPoint screenP = [self.mapView convertCoordinate:
-                               coord2d toPointToView:self.mapView];            
+                               coord2d toPointToView:self.mapView];
             if (screenP.x > 0 && screenP.x < myRect.size.width
                 && screenP.y > 0 && screenP.y < myRect.size.height){
                 data_ptr->isVisible = true;
@@ -352,14 +354,14 @@
 //----------------------------
 - (void) updateCornerLatLon{
     
-//    =====================
-//    iOS (u, v), note: the coordinate system is flipped
-//    =====================
-//    v
-//    |
-//    |
-//    |
-//    --------u
+    //    =====================
+    //    iOS (u, v), note: the coordinate system is flipped
+    //    =====================
+    //    v
+    //    |
+    //    |
+    //    |
+    //    --------u
     
     //First we need to calculate the corners of the map so we get the points
     CGPoint ulPoint = CGPointMake(self.mapView.bounds.origin.x,
@@ -398,6 +400,183 @@
         temp.content[i][1] = coord_array[i].longitude;
     }
     self.latLons4x2 = temp;
+}
+
+- (IBAction)switchMap:(UIButton *)sender {
+    if ([sender.currentTitle isEqualToString:@"G"]) {
+        if (!self.gmap) {
+            self.gmap = [self createGmap];
+            self.gmap.frame = self.mapView.frame;
+            [self.view insertSubview:self.gmap atIndex:1];
+            [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
+            self.gmap.delegate = self;
+            
+            // we need to remove GMBBlockingGestureRecognizer otherwise
+            // we will have following problem:
+            // https://code.google.com/p/gmaps-api-issues/issues/detail?id=5552
+            [self removeGMSBlockingGestureRecognizerFromMapView: self.gmap];
+            
+            UILongPressGestureRecognizer *lpgrG = [[UILongPressGestureRecognizer alloc]
+                                                   initWithTarget:self action:@selector(handleGesture:)];
+            lpgrG.minimumPressDuration = 0.5;
+            [self.gmap addGestureRecognizer:lpgrG];
+        }
+        
+        self.gmap.hidden = NO;
+        self.mapView.hidden = YES;
+        
+        [self updateGMapBasedOnAMap];
+        
+        self.updateMapTimer = [NSTimer timerWithTimeInterval:0.06
+                                                      target:self
+                                                    selector:@selector(updateAMapBasedOnGMap)
+                                                    userInfo:nil repeats:YES];
+        
+        [[NSRunLoop currentRunLoop] addTimer:self.updateMapTimer forMode:NSRunLoopCommonModes];
+        
+        [sender setTitle:@"A" forState:UIControlStateNormal];
+    } else {
+        [self.updateMapTimer invalidate];
+        
+        [self updateAMapBasedOnGMap];
+        self.mapView.hidden = NO;
+        self.gmap.hidden = YES;
+        [sender setTitle:@"G" forState:UIControlStateNormal];
+        
+        
+    }
+}
+
+-(void) updateGMapBasedOnAMap {
+    //    CLLocationDirection heading = self.mapView.camera.heading;
+    //    self.mapView.camera.heading = 0;
+    CGPoint nePoint = CGPointMake(self.mapView.bounds.origin.x + self.mapView.bounds.size.width,
+                                  self.mapView.bounds.origin.y);
+    
+    CGPoint swPoint = CGPointMake(self.mapView.bounds.origin.x, self.mapView.bounds.origin.y +
+                                  self.mapView.bounds.size.height);
+    
+    CLLocationCoordinate2D neCoor = [self.mapView convertPoint:nePoint toCoordinateFromView:self.mapView];
+    CLLocationCoordinate2D swCoor = [self.mapView convertPoint:swPoint toCoordinateFromView:self.mapView];
+    
+    [self.gmap animateToBearing:self.mapView.camera.heading];
+    
+    GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithCoordinate:neCoor coordinate:swCoor];
+    GMSCameraUpdate *cameraUpdate = [GMSCameraUpdate fitBounds:bounds withPadding:0];
+    [self.gmap moveCamera:cameraUpdate];
+    //  NSLog(@"test heading %f", heading);
+    GMSCameraPosition *myCamera = self.gmap.camera;
+    GMSCameraPosition *myNewCamera = [GMSCameraPosition cameraWithLatitude:myCamera.target.latitude
+                                                                 longitude:myCamera.target.longitude
+                                                                      zoom:myCamera.zoom bearing:self.mapView.camera.heading
+                                                              viewingAngle:myCamera.viewingAngle];
+    self.gmap.camera = myNewCamera;
+}
+
+-(void) updateAMapBasedOnGMap {
+    //    if (!self.tempGmap) {
+    //        self.tempGmap = [self createGmap];
+    //        self.tempGmap.frame = self.mapView.frame;
+    //    }
+    
+    //    GMSCameraPosition *myCamera = self.gmap.camera;
+    //    GMSCameraPosition *myNewCamera = [GMSCameraPosition cameraWithLatitude:myCamera.target.latitude
+    //                                                                 longitude:myCamera.target.longitude
+    //                                                                      zoom:myCamera.zoom bearing:0
+    //                                                              viewingAngle:myCamera.viewingAngle];
+    //
+    //    self.tempGmap.camera = myNewCamera;
+    //    GMSVisibleRegion visibleRegion = self.tempGmap.projection.visibleRegion;
+    //    GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithRegion:visibleRegion];
+    //
+    //    CLLocationCoordinate2D northEast = bounds.northEast;
+    //    CLLocationCoordinate2D southWest = bounds.southWest;
+    
+    CGPoint nsPoint = CGPointMake(self.gmap.bounds.origin.x, self.gmap.bounds.origin.y);
+    CGPoint nePoint = CGPointMake(self.gmap.bounds.origin.x + self.gmap.bounds.size.width,
+                                  self.gmap.bounds.origin.y);
+    CGPoint swPoint = CGPointMake(self.gmap.bounds.origin.x,
+                                  self.gmap.bounds.origin.y + self.gmap.bounds.size.height);
+    CGPoint sePoint = CGPointMake(self.gmap.bounds.size.width, self.gmap.bounds.size.height);
+    
+    NSLog(@"%@", NSStringFromCGPoint(nsPoint));
+    NSLog(@"%@", NSStringFromCGPoint(nePoint));
+    NSLog(@"%@", NSStringFromCGPoint(swPoint));
+    NSLog(@"%@", NSStringFromCGPoint(sePoint));
+    CGPoint center = CGPointMake(185.5, 301);
+    
+    CGPoint swCoord = [self rotatePoint:swPoint With:self.gmap.camera.bearing About:center];
+    CGPoint seCoord = [self rotatePoint:sePoint With:self.gmap.camera.bearing About:center];
+    CGPoint neCoord = [self rotatePoint:nePoint With:self.gmap.camera.bearing About:center];
+    CGPoint nsCoord = [self rotatePoint:nsPoint With:self.gmap.camera.bearing About:center];
+    
+    CLLocationCoordinate2D swcoordinate = [self.gmap.projection coordinateForPoint: swCoord];
+    CLLocationCoordinate2D secoordinate = [self.gmap.projection coordinateForPoint: seCoord];
+    CLLocationCoordinate2D necoordinate = [self.gmap.projection coordinateForPoint: neCoord];
+    CLLocationCoordinate2D nscoordinate = [self.gmap.projection coordinateForPoint: nsCoord];
+    
+    NSLog(@"%@", @"Testing Coordinate");
+    
+    NSLog(@"%f", swcoordinate.latitude);
+    NSLog(@"%f", swcoordinate.longitude);
+    NSLog(@"%f", secoordinate.latitude);
+    NSLog(@"%f", secoordinate.longitude);
+    NSLog(@"%f", necoordinate.latitude);
+    NSLog(@"%f", necoordinate.longitude);
+    NSLog(@"%f", nscoordinate.latitude);
+    NSLog(@"%f", nscoordinate.longitude);
+    
+    
+    CLLocationCoordinate2D northEast = necoordinate;
+    CLLocationCoordinate2D southWest = swcoordinate;
+    
+    
+    
+#define MINIMUM_VISIBLE_LATITUDE 0.00001
+    MKCoordinateRegion region;
+    region.center.latitude = (northEast.latitude + southWest.latitude)/2;
+    region.center.longitude = (northEast.longitude + southWest.longitude)/2;
+    
+    //    CGpoint sePointR = CGPointMake(self.gmap.bounds.origin.x, self.gmap.bounds)
+    
+    region.span.latitudeDelta = fabs(northEast.latitude - southWest.latitude);
+    //    region.span.latitudeDelta = northEast.latitude - southWest.latitude;
+    region.span.latitudeDelta = (region.span.latitudeDelta < MINIMUM_VISIBLE_LATITUDE)
+    ? MINIMUM_VISIBLE_LATITUDE
+    : region.span.latitudeDelta;
+    
+    region.span.longitudeDelta = fabs(northEast.longitude - southWest.longitude);
+    //    region.span.longitudeDelta = northEast.longitude - southWest.longitude;
+    
+    //    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:region];
+    [self.mapView setRegion:region];
+    
+    NSLog(@"%f", self.gmap.camera.bearing);
+    self.mapView.camera.heading = self.gmap.camera.bearing;
+    NSLog(@"%@", @"after change");
+    NSLog(@"%f", self.mapView.region.span.latitudeDelta);
+    NSLog(@"%f", self.mapView.region.span.longitudeDelta);
+    NSLog(@"%f", self.mapView.camera.heading);
+}
+
+-(CGPoint) rotatePoint:(CGPoint) point With: (float) angle About: (CGPoint) origin {
+    float s = sinf(angle);
+    float c = cosf(angle);
+    return CGPointMake(c * (point.x - origin.x) - s * (point.y - origin.y) + origin.x,
+                       s * (point.x - origin.x) + c * (point.y - origin.y) + origin.y);
+}
+
+
+// Remove the GMSBlockingGestureRecognizer of the GMSMapView.
+- (void)removeGMSBlockingGestureRecognizerFromMapView:(GMSMapView *)mapView
+{
+    for (id gestureRecognizer in mapView.gestureRecognizers)
+    {
+        if (![gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]])
+        {
+            [mapView removeGestureRecognizer:gestureRecognizer];
+        }
+    }
 }
 
 @end

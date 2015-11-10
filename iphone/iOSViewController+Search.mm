@@ -32,6 +32,7 @@
     // Perform a new search.
     MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
     request.naturalLanguageQuery = searchBar.text;
+    NSLog(@"%@", searchBar.text);
     request.region = self.mapView.region;
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -89,15 +90,15 @@
         // Add a button to the cell
         //-------------
         AddInPlaceButton *myButton = [[AddInPlaceButton alloc] initWithFrame:
-                              CGRectMake(cell.frame.size.width - 100, 0,
-                                         100, cell.frame.size.height)];
+                                      CGRectMake(cell.frame.size.width - 100, 0,
+                                                 100, cell.frame.size.height)];
         myButton.backgroundColor = [UIColor grayColor];
         [myButton setTitle:@"AddInPlace" forState: UIControlStateNormal];
         [myButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         myButton.mapItemId = indexPath.row;
-
+        
         [myButton addTarget:self
-                   action:@selector(addLocationInPlace:)
+                     action:@selector(addLocationInPlace:)
            forControlEvents:UIControlEventTouchDown];
         
         [cell addSubview:myButton];
@@ -125,7 +126,7 @@
     annotation.title      = item.name;
     annotation.subtitle   = item.placemark.title;
     annotation.point_type = search_result;
-
+    
     [self.mapView addAnnotation:annotation];
     
     // This line throws an error:
@@ -135,7 +136,17 @@
     
     [self.mapView setCenterCoordinate:item.placemark.location.coordinate animated:YES];
     
-//    [self.mapView setUserTrackingMode:MKUserTrackingModeNone];    
+    // update Google map
+    GMSCameraUpdate *update = [GMSCameraUpdate setTarget:item.placemark.coordinate zoom:15.5];
+    [self.gmap animateWithCameraUpdate:update];
+    
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = item.placemark.coordinate;
+    marker.title = item.name;
+    marker.snippet = item.placemark.title;
+    marker.map = self.gmap;
+    
+    //    [self.mapView setUserTrackingMode:MKUserTrackingModeNone];
 }
 
 - (void)addLocationInPlace:(AddInPlaceButton*) sender{
@@ -185,7 +196,7 @@
     for (int i = 0; i < self.model->data_array.size(); ++i){
         self.model->data_array[i].isEnabled = false;
     }
-
+    
     self.model->indices_for_rendering.
     push_back(self.model->data_array.size()-1);
     for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){

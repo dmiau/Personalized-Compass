@@ -7,6 +7,7 @@
 //
 
 #import "iOSViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface iOSViewController ()
 
@@ -20,7 +21,7 @@
     // Make navigation bar disappeared
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-//    [super viewWillAppear:animated];
+    //    [super viewWillAppear:animated];
     
     self.model->updateMdl();
     
@@ -80,9 +81,9 @@
     //---------------
     if (self.needUpdateAnnotations){
         self.needUpdateAnnotations = false;
-
+        
         [self resetAnnotations];
-//        [self updateDataAnnotations];
+        //        [self updateDataAnnotations];
     }
     
     // This may be an iPad only thing
@@ -106,7 +107,9 @@
             // Call displaySnapshot directly when testManager is OFF
             //--------------
             [self displaySnapshot:self.snapshot_id_toshow
-                                   withStudySettings:self.testManager->testManagerMode];
+                withStudySettings:self.testManager->testManagerMode];
+            //           [self.updateMapTimer invalidate];
+            [self updateGMapBasedOnAMap];
         }else{
             //--------------
             // During the study, need to call showTestNumber to
@@ -118,7 +121,7 @@
         
         self.snapshot_id_toshow = -1;
     }
-
+    
     if (self.breadcrumb_id_toshow >= 0){
         [self displayBreadcrumb];
         breadcrumb myBreadcrumb =
@@ -170,7 +173,7 @@
 
 - (void) didInterfaceRotate:(NSNotification *)notification
 {
-
+    
     // Only need to proceed if the rotation lock is off
     if ([self.UIConfigurations[@"UIRotationLock"] boolValue]){
         return;
@@ -180,7 +183,7 @@
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     double width = self.glkView.frame.size.width;
     double height = self.glkView.frame.size.height;
-
+    
     // Update the viewport
     
     // This line is important.
@@ -202,7 +205,7 @@
     if (orientation == UIDeviceOrientationLandscapeLeft ||
         orientation == UIDeviceOrientationLandscapeRight)
     {
-//#ifdef __IPHONE__
+        //#ifdef __IPHONE__
         if ([self.UIConfigurations[@"UIToolbarMode"]
              isEqualToString: @"Development"])
             [self constructDebugToolbar:@"Landscape"];
@@ -210,9 +213,9 @@
         if ([self.UIConfigurations[@"UIToolbarMode"]
              isEqualToString: @"Development"])
             [self constructDebugToolbar:@"Portrait"];
-//#endif
+        //#endif
     }
-
+    
     for (int i = 0; i < [view_array count]; ++i){
         UIView *aView = view_array[i];
         double view_width = view_size_vector[i].width;
@@ -230,9 +233,11 @@
 //-----------------
 - (void) initMapView{
     MKCoordinateRegion temp;
+    
     if (self.model->data_array.size()>0){
         temp = MKCoordinateRegionMake
         (CLLocationCoordinate2DMake(self.model->data_array[0].latitude, self.model->data_array[0].longitude),MKCoordinateSpanMake(0.01, 0.01));
+        NSLog(@"%f", self.model->data_array[0].latitude);
     }else{
         // Manhattan as the default location
         temp = MKCoordinateRegionMake
@@ -243,13 +248,27 @@
     
     // Provide the centroid of compass to the model
     [self moveCompassCentroidToOpenGLPoint:self.renderer->compass_centroid];
-
+    
     // Add pin annotations
     [self resetAnnotations];
     
     // Set the conventional compass to be invisible
     self.conventionalCompassVisible = false;
+    
+}
 
+- (GMSMapView *) createGmap {
+    GMSMapView *mapView_;
+    if (self.model->data_array.size()>0) {
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.model->data_array[0].latitude longitude:self.model->data_array[0].longitude zoom:15];
+        mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+        mapView_.myLocationEnabled = YES;
+        
+        GMSMarker *marker = [[GMSMarker alloc]init];
+        marker.position = CLLocationCoordinate2DMake(self.model->data_array[0].latitude, self.model->data_array[0].longitude);
+        marker.map = mapView_;
+    }
+    return mapView_;
 }
 
 - (void)didReceiveMemoryWarning
@@ -258,5 +277,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-//Test commit for github, will remove it later.
+
 @end

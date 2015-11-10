@@ -17,6 +17,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [GMSServices provideAPIKey:@"AIzaSyDdOmlH3SRnitZxFkhlQz7W81ERDShHXMk"];
     return YES;
 }
 

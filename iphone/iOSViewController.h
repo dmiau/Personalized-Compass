@@ -15,6 +15,7 @@
 #import "iOSGLKView.h"
 #import "DemoManager.h"
 #import "TestManager.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 // SocketRocket
 #import "SRWebSocket.h"
@@ -38,7 +39,7 @@ typedef struct{
 
 
 @interface iOSViewController : UIViewController
-<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate, SRWebSocketDelegate>
+<CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate, SRWebSocketDelegate, GMSMapViewDelegate>
 {
     NSTimer *_updateUITimer;
     MKLocalSearch *localSearch;
@@ -286,5 +287,22 @@ typedef struct{
 // System service (implemented in the interaction category)
 //----------------
 - (void) displayPopupMessage: (NSString*) message;
+
+//----------------
+// Create Google Map
+//----------------
+@property (weak, nonatomic) GMSMapView *gmap;
+- (GMSMapView *) createGmap;
+
+@property (weak, nonatomic) GMSMapView *tempGmap;
+
+
+//----------------
+// For Map Update
+//----------------
+@property (weak, nonatomic) NSTimer *updateMapTimer;
+- (IBAction)switchMap:(UIButton *)sender;
+-(void) updateGMapBasedOnAMap;
+-(void) updateAMapBasedOnGMap;
 
 @end

@@ -15,7 +15,7 @@
     
     UITouch* touch = [touches anyObject];
     CGPoint pos = [touch locationInView:self.mapView];
-
+    
     
     // Convert it to the real coordinate
     CLLocationCoordinate2D myCoord = [self.mapView convertPoint:pos toCoordinateFromView:self.mapView];
@@ -60,7 +60,7 @@
     // Check if any of the label is clicked (only when the compass is enabled)
     //------------------
     if ([self.model->configurations[@"personalized_compass_status"]
-        isEqualToString: @"on"]
+         isEqualToString: @"on"]
         && [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue])
     {
         CGPoint touch_pt = [touch locationInView:self.mapView];
@@ -71,15 +71,15 @@
             CGPoint label_pt_compass =
             self.model->data_array[j].my_label_info.centroid;
             
-//            NSLog(@"Name: %@",
-//                  [NSString stringWithUTF8String: self.model->data_array[j].name.c_str()]);
-//            NSLog(@"Centroid: %@", NSStringFromCGPoint(label_pt_compass));
+            //            NSLog(@"Name: %@",
+            //                  [NSString stringWithUTF8String: self.model->data_array[j].name.c_str()]);
+            //            NSLog(@"Centroid: %@", NSStringFromCGPoint(label_pt_compass));
             CGPoint label_pt = self.renderer->
             convertCompassPointToMapUV(label_pt_compass,
                                        self.glkView.frame.size.width,
                                        self.glkView.frame.size.height);
             
-//            NSLog(@"%@", NSStringFromCGPoint(label_pt));
+            //            NSLog(@"%@", NSStringFromCGPoint(label_pt));
             double width = self.model->data_array[j].my_texture_info.size.width;
             double height = self.model->data_array[j].my_texture_info.size.height;
             
@@ -176,9 +176,9 @@
         CGPoint new_centroid;
         new_centroid.x = glkTouchPoint.x - self.glkView.frame.size.width/2;
         new_centroid.y = self.glkView.frame.size.height/2 - glkTouchPoint.y;
-
+        
         CGPoint compassXY = self.renderer->compass_centroid;
-
+        
         
         CGRect orig_frame = self.glkView.frame;
         self.glkView.frame = CGRectMake
@@ -191,7 +191,6 @@
         
         if (gestureRecognizer.state == UIGestureRecognizerStateEnded){
             [self compassSelectedMode:NO];
-
         }
         
         [self moveCompassCentroidToOpenGLPoint: self.renderer->compass_centroid];
@@ -200,7 +199,7 @@
         return;
     }else if (gestureRecognizer.state != UIGestureRecognizerStateBegan){
         //----------------
-        // Do nothing is the compress is not pressed
+        // Do nothing if the compress is not pressed
         // and the recognition mode is not begin
         //----------------
         return;
@@ -218,14 +217,14 @@
     //----------------------------
     // Only accept drop pins when the drop pin creation mode is enabled
     //----------------------------
-    if ([self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue]){
+    if ([self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue] && !self.mapView.hidden){
         CLLocationCoordinate2D touchMapCoordinate =
         [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
         
         CustomPointAnnotation *pa = [[CustomPointAnnotation alloc] init];
         pa.coordinate = touchMapCoordinate;
         
-
+        
         if (self.testManager->testManagerMode == AUTHORING){
             //------------------
             // When the testManagerMode is in the AUTHORING mode
@@ -265,14 +264,22 @@
             pa.title = @"Dropped Pin";
             pa.point_type = dropped;
         }
-
+        
         if (self.sprinkleBreadCrumbMode){
             [self addBreadcrumb:touchMapCoordinate];
         }
         
         [self.mapView addAnnotation:pa];
+    } else if (!self.gmap.hidden) {
+        CLLocationCoordinate2D touchMapCoordinate =
+        [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+        GMSMarker *pin = [[GMSMarker alloc] init];
+        pin.position = touchMapCoordinate;
+        pin.title = @"Dropped Pin";
+        pin.map = self.gmap;
     }
 }
+
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
@@ -292,9 +299,9 @@
     if (![self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue]
         || [self.glkView isHidden]
         || [self.model->configurations[@"personalized_compass_status"]
-         isEqualToString:@"off"])
+            isEqualToString:@"off"])
         return;
-
+    
     
     static float starting_scale = 1;
     if(recognizer.state == UIGestureRecognizerStateBegan){
@@ -304,7 +311,7 @@
                                               inView:self.glkView];
         CGPoint point1 = [recognizer locationOfTouch:1
                                               inView:self.glkView];
-
+        
         if ([self isCompassTouched:point0] ||
             [self isCompassTouched:point1])
         {
@@ -319,7 +326,7 @@
         }
     }
     
-//    NSLog(@"%f",recognizer.scale);
+    //    NSLog(@"%f",recognizer.scale);
     
     if ( [self.UIConfigurations[@"UICompassTouched"] boolValue]
         && recognizer.state == UIGestureRecognizerStateChanged)
@@ -340,10 +347,10 @@
             // Set a limit to the scale
             self.renderer->adjustAbsoluteCompassScale(scale);
         }
-                    
-//        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
-//            [self updateModelCompassCenterXY];
-//        }
+        
+        //        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){
+        //            [self updateModelCompassCenterXY];
+        //        }
         [self.glkView setNeedsDisplay];
     }
     
@@ -359,11 +366,13 @@
         [self.mapView setZoomEnabled:NO];
         [self.mapView setRotateEnabled:NO];
         [self.mapView setScrollEnabled:NO];
+        self.gmap.settings.scrollGestures = NO;
     }else{
         [self.mapView setUserInteractionEnabled:YES];
         [self.mapView setZoomEnabled:YES];
         [self.mapView setRotateEnabled:YES];
         [self.mapView setScrollEnabled:YES];
+        self.gmap.settings.scrollGestures = YES;
     }
     self.UIConfigurations[@"UICompassTouched"] =
     [NSNumber numberWithBool: state];
@@ -375,7 +384,7 @@
 - (bool)isCompassTouched: (CGPoint) touchPoint{
     
     if ([self.glkView isHidden])
-        return false;    
+        return false;
     
     //--------------------
     // Check if the compass is pressed

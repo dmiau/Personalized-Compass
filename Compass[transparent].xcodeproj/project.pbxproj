@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0FFDC31BF2A7BB00ADD137 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC21BF2A7BB00ADD137 /* GoogleMaps.framework */; };
+		2B0FFDC51BF2A83200ADD137 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B0FFDC41BF2A83200ADD137 /* GoogleMaps.bundle */; };
+		2B0FFDC71BF2A87C00ADD137 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC61BF2A87C00ADD137 /* AVFoundation.framework */; };
+		2B0FFDC91BF2A8C600ADD137 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC81BF2A8C600ADD137 /* Accelerate.framework */; };
+		2B0FFDCB1BF2A8E400ADD137 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDCA1BF2A8E400ADD137 /* CoreBluetooth.framework */; };
+		2B0FFDCD1BF2A8F500ADD137 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDCC1BF2A8F500ADD137 /* CoreData.framework */; };
+		2B0FFDCF1BF2A90400ADD137 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDCE1BF2A90400ADD137 /* CoreLocation.framework */; };
+		2B0FFDD11BF2A91000ADD137 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDD01BF2A91000ADD137 /* CoreText.framework */; };
+		2B0FFDD31BF2A91B00ADD137 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDD21BF2A91B00ADD137 /* GLKit.framework */; };
+		2B0FFDD51BF2A92700ADD137 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDD41BF2A92700ADD137 /* ImageIO.framework */; };
+		2B0FFDD71BF2A93100ADD137 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDD61BF2A93100ADD137 /* OpenGLES.framework */; };
+		2B0FFDD91BF2A93B00ADD137 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDD81BF2A93B00ADD137 /* QuartzCore.framework */; };
+		2B0FFDDB1BF2A94600ADD137 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDA1BF2A94600ADD137 /* Security.framework */; };
+		2B0FFDDD1BF2A95100ADD137 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDC1BF2A95100ADD137 /* SystemConfiguration.framework */; };
+		2B0FFDDF1BF2A95D00ADD137 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */; };
 		9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
@@ -1267,6 +1282,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B0FFDC21BF2A7BB00ADD137 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		2B0FFDC41BF2A83200ADD137 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
+		2B0FFDC61BF2A87C00ADD137 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDC81BF2A8C600ADD137 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDCA1BF2A8E400ADD137 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDCC1BF2A8F500ADD137 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDCE1BF2A90400ADD137 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDD01BF2A91000ADD137 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDD21BF2A91B00ADD137 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDD41BF2A92700ADD137 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDD61BF2A93100ADD137 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDD81BF2A93B00ADD137 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDDA1BF2A94600ADD137 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDDC1BF2A95100ADD137 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		9A0060C41AA65CCA00E60F10 /* watchScale.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = watchScale.tif; sourceTree = "<group>"; };
 		9A006CA019522918009BB81C /* iOSViewController+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Model.h"; sourceTree = "<group>"; };
 		9A006CA119522918009BB81C /* iOSViewController+Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Model.mm"; sourceTree = "<group>"; };
@@ -1761,9 +1791,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0FFDDF1BF2A95D00ADD137 /* CoreGraphics.framework in Frameworks */,
+				2B0FFDDD1BF2A95100ADD137 /* SystemConfiguration.framework in Frameworks */,
+				2B0FFDDB1BF2A94600ADD137 /* Security.framework in Frameworks */,
+				2B0FFDD91BF2A93B00ADD137 /* QuartzCore.framework in Frameworks */,
+				2B0FFDD71BF2A93100ADD137 /* OpenGLES.framework in Frameworks */,
+				2B0FFDD51BF2A92700ADD137 /* ImageIO.framework in Frameworks */,
+				2B0FFDD31BF2A91B00ADD137 /* GLKit.framework in Frameworks */,
+				2B0FFDD11BF2A91000ADD137 /* CoreText.framework in Frameworks */,
+				2B0FFDCF1BF2A90400ADD137 /* CoreLocation.framework in Frameworks */,
+				2B0FFDCD1BF2A8F500ADD137 /* CoreData.framework in Frameworks */,
+				2B0FFDCB1BF2A8E400ADD137 /* CoreBluetooth.framework in Frameworks */,
+				2B0FFDC91BF2A8C600ADD137 /* Accelerate.framework in Frameworks */,
+				2B0FFDC71BF2A87C00ADD137 /* AVFoundation.framework in Frameworks */,
 				9AD27B741B190D4E00F2BE7E /* libz.dylib in Frameworks */,
 				9AD27B721B190D4500F2BE7E /* libc++.dylib in Frameworks */,
 				9AD27B701B190D3B00F2BE7E /* libicucore.dylib in Frameworks */,
+				2B0FFDC31BF2A7BB00ADD137 /* GoogleMaps.framework in Frameworks */,
 				9AD27B6E1B190D3000F2BE7E /* CFNetwork.framework in Frameworks */,
 				9AD27B6C1B190CFD00F2BE7E /* Security.framework in Frameworks */,
 				9AD27B6A1B190CF500F2BE7E /* SystemConfiguration.framework in Frameworks */,
@@ -2665,6 +2709,19 @@
 		9AEA57CF18D9EBB20028B80C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */,
+				2B0FFDDC1BF2A95100ADD137 /* SystemConfiguration.framework */,
+				2B0FFDDA1BF2A94600ADD137 /* Security.framework */,
+				2B0FFDD81BF2A93B00ADD137 /* QuartzCore.framework */,
+				2B0FFDD61BF2A93100ADD137 /* OpenGLES.framework */,
+				2B0FFDD41BF2A92700ADD137 /* ImageIO.framework */,
+				2B0FFDD21BF2A91B00ADD137 /* GLKit.framework */,
+				2B0FFDD01BF2A91000ADD137 /* CoreText.framework */,
+				2B0FFDCE1BF2A90400ADD137 /* CoreLocation.framework */,
+				2B0FFDCC1BF2A8F500ADD137 /* CoreData.framework */,
+				2B0FFDCA1BF2A8E400ADD137 /* CoreBluetooth.framework */,
+				2B0FFDC81BF2A8C600ADD137 /* Accelerate.framework */,
+				2B0FFDC61BF2A87C00ADD137 /* AVFoundation.framework */,
 				9AD27B731B190D4E00F2BE7E /* libz.dylib */,
 				9AD27B711B190D4500F2BE7E /* libc++.dylib */,
 				9AD27B6F1B190D3B00F2BE7E /* libicucore.dylib */,
@@ -2676,6 +2733,8 @@
 				9AD27B631B190CCF00F2BE7E /* GLKit.framework */,
 				9AD27B611B190CC600F2BE7E /* MapKit.framework */,
 				9AD27B5F1B190CBC00F2BE7E /* UIKit.framework */,
+				2B0FFDC41BF2A83200ADD137 /* GoogleMaps.bundle */,
+				2B0FFDC21BF2A7BB00ADD137 /* GoogleMaps.framework */,
 				9ADA91BD1AB88411009C7552 /* CoreMedia.framework */,
 				9A9194111AB8718200B3F2B5 /* AVKit.framework */,
 				9A91940F1AB870F800B3F2B5 /* AVFoundation.framework */,
@@ -3015,6 +3074,7 @@
 				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
 				9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A037561198DA31800258E95 /* Box2DConfig.cmake in Resources */,
+				2B0FFDC51BF2A83200ADD137 /* GoogleMaps.bundle in Resources */,
 				9A4808A2198BF1F70001E188 /* general.png in Resources */,
 				9A48089C198BF1F70001E188 /* debug.png in Resources */,
 				9AF3788B1A9FED7600FEB3F3 /* walking.tif in Resources */,
@@ -4319,10 +4379,12 @@
 				CODE_SIGN_ENTITLEMENTS = iphone/iphone.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(PROJECT_DIR)/iphone",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iphone/iphone-Prefix.pch";
@@ -4337,7 +4399,9 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hong.pcompass;
 				PRODUCT_NAME = pcompass;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -4354,10 +4418,12 @@
 				CODE_SIGN_ENTITLEMENTS = iphone/iphone.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(PROJECT_DIR)/iphone",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iphone/iphone-Prefix.pch";
@@ -4368,7 +4434,9 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hong.pcompass;
 				PRODUCT_NAME = pcompass;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
