@@ -50,8 +50,17 @@
             hasChanged = false;
         }
     }
+    static double cached_latitude = 0.0;
+    static double cached_longitude = 0.0;
+    static double cached_bearing = 0.0;
+    static double cached_viewingAngle = 0.0;
+    double epsilonG = 0.0000001;
     
-    if (self.gmap && !self.gmap.hidden) {
+    if ((self.gmap && !self.gmap.hidden) && (
+                                             abs((double) cached_latitude - self.gmap.camera.target.latitude) > epsilonG ||
+                                             abs((double) cached_longitude - self.gmap.camera.target.latitude) > epsilonG ||
+                                             abs((double) cached_bearing - self.gmap.camera.bearing) > epsilonG ||
+                                             abs((double) cached_viewingAngle - self.gmap.camera.viewingAngle)) > epsilonG) {
         [self updateAMapBasedOnGMap];
     }
     //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
@@ -328,16 +337,16 @@
         
         if (self.renderer->watchMode){
             
-            
             CLLocation *point_location = [[CLLocation alloc]
                                           initWithLatitude:coord2d.latitude
                                           longitude:coord2d.longitude];
             CLLocationDistance dist = [orig_location distanceFromLocation:point_location];
             
-            if (dist <= true_radius_dist)
+            if (dist <= true_radius_dist) {
                 data_ptr->isVisible= true;
-            else
+            } else {
                 data_ptr->isVisible = false;
+            }
         }else{
             // testing if someLocation is on rotating mapView
             CGPoint screenP = [self.mapView convertCoordinate:
@@ -496,10 +505,10 @@
                                   self.gmap.bounds.origin.y + self.gmap.bounds.size.height);
     CGPoint sePoint = CGPointMake(self.gmap.bounds.size.width, self.gmap.bounds.size.height);
     
-    NSLog(@"%@", NSStringFromCGPoint(nsPoint));
-    NSLog(@"%@", NSStringFromCGPoint(nePoint));
-    NSLog(@"%@", NSStringFromCGPoint(swPoint));
-    NSLog(@"%@", NSStringFromCGPoint(sePoint));
+    //    NSLog(@"%@", NSStringFromCGPoint(nsPoint));
+    //    NSLog(@"%@", NSStringFromCGPoint(nePoint));
+    //    NSLog(@"%@", NSStringFromCGPoint(swPoint));
+    //    NSLog(@"%@", NSStringFromCGPoint(sePoint));
     CGPoint center = CGPointMake(185.5, 301);
     
     CGPoint swCoord = [self rotatePoint:swPoint With:self.gmap.camera.bearing About:center];
@@ -512,16 +521,16 @@
     CLLocationCoordinate2D necoordinate = [self.gmap.projection coordinateForPoint: neCoord];
     CLLocationCoordinate2D nscoordinate = [self.gmap.projection coordinateForPoint: nsCoord];
     
-    NSLog(@"%@", @"Testing Coordinate");
-    
-    NSLog(@"%f", swcoordinate.latitude);
-    NSLog(@"%f", swcoordinate.longitude);
-    NSLog(@"%f", secoordinate.latitude);
-    NSLog(@"%f", secoordinate.longitude);
-    NSLog(@"%f", necoordinate.latitude);
-    NSLog(@"%f", necoordinate.longitude);
-    NSLog(@"%f", nscoordinate.latitude);
-    NSLog(@"%f", nscoordinate.longitude);
+    //    NSLog(@"%@", @"Testing Coordinate");
+    //
+    //    NSLog(@"%f", swcoordinate.latitude);
+    //    NSLog(@"%f", swcoordinate.longitude);
+    //    NSLog(@"%f", secoordinate.latitude);
+    //    NSLog(@"%f", secoordinate.longitude);
+    //    NSLog(@"%f", necoordinate.latitude);
+    //    NSLog(@"%f", necoordinate.longitude);
+    //    NSLog(@"%f", nscoordinate.latitude);
+    //    NSLog(@"%f", nscoordinate.longitude);
     
     
     CLLocationCoordinate2D northEast = necoordinate;
@@ -548,12 +557,11 @@
     //    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:region];
     [self.mapView setRegion:region];
     
-    NSLog(@"%f", self.gmap.camera.bearing);
     self.mapView.camera.heading = self.gmap.camera.bearing;
-    NSLog(@"%@", @"after change");
-    NSLog(@"%f", self.mapView.region.span.latitudeDelta);
-    NSLog(@"%f", self.mapView.region.span.longitudeDelta);
-    NSLog(@"%f", self.mapView.camera.heading);
+    //    NSLog(@"%@", @"after change");
+    //    NSLog(@"%f", self.mapView.region.span.latitudeDelta);
+    //    NSLog(@"%f", self.mapView.region.span.longitudeDelta);
+    //    NSLog(@"%f", self.mapView.camera.heading);
 }
 
 -(CGPoint) rotatePoint:(CGPoint) point With: (float) angle About: (CGPoint) origin {

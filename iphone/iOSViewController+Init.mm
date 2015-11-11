@@ -159,6 +159,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self loadLocationData];
     // Do any additional setup after loading the view.
     
     //-------------------
@@ -192,7 +194,7 @@
                         context:
      [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1]];
     
-    [self loadLocationData];
+    
     
     //-------------------
     // Initialize Map View
@@ -308,9 +310,12 @@
         data.latitude = [place.lat floatValue];
         data.longitude = [place.lon floatValue];
         data.name = [place.name UTF8String];
+        CLLocationCoordinate2D coor = CLLocationCoordinate2DMake(data.latitude, data.longitude);
+        data.annotation.coordinate = coor;
         locationData.push_back(data);
     }
     self.model->data_array =  locationData;
+    self.model->initTextureArray();
 }
 
 

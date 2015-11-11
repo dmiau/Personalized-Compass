@@ -7,6 +7,7 @@
 //
 
 #import "iOSViewController+Interactions.h"
+#import "DetailViewController.h"
 
 @implementation iOSViewController (Interactions)
 
@@ -286,19 +287,38 @@
         }
         
         [self.mapView addAnnotation:pa];
-    } else if (!self.gmap.hidden) {
+    } else if ([self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue] && !self.gmap.hidden) {
         CGPoint touchInGmap = [self.mapView convertPoint:touchPoint toView:self.gmap];
         CLLocationCoordinate2D touchCoordinate = [self.gmap.projection coordinateForPoint:touchInGmap];
         GMSMarker *pin = [[GMSMarker alloc] init];
         pin.position = touchCoordinate;
         pin.title = @"Dropped Pin";
         pin.map = self.gmap;
+        
+        //fetch the address based on lat and lon
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:touchCoordinate.latitude longitude:touchCoordinate.longitude];
+        CLGeocoder *geoCoder = [[CLGeocoder alloc]init];
+        [geoCoder reverseGeocodeLocation:location completionHandler:
+         
+         ^(NSArray *placemarks, NSError *error) {
+             CLPlacemark *placemark = [placemarks objectAtIndex:0];
+             pin.snippet = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+         }];
     }
 }
 
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
+}
+
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    MKAnnotationView *view = [[MKAnnotationView alloc] init];
+    CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
+    annotation.coordinate = marker.position;
+    annotation.title = @"Dropped Pin";
+    view.annotation = annotation;
+    [self performSegueWithIdentifier:@"DetailVC" sender:view];
 }
 
 
