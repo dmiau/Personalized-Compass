@@ -305,4 +305,9 @@ typedef struct{
 -(void) updateGMapBasedOnAMap;
 -(void) updateAMapBasedOnGMap;
 
+//----------------
+// For Core Data
+//----------------
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end

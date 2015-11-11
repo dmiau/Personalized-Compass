@@ -237,6 +237,7 @@
     if (self.model->data_array.size()>0){
         temp = MKCoordinateRegionMake
         (CLLocationCoordinate2DMake(self.model->data_array[0].latitude, self.model->data_array[0].longitude),MKCoordinateSpanMake(0.01, 0.01));
+        NSLog(@"%f", self.model->data_array[0].longitude);
         NSLog(@"%f", self.model->data_array[0].latitude);
     }else{
         // Manhattan as the default location

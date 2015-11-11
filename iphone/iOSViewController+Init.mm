@@ -8,6 +8,8 @@
 
 #import "iOSViewController+Init.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import <CoreData/CoreData.h>
+#import "Place.h"
 
 @implementation iOSViewController (Init)
 
@@ -190,6 +192,8 @@
                         context:
      [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1]];
     
+    [self loadLocationData];
+    
     //-------------------
     // Initialize Map View
     //-------------------
@@ -212,6 +216,7 @@
     pgr.delegate = self;
     
     [self.mapView addGestureRecognizer:pgr];
+    
     
     
     //-------------------
@@ -284,6 +289,28 @@
     // Make center lock mode the default compass mode
     //---------------
     [self lockCompassRefToScreenCenter:YES];
+}
+
+//-----------------
+// Load data from Core Data
+//-----------------
+- (void) loadLocationData{
+    self.model->data_array.clear();
+    std::vector<data> locationData;
+    // Fetch the stored data
+    NSError *error;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
+    
+    NSArray *requestResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    for (Place *place in requestResults) {
+        data data;
+        data.latitude = [place.lat floatValue];
+        data.longitude = [place.lon floatValue];
+        data.name = [place.name UTF8String];
+        locationData.push_back(data);
+    }
+    self.model->data_array =  locationData;
 }
 
 

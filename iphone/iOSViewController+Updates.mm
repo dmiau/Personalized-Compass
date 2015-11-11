@@ -50,6 +50,10 @@
             hasChanged = false;
         }
     }
+    
+    if (self.gmap && !self.gmap.hidden) {
+        [self updateAMapBasedOnGMap];
+    }
     //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
 }
 
@@ -426,13 +430,6 @@
         self.mapView.hidden = YES;
         
         [self updateGMapBasedOnAMap];
-        
-        self.updateMapTimer = [NSTimer timerWithTimeInterval:0.06
-                                                      target:self
-                                                    selector:@selector(updateAMapBasedOnGMap)
-                                                    userInfo:nil repeats:YES];
-        
-        [[NSRunLoop currentRunLoop] addTimer:self.updateMapTimer forMode:NSRunLoopCommonModes];
         
         [sender setTitle:@"A" forState:UIControlStateNormal];
     } else {

@@ -22,6 +22,9 @@
 		2B0FFDDB1BF2A94600ADD137 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDA1BF2A94600ADD137 /* Security.framework */; };
 		2B0FFDDD1BF2A95100ADD137 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDC1BF2A95100ADD137 /* SystemConfiguration.framework */; };
 		2B0FFDDF1BF2A95D00ADD137 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */; };
+		2BC725061BF2D8E200219807 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BC725041BF2D8E200219807 /* Model.xcdatamodeld */; };
+		2BC7250C1BF2D98F00219807 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC725091BF2D98F00219807 /* Place+CoreDataProperties.m */; };
+		2BC7250D1BF2D98F00219807 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7250B1BF2D98F00219807 /* Place.m */; };
 		9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
@@ -708,7 +711,7 @@
 		9A4F0F49193E2A8900CF32DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4F0F48193E2A8900CF32DE /* CoreGraphics.framework */; };
 		9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F4F193E2A8900CF32DE /* InfoPlist.strings */; };
 		9A4F0F53193E2A8900CF32DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F52193E2A8900CF32DE /* main.m */; };
-		9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F56193E2A8900CF32DE /* AppDelegate.m */; };
+		9A4F0F57193E2A8900CF32DE /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F56193E2A8900CF32DE /* AppDelegate.mm */; };
 		9A4F0F59193E2A8900CF32DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F58193E2A8900CF32DE /* Images.xcassets */; };
 		9A4F0F75193E2AF500CF32DE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */; };
 		9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */; };
@@ -777,7 +780,7 @@
 		9A82B6341941518900534A5F /* readConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A28368A1900C0850041D22E /* readConfiguration.mm */; };
 		9A82B6351941518900534A5F /* compassRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA582A18D9ED600028B80C /* compassRender.mm */; };
 		9A82B6361941518900534A5F /* renderStyles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE13D819046975003BF9B7 /* renderStyles.mm */; };
-		9A82B6381941518900534A5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F56193E2A8900CF32DE /* AppDelegate.m */; };
+		9A82B6381941518900534A5F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F56193E2A8900CF32DE /* AppDelegate.mm */; };
 		9A82B6391941518900534A5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F52193E2A8900CF32DE /* main.m */; };
 		9A82B63A1941518900534A5F /* iOSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7B193E306A00CF32DE /* iOSViewController.mm */; };
 		9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F0F7E193E308400CF32DE /* iOSGLKView.mm */; };
@@ -1297,6 +1300,11 @@
 		2B0FFDDA1BF2A94600ADD137 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		2B0FFDDC1BF2A95100ADD137 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		2BC725051BF2D8E200219807 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		2BC725081BF2D98F00219807 /* Place+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Place+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2BC725091BF2D98F00219807 /* Place+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Place+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2BC7250A1BF2D98F00219807 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		2BC7250B1BF2D98F00219807 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		9A0060C41AA65CCA00E60F10 /* watchScale.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = watchScale.tif; sourceTree = "<group>"; };
 		9A006CA019522918009BB81C /* iOSViewController+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Model.h"; sourceTree = "<group>"; };
 		9A006CA119522918009BB81C /* iOSViewController+Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Model.mm"; sourceTree = "<group>"; };
@@ -1561,7 +1569,7 @@
 		9A4F0F52193E2A8900CF32DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9A4F0F54193E2A8900CF32DE /* iphone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iphone-Prefix.pch"; sourceTree = "<group>"; };
 		9A4F0F55193E2A8900CF32DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9A4F0F56193E2A8900CF32DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9A4F0F56193E2A8900CF32DE /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		9A4F0F58193E2A8900CF32DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9A4F0F74193E2AF500CF32DE /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		9A4F0F7A193E306A00CF32DE /* iOSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSViewController.h; sourceTree = "<group>"; };
@@ -1903,6 +1911,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BC725071BF2D90400219807 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				2BC725081BF2D98F00219807 /* Place+CoreDataProperties.h */,
+				2BC725091BF2D98F00219807 /* Place+CoreDataProperties.m */,
+				2BC7250A1BF2D98F00219807 /* Place.h */,
+				2BC7250B1BF2D98F00219807 /* Place.m */,
+				2BC725041BF2D8E200219807 /* Model.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		9A03736F198DA1CF00258E95 /* Box2D */ = {
 			isa = PBXGroup;
 			children = (
@@ -2390,12 +2410,13 @@
 		9A4F0F4C193E2A8900CF32DE /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2BC725071BF2D90400219807 /* Core Data */,
 				9AE2FC7019AE424A0015E2B6 /* SocketRocket */,
 				9A2ED70C19646B0200CA385E /* Controller */,
 				9A2ED70B19646AF600CA385E /* View */,
 				9A998D6A194B90ED00778DFC /* iphone.entitlements */,
 				9A4F0F55193E2A8900CF32DE /* AppDelegate.h */,
-				9A4F0F56193E2A8900CF32DE /* AppDelegate.m */,
+				9A4F0F56193E2A8900CF32DE /* AppDelegate.mm */,
 				9A4F0F58193E2A8900CF32DE /* Images.xcassets */,
 				9A4F0F4D193E2A8900CF32DE /* Supporting Files */,
 			);
@@ -3487,11 +3508,13 @@
 				9A3DA0A81964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A8B1DE41AB4914E00719BBE /* TestManager-Tools.mm in Sources */,
 				9A480890198BE79E0001E188 /* DemoSettingViewController.mm in Sources */,
+				2BC7250C1BF2D98F00219807 /* Place+CoreDataProperties.m in Sources */,
 				9A0375FD198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A36AF1E1AA7ADE200BFC6E7 /* TaskSpec-MultiLocation.mm in Sources */,
 				9A037639198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9AFD8F5E197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A0375E5198DA31900258E95 /* b2Fixture.cpp in Sources */,
+				2BC7250D1BF2D98F00219807 /* Place.m in Sources */,
 				9A0375EB198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9AE6104B1A6EF3BD00175A79 /* TestManager.mm in Sources */,
@@ -3536,7 +3559,7 @@
 				9A0375B5198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A037603198DA31900258E95 /* b2ChainAndPolygonContact.cpp in Sources */,
 				9AECA76C196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
-				9A4F0F57193E2A8900CF32DE /* AppDelegate.m in Sources */,
+				9A4F0F57193E2A8900CF32DE /* AppDelegate.mm in Sources */,
 				9A0375F7198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A5F320B1A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A03767B198DA31900258E95 /* b2Rope.cpp in Sources */,
@@ -3563,6 +3586,7 @@
 				9A037597198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A998D75194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9AEEC68F1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
+				2BC725061BF2D8E200219807 /* Model.xcdatamodeld in Sources */,
 				9AB90B9F194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
 				9A4AA6661A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */,
@@ -3663,7 +3687,7 @@
 				9A03762E198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A03766A198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9AE2FC9019AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
-				9A82B6381941518900534A5F /* AppDelegate.m in Sources */,
+				9A82B6381941518900534A5F /* AppDelegate.mm in Sources */,
 				9AECA76D196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A49A5F3195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
 				9A006CA319522918009BB81C /* iOSViewController+Model.mm in Sources */,
@@ -4888,6 +4912,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2BC725041BF2D8E200219807 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2BC725051BF2D8E200219807 /* Model.xcdatamodel */,
+			);
+			currentVersion = 2BC725051BF2D8E200219807 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9AEA57C518D9EBB20028B80C /* Project object */;
 }
