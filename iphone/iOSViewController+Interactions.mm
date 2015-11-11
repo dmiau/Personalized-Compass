@@ -160,6 +160,39 @@
             [aView setHidden:YES];
         }
     }
+    
+    // Handle the label spatial in Compass
+    if ([self.model->configurations[@"personalized_compass_status"]
+         isEqualToString: @"on"]
+        && [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue]) {
+        for (int i = 0; i < self.model->indices_for_rendering.size(); i++) {
+            int j = self.model->indices_for_rendering[i];
+            CGPoint label_pt_compass =
+            self.model->data_array[j].my_label_info.centroid;
+            CGPoint label_pt = self.renderer->
+            convertCompassPointToMapUV(label_pt_compass,
+                                       self.glkView.frame.size.width,
+                                       self.glkView.frame.size.height);
+            
+            double width = self.model->data_array[j].my_texture_info.size.width;
+            double height = self.model->data_array[j].my_texture_info.size.height;
+            
+            if ((locationInGmap.x - label_pt.x) <= width
+                && (locationInGmap.x - label_pt.x) >= 0
+                && (label_pt.y - locationInGmap.y) <= height
+                && (label_pt.y - locationInGmap.y) >=0) {
+                GMSCameraPosition *camera = [GMSCameraPosition
+                                             cameraWithLatitude:self.model->data_array[j].latitude
+                                             longitude:self.model->data_array[j].longitude
+                                             zoom:self.gmap.camera.zoom
+                                             bearing:self.gmap.camera.bearing
+                                             viewingAngle:self.gmap.camera.viewingAngle];
+                self.gmap.camera = camera;
+            }
+            
+        }
+    }
+    
 }
 
 
