@@ -147,6 +147,22 @@
 }
 
 //--------------------
+// Handle tap event in Google Map
+//--------------------
+- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    CGPoint locationInGmap = [mapView.projection pointForCoordinate:coordinate];
+    NSArray* dialog_array = @[self.viewPanel, self.modelPanel
+                              , self.watchPanel, self.debugPanel];
+    
+    for (UIView* aView in dialog_array){
+        if (!CGRectContainsPoint(aView.bounds, [aView convertPoint:locationInGmap fromView:self.gmap]) && [aView isHidden] == NO){
+            [aView setHidden:YES];
+        }
+    }
+}
+
+
+//--------------------
 // handleGesture detects long pauses, which triggers the following events
 // - drop pin
 // - move the compass
@@ -271,10 +287,10 @@
         
         [self.mapView addAnnotation:pa];
     } else if (!self.gmap.hidden) {
-        CLLocationCoordinate2D touchMapCoordinate =
-        [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+        CGPoint touchInGmap = [self.mapView convertPoint:touchPoint toView:self.gmap];
+        CLLocationCoordinate2D touchCoordinate = [self.gmap.projection coordinateForPoint:touchInGmap];
         GMSMarker *pin = [[GMSMarker alloc] init];
-        pin.position = touchMapCoordinate;
+        pin.position = touchCoordinate;
         pin.title = @"Dropped Pin";
         pin.map = self.gmap;
     }

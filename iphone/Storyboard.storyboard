@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xJv-Aa-iHt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xJv-Aa-iHt">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -48,12 +48,19 @@
                                     <segue destination="g2Y-3e-LXh" kind="push" id="yng-bX-3xc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsp-zM-U3v">
-                                <rect key="frame" x="25" y="574" width="35" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsp-zM-U3v">
+                                <rect key="frame" x="20" y="474" width="30" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="G">
                                     <color key="titleColor" red="0.1535372988" green="1" blue="0.45228059879999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="switchMap:" destination="RVv-fy-219" eventType="touchUpInside" id="LIU-2m-bw1"/>
                                 </connections>
@@ -81,6 +88,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Nfb-xm-KgJ" secondAttribute="trailing" id="0fu-eW-Z33"/>
                             <constraint firstAttribute="trailing" secondItem="MuN-zz-sjI" secondAttribute="trailing" constant="7" id="1QL-O9-B2J"/>
+                            <constraint firstItem="Nsp-zM-U3v" firstAttribute="top" secondItem="w6C-r0-bI1" secondAttribute="bottom" constant="-94" id="4Ek-uv-HWt"/>
                             <constraint firstItem="eEI-mU-khp" firstAttribute="top" secondItem="RNx-RU-M1b" secondAttribute="bottom" id="DCg-Wz-jpA"/>
                             <constraint firstItem="we6-xT-3ZG" firstAttribute="top" secondItem="YGn-3v-wZY" secondAttribute="top" constant="21" id="Dgl-es-oow"/>
                             <constraint firstAttribute="trailing" secondItem="xmf-jM-ph6" secondAttribute="trailing" constant="20" id="EoV-Ib-toj"/>
@@ -96,6 +104,7 @@
                             <constraint firstItem="RNx-RU-M1b" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="dY8-pU-Avc"/>
                             <constraint firstItem="RNx-RU-M1b" firstAttribute="top" secondItem="xmf-jM-ph6" secondAttribute="bottom" constant="20" id="fOJ-Hw-VD5"/>
                             <constraint firstItem="we6-xT-3ZG" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" constant="6" id="hAc-mC-kbg"/>
+                            <constraint firstItem="w6C-r0-bI1" firstAttribute="leading" secondItem="Nsp-zM-U3v" secondAttribute="trailing" constant="-50" id="rJu-Jj-Cv0"/>
                             <constraint firstItem="eEI-mU-khp" firstAttribute="bottom" secondItem="w6C-r0-bI1" secondAttribute="bottom" id="rtM-3g-9o7"/>
                         </constraints>
                     </view>
@@ -123,7 +132,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1303" y="119"/>
+            <point key="canvasLocation" x="1255" y="124"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9aC-4K-GUs">
@@ -1312,9 +1321,9 @@
         <image name="snapshotDefault.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WS4-yg-Oj7"/>
-        <segue reference="yng-bX-3xc"/>
-        <segue reference="9at-fG-ath"/>
         <segue reference="K1H-er-9a7"/>
+        <segue reference="yng-bX-3xc"/>
+        <segue reference="WS4-yg-Oj7"/>
+        <segue reference="9at-fG-ath"/>
     </inferredMetricsTieBreakers>
 </document>
