@@ -10,6 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <CoreData/CoreData.h>
 #import "Place.h"
+#import "AppDelegate.h"
 
 @implementation iOSViewController (Init)
 
@@ -300,10 +301,12 @@
     self.model->data_array.clear();
     std::vector<data> locationData;
     // Fetch the stored data
+    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
     NSError *error;
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
     
-    NSArray *requestResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     for (Place *place in requestResults) {
         data data;

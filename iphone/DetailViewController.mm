@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 #import "AppDelegate.h"
+#import <CoreData/CoreData.h>
+#import "Place.h"
 
 @interface DetailViewController ()
 
@@ -146,7 +148,22 @@
     ([NSString stringWithUTF8String:myData.name.c_str()]);
     // Add the new data to data_array
     self.model->data_array.push_back(myData);
-
+    
+    // Insert data into core data
+    AppDelegate *app = (AppDelegate *)[[AppDelegate alloc] init];
+    
+    NSManagedObjectContext *context = app.managedObjectContext;
+    Place *p = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
+    
+    p.lat = [NSNumber numberWithFloat:myData.latitude];
+    p.lon = [NSNumber numberWithFloat:myData.longitude];
+    p.name = [NSString stringWithCString:myData.name.c_str()
+                                encoding:[NSString defaultCStringEncoding]];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
+    }
     
     self.addButton.enabled = NO;
     self.removeButton.enabled = YES;
