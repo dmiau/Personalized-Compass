@@ -7,6 +7,9 @@
 //
 
 #import "iOSViewController+Search.h"
+#import "AppDelegate.h"
+#import <CoreData/CoreData.h>
+#import "Place.h"
 
 
 //------------------
@@ -145,7 +148,7 @@
     marker.title = item.name;
     marker.snippet = item.placemark.title;
     marker.map = self.gmap;
-    
+
     //    [self.mapView setUserTrackingMode:MKUserTrackingModeNone];
 }
 
@@ -188,6 +191,20 @@
     ([NSString stringWithUTF8String:myData.name.c_str()]);
     // Add the new data to data_array
     self.model->data_array.push_back(myData);
+    
+    // Insert data into core data
+    AppDelegate *app = (AppDelegate *)[[AppDelegate alloc] init];
+    
+    Place *p = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:app.managedObjectContext];
+    
+    p.lat = [NSNumber numberWithFloat:item.placemark.coordinate.latitude];
+    p.lon = [NSNumber numberWithFloat:item.placemark.coordinate.longitude];
+    p.name = item.name;
+    
+    NSError *error;
+    if (![app.managedObjectContext save:&error]) {
+        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
+    }
     
     //-------------
     // Add the location to the model

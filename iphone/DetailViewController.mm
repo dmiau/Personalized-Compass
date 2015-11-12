@@ -152,8 +152,7 @@
     // Insert data into core data
     AppDelegate *app = (AppDelegate *)[[AppDelegate alloc] init];
     
-    NSManagedObjectContext *context = app.managedObjectContext;
-    Place *p = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:context];
+    Place *p = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:app.managedObjectContext];
     
     p.lat = [NSNumber numberWithFloat:myData.latitude];
     p.lon = [NSNumber numberWithFloat:myData.longitude];
@@ -161,7 +160,7 @@
                                 encoding:[NSString defaultCStringEncoding]];
     
     NSError *error;
-    if (![context save:&error]) {
+    if (![app.managedObjectContext save:&error]) {
         NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
     }
     
