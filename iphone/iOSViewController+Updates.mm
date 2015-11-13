@@ -433,6 +433,13 @@
                                                    initWithTarget:self action:@selector(handleGesture:)];
             lpgrG.minimumPressDuration = 0.5;
             [self.gmap addGestureRecognizer:lpgrG];
+            
+            UIPinchGestureRecognizer *pgrG = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchGesture:)];
+            pgrG.delegate = self;
+            
+            [self.gmap addGestureRecognizer:pgrG];
+            
+            
         }
         
         self.gmap.hidden = NO;

@@ -436,12 +436,15 @@
         [self.mapView setRotateEnabled:NO];
         [self.mapView setScrollEnabled:NO];
         self.gmap.settings.scrollGestures = NO;
+        [self.gmap.settings setAllGesturesEnabled:NO];
+        
     }else{
         [self.mapView setUserInteractionEnabled:YES];
         [self.mapView setZoomEnabled:YES];
         [self.mapView setRotateEnabled:YES];
         [self.mapView setScrollEnabled:YES];
         self.gmap.settings.scrollGestures = YES;
+        [self.gmap.settings setAllGesturesEnabled:YES];
     }
     self.UIConfigurations[@"UICompassTouched"] =
     [NSNumber numberWithBool: state];
