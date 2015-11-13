@@ -438,15 +438,17 @@
             pgrG.delegate = self;
             
             [self.gmap addGestureRecognizer:pgrG];
-            
-            
         }
         
         self.gmap.hidden = NO;
         self.mapView.hidden = YES;
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touch:)];
+        [recognizer setNumberOfTapsRequired:1];
+        [recognizer setNumberOfTouchesRequired:1];
+        [self.gmap addGestureRecognizer:recognizer];
         
         [self updateGMapBasedOnAMap];
-        
+
         [sender setTitle:@"A" forState:UIControlStateNormal];
     } else {
         [self.updateMapTimer invalidate];

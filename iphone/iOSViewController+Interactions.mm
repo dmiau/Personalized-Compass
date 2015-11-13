@@ -13,9 +13,16 @@
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    
+
     UITouch* touch = [touches anyObject];
     CGPoint pos = [touch locationInView:self.mapView];
+    if ([touch view] == self.gmap) {
+               NSLog(@"FUN TESTING gmap");
+    }
+    
+    if ([touch view] == self.mapView) {
+        NSLog(@"FUN TESTING Amap");
+    }
     
     
     // Convert it to the real coordinate
@@ -150,8 +157,8 @@
 //--------------------
 // Handle tap event in Google Map
 //--------------------
-- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    CGPoint locationInGmap = [mapView.projection pointForCoordinate:coordinate];
+-(void) touch: (UIGestureRecognizer *) gestureRecognizer {
+    CGPoint locationInGmap = [gestureRecognizer locationInView:self.gmap];
     NSArray* dialog_array = @[self.viewPanel, self.modelPanel
                               , self.watchPanel, self.debugPanel];
     
@@ -189,12 +196,9 @@
                                              viewingAngle:self.gmap.camera.viewingAngle];
                 self.gmap.camera = camera;
             }
-            
         }
     }
-    
 }
-
 
 //--------------------
 // handleGesture detects long pauses, which triggers the following events
@@ -203,7 +207,6 @@
 //--------------------
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
-    NSLog(@"FUN TESTING");
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CGPoint glkTouchPoint = [gestureRecognizer locationInView:self.glkView];
     
