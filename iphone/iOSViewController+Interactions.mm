@@ -203,6 +203,7 @@
 //--------------------
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
+    NSLog(@"FUN TESTING");
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CGPoint glkTouchPoint = [gestureRecognizer locationInView:self.glkView];
     
@@ -436,7 +437,8 @@
         [self.mapView setRotateEnabled:NO];
         [self.mapView setScrollEnabled:NO];
         self.gmap.settings.scrollGestures = NO;
-        [self.gmap.settings setAllGesturesEnabled:NO];
+        self.gmap.settings.zoomGestures = NO;
+        self.gmap.settings.rotateGestures = NO;
         
     }else{
         [self.mapView setUserInteractionEnabled:YES];
@@ -444,7 +446,8 @@
         [self.mapView setRotateEnabled:YES];
         [self.mapView setScrollEnabled:YES];
         self.gmap.settings.scrollGestures = YES;
-        [self.gmap.settings setAllGesturesEnabled:YES];
+        self.gmap.settings.zoomGestures = YES;
+        self.gmap.settings.rotateGestures = YES;
     }
     self.UIConfigurations[@"UICompassTouched"] =
     [NSNumber numberWithBool: state];
