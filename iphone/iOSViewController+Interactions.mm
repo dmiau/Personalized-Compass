@@ -16,14 +16,6 @@
 
     UITouch* touch = [touches anyObject];
     CGPoint pos = [touch locationInView:self.mapView];
-    if ([touch view] == self.gmap) {
-               NSLog(@"FUN TESTING gmap");
-    }
-    
-    if ([touch view] == self.mapView) {
-        NSLog(@"FUN TESTING Amap");
-    }
-    
     
     // Convert it to the real coordinate
     CLLocationCoordinate2D myCoord = [self.mapView convertPoint:pos toCoordinateFromView:self.mapView];
