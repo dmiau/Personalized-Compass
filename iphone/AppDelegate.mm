@@ -28,41 +28,40 @@
     
     [GMSServices provideAPIKey:@"AIzaSyDdOmlH3SRnitZxFkhlQz7W81ERDShHXMk"];
     
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    [self deleteAllObjects:@"Place" in:context];
-    Place *p1 = [NSEntityDescription
-                 insertNewObjectForEntityForName:@"Place"
-                 inManagedObjectContext:context];
-    
-    p1.name = @"Time Square";
-    p1.lon = [NSNumber numberWithDouble:-73.9855];
-    p1.lat = [NSNumber numberWithDouble:40.7579];
-    p1.area = @"New York";
-    
-    Place *p2 = [NSEntityDescription
-                 insertNewObjectForEntityForName:@"Place"
-                 inManagedObjectContext:context];
-    
-    p2.name = @"United Nations";
-    p2.lon = [NSNumber numberWithDouble:-73.967729];
-    p2.lat = [NSNumber numberWithDouble:40.748961];
-    p2.area = @"New York";
-    
-    Place *p3 = [NSEntityDescription
-                 insertNewObjectForEntityForName:@"Place"
-                 inManagedObjectContext:context];
-    
-    p3.name = @"Newark Liberty International Airport";
-    p3.lon = [NSNumber numberWithDouble:-74.1745];
-    p3.lat = [NSNumber numberWithDouble:40.6895];
-    p3.area = @"New Jersey";
-    
-    
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
-    }
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    [self deleteAllObjects:@"Place" in:context];
+//    Place *p1 = [NSEntityDescription
+//                 insertNewObjectForEntityForName:@"Place"
+//                 inManagedObjectContext:context];
+//    
+//    p1.name = @"Time Square";
+//    p1.lon = [NSNumber numberWithDouble:-73.9855];
+//    p1.lat = [NSNumber numberWithDouble:40.7579];
+//    p1.area = @"New York";
+//    
+//    Place *p2 = [NSEntityDescription
+//                 insertNewObjectForEntityForName:@"Place"
+//                 inManagedObjectContext:context];
+//    
+//    p2.name = @"United Nations";
+//    p2.lon = [NSNumber numberWithDouble:-73.967729];
+//    p2.lat = [NSNumber numberWithDouble:40.748961];
+//    p2.area = @"New York";
+//    
+//    Place *p3 = [NSEntityDescription
+//                 insertNewObjectForEntityForName:@"Place"
+//                 inManagedObjectContext:context];
+//    
+//    p3.name = @"Newark Liberty International Airport";
+//    p3.lon = [NSNumber numberWithDouble:-74.1745];
+//    p3.lat = [NSNumber numberWithDouble:40.6895];
+//    p3.area = @"New Jersey";
+//    
+//    
+//    NSError *error;
+//    if (![context save:&error]) {
+//        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
+//    }
     
     return YES;
 }
@@ -148,15 +147,46 @@
         return __persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"FailedBankCD.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PersonalCompass.sqlite"];
     NSError *error = nil;
-    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error]) {
-        
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+//    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+//    
+//    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error]) {
+//        
+//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//        abort();
+//    }
+//    
+//    return __persistentStoreCoordinator;
+//    
+//    
+
+    /*
+     Set up the store.
+     For the sake of illustration, provide a pre-populated default store.
+     */
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    // If the expected store doesn't exist, copy the default store.
+    if (![fileManager fileExistsAtPath:[storeURL path]] || YES) {
+        NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"PersonalCompass"      ofType:@"sqlite"];
+        NSLog(@"FUN S %@", defaultStorePath);
+        if (defaultStorePath) {
+            [fileManager copyItemAtPath:defaultStorePath toPath:[storeURL path] error:NULL];
+        }
     }
+    
+    NSURL *storeUrl = [NSURL fileURLWithPath:[storeURL path]];
+    
+    NSLog(@"FUN SS %@", [storeURL path]);
+    
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber   numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    
+    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
+        // Update to handle the error appropriately.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }    
     
     return __persistentStoreCoordinator;
 }
@@ -166,6 +196,7 @@
 // Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
 {
+    NSLog(@"FUN %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
@@ -173,14 +204,15 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-    
+
     NSError *error;
     NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    for (NSManagedObject *managedObject in items) {
-        [managedObjectContext deleteObject:managedObject];
-        NSLog(@"%@ object deleted",entityDescription);
-    }
+    NSLog(@"FUN TEST %d", [items count]);
+//    for (NSManagedObject *managedObject in items) {
+//        [managedObjectContext deleteObject:managedObject];
+//        NSLog(@"%@ object deleted",entityDescription);
+//    }
     if (![managedObjectContext save:&error]) {
         NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
     }

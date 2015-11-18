@@ -39,6 +39,9 @@
 		2BC725061BF2D8E200219807 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BC725041BF2D8E200219807 /* Model.xcdatamodeld */; };
 		2BC7250C1BF2D98F00219807 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC725091BF2D98F00219807 /* Place+CoreDataProperties.m */; };
 		2BC7250D1BF2D98F00219807 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7250B1BF2D98F00219807 /* Place.m */; };
+		2BCBE8B71BFD0B90004A340D /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BCBE8B61BFD0B90004A340D /* PersonalCompass.sqlite */; };
+		2BCBE8B81BFD0B90004A340D /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BCBE8B61BFD0B90004A340D /* PersonalCompass.sqlite */; };
+		2BCBE8B91BFD0B90004A340D /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BCBE8B61BFD0B90004A340D /* PersonalCompass.sqlite */; };
 		9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
@@ -1320,6 +1323,7 @@
 		2BC725091BF2D98F00219807 /* Place+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Place+CoreDataProperties.m"; sourceTree = "<group>"; };
 		2BC7250A1BF2D98F00219807 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		2BC7250B1BF2D98F00219807 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		2BCBE8B61BFD0B90004A340D /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
 		9A0060C41AA65CCA00E60F10 /* watchScale.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = watchScale.tif; sourceTree = "<group>"; };
 		9A006CA019522918009BB81C /* iOSViewController+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Model.h"; sourceTree = "<group>"; };
 		9A006CA119522918009BB81C /* iOSViewController+Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Model.mm"; sourceTree = "<group>"; };
@@ -1942,6 +1946,7 @@
 		2BC725071BF2D90400219807 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				2BCBE8B61BFD0B90004A340D /* PersonalCompass.sqlite */,
 				2BC725081BF2D98F00219807 /* Place+CoreDataProperties.h */,
 				2BC725091BF2D98F00219807 /* Place+CoreDataProperties.m */,
 				2BC7250A1BF2D98F00219807 /* Place.h */,
@@ -3099,6 +3104,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BCBE8B81BFD0B90004A340D /* PersonalCompass.sqlite in Resources */,
 				9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */,
 				9A9482111991D46A0036249C /* setup.png in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
@@ -3149,6 +3155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BCBE8B91BFD0B90004A340D /* PersonalCompass.sqlite in Resources */,
 				9AECA775196B1545008ADAEC /* ExtraPanels.xib in Resources */,
 				9AFC0BA81AAA505F0085543C /* testSpec.plist in Resources */,
 				9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
@@ -3303,6 +3310,7 @@
 				9A25D9B61AADF7810050C4CD /* locate.jpg in Resources */,
 				9A25D9BA1AADF7810050C4CD /* lplus.jpg in Resources */,
 				9A25D9BE1AADF7810050C4CD /* orient.jpg in Resources */,
+				2BCBE8B71BFD0B90004A340D /* PersonalCompass.sqlite in Resources */,
 				9A25D9C21AADF7810050C4CD /* triangulate.jpg in Resources */,
 				9A480898198BF1F70001E188 /* debug.png in Resources */,
 				9A42A09519A79CA200BB0101 /* About.txt in Resources */,
