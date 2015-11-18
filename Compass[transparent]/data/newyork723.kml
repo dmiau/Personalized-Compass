@@ -2,7 +2,7 @@
 <kml xmlns='http://www.opengis.net/kml/2.2'>
 <Document>
 <Placemark>
-<name>NYC Public Library</name>
+<name>NYC Library</name>
 <Point>
 <coordinates>-73.982,40.753,0.0</coordinates>
 </Point>
@@ -12,13 +12,6 @@
 <name>United Nations</name>
 <Point>
 <coordinates>-73.968,40.7493,0.0</coordinates>
-</Point>
-</Placemark>
-
-<Placemark>
-<name>Empire State Building </name>
-<Point>
-<coordinates>-73.9858,40.7478,0.0</coordinates>
 </Point>
 </Placemark>
 
@@ -33,6 +26,90 @@
 <name>Washington Sq.</name>
 <Point>
 <coordinates>-73.9971,40.7307,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Blue Note</name>
+<Point>
+<coordinates>-74.0007,40.7309,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>World Trade Center</name>
+<Point>
+<coordinates>-74.0124,40.7118,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Empire State Building</name>
+<Point>
+<coordinates>-73.9856,40.7485,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Rockefeller Center</name>
+<Point>
+<coordinates>-73.9784,40.7586,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Javits Convention Center</name>
+<Point>
+<coordinates>-74.0025,40.7577,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Columbus Curcle</name>
+<Point>
+<coordinates>-73.9818,40.768,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Penn Station</name>
+<Point>
+<coordinates>-73.9919,40.7497,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Boston</name>
+<Point>
+<coordinates>-71.0561,42.36,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Providence</name>
+<Point>
+<coordinates>-71.4013,41.8259,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Hartford</name>
+<Point>
+<coordinates>-72.6686,41.7685,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>231 Subway</name>
+<Point>
+<coordinates>-73.9048,40.8789,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Fordham </name>
+<Point>
+<coordinates>-73.8906,40.8612,0.0</coordinates>
 </Point>
 </Placemark>
 

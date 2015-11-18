@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A284" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="Place" representedClassName="Place" syncable="YES">
         <attribute name="area" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Snapshot" representedClassName="Snapshot" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="area" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="coordinateRegion" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="date_str" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eios_display_wh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ios_display_wh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_answer_list" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="mapType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orientation" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="osx_coordinateRegion" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="osx_display_wh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selected_ids" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="time_stamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="visualizationType" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Place" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Snapshot" positionX="-63" positionY="9" width="128" height="300"/>
     </elements>
 </model>

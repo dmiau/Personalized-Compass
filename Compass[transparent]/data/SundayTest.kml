@@ -4,98 +4,203 @@
 <Placemark>
 <name>Vincent's</name>
 <Point>
-<coordinates>-74.0138,40.7078,0.0</coordinates>
+<coordinates>-74.0138015747,40.7078018188,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
-<name>Columbia University</name>
+<name>I-House</name>
 <Point>
-<coordinates>-73.9626,40.8075,0.0</coordinates>
+<coordinates>-73.962600708,40.8074989319,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>5E</name>
 <Point>
-<coordinates>-73.7816,41.0062,0.0</coordinates>
+<coordinates>-73.7816009521,41.0061988831,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>The Museum of Modern Art</name>
 <Point>
-<coordinates>-73.9773,40.7614,0.0</coordinates>
+<coordinates>-73.9773025513,40.7613983154,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>Grand Central</name>
 <Point>
-<coordinates>-73.9771,40.753,0.0</coordinates>
+<coordinates>-73.9770965576,40.7529983521,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>Home@Bronx</name>
 <Point>
-<coordinates>-73.9125,40.8857,0.0</coordinates>
+<coordinates>-73.9124984741,40.8857002258,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>Michael@Columbus</name>
 <Point>
-<coordinates>-73.9848,40.7693,0.0</coordinates>
+<coordinates>-73.9848022461,40.7692985535,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>Governors Island</name>
 <Point>
-<coordinates>-74.0168,40.6894,0.0</coordinates>
+<coordinates>-74.0167999268,40.6893997192,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>Newark Liberty International Airport</name>
 <Point>
-<coordinates>-74.1745,40.6895,0.0</coordinates>
+<coordinates>-74.1744995117,40.6894989014,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>Michael@Scarsdale</name>
 <Point>
-<coordinates>-73.7978,41.0055,0.0</coordinates>
+<coordinates>-73.7977981567,41.0055007935,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>Richard's</name>
 <Point>
-<coordinates>-73.9572,40.7728,0.0</coordinates>
-</Point>
-</Placemark>
-
-<Placemark>
-<name>White Plains</name>
-<Point>
-<coordinates>-73.7629,41.034,0.0</coordinates>
+<coordinates>-73.9571990967,40.7728004456,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>Stew Leonard's</name>
 <Point>
-<coordinates>-73.8644,40.9738,0.0</coordinates>
+<coordinates>-73.864402771,40.9738006592,0.0</coordinates>
 </Point>
 </Placemark>
 
 <Placemark>
 <name>Bronx Zoo</name>
 <Point>
-<coordinates>-73.877,40.8506,0.0</coordinates>
+<coordinates>-73.8769989014,40.8506011963,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>United Nations</name>
+<Point>
+<coordinates>-73.9680023193,40.7495994568,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Empire State Building</name>
+<Point>
+<coordinates>-73.9856033325,40.748500824,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>World Trade Center</name>
+<Point>
+<coordinates>-74.0123977661,40.7117996216,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Columbia Presbyterian Hospital-Heart Center</name>
+<Point>
+<coordinates>-73.943397522,40.8414993286,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Jersey City, NJ</name>
+<Point>
+<coordinates>-74.0775985718,40.7281990051,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Boston, MA</name>
+<Point>
+<coordinates>-71.0597000122,42.3591003418,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Houston and 2nd</name>
+<Point>
+<coordinates>-73.9913024902,40.7238006592,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>The New York Public Library</name>
+<Point>
+<coordinates>-73.9817962646,40.7531013489,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>South Ferry</name>
+<Point>
+<coordinates>-74.0130004883,40.7011985779,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Time sq </name>
+<Point>
+<coordinates>-73.9860992432,40.7578010559,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Rockfeller Ctr.</name>
+<Point>
+<coordinates>-73.9792022705,40.7589988708,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Chinatown</name>
+<Point>
+<coordinates>-73.9969024658,40.7168998718,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>New York City Hall</name>
+<Point>
+<coordinates>-74.005897522,40.7126998901,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Albany, NY</name>
+<Point>
+<coordinates>-73.7562332153,42.6525802612,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>New York, NY</name>
+<Point>
+<coordinates>-73.9912872314,40.723777771,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>New Haven, CT</name>
+<Point>
+<coordinates>-72.9281616211,41.3081512451,0.0</coordinates>
 </Point>
 </Placemark>
 

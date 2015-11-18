@@ -4,14 +4,14 @@
 <Placemark>
 <name>Columbia University </name>
 <Point>
-<coordinates>-73.9625,40.8075,0.0</coordinates>
-<spans>0.0100836,0.00870058,0.0</spans>
+<coordinates>-73.9625015259,40.8074989319,0.0</coordinates>
+<spans>0.0100835999474,0.00870058033615,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-28.6099</orientation>
+<orientation>-28.6098995209</orientation>
 <kmlFilename>SundayTest.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -28,14 +28,14 @@
 <Placemark>
 <name>Wedge NYU</name>
 <Point>
-<coordinates>-73.9841,40.7505,0.0</coordinates>
-<spans>0.0110409,0.0108143,0.0</spans>
+<coordinates>-73.9841003418,40.7504997253,0.0</coordinates>
+<spans>0.0110408999026,0.010814299807,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-15.1201</orientation>
+<orientation>-15.1201000214</orientation>
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -52,14 +52,14 @@
 <Placemark>
 <name>Glasgow Airport</name>
 <Point>
-<coordinates>-4.4323,55.8646,0.0</coordinates>
-<spans>0.0132793,0.00973189,0.0</spans>
+<coordinates>-4.43230009079,55.8646011353,0.0</coordinates>
+<spans>0.0132793001831,0.00973188970238,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-14.1725</orientation>
+<orientation>-14.1724996567</orientation>
 <kmlFilename>StAndrews723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -76,14 +76,14 @@
 <Placemark>
 <name>Edinburg Airport</name>
 <Point>
-<coordinates>-3.34842,55.9523,0.0</coordinates>
-<spans>0.0336001,0.0237107,0.0</spans>
+<coordinates>-3.34841990471,55.9523010254,0.0</coordinates>
+<spans>0.0336000993848,0.023710699752,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-17.6119</orientation>
+<orientation>-17.6119003296</orientation>
 <kmlFilename>StAndrews723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -100,14 +100,14 @@
 <Placemark>
 <name>Taipei 101</name>
 <Point>
-<coordinates>121.564,25.0334,0.0</coordinates>
-<spans>0.00350116,0.00498636,0.0</spans>
+<coordinates>121.564002991,25.0333995819,0.0</coordinates>
+<spans>0.0035011600703,0.00498636020347,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>0.00049282</orientation>
+<orientation>0.00049281999236</orientation>
 <kmlFilename>Taiwan.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -124,8 +124,8 @@
 <Placemark>
 <name>Tokyo ipad</name>
 <Point>
-<coordinates>139.692,35.6895,0.0</coordinates>
-<spans>0.00385328,0.00388755,0.0</spans>
+<coordinates>139.692001343,35.6894989014,0.0</coordinates>
+<spans>0.00385328009725,0.00388754997402,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
@@ -148,14 +148,14 @@
 <Placemark>
 <name>New York ipad</name>
 <Point>
-<coordinates>-73.9824,40.753,0.0</coordinates>
-<spans>0.00690857,0.00462543,0.0</spans>
+<coordinates>-73.9823989868,40.7529983521,0.0</coordinates>
+<spans>0.00690856995061,0.00462542986497,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-74.7252</orientation>
+<orientation>-74.7251968384</orientation>
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -172,14 +172,14 @@
 <Placemark>
 <name>Tower of London </name>
 <Point>
-<coordinates>-0.167527,51.5104,0.0</coordinates>
-<spans>0.0110394,0.00936732,0.0</spans>
+<coordinates>-0.167527005076,51.5103988647,0.0</coordinates>
+<spans>0.0110393995419,0.00936731975526,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-10.3366</orientation>
+<orientation>-10.3366003036</orientation>
 <kmlFilename>london711.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -196,14 +196,14 @@
 <Placemark>
 <name>Port Authority</name>
 <Point>
-<coordinates>-73.9911,40.756,0.0</coordinates>
-<spans>0.00415609,0.00368593,0.0</spans>
+<coordinates>-73.9910964966,40.7560005188,0.0</coordinates>
+<spans>0.0041560898535,0.00368593004532,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-25.5141</orientation>
+<orientation>-25.5140991211</orientation>
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -220,14 +220,14 @@
 <Placemark>
 <name>Hartford</name>
 <Point>
-<coordinates>-72.5825,41.972,0.0</coordinates>
-<spans>0.0392661,0.0458881,0.0</spans>
+<coordinates>-72.5824966431,41.9720001221,0.0</coordinates>
+<spans>0.0392660982907,0.0458880998194,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-2.61274e-08</orientation>
+<orientation>-2.61274006874e-08</orientation>
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -244,14 +244,14 @@
 <Placemark>
 <name>Fordham </name>
 <Point>
-<coordinates>-73.9027,40.8684,0.0</coordinates>
-<spans>0.00186983,0.00102123,0.0</spans>
+<coordinates>-73.9027023315,40.8684005737,0.0</coordinates>
+<spans>0.00186982995365,0.00102123001125,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-99.0453</orientation>
+<orientation>-99.0453033447</orientation>
 <kmlFilename>newyork723.kml</kmlFilename>
 <address></address>
 <selected_ids></selected_ids>
@@ -266,51 +266,99 @@
 </Placemark>
 
 <Placemark>
-<name>Soho</name>
+<name>Waldo</name>
 <Point>
-<coordinates>-74.0005,40.7226,0.0</coordinates>
-<spans>0.00171411,0.00169424,0.0</spans>
+<coordinates>-87.9476547241,43.6741905212,0.0</coordinates>
+<spans>0.0098580904305,0.0112076932564,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-14.3024</orientation>
-<kmlFilename>newyork723.kml</kmlFilename>
+<orientation>-360</orientation>
+<kmlFilename>paper.kml</kmlFilename>
 <address></address>
-<selected_ids>5, 6</selected_ids>
-<is_answer_list></is_answer_list>
+<selected_ids>0, 2, 1</selected_ids>
+<is_answer_list>0, 0, 0</is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
 <notes></notes>
-<date>8/7/14, 11:49:48 AM Eastern Daylight Time</date>
-<deviceType>1879922208</deviceType>
-<visualizationType>1</visualizationType>
+<date>4/2/15, 9:22:12 AM Eastern Daylight Time</date>
+<deviceType>-1068106586</deviceType>
+<visualizationType>-1068106586</visualizationType>
 </Placemark>
 
 <Placemark>
-<name>wedge rotation</name>
+<name>Waldo, me</name>
 <Point>
-<coordinates>-73.9836,40.7532,0.0</coordinates>
-<spans>0.00456827,0.00396584,0.0</spans>
+<coordinates>-69.0776062012,44.4922790527,0.0</coordinates>
+<spans>0.108666956425,0.12184702605,0.0</spans>
 </Point>
 <OSXPoint>
 <osxcoordinates>0,0,0.0</osxcoordinates>
 <osxspans>0,0,0.0</osxspans>
 </OSXPoint>
-<orientation>-27.9877</orientation>
-<kmlFilename>SundayTest.kml</kmlFilename>
+<orientation>-1.73026946868e-05</orientation>
+<kmlFilename>paper.kml</kmlFilename>
 <address></address>
-<selected_ids>4, 14, 20, 22</selected_ids>
-<is_answer_list></is_answer_list>
+<selected_ids>5, 4, 6</selected_ids>
+<is_answer_list>0, 0, 0</is_answer_list>
 <ios_display_wh>0,0,0.0</ios_display_wh>
 <eios_display_wh>0,0,0.0</eios_display_wh>
 <osx_display_wh>0,0,0.0</osx_display_wh>
 <notes></notes>
-<date>8/14/14, 5:22:47 PM Eastern Daylight Time</date>
-<deviceType>1879922208</deviceType>
-<visualizationType>1</visualizationType>
+<date>4/2/15, 9:34:54 AM Eastern Daylight Time</date>
+<deviceType>-1068415753</deviceType>
+<visualizationType>-1068415753</visualizationType>
+</Placemark>
+
+<Placemark>
+<name>mySnapshot</name>
+<Point>
+<coordinates>-74.0060348511,41.3078269958,0.0</coordinates>
+<spans>0.0100298281759,0.0118427351117,0.0</spans>
+</Point>
+<OSXPoint>
+<osxcoordinates>0,0,0.0</osxcoordinates>
+<osxspans>0,0,0.0</osxspans>
+</OSXPoint>
+<orientation>-0</orientation>
+<kmlFilename>SundayTest.kml</kmlFilename>
+<address></address>
+<selected_ids>27, 28, 26</selected_ids>
+<is_answer_list>0, 0, 0</is_answer_list>
+<ios_display_wh>0,0,0.0</ios_display_wh>
+<eios_display_wh>0,0,0.0</eios_display_wh>
+<osx_display_wh>0,0,0.0</osx_display_wh>
+<notes></notes>
+<date>4/4/15, 8:51:15 PM Eastern Daylight Time</date>
+<deviceType>-1068335006</deviceType>
+<visualizationType>-1068335006</visualizationType>
+</Placemark>
+
+<Placemark>
+<name>paper</name>
+<Point>
+<coordinates>-73.9709266038,40.7765832267,0.0</coordinates>
+<spans>0.00439057336256,0.00532626545328,0.0</spans>
+</Point>
+<OSXPoint>
+<osxcoordinates>0,0,0.0</osxcoordinates>
+<osxspans>0,0,0.0</osxspans>
+</OSXPoint>
+<orientation>-0</orientation>
+<kmlFilename>SundayTest.kml</kmlFilename>
+<address></address>
+<selected_ids>10, 6, 1</selected_ids>
+<is_answer_list>0, 0, 0</is_answer_list>
+<ios_display_wh>0,0,0.0</ios_display_wh>
+<eios_display_wh>0,0,0.0</eios_display_wh>
+<osx_display_wh>0,0,0.0</osx_display_wh>
+<notes></notes>
+<date>9/25/15, 8:38:30 AM Eastern Daylight Time</date>
+<deviceType>214530832</deviceType>
+<visualizationType>4263936</visualizationType>
 </Placemark>
 
 </Document>

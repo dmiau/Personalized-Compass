@@ -186,6 +186,7 @@ public:
     MKCoordinateRegion coordinateRegion; //iOS
     MKCoordinateRegion osx_coordinateRegion; //iOS
     double orientation;
+    // similar to area
     NSString* kmlFilename;
     
     // Visualization and device spec

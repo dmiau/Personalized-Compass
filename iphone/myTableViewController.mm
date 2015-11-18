@@ -213,7 +213,7 @@
             p1.name = [NSString stringWithCString:self.model->data_array[j].name.c_str() encoding:[NSString defaultCStringEncoding]];
             p1.lon = [NSNumber numberWithDouble:self.model->data_array[j].latitude];
             p1.lat = [NSNumber numberWithDouble:self.model->data_array[j].longitude];
-//            if (filename == )
+
             if ([filename isEqualToString:@"london.kml"]) {
                 p1.area = @"London";
             } else if ([filename isEqualToString:@"montreal.kml"]) {

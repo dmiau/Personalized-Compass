@@ -64,5 +64,33 @@
 </Point>
 </Placemark>
 
+<Placemark>
+<name>Canary Wharf</name>
+<Point>
+<coordinates>-0.0164777,51.5041,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Tower of London</name>
+<Point>
+<coordinates>-0.07601,51.5081,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>City Hall</name>
+<Point>
+<coordinates>-0.0786525,51.5048,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>London Waterloo Rail Station</name>
+<Point>
+<coordinates>-0.1131,51.5033,0.0</coordinates>
+</Point>
+</Placemark>
+
 </Document>
 </kml>
