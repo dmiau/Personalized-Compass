@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+<Document>
+<Placemark>
+<name>Yellowstone National Park</name>
+<Point>
+<coordinates>-110.560806274,44.6201210022,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Salt Lake City, UT</name>
+<Point>
+<coordinates>-111.891044617,40.7607803345,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Seattle, WA</name>
+<Point>
+<coordinates>-122.332069397,47.6062088013,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>San Francisco, CA</name>
+<Point>
+<coordinates>-122.419418335,37.7749290466,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>New York, NY</name>
+<Point>
+<coordinates>-73.9912872314,40.723777771,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Minneapolis, MN</name>
+<Point>
+<coordinates>-93.2638397217,44.97996521,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Chicago, IL</name>
+<Point>
+<coordinates>-87.6324310303,41.8832206726,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Grand Canyon National Park</name>
+<Point>
+<coordinates>-112.191467285,36.2368583679,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Yosemite National Park</name>
+<Point>
+<coordinates>-119.515205383,37.8396263123,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Los Angeles, CA</name>
+<Point>
+<coordinates>-118.253395081,34.05443573,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Las Vegas, NV</name>
+<Point>
+<coordinates>-115.173950195,36.11277771,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Phoenix, AZ</name>
+<Point>
+<coordinates>-112.074035645,33.4483757019,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Denver, CO</name>
+<Point>
+<coordinates>-104.984703064,39.7391548157,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Bozeman Yellowstone International Airport</name>
+<Point>
+<coordinates>-111.160041809,45.7777061462,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Jackson Hole Airport</name>
+<Point>
+<coordinates>-110.737594604,43.6063690186,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Napa, CA</name>
+<Point>
+<coordinates>-122.289405823,38.2972412109,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>San Jose, CA</name>
+<Point>
+<coordinates>-121.888145447,37.3347930908,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Denver, CO</name>
+<Point>
+<coordinates>-104.984855652,39.7384529114,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Salt Lake City, UT</name>
+<Point>
+<coordinates>-111.888145447,40.7584762573,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Portland, OR</name>
+<Point>
+<coordinates>-122.681427002,45.5160179138,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Albuquerque, NM</name>
+<Point>
+<coordinates>-106.649238586,35.0842475891,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Helena, MT</name>
+<Point>
+<coordinates>-112.020454407,46.5910682678,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Boise, ID</name>
+<Point>
+<coordinates>-116.203781128,43.6134986877,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Cheyenne, WY</name>
+<Point>
+<coordinates>-104.81880188,41.1402397156,0.0</coordinates>
+</Point>
+</Placemark>
+
+</Document>
+</kml>

@@ -21,6 +21,168 @@
 		2B0FFDDB1BF2A94600ADD137 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDA1BF2A94600ADD137 /* Security.framework */; };
 		2B0FFDDD1BF2A95100ADD137 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDC1BF2A95100ADD137 /* SystemConfiguration.framework */; };
 		2B0FFDDF1BF2A95D00ADD137 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */; };
+		2B1F0AA61BFD48FB001CB7EF /* default.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AA51BFD48FB001CB7EF /* default.snapshot */; };
+		2B1F0AA71BFD48FB001CB7EF /* default.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AA51BFD48FB001CB7EF /* default.snapshot */; };
+		2B1F0AA81BFD48FB001CB7EF /* default.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AA51BFD48FB001CB7EF /* default.snapshot */; };
+		2B1F0AA91BFD48FB001CB7EF /* default.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AA51BFD48FB001CB7EF /* default.snapshot */; };
+		2B1F0AAA1BFD48FB001CB7EF /* default.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AA51BFD48FB001CB7EF /* default.snapshot */; };
+		2B1F0AAB1BFD48FB001CB7EF /* default.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AA51BFD48FB001CB7EF /* default.snapshot */; };
+		2B1F0AC61BFD4915001CB7EF /* directions.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAC1BFD4915001CB7EF /* directions.kml */; };
+		2B1F0AC71BFD4915001CB7EF /* directions.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAC1BFD4915001CB7EF /* directions.kml */; };
+		2B1F0AC81BFD4915001CB7EF /* directions.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAC1BFD4915001CB7EF /* directions.kml */; };
+		2B1F0AC91BFD4915001CB7EF /* directions.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAC1BFD4915001CB7EF /* directions.kml */; };
+		2B1F0ACA1BFD4915001CB7EF /* directions.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAC1BFD4915001CB7EF /* directions.kml */; };
+		2B1F0ACB1BFD4915001CB7EF /* directions.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAC1BFD4915001CB7EF /* directions.kml */; };
+		2B1F0ACC1BFD4915001CB7EF /* governors_island.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */; };
+		2B1F0ACD1BFD4915001CB7EF /* governors_island.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */; };
+		2B1F0ACE1BFD4915001CB7EF /* governors_island.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */; };
+		2B1F0ACF1BFD4915001CB7EF /* governors_island.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */; };
+		2B1F0AD01BFD4915001CB7EF /* governors_island.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */; };
+		2B1F0AD11BFD4915001CB7EF /* governors_island.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */; };
+		2B1F0AD21BFD4915001CB7EF /* history1.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAE1BFD4915001CB7EF /* history1.kml */; };
+		2B1F0AD31BFD4915001CB7EF /* history1.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAE1BFD4915001CB7EF /* history1.kml */; };
+		2B1F0AD41BFD4915001CB7EF /* history1.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAE1BFD4915001CB7EF /* history1.kml */; };
+		2B1F0AD51BFD4915001CB7EF /* history1.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAE1BFD4915001CB7EF /* history1.kml */; };
+		2B1F0AD61BFD4915001CB7EF /* history1.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAE1BFD4915001CB7EF /* history1.kml */; };
+		2B1F0AD71BFD4915001CB7EF /* history1.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAE1BFD4915001CB7EF /* history1.kml */; };
+		2B1F0AD81BFD4915001CB7EF /* iosLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAF1BFD4915001CB7EF /* iosLocations.kml */; };
+		2B1F0AD91BFD4915001CB7EF /* iosLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAF1BFD4915001CB7EF /* iosLocations.kml */; };
+		2B1F0ADA1BFD4915001CB7EF /* iosLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAF1BFD4915001CB7EF /* iosLocations.kml */; };
+		2B1F0ADB1BFD4915001CB7EF /* iosLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAF1BFD4915001CB7EF /* iosLocations.kml */; };
+		2B1F0ADC1BFD4915001CB7EF /* iosLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAF1BFD4915001CB7EF /* iosLocations.kml */; };
+		2B1F0ADD1BFD4915001CB7EF /* iosLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AAF1BFD4915001CB7EF /* iosLocations.kml */; };
+		2B1F0ADE1BFD4915001CB7EF /* ismar.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB01BFD4915001CB7EF /* ismar.kml */; };
+		2B1F0ADF1BFD4915001CB7EF /* ismar.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB01BFD4915001CB7EF /* ismar.kml */; };
+		2B1F0AE01BFD4915001CB7EF /* ismar.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB01BFD4915001CB7EF /* ismar.kml */; };
+		2B1F0AE11BFD4915001CB7EF /* ismar.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB01BFD4915001CB7EF /* ismar.kml */; };
+		2B1F0AE21BFD4915001CB7EF /* ismar.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB01BFD4915001CB7EF /* ismar.kml */; };
+		2B1F0AE31BFD4915001CB7EF /* ismar.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB01BFD4915001CB7EF /* ismar.kml */; };
+		2B1F0AE41BFD4915001CB7EF /* localizeTestLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB11BFD4915001CB7EF /* localizeTestLocations.kml */; };
+		2B1F0AE51BFD4915001CB7EF /* localizeTestLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB11BFD4915001CB7EF /* localizeTestLocations.kml */; };
+		2B1F0AE61BFD4915001CB7EF /* localizeTestLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB11BFD4915001CB7EF /* localizeTestLocations.kml */; };
+		2B1F0AE71BFD4915001CB7EF /* localizeTestLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB11BFD4915001CB7EF /* localizeTestLocations.kml */; };
+		2B1F0AE81BFD4915001CB7EF /* localizeTestLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB11BFD4915001CB7EF /* localizeTestLocations.kml */; };
+		2B1F0AE91BFD4915001CB7EF /* localizeTestLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB11BFD4915001CB7EF /* localizeTestLocations.kml */; };
+		2B1F0AEA1BFD4915001CB7EF /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB21BFD4915001CB7EF /* london.kml */; };
+		2B1F0AEB1BFD4915001CB7EF /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB21BFD4915001CB7EF /* london.kml */; };
+		2B1F0AEC1BFD4915001CB7EF /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB21BFD4915001CB7EF /* london.kml */; };
+		2B1F0AED1BFD4915001CB7EF /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB21BFD4915001CB7EF /* london.kml */; };
+		2B1F0AEE1BFD4915001CB7EF /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB21BFD4915001CB7EF /* london.kml */; };
+		2B1F0AEF1BFD4915001CB7EF /* london.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB21BFD4915001CB7EF /* london.kml */; };
+		2B1F0AF01BFD4915001CB7EF /* london711.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB31BFD4915001CB7EF /* london711.kml */; };
+		2B1F0AF11BFD4915001CB7EF /* london711.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB31BFD4915001CB7EF /* london711.kml */; };
+		2B1F0AF21BFD4915001CB7EF /* london711.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB31BFD4915001CB7EF /* london711.kml */; };
+		2B1F0AF31BFD4915001CB7EF /* london711.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB31BFD4915001CB7EF /* london711.kml */; };
+		2B1F0AF41BFD4915001CB7EF /* london711.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB31BFD4915001CB7EF /* london711.kml */; };
+		2B1F0AF51BFD4915001CB7EF /* london711.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB31BFD4915001CB7EF /* london711.kml */; };
+		2B1F0AF61BFD4915001CB7EF /* miami.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB41BFD4915001CB7EF /* miami.kml */; };
+		2B1F0AF71BFD4915001CB7EF /* miami.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB41BFD4915001CB7EF /* miami.kml */; };
+		2B1F0AF81BFD4915001CB7EF /* miami.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB41BFD4915001CB7EF /* miami.kml */; };
+		2B1F0AF91BFD4915001CB7EF /* miami.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB41BFD4915001CB7EF /* miami.kml */; };
+		2B1F0AFA1BFD4915001CB7EF /* miami.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB41BFD4915001CB7EF /* miami.kml */; };
+		2B1F0AFB1BFD4915001CB7EF /* miami.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB41BFD4915001CB7EF /* miami.kml */; };
+		2B1F0AFC1BFD4915001CB7EF /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB51BFD4915001CB7EF /* montreal.kml */; };
+		2B1F0AFD1BFD4915001CB7EF /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB51BFD4915001CB7EF /* montreal.kml */; };
+		2B1F0AFE1BFD4915001CB7EF /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB51BFD4915001CB7EF /* montreal.kml */; };
+		2B1F0AFF1BFD4915001CB7EF /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB51BFD4915001CB7EF /* montreal.kml */; };
+		2B1F0B001BFD4915001CB7EF /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB51BFD4915001CB7EF /* montreal.kml */; };
+		2B1F0B011BFD4915001CB7EF /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB51BFD4915001CB7EF /* montreal.kml */; };
+		2B1F0B021BFD4915001CB7EF /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB61BFD4915001CB7EF /* new.kml */; };
+		2B1F0B031BFD4915001CB7EF /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB61BFD4915001CB7EF /* new.kml */; };
+		2B1F0B041BFD4915001CB7EF /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB61BFD4915001CB7EF /* new.kml */; };
+		2B1F0B051BFD4915001CB7EF /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB61BFD4915001CB7EF /* new.kml */; };
+		2B1F0B061BFD4915001CB7EF /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB61BFD4915001CB7EF /* new.kml */; };
+		2B1F0B071BFD4915001CB7EF /* new.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB61BFD4915001CB7EF /* new.kml */; };
+		2B1F0B081BFD4915001CB7EF /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB71BFD4915001CB7EF /* newyork.kml */; };
+		2B1F0B091BFD4915001CB7EF /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB71BFD4915001CB7EF /* newyork.kml */; };
+		2B1F0B0A1BFD4915001CB7EF /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB71BFD4915001CB7EF /* newyork.kml */; };
+		2B1F0B0B1BFD4915001CB7EF /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB71BFD4915001CB7EF /* newyork.kml */; };
+		2B1F0B0C1BFD4915001CB7EF /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB71BFD4915001CB7EF /* newyork.kml */; };
+		2B1F0B0D1BFD4915001CB7EF /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB71BFD4915001CB7EF /* newyork.kml */; };
+		2B1F0B0E1BFD4915001CB7EF /* newyork723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB81BFD4915001CB7EF /* newyork723.kml */; };
+		2B1F0B0F1BFD4915001CB7EF /* newyork723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB81BFD4915001CB7EF /* newyork723.kml */; };
+		2B1F0B101BFD4915001CB7EF /* newyork723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB81BFD4915001CB7EF /* newyork723.kml */; };
+		2B1F0B111BFD4915001CB7EF /* newyork723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB81BFD4915001CB7EF /* newyork723.kml */; };
+		2B1F0B121BFD4915001CB7EF /* newyork723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB81BFD4915001CB7EF /* newyork723.kml */; };
+		2B1F0B131BFD4915001CB7EF /* newyork723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB81BFD4915001CB7EF /* newyork723.kml */; };
+		2B1F0B141BFD4915001CB7EF /* paper.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB91BFD4915001CB7EF /* paper.kml */; };
+		2B1F0B151BFD4915001CB7EF /* paper.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB91BFD4915001CB7EF /* paper.kml */; };
+		2B1F0B161BFD4915001CB7EF /* paper.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB91BFD4915001CB7EF /* paper.kml */; };
+		2B1F0B171BFD4915001CB7EF /* paper.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB91BFD4915001CB7EF /* paper.kml */; };
+		2B1F0B181BFD4915001CB7EF /* paper.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB91BFD4915001CB7EF /* paper.kml */; };
+		2B1F0B191BFD4915001CB7EF /* paper.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AB91BFD4915001CB7EF /* paper.kml */; };
+		2B1F0B1A1BFD4915001CB7EF /* paper.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABA1BFD4915001CB7EF /* paper.snapshot */; };
+		2B1F0B1B1BFD4915001CB7EF /* paper.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABA1BFD4915001CB7EF /* paper.snapshot */; };
+		2B1F0B1C1BFD4915001CB7EF /* paper.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABA1BFD4915001CB7EF /* paper.snapshot */; };
+		2B1F0B1D1BFD4915001CB7EF /* paper.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABA1BFD4915001CB7EF /* paper.snapshot */; };
+		2B1F0B1E1BFD4915001CB7EF /* paper.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABA1BFD4915001CB7EF /* paper.snapshot */; };
+		2B1F0B1F1BFD4915001CB7EF /* paper.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABA1BFD4915001CB7EF /* paper.snapshot */; };
+		2B1F0B201BFD4915001CB7EF /* Paris.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABB1BFD4915001CB7EF /* Paris.kml */; };
+		2B1F0B211BFD4915001CB7EF /* Paris.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABB1BFD4915001CB7EF /* Paris.kml */; };
+		2B1F0B221BFD4915001CB7EF /* Paris.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABB1BFD4915001CB7EF /* Paris.kml */; };
+		2B1F0B231BFD4915001CB7EF /* Paris.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABB1BFD4915001CB7EF /* Paris.kml */; };
+		2B1F0B241BFD4915001CB7EF /* Paris.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABB1BFD4915001CB7EF /* Paris.kml */; };
+		2B1F0B251BFD4915001CB7EF /* Paris.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABB1BFD4915001CB7EF /* Paris.kml */; };
+		2B1F0B261BFD4915001CB7EF /* Seoul.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABC1BFD4915001CB7EF /* Seoul.kml */; };
+		2B1F0B271BFD4915001CB7EF /* Seoul.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABC1BFD4915001CB7EF /* Seoul.kml */; };
+		2B1F0B281BFD4915001CB7EF /* Seoul.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABC1BFD4915001CB7EF /* Seoul.kml */; };
+		2B1F0B291BFD4915001CB7EF /* Seoul.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABC1BFD4915001CB7EF /* Seoul.kml */; };
+		2B1F0B2A1BFD4915001CB7EF /* Seoul.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABC1BFD4915001CB7EF /* Seoul.kml */; };
+		2B1F0B2B1BFD4915001CB7EF /* Seoul.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABC1BFD4915001CB7EF /* Seoul.kml */; };
+		2B1F0B2C1BFD4915001CB7EF /* snapshot.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABD1BFD4915001CB7EF /* snapshot.kml */; };
+		2B1F0B2D1BFD4915001CB7EF /* snapshot.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABD1BFD4915001CB7EF /* snapshot.kml */; };
+		2B1F0B2E1BFD4915001CB7EF /* snapshot.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABD1BFD4915001CB7EF /* snapshot.kml */; };
+		2B1F0B2F1BFD4915001CB7EF /* snapshot.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABD1BFD4915001CB7EF /* snapshot.kml */; };
+		2B1F0B301BFD4915001CB7EF /* snapshot.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABD1BFD4915001CB7EF /* snapshot.kml */; };
+		2B1F0B311BFD4915001CB7EF /* snapshot.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABD1BFD4915001CB7EF /* snapshot.kml */; };
+		2B1F0B321BFD4915001CB7EF /* StAndrews723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABE1BFD4915001CB7EF /* StAndrews723.kml */; };
+		2B1F0B331BFD4915001CB7EF /* StAndrews723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABE1BFD4915001CB7EF /* StAndrews723.kml */; };
+		2B1F0B341BFD4915001CB7EF /* StAndrews723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABE1BFD4915001CB7EF /* StAndrews723.kml */; };
+		2B1F0B351BFD4915001CB7EF /* StAndrews723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABE1BFD4915001CB7EF /* StAndrews723.kml */; };
+		2B1F0B361BFD4915001CB7EF /* StAndrews723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABE1BFD4915001CB7EF /* StAndrews723.kml */; };
+		2B1F0B371BFD4915001CB7EF /* StAndrews723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABE1BFD4915001CB7EF /* StAndrews723.kml */; };
+		2B1F0B381BFD4915001CB7EF /* studyLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABF1BFD4915001CB7EF /* studyLocations.kml */; };
+		2B1F0B391BFD4915001CB7EF /* studyLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABF1BFD4915001CB7EF /* studyLocations.kml */; };
+		2B1F0B3A1BFD4915001CB7EF /* studyLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABF1BFD4915001CB7EF /* studyLocations.kml */; };
+		2B1F0B3B1BFD4915001CB7EF /* studyLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABF1BFD4915001CB7EF /* studyLocations.kml */; };
+		2B1F0B3C1BFD4915001CB7EF /* studyLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABF1BFD4915001CB7EF /* studyLocations.kml */; };
+		2B1F0B3D1BFD4915001CB7EF /* studyLocations.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0ABF1BFD4915001CB7EF /* studyLocations.kml */; };
+		2B1F0B3E1BFD4915001CB7EF /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC01BFD4915001CB7EF /* SundayTest.kml */; };
+		2B1F0B3F1BFD4915001CB7EF /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC01BFD4915001CB7EF /* SundayTest.kml */; };
+		2B1F0B401BFD4915001CB7EF /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC01BFD4915001CB7EF /* SundayTest.kml */; };
+		2B1F0B411BFD4915001CB7EF /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC01BFD4915001CB7EF /* SundayTest.kml */; };
+		2B1F0B421BFD4915001CB7EF /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC01BFD4915001CB7EF /* SundayTest.kml */; };
+		2B1F0B431BFD4915001CB7EF /* SundayTest.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC01BFD4915001CB7EF /* SundayTest.kml */; };
+		2B1F0B441BFD4915001CB7EF /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC11BFD4915001CB7EF /* Taiwan.kml */; };
+		2B1F0B451BFD4915001CB7EF /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC11BFD4915001CB7EF /* Taiwan.kml */; };
+		2B1F0B461BFD4915001CB7EF /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC11BFD4915001CB7EF /* Taiwan.kml */; };
+		2B1F0B471BFD4915001CB7EF /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC11BFD4915001CB7EF /* Taiwan.kml */; };
+		2B1F0B481BFD4915001CB7EF /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC11BFD4915001CB7EF /* Taiwan.kml */; };
+		2B1F0B491BFD4915001CB7EF /* Taiwan.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC11BFD4915001CB7EF /* Taiwan.kml */; };
+		2B1F0B4A1BFD4915001CB7EF /* tokyo.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC21BFD4915001CB7EF /* tokyo.kml */; };
+		2B1F0B4B1BFD4915001CB7EF /* tokyo.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC21BFD4915001CB7EF /* tokyo.kml */; };
+		2B1F0B4C1BFD4915001CB7EF /* tokyo.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC21BFD4915001CB7EF /* tokyo.kml */; };
+		2B1F0B4D1BFD4915001CB7EF /* tokyo.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC21BFD4915001CB7EF /* tokyo.kml */; };
+		2B1F0B4E1BFD4915001CB7EF /* tokyo.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC21BFD4915001CB7EF /* tokyo.kml */; };
+		2B1F0B4F1BFD4915001CB7EF /* tokyo.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC21BFD4915001CB7EF /* tokyo.kml */; };
+		2B1F0B501BFD4915001CB7EF /* training.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC31BFD4915001CB7EF /* training.kml */; };
+		2B1F0B511BFD4915001CB7EF /* training.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC31BFD4915001CB7EF /* training.kml */; };
+		2B1F0B521BFD4915001CB7EF /* training.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC31BFD4915001CB7EF /* training.kml */; };
+		2B1F0B531BFD4915001CB7EF /* training.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC31BFD4915001CB7EF /* training.kml */; };
+		2B1F0B541BFD4915001CB7EF /* training.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC31BFD4915001CB7EF /* training.kml */; };
+		2B1F0B551BFD4915001CB7EF /* training.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC31BFD4915001CB7EF /* training.kml */; };
+		2B1F0B561BFD4915001CB7EF /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC41BFD4915001CB7EF /* UKLondon.kml */; };
+		2B1F0B571BFD4915001CB7EF /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC41BFD4915001CB7EF /* UKLondon.kml */; };
+		2B1F0B581BFD4915001CB7EF /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC41BFD4915001CB7EF /* UKLondon.kml */; };
+		2B1F0B591BFD4915001CB7EF /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC41BFD4915001CB7EF /* UKLondon.kml */; };
+		2B1F0B5A1BFD4915001CB7EF /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC41BFD4915001CB7EF /* UKLondon.kml */; };
+		2B1F0B5B1BFD4915001CB7EF /* UKLondon.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC41BFD4915001CB7EF /* UKLondon.kml */; };
+		2B1F0B5C1BFD4915001CB7EF /* wedge723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC51BFD4915001CB7EF /* wedge723.kml */; };
+		2B1F0B5D1BFD4915001CB7EF /* wedge723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC51BFD4915001CB7EF /* wedge723.kml */; };
+		2B1F0B5E1BFD4915001CB7EF /* wedge723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC51BFD4915001CB7EF /* wedge723.kml */; };
+		2B1F0B5F1BFD4915001CB7EF /* wedge723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC51BFD4915001CB7EF /* wedge723.kml */; };
+		2B1F0B601BFD4915001CB7EF /* wedge723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC51BFD4915001CB7EF /* wedge723.kml */; };
+		2B1F0B611BFD4915001CB7EF /* wedge723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC51BFD4915001CB7EF /* wedge723.kml */; };
 		2B8469291BF3E8B2000703DB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */; };
 		2B8E2BFC1BF67E9C0083613C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC81BF2A8C600ADD137 /* Accelerate.framework */; };
 		2B8E2BFD1BF67EAC0083613C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC61BF2A87C00ADD137 /* AVFoundation.framework */; };
@@ -1220,6 +1382,33 @@
 		2B0FFDDA1BF2A94600ADD137 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		2B0FFDDC1BF2A95100ADD137 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		2B1F0AA51BFD48FB001CB7EF /* default.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.snapshot; sourceTree = "<group>"; };
+		2B1F0AAC1BFD4915001CB7EF /* directions.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = directions.kml; sourceTree = "<group>"; };
+		2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = governors_island.kml; sourceTree = "<group>"; };
+		2B1F0AAE1BFD4915001CB7EF /* history1.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = history1.kml; sourceTree = "<group>"; };
+		2B1F0AAF1BFD4915001CB7EF /* iosLocations.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = iosLocations.kml; sourceTree = "<group>"; };
+		2B1F0AB01BFD4915001CB7EF /* ismar.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ismar.kml; sourceTree = "<group>"; };
+		2B1F0AB11BFD4915001CB7EF /* localizeTestLocations.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = localizeTestLocations.kml; sourceTree = "<group>"; };
+		2B1F0AB21BFD4915001CB7EF /* london.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = london.kml; sourceTree = "<group>"; };
+		2B1F0AB31BFD4915001CB7EF /* london711.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = london711.kml; sourceTree = "<group>"; };
+		2B1F0AB41BFD4915001CB7EF /* miami.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = miami.kml; sourceTree = "<group>"; };
+		2B1F0AB51BFD4915001CB7EF /* montreal.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = montreal.kml; sourceTree = "<group>"; };
+		2B1F0AB61BFD4915001CB7EF /* new.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = new.kml; sourceTree = "<group>"; };
+		2B1F0AB71BFD4915001CB7EF /* newyork.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = newyork.kml; sourceTree = "<group>"; };
+		2B1F0AB81BFD4915001CB7EF /* newyork723.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = newyork723.kml; sourceTree = "<group>"; };
+		2B1F0AB91BFD4915001CB7EF /* paper.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = paper.kml; sourceTree = "<group>"; };
+		2B1F0ABA1BFD4915001CB7EF /* paper.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = paper.snapshot; sourceTree = "<group>"; };
+		2B1F0ABB1BFD4915001CB7EF /* Paris.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Paris.kml; sourceTree = "<group>"; };
+		2B1F0ABC1BFD4915001CB7EF /* Seoul.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Seoul.kml; sourceTree = "<group>"; };
+		2B1F0ABD1BFD4915001CB7EF /* snapshot.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = snapshot.kml; sourceTree = "<group>"; };
+		2B1F0ABE1BFD4915001CB7EF /* StAndrews723.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StAndrews723.kml; sourceTree = "<group>"; };
+		2B1F0ABF1BFD4915001CB7EF /* studyLocations.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = studyLocations.kml; sourceTree = "<group>"; };
+		2B1F0AC01BFD4915001CB7EF /* SundayTest.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SundayTest.kml; sourceTree = "<group>"; };
+		2B1F0AC11BFD4915001CB7EF /* Taiwan.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taiwan.kml; sourceTree = "<group>"; };
+		2B1F0AC21BFD4915001CB7EF /* tokyo.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tokyo.kml; sourceTree = "<group>"; };
+		2B1F0AC31BFD4915001CB7EF /* training.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = training.kml; sourceTree = "<group>"; };
+		2B1F0AC41BFD4915001CB7EF /* UKLondon.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = UKLondon.kml; sourceTree = "<group>"; };
+		2B1F0AC51BFD4915001CB7EF /* wedge723.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = wedge723.kml; sourceTree = "<group>"; };
 		2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		2B8E2C081BF67FE70083613C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework"; sourceTree = "<group>"; };
 		2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
@@ -2587,6 +2776,33 @@
 		9ADA91C01AB8896B009C7552 /* kml */ = {
 			isa = PBXGroup;
 			children = (
+				2B1F0AAC1BFD4915001CB7EF /* directions.kml */,
+				2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */,
+				2B1F0AAE1BFD4915001CB7EF /* history1.kml */,
+				2B1F0AAF1BFD4915001CB7EF /* iosLocations.kml */,
+				2B1F0AB01BFD4915001CB7EF /* ismar.kml */,
+				2B1F0AB11BFD4915001CB7EF /* localizeTestLocations.kml */,
+				2B1F0AB21BFD4915001CB7EF /* london.kml */,
+				2B1F0AB31BFD4915001CB7EF /* london711.kml */,
+				2B1F0AB41BFD4915001CB7EF /* miami.kml */,
+				2B1F0AB51BFD4915001CB7EF /* montreal.kml */,
+				2B1F0AB61BFD4915001CB7EF /* new.kml */,
+				2B1F0AB71BFD4915001CB7EF /* newyork.kml */,
+				2B1F0AB81BFD4915001CB7EF /* newyork723.kml */,
+				2B1F0AB91BFD4915001CB7EF /* paper.kml */,
+				2B1F0ABA1BFD4915001CB7EF /* paper.snapshot */,
+				2B1F0ABB1BFD4915001CB7EF /* Paris.kml */,
+				2B1F0ABC1BFD4915001CB7EF /* Seoul.kml */,
+				2B1F0ABD1BFD4915001CB7EF /* snapshot.kml */,
+				2B1F0ABE1BFD4915001CB7EF /* StAndrews723.kml */,
+				2B1F0ABF1BFD4915001CB7EF /* studyLocations.kml */,
+				2B1F0AC01BFD4915001CB7EF /* SundayTest.kml */,
+				2B1F0AC11BFD4915001CB7EF /* Taiwan.kml */,
+				2B1F0AC21BFD4915001CB7EF /* tokyo.kml */,
+				2B1F0AC31BFD4915001CB7EF /* training.kml */,
+				2B1F0AC41BFD4915001CB7EF /* UKLondon.kml */,
+				2B1F0AC51BFD4915001CB7EF /* wedge723.kml */,
+				2B1F0AA51BFD48FB001CB7EF /* default.snapshot */,
 			);
 			name = kml;
 			sourceTree = "<group>";
@@ -2978,37 +3194,64 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BCBE8B81BFD0B90004A340D /* PersonalCompass.sqlite in Resources */,
+				2B1F0B4E1BFD4915001CB7EF /* tokyo.kml in Resources */,
 				9A9482111991D46A0036249C /* setup.png in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
 				9A1632AD1AB6049000F07E45 /* redDot.png in Resources */,
 				9A239EE1196EFF410064BDC9 /* new.kml in Resources */,
+				2B1F0B541BFD4915001CB7EF /* training.kml in Resources */,
 				9AB2A71C196372AA0001E96F /* selected.png in Resources */,
 				9A998D68194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A998D79194BC60C00778DFC /* location.png in Resources */,
+				2B1F0B421BFD4915001CB7EF /* SundayTest.kml in Resources */,
 				9A2ED70A19639D5900CA385E /* ExtraPanels.xib in Resources */,
+				2B1F0AD61BFD4915001CB7EF /* history1.kml in Resources */,
 				9A3DA09B1964E9B1009E0073 /* add.png in Resources */,
 				9A998D64194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A1632B41AB619D200F07E45 /* blueDot.png in Resources */,
+				2B1F0AE21BFD4915001CB7EF /* ismar.kml in Resources */,
 				9A8DF92C1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */,
 				9AFC0BA71AAA505F0085543C /* testSpec.plist in Resources */,
 				9A037567198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9AD52F6C1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
+				2B1F0B2A1BFD4915001CB7EF /* Seoul.kml in Resources */,
+				2B1F0B301BFD4915001CB7EF /* snapshot.kml in Resources */,
+				2B1F0AAA1BFD48FB001CB7EF /* default.snapshot in Resources */,
 				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
+				2B1F0AE81BFD4915001CB7EF /* localizeTestLocations.kml in Resources */,
+				2B1F0AEE1BFD4915001CB7EF /* london.kml in Resources */,
+				2B1F0B361BFD4915001CB7EF /* StAndrews723.kml in Resources */,
+				2B1F0B121BFD4915001CB7EF /* newyork723.kml in Resources */,
+				2B1F0B061BFD4915001CB7EF /* new.kml in Resources */,
+				2B1F0B241BFD4915001CB7EF /* Paris.kml in Resources */,
 				9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A037561198DA31800258E95 /* Box2DConfig.cmake in Resources */,
+				2B1F0AD01BFD4915001CB7EF /* governors_island.kml in Resources */,
+				2B1F0B601BFD4915001CB7EF /* wedge723.kml in Resources */,
+				2B1F0AFA1BFD4915001CB7EF /* miami.kml in Resources */,
 				2B8469291BF3E8B2000703DB /* GoogleMaps.bundle in Resources */,
+				2B1F0AF41BFD4915001CB7EF /* london711.kml in Resources */,
 				9A4808A2198BF1F70001E188 /* general.png in Resources */,
 				9A48089C198BF1F70001E188 /* debug.png in Resources */,
+				2B1F0B0C1BFD4915001CB7EF /* newyork.kml in Resources */,
 				9AF3788B1A9FED7600FEB3F3 /* walking.tif in Resources */,
+				2B1F0ADC1BFD4915001CB7EF /* iosLocations.kml in Resources */,
+				2B1F0B1E1BFD4915001CB7EF /* paper.snapshot in Resources */,
+				2B1F0B001BFD4915001CB7EF /* montreal.kml in Resources */,
 				9A998D7D194BCB0900778DFC /* setup.jpg in Resources */,
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
 				9AF273101982865C00C0195B /* snapshotDefault.png in Resources */,
+				2B1F0B5A1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A3DA0A11964E9B1009E0073 /* remove.png in Resources */,
 				9AB2A722196372AA0001E96F /* unselected.png in Resources */,
+				2B1F0B3C1BFD4915001CB7EF /* studyLocations.kml in Resources */,
+				2B1F0ACA1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A2E42E9196C9D2C00CF8862 /* heading.png in Resources */,
 				9A4F0F59193E2A8900CF32DE /* Images.xcassets in Resources */,
 				9A4F0F75193E2AF500CF32DE /* Storyboard.storyboard in Resources */,
+				2B1F0B481BFD4915001CB7EF /* Taiwan.kml in Resources */,
+				2B1F0B181BFD4915001CB7EF /* paper.kml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3017,37 +3260,64 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BCBE8B91BFD0B90004A340D /* PersonalCompass.sqlite in Resources */,
+				2B1F0B4F1BFD4915001CB7EF /* tokyo.kml in Resources */,
 				9AECA775196B1545008ADAEC /* ExtraPanels.xib in Resources */,
 				9AFC0BA81AAA505F0085543C /* testSpec.plist in Resources */,
 				9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
 				9A037568198DA31800258E95 /* CMakeLists.txt in Resources */,
+				2B1F0B551BFD4915001CB7EF /* training.kml in Resources */,
 				9A239EE2196EFF410064BDC9 /* new.kml in Resources */,
 				9AF273171982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AB2A723196372AA0001E96F /* unselected.png in Resources */,
+				2B1F0B431BFD4915001CB7EF /* SundayTest.kml in Resources */,
 				9A82B6441941518900534A5F /* configurations.json in Resources */,
+				2B1F0AD71BFD4915001CB7EF /* history1.kml in Resources */,
 				9A82B6541941528600534A5F /* iPad.storyboard in Resources */,
 				9AF273111982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A1632B51AB619D200F07E45 /* blueDot.png in Resources */,
+				2B1F0AE31BFD4915001CB7EF /* ismar.kml in Resources */,
 				9A998D69194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A037562198DA31800258E95 /* Box2DConfig.cmake in Resources */,
 				9A9482121991D46A0036249C /* setup.png in Resources */,
 				9A998D7E194BCB0900778DFC /* setup.jpg in Resources */,
 				9A1632AE1AB6049000F07E45 /* redDot.png in Resources */,
+				2B1F0B2B1BFD4915001CB7EF /* Seoul.kml in Resources */,
+				2B1F0B311BFD4915001CB7EF /* snapshot.kml in Resources */,
+				2B1F0AAB1BFD48FB001CB7EF /* default.snapshot in Resources */,
 				9AD52F6D1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
+				2B1F0AE91BFD4915001CB7EF /* localizeTestLocations.kml in Resources */,
+				2B1F0AEF1BFD4915001CB7EF /* london.kml in Resources */,
+				2B1F0B371BFD4915001CB7EF /* StAndrews723.kml in Resources */,
+				2B1F0B131BFD4915001CB7EF /* newyork723.kml in Resources */,
+				2B1F0B071BFD4915001CB7EF /* new.kml in Resources */,
+				2B1F0B251BFD4915001CB7EF /* Paris.kml in Resources */,
 				9A3DA09C1964E9B1009E0073 /* add.png in Resources */,
 				9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */,
+				2B1F0AD11BFD4915001CB7EF /* governors_island.kml in Resources */,
+				2B1F0B611BFD4915001CB7EF /* wedge723.kml in Resources */,
+				2B1F0AFB1BFD4915001CB7EF /* miami.kml in Resources */,
 				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
+				2B1F0AF51BFD4915001CB7EF /* london711.kml in Resources */,
 				9A2E42EA196C9D2C00CF8862 /* heading.png in Resources */,
 				9AF3788C1A9FED7600FEB3F3 /* walking.tif in Resources */,
+				2B1F0B0D1BFD4915001CB7EF /* newyork.kml in Resources */,
 				9A8DF92D1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
+				2B1F0ADD1BFD4915001CB7EF /* iosLocations.kml in Resources */,
+				2B1F0B1F1BFD4915001CB7EF /* paper.snapshot in Resources */,
+				2B1F0B011BFD4915001CB7EF /* montreal.kml in Resources */,
 				9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A4808A3198BF1F70001E188 /* general.png in Resources */,
 				9A82B6491941518900534A5F /* InfoPlist.strings in Resources */,
+				2B1F0B5B1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A82B64A1941518900534A5F /* Images.xcassets in Resources */,
 				9A48089D198BF1F70001E188 /* debug.png in Resources */,
+				2B1F0B3D1BFD4915001CB7EF /* studyLocations.kml in Resources */,
+				2B1F0ACB1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A3DA0A21964E9B1009E0073 /* remove.png in Resources */,
 				9A998D7A194BC60C00778DFC /* location.png in Resources */,
 				9A82B64B1941518900534A5F /* Storyboard.storyboard in Resources */,
+				2B1F0B491BFD4915001CB7EF /* Taiwan.kml in Resources */,
+				2B1F0B191BFD4915001CB7EF /* paper.kml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3055,7 +3325,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1F0B1D1BFD4915001CB7EF /* paper.snapshot in Resources */,
 				9A856F871AB8AEE100486AE9 /* wedge-phone-distance.mp4 in Resources */,
+				2B1F0ADB1BFD4915001CB7EF /* iosLocations.kml in Resources */,
 				9A3DA0BE1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9A42A0B819A79CA200BB0101 /* README.txt in Resources */,
 				9A25D9C51AADF7810050C4CD /* triangulate.jpg in Resources */,
@@ -3064,29 +3336,41 @@
 				9A42A09019A79CA200BB0101 /* About.txt in Resources */,
 				9A25D9B91AADF7810050C4CD /* locate.jpg in Resources */,
 				9AA789251909FE3000A26C66 /* InfoPlist.strings in Resources */,
+				2B1F0AF31BFD4915001CB7EF /* london711.kml in Resources */,
 				9AA789261909FE3000A26C66 /* moto360_bikemap.png in Resources */,
 				9AB2A721196372AA0001E96F /* unselected.png in Resources */,
+				2B1F0B2F1BFD4915001CB7EF /* snapshot.kml in Resources */,
 				9AA789271909FE3000A26C66 /* Images.xcassets in Resources */,
 				9A42A09819A79CA200BB0101 /* About.txt in Resources */,
 				9AA789281909FE3000A26C66 /* configurations.json in Resources */,
 				9A037566198DA31800258E95 /* CMakeLists.txt in Resources */,
+				2B1F0B591BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A856F931AB8AEE100486AE9 /* wedge-watch-triangulate.mp4 in Resources */,
 				9AC072361AAD362B00B012B2 /* locate.jpg in Resources */,
+				2B1F0B5F1BFD4915001CB7EF /* wedge723.kml in Resources */,
 				9A42A0E419ABB12D00BB0101 /* Web in Resources */,
 				9A856FA01AB8AEEF00486AE9 /* pcompass-phone-distance.mp4 in Resources */,
 				9A9482101991D46A0036249C /* setup.png in Resources */,
 				9A25D9BD1AADF7810050C4CD /* lplus.jpg in Resources */,
+				2B1F0ACF1BFD4915001CB7EF /* governors_island.kml in Resources */,
 				9A3DA09A1964E9B1009E0073 /* add.png in Resources */,
 				9A856F9C1AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
 				9A037560198DA31800258E95 /* Box2DConfig.cmake in Resources */,
+				2B1F0B051BFD4915001CB7EF /* new.kml in Resources */,
 				9AD52F6B1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9AF273151982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AB2A71B196372AA0001E96F /* selected.png in Resources */,
+				2B1F0B111BFD4915001CB7EF /* newyork723.kml in Resources */,
 				9A4808A1198BF1F70001E188 /* general.png in Resources */,
+				2B1F0AE71BFD4915001CB7EF /* localizeTestLocations.kml in Resources */,
+				2B1F0AFF1BFD4915001CB7EF /* montreal.kml in Resources */,
 				9AFC0BA61AAA505F0085543C /* testSpec.plist in Resources */,
+				2B1F0AD51BFD4915001CB7EF /* history1.kml in Resources */,
 				9A48089B198BF1F70001E188 /* debug.png in Resources */,
+				2B1F0B471BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				9A856F8B1AB8AEE100486AE9 /* wedge-phone-locate.mp4 in Resources */,
 				9A25D9B51AADF7810050C4CD /* distance.jpg in Resources */,
+				2B1F0B4D1BFD4915001CB7EF /* tokyo.kml in Resources */,
 				9A91940E1AB71EBF00B3F2B5 /* locate.gif in Resources */,
 				9A856F831AB8AEE100486AE9 /* wedge-phone-direction.mp4 in Resources */,
 				9A1632AC1AB6049000F07E45 /* redDot.png in Resources */,
@@ -3097,17 +3381,30 @@
 				9AF3788A1A9FED7600FEB3F3 /* walking.tif in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
 				9A856FA81AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
+				2B1F0AF91BFD4915001CB7EF /* miami.kml in Resources */,
+				2B1F0B411BFD4915001CB7EF /* SundayTest.kml in Resources */,
 				9AA789371909FE5A00A26C66 /* browser.xib in Resources */,
 				9A856F8F1AB8AEE100486AE9 /* wedge-watch-locate+.mp4 in Resources */,
+				2B1F0B3B1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				9AF2730F1982865C00C0195B /* snapshotDefault.png in Resources */,
+				2B1F0B531BFD4915001CB7EF /* training.kml in Resources */,
+				2B1F0AE11BFD4915001CB7EF /* ismar.kml in Resources */,
 				9A469E1719A5183400EB88C0 /* OSXCalloutView.xib in Resources */,
 				9AA789301909FE3000A26C66 /* README.txt in Resources */,
+				2B1F0B291BFD4915001CB7EF /* Seoul.kml in Resources */,
 				9AEECFF91910599B0031BAAE /* StyleWindow.xib in Resources */,
+				2B1F0B351BFD4915001CB7EF /* StAndrews723.kml in Resources */,
+				2B1F0AC91BFD4915001CB7EF /* directions.kml in Resources */,
+				2B1F0B231BFD4915001CB7EF /* Paris.kml in Resources */,
+				2B1F0B171BFD4915001CB7EF /* paper.kml in Resources */,
 				9A856FB11AB8AF4500486AE9 /* pcompass-phone-locate.mp4 in Resources */,
+				2B1F0AED1BFD4915001CB7EF /* london.kml in Resources */,
 				9A2E42E8196C9D2C00CF8862 /* heading.png in Resources */,
 				9A6F53F51910069F00F35FED /* DebugInfoWindow.xib in Resources */,
+				2B1F0B0B1BFD4915001CB7EF /* newyork.kml in Resources */,
 				9A25D9C11AADF7810050C4CD /* orient.jpg in Resources */,
 				9A3DA0A01964E9B1009E0073 /* remove.png in Resources */,
+				2B1F0AA91BFD48FB001CB7EF /* default.snapshot in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3117,17 +3414,23 @@
 			files = (
 				9AEC4CBE1A5AFB5100B61A3B /* MainMenu.xib in Resources */,
 				9A856FAE1AB8AF4500486AE9 /* pcompass-phone-locate.mp4 in Resources */,
+				2B1F0AA61BFD48FB001CB7EF /* default.snapshot in Resources */,
 				9A856F991AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
 				9A856F9D1AB8AEEF00486AE9 /* pcompass-phone-distance.mp4 in Resources */,
 				9A856FA51AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
+				2B1F0AEA1BFD4915001CB7EF /* london.kml in Resources */,
+				2B1F0B0E1BFD4915001CB7EF /* newyork723.kml in Resources */,
 				9A856FA91AB8AEEF00486AE9 /* pcompass-watch-triangulate.mp4 in Resources */,
+				2B1F0B441BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				9A91940B1AB71EBF00B3F2B5 /* locate.gif in Resources */,
 				9A1632A91AB6049000F07E45 /* redDot.png in Resources */,
 				9A1632B01AB619D200F07E45 /* blueDot.png in Resources */,
+				2B1F0B1A1BFD4915001CB7EF /* paper.snapshot in Resources */,
 				9A856F841AB8AEE100486AE9 /* wedge-phone-distance.mp4 in Resources */,
 				9A856F881AB8AEE100486AE9 /* wedge-phone-locate.mp4 in Resources */,
 				9A239EDD196EFF410064BDC9 /* new.kml in Resources */,
 				9A94820D1991D46A0036249C /* setup.png in Resources */,
+				2B1F0B321BFD4915001CB7EF /* StAndrews723.kml in Resources */,
 				9A3DA0971964E9B1009E0073 /* add.png in Resources */,
 				9A42A0B519A79CA200BB0101 /* README.txt in Resources */,
 				9A037563198DA31800258E95 /* CMakeLists.txt in Resources */,
@@ -3135,42 +3438,63 @@
 				9A25D9B61AADF7810050C4CD /* locate.jpg in Resources */,
 				9A25D9BA1AADF7810050C4CD /* lplus.jpg in Resources */,
 				9A25D9BE1AADF7810050C4CD /* orient.jpg in Resources */,
+				2B1F0AD21BFD4915001CB7EF /* history1.kml in Resources */,
+				2B1F0B201BFD4915001CB7EF /* Paris.kml in Resources */,
 				2BCBE8B71BFD0B90004A340D /* PersonalCompass.sqlite in Resources */,
 				9A25D9C21AADF7810050C4CD /* triangulate.jpg in Resources */,
 				9A480898198BF1F70001E188 /* debug.png in Resources */,
 				9A42A09519A79CA200BB0101 /* About.txt in Resources */,
+				2B1F0B561BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9AF273121982865C00C0195B /* snapshotSelected.png in Resources */,
+				2B1F0B4A1BFD4915001CB7EF /* tokyo.kml in Resources */,
 				9A3F1E821A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */,
+				2B1F0B261BFD4915001CB7EF /* Seoul.kml in Resources */,
 				9A856F901AB8AEE100486AE9 /* wedge-watch-triangulate.mp4 in Resources */,
+				2B1F0B5C1BFD4915001CB7EF /* wedge723.kml in Resources */,
 				9A3DA0BB1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9AF29F2918F4C90000A28AC3 /* moto360_bikemap.png in Resources */,
+				2B1F0B3E1BFD4915001CB7EF /* SundayTest.kml in Resources */,
 				9AEA57E918D9EBB20028B80C /* Images.xcassets in Resources */,
 				9A469E1419A5183400EB88C0 /* OSXCalloutView.xib in Resources */,
 				9AF7EB2E190175F900983C2F /* configurations.json in Resources */,
 				9A42A0E119ABB12D00BB0101 /* Web in Resources */,
+				2B1F0B501BFD4915001CB7EF /* training.kml in Resources */,
 				9A2E42E5196C9D2C00CF8862 /* heading.png in Resources */,
+				2B1F0AF61BFD4915001CB7EF /* miami.kml in Resources */,
 				9A3DA09D1964E9B1009E0073 /* remove.png in Resources */,
+				2B1F0AF01BFD4915001CB7EF /* london711.kml in Resources */,
 				9A25D9B61AADF7810050C4CD /* locate.jpg in Resources */,
+				2B1F0ADE1BFD4915001CB7EF /* ismar.kml in Resources */,
 				9AD52F681AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9AF378871A9FED7600FEB3F3 /* walking.tif in Resources */,
+				2B1F0AE41BFD4915001CB7EF /* localizeTestLocations.kml in Resources */,
 				9A03755D198DA31800258E95 /* Box2DConfig.cmake in Resources */,
 				9A998D78194BC60C00778DFC /* location.png in Resources */,
+				2B1F0AD81BFD4915001CB7EF /* iosLocations.kml in Resources */,
 				9AB2A71E196372AA0001E96F /* unselected.png in Resources */,
 				9A8DF9281A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9A856F801AB8AEE100486AE9 /* wedge-phone-direction.mp4 in Resources */,
+				2B1F0B141BFD4915001CB7EF /* paper.kml in Resources */,
+				2B1F0AFC1BFD4915001CB7EF /* montreal.kml in Resources */,
 				9A856F8C1AB8AEE100486AE9 /* wedge-watch-locate+.mp4 in Resources */,
 				9AB2A718196372AA0001E96F /* selected.png in Resources */,
 				9A998D7C194BCB0900778DFC /* setup.jpg in Resources */,
 				9AFC0BA31AAA505F0085543C /* testSpec.plist in Resources */,
 				9AF29F2A18F4C90000A28AC3 /* moto360_wrist.jpg in Resources */,
+				2B1F0AC61BFD4915001CB7EF /* directions.kml in Resources */,
+				2B1F0B021BFD4915001CB7EF /* new.kml in Resources */,
 				9AEA57E118D9EBB20028B80C /* Credits.rtf in Resources */,
 				9AF2730C1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A42A08D19A79CA200BB0101 /* About.txt in Resources */,
+				2B1F0B2C1BFD4915001CB7EF /* snapshot.kml in Resources */,
+				2B1F0B381BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				9AEA581D18D9EC680028B80C /* README.txt in Resources */,
 				9A48089E198BF1F70001E188 /* general.png in Resources */,
 				9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */,
+				2B1F0ACC1BFD4915001CB7EF /* governors_island.kml in Resources */,
 				9A6F53F21910069F00F35FED /* DebugInfoWindow.xib in Resources */,
+				2B1F0B081BFD4915001CB7EF /* newyork.kml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3181,12 +3505,17 @@
 				9AF378891A9FED7600FEB3F3 /* walking.tif in Resources */,
 				9A91940D1AB71EBF00B3F2B5 /* locate.gif in Resources */,
 				9A856F921AB8AEE100486AE9 /* wedge-watch-triangulate.mp4 in Resources */,
+				2B1F0B041BFD4915001CB7EF /* new.kml in Resources */,
 				9A856F861AB8AEE100486AE9 /* wedge-phone-distance.mp4 in Resources */,
+				2B1F0B161BFD4915001CB7EF /* paper.kml in Resources */,
+				2B1F0AE61BFD4915001CB7EF /* localizeTestLocations.kml in Resources */,
 				9AF273141982865C00C0195B /* snapshotSelected.png in Resources */,
 				9A42A08F19A79CA200BB0101 /* About.txt in Resources */,
 				9A2E42E7196C9D2C00CF8862 /* heading.png in Resources */,
 				9AB2A720196372AA0001E96F /* unselected.png in Resources */,
 				9A42A09719A79CA200BB0101 /* About.txt in Resources */,
+				2B1F0AE01BFD4915001CB7EF /* ismar.kml in Resources */,
+				2B1F0AD41BFD4915001CB7EF /* history1.kml in Resources */,
 				9A856F9B1AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
 				9A1632B21AB619D200F07E45 /* blueDot.png in Resources */,
 				9A48089A198BF1F70001E188 /* debug.png in Resources */,
@@ -3194,9 +3523,17 @@
 				9AEECFF81910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9A1632AB1AB6049000F07E45 /* redDot.png in Resources */,
 				9A037565198DA31800258E95 /* CMakeLists.txt in Resources */,
+				2B1F0AC81BFD4915001CB7EF /* directions.kml in Resources */,
+				2B1F0AFE1BFD4915001CB7EF /* montreal.kml in Resources */,
+				2B1F0B521BFD4915001CB7EF /* training.kml in Resources */,
 				9A856F8E1AB8AEE100486AE9 /* wedge-watch-locate+.mp4 in Resources */,
 				9A4808A0198BF1F70001E188 /* general.png in Resources */,
+				2B1F0B341BFD4915001CB7EF /* StAndrews723.kml in Resources */,
+				2B1F0AEC1BFD4915001CB7EF /* london.kml in Resources */,
 				9A9701E8190851A3007C3C19 /* smartWatch.tif in Resources */,
+				2B1F0B461BFD4915001CB7EF /* Taiwan.kml in Resources */,
+				2B1F0AA81BFD48FB001CB7EF /* default.snapshot in Resources */,
+				2B1F0ACE1BFD4915001CB7EF /* governors_island.kml in Resources */,
 				9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */,
 				9A856F821AB8AEE100486AE9 /* wedge-phone-direction.mp4 in Resources */,
 				9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */,
@@ -3205,11 +3542,15 @@
 				9A42A0B719A79CA200BB0101 /* README.txt in Resources */,
 				9AEC5CED18F3956F00A29F75 /* Images.xcassets in Resources */,
 				9A3DA0991964E9B1009E0073 /* add.png in Resources */,
+				2B1F0B401BFD4915001CB7EF /* SundayTest.kml in Resources */,
 				9AB2A71A196372AA0001E96F /* selected.png in Resources */,
+				2B1F0B4C1BFD4915001CB7EF /* tokyo.kml in Resources */,
+				2B1F0B0A1BFD4915001CB7EF /* newyork.kml in Resources */,
 				9A469E1619A5183400EB88C0 /* OSXCalloutView.xib in Resources */,
 				9A3DA0BD1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9A25D9B41AADF7810050C4CD /* distance.jpg in Resources */,
 				9A856FAB1AB8AEEF00486AE9 /* pcompass-watch-triangulate.mp4 in Resources */,
+				2B1F0B581BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A25D9BC1AADF7810050C4CD /* lplus.jpg in Resources */,
 				9AD52F6A1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9A25D9B81AADF7810050C4CD /* locate.jpg in Resources */,
@@ -3217,19 +3558,29 @@
 				9A94820F1991D46A0036249C /* setup.png in Resources */,
 				9A856FA71AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				9A3DA09F1964E9B1009E0073 /* remove.png in Resources */,
+				2B1F0ADA1BFD4915001CB7EF /* iosLocations.kml in Resources */,
 				9A25D9C01AADF7810050C4CD /* orient.jpg in Resources */,
 				9AF2730E1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A03755F198DA31800258E95 /* Box2DConfig.cmake in Resources */,
 				9A856FB01AB8AF4500486AE9 /* pcompass-phone-locate.mp4 in Resources */,
 				9A8DF92A1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
+				2B1F0B101BFD4915001CB7EF /* newyork723.kml in Resources */,
+				2B1F0B221BFD4915001CB7EF /* Paris.kml in Resources */,
+				2B1F0B5E1BFD4915001CB7EF /* wedge723.kml in Resources */,
+				2B1F0AF81BFD4915001CB7EF /* miami.kml in Resources */,
 				9AEC5CF318F3956F00A29F75 /* Credits.rtf in Resources */,
 				9AC072351AAD362B00B012B2 /* locate.jpg in Resources */,
+				2B1F0B1C1BFD4915001CB7EF /* paper.snapshot in Resources */,
 				9A239EDF196EFF410064BDC9 /* new.kml in Resources */,
 				9A856F8A1AB8AEE100486AE9 /* wedge-phone-locate.mp4 in Resources */,
 				9A42A0E319ABB12D00BB0101 /* Web in Resources */,
 				9A3F1E841A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9AEC5CF418F3956F00A29F75 /* README.txt in Resources */,
 				9A25D9C41AADF7810050C4CD /* triangulate.jpg in Resources */,
+				2B1F0AF21BFD4915001CB7EF /* london711.kml in Resources */,
+				2B1F0B2E1BFD4915001CB7EF /* snapshot.kml in Resources */,
+				2B1F0B281BFD4915001CB7EF /* Seoul.kml in Resources */,
+				2B1F0B3A1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3237,53 +3588,80 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1F0B1B1BFD4915001CB7EF /* paper.snapshot in Resources */,
 				9A469E1519A5183400EB88C0 /* OSXCalloutView.xib in Resources */,
 				9AC072341AAD362B00B012B2 /* locate.jpg in Resources */,
 				9A856F911AB8AEE100486AE9 /* wedge-watch-triangulate.mp4 in Resources */,
 				9A25D9BB1AADF7810050C4CD /* lplus.jpg in Resources */,
 				9A25D9C31AADF7810050C4CD /* triangulate.jpg in Resources */,
+				2B1F0B091BFD4915001CB7EF /* newyork.kml in Resources */,
 				9AF378881A9FED7600FEB3F3 /* walking.tif in Resources */,
 				9A48089F198BF1F70001E188 /* general.png in Resources */,
 				9A8DF9291A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9A856FAF1AB8AF4500486AE9 /* pcompass-phone-locate.mp4 in Resources */,
+				2B1F0AE51BFD4915001CB7EF /* localizeTestLocations.kml in Resources */,
+				2B1F0AD31BFD4915001CB7EF /* history1.kml in Resources */,
+				2B1F0B031BFD4915001CB7EF /* new.kml in Resources */,
 				9A25D9BF1AADF7810050C4CD /* orient.jpg in Resources */,
 				9A1632B11AB619D200F07E45 /* blueDot.png in Resources */,
 				9AFB14BF18EE655F00063632 /* tabView.xib in Resources */,
+				2B1F0AF11BFD4915001CB7EF /* london711.kml in Resources */,
 				9A2E42E6196C9D2C00CF8862 /* heading.png in Resources */,
 				9AFB14B018EE639A00063632 /* InfoPlist.strings in Resources */,
 				9A856F851AB8AEE100486AE9 /* wedge-phone-distance.mp4 in Resources */,
 				9AFB14B118EE639A00063632 /* Images.xcassets in Resources */,
+				2B1F0AC71BFD4915001CB7EF /* directions.kml in Resources */,
 				9A6F53F31910069F00F35FED /* DebugInfoWindow.xib in Resources */,
 				9A1632AA1AB6049000F07E45 /* redDot.png in Resources */,
+				2B1F0B391BFD4915001CB7EF /* studyLocations.kml in Resources */,
+				2B1F0B331BFD4915001CB7EF /* StAndrews723.kml in Resources */,
 				9AB2A71F196372AA0001E96F /* unselected.png in Resources */,
 				9A3F1E831A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
 				9A3DA0BC1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
 				9A91940C1AB71EBF00B3F2B5 /* locate.gif in Resources */,
 				9A037564198DA31800258E95 /* CMakeLists.txt in Resources */,
+				2B1F0AEB1BFD4915001CB7EF /* london.kml in Resources */,
+				2B1F0B5D1BFD4915001CB7EF /* wedge723.kml in Resources */,
+				2B1F0B151BFD4915001CB7EF /* paper.kml in Resources */,
 				9A03755E198DA31800258E95 /* Box2DConfig.cmake in Resources */,
 				9AB2A719196372AA0001E96F /* selected.png in Resources */,
 				9A856F9E1AB8AEEF00486AE9 /* pcompass-phone-distance.mp4 in Resources */,
+				2B1F0B271BFD4915001CB7EF /* Seoul.kml in Resources */,
 				9A25D9B71AADF7810050C4CD /* locate.jpg in Resources */,
+				2B1F0AF71BFD4915001CB7EF /* miami.kml in Resources */,
+				2B1F0B211BFD4915001CB7EF /* Paris.kml in Resources */,
 				9A42A0B619A79CA200BB0101 /* README.txt in Resources */,
 				9A856F8D1AB8AEE100486AE9 /* wedge-watch-locate+.mp4 in Resources */,
+				2B1F0B4B1BFD4915001CB7EF /* tokyo.kml in Resources */,
+				2B1F0ADF1BFD4915001CB7EF /* ismar.kml in Resources */,
+				2B1F0B3F1BFD4915001CB7EF /* SundayTest.kml in Resources */,
 				9A94820E1991D46A0036249C /* setup.png in Resources */,
 				9A42A08E19A79CA200BB0101 /* About.txt in Resources */,
 				9AEECFF71910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9AF273131982865C00C0195B /* snapshotSelected.png in Resources */,
 				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,
+				2B1F0B0F1BFD4915001CB7EF /* newyork723.kml in Resources */,
+				2B1F0AFD1BFD4915001CB7EF /* montreal.kml in Resources */,
+				2B1F0B451BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A42A0E219ABB12D00BB0101 /* Web in Resources */,
 				9A42A09619A79CA200BB0101 /* About.txt in Resources */,
 				9A480899198BF1F70001E188 /* debug.png in Resources */,
 				9A856F891AB8AEE100486AE9 /* wedge-phone-locate.mp4 in Resources */,
 				9AFC0BA41AAA505F0085543C /* testSpec.plist in Resources */,
+				2B1F0B511BFD4915001CB7EF /* training.kml in Resources */,
 				9AD52F691AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9A856F811AB8AEE100486AE9 /* wedge-phone-direction.mp4 in Resources */,
 				9A856F9A1AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
+				2B1F0B571BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A3DA09E1964E9B1009E0073 /* remove.png in Resources */,
 				9A25D9B31AADF7810050C4CD /* distance.jpg in Resources */,
+				2B1F0AD91BFD4915001CB7EF /* iosLocations.kml in Resources */,
 				9A239EDE196EFF410064BDC9 /* new.kml in Resources */,
+				2B1F0ACD1BFD4915001CB7EF /* governors_island.kml in Resources */,
 				9AFB14B718EE639A00063632 /* README.txt in Resources */,
+				2B1F0AA71BFD48FB001CB7EF /* default.snapshot in Resources */,
+				2B1F0B2D1BFD4915001CB7EF /* snapshot.kml in Resources */,
 				9A856FAA1AB8AEEF00486AE9 /* pcompass-watch-triangulate.mp4 in Resources */,
 				9A3DA0981964E9B1009E0073 /* add.png in Resources */,
 				9A856FA61AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,

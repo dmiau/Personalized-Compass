@@ -8,5 +8,33 @@
 </Point>
 </Placemark>
 
+<Placemark>
+<name>Statue of Liberty</name>
+<Point>
+<coordinates>-74.0446,40.6893,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>World Trade Center</name>
+<Point>
+<coordinates>-74.0123,40.7116,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>red</name>
+<Point>
+<coordinates>-74.0208,40.6881,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Arch</name>
+<Point>
+<coordinates>-74.0185,40.6897,0.0</coordinates>
+</Point>
+</Placemark>
+
 </Document>
 </kml>

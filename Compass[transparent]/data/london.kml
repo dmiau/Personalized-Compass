@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+<Document>
+<Placemark>
+<name>King's Cross St. Pancras</name>
+<Point>
+<coordinates>-0.124047,51.5306,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Coffee @ 157</name>
+<Point>
+<coordinates>-0.07169,51.5239,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Monmouth Coffee Co</name>
+<Point>
+<coordinates>-0.091688,51.5052,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Foyles</name>
+<Point>
+<coordinates>-0.130251,51.5147,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name> Catering</name>
+<Point>
+<coordinates>-0.18475,51.5247,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Natural History Museum</name>
+<Point>
+<coordinates>-0.176479,51.4962,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>The British Museum</name>
+<Point>
+<coordinates>-0.127115,51.5181,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Hackney City Farm</name>
+<Point>
+<coordinates>-0.066648,51.532,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>London City Hall</name>
+<Point>
+<coordinates>-0.078692,51.5049,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>London Eye</name>
+<Point>
+<coordinates>-0.11982,51.5033,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Tower Bridge</name>
+<Point>
+<coordinates>-0.076578,51.5034,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Southside Halls (Imperial College)</name>
+<Point>
+<coordinates>-0.173099,51.4989,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Wapping Hydraulic Power Station</name>
+<Point>
+<coordinates>-0.051959,51.5075,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Swiss Re Headquarters</name>
+<Point>
+<coordinates>-0.081443,51.5129,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Palestra</name>
+<Point>
+<coordinates>-0.105333,51.5037,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>The London Planetarium</name>
+<Point>
+<coordinates>-0.154528,51.5229,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Tate Modern</name>
+<Point>
+<coordinates>-0.100154,51.5075,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>London BFI IMAX</name>
+<Point>
+<coordinates>-0.113924,51.5048,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Churchill's War Museum</name>
+<Point>
+<coordinates>-0.129108,51.5018,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>St Paul's Cathedral</name>
+<Point>
+<coordinates>-0.099528,51.5137,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Chippy</name>
+<Point>
+<coordinates>-0.13767,51.5157,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Baozi Inn Restaurant</name>
+<Point>
+<coordinates>-0.129183,51.5119,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Northumberland House</name>
+<Point>
+<coordinates>-0.12543,51.507,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Royal Albert Hall</name>
+<Point>
+<coordinates>-0.126236,51.5002,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Caffe Vergnano 1882 - Charing Cross</name>
+<Point>
+<coordinates>-0.128289,51.5122,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>LSE Grosvenor House Studios</name>
+<Point>
+<coordinates>-0.121363,51.5146,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>[Oakwood] St. George Wharf</name>
+<Point>
+<coordinates>-0.127649,51.4843,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Sunday (Up)Market</name>
+<Point>
+<coordinates>-0.072183,51.5209,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Story Deli</name>
+<Point>
+<coordinates>-0.072257,51.5217,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Story Deli, The Old Truman Brewery</name>
+<Point>
+<coordinates>-0.117135,51.4559,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Restaurant</name>
+<Point>
+<coordinates>-0.10145,51.5203,0.0</coordinates>
+</Point>
+</Placemark>
+
+</Document>
+</kml>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+<Document>
+<Placemark>
+<name>Central Park</name>
+<Point>
+<coordinates>-73.9731,40.7724,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Columbia University</name>
+<Point>
+<coordinates>-73.9626,40.8075,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>New York University</name>
+<Point>
+<coordinates>-73.9966,40.7291,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>United Nations</name>
+<Point>
+<coordinates>-73.9677,40.749,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>MOMA</name>
+<Point>
+<coordinates>-73.9777,40.7615,0.0</coordinates>
+</Point>
+</Placemark>
+
+</Document>
+</kml>

@@ -232,24 +232,9 @@
                 snapshot.orientation = [NSNumber numberWithDouble:s.orientation];
                 
                 NSString *filename = s.kmlFilename;
-                if ([filename isEqualToString:@"london.kml"]) {
-                    snapshot.area = @"London";
-                } else if ([filename isEqualToString:@"montreal.kml"]) {
-                    snapshot.area = @"Montreal";
-                } else if ([filename isEqualToString:@"New York City [many].kml"]) {
-                    snapshot.area = @"New York";
-                } else if ([filename isEqualToString:@"new.kml"]) {
-                    snapshot.area = @"new";
-                } else if ([filename isEqualToString:@"newyork.kml"]) {
-                    snapshot.area = @"New York";
-                } else if ([filename isEqualToString:@"SundayTest.kml"]) {
-                    snapshot.area = @"Sunday Test";
-                } else if ([filename isEqualToString:@"Taiwan.kml"]) {
-                    snapshot.area = @"Taiwan";
-                } else if ([filename isEqualToString:@"UKLondon.kml"]) {
-                    snapshot.area = @"London";
-                } else if ([filename isEqualToString:@"tokyo.kml"]) {
-                    snapshot.area = @"Tokyo";
+                for (int i = 0; i < [filename length]; i++) {
+                    NSArray *temp_array = [filename componentsSeparatedByString:@"."];
+                    snapshot.area = temp_array[0];
                 }
                 
                 snapshot.deviceType = [NSString stringWithCString:toString(s.deviceType).c_str() encoding:[NSString defaultCStringEncoding]];

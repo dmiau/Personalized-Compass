@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+<Document>
+<Placemark>
+<name>Saint Andrews</name>
+<Point>
+<coordinates>-2.79893,56.3389,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Edinburgh</name>
+<Point>
+<coordinates>-3.18754,55.9502,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>London</name>
+<Point>
+<coordinates>-0.126236,51.5002,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Glasgow</name>
+<Point>
+<coordinates>-4.25714,55.8657,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Dublin</name>
+<Point>
+<coordinates>-6.26749,53.3441,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Manchester</name>
+<Point>
+<coordinates>-2.23438,53.4807,0.0</coordinates>
+</Point>
+</Placemark>
+
+</Document>
+</kml>
