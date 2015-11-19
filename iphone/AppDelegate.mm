@@ -62,7 +62,7 @@
 //    if (![context save:&error]) {
 //        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
 //    }
-    
+//    
     return YES;
 }
 
@@ -209,10 +209,10 @@
     NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     NSLog(@"FUN TEST %d", [items count]);
-//    for (NSManagedObject *managedObject in items) {
-//        [managedObjectContext deleteObject:managedObject];
-//        NSLog(@"%@ object deleted",entityDescription);
-//    }
+    for (NSManagedObject *managedObject in items) {
+        [managedObjectContext deleteObject:managedObject];
+        NSLog(@"%@ object deleted",entityDescription);
+    }
     if (![managedObjectContext save:&error]) {
         NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
     }

@@ -207,16 +207,16 @@
          snapshot_file_array[row_id]];
         
         // load into core data
-        AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        for (int i = 0; i < [snapshot_file_array count]; i++) {
-            [self loadSnapshotWithName:snapshot_file_array[i]];
-            for (int j = 0; j < self.model->snapshot_array.size(); j++) {
-                snapshot s = self.model->snapshot_array[j];
-                Snapshot *snapshot = [NSEntityDescription insertNewObjectForEntityForName:@"Snapshot" inManagedObjectContext:app.managedObjectContext];
-                
-                snapshot.coordinateRegion = [NSData dataWithBytes:&s.coordinateRegion length:sizeof(s.coordinateRegion)];
-                
-                NSLog(@"FUNNNNNN");
+//        AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//        for (int i = 0; i < [snapshot_file_array count]; i++) {
+//            [self loadSnapshotWithName:snapshot_file_array[i]];
+//            for (int j = 0; j < self.model->snapshot_array.size(); j++) {
+//                snapshot s = self.model->snapshot_array[j];
+//                Snapshot *snapshot = [NSEntityDescription insertNewObjectForEntityForName:@"Snapshot" inManagedObjectContext:app.managedObjectContext];
+//                
+//                snapshot.coordinateRegion = [NSData dataWithBytes:&s.coordinateRegion length:sizeof(s.coordinateRegion)];
+//                
+//                NSLog(@"FUNNNNNN");
 //                NSLog(@"FUN before %f", s.coordinateRegion.center.latitude);
 //                NSLog(@"FUN before %f", s.coordinateRegion.center.longitude);
                 
@@ -227,45 +227,43 @@
 //                NSLog(@"FUN after %f", region.center.latitude);
 //                NSLog(@"FUN after %f", region.center.longitude);
                 
-                snapshot.osx_coordinateRegion =[NSData dataWithBytes:&s.osx_coordinateRegion  length:sizeof(s.osx_coordinateRegion)];
-                
-                snapshot.orientation = [NSNumber numberWithDouble:s.orientation];
-                
-                NSString *filename = s.kmlFilename;
-                for (int i = 0; i < [filename length]; i++) {
-                    NSArray *temp_array = [filename componentsSeparatedByString:@"."];
-                    snapshot.area = temp_array[0];
-                }
-                
-                snapshot.deviceType = [NSString stringWithCString:toString(s.deviceType).c_str() encoding:[NSString defaultCStringEncoding]];
-                
-                snapshot.visualizationType = [NSString stringWithCString:toString(s.visualizationType).c_str() encoding:[NSString defaultCStringEncoding]];
-                
-                snapshot.name = s.name;
-                snapshot.mapType = [NSNumber numberWithInteger: (NSUInteger)s.mapType];
-                
-                snapshot.time_stamp = s.time_stamp;
-                snapshot.date_str = s.date_str;
-                snapshot.notes = s.notes;
-                snapshot.address = s.address;
-                NSLog(@"%@", s.address);
-                
-                NSArray *temp_selected_ids = [self convertVectorToArray:s.selected_ids];
-                snapshot.selected_ids = [NSKeyedArchiver archivedDataWithRootObject:temp_selected_ids];
-                NSArray *temp_is_answer_list = [self convertVectorToArray:s.is_answer_list];
-                snapshot.is_answer_list = [NSKeyedArchiver archivedDataWithRootObject:temp_is_answer_list];
-                
-                snapshot.ios_display_wh = NSStringFromCGPoint(s.ios_display_wh);
-                snapshot.eios_display_wh = NSStringFromCGPoint(s.eios_display_wh);
-                snapshot.osx_display_wh = NSStringFromCGPoint(s.osx_display_wh);
-                
-                NSError *error;
-                if (![app.managedObjectContext save:&error]){
-                    NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
-                }
-                
-            }
-        }
+//                snapshot.osx_coordinateRegion =[NSData dataWithBytes:&s.osx_coordinateRegion  length:sizeof(s.osx_coordinateRegion)];
+//                
+//                snapshot.orientation = [NSNumber numberWithDouble:s.orientation];
+//                
+//                NSString *filename = s.kmlFilename;
+//                NSArray *temp_array = [filename componentsSeparatedByString:@"."];
+//                snapshot.area = temp_array[0];
+//                
+//                snapshot.deviceType = [NSString stringWithCString:toString(s.deviceType).c_str() encoding:[NSString defaultCStringEncoding]];
+//                
+//                snapshot.visualizationType = [NSString stringWithCString:toString(s.visualizationType).c_str() encoding:[NSString defaultCStringEncoding]];
+//                
+//                snapshot.name = s.name;
+//                snapshot.mapType = [NSNumber numberWithInteger: (NSUInteger)s.mapType];
+//                
+//                snapshot.time_stamp = s.time_stamp;
+//                snapshot.date_str = s.date_str;
+//                snapshot.notes = s.notes;
+//                snapshot.address = s.address;
+//                NSLog(@"%@", s.address);
+//                
+//                NSArray *temp_selected_ids = [self convertVectorToArray:s.selected_ids];
+//                snapshot.selected_ids = [NSKeyedArchiver archivedDataWithRootObject:temp_selected_ids];
+//                NSArray *temp_is_answer_list = [self convertVectorToArray:s.is_answer_list];
+//                snapshot.is_answer_list = [NSKeyedArchiver archivedDataWithRootObject:temp_is_answer_list];
+//                
+//                snapshot.ios_display_wh = NSStringFromCGPoint(s.ios_display_wh);
+//                snapshot.eios_display_wh = NSStringFromCGPoint(s.eios_display_wh);
+//                snapshot.osx_display_wh = NSStringFromCGPoint(s.osx_display_wh);
+//                
+//                NSError *error;
+//                if (![app.managedObjectContext save:&error]){
+//                    NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
+//                }
+//                
+//            }
+//        }
         
         
     }else{

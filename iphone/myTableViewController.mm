@@ -200,43 +200,28 @@
     
     kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
 
-    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    for (int i = 0; i < [kml_files count]; i++) {
-        NSString *filename = kml_files[i];
-        NSLog(@"%@", filename);
-        readLocationKml(self.model, filename);
-        for (int j = 0; j < self.model->data_array.size(); j++) {
-            Place *p1 = [NSEntityDescription
-                         insertNewObjectForEntityForName:@"Place"
-                         inManagedObjectContext:app.managedObjectContext];
-        
-            p1.name = [NSString stringWithCString:self.model->data_array[j].name.c_str() encoding:[NSString defaultCStringEncoding]];
-            p1.lon = [NSNumber numberWithDouble:self.model->data_array[j].latitude];
-            p1.lat = [NSNumber numberWithDouble:self.model->data_array[j].longitude];
-
-            if ([filename isEqualToString:@"london.kml"]) {
-                p1.area = @"London";
-            } else if ([filename isEqualToString:@"montreal.kml"]) {
-                p1.area = @"Montreal";
-            } else if ([filename isEqualToString:@"New York City [many].kml"]) {
-                p1.area = @"New York";
-            } else if ([filename isEqualToString:@"new.kml"]) {
-                p1.area = @"new";
-            } else if ([filename isEqualToString:@"newyork.kml"]) {
-                p1.area = @"New York";
-            } else if ([filename isEqualToString:@"SundayTest.kml"]) {
-                p1.area = @"Sunday Test";
-            } else if ([filename isEqualToString:@"Taiwan.kml"]) {
-                p1.area = @"Taiwan";
-            } else if ([filename isEqualToString:@"UKLondon.kml"]) {
-                p1.area = @"London";
-            }
-        }
-    }
-    NSError *error;
-    if (![app.managedObjectContext save:&error]){
-        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
-    }
+//    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//    for (int i = 0; i < [kml_files count]; i++) {
+//        NSString *filename = kml_files[i];
+//        NSLog(@"%@", filename);
+//        readLocationKml(self.model, filename);
+//        for (int j = 0; j < self.model->data_array.size(); j++) {
+//            Place *p1 = [NSEntityDescription
+//                         insertNewObjectForEntityForName:@"Place"
+//                         inManagedObjectContext:app.managedObjectContext];
+//        
+//            p1.name = [NSString stringWithCString:self.model->data_array[j].name.c_str() encoding:[NSString defaultCStringEncoding]];
+//            p1.lon = [NSNumber numberWithDouble:self.model->data_array[j].longitude];
+//            p1.lat = [NSNumber numberWithDouble:self.model->data_array[j].latitude];
+//
+//            NSArray *area_array = [filename componentsSeparatedByString:@"."];
+//            p1.area = area_array[0];
+//        }
+//    }
+//    NSError *error;
+//    if (![app.managedObjectContext save:&error]){
+//        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
+//    }
 }
 
 #pragma mark -----Table View Data Source Methods-----
@@ -352,7 +337,8 @@
     int row_id = [path row];
     int section_id = [path section];
     data *data_ptr;
-
+    NSLog(@"FUN %d %d", section_id, row_id);
+    
     if (section_id == 0){
         data_ptr = &(self.model->user_pos);
         self.rootViewController.needToggleLocationService = true;
