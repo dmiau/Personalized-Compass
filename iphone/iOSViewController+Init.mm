@@ -306,6 +306,7 @@
     NSError *error;
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
     NSString *initData= @"SundayTest";
+    self.currentArea = initData;
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"area == %@", initData]];
     
     NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];

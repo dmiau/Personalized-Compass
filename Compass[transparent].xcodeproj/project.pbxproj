@@ -4695,6 +4695,7 @@
 				INFOPLIST_FILE = "iphone copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hong.pcompass-ipad";
 				PRODUCT_NAME = "pcompass-ipad";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -4732,6 +4733,7 @@
 				INFOPLIST_FILE = "iphone copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hong.pcompass-ipad";
 				PRODUCT_NAME = "pcompass-ipad";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

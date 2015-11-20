@@ -96,7 +96,7 @@
         data_dirty_flag = false;
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
-        
+        [self initArea];
         [self initKMLList];
     }
     return self;
@@ -132,6 +132,7 @@
 //    [super viewWillAppear:animated];
     
     // Update the KML list
+    [self initArea];
     [self initKMLList];
     
     //-------------------
@@ -239,13 +240,13 @@
     else if (section == 1)
         return self.model->data_array.size();
     else
-        return [kml_files count];
+        return [areas count];
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     NSArray *list = @[@"User Location",
-                      [self.model->location_filename lastPathComponent],
+                      self.model->location_filename,
                       @"Location Files"];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
@@ -258,6 +259,21 @@
     [view addSubview:label];
     [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
     return view;
+}
+
+- (void) initArea{
+    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Place" inManagedObjectContext:app.managedObjectContext];
+    fetchRequest.resultType = NSDictionaryResultType;
+    fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"area"]];
+    fetchRequest.returnsDistinctResults = YES;
+    NSArray *areasDic = [app.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray *temp_area = [[NSMutableArray alloc] init];
+    for (int i = 0 ; i < [areasDic count]; i++) {
+        [temp_area addObject:areasDic[i][@"area"]];
+    }
+    areas = temp_area;
 }
 
 //----------------
@@ -288,7 +304,7 @@
         
 //        cell.backgroundColor = [UIColor redColor];
     }else{
-        cell.textLabel.text =  kml_files[i];
+        cell.textLabel.text =  areas[i];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
         cell.isUserLocation = false;
     }
@@ -346,14 +362,40 @@
         data_ptr = &(self.model->data_array[row_id]);
     }else{
         // Reload and display the landmarks
-        if ( ![[kml_files objectAtIndex:row_id] isEqualToString:self.model->location_filename])
-        {
-            self.model->location_filename = [kml_files objectAtIndex:row_id];
-           
+//        if ( ![[kml_files objectAtIndex:row_id] isEqualToString:self.model->location_filename])
+//        {
+
             // Read the location data
             // texture cache is generated within readLocationKml
-            readLocationKml(self.model, self.model->location_filename);
+//            readLocationKml(self.model, self.model->location_filename);
+            self.model->location_filename = areas[row_id];
+            self.model->data_array.clear();
+            std::vector<data> locationData;
+            // Fetch the stored data
+            AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+            
+            NSError *error;
+            NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
+            NSString *initData= areas[row_id];
+            [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"area == %@", initData]];
+            
+            NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+            
+            
+            
+            for (Place *place in requestResults) {
+                data data;
+                data.latitude = [place.lat floatValue];
+                data.longitude = [place.lon floatValue];
+                data.name = [place.name UTF8String];
+                CLLocationCoordinate2D coor = CLLocationCoordinate2DMake(data.latitude, data.longitude);
+                data.annotation.coordinate = coor;
+                locationData.push_back(data);
+            }
+            self.model->data_array =  locationData;
+            
             self.model->updateMdl();
+            self.model->initTextureArray();
             //--------------
             // new.kml is a speical location file used to creating new data,
             // it is therefore not necessary to go to the first location
@@ -368,7 +410,9 @@
             self.rootViewController.needUpdateAnnotations = true;
             
             [self.myTableView reloadData];
-        }
+//        }
+        
+        
     }
     
     self.rootViewController.needUpdateAnnotations = true;
@@ -463,6 +507,7 @@
                 [self.model->docFilesystem
                  deleteFilename:kml_files[i]];
             }
+            [self initArea];
             [self initKMLList];
             [self.myTableView reloadData];
         }

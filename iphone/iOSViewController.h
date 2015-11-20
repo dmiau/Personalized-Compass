@@ -305,5 +305,7 @@ typedef struct{
 -(void) updateGMapBasedOnAMap;
 -(void) updateAMapBasedOnGMap;
 
+@property (nonatomic, weak) NSString *currentArea;
+
 
 @end
