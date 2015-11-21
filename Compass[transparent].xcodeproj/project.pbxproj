@@ -207,9 +207,12 @@
 		2BCBE8C11BFD21BA004A340D /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBE8BD1BFD21BA004A340D /* Snapshot.m */; };
 		2BCBE8C21BFD21BA004A340D /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBE8BD1BFD21BA004A340D /* Snapshot.m */; };
 		2BCBE8C31BFD21BA004A340D /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBE8BD1BFD21BA004A340D /* Snapshot.m */; };
-		2BE106721BFE8B140050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106711BFE8B140050F947 /* PersonalCompass.sqlite */; };
-		2BE106731BFE8B140050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106711BFE8B140050F947 /* PersonalCompass.sqlite */; };
-		2BE106741BFE8B140050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106711BFE8B140050F947 /* PersonalCompass.sqlite */; };
+		2BE106841C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
+		2BE106851C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
+		2BE106861C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
+		2BE106871C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
+		2BE106881C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
+		2BE106891C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
 		9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
@@ -1421,7 +1424,7 @@
 		2BCBE8BB1BFD21BA004A340D /* Snapshot+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Snapshot+CoreDataProperties.m"; sourceTree = "<group>"; };
 		2BCBE8BC1BFD21BA004A340D /* Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snapshot.h; sourceTree = "<group>"; };
 		2BCBE8BD1BFD21BA004A340D /* Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snapshot.m; sourceTree = "<group>"; };
-		2BE106711BFE8B140050F947 /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
+		2BE106831C010DB60050F947 /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
 		9A0060C41AA65CCA00E60F10 /* watchScale.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = watchScale.tif; sourceTree = "<group>"; };
 		9A006CA019522918009BB81C /* iOSViewController+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Model.h"; sourceTree = "<group>"; };
 		9A006CA119522918009BB81C /* iOSViewController+Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Model.mm"; sourceTree = "<group>"; };
@@ -2024,7 +2027,7 @@
 		2BC725071BF2D90400219807 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				2BE106711BFE8B140050F947 /* PersonalCompass.sqlite */,
+				2BE106831C010DB60050F947 /* PersonalCompass.sqlite */,
 				2BCBE8BA1BFD21BA004A340D /* Snapshot+CoreDataProperties.h */,
 				2BCBE8BB1BFD21BA004A340D /* Snapshot+CoreDataProperties.m */,
 				2BCBE8BC1BFD21BA004A340D /* Snapshot.h */,
@@ -3244,7 +3247,7 @@
 				2B1F0B5A1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A3DA0A11964E9B1009E0073 /* remove.png in Resources */,
 				9AB2A722196372AA0001E96F /* unselected.png in Resources */,
-				2BE106731BFE8B140050F947 /* PersonalCompass.sqlite in Resources */,
+				2BE106881C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B3C1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				2B1F0ACA1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A2E42E9196C9D2C00CF8862 /* heading.png in Resources */,
@@ -3310,7 +3313,7 @@
 				2B1F0B5B1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A82B64A1941518900534A5F /* Images.xcassets in Resources */,
 				9A48089D198BF1F70001E188 /* debug.png in Resources */,
-				2BE106741BFE8B140050F947 /* PersonalCompass.sqlite in Resources */,
+				2BE106891C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B3D1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				2B1F0ACB1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A3DA0A21964E9B1009E0073 /* remove.png in Resources */,
@@ -3379,6 +3382,7 @@
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
 				9A8DF92B1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AF3788A1A9FED7600FEB3F3 /* walking.tif in Resources */,
+				2BE106871C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
 				9A856FA81AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				2B1F0AF91BFD4915001CB7EF /* miami.kml in Resources */,
@@ -3416,7 +3420,7 @@
 				9A856FAE1AB8AF4500486AE9 /* pcompass-phone-locate.mp4 in Resources */,
 				2B1F0AA61BFD48FB001CB7EF /* default.snapshot in Resources */,
 				9A856F991AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
-				2BE106721BFE8B140050F947 /* PersonalCompass.sqlite in Resources */,
+				2BE106841C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
 				9A856F9D1AB8AEEF00486AE9 /* pcompass-phone-distance.mp4 in Resources */,
 				9A856FA51AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				2B1F0AEA1BFD4915001CB7EF /* london.kml in Resources */,
@@ -3534,6 +3538,7 @@
 				2B1F0B461BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				2B1F0AA81BFD48FB001CB7EF /* default.snapshot in Resources */,
 				2B1F0ACE1BFD4915001CB7EF /* governors_island.kml in Resources */,
+				2BE106861C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
 				9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */,
 				9A856F821AB8AEE100486AE9 /* wedge-phone-direction.mp4 in Resources */,
 				9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */,
@@ -3642,6 +3647,7 @@
 				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,
 				2B1F0B0F1BFD4915001CB7EF /* newyork723.kml in Resources */,
 				2B1F0AFD1BFD4915001CB7EF /* montreal.kml in Resources */,
+				2BE106851C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B451BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A42A0E219ABB12D00BB0101 /* Web in Resources */,

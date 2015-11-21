@@ -59,7 +59,7 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
+    //    [super viewWillAppear:animated];
     if (selected_snapshot_id > -1){
         UITableViewCell* cell = [self.myTableView
                                  cellForRowAtIndexPath:
@@ -83,8 +83,8 @@
     
     NSDictionary *navbarTitleTextAttributes =
     [NSDictionary dictionaryWithObjectsAndKeys:
-            [UIColor whiteColor],UITextAttributeTextColor,
-            [UIColor blackColor], UITextAttributeTextShadowColor,nil];
+     [UIColor whiteColor],UITextAttributeTextColor,
+     [UIColor blackColor], UITextAttributeTextShadowColor,nil];
     
     
     [myNavigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
@@ -100,16 +100,16 @@
     if (self.rootViewController.testManager->testManagerMode != OFF)
     {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:
-        self.rootViewController.testManager->test_counter
+                                  self.rootViewController.testManager->test_counter
                                                     inSection: 1];
         [self.myTableView selectRowAtIndexPath:indexPath
-                               animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+                                      animated:NO scrollPosition:UITableViewScrollPositionMiddle];
     }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     
-//    [self saveKML:nil];
+    //    [self saveKML:nil];
 }
 
 
@@ -124,12 +124,29 @@
     self = [super initWithCoder:aDecoder];
     if(self) {
         // Do something
-        
         self.model = compassMdl::shareCompassMdl();
+        [self initAreas];
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
     }
     return self;
+}
+
+-(void) initAreas {
+    AppDelegate* app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Snapshot"];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Snapshot" inManagedObjectContext:app.managedObjectContext];
+    fetchRequest.resultType = NSDictionaryResultType;
+    fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"area"]];
+    fetchRequest.returnsDistinctResults = YES;
+    NSError *error;
+    NSArray *areasDic = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSMutableArray *temp_area = [[NSMutableArray alloc] init];
+    for (int i = 0 ; i < [areasDic count]; i++) {
+        [temp_area addObject:areasDic[i][@"area"]];
+    }
+    NSLog(@"FUN snapshot %@", areasDic);
+    areas = temp_area;
 }
 
 #pragma mark -----Table View Data Source Methods-----
@@ -139,7 +156,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section ==0){
-        return [snapshot_file_array count];
+        return [areas count];
     }else{
         return self.model->snapshot_array.size();
     }
@@ -149,7 +166,8 @@
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     NSArray *list = @[@"Snapshot files",
-                      [self.model->snapshot_filename lastPathComponent]];
+                      self.model->snapshot_filename];
+//    NSArray *list = @[@"Snapshot files"];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
     /* Create custom view to display section header... */
@@ -178,7 +196,7 @@
     int i = [indexPath row];
     
     if (section_id == 0){
-        cell.textLabel.text = snapshot_file_array[i];
+        cell.textLabel.text = areas[i];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
     }else{
         // Configure Cell
@@ -190,10 +208,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path {
-    for (int i = 0; i < [snapshot_file_array count]; i++) {
-        
-    }
-
+    
     int row_id = [path row];
     int section_id = [path section];
     
@@ -203,67 +218,66 @@
         // User selects a file
         //----------------
         
-        [self loadSnapshotWithName:
-         snapshot_file_array[row_id]];
+        [self loadSnapshotWithName:areas[row_id]];
         
         // load into core data
-//        AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-//        for (int i = 0; i < [snapshot_file_array count]; i++) {
-//            [self loadSnapshotWithName:snapshot_file_array[i]];
-//            for (int j = 0; j < self.model->snapshot_array.size(); j++) {
-//                snapshot s = self.model->snapshot_array[j];
-//                Snapshot *snapshot = [NSEntityDescription insertNewObjectForEntityForName:@"Snapshot" inManagedObjectContext:app.managedObjectContext];
-//                
-//                snapshot.coordinateRegion = [NSData dataWithBytes:&s.coordinateRegion length:sizeof(s.coordinateRegion)];
-//                
-//                NSLog(@"FUNNNNNN");
-//                NSLog(@"FUN before %f", s.coordinateRegion.center.latitude);
-//                NSLog(@"FUN before %f", s.coordinateRegion.center.longitude);
-                
-                
-//                MKCoordinateRegion region;
-//                [snapshot.coordinateRegion getBytes:&region length:sizeof(region)];
-                
-//                NSLog(@"FUN after %f", region.center.latitude);
-//                NSLog(@"FUN after %f", region.center.longitude);
-                
-//                snapshot.osx_coordinateRegion =[NSData dataWithBytes:&s.osx_coordinateRegion  length:sizeof(s.osx_coordinateRegion)];
-//                
-//                snapshot.orientation = [NSNumber numberWithDouble:s.orientation];
-//                
-//                NSString *filename = s.kmlFilename;
-//                NSArray *temp_array = [filename componentsSeparatedByString:@"."];
-//                snapshot.area = temp_array[0];
-//                
-//                snapshot.deviceType = [NSString stringWithCString:toString(s.deviceType).c_str() encoding:[NSString defaultCStringEncoding]];
-//                
-//                snapshot.visualizationType = [NSString stringWithCString:toString(s.visualizationType).c_str() encoding:[NSString defaultCStringEncoding]];
-//                
-//                snapshot.name = s.name;
-//                snapshot.mapType = [NSNumber numberWithInteger: (NSUInteger)s.mapType];
-//                
-//                snapshot.time_stamp = s.time_stamp;
-//                snapshot.date_str = s.date_str;
-//                snapshot.notes = s.notes;
-//                snapshot.address = s.address;
-//                NSLog(@"%@", s.address);
-//                
-//                NSArray *temp_selected_ids = [self convertVectorToArray:s.selected_ids];
-//                snapshot.selected_ids = [NSKeyedArchiver archivedDataWithRootObject:temp_selected_ids];
-//                NSArray *temp_is_answer_list = [self convertVectorToArray:s.is_answer_list];
-//                snapshot.is_answer_list = [NSKeyedArchiver archivedDataWithRootObject:temp_is_answer_list];
-//                
-//                snapshot.ios_display_wh = NSStringFromCGPoint(s.ios_display_wh);
-//                snapshot.eios_display_wh = NSStringFromCGPoint(s.eios_display_wh);
-//                snapshot.osx_display_wh = NSStringFromCGPoint(s.osx_display_wh);
-//                
-//                NSError *error;
-//                if (![app.managedObjectContext save:&error]){
-//                    NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
-//                }
-//                
-//            }
-//        }
+        //        AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        //        for (int i = 0; i < [snapshot_file_array count]; i++) {
+        //            [self loadSnapshotWithName:snapshot_file_array[i]];
+        //            for (int j = 0; j < self.model->snapshot_array.size(); j++) {
+        //                snapshot s = self.model->snapshot_array[j];
+        //                Snapshot *snapshot = [NSEntityDescription insertNewObjectForEntityForName:@"Snapshot" inManagedObjectContext:app.managedObjectContext];
+        //
+        //                snapshot.coordinateRegion = [NSData dataWithBytes:&s.coordinateRegion length:sizeof(s.coordinateRegion)];
+        //
+        //                NSLog(@"FUNNNNNN");
+        //                NSLog(@"FUN before %f", s.coordinateRegion.center.latitude);
+        //                NSLog(@"FUN before %f", s.coordinateRegion.center.longitude);
+        
+        
+        //                MKCoordinateRegion region;
+        //                [snapshot.coordinateRegion getBytes:&region length:sizeof(region)];
+        
+        //                NSLog(@"FUN after %f", region.center.latitude);
+        //                NSLog(@"FUN after %f", region.center.longitude);
+        
+        //                snapshot.osx_coordinateRegion =[NSData dataWithBytes:&s.osx_coordinateRegion  length:sizeof(s.osx_coordinateRegion)];
+        //
+        //                snapshot.orientation = [NSNumber numberWithDouble:s.orientation];
+        //
+        //                NSString *filename = s.kmlFilename;
+        //                NSArray *temp_array = [filename componentsSeparatedByString:@"."];
+        //                snapshot.area = temp_array[0];
+        //
+        //                snapshot.deviceType = [NSString stringWithCString:toString(s.deviceType).c_str() encoding:[NSString defaultCStringEncoding]];
+        //
+        //                snapshot.visualizationType = [NSString stringWithCString:toString(s.visualizationType).c_str() encoding:[NSString defaultCStringEncoding]];
+        //
+        //                snapshot.name = s.name;
+        //                snapshot.mapType = [NSNumber numberWithInteger: (NSUInteger)s.mapType];
+        //
+        //                snapshot.time_stamp = s.time_stamp;
+        //                snapshot.date_str = s.date_str;
+        //                snapshot.notes = s.notes;
+        //                snapshot.address = s.address;
+        //                NSLog(@"%@", s.address);
+        //
+        //                NSArray *temp_selected_ids = [self convertVectorToArray:s.selected_ids];
+        //                snapshot.selected_ids = [NSKeyedArchiver archivedDataWithRootObject:temp_selected_ids];
+        //                NSArray *temp_is_answer_list = [self convertVectorToArray:s.is_answer_list];
+        //                snapshot.is_answer_list = [NSKeyedArchiver archivedDataWithRootObject:temp_is_answer_list];
+        //
+        //                snapshot.ios_display_wh = NSStringFromCGPoint(s.ios_display_wh);
+        //                snapshot.eios_display_wh = NSStringFromCGPoint(s.eios_display_wh);
+        //                snapshot.osx_display_wh = NSStringFromCGPoint(s.osx_display_wh);
+        //
+        //                NSError *error;
+        //                if (![app.managedObjectContext save:&error]){
+        //                    NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
+        //                }
+        //
+        //            }
+        //        }
         
         
     }else{
@@ -289,7 +303,7 @@
 
 - (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-//    // Get the row ID
+    //    // Get the row ID
     int i = [indexPath row];
     int section_id = [indexPath section];
     
@@ -352,7 +366,7 @@
         if (self.model->filesys_type == DROPBOX){
             [self.model->dbFilesystem
              deleteFilename:snapshot_file_array[i]];
-
+            
         }else{
             [self.model->docFilesystem
              deleteFilename:snapshot_file_array[i]];
@@ -438,7 +452,49 @@
 - (void)loadSnapshotWithName: (NSString*) filename{
     NSString* filename_cache = self.model->snapshot_filename;
     self.model->snapshot_filename = filename;
-    if (readSnapshotKml(self.model)!= EXIT_SUCCESS){
+    self.model->snapshot_array.clear();
+    std::vector<snapshot> snapshotData;
+    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    NSError *error;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Snapshot"];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"area == %@", filename]];
+    
+    NSArray *result = [app.managedObjectContext executeFetchRequest: fetchRequest error:&error];
+    
+    for (Snapshot *s in result) {
+        snapshot oneShot;
+        MKCoordinateRegion region;
+        [s.coordinateRegion getBytes:&region length:sizeof(region)];
+         oneShot.coordinateRegion = region;
+        [s.osx_coordinateRegion getBytes:&region length:sizeof(region)];
+        oneShot.osx_coordinateRegion = region;
+        
+        oneShot.orientation = [s.orientation doubleValue];
+        oneShot.kmlFilename = [s.area stringByAppendingString: @".kml"];
+        
+        string *typeString = new std::string([s.deviceType UTF8String]);
+        
+        oneShot.deviceType = toDeviceType(*typeString);
+        oneShot.visualizationType = NSStringToVisualizationType(s.visualizationType);
+        
+        oneShot.name = s.name;
+        oneShot.mapType = (MKMapType)[s.mapType intValue];
+        oneShot.time_stamp = s.time_stamp;
+        oneShot.date_str = s.date_str;
+        oneShot.notes = s.notes;
+        oneShot.address = s.address;
+        NSArray *temp_array = [NSKeyedUnarchiver unarchiveObjectWithData:s.selected_ids];
+        oneShot.selected_ids = [self convertNSArrayToVector:temp_array];
+        NSArray *temp_is_answer_list = [NSKeyedUnarchiver unarchiveObjectWithData:s.is_answer_list];
+        oneShot.is_answer_list = [self convertNSArrayToVector:temp_is_answer_list];
+        
+        oneShot.ios_display_wh = CGPointFromString(s.ios_display_wh);
+        oneShot.eios_display_wh = CGPointFromString(s.eios_display_wh);
+        oneShot.osx_display_wh = CGPointFromString(s.osx_display_wh);
+        snapshotData.push_back(oneShot);
+    }
+    self.model->snapshot_array = snapshotData;
+    if (self.model->snapshot_array.size()==0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
                                                         message:@"Fail to read the snapshot file."
                                                        delegate:self
@@ -528,6 +584,14 @@
         [array addObject:temp];
     }
     return array;
+}
+
+- (std::vector<int> ) convertNSArrayToVector: (NSArray *) array {
+    std::vector<int> res;
+    for (int i = 0; i < [array count]; i++) {
+        res.push_back([array[i] intValue]);
+    }
+    return res;
 }
 
 @end

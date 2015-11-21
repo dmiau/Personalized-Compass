@@ -68,6 +68,20 @@ inline string toString(DeviceType deviceType){
     return output;
 }
 
+inline DeviceType toDeviceType(string s) {
+    DeviceType res;
+    if (s == "phone") {
+        res = PHONE;
+    } else if (s == "watch") {
+        res = WATCH;
+    } else if (s== "squarewatch") {
+        res = SQUAREWATCH;
+    } else if (s == "desktop") {
+        res = DESKTOP;
+    }
+    return res;
+}
+
 
 // Visualization type enum
 typedef enum{
