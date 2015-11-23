@@ -2,7 +2,7 @@
 //  Place+CoreDataProperties.h
 //  Compass[transparent]
 //
-//  Created by Hong Guo on 11/10/15.
+//  Created by Hong Guo on 11/23/15.
 //  Copyright © 2015 dmiau. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Place (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSNumber *lat;
 @property (nullable, nonatomic, retain) NSNumber *lon;
-@property (nullable, nonatomic, retain) NSString *area;
+@property (nullable, nonatomic, retain) NSString *name;
+@property (nullable, nonatomic, retain) Area *atArea;
 
 @end
 

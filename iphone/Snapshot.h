@@ -2,12 +2,14 @@
 //  Snapshot.h
 //  Compass[transparent]
 //
-//  Created by Hong Guo on 11/18/15.
+//  Created by Hong Guo on 11/23/15.
 //  Copyright © 2015 dmiau. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+
+@class Area;
 
 NS_ASSUME_NONNULL_BEGIN
 

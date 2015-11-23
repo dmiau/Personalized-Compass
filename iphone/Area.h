@@ -1,5 +1,5 @@
 //
-//  Place.h
+//  Area.h
 //  Compass[transparent]
 //
 //  Created by Hong Guo on 11/23/15.
@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Area;
+@class Place, Snapshot;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Place : NSManagedObject
+@interface Area : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -21,4 +21,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Place+CoreDataProperties.h"
+#import "Area+CoreDataProperties.h"

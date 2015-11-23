@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
-    <entity name="Area" syncable="YES">
+    <entity name="Area" representedClassName="Area" syncable="YES">
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Place" inverseName="atArea" inverseEntity="Place" syncable="YES"/>
+        <relationship name="snapshots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Snapshot" inverseName="atArea" inverseEntity="Snapshot" syncable="YES"/>
     </entity>
     <entity name="Place" representedClassName="Place" syncable="YES">
-        <attribute name="area" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="atArea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Area" inverseName="places" inverseEntity="Area" syncable="YES"/>
     </entity>
     <entity name="Snapshot" representedClassName="Snapshot" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="area" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="coordinateRegion" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="date_str" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="deviceType" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,10 +30,11 @@
         <attribute name="selected_ids" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="time_stamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="visualizationType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="atArea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Area" inverseName="snapshots" inverseEntity="Area" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Place" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Snapshot" positionX="259" positionY="33" width="128" height="300"/>
-        <element name="Area" positionX="99" positionY="135" width="128" height="88"/>
+        <element name="Area" positionX="99" positionY="135" width="128" height="118"/>
+        <element name="Place" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Snapshot" positionX="367" positionY="32" width="128" height="298"/>
     </elements>
 </model>

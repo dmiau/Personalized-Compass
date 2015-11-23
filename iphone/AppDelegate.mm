@@ -28,8 +28,9 @@
     
     [GMSServices provideAPIKey:@"AIzaSyDdOmlH3SRnitZxFkhlQz7W81ERDShHXMk"];
     
-//    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObjectContext *context = [self managedObjectContext];
 //    [self deleteAllObjects:@"Place" in:context];
+//    [self deleteAllObjects:@"Area" in:context];
 //    Place *p1 = [NSEntityDescription
 //                 insertNewObjectForEntityForName:@"Place"
 //                 inManagedObjectContext:context];
@@ -56,13 +57,13 @@
 //    p3.lon = [NSNumber numberWithDouble:-74.1745];
 //    p3.lat = [NSNumber numberWithDouble:40.6895];
 //    p3.area = @"New Jersey";
-//    
-//    
-//    NSError *error;
-//    if (![context save:&error]) {
-//        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
-//    }
-//    
+    
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
+    }
+    
     return YES;
 }
 

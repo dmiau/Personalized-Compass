@@ -11,6 +11,7 @@
 #import "DetailViewController.h"
 #import "AppDelegate.h"
 #import "Place.h"
+#import "Area.h"
 
 @interface myTableViewController ()
 
@@ -61,7 +62,7 @@
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animate{
-
+    
     if (editing){
         [self.mySwitch setHidden:YES];
         [self setEditingAccessoryType: UITableViewCellAccessoryDetailButton];
@@ -71,7 +72,7 @@
             self.mySwitch.on = self.data_ptr->isEnabled;
         [self setEditingAccessoryType: UITableViewCellAccessoryNone];
     }
-
+    
     [super setEditing:editing animated:animate];
 }
 
@@ -105,7 +106,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
     // Connect to the parent view controller to update its
     // properties directly
     
@@ -129,7 +130,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
+    //    [super viewWillAppear:animated];
     
     // Update the KML list
     [self initArea];
@@ -173,7 +174,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     // Save kml before exiting
-//    [self saveKML:nil];
+    //    [self saveKML:nil];
     [super viewWillDisappear:animated];
 }
 
@@ -200,23 +201,23 @@
     dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'history')"]];
     
     kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
-
+    
 //    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
 //    for (int i = 0; i < [kml_files count]; i++) {
 //        NSString *filename = kml_files[i];
 //        NSLog(@"%@", filename);
 //        readLocationKml(self.model, filename);
+//        Area *area = [NSEntityDescription insertNewObjectForEntityForName:@"Area" inManagedObjectContext:app.managedObjectContext];
+//        area.name = [filename componentsSeparatedByString:@"."][0];
 //        for (int j = 0; j < self.model->data_array.size(); j++) {
 //            Place *p1 = [NSEntityDescription
 //                         insertNewObjectForEntityForName:@"Place"
 //                         inManagedObjectContext:app.managedObjectContext];
-//        
+//            
 //            p1.name = [NSString stringWithCString:self.model->data_array[j].name.c_str() encoding:[NSString defaultCStringEncoding]];
 //            p1.lon = [NSNumber numberWithDouble:self.model->data_array[j].longitude];
 //            p1.lat = [NSNumber numberWithDouble:self.model->data_array[j].latitude];
-//
-//            NSArray *area_array = [filename componentsSeparatedByString:@"."];
-//            p1.area = area_array[0];
+//            [area addPlacesObject:p1];
 //        }
 //    }
 //    NSError *error;
@@ -263,15 +264,16 @@
 
 - (void) initArea{
     AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Place" inManagedObjectContext:app.managedObjectContext];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Area" inManagedObjectContext:app.managedObjectContext];
     fetchRequest.resultType = NSDictionaryResultType;
-    fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"area"]];
+    fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"name"]];
     fetchRequest.returnsDistinctResults = YES;
     NSArray *areasDic = [app.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSLog(@"FUN init area %@", areasDic);
     NSMutableArray *temp_area = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < [areasDic count]; i++) {
-        [temp_area addObject:areasDic[i][@"area"]];
+        [temp_area addObject:areasDic[i][@"name"]];
     }
     areas = temp_area;
 }
@@ -302,7 +304,7 @@
         cell.isUserLocation = false;
         data_ptr = &(self.model->data_array[i]);
         
-//        cell.backgroundColor = [UIColor redColor];
+        //        cell.backgroundColor = [UIColor redColor];
     }else{
         cell.textLabel.text =  areas[i];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
@@ -362,28 +364,29 @@
         data_ptr = &(self.model->data_array[row_id]);
     }else{
         // Reload and display the landmarks
-//        if ( ![[kml_files objectAtIndex:row_id] isEqualToString:self.model->location_filename])
-//        {
-
-            // Read the location data
-            // texture cache is generated within readLocationKml
-//            readLocationKml(self.model, self.model->location_filename);
-            self.model->location_filename = areas[row_id];
-            self.model->data_array.clear();
-            std::vector<data> locationData;
-            // Fetch the stored data
-            AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            
-            NSError *error;
-            NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
-            NSString *initData= areas[row_id];
-            [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"area == %@", initData]];
-            
-            NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-            
-            
-            
-            for (Place *place in requestResults) {
+        //        if ( ![[kml_files objectAtIndex:row_id] isEqualToString:self.model->location_filename])
+        //        {
+        
+        // Read the location data
+        // texture cache is generated within readLocationKml
+        //            readLocationKml(self.model, self.model->location_filename);
+        self.model->location_filename = areas[row_id];
+        self.model->data_array.clear();
+        std::vector<data> locationData;
+        // Fetch the stored data
+        AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        
+        NSError *error;
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
+        NSString *initData= areas[row_id];
+        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@", initData]];
+        
+        NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        
+        if ([requestResults count]) {
+            Area *area = requestResults[0];
+            NSSet *places = [area valueForKey:@"places"];
+            for (Place *place in places) {
                 data data;
                 data.latitude = [place.lat floatValue];
                 data.longitude = [place.lon floatValue];
@@ -396,21 +399,22 @@
             
             self.model->updateMdl();
             self.model->initTextureArray();
-            //--------------
-            // new.kml is a speical location file used to creating new data,
-            // it is therefore not necessary to go to the first location
-            //--------------
-            if ([self.model->location_filename isEqualToString:@"new.kml"])
-            {
-                // Do nothing
-            }else{
-                self.rootViewController.landmark_id_toshow = 0;
-                // updateMapDisplayRegion will be called in unwindSegue
-            }
-            self.rootViewController.needUpdateAnnotations = true;
-            
-            [self.myTableView reloadData];
-//        }
+        }
+        //--------------
+        // new.kml is a speical location file used to creating new data,
+        // it is therefore not necessary to go to the first location
+        //--------------
+        if ([self.model->location_filename isEqualToString:@"new.kml"])
+        {
+            // Do nothing
+        }else{
+            self.rootViewController.landmark_id_toshow = 0;
+            // updateMapDisplayRegion will be called in unwindSegue
+        }
+        self.rootViewController.needUpdateAnnotations = true;
+        
+        [self.myTableView reloadData];
+        //        }
         
         
     }
@@ -471,7 +475,7 @@
         [self.myTableView setEditing:YES animated:YES];
         myButton.title = @"Done";
     }
-
+    
 }
 
 //-------------
@@ -521,7 +525,7 @@
 //-------------
 - (IBAction)toggleLandmakrSelection:(id)sender {
     UIBarButtonItem *myButton = (UIBarButtonItem*) sender;
-
+    
     if ([[myButton title] rangeOfString:@"All"].location != NSNotFound){
         for (int i = 0; i < self.model->data_array.size(); ++i) {
             self.model->data_array[i].isEnabled = true;
@@ -543,28 +547,28 @@
     self.model->data_array.clear();
     [self.myTableView reloadData];
     [self saveKMLAs:nil];
-    self.rootViewController.needUpdateAnnotations = true;    
+    self.rootViewController.needUpdateAnnotations = true;
 }
 
 - (IBAction)saveKML:(id)sender {
-
+    
     NSString *filename =
     [self.model->location_filename lastPathComponent];
     [self saveKMLWithFilename:filename];
-
+    
 }
 
 - (IBAction)saveKMLAs:(id)sender {
     // Prompt a dialog box to get the filename
     UIAlertView *alertView =
     [[UIAlertView alloc] initWithTitle:@"File Name"
-    message:@"Please enter a filename"
-    delegate:self
-    cancelButtonTitle:@"Cancel"
+                               message:@"Please enter a filename"
+                              delegate:self
+                     cancelButtonTitle:@"Cancel"
                      otherButtonTitles:@"OK", nil];
     
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
-
+    
     [alertView show];
 }
 

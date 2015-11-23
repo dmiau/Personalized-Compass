@@ -198,21 +198,31 @@
 		2B8E2C071BF67F370083613C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */; };
 		2B8E2C091BF67FE70083613C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8E2C081BF67FE70083613C /* GoogleMaps.framework */; };
 		2B8E2C0B1BF680000083613C /* GoogleMaps.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */; };
+		2B94CA991C03992C009E2B93 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA8E1C03992C009E2B93 /* Area+CoreDataProperties.m */; };
+		2B94CA9A1C03992C009E2B93 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA8E1C03992C009E2B93 /* Area+CoreDataProperties.m */; };
+		2B94CA9B1C03992C009E2B93 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA8E1C03992C009E2B93 /* Area+CoreDataProperties.m */; };
+		2B94CA9C1C03992C009E2B93 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA901C03992C009E2B93 /* Area.m */; };
+		2B94CA9D1C03992C009E2B93 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA901C03992C009E2B93 /* Area.m */; };
+		2B94CA9E1C03992C009E2B93 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA901C03992C009E2B93 /* Area.m */; };
+		2B94CA9F1C03992C009E2B93 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA921C03992C009E2B93 /* Place+CoreDataProperties.m */; };
+		2B94CAA01C03992C009E2B93 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA921C03992C009E2B93 /* Place+CoreDataProperties.m */; };
+		2B94CAA11C03992C009E2B93 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA921C03992C009E2B93 /* Place+CoreDataProperties.m */; };
+		2B94CAA21C03992C009E2B93 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA941C03992C009E2B93 /* Place.m */; };
+		2B94CAA31C03992C009E2B93 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA941C03992C009E2B93 /* Place.m */; };
+		2B94CAA41C03992C009E2B93 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA941C03992C009E2B93 /* Place.m */; };
+		2B94CAA51C03992C009E2B93 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA961C03992C009E2B93 /* Snapshot+CoreDataProperties.m */; };
+		2B94CAA61C03992C009E2B93 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA961C03992C009E2B93 /* Snapshot+CoreDataProperties.m */; };
+		2B94CAA71C03992C009E2B93 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA961C03992C009E2B93 /* Snapshot+CoreDataProperties.m */; };
+		2B94CAA81C03992C009E2B93 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA981C03992C009E2B93 /* Snapshot.m */; };
+		2B94CAA91C03992C009E2B93 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA981C03992C009E2B93 /* Snapshot.m */; };
+		2B94CAAA1C03992C009E2B93 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B94CA981C03992C009E2B93 /* Snapshot.m */; };
+		2B94CAAC1C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B94CAAB1C03B3A3009E2B93 /* PersonalCompass.sqlite */; };
+		2B94CAAD1C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B94CAAB1C03B3A3009E2B93 /* PersonalCompass.sqlite */; };
+		2B94CAAE1C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B94CAAB1C03B3A3009E2B93 /* PersonalCompass.sqlite */; };
+		2B94CAAF1C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B94CAAB1C03B3A3009E2B93 /* PersonalCompass.sqlite */; };
+		2B94CAB01C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B94CAAB1C03B3A3009E2B93 /* PersonalCompass.sqlite */; };
+		2B94CAB11C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B94CAAB1C03B3A3009E2B93 /* PersonalCompass.sqlite */; };
 		2BC725061BF2D8E200219807 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BC725041BF2D8E200219807 /* Model.xcdatamodeld */; };
-		2BC7250C1BF2D98F00219807 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC725091BF2D98F00219807 /* Place+CoreDataProperties.m */; };
-		2BC7250D1BF2D98F00219807 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7250B1BF2D98F00219807 /* Place.m */; };
-		2BCBE8BE1BFD21BA004A340D /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBE8BB1BFD21BA004A340D /* Snapshot+CoreDataProperties.m */; };
-		2BCBE8BF1BFD21BA004A340D /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBE8BB1BFD21BA004A340D /* Snapshot+CoreDataProperties.m */; };
-		2BCBE8C01BFD21BA004A340D /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBE8BB1BFD21BA004A340D /* Snapshot+CoreDataProperties.m */; };
-		2BCBE8C11BFD21BA004A340D /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBE8BD1BFD21BA004A340D /* Snapshot.m */; };
-		2BCBE8C21BFD21BA004A340D /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBE8BD1BFD21BA004A340D /* Snapshot.m */; };
-		2BCBE8C31BFD21BA004A340D /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBE8BD1BFD21BA004A340D /* Snapshot.m */; };
-		2BE106841C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
-		2BE106851C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
-		2BE106861C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
-		2BE106871C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
-		2BE106881C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
-		2BE106891C010DB60050F947 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2BE106831C010DB60050F947 /* PersonalCompass.sqlite */; };
 		9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A006CA119522918009BB81C /* iOSViewController+Model.mm */; };
@@ -1415,16 +1425,20 @@
 		2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		2B8E2C081BF67FE70083613C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework"; sourceTree = "<group>"; };
 		2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
+		2B94CA8D1C03992C009E2B93 /* Area+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Area+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2B94CA8E1C03992C009E2B93 /* Area+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Area+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2B94CA8F1C03992C009E2B93 /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
+		2B94CA901C03992C009E2B93 /* Area.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Area.m; sourceTree = "<group>"; };
+		2B94CA911C03992C009E2B93 /* Place+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Place+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2B94CA921C03992C009E2B93 /* Place+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Place+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2B94CA931C03992C009E2B93 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		2B94CA941C03992C009E2B93 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		2B94CA951C03992C009E2B93 /* Snapshot+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapshot+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2B94CA961C03992C009E2B93 /* Snapshot+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Snapshot+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2B94CA971C03992C009E2B93 /* Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snapshot.h; sourceTree = "<group>"; };
+		2B94CA981C03992C009E2B93 /* Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snapshot.m; sourceTree = "<group>"; };
+		2B94CAAB1C03B3A3009E2B93 /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
 		2BC725051BF2D8E200219807 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		2BC725081BF2D98F00219807 /* Place+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Place+CoreDataProperties.h"; sourceTree = "<group>"; };
-		2BC725091BF2D98F00219807 /* Place+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Place+CoreDataProperties.m"; sourceTree = "<group>"; };
-		2BC7250A1BF2D98F00219807 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
-		2BC7250B1BF2D98F00219807 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
-		2BCBE8BA1BFD21BA004A340D /* Snapshot+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapshot+CoreDataProperties.h"; sourceTree = "<group>"; };
-		2BCBE8BB1BFD21BA004A340D /* Snapshot+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Snapshot+CoreDataProperties.m"; sourceTree = "<group>"; };
-		2BCBE8BC1BFD21BA004A340D /* Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snapshot.h; sourceTree = "<group>"; };
-		2BCBE8BD1BFD21BA004A340D /* Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snapshot.m; sourceTree = "<group>"; };
-		2BE106831C010DB60050F947 /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
 		9A0060C41AA65CCA00E60F10 /* watchScale.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = watchScale.tif; sourceTree = "<group>"; };
 		9A006CA019522918009BB81C /* iOSViewController+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Model.h"; sourceTree = "<group>"; };
 		9A006CA119522918009BB81C /* iOSViewController+Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Model.mm"; sourceTree = "<group>"; };
@@ -2027,15 +2041,19 @@
 		2BC725071BF2D90400219807 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				2BE106831C010DB60050F947 /* PersonalCompass.sqlite */,
-				2BCBE8BA1BFD21BA004A340D /* Snapshot+CoreDataProperties.h */,
-				2BCBE8BB1BFD21BA004A340D /* Snapshot+CoreDataProperties.m */,
-				2BCBE8BC1BFD21BA004A340D /* Snapshot.h */,
-				2BCBE8BD1BFD21BA004A340D /* Snapshot.m */,
-				2BC725081BF2D98F00219807 /* Place+CoreDataProperties.h */,
-				2BC725091BF2D98F00219807 /* Place+CoreDataProperties.m */,
-				2BC7250A1BF2D98F00219807 /* Place.h */,
-				2BC7250B1BF2D98F00219807 /* Place.m */,
+				2B94CAAB1C03B3A3009E2B93 /* PersonalCompass.sqlite */,
+				2B94CA8D1C03992C009E2B93 /* Area+CoreDataProperties.h */,
+				2B94CA8E1C03992C009E2B93 /* Area+CoreDataProperties.m */,
+				2B94CA8F1C03992C009E2B93 /* Area.h */,
+				2B94CA901C03992C009E2B93 /* Area.m */,
+				2B94CA911C03992C009E2B93 /* Place+CoreDataProperties.h */,
+				2B94CA921C03992C009E2B93 /* Place+CoreDataProperties.m */,
+				2B94CA931C03992C009E2B93 /* Place.h */,
+				2B94CA941C03992C009E2B93 /* Place.m */,
+				2B94CA951C03992C009E2B93 /* Snapshot+CoreDataProperties.h */,
+				2B94CA961C03992C009E2B93 /* Snapshot+CoreDataProperties.m */,
+				2B94CA971C03992C009E2B93 /* Snapshot.h */,
+				2B94CA981C03992C009E2B93 /* Snapshot.m */,
 				2BC725041BF2D8E200219807 /* Model.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -3247,7 +3265,7 @@
 				2B1F0B5A1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A3DA0A11964E9B1009E0073 /* remove.png in Resources */,
 				9AB2A722196372AA0001E96F /* unselected.png in Resources */,
-				2BE106881C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
+				2B94CAB01C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B3C1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				2B1F0ACA1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A2E42E9196C9D2C00CF8862 /* heading.png in Resources */,
@@ -3313,7 +3331,7 @@
 				2B1F0B5B1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A82B64A1941518900534A5F /* Images.xcassets in Resources */,
 				9A48089D198BF1F70001E188 /* debug.png in Resources */,
-				2BE106891C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
+				2B94CAB11C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B3D1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				2B1F0ACB1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A3DA0A21964E9B1009E0073 /* remove.png in Resources */,
@@ -3382,7 +3400,7 @@
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
 				9A8DF92B1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AF3788A1A9FED7600FEB3F3 /* walking.tif in Resources */,
-				2BE106871C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
+				2B94CAAF1C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
 				9A856FA81AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				2B1F0AF91BFD4915001CB7EF /* miami.kml in Resources */,
@@ -3420,7 +3438,7 @@
 				9A856FAE1AB8AF4500486AE9 /* pcompass-phone-locate.mp4 in Resources */,
 				2B1F0AA61BFD48FB001CB7EF /* default.snapshot in Resources */,
 				9A856F991AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
-				2BE106841C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
+				2B94CAAC1C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */,
 				9A856F9D1AB8AEEF00486AE9 /* pcompass-phone-distance.mp4 in Resources */,
 				9A856FA51AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				2B1F0AEA1BFD4915001CB7EF /* london.kml in Resources */,
@@ -3538,7 +3556,7 @@
 				2B1F0B461BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				2B1F0AA81BFD48FB001CB7EF /* default.snapshot in Resources */,
 				2B1F0ACE1BFD4915001CB7EF /* governors_island.kml in Resources */,
-				2BE106861C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
+				2B94CAAE1C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */,
 				9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */,
 				9A856F821AB8AEE100486AE9 /* wedge-phone-direction.mp4 in Resources */,
 				9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */,
@@ -3647,7 +3665,7 @@
 				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,
 				2B1F0B0F1BFD4915001CB7EF /* newyork723.kml in Resources */,
 				2B1F0AFD1BFD4915001CB7EF /* montreal.kml in Resources */,
-				2BE106851C010DB60050F947 /* PersonalCompass.sqlite in Resources */,
+				2B94CAAD1C03B3A3009E2B93 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B451BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A42A0E219ABB12D00BB0101 /* Web in Resources */,
@@ -3681,6 +3699,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B94CAA31C03992C009E2B93 /* Place.m in Sources */,
 				9AF1231C19843097004D4EFC /* Texture2D.m in Sources */,
 				9AAC65DF1A8BA2C000B9BF2E /* TestManager-RunStudy.mm in Sources */,
 				9A0375C1198DA31900258E95 /* b2Math.cpp in Sources */,
@@ -3701,15 +3720,12 @@
 				9A0375CD198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A3DA0A81964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A8B1DE41AB4914E00719BBE /* TestManager-Tools.mm in Sources */,
-				2BCBE8C21BFD21BA004A340D /* Snapshot.m in Sources */,
 				9A480890198BE79E0001E188 /* DemoSettingViewController.mm in Sources */,
-				2BC7250C1BF2D98F00219807 /* Place+CoreDataProperties.m in Sources */,
 				9A0375FD198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A36AF1E1AA7ADE200BFC6E7 /* TaskSpec-MultiLocation.mm in Sources */,
 				9A037639198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9AFD8F5E197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A0375E5198DA31900258E95 /* b2Fixture.cpp in Sources */,
-				2BC7250D1BF2D98F00219807 /* Place.m in Sources */,
 				9A0375EB198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A6FB7F01958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9AE6104B1A6EF3BD00175A79 /* TestManager.mm in Sources */,
@@ -3740,7 +3756,9 @@
 				9AE020B2198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */,
 				9A8CE9CD1A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */,
 				9A4F0F86193E331E00CF32DE /* readConfiguration.mm in Sources */,
+				2B94CAA61C03992C009E2B93 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A03757F198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
+				2B94CAA91C03992C009E2B93 /* Snapshot.m in Sources */,
 				9A4F0F87193E331E00CF32DE /* compassRender.mm in Sources */,
 				9A006CA219522918009BB81C /* iOSViewController+Model.mm in Sources */,
 				9A4F0F88193E331E00CF32DE /* renderStyles.mm in Sources */,
@@ -3749,6 +3767,7 @@
 				9A037651198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
 				9A0375D3198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9ABB382E19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm in Sources */,
+				2B94CA9D1C03992C009E2B93 /* Area.m in Sources */,
 				9A9F53671A79962900E3744B /* CHCSVParser.m in Sources */,
 				9A2E42E2196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
 				9A0375B5198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
@@ -3781,7 +3800,6 @@
 				9A037597198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A998D75194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9AEEC68F1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
-				2BCBE8BF1BFD21BA004A340D /* Snapshot+CoreDataProperties.m in Sources */,
 				2BC725061BF2D8E200219807 /* Model.xcdatamodeld in Sources */,
 				9AB90B9F194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
@@ -3801,10 +3819,12 @@
 				9A75720E197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9A60F8A0198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */,
 				9A03764B198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
+				2B94CAA01C03992C009E2B93 /* Place+CoreDataProperties.m in Sources */,
 				9A95CCB3194B4146008E520F /* iOSSettingViewController.mm in Sources */,
 				9A0375BB198DA31800258E95 /* b2Draw.cpp in Sources */,
 				9AD1B2F71AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */,
 				9A037633198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
+				2B94CA9A1C03992C009E2B93 /* Area+CoreDataProperties.m in Sources */,
 				9AFD8F65197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A03759D198DA31800258E95 /* b2ChainShape.cpp in Sources */,
 				9ACD80D61986982B00AAB052 /* UINavigationController+rotation.mm in Sources */,
@@ -3817,6 +3837,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B94CAA11C03992C009E2B93 /* Place+CoreDataProperties.m in Sources */,
 				9AFD8F5F197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A0375D4198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A03757A198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
@@ -3841,8 +3862,10 @@
 				9A8B1DE51AB4914E00719BBE /* TestManager-Tools.mm in Sources */,
 				9A037670198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
 				9A037616198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
+				2B94CAA41C03992C009E2B93 /* Place.m in Sources */,
 				9A998C901949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A8B1DEC1AB4988F00719BBE /* TestManager-InitCleanUp.mm in Sources */,
+				2B94CA9E1C03992C009E2B93 /* Area.m in Sources */,
 				9AE37F9A1A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm in Sources */,
 				9A0375F8198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A037586198DA31800258E95 /* b2Collision.cpp in Sources */,
@@ -3925,7 +3948,9 @@
 				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9AD5AB0E199D1C3900B351FA /* iPadTabBarController.mm in Sources */,
 				9A037664198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
+				2B94CA9B1C03992C009E2B93 /* Area+CoreDataProperties.m in Sources */,
 				9AEBD9131AA6790200139232 /* TaskSpec.mm in Sources */,
+				2B94CAAA1C03992C009E2B93 /* Snapshot.m in Sources */,
 				9A0375B6198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A037598198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A037574198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
@@ -3933,10 +3958,9 @@
 				9A0375E6198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A5F320C1A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A037646198DA31900258E95 /* b2Joint.cpp in Sources */,
-				2BCBE8C01BFD21BA004A340D /* Snapshot+CoreDataProperties.m in Sources */,
-				2BCBE8C31BFD21BA004A340D /* Snapshot.m in Sources */,
 				9A037628198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A3DA0A91964F5E3009E0073 /* genKMLString.mm in Sources */,
+				2B94CAA71C03992C009E2B93 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A259D61199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9ABB96B51957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
 				9A0375AA198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
@@ -4117,6 +4141,7 @@
 				9A037671198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A037587198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037599198DA31800258E95 /* b2ChainShape.cpp in Sources */,
+				2B94CAA21C03992C009E2B93 /* Place.m in Sources */,
 				9AEEC68B1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
 				9AE2FC8B19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9AE2FC8419AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
@@ -4144,9 +4169,9 @@
 				9A9F53631A79962900E3744B /* CHCSVParser.m in Sources */,
 				9A4D2B2C1A882E0000BB81DB /* DesktopViewController+Tools.mm in Sources */,
 				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
+				2B94CAA81C03992C009E2B93 /* Snapshot.m in Sources */,
 				9A469E0F19A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */,
 				9A9DD7391A86C145005376AB /* EmulatediOS.mm in Sources */,
-				2BCBE8BE1BFD21BA004A340D /* Snapshot+CoreDataProperties.m in Sources */,
 				9A0375C9198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A03758D198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A0375B1198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
@@ -4155,7 +4180,6 @@
 				9AFD8F61197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A03760B198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A037605198DA31900258E95 /* b2CircleContact.cpp in Sources */,
-				2BCBE8C11BFD21BA004A340D /* Snapshot.m in Sources */,
 				9AE57281199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A42A09919A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
 				9A0375E1198DA31900258E95 /* b2Fixture.cpp in Sources */,
@@ -4212,6 +4236,7 @@
 				9A4AA6621A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */,
 				9A0375C3198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A36619319A3FE4E00DC0D15 /* myMapView.mm in Sources */,
+				2B94CA9C1C03992C009E2B93 /* Area.m in Sources */,
 				9A03765F198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A6A74A418E4A45D00C7A9D5 /* LocationCellView.mm in Sources */,
 				9AD1B2F31AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */,
@@ -4231,6 +4256,7 @@
 				9A037369198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A3C20831AA760C5007870CC /* TaskSpec-SingleLocation.mm in Sources */,
 				9A176DA619A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
+				2B94CA9F1C03992C009E2B93 /* Place+CoreDataProperties.m in Sources */,
 				9A42A03A19A79C3200BB0101 /* DDRange.m in Sources */,
 				9A037635198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9AE610471A6EF3BD00175A79 /* TestManager.mm in Sources */,
@@ -4247,9 +4273,11 @@
 				9AE093D118ECA56400DFC16F /* DesktopViewController+MapView.mm in Sources */,
 				9A037593198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9A42A04E19A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
+				2B94CA991C03992C009E2B93 /* Area+CoreDataProperties.m in Sources */,
 				9A42A03E19A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
 				9A3DA0A41964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AE37F9C1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
+				2B94CAA51C03992C009E2B93 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A0375DB198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9AF01B7318ECE5FC0029A860 /* GLString.mm in Sources */,
 			);

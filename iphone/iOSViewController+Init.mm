@@ -11,6 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "Place.h"
 #import "AppDelegate.h"
+#import "Area.h"
 
 @implementation iOSViewController (Init)
 
@@ -304,26 +305,28 @@
     AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     NSError *error;
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
     NSString *initData= @"SundayTest";
     self.currentArea = initData;
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"area == %@", initData]];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@", initData]];
     
     NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    
-    
-    
-    for (Place *place in requestResults) {
-        data data;
-        data.latitude = [place.lat floatValue];
-        data.longitude = [place.lon floatValue];
-        data.name = [place.name UTF8String];
-        CLLocationCoordinate2D coor = CLLocationCoordinate2DMake(data.latitude, data.longitude);
-        data.annotation.coordinate = coor;
-        locationData.push_back(data);
+    if ([requestResults count]) {
+        Area *area = requestResults[0];
+        NSSet *places = [area valueForKey:@"places"];
+
+        for (Place *place in places) {
+            data data;
+            data.latitude = [place.lat floatValue];
+            data.longitude = [place.lon floatValue];
+            data.name = [place.name UTF8String];
+            CLLocationCoordinate2D coor = CLLocationCoordinate2DMake(data.latitude, data.longitude);
+            data.annotation.coordinate = coor;
+            locationData.push_back(data);
+        }
+        self.model->data_array =  locationData;
+        self.model->initTextureArray();
     }
-    self.model->data_array =  locationData;
-    self.model->initTextureArray();
 }
 
 
