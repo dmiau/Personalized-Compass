@@ -1321,9 +1321,9 @@
         <image name="snapshotDefault.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yng-bX-3xc"/>
-        <segue reference="WS4-yg-Oj7"/>
-        <segue reference="9at-fG-ath"/>
+        <segue reference="WDh-6L-UAq"/>
         <segue reference="K1H-er-9a7"/>
+        <segue reference="VT9-KB-V4S"/>
+        <segue reference="9at-fG-ath"/>
     </inferredMetricsTieBreakers>
 </document>

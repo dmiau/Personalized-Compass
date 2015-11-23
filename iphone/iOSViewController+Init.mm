@@ -308,6 +308,7 @@
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
     NSString *initData= @"SundayTest";
     self.currentArea = initData;
+    self.model->location_filename = initData;
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@", initData]];
     
     NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];

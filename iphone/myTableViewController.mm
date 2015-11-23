@@ -500,17 +500,19 @@
             //--------------
             // Delete a KML file
             //--------------
-            if ([kml_files[i] isEqualToString:@"new.kml"])
+            if ([areas[i] isEqualToString:@"new"])
                 return;
             
-            if (self.model->filesys_type == DROPBOX){
-                [self.model->dbFilesystem
-                 deleteFilename:kml_files[i]];
-                
-            }else{
-                [self.model->docFilesystem
-                 deleteFilename:kml_files[i]];
-            }
+//            if (self.model->filesys_type == DROPBOX){
+//                [self.model->dbFilesystem
+//                 deleteFilename:kml_files[i]];
+//                
+//            }else{
+//                [self.model->docFilesystem
+//                 deleteFilename:kml_files[i]];
+//            }
+            AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            [self deleteAllObjects:@"Area" withName:areas[i] in:app.managedObjectContext];
             [self initArea];
             [self initKMLList];
             [self.myTableView reloadData];
@@ -551,9 +553,8 @@
 }
 
 - (IBAction)saveKML:(id)sender {
-    
-    NSString *filename =
-    [self.model->location_filename lastPathComponent];
+    NSString *filename = self.model->location_filename;
+//    [self.model->location_filename lastPathComponent];
     [self saveKMLWithFilename:filename];
     
 }
@@ -580,9 +581,9 @@
         UITextField *textField = [alertView textFieldAtIndex:0];
         NSString *filename = textField.text;
         
-        if ([filename rangeOfString:@".kml"].location == NSNotFound) {
-            filename = [filename stringByAppendingString:@".kml"];
-        }
+//        if ([filename rangeOfString:@".kml"].location == NSNotFound) {
+//            filename = [filename stringByAppendingString:@".kml"];
+//        }
         [self saveKMLWithFilename:filename];
         
         // There are some more works to do at the point
@@ -596,24 +597,39 @@
 }
 
 - (BOOL) saveKMLWithFilename:(NSString*) filename{
-    bool hasError = false;
-    NSString *content = genKMLString(self.model->data_array);
-    
-    if (self.model->filesys_type == DROPBOX){
-        if (![self.model->dbFilesystem
-              writeFileWithName:filename Content:content])
-        {
-            hasError = true;
-        }
-    }else{
-        if (![self.model->docFilesystem
-              writeFileWithName:filename Content:content])
-        {
-            hasError = true;
-        }
+//    bool hasError = false;
+//    NSString *content = genKMLString(self.model->data_array);
+//    
+//    if (self.model->filesys_type == DROPBOX){
+//        if (![self.model->dbFilesystem
+//              writeFileWithName:filename Content:content])
+//        {
+//            hasError = true;
+//        }
+//    }else{
+//        if (![self.model->docFilesystem
+//              writeFileWithName:filename Content:content])
+//        {
+//            hasError = true;
+//        }
+//    }
+    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [self deleteAllObjects:@"Area" withName:filename in:app.managedObjectContext];
+    Area *area = [NSEntityDescription insertNewObjectForEntityForName:@"Area" inManagedObjectContext:app.managedObjectContext];
+    area.name = self.model->location_filename;
+    for (int i = 0; i < self.model->data_array.size(); i++) {
+        Place *p1 = [NSEntityDescription
+                     insertNewObjectForEntityForName:@"Place"
+                     inManagedObjectContext:app.managedObjectContext];
+
+        p1.name = [NSString stringWithCString:self.model->data_array[i].name.c_str() encoding:[NSString defaultCStringEncoding]];
+        p1.lon = [NSNumber numberWithDouble:self.model->data_array[i].longitude];
+        p1.lat = [NSNumber numberWithDouble:self.model->data_array[i].latitude];
+        [area addPlacesObject:p1];
     }
     
-    if (hasError){
+    NSError *error;
+    if (![app.managedObjectContext save:&error]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
                                                         message:@"Fail to save the file."
                                                        delegate:self
@@ -623,6 +639,16 @@
         NSLog(@"Failed to write file.");
         return false;
     }
+//    if (hasError){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+//                                                        message:@"Fail to save the file."
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//        NSLog(@"Failed to write file.");
+//        return false;
+//    }
     return true;
 }
 
@@ -641,5 +667,25 @@
         destinationViewController.annotation = sender;
     }
 }
+
+- (void) deleteAllObjects: (NSString *) entityDescription withName: (NSString *) name in: (NSManagedObjectContext *) managedObjectContext {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name = %@", name]];
+    NSError *error;
+    NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    for (NSManagedObject *managedObject in items) {
+        [managedObjectContext deleteObject:managedObject];
+        NSLog(@"%@ object deleted",entityDescription);
+    }
+    if (![managedObjectContext save:&error]) {
+        NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+    }
+    
+}
+
+
 
 @end
