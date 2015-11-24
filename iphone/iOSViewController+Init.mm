@@ -12,6 +12,8 @@
 #import "Place.h"
 #import "AppDelegate.h"
 #import "Area.h"
+#import "SnapshotsCollection.h"
+#import "Snapshot.h"
 
 @implementation iOSViewController (Init)
 
@@ -328,8 +330,56 @@
         self.model->data_array =  locationData;
         self.model->initTextureArray();
     }
+    
+    NSString *initSnapshot = @"default";
+    self.model->snapshot_filename = initSnapshot;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SnapshotsCollection"];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"name = %@", initSnapshot]];
+    NSArray *result = [app.managedObjectContext executeFetchRequest:request error:&error];
+    if ([result count]) {
+        SnapshotsCollection *collection = result[0];
+        NSSet *snapshots = [collection valueForKey:@"snapshots"];
+        for (Snapshot *s in snapshots) {
+            snapshot oneShot;
+            MKCoordinateRegion region;
+            [s.coordinateRegion getBytes:&region length:sizeof(region)];
+            oneShot.coordinateRegion = region;
+            [s.osx_coordinateRegion getBytes:&region length:sizeof(region)];
+            oneShot.osx_coordinateRegion = region;
+            
+            oneShot.orientation = [s.orientation doubleValue];
+            oneShot.kmlFilename = s.inCollection.name;
+            
+            string *typeString = new std::string([s.deviceType UTF8String]);
+            
+            oneShot.deviceType = toDeviceType(*typeString);
+            oneShot.visualizationType = NSStringToVisualizationType(s.visualizationType);
+            
+            oneShot.name = s.name;
+            oneShot.mapType = (MKMapType)[s.mapType intValue];
+            oneShot.time_stamp = s.time_stamp;
+            oneShot.date_str = s.date_str;
+            oneShot.notes = s.notes;
+            oneShot.address = s.address;
+            NSArray *temp_array = [NSKeyedUnarchiver unarchiveObjectWithData:s.selected_ids];
+            oneShot.selected_ids = [self convertNSArrayToVector:temp_array];
+            NSArray *temp_is_answer_list = [NSKeyedUnarchiver unarchiveObjectWithData:s.is_answer_list];
+            oneShot.is_answer_list = [self convertNSArrayToVector:temp_is_answer_list];
+            
+            oneShot.ios_display_wh = CGPointFromString(s.ios_display_wh);
+            oneShot.eios_display_wh = CGPointFromString(s.eios_display_wh);
+            oneShot.osx_display_wh = CGPointFromString(s.osx_display_wh);
+            self.model->snapshot_array.push_back(oneShot);
+        }
+    }
 }
 
-
+- (std::vector<int> ) convertNSArrayToVector: (NSArray *) array {
+    std::vector<int> res;
+    for (int i = 0; i < [array count]; i++) {
+        res.push_back([array[i] intValue]);
+    }
+    return res;
+}
 
 @end

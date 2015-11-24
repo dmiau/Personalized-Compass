@@ -15,7 +15,7 @@
     
     NSArray* snapshot_file_array;
     bool dirty_flag;
-    NSArray *areas;
+    NSArray *collections;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
