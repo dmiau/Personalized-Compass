@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Area;
+@class SnapshotsCollection;
 
 NS_ASSUME_NONNULL_BEGIN
 

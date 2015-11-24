@@ -5,7 +5,6 @@
         <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Place" inverseName="atArea" inverseEntity="Place" syncable="YES"/>
-        <relationship name="snapshots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Snapshot" inverseName="atArea" inverseEntity="Snapshot" syncable="YES"/>
     </entity>
     <entity name="Place" representedClassName="Place" syncable="YES">
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -30,11 +29,16 @@
         <attribute name="selected_ids" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="time_stamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="visualizationType" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="atArea" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Area" inverseName="snapshots" inverseEntity="Area" syncable="YES"/>
+        <relationship name="inCollection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SnapshotsCollection" inverseName="snapshots" inverseEntity="SnapshotsCollection" syncable="YES"/>
+    </entity>
+    <entity name="SnapshotsCollection" representedClassName="SnapshotsCollection" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="snapshots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Snapshot" inverseName="inCollection" inverseEntity="Snapshot" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Area" positionX="99" positionY="135" width="128" height="118"/>
+        <element name="Area" positionX="99" positionY="135" width="128" height="103"/>
         <element name="Place" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Snapshot" positionX="367" positionY="32" width="128" height="298"/>
+        <element name="Snapshot" positionX="340" positionY="-73" width="128" height="298"/>
+        <element name="SnapshotsCollection" positionX="178" positionY="9" width="128" height="73"/>
     </elements>
 </model>

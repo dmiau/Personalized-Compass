@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *lon;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSSet<Place *> *places;
-@property (nullable, nonatomic, retain) NSSet<Snapshot *> *snapshots;
 
 @end
 
@@ -29,11 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removePlacesObject:(Place *)value;
 - (void)addPlaces:(NSSet<Place *> *)values;
 - (void)removePlaces:(NSSet<Place *> *)values;
-
-- (void)addSnapshotsObject:(Snapshot *)value;
-- (void)removeSnapshotsObject:(Snapshot *)value;
-- (void)addSnapshots:(NSSet<Snapshot *> *)values;
-- (void)removeSnapshots:(NSSet<Snapshot *> *)values;
 
 @end
 

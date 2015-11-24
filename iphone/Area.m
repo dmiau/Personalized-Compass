@@ -8,7 +8,6 @@
 
 #import "Area.h"
 #import "Place.h"
-#import "Snapshot.h"
 
 @implementation Area
 

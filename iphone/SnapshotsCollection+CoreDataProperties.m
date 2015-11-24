@@ -1,5 +1,5 @@
 //
-//  Area+CoreDataProperties.m
+//  SnapshotsCollection+CoreDataProperties.m
 //  Compass[transparent]
 //
 //  Created by Hong Guo on 11/23/15.
@@ -9,13 +9,11 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Area+CoreDataProperties.h"
+#import "SnapshotsCollection+CoreDataProperties.h"
 
-@implementation Area (CoreDataProperties)
+@implementation SnapshotsCollection (CoreDataProperties)
 
-@dynamic lat;
-@dynamic lon;
 @dynamic name;
-@dynamic places;
+@dynamic snapshots;
 
 @end

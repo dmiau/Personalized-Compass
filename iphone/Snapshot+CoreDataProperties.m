@@ -29,6 +29,6 @@
 @dynamic selected_ids;
 @dynamic time_stamp;
 @dynamic visualizationType;
-@dynamic atArea;
+@dynamic inCollection;
 
 @end

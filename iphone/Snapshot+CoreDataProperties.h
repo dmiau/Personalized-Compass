@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSData *selected_ids;
 @property (nullable, nonatomic, retain) NSDate *time_stamp;
 @property (nullable, nonatomic, retain) NSString *visualizationType;
-@property (nullable, nonatomic, retain) Area *atArea;
+@property (nullable, nonatomic, retain) SnapshotsCollection *inCollection;
 
 @end
 
