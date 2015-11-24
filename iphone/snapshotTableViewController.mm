@@ -401,32 +401,33 @@
     
     NSString *filename = self.model->snapshot_filename;
     
-    bool hasError = false;
-    NSString *content = genSnapshotString(self.model->snapshot_array);
-    
-    if (self.model->filesys_type == DROPBOX){
-        if (![self.model->dbFilesystem
-              writeFileWithName:filename Content:content])
-        {
-            hasError = true;
-        }
-    }else{
-        if (![self.model->docFilesystem
-              writeFileWithName:filename Content:content])
-        {
-            hasError = true;
-        }
-    }
-    
-    if (hasError){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
-                                                        message:@"Fail to save the file."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        NSLog(@"Failed to write file.");
-        [alert show];
-    }
+//    bool hasError = false;
+//    NSString *content = genSnapshotString(self.model->snapshot_array);
+//    
+//    if (self.model->filesys_type == DROPBOX){
+//        if (![self.model->dbFilesystem
+//              writeFileWithName:filename Content:content])
+//        {
+//            hasError = true;
+//        }
+//    }else{
+//        if (![self.model->docFilesystem
+//              writeFileWithName:filename Content:content])
+//        {
+//            hasError = true;
+//        }
+//    }
+//    
+//    if (hasError){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+//                                                        message:@"Fail to save the file."
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        NSLog(@"Failed to write file.");
+//        [alert show];
+//    }
+    [self saveSnapshotWithFilename:filename];
     
 }
 
