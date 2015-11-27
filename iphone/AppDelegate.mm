@@ -178,12 +178,19 @@
     
     NSURL *storeUrl = [NSURL fileURLWithPath:[storeURL path]];
     
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber   numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, @"MyAppCloudStore" , NSPersistentStoreUbiquitousContentNameKey , nil];
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber   numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption , nil];
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
     
     [self addListernToStoreChanges];
+    NSPersistentStore *seedStore = [__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error];
     
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
+    if (seedStore) {
+        NSLog(@"error loading old store");
+    }
+
+    NSDictionary *iCloudOptions = @{NSPersistentStoreUbiquitousContentNameKey: @"MyAppCloudStore"};
+    NSURL *store_URL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PersonalCompass2.sqlite"];
+    if (![__persistentStoreCoordinator migratePersistentStore:seedStore toURL:store_URL options:iCloudOptions withType:NSSQLiteStoreType error:&error]) {
         // Update to handle the error appropriately.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         exit(-1);  // Fail
