@@ -1474,6 +1474,7 @@
 		2B280C641C040D41009A3D86 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = snapshotTableViewController.mm; sourceTree = "<group>"; };
 		2B280CAA1C0415EF009A3D86 /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
+		2B36FE621C066AC2004B544D /* pcompass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pcompass.entitlements; sourceTree = "<group>"; };
 		2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		2B8E2C081BF67FE70083613C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework"; sourceTree = "<group>"; };
 		2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
@@ -2588,6 +2589,7 @@
 		9A4F0F4C193E2A8900CF32DE /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2B36FE621C066AC2004B544D /* pcompass.entitlements */,
 				2BC725071BF2D90400219807 /* Core Data */,
 				9AE2FC7019AE424A0015E2B6 /* SocketRocket */,
 				9A2ED70C19646B0200CA385E /* Controller */,
@@ -3206,6 +3208,9 @@
 						DevelopmentTeam = T8L89L97Z5;
 						SystemCapabilities = {
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -4704,7 +4709,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = iphone/iphone.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iphone/pcompass.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -4743,7 +4748,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = iphone/iphone.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iphone/pcompass.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

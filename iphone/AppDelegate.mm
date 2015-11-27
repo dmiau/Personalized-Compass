@@ -137,6 +137,7 @@
     }
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
     __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    
     return __managedObjectModel;
 }
 
@@ -150,18 +151,18 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PersonalCompass.sqlite"];
     NSError *error = nil;
-//    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-//    
-//    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error]) {
-//        
-//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//        abort();
-//    }
-//    
-//    return __persistentStoreCoordinator;
-//    
-//    
-
+    //    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    //
+    //    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error]) {
+    //
+    //        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    //        abort();
+    //    }
+    //
+    //    return __persistentStoreCoordinator;
+    //
+    //
+    
     /*
      Set up the store.
      For the sake of illustration, provide a pre-populated default store.
@@ -170,7 +171,6 @@
     // If the expected store doesn't exist, copy the default store.
     if (![fileManager fileExistsAtPath:[storeURL path]] || YES) {
         NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"PersonalCompass"      ofType:@"sqlite"];
-        NSLog(@"FUN S %@", defaultStorePath);
         if (defaultStorePath) {
             [fileManager copyItemAtPath:defaultStorePath toPath:[storeURL path] error:NULL];
         }
@@ -178,17 +178,18 @@
     
     NSURL *storeUrl = [NSURL fileURLWithPath:[storeURL path]];
     
-    NSLog(@"FUN SS %@", [storeURL path]);
-    
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber   numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber   numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, @"MyAppCloudStore" , NSPersistentStoreUbiquitousContentNameKey , nil];
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    
+    [self addListernToStoreChanges];
     
     if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
         // Update to handle the error appropriately.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         exit(-1);  // Fail
-    }    
+    }
     
+    //    NSURL *finaliCloudURL = [store URL];
     return __persistentStoreCoordinator;
 }
 
@@ -209,7 +210,6 @@
     NSError *error;
     NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    NSLog(@"FUN TEST %d", [items count]);
     for (NSManagedObject *managedObject in items) {
         [managedObjectContext deleteObject:managedObject];
         NSLog(@"%@ object deleted",entityDescription);
@@ -218,6 +218,54 @@
         NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
     }
     
+}
+
+-(void) addListernToStoreChanges {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    
+    [center addObserver:self selector:@selector(storeWillChange:)
+                   name:NSPersistentStoreCoordinatorStoresWillChangeNotification
+                 object:__persistentStoreCoordinator];
+    
+    [center addObserver:self
+               selector:@selector(storeDidChange:)
+                   name:NSPersistentStoreCoordinatorStoresDidChangeNotification
+                 object:__persistentStoreCoordinator];
+    
+    [center addObserver:self
+           selector:@selector(persistentStoreDidImportUbiquitousContentChanges:)
+               name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
+             object:__persistentStoreCoordinator];
+}
+
+-(void) storeDidChange: (NSNotification *) n {
+    //store has changed
+    // Refresh UI
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged"
+                                                        object:nil
+                                                      userInfo:nil];
+}
+
+-(void) storeWillChange: (NSNotification *) n {
+    [[self managedObjectContext] performBlockAndWait:^{
+        NSError *error;
+        if ([[self managedObjectContext] hasChanges]) {
+            [[self managedObjectContext] save:&error];
+        }
+        
+        [[self managedObjectContext] reset];
+    }];
+    
+    // now reset your UI to be prepared for a totally different
+    // set of data 
+}
+
+-(void) persistentStoreDidImportUbiquitousContentChanges: (NSNotification *) n {
+    //update the context of the user interface
+    [__managedObjectContext performBlock:^{
+        [__managedObjectContext mergeChangesFromContextDidSaveNotification:n];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil];
+    }];
 }
 
 @end
