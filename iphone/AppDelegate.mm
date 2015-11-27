@@ -169,7 +169,7 @@
      */
     NSFileManager *fileManager = [NSFileManager defaultManager];
     // If the expected store doesn't exist, copy the default store.
-    if (![fileManager fileExistsAtPath:[storeURL path]] || YES) {
+    if (![fileManager fileExistsAtPath:[storeURL path]]) {
         NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"PersonalCompass"      ofType:@"sqlite"];
         if (defaultStorePath) {
             [fileManager copyItemAtPath:defaultStorePath toPath:[storeURL path] error:NULL];
