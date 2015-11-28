@@ -199,6 +199,7 @@
     switch ([sender selectedSegmentIndex]) {
         case 0:
             model->filesys_type = IOS_DOC;
+            NSLog(@"FUN 1");
             break;
         case 1:
             if (!model->dbFilesystem.isReady){
@@ -211,8 +212,10 @@
                 self.systemMessage.text = @"Dropbox is not ready. Try again later.";
                 self.dataSource.selectedSegmentIndex = 0;
             }
+            NSLog(@"FUN 2");
             break;
         default:
+            NSLog(@"FUN 3");
             break;
     }
 }

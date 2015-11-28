@@ -21,6 +21,7 @@
 		2B0FFDDB1BF2A94600ADD137 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDA1BF2A94600ADD137 /* Security.framework */; };
 		2B0FFDDD1BF2A95100ADD137 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDC1BF2A95100ADD137 /* SystemConfiguration.framework */; };
 		2B0FFDDF1BF2A95D00ADD137 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */; };
+		2B122B391C0A514E00FFD62A /* CoreDataViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B122B381C0A514E00FFD62A /* CoreDataViewController.mm */; };
 		2B1F0AA61BFD48FB001CB7EF /* default.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AA51BFD48FB001CB7EF /* default.snapshot */; };
 		2B1F0AA71BFD48FB001CB7EF /* default.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AA51BFD48FB001CB7EF /* default.snapshot */; };
 		2B1F0AA81BFD48FB001CB7EF /* default.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AA51BFD48FB001CB7EF /* default.snapshot */; };
@@ -1429,6 +1430,8 @@
 		2B0FFDDA1BF2A94600ADD137 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		2B0FFDDC1BF2A95100ADD137 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		2B122B371C0A514E00FFD62A /* CoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataViewController.h; sourceTree = "<group>"; };
+		2B122B381C0A514E00FFD62A /* CoreDataViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CoreDataViewController.mm; sourceTree = "<group>"; };
 		2B1F0AA51BFD48FB001CB7EF /* default.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.snapshot; sourceTree = "<group>"; };
 		2B1F0AAC1BFD4915001CB7EF /* directions.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = directions.kml; sourceTree = "<group>"; };
 		2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = governors_island.kml; sourceTree = "<group>"; };
@@ -2098,6 +2101,8 @@
 				2B280C631C040D41009A3D86 /* Place.h */,
 				2B280C641C040D41009A3D86 /* Place.m */,
 				2BC725041BF2D8E200219807 /* Model.xcdatamodeld */,
+				2B122B371C0A514E00FFD62A /* CoreDataViewController.h */,
+				2B122B381C0A514E00FFD62A /* CoreDataViewController.mm */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -3857,6 +3862,7 @@
 				9A037675198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */,
 				9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */,
+				2B122B391C0A514E00FFD62A /* CoreDataViewController.mm in Sources */,
 				9AAC65E71A8BA8EA00B9BF2E /* iOSViewController+DemoToolbar.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
 				9AE2FC8F19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
