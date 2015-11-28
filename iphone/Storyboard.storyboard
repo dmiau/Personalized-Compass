@@ -1019,8 +1019,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="UAp-Pt-p2J" kind="relationship" relationship="viewControllers" id="2lm-e3-2TP"/>
                         <segue destination="KRL-rx-xwq" kind="relationship" relationship="viewControllers" id="K1H-er-9a7"/>
+                        <segue destination="UAp-Pt-p2J" kind="relationship" relationship="viewControllers" id="2lm-e3-2TP"/>
                         <segue destination="gZn-Ka-qU5" kind="relationship" relationship="viewControllers" id="W4p-uk-uH1"/>
                     </connections>
                 </tabBarController>
@@ -1322,8 +1322,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WDh-6L-UAq"/>
-        <segue reference="NSE-Hl-1Qk"/>
-        <segue reference="lLk-4j-e3A"/>
+        <segue reference="K1H-er-9a7"/>
         <segue reference="VT9-KB-V4S"/>
+        <segue reference="NSE-Hl-1Qk"/>
     </inferredMetricsTieBreakers>
 </document>
