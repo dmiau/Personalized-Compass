@@ -201,29 +201,6 @@
     dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (self CONTAINS 'history')"]];
     
     kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
-    
-    //    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    //    for (int i = 0; i < [kml_files count]; i++) {
-    //        NSString *filename = kml_files[i];
-    //        NSLog(@"%@", filename);
-    //        readLocationKml(self.model, filename);
-    //        Area *area = [NSEntityDescription insertNewObjectForEntityForName:@"Area" inManagedObjectContext:app.managedObjectContext];
-    //        area.name = [filename componentsSeparatedByString:@"."][0];
-    //        for (int j = 0; j < self.model->data_array.size(); j++) {
-    //            Place *p1 = [NSEntityDescription
-    //                         insertNewObjectForEntityForName:@"Place"
-    //                         inManagedObjectContext:app.managedObjectContext];
-    //
-    //            p1.name = [NSString stringWithCString:self.model->data_array[j].name.c_str() encoding:[NSString defaultCStringEncoding]];
-    //            p1.lon = [NSNumber numberWithDouble:self.model->data_array[j].longitude];
-    //            p1.lat = [NSNumber numberWithDouble:self.model->data_array[j].latitude];
-    //            [area addPlacesObject:p1];
-    //        }
-    //    }
-    //    NSError *error;
-    //    if (![app.managedObjectContext save:&error]){
-    //        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
-    //    }
 }
 
 #pragma mark -----Table View Data Source Methods-----
