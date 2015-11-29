@@ -220,7 +220,9 @@
     NSArray *areasDicSnap = [app.managedObjectContext executeFetchRequest:snapFetchRequest error:&error];
     NSMutableArray *temp = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < [areasDicSnap count]; i++) {
-        [temp addObject:areasDicSnap[i][@"name"]];
+        if (areasDicSnap[i][@"name"]) {
+            [temp addObject:areasDicSnap[i][@"name"]];
+        }
     }
     NSLog(@"FUN snapshot %@", areasDicSnap);
     _collections = temp;
@@ -269,6 +271,7 @@
         NSString *snap_filename = [_collections[i] stringByAppendingString:@".snapshot"];
         [self saveSnapshotWithFilename:snap_filename];
     }
+    
 }
 
 
