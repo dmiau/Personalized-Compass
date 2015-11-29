@@ -160,7 +160,115 @@
 }
 
 - (IBAction)exportData:(id)sender {
-    NSLog(@"export data");
+    // get all areas
+    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Area" inManagedObjectContext:app.managedObjectContext];
+    fetchRequest.resultType = NSDictionaryResultType;
+    fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"name"]];
+    fetchRequest.returnsDistinctResults = YES;
+    NSArray *areasDic = [app.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSLog(@"FUN init area %@", areasDic);
+    NSMutableArray *temp_area = [[NSMutableArray alloc] init];
+    for (int i = 0 ; i < [areasDic count]; i++) {
+        [temp_area addObject:areasDic[i][@"name"]];
+    }
+    _area = temp_area;
+    
+    // for each area fetch all its places
+    for (int i = 0; i < [_area count]; i++) {
+        self.model->data_array.clear();
+        std::vector<data> locationData;
+        // Fetch the stored data
+        
+        NSError *error;
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
+        NSString *initData= _area[i];
+        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@", initData]];
+        
+        NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        
+        if ([requestResults count]) {
+            Area *area = requestResults[0];
+            NSSet *places = [area valueForKey:@"places"];
+            for (Place *place in places) {
+                data data;
+                data.latitude = [place.lat floatValue];
+                data.longitude = [place.lon floatValue];
+                data.name = [place.name UTF8String];
+                CLLocationCoordinate2D coor = CLLocationCoordinate2DMake(data.latitude, data.longitude);
+                data.annotation.coordinate = coor;
+                locationData.push_back(data);
+            }
+            self.model->data_array =  locationData;
+            
+            self.model->updateMdl();
+            self.model->initTextureArray();
+        }
+        NSString *filename = [_area[i] stringByAppendingString:@".kml"];
+        
+        // save to kml file
+        [self saveKMLWithFilename:filename];
+    }
+    
+    NSFetchRequest *snapFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SnapshotsCollection"];
+    NSEntityDescription *snapEntity = [NSEntityDescription entityForName:@"SnapshotsCollection" inManagedObjectContext:app.managedObjectContext];
+    snapFetchRequest.resultType = NSDictionaryResultType;
+    snapFetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[snapEntity propertiesByName] objectForKey:@"name"]];
+    snapFetchRequest.returnsDistinctResults = YES;
+    NSError *error;
+    NSArray *areasDicSnap = [app.managedObjectContext executeFetchRequest:snapFetchRequest error:&error];
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    for (int i = 0 ; i < [areasDicSnap count]; i++) {
+        [temp addObject:areasDicSnap[i][@"name"]];
+    }
+    NSLog(@"FUN snapshot %@", areasDicSnap);
+    _collections = temp;
+    
+    for (int i = 0; i < [_collections count]; i++) {
+        self.model->snapshot_array.clear();
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SnapshotsCollection"];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"name = %@", _collections[i]]];
+        NSArray *result = [app.managedObjectContext executeFetchRequest:request error:&error];
+        if ([result count]) {
+            SnapshotsCollection *collection = result[0];
+            NSSet *snapshots = [collection valueForKey:@"snapshots"];
+            for (Snapshot *s in snapshots) {
+                snapshot oneShot;
+                MKCoordinateRegion region;
+                [s.coordinateRegion getBytes:&region length:sizeof(region)];
+                oneShot.coordinateRegion = region;
+                [s.osx_coordinateRegion getBytes:&region length:sizeof(region)];
+                oneShot.osx_coordinateRegion = region;
+                
+                oneShot.orientation = [s.orientation doubleValue];
+                oneShot.kmlFilename = s.inCollection.name;
+                
+                string *typeString = new std::string([s.deviceType UTF8String]);
+                
+                oneShot.deviceType = toDeviceType(*typeString);
+                oneShot.visualizationType = NSStringToVisualizationType(s.visualizationType);
+                
+                oneShot.name = s.name;
+                oneShot.mapType = (MKMapType)[s.mapType intValue];
+                oneShot.time_stamp = s.time_stamp;
+                oneShot.date_str = s.date_str;
+                oneShot.notes = s.notes;
+                oneShot.address = s.address;
+                NSArray *temp_array = [NSKeyedUnarchiver unarchiveObjectWithData:s.selected_ids];
+                oneShot.selected_ids = [self convertNSArrayToVector:temp_array];
+                NSArray *temp_is_answer_list = [NSKeyedUnarchiver unarchiveObjectWithData:s.is_answer_list];
+                oneShot.is_answer_list = [self convertNSArrayToVector:temp_is_answer_list];
+                
+                oneShot.ios_display_wh = CGPointFromString(s.ios_display_wh);
+                oneShot.eios_display_wh = CGPointFromString(s.eios_display_wh);
+                oneShot.osx_display_wh = CGPointFromString(s.osx_display_wh);
+                self.model->snapshot_array.push_back(oneShot);
+            }
+        }
+        NSString *snap_filename = [_collections[i] stringByAppendingString:@".snapshot"];
+        [self saveSnapshotWithFilename:snap_filename];
+    }
 }
 
 
@@ -209,7 +317,75 @@
 }
 
 
+- (BOOL) saveKMLWithFilename:(NSString*) filename{
+    bool hasError = false;
+    NSString *content = genKMLString(self.model->data_array);
+
+    if (self.model->filesys_type == DROPBOX){
+        if (![self.model->dbFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }else{
+        if (![self.model->docFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }
+
+    if (hasError){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+                                                        message:@"Fail to save the file."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        NSLog(@"Failed to write file.");
+        return false;
+    }
+    return true;
+}
 
 
+- (std::vector<int> ) convertNSArrayToVector: (NSArray *) array {
+    std::vector<int> res;
+    for (int i = 0; i < [array count]; i++) {
+        res.push_back([array[i] intValue]);
+    }
+    return res;
+}
+
+- (BOOL) saveSnapshotWithFilename:(NSString*) filename{
+    bool hasError = false;
+    NSString *content = genSnapshotString(self.model->snapshot_array);
+    
+    if (self.model->filesys_type == DROPBOX){
+        if (![self.model->dbFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }else{
+        if (![self.model->docFilesystem
+              writeFileWithName:filename Content:content])
+        {
+            hasError = true;
+        }
+    }
+    
+    if (hasError){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File System Error"
+                                                        message:@"Fail to save the file."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        NSLog(@"Failed to write file.");
+        [alert show];
+        return false;
+    }
+    return true;
+}
 
 @end

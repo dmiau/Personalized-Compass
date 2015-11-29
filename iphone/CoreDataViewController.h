@@ -15,4 +15,7 @@
 @property compassMdl* model;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dataSource;
 @property (weak, nonatomic) IBOutlet UITextView *systemMessage;
+@property (weak, nonatomic) NSArray *area;
+@property (weak, nonatomic) NSArray *collections;
+
 @end
