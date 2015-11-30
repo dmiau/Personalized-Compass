@@ -145,7 +145,9 @@
     NSArray *areasDic = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     NSMutableArray *temp_area = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < [areasDic count]; i++) {
-        [temp_area addObject:areasDic[i][@"name"]];
+        if (areasDic[i][@"name"]) {
+            [temp_area addObject:areasDic[i][@"name"]];
+        }
     }
     NSLog(@"FUN snapshot %@", areasDic);
     collections = temp_area;

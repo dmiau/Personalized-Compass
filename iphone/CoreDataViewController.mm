@@ -38,24 +38,20 @@
     
     switch ([sender selectedSegmentIndex]) {
         case 0:
-//            model->filesys_type = IOS_DOC;
-            NSLog(@"FUN 1");
+            model->filesys_type = IOS_DOC;
             break;
         case 1:
-//            if (!model->dbFilesystem.isReady){
-//                [model->dbFilesystem linkDropbox:(UIViewController*)self];
-//            }
-//            if ([model->dbFilesystem.db_filesystem completedFirstSync]){
-//                // reload
-//                model->filesys_type = DROPBOX;
-//            }else{
-//                self.systemMessage.text = @"Dropbox is not ready. Try again later.";
-//                self.dataSource.selectedSegmentIndex = 0;
-//            }
-            NSLog(@"FUN 2");
+            if (!model->dbFilesystem.isReady){
+                [model->dbFilesystem linkDropbox:(UIViewController*)self];
+            }
+            if ([model->dbFilesystem.db_filesystem completedFirstSync]){
+                // reload
+                model->filesys_type = DROPBOX;
+            }else{
+                self.dataSource.selectedSegmentIndex = 0;
+            }
             break;
         default:
-            NSLog(@"FUN 3");
             break;
     }
 }
