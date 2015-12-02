@@ -370,6 +370,7 @@
                 data.name = [place.name UTF8String];
                 CLLocationCoordinate2D coor = CLLocationCoordinate2DMake(data.latitude, data.longitude);
                 data.annotation.coordinate = coor;
+                data.annotation.title = place.name;
                 locationData.push_back(data);
             }
             self.model->data_array =  locationData;
