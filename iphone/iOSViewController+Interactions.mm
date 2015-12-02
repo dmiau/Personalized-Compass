@@ -353,6 +353,7 @@
     CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
     annotation.coordinate = marker.position;
     annotation.title = @"Dropped Pin";
+    annotation.point_type = dropped;
     view.annotation = annotation;
     [self performSegueWithIdentifier:@"DetailVC" sender:view];
 }

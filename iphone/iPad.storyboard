@@ -1015,8 +1015,8 @@
         <image name="snapshotDefault.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8zP-rM-KBw"/>
         <segue reference="BgQ-4a-n31"/>
         <segue reference="9p9-iU-aHD"/>
-        <segue reference="o1W-f4-fus"/>
     </inferredMetricsTieBreakers>
 </document>
