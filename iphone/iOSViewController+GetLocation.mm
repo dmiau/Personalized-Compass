@@ -96,6 +96,8 @@
           (myLocation.coordinate.latitude, myLocation.coordinate.longitude),
           self.mapView.region.span) withAnimation:YES];
         
+        [self updateGMapBasedOnAMap];
+        
         self.move2UpdatedLocation = false;
     }
     [self.mapView removeAnnotation:self.model->user_pos.annotation];
