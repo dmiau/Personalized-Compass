@@ -250,6 +250,7 @@ typedef struct{
 // Annotations related methods
 //----------------
 - (void) resetAnnotations;
+-(void) resetGmapMarkers;
 - (void) renderAllDataAnnotations;
 -(void) updateDataAnnotations;
 // Change how annotations should be displayed

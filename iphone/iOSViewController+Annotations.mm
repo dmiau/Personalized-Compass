@@ -31,6 +31,41 @@
     }
 }
 
+-(void) resetGmapMarkers {
+    [self.gmap clear];
+    
+    for (int i = 0; i < self.model->data_array.size(); i++) {
+        data myData = self.model->data_array[i];
+        
+        if (self.testManager->testManagerMode == OFF){
+            GMSMarker *marker = [[GMSMarker alloc] init];
+            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(myData.latitude, myData.longitude);
+            NSLog(@"FUN lat %f lon %f", coordinate.latitude, coordinate.longitude);
+            marker.position = coordinate;
+            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
+            [dic setObject:@"landmark" forKey:@"point_type"];
+            marker.userData = dic;
+            marker.title = [NSString stringWithCString:myData.name.c_str()
+                                              encoding:[NSString defaultCStringEncoding]];
+            marker.map = self.gmap;
+        }else if (self.testManager->testManagerMode == DEVICESTUDY ||
+                  self.testManager->testManagerMode == OSXSTUDY)
+        {
+            if (myData.isEnabled && !myData.isAnswer){
+                GMSMarker *marker = [[GMSMarker alloc] init];
+                CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(myData.latitude, myData.longitude);
+                marker.position = coordinate;
+                NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
+                [dic setObject:@"landmark" forKey:@"point_type"];
+                marker.userData = dic;
+                marker.title = [NSString stringWithCString:myData.name.c_str()
+                                                  encoding:[NSString defaultCStringEncoding]];
+                marker.map = self.gmap;
+            }
+        }
+    }
+}
+
 - (void) renderAllDataAnnotations{
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
     

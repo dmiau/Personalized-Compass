@@ -419,6 +419,7 @@
     if ([sender.currentTitle isEqualToString:@"G"]) {
         if (!self.gmap) {
             self.gmap = [self createGmap];
+            [self resetGmapMarkers];
             self.gmap.frame = self.mapView.frame;
             [self.view insertSubview:self.gmap atIndex:1];
             [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];

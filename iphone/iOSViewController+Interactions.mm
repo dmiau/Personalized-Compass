@@ -330,7 +330,10 @@
         pin.position = touchCoordinate;
         pin.title = @"Dropped Pin";
         pin.map = self.gmap;
-        
+        pin.icon = [GMSMarker markerImageWithColor:[UIColor blueColor]];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
+        [dic setObject:@"dropped" forKey:@"point_type"];
+        pin.userData = dic;
         //fetch the address based on lat and lon
         CLLocation *location = [[CLLocation alloc] initWithLatitude:touchCoordinate.latitude longitude:touchCoordinate.longitude];
         CLGeocoder *geoCoder = [[CLGeocoder alloc]init];
@@ -353,7 +356,12 @@
     CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
     annotation.coordinate = marker.position;
     annotation.title = @"Dropped Pin";
-    annotation.point_type = dropped;
+    NSString *point_type = [marker.userData objectForKey:@"point_type"];
+    if ([point_type isEqualToString:@"dropped"]) {
+        annotation.point_type = dropped;
+    } else if ([point_type isEqualToString:@"landmark"]) {
+        annotation.point_type = landmark;
+    }
     view.annotation = annotation;
     [self performSegueWithIdentifier:@"DetailVC" sender:view];
 }
