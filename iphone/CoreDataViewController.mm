@@ -62,6 +62,8 @@
     [self deleteAllObjects:@"Area" in:app.managedObjectContext];
     [self deleteAllObjects:@"Snapshot" in:app.managedObjectContext];
     [self deleteAllObjects:@"SnapshotsCollection" in:app.managedObjectContext];
+    self.model->data_array.clear();
+    self.model->snapshot_array.clear();
 }
 
 
