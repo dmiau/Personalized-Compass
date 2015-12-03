@@ -32,7 +32,7 @@
 - (bool)displaySnapshot: (int) snapshot_id
       withStudySettings: (TestManagerMode) mode
 {
- 
+    
     //-----------
     // Set up snapshot parameters
     //-----------
@@ -82,10 +82,10 @@
         
         self.model->configurations[@"filter_type"] = @"MANUAL";
     }
-
+    
     self.UIConfigurations
     [@"UIAllowMultipleAnnotations"] = [NSNumber numberWithBool:NO];
-
+    
 #ifndef __IPHONE__
     // Clean up custom callout
     for (id<MKAnnotation> annotation in
@@ -95,7 +95,7 @@
         (OSXPinAnnotationView*)
         [self.mapView
          viewForAnnotation: annotation];
-        pinView.canShowCallout = NO;        
+        pinView.canShowCallout = NO;
         [pinView showCustomCallout:NO];
     }
 #endif
@@ -128,7 +128,7 @@
         
         for (int i = 0; i < mySnapshot.selected_ids.size(); ++i){
             int data_id = mySnapshot.selected_ids[i];
-
+            
             if (mySnapshot.is_answer_list[i] == 0){
                 self.model->data_array[data_id].my_texture_info =
                 self.model->generateTextureInfo(label_array[i]);
@@ -136,7 +136,7 @@
             }else{
                 self.model->data_array[data_id].my_texture_info =
                 self.model->generateTextureInfo(label_array[i]);
-                self.model->data_array[data_id].annotation.title = label_array[i];                
+                self.model->data_array[data_id].annotation.title = label_array[i];
             }
         }
     }
@@ -173,12 +173,12 @@
 #endif
     
     
-//    NSLog(@"SnapShot");
-//    NSLog(@"Center:");
-//    NSLog(@"latitude: %f, longitude: %f", mySnapshot.coordinateRegion.center.latitude,
-//          mySnapshot.coordinateRegion.center.longitude);
-//    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", mySnapshot.coordinateRegion.span.latitudeDelta,
-//          mySnapshot.coordinateRegion.span.longitudeDelta);
+    //    NSLog(@"SnapShot");
+    //    NSLog(@"Center:");
+    //    NSLog(@"latitude: %f, longitude: %f", mySnapshot.coordinateRegion.center.latitude,
+    //          mySnapshot.coordinateRegion.center.longitude);
+    //    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", mySnapshot.coordinateRegion.span.latitudeDelta,
+    //          mySnapshot.coordinateRegion.span.longitudeDelta);
     
     
     self.mapView.camera.heading = -mySnapshot.orientation;
@@ -197,13 +197,13 @@
         
     }
 #endif
-
-//    NSLog(@"True");
-//    NSLog(@"Center:");
-//    NSLog(@"latitude: %f, longitude: %f", self.mapView.centerCoordinate.latitude,
-//          self.mapView.centerCoordinate.longitude);
-//    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", self.mapView.region.span.latitudeDelta,
-//          self.mapView.region.span.longitudeDelta);
+    
+    //    NSLog(@"True");
+    //    NSLog(@"Center:");
+    //    NSLog(@"latitude: %f, longitude: %f", self.mapView.centerCoordinate.latitude,
+    //          self.mapView.centerCoordinate.longitude);
+    //    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", self.mapView.region.span.latitudeDelta,
+    //          self.mapView.region.span.longitudeDelta);
     
     //-----------------
     // Set up viz and device
@@ -212,12 +212,12 @@
 #ifdef __IPHONE__
         //--------------------
         // Phone (iOS)
-        //--------------------        
+        //--------------------
         [self setupVisualization:mySnapshot.visualizationType];
         [self lockCompassRefToScreenCenter:YES];
         self.renderer->isInteractiveLineVisible=false;
         [self enableMapInteraction:NO];
-
+        
         [[NSUserDefaults standardUserDefaults]
          setObject:[NSNumber numberWithDouble:-1] forKey:@"iOS_wedge_max_base"];
         
@@ -233,11 +233,11 @@
         if (([mySnapshot.name rangeOfString:toNSString(LOCATE)].location != NSNotFound))
         {
             // Per Steve's request, show the visualization
-//            if ([self.socket_status boolValue])
-//            {
-//                [self.mapView setHidden:YES];
-//                [self.glkView setHidden:YES];
-//            }
+            //            if ([self.socket_status boolValue])
+            //            {
+            //                [self.mapView setHidden:YES];
+            //                [self.glkView setHidden:YES];
+            //            }
             
             [[NSUserDefaults standardUserDefaults]
              setObject:
@@ -269,15 +269,15 @@
             int data_id = mySnapshot.selected_ids[0];
             // Send the true answer to the server
             CGPoint mapViewPoint = [self.mapView convertCoordinate:
-                                   CLLocationCoordinate2DMake
-                                   (self.model->data_array[data_id].latitude,
-                                    self.model->data_array[data_id].longitude)
-                                    toPointToView:self.mapView];
+                                    CLLocationCoordinate2DMake
+                                    (self.model->data_array[data_id].latitude,
+                                     self.model->data_array[data_id].longitude)
+                                                     toPointToView:self.mapView];
             
             double x, y;
             x = mapViewPoint.x - self.mapView.frame.size.width/2;
             y = mapViewPoint.y - self.mapView.frame.size.height/2;
-
+            
             record myRecord;
             
             // Note, we should log the (x, y) based on the centroid of the emulated iOS
@@ -295,8 +295,8 @@
             NSDictionary *myDict = @{@"Type"  :@"Truth",
                                      @"DoubleTruth" :
                                          [NSNumber numberWithDouble:myRecord.doubleTruth]};
-//            [NSData dataWithBytes:&(myRecord)
-//                           length:sizeof(myRecord)
+            //            [NSData dataWithBytes:&(myRecord)
+            //                           length:sizeof(myRecord)
             [self sendPackage:myDict];
             
             //-----------------
@@ -317,7 +317,7 @@
             self.renderer->isInteractiveLineEnabled=true;
             self.renderer->interactiveLineRadian   = 0;
             [self toggleScaleView:NO];
-
+            
             
             //-----------------
             // Do not show the cross for compass only
@@ -349,7 +349,7 @@
             if (doubleTruth < 0){
                 doubleTruth = 360 + doubleTruth;
             }
-                        
+            
             // Package the data
             NSDictionary *myDict = @{@"Type"  :@"Truth",
                                      @"DoubleTruth" :
@@ -394,19 +394,19 @@
              [[NSUserDefaults standardUserDefaults] objectForKey:@"OSX_wedge_study_base"]
              forKey:@"OSX_wedge_max_base"];
             [self showLocateCollectMode:mySnapshot];
-//            [self setupVisualization:mySnapshot.visualizationType];
+            //            [self setupVisualization:mySnapshot.visualizationType];
             
         }else if ([mySnapshot.name rangeOfString:toNSString(DISTANCE)].location
                   != NSNotFound)
         {
             [self enableMapInteraction:NO];
-
+            
             [self setupVisualization:VIZNONE];
             self.renderer->emulatediOS.is_enabled = FALSE;
             self.renderer->emulatediOS.is_mask_enabled = FALSE;
             
             // Need to display the region correctly
-            [self changeAnnotationDisplayMode:@"None"];            
+            [self changeAnnotationDisplayMode:@"None"];
             self.isDistanceEstControlAvailable = [NSNumber numberWithBool:YES];
         }else if ([mySnapshot.name rangeOfString:toNSString(TRIANGULATE)].location != NSNotFound)
         {
@@ -430,14 +430,14 @@
         = [NSNumber numberWithFloat: 1];
         [self setupVisualization:mySnapshot.visualizationType];
     }
-
+    
     
     //-----------
     // Annotation configurations (for desktop only)
     //-----------
 #ifndef __IPHONE__
     if (mode == OSXSTUDY){
-       
+        
         self.renderer->dev_radius=0;
         
         for (int i = 0; i < annotation_id_vector.size(); ++i)
@@ -456,7 +456,7 @@
                 self.renderer->dev_radius = temp;
         }
         
-//        cout << "dev_radius: " <<self.renderer->dev_radius << endl;
+        //        cout << "dev_radius: " <<self.renderer->dev_radius << endl;
     }
 #endif
     
@@ -512,7 +512,7 @@
 // Set up the environment to collect the answer for the locate test
 //----------------------
 - (void)showLocateCollectMode: (snapshot) mySnapshot{
-    [self enableMapInteraction:NO];    
+    [self enableMapInteraction:NO];
     self.renderer->cross.isVisible = false;
     // Emulate the iOS enironment if on the desktop
     // (if it is in the control mode)
@@ -523,16 +523,16 @@
     self.renderer->label_flag = false;
     self.renderer->emulatediOS.is_enabled = true;
     self.renderer->emulatediOS.is_mask_enabled = true;
-
+    
     switch (mySnapshot.deviceType) {
         case PHONE:
-//            self.model->configurations[@"wedge_correction_x"]
-//            = [NSNumber numberWithFloat: 2];
+            //            self.model->configurations[@"wedge_correction_x"]
+            //            = [NSNumber numberWithFloat: 2];
             self.renderer->emulatediOS.changeDeviceType(PHONE);
             break;
         case WATCH:
-//            self.model->configurations[@"wedge_correction_x"]
-//            = [NSNumber numberWithFloat: 5.78];
+            //            self.model->configurations[@"wedge_correction_x"]
+            //            = [NSNumber numberWithFloat: 5.78];
             self.renderer->emulatediOS.changeDeviceType(SQUAREWATCH);
             break;
         default:
@@ -547,7 +547,7 @@
     CGPoint shift;
     
     CGPoint offxy = [self.mapView convertCoordinate:CLLocationCoordinate2DMake(self.model->data_array[mySnapshot.selected_ids[0]].latitude,
-        self.model->data_array[mySnapshot.selected_ids[0]].longitude)
+                                                                               self.model->data_array[mySnapshot.selected_ids[0]].longitude)
                                       toPointToView:self.compassView];
     
     if (offxy.x> self.renderer->view_width/2)

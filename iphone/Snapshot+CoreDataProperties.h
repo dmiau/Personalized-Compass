@@ -2,7 +2,7 @@
 //  Snapshot+CoreDataProperties.h
 //  Compass[transparent]
 //
-//  Created by Hong Guo on 11/23/15.
+//  Created by Hong Guo on 12/2/15.
 //  Copyright © 2015 dmiau. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSDate *time_stamp;
 @property (nullable, nonatomic, retain) NSString *visualizationType;
 @property (nullable, nonatomic, retain) SnapshotsCollection *inCollection;
+@property (nullable, nonatomic, retain) Area *atArea;
 
 @end
 

@@ -2,7 +2,7 @@
 //  Snapshot+CoreDataProperties.m
 //  Compass[transparent]
 //
-//  Created by Hong Guo on 11/23/15.
+//  Created by Hong Guo on 12/2/15.
 //  Copyright © 2015 dmiau. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -30,5 +30,6 @@
 @dynamic time_stamp;
 @dynamic visualizationType;
 @dynamic inCollection;
+@dynamic atArea;
 
 @end

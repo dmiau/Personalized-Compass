@@ -223,6 +223,7 @@
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    NSLog(@"FUN FILENAME %@", self.model->location_filename);
     NSArray *list = @[@"User Location",
                       self.model->location_filename,
                       @"Location Files"];

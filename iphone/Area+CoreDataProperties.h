@@ -2,7 +2,7 @@
 //  Area+CoreDataProperties.h
 //  Compass[transparent]
 //
-//  Created by Hong Guo on 11/23/15.
+//  Created by Hong Guo on 12/2/15.
 //  Copyright © 2015 dmiau. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *lon;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSSet<Place *> *places;
+@property (nullable, nonatomic, retain) NSSet<Snapshot *> *snapshots;
 
 @end
 
@@ -28,6 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removePlacesObject:(Place *)value;
 - (void)addPlaces:(NSSet<Place *> *)values;
 - (void)removePlaces:(NSSet<Place *> *)values;
+
+- (void)addSnapshotsObject:(Snapshot *)value;
+- (void)removeSnapshotsObject:(Snapshot *)value;
+- (void)addSnapshots:(NSSet<Snapshot *> *)values;
+- (void)removeSnapshots:(NSSet<Snapshot *> *)values;
 
 @end
 

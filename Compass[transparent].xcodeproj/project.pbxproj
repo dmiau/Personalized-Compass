@@ -184,65 +184,71 @@
 		2B1F0B5F1BFD4915001CB7EF /* wedge723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC51BFD4915001CB7EF /* wedge723.kml */; };
 		2B1F0B601BFD4915001CB7EF /* wedge723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC51BFD4915001CB7EF /* wedge723.kml */; };
 		2B1F0B611BFD4915001CB7EF /* wedge723.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F0AC51BFD4915001CB7EF /* wedge723.kml */; };
-		2B280C651C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C561C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m */; };
-		2B280C661C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C561C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m */; };
-		2B280C671C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C561C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m */; };
-		2B280C681C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C561C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m */; };
-		2B280C691C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C561C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m */; };
-		2B280C6A1C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C561C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m */; };
-		2B280C6B1C040D41009A3D86 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C581C040D41009A3D86 /* SnapshotsCollection.m */; };
-		2B280C6C1C040D41009A3D86 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C581C040D41009A3D86 /* SnapshotsCollection.m */; };
-		2B280C6D1C040D41009A3D86 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C581C040D41009A3D86 /* SnapshotsCollection.m */; };
-		2B280C6E1C040D41009A3D86 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C581C040D41009A3D86 /* SnapshotsCollection.m */; };
-		2B280C6F1C040D41009A3D86 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C581C040D41009A3D86 /* SnapshotsCollection.m */; };
-		2B280C701C040D41009A3D86 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C581C040D41009A3D86 /* SnapshotsCollection.m */; };
-		2B280C711C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5A1C040D41009A3D86 /* Area+CoreDataProperties.m */; };
-		2B280C721C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5A1C040D41009A3D86 /* Area+CoreDataProperties.m */; };
-		2B280C731C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5A1C040D41009A3D86 /* Area+CoreDataProperties.m */; };
-		2B280C741C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5A1C040D41009A3D86 /* Area+CoreDataProperties.m */; };
-		2B280C751C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5A1C040D41009A3D86 /* Area+CoreDataProperties.m */; };
-		2B280C761C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5A1C040D41009A3D86 /* Area+CoreDataProperties.m */; };
-		2B280C771C040D41009A3D86 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5C1C040D41009A3D86 /* Area.m */; };
-		2B280C781C040D41009A3D86 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5C1C040D41009A3D86 /* Area.m */; };
-		2B280C791C040D41009A3D86 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5C1C040D41009A3D86 /* Area.m */; };
-		2B280C7A1C040D41009A3D86 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5C1C040D41009A3D86 /* Area.m */; };
-		2B280C7B1C040D41009A3D86 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5C1C040D41009A3D86 /* Area.m */; };
-		2B280C7C1C040D41009A3D86 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5C1C040D41009A3D86 /* Area.m */; };
-		2B280C7D1C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m */; };
-		2B280C7E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m */; };
-		2B280C7F1C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m */; };
-		2B280C801C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m */; };
-		2B280C811C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m */; };
-		2B280C821C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C5E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m */; };
-		2B280C831C040D41009A3D86 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C601C040D41009A3D86 /* Snapshot.m */; };
-		2B280C841C040D41009A3D86 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C601C040D41009A3D86 /* Snapshot.m */; };
-		2B280C851C040D41009A3D86 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C601C040D41009A3D86 /* Snapshot.m */; };
-		2B280C861C040D41009A3D86 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C601C040D41009A3D86 /* Snapshot.m */; };
-		2B280C871C040D41009A3D86 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C601C040D41009A3D86 /* Snapshot.m */; };
-		2B280C881C040D41009A3D86 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C601C040D41009A3D86 /* Snapshot.m */; };
-		2B280C891C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C621C040D41009A3D86 /* Place+CoreDataProperties.m */; };
-		2B280C8A1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C621C040D41009A3D86 /* Place+CoreDataProperties.m */; };
-		2B280C8B1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C621C040D41009A3D86 /* Place+CoreDataProperties.m */; };
-		2B280C8C1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C621C040D41009A3D86 /* Place+CoreDataProperties.m */; };
-		2B280C8D1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C621C040D41009A3D86 /* Place+CoreDataProperties.m */; };
-		2B280C8E1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C621C040D41009A3D86 /* Place+CoreDataProperties.m */; };
-		2B280C8F1C040D41009A3D86 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C641C040D41009A3D86 /* Place.m */; };
-		2B280C901C040D41009A3D86 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C641C040D41009A3D86 /* Place.m */; };
-		2B280C911C040D41009A3D86 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C641C040D41009A3D86 /* Place.m */; };
-		2B280C921C040D41009A3D86 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C641C040D41009A3D86 /* Place.m */; };
-		2B280C931C040D41009A3D86 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C641C040D41009A3D86 /* Place.m */; };
-		2B280C941C040D41009A3D86 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C641C040D41009A3D86 /* Place.m */; };
 		2B280C971C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */; };
 		2B280C981C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */; };
 		2B280C991C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */; };
 		2B280C9A1C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */; };
 		2B280C9B1C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */; };
-		2B7D6E131C0BA56800772A6E /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D6E121C0BA56800772A6E /* PersonalCompass.sqlite */; };
-		2B7D6E141C0BA56800772A6E /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D6E121C0BA56800772A6E /* PersonalCompass.sqlite */; };
-		2B7D6E151C0BA56800772A6E /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D6E121C0BA56800772A6E /* PersonalCompass.sqlite */; };
-		2B7D6E161C0BA56800772A6E /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D6E121C0BA56800772A6E /* PersonalCompass.sqlite */; };
-		2B7D6E171C0BA56800772A6E /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D6E121C0BA56800772A6E /* PersonalCompass.sqlite */; };
-		2B7D6E181C0BA56800772A6E /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D6E121C0BA56800772A6E /* PersonalCompass.sqlite */; };
+		2B46A7CF1C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C01C0FE768000D4355 /* Snapshot+CoreDataProperties.m */; };
+		2B46A7D01C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C01C0FE768000D4355 /* Snapshot+CoreDataProperties.m */; };
+		2B46A7D11C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C01C0FE768000D4355 /* Snapshot+CoreDataProperties.m */; };
+		2B46A7D21C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C01C0FE768000D4355 /* Snapshot+CoreDataProperties.m */; };
+		2B46A7D31C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C01C0FE768000D4355 /* Snapshot+CoreDataProperties.m */; };
+		2B46A7D41C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C01C0FE768000D4355 /* Snapshot+CoreDataProperties.m */; };
+		2B46A7D51C0FE768000D4355 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C21C0FE768000D4355 /* Snapshot.m */; };
+		2B46A7D61C0FE768000D4355 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C21C0FE768000D4355 /* Snapshot.m */; };
+		2B46A7D71C0FE768000D4355 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C21C0FE768000D4355 /* Snapshot.m */; };
+		2B46A7D81C0FE768000D4355 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C21C0FE768000D4355 /* Snapshot.m */; };
+		2B46A7D91C0FE768000D4355 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C21C0FE768000D4355 /* Snapshot.m */; };
+		2B46A7DA1C0FE768000D4355 /* Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C21C0FE768000D4355 /* Snapshot.m */; };
+		2B46A7DB1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C41C0FE768000D4355 /* Place+CoreDataProperties.m */; };
+		2B46A7DC1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C41C0FE768000D4355 /* Place+CoreDataProperties.m */; };
+		2B46A7DD1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C41C0FE768000D4355 /* Place+CoreDataProperties.m */; };
+		2B46A7DE1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C41C0FE768000D4355 /* Place+CoreDataProperties.m */; };
+		2B46A7DF1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C41C0FE768000D4355 /* Place+CoreDataProperties.m */; };
+		2B46A7E01C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C41C0FE768000D4355 /* Place+CoreDataProperties.m */; };
+		2B46A7E11C0FE768000D4355 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C61C0FE768000D4355 /* Place.m */; };
+		2B46A7E21C0FE768000D4355 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C61C0FE768000D4355 /* Place.m */; };
+		2B46A7E31C0FE768000D4355 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C61C0FE768000D4355 /* Place.m */; };
+		2B46A7E41C0FE768000D4355 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C61C0FE768000D4355 /* Place.m */; };
+		2B46A7E51C0FE768000D4355 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C61C0FE768000D4355 /* Place.m */; };
+		2B46A7E61C0FE768000D4355 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C61C0FE768000D4355 /* Place.m */; };
+		2B46A7E71C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C81C0FE768000D4355 /* Area+CoreDataProperties.m */; };
+		2B46A7E81C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C81C0FE768000D4355 /* Area+CoreDataProperties.m */; };
+		2B46A7E91C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C81C0FE768000D4355 /* Area+CoreDataProperties.m */; };
+		2B46A7EA1C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C81C0FE768000D4355 /* Area+CoreDataProperties.m */; };
+		2B46A7EB1C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C81C0FE768000D4355 /* Area+CoreDataProperties.m */; };
+		2B46A7EC1C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7C81C0FE768000D4355 /* Area+CoreDataProperties.m */; };
+		2B46A7ED1C0FE768000D4355 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CA1C0FE768000D4355 /* Area.m */; };
+		2B46A7EE1C0FE768000D4355 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CA1C0FE768000D4355 /* Area.m */; };
+		2B46A7EF1C0FE768000D4355 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CA1C0FE768000D4355 /* Area.m */; };
+		2B46A7F01C0FE768000D4355 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CA1C0FE768000D4355 /* Area.m */; };
+		2B46A7F11C0FE768000D4355 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CA1C0FE768000D4355 /* Area.m */; };
+		2B46A7F21C0FE768000D4355 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CA1C0FE768000D4355 /* Area.m */; };
+		2B46A7F31C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CC1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m */; };
+		2B46A7F41C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CC1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m */; };
+		2B46A7F51C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CC1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m */; };
+		2B46A7F61C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CC1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m */; };
+		2B46A7F71C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CC1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m */; };
+		2B46A7F81C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CC1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m */; };
+		2B46A7F91C0FE768000D4355 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */; };
+		2B46A7FA1C0FE768000D4355 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */; };
+		2B46A7FB1C0FE768000D4355 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */; };
+		2B46A7FC1C0FE768000D4355 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */; };
+		2B46A7FD1C0FE768000D4355 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */; };
+		2B46A7FE1C0FE768000D4355 /* SnapshotsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */; };
+		2B46A8001C108ECC000D4355 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */; };
+		2B46A8011C108ECC000D4355 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */; };
+		2B46A8021C108ECC000D4355 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */; };
+		2B46A8031C108ECC000D4355 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */; };
+		2B46A8041C108ECC000D4355 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */; };
+		2B46A80C1C10A770000D4355 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D418D9EBB20028B80C /* CoreData.framework */; };
+		2B46A8151C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
+		2B46A8161C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
+		2B46A8171C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
+		2B46A8181C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
+		2B46A8191C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
+		2B46A81A1C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
 		2B8469291BF3E8B2000703DB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */; };
 		2B8E2BFC1BF67E9C0083613C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC81BF2A8C600ADD137 /* Accelerate.framework */; };
 		2B8E2BFD1BF67EAC0083613C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC61BF2A87C00ADD137 /* AVFoundation.framework */; };
@@ -885,8 +891,6 @@
 		9A4808AA198C2D2D0001E188 /* DesktopViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4808A6198C2D2D0001E188 /* DesktopViewController+Annotations.mm */; };
 		9A49A5F2195491CF00937961 /* iOSViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */; };
 		9A49A5F3195491CF00937961 /* iOSViewController+Annotations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */; };
-		9A49A5F61954A8BB00937961 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F51954A8BB00937961 /* myTableViewController.mm */; };
-		9A49A5F71954A8BB00937961 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F51954A8BB00937961 /* myTableViewController.mm */; };
 		9A49A5FA1954A90E00937961 /* bottomUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F91954A90E00937961 /* bottomUpSegue.m */; };
 		9A49A5FB1954A90E00937961 /* bottomUpSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A49A5F91954A90E00937961 /* bottomUpSegue.m */; };
 		9A4A44771979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A44761979B151007F0120 /* iOSViewController+DebugPanel.mm */; };
@@ -1458,25 +1462,26 @@
 		2B1F0AC31BFD4915001CB7EF /* training.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = training.kml; sourceTree = "<group>"; };
 		2B1F0AC41BFD4915001CB7EF /* UKLondon.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = UKLondon.kml; sourceTree = "<group>"; };
 		2B1F0AC51BFD4915001CB7EF /* wedge723.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = wedge723.kml; sourceTree = "<group>"; };
-		2B280C551C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SnapshotsCollection+CoreDataProperties.h"; sourceTree = "<group>"; };
-		2B280C561C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SnapshotsCollection+CoreDataProperties.m"; sourceTree = "<group>"; };
-		2B280C571C040D41009A3D86 /* SnapshotsCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotsCollection.h; sourceTree = "<group>"; };
-		2B280C581C040D41009A3D86 /* SnapshotsCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapshotsCollection.m; sourceTree = "<group>"; };
-		2B280C591C040D41009A3D86 /* Area+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Area+CoreDataProperties.h"; sourceTree = "<group>"; };
-		2B280C5A1C040D41009A3D86 /* Area+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Area+CoreDataProperties.m"; sourceTree = "<group>"; };
-		2B280C5B1C040D41009A3D86 /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
-		2B280C5C1C040D41009A3D86 /* Area.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Area.m; sourceTree = "<group>"; };
-		2B280C5D1C040D41009A3D86 /* Snapshot+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapshot+CoreDataProperties.h"; sourceTree = "<group>"; };
-		2B280C5E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Snapshot+CoreDataProperties.m"; sourceTree = "<group>"; };
-		2B280C5F1C040D41009A3D86 /* Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snapshot.h; sourceTree = "<group>"; };
-		2B280C601C040D41009A3D86 /* Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snapshot.m; sourceTree = "<group>"; };
-		2B280C611C040D41009A3D86 /* Place+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Place+CoreDataProperties.h"; sourceTree = "<group>"; };
-		2B280C621C040D41009A3D86 /* Place+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Place+CoreDataProperties.m"; sourceTree = "<group>"; };
-		2B280C631C040D41009A3D86 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
-		2B280C641C040D41009A3D86 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = snapshotTableViewController.mm; sourceTree = "<group>"; };
 		2B36FE621C066AC2004B544D /* pcompass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pcompass.entitlements; sourceTree = "<group>"; };
-		2B7D6E121C0BA56800772A6E /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
+		2B46A7BF1C0FE768000D4355 /* Snapshot+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapshot+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2B46A7C01C0FE768000D4355 /* Snapshot+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Snapshot+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2B46A7C11C0FE768000D4355 /* Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snapshot.h; sourceTree = "<group>"; };
+		2B46A7C21C0FE768000D4355 /* Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snapshot.m; sourceTree = "<group>"; };
+		2B46A7C31C0FE768000D4355 /* Place+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Place+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2B46A7C41C0FE768000D4355 /* Place+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Place+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2B46A7C51C0FE768000D4355 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		2B46A7C61C0FE768000D4355 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		2B46A7C71C0FE768000D4355 /* Area+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Area+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2B46A7C81C0FE768000D4355 /* Area+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Area+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2B46A7C91C0FE768000D4355 /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
+		2B46A7CA1C0FE768000D4355 /* Area.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Area.m; sourceTree = "<group>"; };
+		2B46A7CB1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SnapshotsCollection+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2B46A7CC1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SnapshotsCollection+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2B46A7CD1C0FE768000D4355 /* SnapshotsCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotsCollection.h; sourceTree = "<group>"; };
+		2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapshotsCollection.m; sourceTree = "<group>"; };
+		2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = myTableViewController.mm; sourceTree = "<group>"; };
+		2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
 		2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		2B8E2C081BF67FE70083613C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework"; sourceTree = "<group>"; };
 		2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
@@ -1720,7 +1725,6 @@
 		9A49A5F0195491CF00937961 /* iOSViewController+Annotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+Annotations.h"; sourceTree = "<group>"; };
 		9A49A5F1195491CF00937961 /* iOSViewController+Annotations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+Annotations.mm"; sourceTree = "<group>"; };
 		9A49A5F41954A8BB00937961 /* myTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTableViewController.h; sourceTree = "<group>"; };
-		9A49A5F51954A8BB00937961 /* myTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = myTableViewController.mm; sourceTree = "<group>"; };
 		9A49A5F81954A90E00937961 /* bottomUpSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bottomUpSegue.h; sourceTree = "<group>"; };
 		9A49A5F91954A90E00937961 /* bottomUpSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bottomUpSegue.m; sourceTree = "<group>"; };
 		9A4A44751979B151007F0120 /* iOSViewController+DebugPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSViewController+DebugPanel.h"; sourceTree = "<group>"; };
@@ -2039,6 +2043,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B46A80C1C10A770000D4355 /* CoreData.framework in Frameworks */,
 				9ADA91BE1AB88411009C7552 /* CoreMedia.framework in Frameworks */,
 				9ADA91B71AB87FB0009C7552 /* AVKit.framework in Frameworks */,
 				9ADA91B61AB87FAC009C7552 /* AVFoundation.framework in Frameworks */,
@@ -2082,23 +2087,23 @@
 		2BC725071BF2D90400219807 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				2B7D6E121C0BA56800772A6E /* PersonalCompass.sqlite */,
-				2B280C551C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.h */,
-				2B280C561C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m */,
-				2B280C571C040D41009A3D86 /* SnapshotsCollection.h */,
-				2B280C581C040D41009A3D86 /* SnapshotsCollection.m */,
-				2B280C591C040D41009A3D86 /* Area+CoreDataProperties.h */,
-				2B280C5A1C040D41009A3D86 /* Area+CoreDataProperties.m */,
-				2B280C5B1C040D41009A3D86 /* Area.h */,
-				2B280C5C1C040D41009A3D86 /* Area.m */,
-				2B280C5D1C040D41009A3D86 /* Snapshot+CoreDataProperties.h */,
-				2B280C5E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m */,
-				2B280C5F1C040D41009A3D86 /* Snapshot.h */,
-				2B280C601C040D41009A3D86 /* Snapshot.m */,
-				2B280C611C040D41009A3D86 /* Place+CoreDataProperties.h */,
-				2B280C621C040D41009A3D86 /* Place+CoreDataProperties.m */,
-				2B280C631C040D41009A3D86 /* Place.h */,
-				2B280C641C040D41009A3D86 /* Place.m */,
+				2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */,
+				2B46A7BF1C0FE768000D4355 /* Snapshot+CoreDataProperties.h */,
+				2B46A7C01C0FE768000D4355 /* Snapshot+CoreDataProperties.m */,
+				2B46A7C11C0FE768000D4355 /* Snapshot.h */,
+				2B46A7C21C0FE768000D4355 /* Snapshot.m */,
+				2B46A7C31C0FE768000D4355 /* Place+CoreDataProperties.h */,
+				2B46A7C41C0FE768000D4355 /* Place+CoreDataProperties.m */,
+				2B46A7C51C0FE768000D4355 /* Place.h */,
+				2B46A7C61C0FE768000D4355 /* Place.m */,
+				2B46A7C71C0FE768000D4355 /* Area+CoreDataProperties.h */,
+				2B46A7C81C0FE768000D4355 /* Area+CoreDataProperties.m */,
+				2B46A7C91C0FE768000D4355 /* Area.h */,
+				2B46A7CA1C0FE768000D4355 /* Area.m */,
+				2B46A7CB1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.h */,
+				2B46A7CC1C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m */,
+				2B46A7CD1C0FE768000D4355 /* SnapshotsCollection.h */,
+				2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */,
 				2BC725041BF2D8E200219807 /* Model.xcdatamodeld */,
 				2B122B371C0A514E00FFD62A /* CoreDataViewController.h */,
 				2B122B381C0A514E00FFD62A /* CoreDataViewController.mm */,
@@ -2571,8 +2576,8 @@
 		9A4808A4198C29270001E188 /* Landmark Table */ = {
 			isa = PBXGroup;
 			children = (
-				9A49A5F51954A8BB00937961 /* myTableViewController.mm */,
 				9A49A5F41954A8BB00937961 /* myTableViewController.h */,
+				2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */,
 				9A3DA0CC19683235009E0073 /* DetailViewController.h */,
 				9A3DA0CD19683235009E0073 /* DetailViewController.mm */,
 			);
@@ -3316,7 +3321,7 @@
 				2B1F0B5A1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A3DA0A11964E9B1009E0073 /* remove.png in Resources */,
 				9AB2A722196372AA0001E96F /* unselected.png in Resources */,
-				2B7D6E171C0BA56800772A6E /* PersonalCompass.sqlite in Resources */,
+				2B46A8191C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B3C1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				2B1F0ACA1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A2E42E9196C9D2C00CF8862 /* heading.png in Resources */,
@@ -3382,7 +3387,7 @@
 				2B1F0B5B1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A82B64A1941518900534A5F /* Images.xcassets in Resources */,
 				9A48089D198BF1F70001E188 /* debug.png in Resources */,
-				2B7D6E181C0BA56800772A6E /* PersonalCompass.sqlite in Resources */,
+				2B46A81A1C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B3D1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				2B1F0ACB1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A3DA0A21964E9B1009E0073 /* remove.png in Resources */,
@@ -3451,7 +3456,7 @@
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
 				9A8DF92B1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AF3788A1A9FED7600FEB3F3 /* walking.tif in Resources */,
-				2B7D6E161C0BA56800772A6E /* PersonalCompass.sqlite in Resources */,
+				2B46A8181C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
 				9A856FA81AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				2B1F0AF91BFD4915001CB7EF /* miami.kml in Resources */,
@@ -3489,7 +3494,7 @@
 				9A856FAE1AB8AF4500486AE9 /* pcompass-phone-locate.mp4 in Resources */,
 				2B1F0AA61BFD48FB001CB7EF /* default.snapshot in Resources */,
 				9A856F991AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
-				2B7D6E131C0BA56800772A6E /* PersonalCompass.sqlite in Resources */,
+				2B46A8151C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
 				9A856F9D1AB8AEEF00486AE9 /* pcompass-phone-distance.mp4 in Resources */,
 				9A856FA51AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				2B1F0AEA1BFD4915001CB7EF /* london.kml in Resources */,
@@ -3607,7 +3612,7 @@
 				2B1F0B461BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				2B1F0AA81BFD48FB001CB7EF /* default.snapshot in Resources */,
 				2B1F0ACE1BFD4915001CB7EF /* governors_island.kml in Resources */,
-				2B7D6E151C0BA56800772A6E /* PersonalCompass.sqlite in Resources */,
+				2B46A8171C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
 				9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */,
 				9A856F821AB8AEE100486AE9 /* wedge-phone-direction.mp4 in Resources */,
 				9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */,
@@ -3716,7 +3721,7 @@
 				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,
 				2B1F0B0F1BFD4915001CB7EF /* newyork723.kml in Resources */,
 				2B1F0AFD1BFD4915001CB7EF /* montreal.kml in Resources */,
-				2B7D6E141C0BA56800772A6E /* PersonalCompass.sqlite in Resources */,
+				2B46A8161C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B451BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A42A0E219ABB12D00BB0101 /* Web in Resources */,
@@ -3750,15 +3755,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B46A7E51C0FE768000D4355 /* Place.m in Sources */,
 				9AF1231C19843097004D4EFC /* Texture2D.m in Sources */,
 				9AAC65DF1A8BA2C000B9BF2E /* TestManager-RunStudy.mm in Sources */,
 				9A0375C1198DA31900258E95 /* b2Math.cpp in Sources */,
-				2B280C6F1C040D41009A3D86 /* SnapshotsCollection.m in Sources */,
 				9A0375C7198DA31900258E95 /* b2Settings.cpp in Sources */,
+				2B46A7D91C0FE768000D4355 /* Snapshot.m in Sources */,
 				9A6FB7F41958FFC20020355A /* iOSViewController+Updates.mm in Sources */,
 				9A49A5F2195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
 				9A037663198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A3DA0CE19683235009E0073 /* DetailViewController.mm in Sources */,
+				2B46A7EB1C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */,
 				9AAC65E31A8BA87B00B9BF2E /* iOSViewController+StudyToolbar.mm in Sources */,
 				9A49A5FA1954A90E00937961 /* bottomUpSegue.m in Sources */,
 				9A03761B198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
@@ -3766,9 +3773,7 @@
 				9A3240DC197AB083008E929D /* iOSViewController+History.mm in Sources */,
 				9ABB96B41957C94A00D7296A /* iOSViewController+ViewPanel.mm in Sources */,
 				9A376AF91A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
-				2B280C8D1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */,
 				9A0375D9198DA31900258E95 /* b2Body.cpp in Sources */,
-				2B280C691C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A0375AF198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A0375CD198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A3DA0A81964F5E3009E0073 /* genKMLString.mm in Sources */,
@@ -3777,8 +3782,6 @@
 				9A0375FD198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A36AF1E1AA7ADE200BFC6E7 /* TaskSpec-MultiLocation.mm in Sources */,
 				9A037639198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
-				2B280C931C040D41009A3D86 /* Place.m in Sources */,
-				2B280C7B1C040D41009A3D86 /* Area.m in Sources */,
 				9AFD8F5E197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A0375E5198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A0375EB198DA31900258E95 /* b2Island.cpp in Sources */,
@@ -3794,7 +3797,6 @@
 				2B280C9A1C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */,
 				9A0375A9198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
 				9A037621198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
-				2B280C871C040D41009A3D86 /* Snapshot.m in Sources */,
 				9AE37FA01A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
 				9AEBD9121AA6790200139232 /* TaskSpec.mm in Sources */,
 				9AE2FC8819AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
@@ -3802,7 +3804,6 @@
 				9A037573198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A037657198DA31900258E95 /* b2PrismaticJoint.cpp in Sources */,
 				9A037615198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
-				2B280C811C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A4F0F83193E331E00CF32DE /* compassModel.mm in Sources */,
 				9A32852C199116FA0016E8A2 /* ExtraPanelController.mm in Sources */,
 				9A037591198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
@@ -3835,6 +3836,7 @@
 				9A03765D198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
 				9A3C20871AA760C5007870CC /* TaskSpec-SingleLocation.mm in Sources */,
 				9A037627198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
+				2B46A8031C108ECC000D4355 /* myTableViewController.mm in Sources */,
 				9A03766F198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
 				9A02D0EB195C5C8700A64987 /* filesystem.mm in Sources */,
 				9A037609198DA31900258E95 /* b2CircleContact.cpp in Sources */,
@@ -3855,6 +3857,8 @@
 				9A998D75194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
 				9AEEC68F1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
 				2BC725061BF2D8E200219807 /* Model.xcdatamodeld in Sources */,
+				2B46A7FD1C0FE768000D4355 /* SnapshotsCollection.m in Sources */,
+				2B46A7F71C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9AB90B9F194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A4F0F53193E2A8900CF32DE /* main.m in Sources */,
 				9A4AA6661A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */,
@@ -3862,17 +3866,19 @@
 				9A4F0F7C193E306A00CF32DE /* iOSViewController.mm in Sources */,
 				9A3DA0C71966E563009E0073 /* CustomAnnotationView.mm in Sources */,
 				2B122B391C0A514E00FFD62A /* CoreDataViewController.mm in Sources */,
+				2B46A7D31C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */,
 				9AAC65E71A8BA8EA00B9BF2E /* iOSViewController+DemoToolbar.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
 				9AE2FC8F19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
-				2B280C751C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */,
 				9AC314381A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A037669198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A0E719ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */,
 				9A037645198DA31900258E95 /* b2Joint.cpp in Sources */,
 				9A998D71194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
+				2B46A7F11C0FE768000D4355 /* Area.m in Sources */,
 				9A757154197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A75720E197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
+				2B46A7DF1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */,
 				9A60F8A0198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */,
 				9A03764B198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
 				9A95CCB3194B4146008E520F /* iOSSettingViewController.mm in Sources */,
@@ -3882,7 +3888,6 @@
 				9AFD8F65197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A03759D198DA31800258E95 /* b2ChainShape.cpp in Sources */,
 				9ACD80D61986982B00AAB052 /* UINavigationController+rotation.mm in Sources */,
-				9A49A5F61954A8BB00937961 /* myTableViewController.mm in Sources */,
 				9A8B1DEB1AB4988F00719BBE /* TestManager-InitCleanUp.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3891,16 +3896,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B46A7E61C0FE768000D4355 /* Place.m in Sources */,
 				9AFD8F5F197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A0375D4198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A03757A198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9A0375C8198DA31900258E95 /* b2Settings.cpp in Sources */,
+				2B46A7DA1C0FE768000D4355 /* Snapshot.m in Sources */,
 				9A0375B0198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A03761C198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
 				9A3240D9197AB06F008E929D /* SharedViewController+SnapShot.mm in Sources */,
 				9A037580198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
-				2B280C761C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */,
-				2B280C7C1C040D41009A3D86 /* Area.m in Sources */,
+				2B46A7EC1C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */,
 				9A6FB7F51958FFC20020355A /* iOSViewController+Updates.mm in Sources */,
 				9A0375A4198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A42A0E819ABCD9F00BB0101 /* iOSViewController+Client.mm in Sources */,
@@ -3948,9 +3954,7 @@
 				9A757155197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A9F53681A79962900E3744B /* CHCSVParser.m in Sources */,
 				9A0375BC198DA31800258E95 /* b2Draw.cpp in Sources */,
-				2B280C821C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */,
 				9AE2FC7919AE43810015E2B6 /* SRWebSocket.m in Sources */,
-				2B280C881C040D41009A3D86 /* Snapshot.m in Sources */,
 				9A0375C2198DA31900258E95 /* b2Math.cpp in Sources */,
 				2B280C9B1C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */,
 				9A0375F2198DA31900258E95 /* b2World.cpp in Sources */,
@@ -3964,7 +3968,6 @@
 				9A82B6381941518900534A5F /* AppDelegate.mm in Sources */,
 				9AECA76D196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A49A5F3195491CF00937961 /* iOSViewController+Annotations.mm in Sources */,
-				2B280C941C040D41009A3D86 /* Place.m in Sources */,
 				9A006CA319522918009BB81C /* iOSViewController+Model.mm in Sources */,
 				9A03760A198DA31900258E95 /* b2CircleContact.cpp in Sources */,
 				9A3C20881AA760C5007870CC /* TaskSpec-SingleLocation.mm in Sources */,
@@ -3972,9 +3975,9 @@
 				9A75720F197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9AE020B3198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */,
 				9A82B6391941518900534A5F /* main.m in Sources */,
-				9A49A5F71954A8BB00937961 /* myTableViewController.mm in Sources */,
 				9A037634198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
 				9AAC65E81A8BA8EA00B9BF2E /* iOSViewController+DemoToolbar.mm in Sources */,
+				2B46A8041C108ECC000D4355 /* myTableViewController.mm in Sources */,
 				9A037592198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A03764C198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
 				9AC314311A840E640091BC88 /* iOSViewController+MapView.mm in Sources */,
@@ -3992,10 +3995,11 @@
 				9AFD8F66197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9ACD80DB1986CB8900AAB052 /* iOSViewController+Init.mm in Sources */,
 				9AAC65E41A8BA87B00B9BF2E /* iOSViewController+StudyToolbar.mm in Sources */,
-				2B280C6A1C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A03763A198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9A03759E198DA31800258E95 /* b2ChainShape.cpp in Sources */,
 				9ACD80D71986982B00AAB052 /* UINavigationController+rotation.mm in Sources */,
+				2B46A7FE1C0FE768000D4355 /* SnapshotsCollection.m in Sources */,
+				2B46A7F81C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A3240DD197AB083008E929D /* iOSViewController+History.mm in Sources */,
 				9A0375CE198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A82B63B1941518900534A5F /* iOSGLKView.mm in Sources */,
@@ -4003,8 +4007,8 @@
 				9AC314391A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A6FB7F11958FF390020355A /* iOSViewController+Toolbar.mm in Sources */,
 				9A998D76194BB99D00778DFC /* iOSViewController+GetLocation.mm in Sources */,
+				2B46A7D41C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */,
 				9AD5AB0E199D1C3900B351FA /* iPadTabBarController.mm in Sources */,
-				2B280C701C040D41009A3D86 /* SnapshotsCollection.m in Sources */,
 				9A037664198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9AEBD9131AA6790200139232 /* TaskSpec.mm in Sources */,
 				9A0375B6198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
@@ -4012,8 +4016,10 @@
 				9A037574198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A998D72194BB8E300778DFC /* iOSViewController+Search.mm in Sources */,
 				9A0375E6198DA31900258E95 /* b2Fixture.cpp in Sources */,
+				2B46A7F21C0FE768000D4355 /* Area.m in Sources */,
 				9A5F320C1A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A037646198DA31900258E95 /* b2Joint.cpp in Sources */,
+				2B46A7E01C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */,
 				9A037628198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A3DA0A91964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A259D61199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
@@ -4022,7 +4028,6 @@
 				9A60F8A1198D75C000E60ABD /* iOSViewController+Interactions.mm in Sources */,
 				9A037610198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A32852D199116FA0016E8A2 /* ExtraPanelController.mm in Sources */,
-				2B280C8E1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */,
 				9ABB382F19776A2B00AFADA8 /* iOSViewController+CompassPanel.mm in Sources */,
 				9A8CE9CE1A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */,
 			);
@@ -4032,10 +4037,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B46A7F01C0FE768000D4355 /* Area.m in Sources */,
 				9AFD8F64197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9AECA76B196A0269008ADAEC /* CustomPointAnnotation.mm in Sources */,
 				9A36619019A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
-				2B280C6E1C040D41009A3D86 /* SnapshotsCollection.m in Sources */,
 				9A6F53FB1910073F00F35FED /* DebugWindowController.mm in Sources */,
 				9A757153197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A8B1DEA1AB4988F00719BBE /* TestManager-InitCleanUp.mm in Sources */,
@@ -4057,11 +4062,12 @@
 				9A037638198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9A4AA6541A7FD9AD0009F448 /* SharedViewController+SnapShot.mm in Sources */,
 				9A42A03D19A79C3200BB0101 /* DDRange.m in Sources */,
+				2B46A7EA1C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */,
 				9A42A05D19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
+				2B46A7FC1C0FE768000D4355 /* SnapshotsCollection.m in Sources */,
 				9AA7890D1909FE3000A26C66 /* readConfiguration.mm in Sources */,
 				9A91FB921A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */,
 				9A037644198DA31900258E95 /* b2Joint.cpp in Sources */,
-				2B280C861C040D41009A3D86 /* Snapshot.m in Sources */,
 				9A037674198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A3DE0B51A94E77400288A55 /* UserStudyViewController.mm in Sources */,
 				9A03763E198DA31900258E95 /* b2GearJoint.cpp in Sources */,
@@ -4069,6 +4075,7 @@
 				9A998C951949F32800778DFC /* compassRender+PrimitiveDrawing.mm in Sources */,
 				9A42A0C219A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */,
 				9A42A04919A79C3200BB0101 /* HTTPMessage.m in Sources */,
+				2B46A7D21C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A42A06919A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
 				9A03762C198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A42A09C19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -4088,14 +4095,16 @@
 				9AA789101909FE3000A26C66 /* xmlParser.mm in Sources */,
 				9A0375D2198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9AA789111909FE3000A26C66 /* compassModel.mm in Sources */,
-				2B280C801C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A03756C198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
 				9A03759C198DA31800258E95 /* b2ChainShape.cpp in Sources */,
+				2B46A7DE1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */,
 				9A03764A198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
 				9A42A04119A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
 				9A42A03919A79C3200BB0101 /* DDNumber.m in Sources */,
+				2B46A7D81C0FE768000D4355 /* Snapshot.m in Sources */,
 				2B280C991C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */,
 				9A4AA6651A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */,
+				2B46A7E41C0FE768000D4355 /* Place.m in Sources */,
 				9A42A0CF19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
 				9A0375D8198DA31900258E95 /* b2Body.cpp in Sources */,
 				9AE2FC8E19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
@@ -4109,6 +4118,7 @@
 				9A037596198DA31800258E95 /* b2TimeOfImpact.cpp in Sources */,
 				9AE37F9F1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
 				9A037614198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
+				2B46A8021C108ECC000D4355 /* myTableViewController.mm in Sources */,
 				9A8CE9CC1A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */,
 				9A36619619A3FE4E00DC0D15 /* myMapView.mm in Sources */,
 				9AA789151909FE3000A26C66 /* LocationCellView.mm in Sources */,
@@ -4125,18 +4135,14 @@
 				9A42A09419A79CA200BB0101 /* GCDAsyncSocket.m in Sources */,
 				9A42A0A019A79CA200BB0101 /* DDASLLogger.m in Sources */,
 				9AB5AD871A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */,
-				2B280C7A1C040D41009A3D86 /* Area.m in Sources */,
-				2B280C921C040D41009A3D86 /* Place.m in Sources */,
 				9A3DE0A41A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */,
 				9A42A0B019A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
 				9A42A07119A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A3DA0A71964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AEBD9111AA6790200139232 /* TaskSpec.mm in Sources */,
 				9AA7891A1909FE3000A26C66 /* DesktopViewController+MapView.mm in Sources */,
-				2B280C681C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A376AF81A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
 				9A037620198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
-				2B280C8C1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */,
 				9A0375CC198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A037608198DA31900258E95 /* b2CircleContact.cpp in Sources */,
 				9A0375A2198DA31800258E95 /* b2CircleShape.cpp in Sources */,
@@ -4156,6 +4162,7 @@
 				9A4293C11A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9AD1B2F61AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */,
 				9A0375FC198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
+				2B46A7F61C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A4AA6601A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
 				9A3F1E8B1A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9AC314371A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
@@ -4163,7 +4170,6 @@
 				9A0375EA198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A8B1DF21AB4C89600719BBE /* testCodeInterpreter.mm in Sources */,
 				9A037650198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
-				2B280C741C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */,
 				9A5F320A1A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A42A05119A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
 				9A42A05519A79C3200BB0101 /* MultipartMessageHeader.m in Sources */,
@@ -4206,6 +4212,7 @@
 				9A037671198DA31900258E95 /* b2WheelJoint.cpp in Sources */,
 				9A037587198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A037599198DA31800258E95 /* b2ChainShape.cpp in Sources */,
+				2B46A7E11C0FE768000D4355 /* Place.m in Sources */,
 				9AEEC68B1A8E48F900C5D3A7 /* SharedViewController+Files.mm in Sources */,
 				9AE2FC8B19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9AE2FC8419AF860F0015E2B6 /* compassRender+Tools.mm in Sources */,
@@ -4229,14 +4236,14 @@
 				9A42A0AD19A79CA200BB0101 /* ContextFilterLogFormatter.m in Sources */,
 				9A03756F198DA31800258E95 /* b2CollideCircle.cpp in Sources */,
 				9A0375BD198DA31900258E95 /* b2Math.cpp in Sources */,
-				2B280C651C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A0375A5198DA31800258E95 /* b2EdgeShape.cpp in Sources */,
 				9A9F53631A79962900E3744B /* CHCSVParser.m in Sources */,
 				9A4D2B2C1A882E0000BB81DB /* DesktopViewController+Tools.mm in Sources */,
+				2B46A7F91C0FE768000D4355 /* SnapshotsCollection.m in Sources */,
 				9A28368C1900C0850041D22E /* readConfiguration.mm in Sources */,
-				2B280C831C040D41009A3D86 /* Snapshot.m in Sources */,
 				9A469E0F19A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */,
 				9A9DD7391A86C145005376AB /* EmulatediOS.mm in Sources */,
+				2B46A7CF1C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A0375C9198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A03758D198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A0375B1198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
@@ -4245,6 +4252,7 @@
 				9AFD8F61197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A03760B198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9A037605198DA31900258E95 /* b2CircleContact.cpp in Sources */,
+				2B46A7D51C0FE768000D4355 /* Snapshot.m in Sources */,
 				9AE57281199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9A42A09919A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
 				9A0375E1198DA31900258E95 /* b2Fixture.cpp in Sources */,
@@ -4254,7 +4262,6 @@
 				9A037629198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A037659198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,
 				9ACF5D8818EB572100F03872 /* DesktopViewController+Table.mm in Sources */,
-				2B280C8F1C040D41009A3D86 /* Place.m in Sources */,
 				9AF523B318DC83BF005823A2 /* xmlParser.mm in Sources */,
 				9A469E1A19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */,
 				9A2E42DE196C8A2800CF8862 /* HeadingAnnotationView.m in Sources */,
@@ -4283,11 +4290,11 @@
 				9A757158197D804100C23AEE /* historyParser.mm in Sources */,
 				9A3DE0B21A94E77400288A55 /* UserStudyViewController.mm in Sources */,
 				9A42A0A119A79CA200BB0101 /* DDFileLogger.m in Sources */,
-				2B280C6B1C040D41009A3D86 /* SnapshotsCollection.m in Sources */,
 				9AF5D20518EF2E8B00AC671E /* DesktopViewController+Compass.mm in Sources */,
 				9A8B1DE71AB4988F00719BBE /* TestManager-InitCleanUp.mm in Sources */,
 				9AC314341A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A42A04619A79C3200BB0101 /* HTTPMessage.m in Sources */,
+				2B46A7F31C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A0375ED198DA31900258E95 /* b2World.cpp in Sources */,
 				9A6EC78019004BCB00C3815F /* locationFilter.mm in Sources */,
 				9AFD8F56197C20000099BD88 /* genSnapshotString.mm in Sources */,
@@ -4295,12 +4302,12 @@
 				9AEA582C18D9ED600028B80C /* compassRender.mm in Sources */,
 				9A8CE9C91A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */,
 				9A42A06A19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
+				2B46A7ED1C0FE768000D4355 /* Area.m in Sources */,
 				9AB90B94194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9A03759F198DA31800258E95 /* b2CircleShape.cpp in Sources */,
 				9A42A0C819ABADC800BB0101 /* MyHTTPConnection.m in Sources */,
 				9A42A03619A79C3200BB0101 /* DDNumber.m in Sources */,
 				9A4293BE1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
-				2B280C711C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */,
 				9A4AA6621A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */,
 				9A0375C3198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A36619319A3FE4E00DC0D15 /* myMapView.mm in Sources */,
@@ -4309,7 +4316,6 @@
 				9AD1B2F31AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */,
 				9A0375E7198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A5F320F1A7739A8003B0426 /* ConfigurationsWindowController+TestManager.mm in Sources */,
-				2B280C771C040D41009A3D86 /* Area.m in Sources */,
 				9A037581198DA31800258E95 /* b2Collision.cpp in Sources */,
 				9A42A0B119A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
 				9A03761D198DA31900258E95 /* b2EdgeAndPolygonContact.cpp in Sources */,
@@ -4317,18 +4323,19 @@
 				9A037677198DA31900258E95 /* b2Rope.cpp in Sources */,
 				9AB90B9B194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A0375AB198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
+				2B46A7E71C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */,
 				9A03766B198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
 				9A42A04219A79C3200BB0101 /* HTTPConnection.m in Sources */,
 				9AEA582918D9ED350028B80C /* OpenGLView.mm in Sources */,
 				9A757150197D6C1500C23AEE /* snapshotParser.mm in Sources */,
 				9A037369198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A3C20831AA760C5007870CC /* TaskSpec-SingleLocation.mm in Sources */,
+				2B46A7DB1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */,
 				9A176DA619A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9A42A03A19A79C3200BB0101 /* DDRange.m in Sources */,
 				9A037635198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
 				9AE610471A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9A037611198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
-				2B280C891C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */,
 				9A037575198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
 				9A75720A197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9A8B1DE01AB4914E00719BBE /* TestManager-Tools.mm in Sources */,
@@ -4344,7 +4351,6 @@
 				9A42A03E19A79C3200BB0101 /* HTTPAuthenticationRequest.m in Sources */,
 				9A3DA0A41964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9AE37F9C1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
-				2B280C7D1C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A0375DB198DA31900258E95 /* b2ContactManager.cpp in Sources */,
 				9AF01B7318ECE5FC0029A860 /* GLString.mm in Sources */,
 			);
@@ -4354,10 +4360,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B46A7EF1C0FE768000D4355 /* Area.m in Sources */,
 				9A9701DC19083BCF007C3C19 /* LocationCellView.mm in Sources */,
 				9AFD8F58197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A037577198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
-				2B280C6D1C040D41009A3D86 /* SnapshotsCollection.m in Sources */,
 				9A42A03419A79C3200BB0101 /* DDData.m in Sources */,
 				9A0375EF198DA31900258E95 /* b2World.cpp in Sources */,
 				9A8B1DE91AB4988F00719BBE /* TestManager-InitCleanUp.mm in Sources */,
@@ -4379,11 +4385,12 @@
 				9A469E1C19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */,
 				9A4AA6531A7FD9AD0009F448 /* SharedViewController+SnapShot.mm in Sources */,
 				9A9701E619085002007C3C19 /* watchNSView.m in Sources */,
+				2B46A7E91C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */,
 				9A03760D198DA31900258E95 /* b2Contact.cpp in Sources */,
+				2B46A7FB1C0FE768000D4355 /* SnapshotsCollection.m in Sources */,
 				9A0375B3198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A91FB911A81B20B00E85D60 /* ConfigurationsWindowController+Configurations.mm in Sources */,
 				9A42A0CE19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
-				2B280C851C040D41009A3D86 /* Snapshot.m in Sources */,
 				9AE2FC8D19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9A3DE0B41A94E77400288A55 /* UserStudyViewController.mm in Sources */,
 				9A037637198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
@@ -4391,6 +4398,7 @@
 				9A75715A197D804100C23AEE /* historyParser.mm in Sources */,
 				9A42A03C19A79C3200BB0101 /* DDRange.m in Sources */,
 				9A03764F198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
+				2B46A7D11C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A9701D819083B26007C3C19 /* DesktopViewController+Table.mm in Sources */,
 				9A36618919A3E89000DC0D15 /* DesktopViewController+Updates.mm in Sources */,
 				9A42A04419A79C3200BB0101 /* HTTPConnection.m in Sources */,
@@ -4410,14 +4418,16 @@
 				9A259D5E199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A0375AD198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A9701DA19083B26007C3C19 /* DesktopViewController+Compass.mm in Sources */,
-				2B280C7F1C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A0375C5198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A9701DB19083B26007C3C19 /* main.mm in Sources */,
+				2B46A7DD1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */,
 				9A9701CF19083B19007C3C19 /* xmlParser.mm in Sources */,
 				9A9701D019083B19007C3C19 /* compassModel.mm in Sources */,
 				9A03763D198DA31900258E95 /* b2GearJoint.cpp in Sources */,
+				2B46A7D71C0FE768000D4355 /* Snapshot.m in Sources */,
 				2B280C981C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */,
 				9A4AA6641A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */,
+				2B46A7E31C0FE768000D4355 /* Place.m in Sources */,
 				9A469E1119A4FEC100EB88C0 /* OSXPinAnnotationView.mm in Sources */,
 				9A36618F19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
 				9A0375DD198DA31900258E95 /* b2ContactManager.cpp in Sources */,
@@ -4431,6 +4441,7 @@
 				9A03736B198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9AE37F9E1A8D5D90005E8C5C /* TestManager-Authoring.mm in Sources */,
 				9A03757D198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
+				2B46A8011C108ECC000D4355 /* myTableViewController.mm in Sources */,
 				9A8CE9CB1A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */,
 				9A42A05C19A79C3200BB0101 /* HTTPAsyncFileResponse.m in Sources */,
 				9A42A06419A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
@@ -4447,18 +4458,14 @@
 				9A9701CB19083B10007C3C19 /* GLString.mm in Sources */,
 				9A03758F198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9AB5AD861A8597D5003B1D97 /* DesktopViewController+iOSEmulation.mm in Sources */,
-				2B280C791C040D41009A3D86 /* Area.m in Sources */,
-				2B280C911C040D41009A3D86 /* Place.m in Sources */,
 				9A3DE0A31A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */,
 				9A36618319A3E80400DC0D15 /* DesktopViewController+Init.mm in Sources */,
 				9A42A07019A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9AE57283199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9AEBD9101AA6790200139232 /* TaskSpec.mm in Sources */,
 				9A03756B198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
-				2B280C671C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A376AF71A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
 				9A0375E3198DA31900258E95 /* b2Fixture.cpp in Sources */,
-				2B280C8B1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */,
 				9A0375E9198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A0375CB198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A0375F5198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
@@ -4478,6 +4485,7 @@
 				9A4293C01A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9AD1B2F51AA1156E00D3B705 /* DesktopViewController+SnapShotcapture.mm in Sources */,
 				9A037679198DA31900258E95 /* b2Rope.cpp in Sources */,
+				2B46A7F51C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A4AA65F1A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
 				9A42A09B19A79CA200BB0101 /* DDAbstractDatabaseLogger.m in Sources */,
 				9AC314361A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
@@ -4485,7 +4493,6 @@
 				9A42A06C19A79C3200BB0101 /* HTTPFileResponse.m in Sources */,
 				9A8B1DF11AB4C89600719BBE /* testCodeInterpreter.mm in Sources */,
 				9A42A0A319A79CA200BB0101 /* DDFileLogger.m in Sources */,
-				2B280C731C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */,
 				9A5F32091A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A998C8D1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A42A05819A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
@@ -4521,7 +4528,6 @@
 				9A03764E198DA31900258E95 /* b2MouseJoint.cpp in Sources */,
 				9A0279301A8C1CCD00363514 /* TestManagerViewController.mm in Sources */,
 				9A037678198DA31900258E95 /* b2Rope.cpp in Sources */,
-				2B280C841C040D41009A3D86 /* Snapshot.m in Sources */,
 				9A0375D0198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A757159197D804100C23AEE /* historyParser.mm in Sources */,
 				9A42A03B19A79C3200BB0101 /* DDRange.m in Sources */,
@@ -4547,6 +4553,7 @@
 				9AFD8F62197C612B0099BD88 /* genHistoryString.mm in Sources */,
 				9A037648198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
 				9A3DE0B31A94E77400288A55 /* UserStudyViewController.mm in Sources */,
+				2B46A7E21C0FE768000D4355 /* Place.m in Sources */,
 				9A42A03319A79C3200BB0101 /* DDData.m in Sources */,
 				9AFB149F18EE639A00063632 /* xmlParser.mm in Sources */,
 				9A03766C198DA31900258E95 /* b2WeldJoint.cpp in Sources */,
@@ -4557,9 +4564,10 @@
 				9A5F32081A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A8B1DE81AB4988F00719BBE /* TestManager-InitCleanUp.mm in Sources */,
 				9A037642198DA31900258E95 /* b2Joint.cpp in Sources */,
+				2B46A7F41C0FE768000D4355 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A037606198DA31900258E95 /* b2CircleContact.cpp in Sources */,
+				2B46A7D61C0FE768000D4355 /* Snapshot.m in Sources */,
 				9A42A0C019A8049F00BB0101 /* DesktopViewController+Server.mm in Sources */,
-				2B280C7E1C040D41009A3D86 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A8B1DE11AB4914E00719BBE /* TestManager-Tools.mm in Sources */,
 				9A42A0A619A79CA200BB0101 /* DDLog.m in Sources */,
 				9A037636198DA31900258E95 /* b2FrictionJoint.cpp in Sources */,
@@ -4569,6 +4577,7 @@
 				9AFB14A018EE639A00063632 /* compassModel.mm in Sources */,
 				9A42A0B219A79CA200BB0101 /* DispatchQueueLogFormatter.m in Sources */,
 				9A3DE0A21A93DC5D00288A55 /* DesktopViewController+RunStudy.mm in Sources */,
+				2B46A7D01C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */,
 				9A42A06F19A79C3200BB0101 /* HTTPRedirectResponse.m in Sources */,
 				9A037666198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
 				9A42A04719A79C3200BB0101 /* HTTPMessage.m in Sources */,
@@ -4583,13 +4592,12 @@
 				9AE610481A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9A42A03719A79C3200BB0101 /* DDNumber.m in Sources */,
 				9A42A0CD19ABADC800BB0101 /* MyWebSocket.mm in Sources */,
+				2B46A8001C108ECC000D4355 /* myTableViewController.mm in Sources */,
 				9A4293BF1A672FDE00F110E3 /* ConfigurationsWindowController+model.mm in Sources */,
 				9AFB14A118EE639A00063632 /* compassRender.mm in Sources */,
 				9A36618E19A3F15500DC0D15 /* DesktopViewController+Interactions.mm in Sources */,
-				2B280C661C040D41009A3D86 /* SnapshotsCollection+CoreDataProperties.m in Sources */,
 				9A037660198DA31900258E95 /* b2RevoluteJoint.cpp in Sources */,
 				9A4AA6521A7FD9AC0009F448 /* SharedViewController+SnapShot.mm in Sources */,
-				2B280C8A1C040D41009A3D86 /* Place+CoreDataProperties.m in Sources */,
 				9A42A04B19A79C3200BB0101 /* HTTPServer.m in Sources */,
 				9AC314351A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A0375D6198DA31900258E95 /* b2Body.cpp in Sources */,
@@ -4610,7 +4618,6 @@
 				9A037612198DA31900258E95 /* b2ContactSolver.cpp in Sources */,
 				9A469E1B19A53DA200EB88C0 /* DesktopViewController+Search.mm in Sources */,
 				9A0375AC198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
-				2B280C781C040D41009A3D86 /* Area.m in Sources */,
 				9AFB14A318EE639A00063632 /* OpenGLView.mm in Sources */,
 				9AFB14A418EE639A00063632 /* AppDelegate.mm in Sources */,
 				9A03759A198DA31800258E95 /* b2ChainShape.cpp in Sources */,
@@ -4622,6 +4629,8 @@
 				9A42A06319A79C3200BB0101 /* HTTPDynamicFileResponse.m in Sources */,
 				9A03762A198DA31900258E95 /* b2PolygonContact.cpp in Sources */,
 				9A037576198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
+				2B46A7E81C0FE768000D4355 /* Area+CoreDataProperties.m in Sources */,
+				2B46A7DC1C0FE768000D4355 /* Place+CoreDataProperties.m in Sources */,
 				9AFD8F57197C20000099BD88 /* genSnapshotString.mm in Sources */,
 				9A0375FA198DA31900258E95 /* b2ChainAndCircleContact.cpp in Sources */,
 				9A9DD73A1A86C145005376AB /* EmulatediOS.mm in Sources */,
@@ -4629,13 +4638,14 @@
 				9A0375E8198DA31900258E95 /* b2Island.cpp in Sources */,
 				9A75720B197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9AEBD90F1AA6790200139232 /* TaskSpec.mm in Sources */,
+				2B46A7EE1C0FE768000D4355 /* Area.m in Sources */,
 				9A0375B2198DA31800258E95 /* b2BlockAllocator.cpp in Sources */,
 				9A42A05719A79C3200BB0101 /* MultipartMessageHeaderField.m in Sources */,
 				9A03756A198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
-				2B280C6C1C040D41009A3D86 /* SnapshotsCollection.m in Sources */,
 				9A176DA719A437A20032DE3F /* DesktopViewController+Settings.mm in Sources */,
 				9A42A06719A79C3200BB0101 /* HTTPErrorResponse.m in Sources */,
 				9A03736A198AF8A500258E95 /* DemoManager.mm in Sources */,
+				2B46A7FA1C0FE768000D4355 /* SnapshotsCollection.m in Sources */,
 				9A3F1E891A4B247100D621A9 /* ConfigurationsWindowController.mm in Sources */,
 				9AB90B9C194F39F40030BF5B /* compassRender+Wedge.mm in Sources */,
 				9A4AA65E1A7FEF010009F448 /* SnapShotViewController.mm in Sources */,
@@ -4652,7 +4662,6 @@
 				9A42A0A219A79CA200BB0101 /* DDFileLogger.m in Sources */,
 				9A36AF1B1AA7ADE200BFC6E7 /* TaskSpec-MultiLocation.mm in Sources */,
 				9A42A05F19A79C3200BB0101 /* HTTPDataResponse.m in Sources */,
-				2B280C901C040D41009A3D86 /* Place.m in Sources */,
 				9A998C8C1949F29500778DFC /* compassRender+Label.mm in Sources */,
 				9A8CE9CA1A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */,
 				9A037630198DA31900258E95 /* b2DistanceJoint.cpp in Sources */,
@@ -4662,7 +4671,6 @@
 				9AFB14A618EE639A00063632 /* DesktopViewController+MapView.mm in Sources */,
 				9A4D2B2D1A882E0000BB81DB /* DesktopViewController+Tools.mm in Sources */,
 				9A42A04F19A79C3200BB0101 /* MultipartFormDataParser.m in Sources */,
-				2B280C721C040D41009A3D86 /* Area+CoreDataProperties.m in Sources */,
 				9AE57282199CF8D60055799F /* Wedge+Radial.mm in Sources */,
 				9AFB14A718EE639A00063632 /* GLString.mm in Sources */,
 				9AE2FC8C19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,

@@ -13,6 +13,8 @@
 #import "Snapshot.h"
 #import "compassModel.h"
 #import "SnapshotsCollection.h"
+#import "Area.h"
+#import "Place.h"
 
 @interface snapshotTableViewController ()
 
@@ -225,70 +227,42 @@
         [self loadSnapshotWithName:
          collections[row_id]];
         
-//         load into core data
-//                AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-//                for (int i = 0; i < [snapshot_file_array count]; i++) {
-//                    [self loadSnapshotWithName:snapshot_file_array[i]];
-//                    SnapshotsCollection *collection = [NSEntityDescription insertNewObjectForEntityForName:@"SnapshotsCollection" inManagedObjectContext:app.managedObjectContext];
-//                    collection.name = [snapshot_file_array[i] componentsSeparatedByString:@"."][0];
-//                    for (int j = 0; j < self.model->snapshot_array.size(); j++) {
-//                        snapshot s = self.model->snapshot_array[j];
-//                        Snapshot *snapshot = [NSEntityDescription insertNewObjectForEntityForName:@"Snapshot" inManagedObjectContext:app.managedObjectContext];
-//        
-//                        snapshot.coordinateRegion = [NSData dataWithBytes:&s.coordinateRegion length:sizeof(s.coordinateRegion)];
-//        
-//                        NSLog(@"FUNNNNNN");
-//                        NSLog(@"FUN before %f", s.coordinateRegion.center.latitude);
-//                        NSLog(@"FUN before %f", s.coordinateRegion.center.longitude);
-//        
-//                        MKCoordinateRegion region;
-//                        [snapshot.coordinateRegion getBytes:&region length:sizeof(region)];
-//        
-//                        NSLog(@"FUN after %f", region.center.latitude);
-//                        NSLog(@"FUN after %f", region.center.longitude);
-//        
-//                        snapshot.osx_coordinateRegion =[NSData dataWithBytes:&s.osx_coordinateRegion  length:sizeof(s.osx_coordinateRegion)];
-//        
-//                        snapshot.orientation = [NSNumber numberWithDouble:s.orientation];
-//        
-//                        snapshot.deviceType = [NSString stringWithCString:toString(s.deviceType).c_str() encoding:[NSString defaultCStringEncoding]];
-//        
-//                        snapshot.visualizationType = [NSString stringWithCString:toString(s.visualizationType).c_str() encoding:[NSString defaultCStringEncoding]];
-//        
-//                        snapshot.name = s.name;
-//                        snapshot.mapType = [NSNumber numberWithInteger: (NSUInteger)s.mapType];
-//        
-//                        snapshot.time_stamp = s.time_stamp;
-//                        snapshot.date_str = s.date_str;
-//                        snapshot.notes = s.notes;
-//                        snapshot.address = s.address;
-//                        NSLog(@"%@", s.address);
-//        
-//                        NSArray *temp_selected_ids = [self convertVectorToArray:s.selected_ids];
-//                        snapshot.selected_ids = [NSKeyedArchiver archivedDataWithRootObject:temp_selected_ids];
-//                        NSArray *temp_is_answer_list = [self convertVectorToArray:s.is_answer_list];
-//                        snapshot.is_answer_list = [NSKeyedArchiver archivedDataWithRootObject:temp_is_answer_list];
-//        
-//                        snapshot.ios_display_wh = NSStringFromCGPoint(s.ios_display_wh);
-//                        snapshot.eios_display_wh = NSStringFromCGPoint(s.eios_display_wh);
-//                        snapshot.osx_display_wh = NSStringFromCGPoint(s.osx_display_wh);
-//                        
-//                        [collection addSnapshotsObject:snapshot];
-//        
-//                        NSError *error;
-//                        if (![app.managedObjectContext save:&error]){
-//                            NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
-//                        }
-//        
-//                    }
-//                }
-        
-        
     }else{
         //----------------
         // User selects a snapshot
         //----------------
         self.rootViewController.snapshot_id_toshow = row_id;
+        NSLog(@"fun filename %@", self.model->snapshot_array[row_id].kmlFilename);
+        self.model->location_filename = self.model->snapshot_array[row_id].kmlFilename;
+        self.model->data_array.clear();
+        std::vector<data> locationData;
+        // Fetch the stored data
+        AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        
+        NSError *error;
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
+        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@", self.model->location_filename]];
+        
+        NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        
+        if ([requestResults count]) {
+            Area *area = requestResults[0];
+            NSSet *places = [area valueForKey:@"places"];
+            for (Place *place in places) {
+                data data;
+                data.latitude = [place.lat floatValue];
+                data.longitude = [place.lon floatValue];
+                data.name = [place.name UTF8String];
+                CLLocationCoordinate2D coor = CLLocationCoordinate2DMake(data.latitude, data.longitude);
+                data.annotation.coordinate = coor;
+                data.annotation.title = place.name;
+                locationData.push_back(data);
+            }
+            self.model->data_array =  locationData;
+            
+            self.model->updateMdl();
+            self.model->initTextureArray();
+        }
         
         //--------------
         // We might need to do something for iPad
@@ -476,7 +450,7 @@
             oneShot.osx_coordinateRegion = region;
             
             oneShot.orientation = [s.orientation doubleValue];
-            oneShot.kmlFilename = s.inCollection.name;
+            oneShot.kmlFilename = s.atArea.name;
             
             string *typeString = new std::string([s.deviceType UTF8String]);
             
@@ -602,7 +576,7 @@
         snapshot.deviceType = [NSString stringWithCString:toString(s.deviceType).c_str() encoding:[NSString defaultCStringEncoding]];
 
         snapshot.visualizationType = [NSString stringWithCString:toString(s.visualizationType).c_str() encoding:[NSString defaultCStringEncoding]];
-
+        snapshot.atArea.name = s.kmlFilename;
         snapshot.name = s.name;
         snapshot.mapType = [NSNumber numberWithInteger: (NSUInteger)s.mapType];
 

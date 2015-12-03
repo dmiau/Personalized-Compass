@@ -135,6 +135,13 @@
             snapshot.date_str = s.date_str;
             snapshot.notes = s.notes;
             snapshot.address = s.address;
+            NSError *error;
+            NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
+            NSString *areaName = [s.kmlFilename componentsSeparatedByString:@"."][0];
+            [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@", areaName]];
+            NSArray *requestResults = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+            Area *area = requestResults[0];
+            snapshot.atArea = area;
             NSLog(@"%@", s.address);
 
             NSArray *temp_selected_ids = [self convertVectorToArray:s.selected_ids];
@@ -148,7 +155,6 @@
 
             [collection addSnapshotsObject:snapshot];
 
-            NSError *error;
             if (![app.managedObjectContext save:&error]){
                 NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
             }

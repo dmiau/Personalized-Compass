@@ -1060,7 +1060,6 @@
                                 <state key="normal" title="Clear Data"/>
                                 <connections>
                                     <action selector="clearCoreData:" destination="imS-XC-ZOT" eventType="touchUpInside" id="McH-46-WbF"/>
-                                    <action selector="resetCoreData:" destination="imS-XC-ZOT" eventType="touchUpInside" id="ICm-ko-xEA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzc-e1-zt2">
