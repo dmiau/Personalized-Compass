@@ -56,7 +56,7 @@
     }
 }
 
-- (IBAction)resetCoreData:(id)sender {
+- (IBAction)clearCoreData:(id)sender {
     AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [self deleteAllObjects:@"Place" in:app.managedObjectContext];
     [self deleteAllObjects:@"Area" in:app.managedObjectContext];
@@ -271,6 +271,12 @@
     }
     
 }
+
+- (IBAction)resetData:(id)sender {
+    [self clearCoreData:nil];
+    [self importData:nil];
+}
+
 
 
 - (void) deleteAllObjects: (NSString *) entityDescription in: (NSManagedObjectContext *) managedObjectContext {

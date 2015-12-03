@@ -1055,10 +1055,11 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rJ-CI-utn">
-                                <rect key="frame" x="136" y="312" width="61" height="30"/>
+                                <rect key="frame" x="119" y="312" width="95" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Reset"/>
+                                <state key="normal" title="Clear Data"/>
                                 <connections>
+                                    <action selector="clearCoreData:" destination="imS-XC-ZOT" eventType="touchUpInside" id="McH-46-WbF"/>
                                     <action selector="resetCoreData:" destination="imS-XC-ZOT" eventType="touchUpInside" id="ICm-ko-xEA"/>
                                 </connections>
                             </button>
@@ -1092,6 +1093,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcC-cH-xla">
+                                <rect key="frame" x="77" y="444" width="190" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Reset to Factory Default"/>
+                                <connections>
+                                    <action selector="resetData:" destination="imS-XC-ZOT" eventType="touchUpInside" id="Cmw-hK-8T0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
