@@ -232,7 +232,6 @@
 		2B280C921C040D41009A3D86 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C641C040D41009A3D86 /* Place.m */; };
 		2B280C931C040D41009A3D86 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C641C040D41009A3D86 /* Place.m */; };
 		2B280C941C040D41009A3D86 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C641C040D41009A3D86 /* Place.m */; };
-		2B280C961C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */; };
 		2B280C971C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */; };
 		2B280C981C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */; };
 		2B280C991C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B280C951C040DC4009A3D86 /* snapshotTableViewController.mm */; };
@@ -4334,7 +4333,6 @@
 				9A75720A197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */,
 				9A8B1DE01AB4914E00719BBE /* TestManager-Tools.mm in Sources */,
 				9AEA57E418D9EBB20028B80C /* AppDelegate.mm in Sources */,
-				2B280C961C040DC4009A3D86 /* snapshotTableViewController.mm in Sources */,
 				9A03763B198DA31900258E95 /* b2GearJoint.cpp in Sources */,
 				9A36AF1A1AA7ADE200BFC6E7 /* TaskSpec-MultiLocation.mm in Sources */,
 				9A42A04A19A79C3200BB0101 /* HTTPServer.m in Sources */,
@@ -5015,6 +5013,7 @@
 				);
 				OTHER_CPLUSPLUSFLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hong.CompassMap;
 				PRODUCT_NAME = CompassMap;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -5043,6 +5042,7 @@
 				);
 				OTHER_CPLUSPLUSFLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hong.CompassMap;
 				PRODUCT_NAME = CompassMap;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
