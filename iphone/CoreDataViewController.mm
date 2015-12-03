@@ -161,6 +161,8 @@
 
         }
     }
+    self.model->snapshot_array.clear();
+    self.model->updateMdl();
 }
 
 - (IBAction)exportData:(id)sender {

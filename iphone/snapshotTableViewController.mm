@@ -75,7 +75,11 @@
         selected_snapshot_id = -1;
         [self.myTableView reloadData];
     }
-    
+    for (int i = 0; i < self.model->snapshot_array.size();i++) {
+        NSLog(@"FUN snap test %@", self.model->snapshot_array[i].name);
+    }
+    [self initCollections];
+    [self.myTableView reloadData];
     //-------------------
     // Change navigation bar color
     //-------------------
