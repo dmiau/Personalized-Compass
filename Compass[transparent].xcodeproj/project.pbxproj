@@ -249,6 +249,30 @@
 		2B46A81F1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */; };
 		2B46A8201C10D27F000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */; };
 		2B46A8211C10D27F000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */; };
+		2B46A8231C110182000D4355 /* one.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8221C110182000D4355 /* one.snapshot */; };
+		2B46A8241C110182000D4355 /* one.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8221C110182000D4355 /* one.snapshot */; };
+		2B46A8251C110182000D4355 /* one.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8221C110182000D4355 /* one.snapshot */; };
+		2B46A8261C110182000D4355 /* one.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8221C110182000D4355 /* one.snapshot */; };
+		2B46A8271C110182000D4355 /* one.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8221C110182000D4355 /* one.snapshot */; };
+		2B46A8281C110182000D4355 /* one.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8221C110182000D4355 /* one.snapshot */; };
+		2B46A82A1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8291C1101A4000D4355 /* iosSnapshots.snapshot */; };
+		2B46A82B1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8291C1101A4000D4355 /* iosSnapshots.snapshot */; };
+		2B46A82C1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8291C1101A4000D4355 /* iosSnapshots.snapshot */; };
+		2B46A82D1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8291C1101A4000D4355 /* iosSnapshots.snapshot */; };
+		2B46A82E1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8291C1101A4000D4355 /* iosSnapshots.snapshot */; };
+		2B46A82F1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8291C1101A4000D4355 /* iosSnapshots.snapshot */; };
+		2B46A8311C1101BD000D4355 /* empty.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8301C1101BD000D4355 /* empty.snapshot */; };
+		2B46A8321C1101BD000D4355 /* empty.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8301C1101BD000D4355 /* empty.snapshot */; };
+		2B46A8331C1101BD000D4355 /* empty.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8301C1101BD000D4355 /* empty.snapshot */; };
+		2B46A8341C1101BD000D4355 /* empty.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8301C1101BD000D4355 /* empty.snapshot */; };
+		2B46A8351C1101BD000D4355 /* empty.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8301C1101BD000D4355 /* empty.snapshot */; };
+		2B46A8361C1101BD000D4355 /* empty.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8301C1101BD000D4355 /* empty.snapshot */; };
+		2B46A8381C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
+		2B46A8391C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
+		2B46A83A1C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
+		2B46A83B1C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
+		2B46A83C1C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
+		2B46A83D1C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
 		2B8469291BF3E8B2000703DB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */; };
 		2B8E2BFC1BF67E9C0083613C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC81BF2A8C600ADD137 /* Accelerate.framework */; };
 		2B8E2BFD1BF67EAC0083613C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC61BF2A87C00ADD137 /* AVFoundation.framework */; };
@@ -1482,6 +1506,10 @@
 		2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapshotsCollection.m; sourceTree = "<group>"; };
 		2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = myTableViewController.mm; sourceTree = "<group>"; };
 		2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
+		2B46A8221C110182000D4355 /* one.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = one.snapshot; sourceTree = "<group>"; };
+		2B46A8291C1101A4000D4355 /* iosSnapshots.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = iosSnapshots.snapshot; sourceTree = "<group>"; };
+		2B46A8301C1101BD000D4355 /* empty.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = empty.snapshot; sourceTree = "<group>"; };
+		2B46A8371C1101D6000D4355 /* study.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = study.snapshot; sourceTree = "<group>"; };
 		2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		2B8E2C081BF67FE70083613C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework"; sourceTree = "<group>"; };
 		2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
@@ -2850,6 +2878,10 @@
 		9ADA91C01AB8896B009C7552 /* kml */ = {
 			isa = PBXGroup;
 			children = (
+				2B46A8221C110182000D4355 /* one.snapshot */,
+				2B46A8301C1101BD000D4355 /* empty.snapshot */,
+				2B46A8371C1101D6000D4355 /* study.snapshot */,
+				2B46A8291C1101A4000D4355 /* iosSnapshots.snapshot */,
 				2B1F0AAC1BFD4915001CB7EF /* directions.kml */,
 				2B1F0AAD1BFD4915001CB7EF /* governors_island.kml */,
 				2B1F0AAE1BFD4915001CB7EF /* history1.kml */,
@@ -3294,6 +3326,7 @@
 				2B1F0B2A1BFD4915001CB7EF /* Seoul.kml in Resources */,
 				2B1F0B301BFD4915001CB7EF /* snapshot.kml in Resources */,
 				2B1F0AAA1BFD48FB001CB7EF /* default.snapshot in Resources */,
+				2B46A8271C110182000D4355 /* one.snapshot in Resources */,
 				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
 				2B1F0AE81BFD4915001CB7EF /* localizeTestLocations.kml in Resources */,
 				2B1F0AEE1BFD4915001CB7EF /* london.kml in Resources */,
@@ -3307,9 +3340,12 @@
 				2B1F0B601BFD4915001CB7EF /* wedge723.kml in Resources */,
 				2B1F0AFA1BFD4915001CB7EF /* miami.kml in Resources */,
 				2B8469291BF3E8B2000703DB /* GoogleMaps.bundle in Resources */,
+				2B46A83C1C1101D6000D4355 /* study.snapshot in Resources */,
 				2B1F0AF41BFD4915001CB7EF /* london711.kml in Resources */,
 				9A4808A2198BF1F70001E188 /* general.png in Resources */,
 				9A48089C198BF1F70001E188 /* debug.png in Resources */,
+				2B46A8351C1101BD000D4355 /* empty.snapshot in Resources */,
+				2B46A82E1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */,
 				2B1F0B0C1BFD4915001CB7EF /* newyork.kml in Resources */,
 				9AF3788B1A9FED7600FEB3F3 /* walking.tif in Resources */,
 				2B1F0ADC1BFD4915001CB7EF /* iosLocations.kml in Resources */,
@@ -3360,6 +3396,7 @@
 				2B1F0B2B1BFD4915001CB7EF /* Seoul.kml in Resources */,
 				2B1F0B311BFD4915001CB7EF /* snapshot.kml in Resources */,
 				2B1F0AAB1BFD48FB001CB7EF /* default.snapshot in Resources */,
+				2B46A8281C110182000D4355 /* one.snapshot in Resources */,
 				9AD52F6D1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				2B1F0AE91BFD4915001CB7EF /* localizeTestLocations.kml in Resources */,
 				2B1F0AEF1BFD4915001CB7EF /* london.kml in Resources */,
@@ -3373,9 +3410,12 @@
 				2B1F0B611BFD4915001CB7EF /* wedge723.kml in Resources */,
 				2B1F0AFB1BFD4915001CB7EF /* miami.kml in Resources */,
 				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
+				2B46A83D1C1101D6000D4355 /* study.snapshot in Resources */,
 				2B1F0AF51BFD4915001CB7EF /* london711.kml in Resources */,
 				9A2E42EA196C9D2C00CF8862 /* heading.png in Resources */,
 				9AF3788C1A9FED7600FEB3F3 /* walking.tif in Resources */,
+				2B46A8361C1101BD000D4355 /* empty.snapshot in Resources */,
+				2B46A82F1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */,
 				2B1F0B0D1BFD4915001CB7EF /* newyork.kml in Resources */,
 				9A8DF92D1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				2B1F0ADD1BFD4915001CB7EF /* iosLocations.kml in Resources */,
@@ -3421,6 +3461,7 @@
 				9A42A09819A79CA200BB0101 /* About.txt in Resources */,
 				9AA789281909FE3000A26C66 /* configurations.json in Resources */,
 				9A037566198DA31800258E95 /* CMakeLists.txt in Resources */,
+				2B46A83B1C1101D6000D4355 /* study.snapshot in Resources */,
 				2B1F0B591BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A856F931AB8AEE100486AE9 /* wedge-watch-triangulate.mp4 in Resources */,
 				9AC072361AAD362B00B012B2 /* locate.jpg in Resources */,
@@ -3440,8 +3481,10 @@
 				2B1F0B111BFD4915001CB7EF /* newyork723.kml in Resources */,
 				9A4808A1198BF1F70001E188 /* general.png in Resources */,
 				2B1F0AE71BFD4915001CB7EF /* localizeTestLocations.kml in Resources */,
+				2B46A8261C110182000D4355 /* one.snapshot in Resources */,
 				2B1F0AFF1BFD4915001CB7EF /* montreal.kml in Resources */,
 				9AFC0BA61AAA505F0085543C /* testSpec.plist in Resources */,
+				2B46A82D1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */,
 				2B1F0AD51BFD4915001CB7EF /* history1.kml in Resources */,
 				9A48089B198BF1F70001E188 /* debug.png in Resources */,
 				2B1F0B471BFD4915001CB7EF /* Taiwan.kml in Resources */,
@@ -3459,6 +3502,7 @@
 				2B46A81F1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
 				9A856FA81AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
+				2B46A8341C1101BD000D4355 /* empty.snapshot in Resources */,
 				2B1F0AF91BFD4915001CB7EF /* miami.kml in Resources */,
 				2B1F0B411BFD4915001CB7EF /* SundayTest.kml in Resources */,
 				9AA789371909FE5A00A26C66 /* browser.xib in Resources */,
@@ -3490,6 +3534,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B46A8231C110182000D4355 /* one.snapshot in Resources */,
 				9AEC4CBE1A5AFB5100B61A3B /* MainMenu.xib in Resources */,
 				9A856FAE1AB8AF4500486AE9 /* pcompass-phone-locate.mp4 in Resources */,
 				2B1F0AA61BFD48FB001CB7EF /* default.snapshot in Resources */,
@@ -3519,6 +3564,7 @@
 				9A25D9BE1AADF7810050C4CD /* orient.jpg in Resources */,
 				2B1F0AD21BFD4915001CB7EF /* history1.kml in Resources */,
 				2B1F0B201BFD4915001CB7EF /* Paris.kml in Resources */,
+				2B46A82A1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */,
 				9A25D9C21AADF7810050C4CD /* triangulate.jpg in Resources */,
 				9A480898198BF1F70001E188 /* debug.png in Resources */,
 				9A42A09519A79CA200BB0101 /* About.txt in Resources */,
@@ -3526,6 +3572,7 @@
 				9AF273121982865C00C0195B /* snapshotSelected.png in Resources */,
 				2B1F0B4A1BFD4915001CB7EF /* tokyo.kml in Resources */,
 				9A3F1E821A4B22B300D621A9 /* ConfigurationsWindow.xib in Resources */,
+				2B46A8381C1101D6000D4355 /* study.snapshot in Resources */,
 				9AEA57DB18D9EBB20028B80C /* InfoPlist.strings in Resources */,
 				2B1F0B261BFD4915001CB7EF /* Seoul.kml in Resources */,
 				9A856F901AB8AEE100486AE9 /* wedge-watch-triangulate.mp4 in Resources */,
@@ -3571,6 +3618,7 @@
 				9A48089E198BF1F70001E188 /* general.png in Resources */,
 				9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */,
 				2B1F0ACC1BFD4915001CB7EF /* governors_island.kml in Resources */,
+				2B46A8311C1101BD000D4355 /* empty.snapshot in Resources */,
 				9A6F53F21910069F00F35FED /* DebugInfoWindow.xib in Resources */,
 				2B1F0B081BFD4915001CB7EF /* newyork.kml in Resources */,
 			);
@@ -3597,12 +3645,14 @@
 				9A856F9B1AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
 				9A1632B21AB619D200F07E45 /* blueDot.png in Resources */,
 				9A48089A198BF1F70001E188 /* debug.png in Resources */,
+				2B46A83A1C1101D6000D4355 /* study.snapshot in Resources */,
 				9A9701DD19083C9B007C3C19 /* configurations.json in Resources */,
 				9AEECFF81910599B0031BAAE /* StyleWindow.xib in Resources */,
 				9A1632AB1AB6049000F07E45 /* redDot.png in Resources */,
 				9A037565198DA31800258E95 /* CMakeLists.txt in Resources */,
 				2B1F0AC81BFD4915001CB7EF /* directions.kml in Resources */,
 				2B1F0AFE1BFD4915001CB7EF /* montreal.kml in Resources */,
+				2B46A82C1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */,
 				2B1F0B521BFD4915001CB7EF /* training.kml in Resources */,
 				9A856F8E1AB8AEE100486AE9 /* wedge-watch-locate+.mp4 in Resources */,
 				9A4808A0198BF1F70001E188 /* general.png in Resources */,
@@ -3627,6 +3677,7 @@
 				2B1F0B0A1BFD4915001CB7EF /* newyork.kml in Resources */,
 				9A469E1619A5183400EB88C0 /* OSXCalloutView.xib in Resources */,
 				9A3DA0BD1966E1F9009E0073 /* myPinAnnotationViewOSX.xib in Resources */,
+				2B46A8331C1101BD000D4355 /* empty.snapshot in Resources */,
 				9A25D9B41AADF7810050C4CD /* distance.jpg in Resources */,
 				9A856FAB1AB8AEEF00486AE9 /* pcompass-watch-triangulate.mp4 in Resources */,
 				2B1F0B581BFD4915001CB7EF /* UKLondon.kml in Resources */,
@@ -3637,6 +3688,7 @@
 				9A94820F1991D46A0036249C /* setup.png in Resources */,
 				9A856FA71AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				9A3DA09F1964E9B1009E0073 /* remove.png in Resources */,
+				2B46A8251C110182000D4355 /* one.snapshot in Resources */,
 				2B1F0ADA1BFD4915001CB7EF /* iosLocations.kml in Resources */,
 				9A25D9C01AADF7810050C4CD /* orient.jpg in Resources */,
 				9AF2730E1982865C00C0195B /* snapshotDefault.png in Resources */,
@@ -3673,6 +3725,7 @@
 				9A856F911AB8AEE100486AE9 /* wedge-watch-triangulate.mp4 in Resources */,
 				9A25D9BB1AADF7810050C4CD /* lplus.jpg in Resources */,
 				9A25D9C31AADF7810050C4CD /* triangulate.jpg in Resources */,
+				2B46A8241C110182000D4355 /* one.snapshot in Resources */,
 				2B1F0B091BFD4915001CB7EF /* newyork.kml in Resources */,
 				9AF378881A9FED7600FEB3F3 /* walking.tif in Resources */,
 				9A48089F198BF1F70001E188 /* general.png in Resources */,
@@ -3713,6 +3766,7 @@
 				9A856F8D1AB8AEE100486AE9 /* wedge-watch-locate+.mp4 in Resources */,
 				2B1F0B4B1BFD4915001CB7EF /* tokyo.kml in Resources */,
 				2B1F0ADF1BFD4915001CB7EF /* ismar.kml in Resources */,
+				2B46A8321C1101BD000D4355 /* empty.snapshot in Resources */,
 				2B1F0B3F1BFD4915001CB7EF /* SundayTest.kml in Resources */,
 				9A94820E1991D46A0036249C /* setup.png in Resources */,
 				9A42A08E19A79CA200BB0101 /* About.txt in Resources */,
@@ -3730,7 +3784,9 @@
 				9A856F891AB8AEE100486AE9 /* wedge-phone-locate.mp4 in Resources */,
 				9AFC0BA41AAA505F0085543C /* testSpec.plist in Resources */,
 				2B1F0B511BFD4915001CB7EF /* training.kml in Resources */,
+				2B46A8391C1101D6000D4355 /* study.snapshot in Resources */,
 				9AD52F691AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
+				2B46A82B1C1101A4000D4355 /* iosSnapshots.snapshot in Resources */,
 				9A856F811AB8AEE100486AE9 /* wedge-phone-direction.mp4 in Resources */,
 				9A856F9A1AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
 				2B1F0B571BFD4915001CB7EF /* UKLondon.kml in Resources */,
