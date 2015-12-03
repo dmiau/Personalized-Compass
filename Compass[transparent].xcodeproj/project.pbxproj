@@ -243,12 +243,12 @@
 		2B46A8031C108ECC000D4355 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */; };
 		2B46A8041C108ECC000D4355 /* myTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */; };
 		2B46A80C1C10A770000D4355 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEA57D418D9EBB20028B80C /* CoreData.framework */; };
-		2B46A8151C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
-		2B46A8161C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
-		2B46A8171C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
-		2B46A8181C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
-		2B46A8191C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
-		2B46A81A1C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */; };
+		2B46A81C1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */; };
+		2B46A81D1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */; };
+		2B46A81E1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */; };
+		2B46A81F1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */; };
+		2B46A8201C10D27F000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */; };
+		2B46A8211C10D27F000D4355 /* PersonalCompass.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */; };
 		2B8469291BF3E8B2000703DB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */; };
 		2B8E2BFC1BF67E9C0083613C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC81BF2A8C600ADD137 /* Accelerate.framework */; };
 		2B8E2BFD1BF67EAC0083613C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC61BF2A87C00ADD137 /* AVFoundation.framework */; };
@@ -1481,7 +1481,7 @@
 		2B46A7CD1C0FE768000D4355 /* SnapshotsCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotsCollection.h; sourceTree = "<group>"; };
 		2B46A7CE1C0FE768000D4355 /* SnapshotsCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapshotsCollection.m; sourceTree = "<group>"; };
 		2B46A7FF1C108ECC000D4355 /* myTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = myTableViewController.mm; sourceTree = "<group>"; };
-		2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
+		2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PersonalCompass.sqlite; sourceTree = "<group>"; };
 		2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		2B8E2C081BF67FE70083613C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework"; sourceTree = "<group>"; };
 		2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
@@ -2087,7 +2087,7 @@
 		2BC725071BF2D90400219807 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				2B46A8141C10B9C8000D4355 /* PersonalCompass.sqlite */,
+				2B46A81B1C10D27F000D4355 /* PersonalCompass.sqlite */,
 				2B46A7BF1C0FE768000D4355 /* Snapshot+CoreDataProperties.h */,
 				2B46A7C01C0FE768000D4355 /* Snapshot+CoreDataProperties.m */,
 				2B46A7C11C0FE768000D4355 /* Snapshot.h */,
@@ -3321,7 +3321,7 @@
 				2B1F0B5A1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A3DA0A11964E9B1009E0073 /* remove.png in Resources */,
 				9AB2A722196372AA0001E96F /* unselected.png in Resources */,
-				2B46A8191C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
+				2B46A8201C10D27F000D4355 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B3C1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				2B1F0ACA1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A2E42E9196C9D2C00CF8862 /* heading.png in Resources */,
@@ -3387,7 +3387,7 @@
 				2B1F0B5B1BFD4915001CB7EF /* UKLondon.kml in Resources */,
 				9A82B64A1941518900534A5F /* Images.xcassets in Resources */,
 				9A48089D198BF1F70001E188 /* debug.png in Resources */,
-				2B46A81A1C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
+				2B46A8211C10D27F000D4355 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B3D1BFD4915001CB7EF /* studyLocations.kml in Resources */,
 				2B1F0ACB1BFD4915001CB7EF /* directions.kml in Resources */,
 				9A3DA0A21964E9B1009E0073 /* remove.png in Resources */,
@@ -3456,7 +3456,7 @@
 				9AA7892E1909FE3000A26C66 /* moto360_wrist.jpg in Resources */,
 				9A8DF92B1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AF3788A1A9FED7600FEB3F3 /* walking.tif in Resources */,
-				2B46A8181C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
+				2B46A81F1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */,
 				9AA7892F1909FE3000A26C66 /* Credits.rtf in Resources */,
 				9A856FA81AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				2B1F0AF91BFD4915001CB7EF /* miami.kml in Resources */,
@@ -3494,7 +3494,7 @@
 				9A856FAE1AB8AF4500486AE9 /* pcompass-phone-locate.mp4 in Resources */,
 				2B1F0AA61BFD48FB001CB7EF /* default.snapshot in Resources */,
 				9A856F991AB8AEEF00486AE9 /* pcompass-phone-direction.mp4 in Resources */,
-				2B46A8151C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
+				2B46A81C1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */,
 				9A856F9D1AB8AEEF00486AE9 /* pcompass-phone-distance.mp4 in Resources */,
 				9A856FA51AB8AEEF00486AE9 /* pcompass-watch-locate+.mp4 in Resources */,
 				2B1F0AEA1BFD4915001CB7EF /* london.kml in Resources */,
@@ -3612,7 +3612,7 @@
 				2B1F0B461BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				2B1F0AA81BFD48FB001CB7EF /* default.snapshot in Resources */,
 				2B1F0ACE1BFD4915001CB7EF /* governors_island.kml in Resources */,
-				2B46A8171C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
+				2B46A81E1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */,
 				9A9701E219083E8C007C3C19 /* smartWatch.xib in Resources */,
 				9A856F821AB8AEE100486AE9 /* wedge-phone-direction.mp4 in Resources */,
 				9AEC5CEC18F3956F00A29F75 /* InfoPlist.strings in Resources */,
@@ -3721,7 +3721,7 @@
 				9AFB14B618EE639A00063632 /* Credits.rtf in Resources */,
 				2B1F0B0F1BFD4915001CB7EF /* newyork723.kml in Resources */,
 				2B1F0AFD1BFD4915001CB7EF /* montreal.kml in Resources */,
-				2B46A8161C10B9C8000D4355 /* PersonalCompass.sqlite in Resources */,
+				2B46A81D1C10D27F000D4355 /* PersonalCompass.sqlite in Resources */,
 				2B1F0B451BFD4915001CB7EF /* Taiwan.kml in Resources */,
 				9AF2730D1982865C00C0195B /* snapshotDefault.png in Resources */,
 				9A42A0E219ABB12D00BB0101 /* Web in Resources */,
