@@ -63,6 +63,7 @@
         // Map related initialization
         self.needUpdateDisplayRegion = false;
         self.needUpdateAnnotations = false;
+        self.needUpdateGmapMarkers = false;
         self.isBlankMapEnabled = false;
         
         // Initialize location service
@@ -309,7 +310,6 @@
     NSError *error;
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
     NSString *initData= @"SundayTest";
-    self.currentArea = initData;
     self.model->location_filename = initData;
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@", initData]];
     

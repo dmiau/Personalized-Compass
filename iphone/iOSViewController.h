@@ -158,6 +158,7 @@ typedef struct{
 // This is used for communication via segue
 @property bool needUpdateDisplayRegion;
 @property bool needUpdateAnnotations;
+@property bool needUpdateGmapMarkers;
 @property int snapshot_id_toshow;
 @property int breadcrumb_id_toshow;
 @property int landmark_id_toshow;
@@ -306,7 +307,7 @@ typedef struct{
 -(void) updateGMapBasedOnAMap;
 -(void) updateAMapBasedOnGMap;
 
-@property (nonatomic, weak) NSString *currentArea;
+@property (nonatomic, strong) NSMutableArray *gmapMarkers;
 
 
 @end

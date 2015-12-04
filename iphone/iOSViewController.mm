@@ -86,6 +86,10 @@
         //        [self updateDataAnnotations];
     }
     
+    if (self.needUpdateGmapMarkers) {
+        [self resetGmapMarkers];
+    }
+    
     // This may be an iPad only thing
     // (dismissing the modal dialog)
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -268,6 +272,7 @@
         GMSMarker *marker = [[GMSMarker alloc]init];
         marker.position = CLLocationCoordinate2DMake(self.model->data_array[0].latitude, self.model->data_array[0].longitude);
         marker.map = mapView_;
+        
     }
     return mapView_;
 }

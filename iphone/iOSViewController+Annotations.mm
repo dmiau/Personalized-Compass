@@ -33,6 +33,7 @@
 
 -(void) resetGmapMarkers {
     [self.gmap clear];
+    self.gmapMarkers = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < self.model->data_array.size(); i++) {
         data myData = self.model->data_array[i];
@@ -44,10 +45,19 @@
             marker.position = coordinate;
             NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
             [dic setObject:@"landmark" forKey:@"point_type"];
+            if (!self.model->data_array[i].isEnabled) {
+                [dic setValue:@"NO" forKey:@"isEnabled"];
+                marker.icon = [GMSMarker markerImageWithColor:[UIColor greenColor]];
+            } else if (self.model->data_array[i].annotation.point_type == dropped) {
+                marker.icon = [GMSMarker markerImageWithColor:[UIColor purpleColor]];
+            } else {
+                [dic setValue:@"YES" forKey:@"isEnabled"];
+            }
             marker.userData = dic;
             marker.title = [NSString stringWithCString:myData.name.c_str()
                                               encoding:[NSString defaultCStringEncoding]];
             marker.map = self.gmap;
+            [self.gmapMarkers addObject:marker];
         }else if (self.testManager->testManagerMode == DEVICESTUDY ||
                   self.testManager->testManagerMode == OSXSTUDY)
         {
@@ -57,10 +67,17 @@
                 marker.position = coordinate;
                 NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
                 [dic setObject:@"landmark" forKey:@"point_type"];
+                if (!self.model->data_array[i].isEnabled) {
+                    [dic setValue:@"NO" forKey:@"isEnabled"];
+                    marker.icon = [GMSMarker markerImageWithColor:[UIColor greenColor]];
+                } else {
+                    [dic setValue:@"YES" forKey:@"isEnabled"];
+                }
                 marker.userData = dic;
                 marker.title = [NSString stringWithCString:myData.name.c_str()
                                                   encoding:[NSString defaultCStringEncoding]];
                 marker.map = self.gmap;
+                [self.gmapMarkers addObject:marker];
             }
         }
     }
@@ -343,10 +360,14 @@
 //-------------------
 - (void)changeAnnotationDisplayMode: (NSString*) mode{
     NSArray* annotation_array = self.mapView.annotations;
-    
+    NSLog(@"Pin test");
+    NSLog(@"%lu", [self.gmapMarkers count]);
     if ([mode isEqualToString:@"All"]){
         for (CustomPointAnnotation* annotation in annotation_array){
             [[self.mapView viewForAnnotation:annotation] setHidden:NO];
+        }
+        for (int i = 0; i < [self.gmapMarkers count]; i++) {
+            ((GMSMarker *) self.gmapMarkers[i]).map = self.gmap;
         }
     }else if ([mode isEqualToString:@"Enabled"]){
         for (CustomPointAnnotation* annotation in annotation_array){
@@ -361,6 +382,15 @@
                 }
             }
         }
+        NSLog(@"Pin test");
+        for (int i = 0; i < [self.gmapMarkers count]; i++) {
+            GMSMarker *marker =  ((GMSMarker *) self.gmapMarkers[i]);
+            if ([[marker.userData valueForKey:@"isEnabled"] isEqualToString:@"YES"]) {
+                marker.map = self.gmap;
+            } else {
+                marker.map = nil;
+            }
+        }
     }else if ([mode isEqualToString:@"Dropped"]){
         for (CustomPointAnnotation* annotation in annotation_array){
             if (annotation.point_type == dropped){
@@ -369,9 +399,21 @@
                 [[self.mapView viewForAnnotation:annotation] setHidden:YES];
             }
         }
+        
+        for (int i = 0; i < [self.gmapMarkers count]; i++) {
+            GMSMarker *marker =  ((GMSMarker *) self.gmapMarkers[i]);
+            if ([[marker.userData valueForKey:@"point_type"] isEqualToString:@"dropped"]) {
+                marker.map = self.gmap;
+            } else {
+                marker.map = nil;
+            }
+        }
     }else if ([mode isEqualToString:@"None"]){
         for (CustomPointAnnotation* annotation in annotation_array){
             [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+        }
+        for (int i = 0; i < [self.gmapMarkers count]; i++) {
+            ((GMSMarker *) self.gmapMarkers[i]).map = nil;
         }
     }else if ([mode isEqualToString:@"Study"]){
         for (CustomPointAnnotation* annotation in annotation_array){

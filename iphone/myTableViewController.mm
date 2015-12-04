@@ -54,6 +54,8 @@
         self.data_ptr->isEnabled = false;
     }
     
+    self.rootViewController.needUpdateGmapMarkers = true;
+    
     if (self.isUserLocation){
         self.rootViewController.needToggleLocationService = true;
     }else{
