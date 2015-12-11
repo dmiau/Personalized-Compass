@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xJv-Aa-iHt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xJv-Aa-iHt">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" misplaced="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="we6-xT-3ZG">
-                                <rect key="frame" x="0.0" y="21" width="281" height="44"/>
+                                <rect key="frame" x="50" y="21" width="260" height="44"/>
                                 <animations/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -40,16 +40,16 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <animations/>
                             </glkView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuN-zz-sjI" userLabel="Setting Button">
-                                <rect key="frame" x="278" y="27" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuN-zz-sjI" userLabel="Setting Button">
+                                <rect key="frame" x="16" y="27" width="40" height="30"/>
                                 <animations/>
                                 <state key="normal" image="setup.png"/>
                                 <connections>
-                                    <segue destination="g2Y-3e-LXh" kind="push" id="yng-bX-3xc"/>
+                                    <action selector="pushSettingView:" destination="RVv-fy-219" eventType="touchUpInside" id="JYq-Jr-a9n"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsp-zM-U3v">
-                                <rect key="frame" x="20" y="474" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsp-zM-U3v">
+                                <rect key="frame" x="20" y="474" width="30" height="33"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -87,25 +87,25 @@
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Nfb-xm-KgJ" secondAttribute="trailing" id="0fu-eW-Z33"/>
-                            <constraint firstAttribute="trailing" secondItem="MuN-zz-sjI" secondAttribute="trailing" constant="7" id="1QL-O9-B2J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="we6-xT-3ZG" secondAttribute="trailing" constant="-10" id="2uK-Dh-P0b"/>
                             <constraint firstItem="Nsp-zM-U3v" firstAttribute="top" secondItem="w6C-r0-bI1" secondAttribute="bottom" constant="-94" id="4Ek-uv-HWt"/>
-                            <constraint firstItem="eEI-mU-khp" firstAttribute="top" secondItem="RNx-RU-M1b" secondAttribute="bottom" id="DCg-Wz-jpA"/>
+                            <constraint firstItem="eEI-mU-khp" firstAttribute="top" secondItem="RNx-RU-M1b" secondAttribute="bottom" id="A4n-32-nsF"/>
                             <constraint firstItem="we6-xT-3ZG" firstAttribute="top" secondItem="YGn-3v-wZY" secondAttribute="top" constant="21" id="Dgl-es-oow"/>
                             <constraint firstAttribute="trailing" secondItem="xmf-jM-ph6" secondAttribute="trailing" constant="20" id="EoV-Ib-toj"/>
                             <constraint firstAttribute="trailing" secondItem="w6C-r0-bI1" secondAttribute="trailing" id="Jhb-uH-Js9"/>
+                            <constraint firstItem="eEI-mU-khp" firstAttribute="bottom" secondItem="Nfb-xm-KgJ" secondAttribute="bottom" id="NKf-V0-iET"/>
                             <constraint firstItem="Nfb-xm-KgJ" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="PE4-BJ-Hls"/>
+                            <constraint firstItem="MuN-zz-sjI" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leadingMargin" id="Uyv-ZP-874"/>
                             <constraint firstItem="w6C-r0-bI1" firstAttribute="top" secondItem="we6-xT-3ZG" secondAttribute="bottom" id="WkB-hV-dHw"/>
-                            <constraint firstItem="MuN-zz-sjI" firstAttribute="leading" secondItem="we6-xT-3ZG" secondAttribute="trailing" id="XFC-rC-i49"/>
-                            <constraint firstItem="eEI-mU-khp" firstAttribute="bottom" secondItem="Nfb-xm-KgJ" secondAttribute="bottom" id="Xp1-R1-0kH"/>
                             <constraint firstItem="Nfb-xm-KgJ" firstAttribute="top" secondItem="we6-xT-3ZG" secondAttribute="bottom" id="YNr-6w-eWv"/>
                             <constraint firstItem="MuN-zz-sjI" firstAttribute="top" secondItem="YGn-3v-wZY" secondAttribute="top" constant="27" id="ZNM-he-gY2"/>
                             <constraint firstItem="w6C-r0-bI1" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="bbx-lT-f6G"/>
                             <constraint firstAttribute="trailing" secondItem="RNx-RU-M1b" secondAttribute="trailing" id="dX8-HO-Ntb"/>
                             <constraint firstItem="RNx-RU-M1b" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" id="dY8-pU-Avc"/>
+                            <constraint firstItem="eEI-mU-khp" firstAttribute="bottom" secondItem="w6C-r0-bI1" secondAttribute="bottom" id="deJ-Ti-EmO"/>
                             <constraint firstItem="RNx-RU-M1b" firstAttribute="top" secondItem="xmf-jM-ph6" secondAttribute="bottom" constant="20" id="fOJ-Hw-VD5"/>
-                            <constraint firstItem="we6-xT-3ZG" firstAttribute="leading" secondItem="YGn-3v-wZY" secondAttribute="leading" constant="6" id="hAc-mC-kbg"/>
+                            <constraint firstItem="we6-xT-3ZG" firstAttribute="leading" secondItem="MuN-zz-sjI" secondAttribute="leading" constant="34" id="jzg-qt-PPE"/>
                             <constraint firstItem="w6C-r0-bI1" firstAttribute="leading" secondItem="Nsp-zM-U3v" secondAttribute="trailing" constant="-50" id="rJu-Jj-Cv0"/>
-                            <constraint firstItem="eEI-mU-khp" firstAttribute="bottom" secondItem="w6C-r0-bI1" secondAttribute="bottom" id="rtM-3g-9o7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rL1-an-vSn"/>
@@ -134,11 +134,17 @@
             </objects>
             <point key="canvasLocation" x="1255" y="124"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--SettingTBVC-->
         <scene sceneID="9aC-4K-GUs">
             <objects>
-                <tabBarController id="g2Y-3e-LXh" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7e6-8C-IC8"/>
+                <tabBarController storyboardIdentifier="settingVC" id="g2Y-3e-LXh" customClass="settingTBVC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7e6-8C-IC8">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="vEB-a7-i1A">
+                            <connections>
+                                <action selector="backToMainView:" destination="g2Y-3e-LXh" id="ffn-GE-brZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="rtz-ke-M0F">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -1403,9 +1409,8 @@
         <image name="snapshotDefault.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WDh-6L-UAq"/>
+        <segue reference="WS4-yg-Oj7"/>
         <segue reference="K1H-er-9a7"/>
-        <segue reference="VT9-KB-V4S"/>
         <segue reference="NSE-Hl-1Qk"/>
     </inferredMetricsTieBreakers>
 </document>

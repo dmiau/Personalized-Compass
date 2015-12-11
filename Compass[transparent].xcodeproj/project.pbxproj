@@ -273,6 +273,7 @@
 		2B46A83B1C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
 		2B46A83C1C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
 		2B46A83D1C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
+		2B4BE80A1C1B74D400CCE96A /* settingTBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4BE8091C1B74D400CCE96A /* settingTBVC.m */; };
 		2B8469291BF3E8B2000703DB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */; };
 		2B8E2BFC1BF67E9C0083613C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC81BF2A8C600ADD137 /* Accelerate.framework */; };
 		2B8E2BFD1BF67EAC0083613C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC61BF2A87C00ADD137 /* AVFoundation.framework */; };
@@ -1510,6 +1511,8 @@
 		2B46A8291C1101A4000D4355 /* iosSnapshots.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = iosSnapshots.snapshot; sourceTree = "<group>"; };
 		2B46A8301C1101BD000D4355 /* empty.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = empty.snapshot; sourceTree = "<group>"; };
 		2B46A8371C1101D6000D4355 /* study.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = study.snapshot; sourceTree = "<group>"; };
+		2B4BE8081C1B74D400CCE96A /* settingTBVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingTBVC.h; sourceTree = "<group>"; };
+		2B4BE8091C1B74D400CCE96A /* settingTBVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingTBVC.m; sourceTree = "<group>"; };
 		2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		2B8E2C081BF67FE70083613C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework"; sourceTree = "<group>"; };
 		2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
@@ -2580,6 +2583,8 @@
 		9A480894198BE7DB0001E188 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2B4BE8081C1B74D400CCE96A /* settingTBVC.h */,
+				2B4BE8091C1B74D400CCE96A /* settingTBVC.m */,
 				9A95CCB1194B4146008E520F /* iOSSettingViewController.h */,
 				9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */,
 			);
@@ -3925,6 +3930,7 @@
 				2B46A7D31C0FE768000D4355 /* Snapshot+CoreDataProperties.m in Sources */,
 				9AAC65E71A8BA8EA00B9BF2E /* iOSViewController+DemoToolbar.mm in Sources */,
 				9A4F0F7F193E308400CF32DE /* iOSGLKView.mm in Sources */,
+				2B4BE80A1C1B74D400CCE96A /* settingTBVC.m in Sources */,
 				9AE2FC8F19AFCD3C0015E2B6 /* compassModel+tools.mm in Sources */,
 				9AC314381A843D610091BC88 /* DesktopViewController+Communication.mm in Sources */,
 				9A037669198DA31900258E95 /* b2RopeJoint.cpp in Sources */,
