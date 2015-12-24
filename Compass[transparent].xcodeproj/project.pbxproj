@@ -274,6 +274,7 @@
 		2B46A83C1C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
 		2B46A83D1C1101D6000D4355 /* study.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 2B46A8371C1101D6000D4355 /* study.snapshot */; };
 		2B4BE80A1C1B74D400CCE96A /* settingTBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4BE8091C1B74D400CCE96A /* settingTBVC.m */; };
+		2B4BE80D1C1CB28C00CCE96A /* generalVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B4BE80C1C1CB28C00CCE96A /* generalVC.mm */; };
 		2B8469291BF3E8B2000703DB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */; };
 		2B8E2BFC1BF67E9C0083613C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC81BF2A8C600ADD137 /* Accelerate.framework */; };
 		2B8E2BFD1BF67EAC0083613C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDC61BF2A87C00ADD137 /* AVFoundation.framework */; };
@@ -1513,6 +1514,8 @@
 		2B46A8371C1101D6000D4355 /* study.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = study.snapshot; sourceTree = "<group>"; };
 		2B4BE8081C1B74D400CCE96A /* settingTBVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingTBVC.h; sourceTree = "<group>"; };
 		2B4BE8091C1B74D400CCE96A /* settingTBVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingTBVC.m; sourceTree = "<group>"; };
+		2B4BE80B1C1CB28C00CCE96A /* generalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generalVC.h; sourceTree = "<group>"; };
+		2B4BE80C1C1CB28C00CCE96A /* generalVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = generalVC.mm; sourceTree = "<group>"; };
 		2B8469281BF3E8B2000703DB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		2B8E2C081BF67FE70083613C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework"; sourceTree = "<group>"; };
 		2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../../Downloads/0646cf0bd434ed77-GoogleMaps-1.10.1/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
@@ -2583,6 +2586,8 @@
 		9A480894198BE7DB0001E188 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2B4BE80B1C1CB28C00CCE96A /* generalVC.h */,
+				2B4BE80C1C1CB28C00CCE96A /* generalVC.mm */,
 				2B4BE8081C1B74D400CCE96A /* settingTBVC.h */,
 				2B4BE8091C1B74D400CCE96A /* settingTBVC.m */,
 				9A95CCB1194B4146008E520F /* iOSSettingViewController.h */,
@@ -3869,6 +3874,7 @@
 				9A32852C199116FA0016E8A2 /* ExtraPanelController.mm in Sources */,
 				9A037591198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A03756D198DA31800258E95 /* b2BroadPhase.cpp in Sources */,
+				2B4BE80D1C1CB28C00CCE96A /* generalVC.mm in Sources */,
 				9A4A44771979B151007F0120 /* iOSViewController+DebugPanel.mm in Sources */,
 				9A03758B198DA31800258E95 /* b2Distance.cpp in Sources */,
 				9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */,
@@ -4806,7 +4812,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hong.pcompass;
 				PRODUCT_NAME = pcompass;
@@ -4841,7 +4847,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hong.pcompass;
 				PRODUCT_NAME = pcompass;
