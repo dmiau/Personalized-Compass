@@ -48,7 +48,7 @@
     _satelliteSwitch.on = (self.rootViewController.mapView.mapType == MKMapTypeStandard)
     ? NO : YES;
     
-    
+    self.model = compassMdl::shareCompassMdl();
 }
 
 -(void) switchSatellite:(id) sender {

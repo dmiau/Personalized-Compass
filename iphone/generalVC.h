@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *compassSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *widgetSwitch;
 @property iOSViewController* rootViewController;
+@property compassMdl* model;
 
 
 

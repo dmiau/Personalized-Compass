@@ -126,6 +126,8 @@
         self.model->data_array[i].name =
         [self.annotation.title UTF8String];
     }
+    
+    [self.rootViewController resetGmapMarkers];
 }
 
 - (IBAction)addLocation:(id)sender {
