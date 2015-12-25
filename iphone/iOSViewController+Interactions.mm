@@ -70,7 +70,6 @@
             // convert from compass coordinate to map uv coordinate
             CGPoint label_pt_compass =
             self.model->data_array[j].my_label_info.centroid;
-            NSLog(@"FUN COMPASS x: %f, y, %f", label_pt_compass.x, label_pt_compass.y);
             
             NSLog(@"Name: %@",
                   [NSString stringWithUTF8String: self.model->data_array[j].name.c_str()]);

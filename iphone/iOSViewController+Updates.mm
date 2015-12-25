@@ -440,7 +440,7 @@
             
             [self.gmap addGestureRecognizer:pgrG];
         }
-        NSLog(@"FUN x %f y %f", self.gmap.center.x, self.gmap.center.y);
+        
         self.gmap.hidden = NO;
         self.mapView.hidden = YES;
         UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touch:)];
@@ -491,38 +491,6 @@
 }
 
 -(void) updateAMapBasedOnGMap {
-//        if (!self.tempGmap) {
-//            self.tempGmap = [self createGmap];
-//            self.tempGmap.frame = self.mapView.frame;
-//        }
-//    
-//        GMSCameraPosition *myCamera = self.gmap.camera;
-//        GMSCameraPosition *myNewCamera = [GMSCameraPosition cameraWithLatitude:myCamera.target.latitude
-//                                                                     longitude:myCamera.target.longitude
-//                                                                          zoom:myCamera.zoom bearing:0
-//                                                                  viewingAngle:myCamera.viewingAngle];
-//    
-//        self.tempGmap.camera = myNewCamera;
-//    
-//        GMSVisibleRegion visibleRegion = self.tempGmap.projection.visibleRegion;
-//        GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithRegion:visibleRegion];
-////
-////        CLLocationCoordinate2D northEast = bounds.northEast;
-////        CLLocationCoordinate2D southWest = bounds.southWest;
-//    CGPoint tNE = [self.gmap.projection pointForCoordinate:bounds.northEast];
-//    CGPoint tSW = [self.gmap.projection pointForCoordinate:bounds.southWest];
-//    CGPoint tCenter = CGPointMake((tNE.x + tSW.x)/2, (tNE.y + tSW.y)/2);
-//    NSLog(@"FUN in tempmap ne %@ sw %@ center %@", NSStringFromCGPoint(tNE), NSStringFromCGPoint(tSW), NSStringFromCGPoint(tCenter));
-//    CGPoint nearRight = [self.gmap.projection pointForCoordinate:self.gmap.projection.visibleRegion.nearRight];
-//    CGPoint farRight = [self.gmap.projection pointForCoordinate:self.gmap.projection.visibleRegion.farRight];
-//    CGPoint nearLeft = [self.gmap.projection pointForCoordinate:self.gmap.projection.visibleRegion.nearLeft];
-//    CGPoint farLeft = [self.gmap.projection pointForCoordinate:self.gmap.projection.visibleRegion.farLeft];
-//    
-//    NSLog(@"FUN in tempmap origin ne %@, sw %@, nw %@, se %@", NSStringFromCGPoint(nearRight), NSStringFromCGPoint(farRight), NSStringFromCGPoint(nearLeft), NSStringFromCGPoint(farLeft));
-//    
-//    
-//    NSLog(@"FUN target %@", NSStringFromCGPoint([self.gmap.projection pointForCoordinate:self.gmap.camera.target]));
-    
     
     CGPoint nsPoint = CGPointMake(self.gmap.bounds.origin.x, self.gmap.bounds.origin.y);
     CGPoint nePoint = CGPointMake(self.gmap.bounds.origin.x + self.gmap.bounds.size.width,
@@ -531,35 +499,13 @@
                                   self.gmap.bounds.origin.y + self.gmap.bounds.size.height);
     CGPoint sePoint = CGPointMake(self.gmap.bounds.size.width, self.gmap.bounds.size.height);
 
-//        NSLog(@"%@", NSStringFromCGPoint(nsPoint));
-//        NSLog(@"%@", NSStringFromCGPoint(nePoint));
-//        NSLog(@"%@", NSStringFromCGPoint(swPoint));
-//        NSLog(@"%@", NSStringFromCGPoint(sePoint));
     CGPoint center = CGPointMake(187.5, 301);
     
     CGPoint swCoord = [self rotatePoint:swPoint With:(360-self.gmap.camera.bearing) About:center];
-    CGPoint seCoord = [self rotatePoint:sePoint With:(360-self.gmap.camera.bearing) About:center];
     CGPoint neCoord = [self rotatePoint:nePoint With:(360-self.gmap.camera.bearing) About:center];
-    CGPoint nsCoord = [self rotatePoint:nsPoint With:(360-self.gmap.camera.bearing) About:center];
-    
-//    NSLog(@"FUN in rotate ne %@, sw %@, nw %@, se %@", NSStringFromCGPoint(neCoord), NSStringFromCGPoint(swCoord), NSStringFromCGPoint(nsCoord), NSStringFromCGPoint(seCoord));
     
     CLLocationCoordinate2D swcoordinate = [self.gmap.projection coordinateForPoint: swCoord];
-    CLLocationCoordinate2D secoordinate = [self.gmap.projection coordinateForPoint: seCoord];
     CLLocationCoordinate2D necoordinate = [self.gmap.projection coordinateForPoint: neCoord];
-    CLLocationCoordinate2D nscoordinate = [self.gmap.projection coordinateForPoint: nsCoord];
-    
-    //    NSLog(@"%@", @"Testing Coordinate");
-    //
-    //    NSLog(@"%f", swcoordinate.latitude);
-    //    NSLog(@"%f", swcoordinate.longitude);
-    //    NSLog(@"%f", secoordinate.latitude);
-    //    NSLog(@"%f", secoordinate.longitude);
-    //    NSLog(@"%f", necoordinate.latitude);
-    //    NSLog(@"%f", necoordinate.longitude);
-    //    NSLog(@"%f", nscoordinate.latitude);
-    //    NSLog(@"%f", nscoordinate.longitude);
-    
     
     CLLocationCoordinate2D northEast = necoordinate;
     CLLocationCoordinate2D southWest = swcoordinate;
@@ -587,10 +533,6 @@
     
     self.mapView.camera.heading = self.gmap.camera.bearing;
     self.mapView.camera.pitch = self.gmap.camera.viewingAngle;
-    //    NSLog(@"%@", @"after change");
-    //    NSLog(@"%f", self.mapView.region.span.latitudeDelta);
-    //    NSLog(@"%f", self.mapView.region.span.longitudeDelta);
-    //    NSLog(@"%f", self.mapView.camera.heading);
 }
 
 -(CGPoint) rotatePoint:(CGPoint) point With: (float) angle About: (CGPoint) origin {

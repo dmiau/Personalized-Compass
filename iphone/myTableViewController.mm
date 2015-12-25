@@ -225,7 +225,6 @@
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSLog(@"FUN FILENAME %@", self.model->location_filename);
     NSArray *list = @[@"User Location",
                       self.model->location_filename,
                       @"Location Files"];
@@ -250,7 +249,6 @@
     fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"name"]];
     fetchRequest.returnsDistinctResults = YES;
     NSArray *areasDic = [app.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    NSLog(@"FUN init area %@", areasDic);
     NSMutableArray *temp_area = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < [areasDic count]; i++) {
         [temp_area addObject:areasDic[i][@"name"]];
@@ -335,7 +333,6 @@
     int row_id = [path row];
     int section_id = [path section];
     data *data_ptr;
-    NSLog(@"FUN %d %d", section_id, row_id);
     
     if (section_id == 0){
         data_ptr = &(self.model->user_pos);

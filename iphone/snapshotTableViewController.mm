@@ -75,9 +75,6 @@
         selected_snapshot_id = -1;
         [self.myTableView reloadData];
     }
-    for (int i = 0; i < self.model->snapshot_array.size();i++) {
-        NSLog(@"FUN snap test %@", self.model->snapshot_array[i].name);
-    }
     [self initCollections];
     [self.myTableView reloadData];
     //-------------------
@@ -155,7 +152,6 @@
             [temp_area addObject:areasDic[i][@"name"]];
         }
     }
-    NSLog(@"FUN snapshot %@", areasDic);
     collections = temp_area;
 }
 
@@ -236,7 +232,6 @@
         // User selects a snapshot
         //----------------
         self.rootViewController.snapshot_id_toshow = row_id;
-        NSLog(@"fun filename %@", self.model->snapshot_array[row_id].kmlFilename);
         self.model->location_filename = self.model->snapshot_array[row_id].kmlFilename;
         self.model->data_array.clear();
         std::vector<data> locationData;

@@ -110,15 +110,9 @@
 
             snapshot.coordinateRegion = [NSData dataWithBytes:&s.coordinateRegion length:sizeof(s.coordinateRegion)];
 
-            NSLog(@"FUNNNNNN");
-            NSLog(@"FUN before %f", s.coordinateRegion.center.latitude);
-            NSLog(@"FUN before %f", s.coordinateRegion.center.longitude);
 
             MKCoordinateRegion region;
             [snapshot.coordinateRegion getBytes:&region length:sizeof(region)];
-
-            NSLog(@"FUN after %f", region.center.latitude);
-            NSLog(@"FUN after %f", region.center.longitude);
 
             snapshot.osx_coordinateRegion =[NSData dataWithBytes:&s.osx_coordinateRegion  length:sizeof(s.osx_coordinateRegion)];
 
@@ -174,7 +168,6 @@
     fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"name"]];
     fetchRequest.returnsDistinctResults = YES;
     NSArray *areasDic = [app.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    NSLog(@"FUN init area %@", areasDic);
     NSMutableArray *temp_area = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < [areasDic count]; i++) {
         [temp_area addObject:areasDic[i][@"name"]];
@@ -230,7 +223,6 @@
             [temp addObject:areasDicSnap[i][@"name"]];
         }
     }
-    NSLog(@"FUN snapshot %@", areasDicSnap);
     _collections = temp;
     
     for (int i = 0; i < [_collections count]; i++) {

@@ -41,7 +41,6 @@
         if (self.testManager->testManagerMode == OFF){
             GMSMarker *marker = [[GMSMarker alloc] init];
             CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(myData.latitude, myData.longitude);
-            NSLog(@"FUN lat %f lon %f", coordinate.latitude, coordinate.longitude);
             marker.position = coordinate;
             NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
             [dic setObject:@"landmark" forKey:@"point_type"];
