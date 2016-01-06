@@ -290,6 +290,7 @@
 		2B8E2C071BF67F370083613C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0FFDDE1BF2A95D00ADD137 /* CoreGraphics.framework */; };
 		2B8E2C091BF67FE70083613C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8E2C081BF67FE70083613C /* GoogleMaps.framework */; };
 		2B8E2C0B1BF680000083613C /* GoogleMaps.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8E2C0A1BF680000083613C /* GoogleMaps.bundle */; };
+		2BAF8A411C3D6AD700943D68 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BC725041BF2D8E200219807 /* Model.xcdatamodeld */; };
 		2BC725061BF2D8E200219807 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BC725041BF2D8E200219807 /* Model.xcdatamodeld */; };
 		9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
 		9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */ = {isa = PBXBuildFile; fileRef = 9A0060C41AA65CCA00E60F10 /* watchScale.tif */; };
@@ -3996,6 +3997,7 @@
 				9AE37F9A1A8D50DF005E8C5C /* iOSTestAuthoringViewController.mm in Sources */,
 				9A0375F8198DA31900258E95 /* b2WorldCallbacks.cpp in Sources */,
 				9A037586198DA31800258E95 /* b2Collision.cpp in Sources */,
+				2BAF8A411C3D6AD700943D68 /* Model.xcdatamodeld in Sources */,
 				9A03736E198AF8A500258E95 /* DemoManager.mm in Sources */,
 				9A037640198DA31900258E95 /* b2GearJoint.cpp in Sources */,
 				9A3DA0CF19683235009E0073 /* DetailViewController.mm in Sources */,
