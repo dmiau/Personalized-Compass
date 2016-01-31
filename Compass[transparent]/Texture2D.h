@@ -76,4 +76,10 @@ typedef enum {
  */
 @interface Texture2D (Text)
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size withBox:(bool)box_flag;
+
+- (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name
+             fontSize:(CGFloat)size
+              withBox:(bool)box_flag
+    color:(CGColorRef)colorref;
+
 @end

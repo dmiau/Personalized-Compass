@@ -17,6 +17,9 @@
 
 @end
 
+//---------------------
+// landmarkCell implementation
+//---------------------
 @implementation landmarkCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -97,6 +100,7 @@
         self.model = compassMdl::shareCompassMdl();
         selected_id = -1;
         data_dirty_flag = false;
+        expandAreaSection = false;
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
         [self initArea];
@@ -165,7 +169,7 @@
         UITableViewCell* cell = [self.myTableView
                                  cellForRowAtIndexPath:
                                  [NSIndexPath indexPathForRow: selected_id
-                                                    inSection: 2]];
+                                                    inSection: 1]];
         cell.textLabel.text =
         [NSString stringWithUTF8String:
          self.model->data_array[selected_id].name.c_str()];
@@ -205,42 +209,7 @@
     kml_files = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.kml'"]];
 }
 
-#pragma mark -----Table View Data Source Methods-----
-//-------------------
-// Table related methods
-//-------------------
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Three sections: the location file listing, user location and bookmarks
-    return 3;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0)
-        return 1;
-    else if (section == 1)
-        return self.model->data_array.size();
-    else
-        return [areas count];
-}
-
-- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    NSArray *list = @[@"User Location",
-                      self.model->location_filename,
-                      @"Location Files"];
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
-    /* Create custom view to display section header... */
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
-    [label setFont:[UIFont boldSystemFontOfSize:12]];
-    NSString *string =[list objectAtIndex:section];
-    /* Section header is in 0th index... */
-    [label setText:string];
-    [view addSubview:label];
-    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
-    return view;
-}
-
+// kmlList equivalence in CoreData
 - (void) initArea{
     AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Area"];
@@ -256,6 +225,85 @@
     areas = temp_area;
 }
 
+#pragma mark -----Table View Data Source Methods-----
+//-------------------
+// Table related methods
+//-------------------
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Three sections: user location, the location file listing, and bookmarks
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == USERLOCATION)
+        // User location
+        return 1;
+    else if (section == AREAS)
+        // area listing
+        if (expandAreaSection)
+            return [areas count];
+        else
+            return 0;
+    else
+        // bookmarks
+        return self.model->data_array.size();
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+typedef enum {USERLOCATION, AREAS, BOOKMARKS} sectionEnum;
+
+// Configure section header
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSArray *list = @[@"User Location",
+                      @"Areas",
+                      self.model->location_filename];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
+    /* Create custom view to display section header... */
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
+    [label setFont:[UIFont boldSystemFontOfSize:14]];
+    NSString *string =[list objectAtIndex:section];
+    /* Section header is in 0th index... */
+    [label setText:string];
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
+
+    // Only add gesture recognizer to the AREA section
+    if (section == AREAS){
+        // Add UITapGestureRecognizer to SectionView
+        UITapGestureRecognizer *headerTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionHeaderTapped:)];
+        [view addGestureRecognizer:headerTapped];
+    }
+    
+    
+    /********** Add a custom Separator with cell *******************/
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 29, self.myTableView.frame.size.width, 1)];
+    separatorLineView.backgroundColor = [UIColor blackColor];
+    [view addSubview:separatorLineView];
+    
+    return view;
+}
+
+// To handle the section header tapping gesture
+- (void)sectionHeaderTapped:(UITapGestureRecognizer *)gestureRecognizer{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0
+                                                inSection:gestureRecognizer.view.tag];
+    if (indexPath.row == 0) {
+        expandAreaSection = !expandAreaSection;
+        
+            [self.myTableView reloadData];
+//        [self.myTableView reloadSections:[NSIndexSet indexSetWithIndex:gestureRecognizer.view.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+    }
+}
+
+
 //----------------
 // Populate each row of the table
 //----------------
@@ -270,23 +318,33 @@
     int i = [indexPath row];
     data *data_ptr = NULL;
     
-    if (section_id == 0){
+    if (section_id == USERLOCATION){
+        
+        // My Location
+        
         cell.textLabel.text = @"My Location";
         cell.isUserLocation = true;
         data_ptr = &(self.model->user_pos);
-    }else if (section_id == 1){
+    }else if (section_id == AREAS){
+        
+        // Area (or kml file listing)
+        
+        cell.textLabel.text =  areas[i];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
+        cell.isUserLocation = false;
+        
+    }else{
+        
+        // Bookmarks
+        
         // Configure Cell
         cell.textLabel.text =
         [NSString stringWithUTF8String:self.model->data_array[i].name.c_str()];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
         cell.isUserLocation = false;
         data_ptr = &(self.model->data_array[i]);
-        
         //        cell.backgroundColor = [UIColor redColor];
-    }else{
-        cell.textLabel.text =  areas[i];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
-        cell.isUserLocation = false;
+        
     }
     
     cell.data_ptr = data_ptr;
@@ -313,14 +371,13 @@
     selected_id = i;
     data *data_ptr;
     
-    
-    if (section_id == 0){
+    if (section_id == USERLOCATION){
         data_ptr = &(self.model->user_pos);
-    }else if (section_id == 1){
-        data_ptr = &(self.model->data_array[i]);
-    }else{
+    }else if (section_id == AREAS){
         // Do nothing
         return;
+    }else{
+        data_ptr = &(self.model->data_array[i]);
     }
     
     // Perform segue
@@ -334,10 +391,10 @@
     int section_id = [path section];
     data *data_ptr;
     
-    if (section_id == 0){
+    if (section_id == USERLOCATION){
         data_ptr = &(self.model->user_pos);
         self.rootViewController.needToggleLocationService = true;
-    }else if (section_id == 1){
+    }else if (section_id == BOOKMARKS){
         data_ptr = &(self.model->data_array[row_id]);
     }else{
         // Reload and display the landmarks
@@ -391,17 +448,19 @@
         }
         self.rootViewController.needUpdateAnnotations = true;
         
+        
+        // Collapse the section
+        expandAreaSection = false;
+        
         [self.myTableView reloadData];
         //        }
-        
-        
     }
     
     self.rootViewController.needUpdateAnnotations = true;
     
     
     // Go to landmarks
-    if (section_id == 1){
+    if (section_id == BOOKMARKS){
         self.rootViewController.landmark_id_toshow = row_id;
         [self.navigationController popViewControllerAnimated:NO];
         
@@ -466,7 +525,7 @@
     // If row is deleted, remove it from the list.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         int i = [indexPath row];
-        if ([indexPath section] == 1){
+        if ([indexPath section] == 2){
             [self.rootViewController.mapView removeAnnotation:
              self.model->data_array[i].annotation];
             self.model->data_array.erase(
@@ -474,7 +533,7 @@
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             
             self.model->data_array_dirty = true;
-        }else if ([indexPath section] == 2){
+        }else if ([indexPath section] == 1){
             //--------------
             // Delete a KML file
             //--------------

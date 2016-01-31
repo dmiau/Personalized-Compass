@@ -287,6 +287,7 @@
 // Color Text
 //-------------------
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size
+              withBox:(bool)box_flag
                 color:(CGColorRef)colorref
 {
 	NSUInteger				width,
@@ -331,13 +332,22 @@
 	UIGraphicsPushContext(context);
     //    [string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:alignment];
     
+
+    // Draw a box
+    if (box_flag){
+        CGContextSetGrayFillColor(context, 0.4, 0.8);
+        CGRect drawRect = CGRectMake(0, 0,width, height);
+        CGContextFillRect(context, drawRect);
+        
+        CGContextSetGrayFillColor(context, 0.0, 0.0);
+    }
     
     // Draw outlined text.
     CGContextSetTextDrawingMode(context, kCGTextFillStroke);
     // Make the thickness of the outline a function of the font size in use.
-    CGContextSetLineWidth(context, 2);
+    CGContextSetLineWidth(context, 5);
+    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     
-    //    CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
     [string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:alignment];
     
     // Draw filled text.  This will make sure it's clearly readable, while leaving some outline behind it.

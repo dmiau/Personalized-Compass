@@ -4252,6 +4252,53 @@ http://stackoverflow.com/questions/6224830/c-trying-to-swap-values-in-a-vector
 - plan to clean up the code and continue my app development
 - I want to prepare the app for itune connect
 
+-------------------------------------------------------------------
+1.28.2016
+-------------------------------------------------------------------
+***** ToDo
+- upgrade framework
+- upgrade Google SDK
+- UI improvement
+- update the formula used in compassModel+AnalysisTools.mm
+- refactor UserDefaults
+
+***** Done
+- export development profile
+
+***** Working
+- check the expandable table view 
+http://www.appcoda.com/expandable-table-view/
+
+This might be a better example:
+http://www.iostute.com/2015/04/expandable-and-collapsable-tableview.html
+
+-------------------------------------------------------------------
+1.31.2016
+-------------------------------------------------------------------
+
+***** ToDo
+- upgrade framework
+- upgrade Google SDK
+- code refactoring
+- refactor UserDefaults
+
+***** Done
+- export development profile
+- check the expandable table view 
+http://www.appcoda.com/expandable-table-view/
+
+This might be a better example:
+http://www.iostute.com/2015/04/expandable-and-collapsable-tableview.html
+- update the formula used in compassModel+AnalysisTools.mm
+
+***** Working
+- UI improvement
+
+
+
+
+
+
 
 
 

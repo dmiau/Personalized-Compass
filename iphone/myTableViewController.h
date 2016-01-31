@@ -10,6 +10,7 @@
 #include "compassModel.h"
 #import "iOSViewController.h"
 
+#pragma mark -----landmarkCell-----
 @interface landmarkCell :UITableViewCell
 @property UISwitch* mySwitch;
 @property iOSViewController* rootViewController;
@@ -18,14 +19,19 @@
 @end
 
 
+#pragma mark -----myTableViewController-----
 @interface myTableViewController : UIViewController
-<UITableViewDelegate, UIAlertViewDelegate>{
+<UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>{
     int selected_id;
     bool data_dirty_flag;
+    
+    //In CoreData code base, kml_files is replaced by areas
     NSArray *kml_files;
     NSArray *areas;
+    
+    //this flag decides whether the kml file section should be expanded or collapsed
+    bool expandAreaSection;
 }
-
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property compassMdl* model;

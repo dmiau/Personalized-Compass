@@ -97,23 +97,34 @@ label_info compassRender::drawLabel(float rotation, float height,
 void compassRender::drawiOSText(NSString *string, int font_size,
                                 CGFloat width, CGFloat height,
                                 bool box_flag){
-    // Use black
+    
+    glEnable(GL_TEXTURE_2D);
+    Texture2D* statusTexture;
+
     if (mapView.mapType == MKMapTypeStandard){
         glColor4f(0, 0, 0, 1);
+        // Set up texture
+        statusTexture = [[Texture2D alloc]
+                                    initWithString:string
+                                    dimensions:CGSizeMake(width, height)
+                                    alignment: UITextAlignmentLeft
+                                    fontName:@"Helvetica-Bold"
+                                    fontSize:font_size
+                                        withBox:box_flag];
+        
     }else{
-        glColor4f(255.0/255.0, 54.0/255.0, 96.0/255.0, 1.0);
+//        glColor4f(255.0/255.0, 54.0/255.0, 96.0/255.0, 1.0);
+        // Set up texture
+        statusTexture = [[Texture2D alloc]
+                                    initWithString:string
+                                    dimensions:CGSizeMake(width, height)
+                                    alignment: UITextAlignmentLeft
+                                    fontName:@"Helvetica-Bold"
+                                    fontSize:font_size
+                         withBox:box_flag
+                                    color:[UIColor whiteColor].CGColor];
     }
 
-    glEnable(GL_TEXTURE_2D);
-    // Set up texture
-    Texture2D* statusTexture = [[Texture2D alloc]
-                                initWithString:string
-                                dimensions:CGSizeMake(width, height)
-                                alignment: UITextAlignmentLeft
-                                fontName:@"Helvetica-Bold"
-                                fontSize:font_size
-                                withBox:box_flag];
-    
     // Bind texture
     glBindTexture(GL_TEXTURE_2D, [statusTexture name]);
     

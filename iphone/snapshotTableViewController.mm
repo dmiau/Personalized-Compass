@@ -128,8 +128,9 @@
 {
     self = [super initWithCoder:aDecoder];
     if(self) {
-        // Do something
         
+        // Collapse the collection by default
+        expandCollectionSection = false;
         self.model = compassMdl::shareCompassMdl();
         if (self.model == NULL)
             throw(runtime_error("compassModel is uninitialized"));
@@ -161,31 +162,69 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section ==0){
+    if (section ==COLLECTIONS){
 //        return [snapshot_file_array count];
-        return [collections count];
+        
+        if (expandCollectionSection)
+            return [collections count];
+        else
+            return 0;
     }else{
         return self.model->snapshot_array.size();
     }
 }
 
+typedef enum {COLLECTIONS, SNAPSHOTS} sectionEnum;
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSArray *list = @[@"Snapshot files",
+    NSArray *list = @[@"Collections",
                       [self.model->snapshot_filename lastPathComponent]];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
     /* Create custom view to display section header... */
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
-    [label setFont:[UIFont boldSystemFontOfSize:12]];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 30)];
+    [label setFont:[UIFont boldSystemFontOfSize:14]];
     NSString *string =[list objectAtIndex:section];
     /* Section header is in 0th index... */
     [label setText:string];
     [view addSubview:label];
     [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
+    
+    // Only add gesture recognizer to the AREA section
+    if (section == COLLECTIONS){
+        // Add UITapGestureRecognizer to SectionView
+        UITapGestureRecognizer *headerTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionHeaderTapped:)];
+        [view addGestureRecognizer:headerTapped];
+    }
+    
+    /********** Add a custom Separator with cell *******************/
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 29, self.myTableView.frame.size.width, 1)];
+    separatorLineView.backgroundColor = [UIColor blackColor];
+    [view addSubview:separatorLineView];    
+    
     return view;
 }
+
+
+// To handle the section header tapping gesture
+- (void)sectionHeaderTapped:(UITapGestureRecognizer *)gestureRecognizer{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0
+                                                inSection:gestureRecognizer.view.tag];
+    if (indexPath.row == 0) {
+        expandCollectionSection = !expandCollectionSection;
+        
+        [self.myTableView reloadData];
+    }
+}
+
+
 
 //----------------
 // Populate each row of the table
@@ -201,7 +240,7 @@
     int section_id = [indexPath section];
     int i = [indexPath row];
     
-    if (section_id == 0){
+    if (section_id == COLLECTIONS){
         cell.textLabel.text = collections[i];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
     }else{
@@ -219,14 +258,15 @@
     int section_id = [path section];
     
     
-    if (section_id == 0){
+    if (section_id == COLLECTIONS){
         //----------------
         // User selects a file
         //----------------
         
         [self loadSnapshotWithName:
          collections[row_id]];
-        
+        expandCollectionSection = false;
+        [self.myTableView reloadData];
     }else{
         //----------------
         // User selects a snapshot
@@ -284,7 +324,7 @@
     int i = [indexPath row];
     int section_id = [indexPath section];
     
-    if (section_id ==0){
+    if (section_id ==COLLECTIONS){
     }else{
         selected_snapshot_id = i;
         // Perform segue

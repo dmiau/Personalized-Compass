@@ -81,7 +81,7 @@
             self.mapView.showsBuildings = YES;
             break;
         case 3:
-            self.mapView.mapType = MKMapTypeSatellite;
+            self.mapView.mapType = MKMapTypeSatelliteFlyover;
             self.mapView.showsBuildings = YES;
             break;
     }
