@@ -70,7 +70,7 @@ vector<double> compassMdl::clusterData(vector<int> indices_for_rendering){
         // Sort the list in ascending order
         sort(filtered_dist_list.begin(), filtered_dist_list.end());
     }
-
+    
     
     int landmark_n = filtered_dist_list.size();
     
@@ -92,28 +92,58 @@ vector<double> compassMdl::clusterData(vector<int> indices_for_rendering){
     // filtered_dist_list is sorted
     double min_d = filtered_dist_list[0];
     double max_d = filtered_dist_list[filtered_dist_list.size()-1];
-    double ratio_sum = 0;
-//    double lamda = 2;
-    vector<pair<double, int>>  ratio_sum_list;
+    
+    
+    
+    //    //----------------
+    //    // Ratio-Sum
+    //    //----------------
+    //    double ratio_sum = 0;
+    //
+    //    vector<pair<double, int>>  ratio_sum_list;
+    //    for (int a_end = 0; a_end < filtered_dist_list.size(); ++a_end){
+    //        ratio_sum = filtered_dist_list[a_end]/min_d;
+    //        if (a_end < (filtered_dist_list.size()-1)){
+    //            ratio_sum += max_d / filtered_dist_list[a_end + 1];
+    //        }
+    //        ratio_sum_list.push_back(make_pair(ratio_sum, a_end));
+    //    }
+    //
+    //    // Figure out the data is unimodal or bimodal?
+    //    std::vector<pair<double, int>>::iterator result =
+    //    std::min_element(ratio_sum_list.begin(),
+    //                     ratio_sum_list.end(), compareAscending);
+    
+    
+    //----------------
+    // Distance-Ratio
+    //----------------
+    vector<pair<double, int>>  dr_overall_list;
+    double dr_overall = 0;
+    
     for (int a_end = 0; a_end < filtered_dist_list.size(); ++a_end){
-        ratio_sum = filtered_dist_list[a_end]/min_d;
+        
+        double dr_1 = 1, dr_2 = 1;
+        dr_1 = filtered_dist_list[a_end]/min_d;
         if (a_end < (filtered_dist_list.size()-1)){
-            ratio_sum += max_d / filtered_dist_list[a_end + 1];
-//            ratio_sum += lamda;
+            dr_2 = max_d / filtered_dist_list[a_end + 1];
         }
-        ratio_sum_list.push_back(make_pair(ratio_sum, a_end));
+        dr_overall = max(dr_1, dr_2)/min(dr_1, dr_2);
+        dr_overall_list.push_back(make_pair(dr_overall, a_end));
     }
     
     // Figure out the data is unimodal or bimodal?
     std::vector<pair<double, int>>::iterator result =
-    std::min_element(ratio_sum_list.begin(),
-                     ratio_sum_list.end(), compareAscending);
+    std::min_element(dr_overall_list.begin(),
+                     dr_overall_list.end(), compareAscending);
+    
     
     // cut_id is the index of the element after which a cut should be made,
     // so the list of distances is divided into two groups
     int cut_id = result->second;
     
-    if (cut_id == (landmark_n -1)){
+    if ((cut_id == (landmark_n -1)) || (max_d/min_d < 6))
+    {
         //-----------------
         // Unimodal
         //-----------------
@@ -192,19 +222,19 @@ double data::computeDistanceFromLocation(data& another_data){
 
 double data::computeOrientationFromLocation(data &another_data){
     
-//    double lat1 = DegreesToRadians(this->latitude);
-//    double lon1 = DegreesToRadians(this->longitude);
-//    
-//    double lat2 = DegreesToRadians(another_data.latitude);
-//    double lon2 = DegreesToRadians(another_data.longitude);
-//    
-//    double dLon = lon2 - lon1;
-//    
-//    double y = sin(dLon) * cos(lat2);
-//    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
-//    double radiansBearing = atan2(y, x);
-//    
-//    double degree = RadiansToDegrees(radiansBearing);
+    //    double lat1 = DegreesToRadians(this->latitude);
+    //    double lon1 = DegreesToRadians(this->longitude);
+    //
+    //    double lat2 = DegreesToRadians(another_data.latitude);
+    //    double lon2 = DegreesToRadians(another_data.longitude);
+    //
+    //    double dLon = lon2 - lon1;
+    //
+    //    double y = sin(dLon) * cos(lat2);
+    //    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+    //    double radiansBearing = atan2(y, x);
+    //
+    //    double degree = RadiansToDegrees(radiansBearing);
     
     //---------------
     // New orientation calculation based on mappoint

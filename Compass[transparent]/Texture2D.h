@@ -15,10 +15,10 @@
 //CONSTANTS:
 
 typedef enum {
-	kTexture2DPixelFormat_Automatic = 0,
-	kTexture2DPixelFormat_RGBA8888,
-	kTexture2DPixelFormat_RGB565,
-	kTexture2DPixelFormat_A8,
+    kTexture2DPixelFormat_Automatic = 0,
+    kTexture2DPixelFormat_RGBA8888,
+    kTexture2DPixelFormat_RGB565,
+    kTexture2DPixelFormat_A8,
 } Texture2DPixelFormat;
 
 //CLASS INTERFACES:
@@ -32,12 +32,12 @@ typedef enum {
 @interface Texture2D : NSObject
 {
 @private
-	GLuint						_name;
-	CGSize						_size;
-	NSUInteger					_width,
+    GLuint						_name;
+    CGSize						_size;
+    NSUInteger					_width,
     _height;
-	Texture2DPixelFormat		_format;
-	GLfloat						_maxS,
+    Texture2DPixelFormat		_format;
+    GLfloat						_maxS,
     _maxT;
 }
 - (id) initWithData:(const void*)data pixelFormat:(Texture2DPixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSize:(CGSize)size;
@@ -76,4 +76,10 @@ typedef enum {
  */
 @interface Texture2D (Text)
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size withBox:(bool)box_flag;
+
+- (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name
+             fontSize:(CGFloat)size
+              withBox:(bool)box_flag
+                color:(CGColorRef)colorref;
+
 @end

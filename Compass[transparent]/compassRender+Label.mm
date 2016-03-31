@@ -8,8 +8,8 @@
 // draw label
 //-------------
 label_info compassRender::drawLabel(float rotation, float height,
-                              texture_info my_texture_info)
-{    
+                                    texture_info my_texture_info)
+{
     glPushMatrix();
 #ifndef __IPHONE__
     if (emulatediOS.is_enabled && wedgeMode){
@@ -58,7 +58,7 @@ label_info compassRender::drawLabel(float rotation, float height,
     glScalef(0.5, 0.5, 0);
     
     // This is a hack
-//    [label_string drawAtPoint:NSMakePoint (-label_string.frameSize.width -10, 0)];
+    //    [label_string drawAtPoint:NSMakePoint (-label_string.frameSize.width -10, 0)];
     [label_string drawAtPoint:NSMakePoint (0, 0)];
 #else
     //--------------
@@ -97,22 +97,33 @@ label_info compassRender::drawLabel(float rotation, float height,
 void compassRender::drawiOSText(NSString *string, int font_size,
                                 CGFloat width, CGFloat height,
                                 bool box_flag){
-    // Use black
+    
+    glEnable(GL_TEXTURE_2D);
+    Texture2D* statusTexture;
+    
     if (mapView.mapType == MKMapTypeStandard){
         glColor4f(0, 0, 0, 1);
+        // Set up texture
+        statusTexture = [[Texture2D alloc]
+                         initWithString:string
+                         dimensions:CGSizeMake(width, height)
+                         alignment: UITextAlignmentLeft
+                         fontName:@"Helvetica-Bold"
+                         fontSize:font_size
+                         withBox:box_flag];
+        
     }else{
-        glColor4f(255.0/255.0, 54.0/255.0, 96.0/255.0, 1.0);
+        //        glColor4f(255.0/255.0, 54.0/255.0, 96.0/255.0, 1.0);
+        // Set up texture
+        statusTexture = [[Texture2D alloc]
+                         initWithString:string
+                         dimensions:CGSizeMake(width, height)
+                         alignment: UITextAlignmentLeft
+                         fontName:@"Helvetica-Bold"
+                         fontSize:font_size
+                         withBox:box_flag
+                         color:[UIColor whiteColor].CGColor];
     }
-
-    glEnable(GL_TEXTURE_2D);
-    // Set up texture
-    Texture2D* statusTexture = [[Texture2D alloc]
-                                initWithString:string
-                                dimensions:CGSizeMake(width, height)
-                                alignment: UITextAlignmentLeft
-                                fontName:@"Helvetica-Bold"
-                                fontSize:font_size
-                                withBox:box_flag];
     
     // Bind texture
     glBindTexture(GL_TEXTURE_2D, [statusTexture name]);
@@ -123,9 +134,9 @@ void compassRender::drawiOSText(NSString *string, int font_size,
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-//        glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
-
+    
+    //        glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
+    
     // Draw
     [statusTexture drawInRect:CGRectMake(0, 0, width, height)];
     
@@ -137,7 +148,6 @@ void compassRender::drawiOSText(NSString *string, int font_size,
 }
 
 #endif
-
 
 
 

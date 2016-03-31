@@ -61,7 +61,7 @@
                                              abs((double) cached_longitude - self.gmap.camera.target.latitude) > epsilonG ||
                                              abs((double) cached_bearing - self.gmap.camera.bearing) > epsilonG ||
                                              abs((double) cached_viewingAngle - self.gmap.camera.viewingAngle)) > epsilonG) {
-//        [self updateAMapBasedOnGMap];
+       [self updateAMapBasedOnGMap];
     }
     //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
 }

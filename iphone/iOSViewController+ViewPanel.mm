@@ -195,7 +195,7 @@
         self.mapView.mapType = MKMapTypeHybrid;
     }else if ([label isEqualToString:@"Satellite"]){
         [self toggleBlankMapMode:NO];
-        self.mapView.mapType = MKMapTypeSatellite;
+        self.mapView.mapType = MKMapTypeSatelliteFlyover;
     }
     [self.glkView setNeedsDisplay];
 }

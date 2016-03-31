@@ -35,12 +35,6 @@
     [toolbar_items addObject:flexItem];
 #endif
     
-    UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
-                               initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
-                               target:self
-                               action:@selector(segueToTabController:)];
-    [toolbar_items addObject:anItem];
-    
     //--------------
     // Add buttons
     //--------------
@@ -62,7 +56,11 @@
         [toolbar_items addObject:anItem];
     }
     
-
+    UIBarButtonItem *anItem = [[UIBarButtonItem alloc]
+                               initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
+                               target:self
+                               action:@selector(segueToTabController:)];
+    [toolbar_items addObject:anItem];
     
     //--------------
     // Set toolboar style
@@ -273,4 +271,21 @@
 - (void)segueToTabController:(id)sender{
     [self performSegueWithIdentifier:@"Go2TabBarController" sender:nil];
 }
+
+- (IBAction)pushSettingView:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    UIViewController *destinationController = (UIViewController *)[sb instantiateViewControllerWithIdentifier:@"settingVC"];
+    
+    CATransition* transition = [CATransition animation];
+    transition.duration = .25;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromLeft;
+    
+    [self.navigationController.view.layer addAnimation:transition
+                                                forKey:kCATransition];
+    
+    [self.navigationController pushViewController:destinationController animated:NO];
+}
+
 @end

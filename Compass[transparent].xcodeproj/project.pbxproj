@@ -787,6 +787,8 @@
 		9A75720D197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */; };
 		9A75720E197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */; };
 		9A75720F197EA96C00C23AEE /* compassModel+AnalysisTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */; };
+		9A7C547C1CACB98A008D682C /* settingTBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C547B1CACB98A008D682C /* settingTBVC.m */; };
+		9A7C547D1CACB98A008D682C /* settingTBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C547B1CACB98A008D682C /* settingTBVC.m */; };
 		9A8284DF1A4A32A2000ED4AA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8284DE1A4A32A2000ED4AA /* WebKit.framework */; };
 		9A82B6311941518900534A5F /* xmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF523B218DC83BF005823A2 /* xmlParser.mm */; };
 		9A82B6321941518900534A5F /* compassModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA580618D9EC440028B80C /* compassModel.mm */; };
@@ -1613,6 +1615,8 @@
 		9A757156197D804100C23AEE /* historyParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historyParser.h; sourceTree = "<group>"; };
 		9A757157197D804100C23AEE /* historyParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = historyParser.mm; sourceTree = "<group>"; };
 		9A757209197EA96C00C23AEE /* compassModel+AnalysisTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "compassModel+AnalysisTools.mm"; sourceTree = "<group>"; };
+		9A7C547B1CACB98A008D682C /* settingTBVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingTBVC.m; sourceTree = "<group>"; };
+		9A7C547E1CACB9C5008D682C /* settingTBVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingTBVC.h; sourceTree = "<group>"; };
 		9A8284DE1A4A32A2000ED4AA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9A82B64F1941518900534A5F /* pcompass-ipad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pcompass-ipad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A82B6501941518A00534A5F /* iphone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iphone copy-Info.plist"; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/iphone copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -2394,6 +2398,8 @@
 			children = (
 				9A95CCB1194B4146008E520F /* iOSSettingViewController.h */,
 				9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */,
+				9A7C547B1CACB98A008D682C /* settingTBVC.m */,
+				9A7C547E1CACB9C5008D682C /* settingTBVC.h */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -3602,6 +3608,7 @@
 				9A037609198DA31900258E95 /* b2CircleContact.cpp in Sources */,
 				9A259D60199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
 				9A75715C197D804100C23AEE /* historyParser.mm in Sources */,
+				9A7C547C1CACB98A008D682C /* settingTBVC.m in Sources */,
 				9AB90B98194F383A0030BF5B /* compassRender+Bimodal.mm in Sources */,
 				9AC314301A840E640091BC88 /* iOSViewController+MapView.mm in Sources */,
 				9AE2FC7819AE43810015E2B6 /* SRWebSocket.m in Sources */,
@@ -3732,6 +3739,7 @@
 				9AAC65E81A8BA8EA00B9BF2E /* iOSViewController+DemoToolbar.mm in Sources */,
 				9A037592198DA31800258E95 /* b2DynamicTree.cpp in Sources */,
 				9A03764C198DA31900258E95 /* b2MotorJoint.cpp in Sources */,
+				9A7C547D1CACB98A008D682C /* settingTBVC.m in Sources */,
 				9AC314311A840E640091BC88 /* iOSViewController+MapView.mm in Sources */,
 				9AE6104C1A6EF3BD00175A79 /* TestManager.mm in Sources */,
 				9A8934F81A8BAF5900BCE84C /* iOSTestManagerViewController.mm in Sources */,
@@ -4453,7 +4461,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hong.pcompass;
 				PRODUCT_NAME = pcompass;
@@ -4488,7 +4496,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hong.pcompass;
 				PRODUCT_NAME = pcompass;

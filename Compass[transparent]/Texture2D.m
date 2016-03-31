@@ -32,50 +32,50 @@
 
 - (id) initWithData:(const void*)data pixelFormat:(Texture2DPixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSize:(CGSize)size
 {
-	GLint					saveName;
-	if((self = [super init])) {
-		glGenTextures(1, &_name);
-		glGetIntegerv(GL_TEXTURE_BINDING_2D, &saveName);
-		glBindTexture(GL_TEXTURE_2D, _name);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		switch(pixelFormat) {
+    GLint					saveName;
+    if((self = [super init])) {
+        glGenTextures(1, &_name);
+        glGetIntegerv(GL_TEXTURE_BINDING_2D, &saveName);
+        glBindTexture(GL_TEXTURE_2D, _name);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        switch(pixelFormat) {
                 
-			case kTexture2DPixelFormat_RGBA8888:
-				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-				break;
-			case kTexture2DPixelFormat_RGB565:
-				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, data);
-				break;
-			case kTexture2DPixelFormat_A8:
-				glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, width, height, 0, GL_ALPHA, GL_UNSIGNED_BYTE, data);
-				break;
-			default:
-				[NSException raise:NSInternalInconsistencyException format:@""];
+            case kTexture2DPixelFormat_RGBA8888:
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+                break;
+            case kTexture2DPixelFormat_RGB565:
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, data);
+                break;
+            case kTexture2DPixelFormat_A8:
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, width, height, 0, GL_ALPHA, GL_UNSIGNED_BYTE, data);
+                break;
+            default:
+                [NSException raise:NSInternalInconsistencyException format:@""];
                 
-		}
-		glBindTexture(GL_TEXTURE_2D, saveName);
+        }
+        glBindTexture(GL_TEXTURE_2D, saveName);
         
-		_size = size;
-		_width = width;
-		_height = height;
-		_format = pixelFormat;
-		_maxS = size.width / (float)width;
-		_maxT = size.height / (float)height;
-	}
-	return self;
+        _size = size;
+        _width = width;
+        _height = height;
+        _format = pixelFormat;
+        _maxS = size.width / (float)width;
+        _maxT = size.height / (float)height;
+    }
+    return self;
 }
 
 - (void) dealloc
 {
-	if(_name)
+    if(_name)
         glDeleteTextures(1, &_name);
-	
-//	[super dealloc];
+    
+    //	[super dealloc];
 }
 
 - (NSString*) description
 {
-	return [NSString stringWithFormat:@"<%@ = %08X | Name = %i | Dimensions = %ix%i | Coordinates = (%.2f, %.2f)>", [self class], self, _name, _width, _height, _maxS, _maxT];
+    return [NSString stringWithFormat:@"<%@ = %08X | Name = %i | Dimensions = %ix%i | Coordinates = (%.2f, %.2f)>", [self class], self, _name, _width, _height, _maxS, _maxT];
 }
 
 @end
@@ -84,118 +84,118 @@
 
 - (id) initWithImage:(UIImage *)uiImage
 {
-	NSUInteger				width,
+    NSUInteger				width,
     height,
     i;
-	CGContextRef			context = nil;
-	void*					data = nil;;
-	CGColorSpaceRef			colorSpace;
-	void*					tempData;
-	unsigned int*			inPixel32;
-	unsigned short*			outPixel16;
-	BOOL					hasAlpha;
-	CGImageAlphaInfo		info;
-	CGAffineTransform		transform;
-	CGSize					imageSize;
-	Texture2DPixelFormat    pixelFormat;
-	CGImageRef				image;
-	UIImageOrientation		orientation;
-	BOOL					sizeToFit = NO;
-	
-	
-	image = [uiImage CGImage];
-	orientation = [uiImage imageOrientation];
-	
-	if(image == NULL) {
-//		[self release];
-		NSLog(@"Image is Null");
-		return nil;
-	}
-	
-    
-	info = CGImageGetAlphaInfo(image);
-	hasAlpha = ((info == kCGImageAlphaPremultipliedLast) || (info == kCGImageAlphaPremultipliedFirst) || (info == kCGImageAlphaLast) || (info == kCGImageAlphaFirst) ? YES : NO);
-	if(CGImageGetColorSpace(image)) {
-		if(hasAlpha)
-			pixelFormat = kTexture2DPixelFormat_RGBA8888;
-		else
-			pixelFormat = kTexture2DPixelFormat_RGB565;
-	} else  //NOTE: No colorspace means a mask image
-		pixelFormat = kTexture2DPixelFormat_A8;
-	
-	
-	imageSize = CGSizeMake(CGImageGetWidth(image), CGImageGetHeight(image));
-	transform = CGAffineTransformIdentity;
-    
-	width = imageSize.width;
-	
-	if((width != 1) && (width & (width - 1))) {
-		i = 1;
-		while((sizeToFit ? 2 * i : i) < width)
-			i *= 2;
-		width = i;
-	}
-	height = imageSize.height;
-	if((height != 1) && (height & (height - 1))) {
-		i = 1;
-		while((sizeToFit ? 2 * i : i) < height)
-			i *= 2;
-		height = i;
-	}
-	while((width > kMaxTextureSize) || (height > kMaxTextureSize)) {
-		width /= 2;
-		height /= 2;
-		transform = CGAffineTransformScale(transform, 0.5, 0.5);
-		imageSize.width *= 0.5;
-		imageSize.height *= 0.5;
-	}
-	
-	switch(pixelFormat) {
-		case kTexture2DPixelFormat_RGBA8888:
-			colorSpace = CGColorSpaceCreateDeviceRGB();
-			data = malloc(height * width * 4);
-			context = CGBitmapContextCreate(data, width, height, 8, 4 * width, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-			CGColorSpaceRelease(colorSpace);
-			break;
-		case kTexture2DPixelFormat_RGB565:
-			colorSpace = CGColorSpaceCreateDeviceRGB();
-			data = malloc(height * width * 4);
-			context = CGBitmapContextCreate(data, width, height, 8, 4 * width, colorSpace, kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big);
-			CGColorSpaceRelease(colorSpace);
-			break;
-			
-		case kTexture2DPixelFormat_A8:
-			data = malloc(height * width);
-			context = CGBitmapContextCreate(data, width, height, 8, width, NULL, kCGImageAlphaOnly);
-			break;
-		default:
-			[NSException raise:NSInternalInconsistencyException format:@"Invalid pixel format"];
-	}
+    CGContextRef			context = nil;
+    void*					data = nil;;
+    CGColorSpaceRef			colorSpace;
+    void*					tempData;
+    unsigned int*			inPixel32;
+    unsigned short*			outPixel16;
+    BOOL					hasAlpha;
+    CGImageAlphaInfo		info;
+    CGAffineTransform		transform;
+    CGSize					imageSize;
+    Texture2DPixelFormat    pixelFormat;
+    CGImageRef				image;
+    UIImageOrientation		orientation;
+    BOOL					sizeToFit = NO;
     
     
-	CGContextClearRect(context, CGRectMake(0, 0, width, height));
-	CGContextTranslateCTM(context, 0, height - imageSize.height);
-	
-	if(!CGAffineTransformIsIdentity(transform))
-		CGContextConcatCTM(context, transform);
-	CGContextDrawImage(context, CGRectMake(0, 0, CGImageGetWidth(image), CGImageGetHeight(image)), image);
-	//Convert "RRRRRRRRRGGGGGGGGBBBBBBBBAAAAAAAA" to "RRRRRGGGGGGBBBBB"
-	if(pixelFormat == kTexture2DPixelFormat_RGB565) {
-		tempData = malloc(height * width * 2);
-		inPixel32 = (unsigned int*)data;
-		outPixel16 = (unsigned short*)tempData;
-		for(i = 0; i < width * height; ++i, ++inPixel32)
-			*outPixel16++ = ((((*inPixel32 >> 0) & 0xFF) >> 3) << 11) | ((((*inPixel32 >> 8) & 0xFF) >> 2) << 5) | ((((*inPixel32 >> 16) & 0xFF) >> 3) << 0);
-		free(data);
-		data = tempData;
-		
-	}
-	self = [self initWithData:data pixelFormat:pixelFormat pixelsWide:width pixelsHigh:height contentSize:imageSize];
-	
-	CGContextRelease(context);
-	free(data);
-	
-	return self;
+    image = [uiImage CGImage];
+    orientation = [uiImage imageOrientation];
+    
+    if(image == NULL) {
+        //		[self release];
+        NSLog(@"Image is Null");
+        return nil;
+    }
+    
+    
+    info = CGImageGetAlphaInfo(image);
+    hasAlpha = ((info == kCGImageAlphaPremultipliedLast) || (info == kCGImageAlphaPremultipliedFirst) || (info == kCGImageAlphaLast) || (info == kCGImageAlphaFirst) ? YES : NO);
+    if(CGImageGetColorSpace(image)) {
+        if(hasAlpha)
+            pixelFormat = kTexture2DPixelFormat_RGBA8888;
+        else
+            pixelFormat = kTexture2DPixelFormat_RGB565;
+    } else  //NOTE: No colorspace means a mask image
+        pixelFormat = kTexture2DPixelFormat_A8;
+    
+    
+    imageSize = CGSizeMake(CGImageGetWidth(image), CGImageGetHeight(image));
+    transform = CGAffineTransformIdentity;
+    
+    width = imageSize.width;
+    
+    if((width != 1) && (width & (width - 1))) {
+        i = 1;
+        while((sizeToFit ? 2 * i : i) < width)
+            i *= 2;
+        width = i;
+    }
+    height = imageSize.height;
+    if((height != 1) && (height & (height - 1))) {
+        i = 1;
+        while((sizeToFit ? 2 * i : i) < height)
+            i *= 2;
+        height = i;
+    }
+    while((width > kMaxTextureSize) || (height > kMaxTextureSize)) {
+        width /= 2;
+        height /= 2;
+        transform = CGAffineTransformScale(transform, 0.5, 0.5);
+        imageSize.width *= 0.5;
+        imageSize.height *= 0.5;
+    }
+    
+    switch(pixelFormat) {
+        case kTexture2DPixelFormat_RGBA8888:
+            colorSpace = CGColorSpaceCreateDeviceRGB();
+            data = malloc(height * width * 4);
+            context = CGBitmapContextCreate(data, width, height, 8, 4 * width, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+            CGColorSpaceRelease(colorSpace);
+            break;
+        case kTexture2DPixelFormat_RGB565:
+            colorSpace = CGColorSpaceCreateDeviceRGB();
+            data = malloc(height * width * 4);
+            context = CGBitmapContextCreate(data, width, height, 8, 4 * width, colorSpace, kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big);
+            CGColorSpaceRelease(colorSpace);
+            break;
+            
+        case kTexture2DPixelFormat_A8:
+            data = malloc(height * width);
+            context = CGBitmapContextCreate(data, width, height, 8, width, NULL, kCGImageAlphaOnly);
+            break;
+        default:
+            [NSException raise:NSInternalInconsistencyException format:@"Invalid pixel format"];
+    }
+    
+    
+    CGContextClearRect(context, CGRectMake(0, 0, width, height));
+    CGContextTranslateCTM(context, 0, height - imageSize.height);
+    
+    if(!CGAffineTransformIsIdentity(transform))
+        CGContextConcatCTM(context, transform);
+    CGContextDrawImage(context, CGRectMake(0, 0, CGImageGetWidth(image), CGImageGetHeight(image)), image);
+    //Convert "RRRRRRRRRGGGGGGGGBBBBBBBBAAAAAAAA" to "RRRRRGGGGGGBBBBB"
+    if(pixelFormat == kTexture2DPixelFormat_RGB565) {
+        tempData = malloc(height * width * 2);
+        inPixel32 = (unsigned int*)data;
+        outPixel16 = (unsigned short*)tempData;
+        for(i = 0; i < width * height; ++i, ++inPixel32)
+            *outPixel16++ = ((((*inPixel32 >> 0) & 0xFF) >> 3) << 11) | ((((*inPixel32 >> 8) & 0xFF) >> 2) << 5) | ((((*inPixel32 >> 16) & 0xFF) >> 3) << 0);
+        free(data);
+        data = tempData;
+        
+    }
+    self = [self initWithData:data pixelFormat:pixelFormat pixelsWide:width pixelsHigh:height contentSize:imageSize];
+    
+    CGContextRelease(context);
+    free(data);
+    
+    return self;
 }
 
 @end
@@ -208,49 +208,49 @@
 
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size withBox:(bool)box_flag
 {
-	NSUInteger				width,
+    NSUInteger				width,
     height,
     i;
-	CGContextRef			context;
-	void*					data;
-	CGColorSpaceRef			colorSpace;
-	UIFont *				font;
-	
-	font = [UIFont fontWithName:name size:size];
-	
-	width = dimensions.width;
-	if((width != 1) && (width & (width - 1))) {
-		i = 1;
-		while(i < width)
+    CGContextRef			context;
+    void*					data;
+    CGColorSpaceRef			colorSpace;
+    UIFont *				font;
+    
+    font = [UIFont fontWithName:name size:size];
+    
+    width = dimensions.width;
+    if((width != 1) && (width & (width - 1))) {
+        i = 1;
+        while(i < width)
             i *= 2;
-		width = i;
-	}
-	height = dimensions.height;
-	if((height != 1) && (height & (height - 1))) {
-		i = 1;
-		while(i < height)
+        width = i;
+    }
+    height = dimensions.height;
+    if((height != 1) && (height & (height - 1))) {
+        i = 1;
+        while(i < height)
             i *= 2;
-		height = i;
-	}
-	
-	colorSpace = CGColorSpaceCreateDeviceGray();
-	data = calloc(height, width);
-	context = CGBitmapContextCreate(data, width, height, 8, width, colorSpace,
+        height = i;
+    }
+    
+    colorSpace = CGColorSpaceCreateDeviceGray();
+    data = calloc(height, width);
+    context = CGBitmapContextCreate(data, width, height, 8, width, colorSpace,
                                     kCGImageAlphaNone);
     
-
-	CGColorSpaceRelease(colorSpace);
-	CGContextSetGrayFillColor(context, 1.0, 1.0);
-
     
-	CGContextTranslateCTM(context, 0.0, height);
-	CGContextScaleCTM(context, 1.0, -1.0); //NOTE: NSString draws in UIKit referential i.e. renders upside-down compared to CGBitmapContext referential
+    CGColorSpaceRelease(colorSpace);
+    CGContextSetGrayFillColor(context, 1.0, 1.0);
     
-//    CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),
-//                                  [UIColor whiteColor].CGColor);
     
-	UIGraphicsPushContext(context);
-        
+    CGContextTranslateCTM(context, 0.0, height);
+    CGContextScaleCTM(context, 1.0, -1.0); //NOTE: NSString draws in UIKit referential i.e. renders upside-down compared to CGBitmapContext referential
+    
+    //    CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),
+    //                                  [UIColor whiteColor].CGColor);
+    
+    UIGraphicsPushContext(context);
+    
     if (box_flag){
         CGContextSetGrayFillColor(context, 0.4, 1);
         CGRect drawRect = CGRectMake(0, 0,width, height);
@@ -264,56 +264,57 @@
         //	CGContextSetGrayFillColor(context, 0, 1);
         //    [string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:alignment];
         //
-        //    
-        //    
-        //    
+        //
+        //
+        //
         CGContextSetGrayFillColor(context, 1, 1);
     }
-//    CGContextSetTextDrawingMode(context, kCGTextFill);
+    //    CGContextSetTextDrawingMode(context, kCGTextFill);
     [string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:alignment];
     
-
-	UIGraphicsPopContext();
-	
-	self = [self initWithData:data pixelFormat:kTexture2DPixelFormat_A8 pixelsWide:width pixelsHigh:height contentSize:dimensions];	
     
-	CGContextRelease(context);
-	free(data);
-	
-	return self;
+    UIGraphicsPopContext();
+    
+    self = [self initWithData:data pixelFormat:kTexture2DPixelFormat_A8 pixelsWide:width pixelsHigh:height contentSize:dimensions];
+    
+    CGContextRelease(context);
+    free(data);
+    
+    return self;
 }
 
 //-------------------
 // Color Text
 //-------------------
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size
+              withBox:(bool)box_flag
                 color:(CGColorRef)colorref
 {
-	NSUInteger				width,
+    NSUInteger				width,
     height,
     i;
-	CGContextRef			context;
-	void*					data;
-	CGColorSpaceRef			colorSpace;
-	UIFont *				font;
-	
-	font = [UIFont fontWithName:name size:size];
-	
-	width = dimensions.width;
-	if((width != 1) && (width & (width - 1))) {
-		i = 1;
-		while(i < width)
+    CGContextRef			context;
+    void*					data;
+    CGColorSpaceRef			colorSpace;
+    UIFont *				font;
+    
+    font = [UIFont fontWithName:name size:size];
+    
+    width = dimensions.width;
+    if((width != 1) && (width & (width - 1))) {
+        i = 1;
+        while(i < width)
             i *= 2;
-		width = i;
-	}
-	height = dimensions.height;
-	if((height != 1) && (height & (height - 1))) {
-		i = 1;
-		while(i < height)
+        width = i;
+    }
+    height = dimensions.height;
+    if((height != 1) && (height & (height - 1))) {
+        i = 1;
+        while(i < height)
             i *= 2;
-		height = i;
-	}
-	
+        height = i;
+    }
+    
     //	colorSpace = CGColorSpaceCreateDeviceGray();
     //	data = calloc(height, width);
     //	context = CGBitmapContextCreate(data, width, height, 8, width, colorSpace, kCGImageAlphaNone);
@@ -322,22 +323,31 @@
     
     colorSpace = CGColorSpaceCreateDeviceRGB();
     data = calloc(height, width*4);
-	context = CGBitmapContextCreate(data, width, height, 8, width*4, colorSpace, kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big);
-	CGColorSpaceRelease(colorSpace);
+    context = CGBitmapContextCreate(data, width, height, 8, width*4, colorSpace, kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big);
+    CGColorSpaceRelease(colorSpace);
     //    CGContextSetRGBFillColor(context, 1, 0, 0, 1);
     
-	CGContextTranslateCTM(context, 0.0, height);
-	CGContextScaleCTM(context, 1.0, -1.0); //NOTE: NSString draws in UIKit referential i.e. renders upside-down compared to CGBitmapContext referential
-	UIGraphicsPushContext(context);
+    CGContextTranslateCTM(context, 0.0, height);
+    CGContextScaleCTM(context, 1.0, -1.0); //NOTE: NSString draws in UIKit referential i.e. renders upside-down compared to CGBitmapContext referential
+    UIGraphicsPushContext(context);
     //    [string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:alignment];
     
+    
+    // Draw a box
+    if (box_flag){
+        CGContextSetGrayFillColor(context, 0.4, 0.8);
+        CGRect drawRect = CGRectMake(0, 0,width, height);
+        CGContextFillRect(context, drawRect);
+        
+        CGContextSetGrayFillColor(context, 0.0, 0.0);
+    }
     
     // Draw outlined text.
     CGContextSetTextDrawingMode(context, kCGTextFillStroke);
     // Make the thickness of the outline a function of the font size in use.
-    CGContextSetLineWidth(context, 2);
+    CGContextSetLineWidth(context, 5);
+    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     
-    //    CGContextSetStrokeColorWithColor(context, [[UIColor redColor] CGColor]);
     [string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:alignment];
     
     // Draw filled text.  This will make sure it's clearly readable, while leaving some outline behind it.
@@ -347,17 +357,17 @@
     
     
     
-	UIGraphicsPopContext();
-	
+    UIGraphicsPopContext();
+    
     //	self = [self initWithData:data pixelFormat:kTexture2DPixelFormat_A8 pixelsWide:width pixelsHigh:height contentSize:dimensions];
     
-	self = [self initWithData:data pixelFormat:kTexture2DPixelFormat_RGBA8888 pixelsWide:width pixelsHigh:height contentSize:dimensions];
-	
+    self = [self initWithData:data pixelFormat:kTexture2DPixelFormat_RGBA8888 pixelsWide:width pixelsHigh:height contentSize:dimensions];
     
-	CGContextRelease(context);
-	free(data);
-	
-	return self;
+    
+    CGContextRelease(context);
+    free(data);
+    
+    return self;
 }
 @end
 
@@ -367,39 +377,39 @@
 
 - (void) drawAtPoint:(CGPoint)point
 {
-	GLfloat		coordinates[] = { 0,	_maxT,
+    GLfloat		coordinates[] = { 0,	_maxT,
         _maxS,	_maxT,
         0,		0,
         _maxS,	0 };
-	GLfloat		width = (GLfloat)_width * _maxS,
+    GLfloat		width = (GLfloat)_width * _maxS,
     height = (GLfloat)_height * _maxT;
-	GLfloat		vertices[] = {	-width / 2 + point.x,	-height / 2 + point.y,	0.0,
+    GLfloat		vertices[] = {	-width / 2 + point.x,	-height / 2 + point.y,	0.0,
         width / 2 + point.x,	-height / 2 + point.y,	0.0,
         -width / 2 + point.x,	height / 2 + point.y,	0.0,
         width / 2 + point.x,	height / 2 + point.y,	0.0 };
-	
-	glBindTexture(GL_TEXTURE_2D, _name);
-	glVertexPointer(3, GL_FLOAT, 0, vertices);
-	glTexCoordPointer(2, GL_FLOAT, 0, coordinates);
-	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    
+    glBindTexture(GL_TEXTURE_2D, _name);
+    glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glTexCoordPointer(2, GL_FLOAT, 0, coordinates);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
 
 - (void) drawInRect:(CGRect)rect
 {
-	GLfloat	 coordinates[] = {  0,		_maxT,
+    GLfloat	 coordinates[] = {  0,		_maxT,
         _maxS,	_maxT,
         0,		0,
         _maxS,	0  };
-	GLfloat	vertices[] = {	rect.origin.x,							rect.origin.y,							0.0,
+    GLfloat	vertices[] = {	rect.origin.x,							rect.origin.y,							0.0,
         rect.origin.x + rect.size.width,		rect.origin.y,							0.0,
         rect.origin.x,							rect.origin.y + rect.size.height,		0.0,
         rect.origin.x + rect.size.width,		rect.origin.y + rect.size.height,		0.0 };
-	
-	glBindTexture(GL_TEXTURE_2D, _name);
-	glVertexPointer(3, GL_FLOAT, 0, vertices);
-	glTexCoordPointer(2, GL_FLOAT, 0, coordinates);
-	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    
+    glBindTexture(GL_TEXTURE_2D, _name);
+    glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glTexCoordPointer(2, GL_FLOAT, 0, coordinates);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
 @end
