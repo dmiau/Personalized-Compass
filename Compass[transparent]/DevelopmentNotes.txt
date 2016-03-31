@@ -14,7 +14,7 @@ temp.rootViewController = self;
 =====================
 Map Orientation
 =====================
-
+Camera heading increaes its angle in the counter-clockwise direction.
 
 
 =====================

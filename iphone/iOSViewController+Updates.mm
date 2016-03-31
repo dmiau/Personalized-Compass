@@ -92,7 +92,7 @@
                       longitude: compassCtrCoord.longitude
                         heading: [self calculateCameraHeading]
                            tilt: -self.mapView.camera.pitch];
-        NSLog(@"camera heading: %g", self.mapView.camera.heading);
+//        NSLog(@"camera heading: %g", self.mapView.camera.heading);
         
 //        //---------------------------
 //        // debug the camera heading issue

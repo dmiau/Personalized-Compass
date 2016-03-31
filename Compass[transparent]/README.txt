@@ -4267,7 +4267,20 @@ calculateCameraHeading
 2016-03-31 11:28:49.172 pcompass[3206:2040367] computeted degree: 130.886
 2016-03-31 11:28:49.222 pcompass[3206:2040367] camera heading: 310.555
 
+-------------------------------------------------------------------
+3.31.3016
+-------------------------------------------------------------------
 12:05PM. The orientation issue is tough!
+1:13PM. It is good that I put some time into polish the demo software.
+2:46PM. Made a bit progress about the demo.
+
+
+
+
+
+
+
+
 
 
 

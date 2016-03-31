@@ -925,13 +925,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6fH-EG-ulz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Landmarks + Snapshots" id="kdQ-Ew-4jD">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="GVv-fb-aW2">
-                            <connections>
-                                <segue destination="g2Y-3e-LXh" kind="push" id="WDh-6L-UAq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Landmarks + Snapshots" id="kdQ-Ew-4jD"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="TzB-Ak-cRl">
                         <autoresizingMask key="autoresizingMask"/>
@@ -968,25 +962,24 @@
                                     <segment title="Bundle"/>
                                 </segments>
                                 <connections>
-                                    <action selector="toggleDataSource:" destination="imS-XC-ZOT" eventType="valueChanged" id="nVS-Su-sPW"/>
-                                    <action selector="toggleDataSource:" destination="9xM-YS-8bl" eventType="valueChanged" id="qgP-Lk-Rmr"/>
+                                    <action selector="toggleDataSource:" destination="imS-XC-ZOT" eventType="valueChanged" id="Akt-ih-pz6"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rJ-CI-utn">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rJ-CI-utn">
                                 <rect key="frame" x="119" y="312" width="95" height="30"/>
                                 <state key="normal" title="Clear Data"/>
                                 <connections>
                                     <action selector="clearCoreData:" destination="imS-XC-ZOT" eventType="touchUpInside" id="McH-46-WbF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzc-e1-zt2">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzc-e1-zt2">
                                 <rect key="frame" x="136" y="355" width="61" height="30"/>
                                 <state key="normal" title="Import"/>
                                 <connections>
                                     <action selector="importData:" destination="imS-XC-ZOT" eventType="touchUpInside" id="ZcZ-y5-m7Y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGH-BE-5Fw">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGH-BE-5Fw">
                                 <rect key="frame" x="136" y="399" width="61" height="30"/>
                                 <state key="normal" title="Export"/>
                                 <connections>
@@ -1005,17 +998,26 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcC-cH-xla">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcC-cH-xla">
                                 <rect key="frame" x="77" y="444" width="190" height="30"/>
                                 <state key="normal" title="Reset to Factory Default"/>
                                 <connections>
                                     <action selector="resetData:" destination="imS-XC-ZOT" eventType="touchUpInside" id="Cmw-hK-8T0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLP-BP-QjU">
+                                <rect key="frame" x="59" y="226" width="215" height="24"/>
+                                <state key="normal" title="Configuraitons Refresh">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Configuration" image="setup.png" id="D34-lY-6De"/>
+                    <connections>
+                        <outlet property="dataSource" destination="yWd-nX-vqB" id="eda-wx-IOq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlD-DU-Kfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1115,12 +1117,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zvj-5t-Cip">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zvj-5t-Cip">
                                 <rect key="frame" x="0.0" y="195" width="320" height="324"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="myTableCell" textLabel="fUF-YJ-NOI" detailTextLabel="zb4-FV-Rbi" style="IBUITableViewCellStyleSubtitle" id="fPh-Rv-txS">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fPh-Rv-txS" id="C64-nh-CJC">
                                             <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
@@ -1155,7 +1157,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b0t-3h-xik">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b0t-3h-xik">
                                 <rect key="frame" x="111" y="72" width="51" height="31"/>
                                 <connections>
                                     <action selector="toggleStudyMode:" destination="avv-ds-Vn2" eventType="valueChanged" id="twX-gp-Woy"/>

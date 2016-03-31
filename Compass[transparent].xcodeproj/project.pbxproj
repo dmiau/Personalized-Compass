@@ -345,6 +345,8 @@
 		9A03767A198DA31900258E95 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A03755B198DA31800258E95 /* b2Rope.cpp */; };
 		9A03767B198DA31900258E95 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A03755B198DA31800258E95 /* b2Rope.cpp */; };
 		9A03767C198DA31900258E95 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A03755B198DA31800258E95 /* b2Rope.cpp */; };
+		9A0B06C31CAD9F3E00B38809 /* CoreDataViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B06C21CAD9F3E00B38809 /* CoreDataViewController.mm */; };
+		9A0B06C41CAD9F3E00B38809 /* CoreDataViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B06C21CAD9F3E00B38809 /* CoreDataViewController.mm */; };
 		9A1632A91AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
 		9A1632AA1AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
 		9A1632AB1AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
@@ -1428,6 +1430,8 @@
 		9A03755B198DA31800258E95 /* b2Rope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Rope.cpp; sourceTree = "<group>"; };
 		9A03755C198DA31800258E95 /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
 		9A0A14EA1907584600C89634 /* styleOtsu.bk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = styleOtsu.bk; sourceTree = "<group>"; };
+		9A0B06C11CAD9F3E00B38809 /* CoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataViewController.h; sourceTree = "<group>"; };
+		9A0B06C21CAD9F3E00B38809 /* CoreDataViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CoreDataViewController.mm; sourceTree = "<group>"; };
 		9A1632A81AB6049000F07E45 /* redDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redDot.png; sourceTree = "<group>"; };
 		9A1632AF1AB619D200F07E45 /* blueDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueDot.png; sourceTree = "<group>"; };
 		9A176DA419A437A20032DE3F /* DesktopViewController+Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Settings.h"; sourceTree = "<group>"; };
@@ -2396,6 +2400,8 @@
 		9A480894198BE7DB0001E188 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				9A0B06C11CAD9F3E00B38809 /* CoreDataViewController.h */,
+				9A0B06C21CAD9F3E00B38809 /* CoreDataViewController.mm */,
 				9A95CCB1194B4146008E520F /* iOSSettingViewController.h */,
 				9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */,
 				9A7C547B1CACB98A008D682C /* settingTBVC.m */,
@@ -3540,6 +3546,7 @@
 				9A376AF91A912D7000A8D0AA /* TestManager-Record.mm in Sources */,
 				9A0375D9198DA31900258E95 /* b2Body.cpp in Sources */,
 				9A0375AF198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
+				9A0B06C31CAD9F3E00B38809 /* CoreDataViewController.mm in Sources */,
 				9A0375CD198DA31900258E95 /* b2StackAllocator.cpp in Sources */,
 				9A3DA0A81964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A8B1DE41AB4914E00719BBE /* TestManager-Tools.mm in Sources */,
@@ -3775,6 +3782,7 @@
 				9A0375E6198DA31900258E95 /* b2Fixture.cpp in Sources */,
 				9A5F320C1A76968B003B0426 /* TestManager-TestVector.mm in Sources */,
 				9A037646198DA31900258E95 /* b2Joint.cpp in Sources */,
+				9A0B06C41CAD9F3E00B38809 /* CoreDataViewController.mm in Sources */,
 				9A037628198DA31900258E95 /* b2PolygonAndCircleContact.cpp in Sources */,
 				9A3DA0A91964F5E3009E0073 /* genKMLString.mm in Sources */,
 				9A259D61199AF8A300FDDD7F /* Wedge+Ortho.mm in Sources */,
