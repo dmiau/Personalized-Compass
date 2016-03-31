@@ -26,43 +26,43 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [GMSServices provideAPIKey:@"AIzaSyDdOmlH3SRnitZxFkhlQz7W81ERDShHXMk"];
+    [GMSServices provideAPIKey:@"AIzaSyBpDXnDNJBMBXkFwhbTL3zDJeEAVvPq0x0"];
     
     NSManagedObjectContext *context = [self managedObjectContext];
     
     [self deleteAllObjects:@"Place" in:context];
-    Place *p1 = [NSEntityDescription
-                 insertNewObjectForEntityForName:@"Place"
-                 inManagedObjectContext:context];
-    
-    p1.name = @"Time Square";
-    p1.lon = [NSNumber numberWithDouble:-73.9855];
-    p1.lat = [NSNumber numberWithDouble:40.7579];
-    p1.area = @"New York";
-    
-    Place *p2 = [NSEntityDescription
-                 insertNewObjectForEntityForName:@"Place"
-                 inManagedObjectContext:context];
-    
-    p2.name = @"United Nations";
-    p2.lon = [NSNumber numberWithDouble:-73.967729];
-    p2.lat = [NSNumber numberWithDouble:40.748961];
-    p2.area = @"New York";
-    
-    Place *p3 = [NSEntityDescription
-                 insertNewObjectForEntityForName:@"Place"
-                 inManagedObjectContext:context];
-    
-    p3.name = @"Newark Liberty International Airport";
-    p3.lon = [NSNumber numberWithDouble:-74.1745];
-    p3.lat = [NSNumber numberWithDouble:40.6895];
-    p3.area = @"New Jersey";
-    
-    
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
-    }
+//    Place *p1 = [NSEntityDescription
+//                 insertNewObjectForEntityForName:@"Place"
+//                 inManagedObjectContext:context];
+//    
+//    p1.name = @"Time Square";
+//    p1.lon = [NSNumber numberWithDouble:-73.9855];
+//    p1.lat = [NSNumber numberWithDouble:40.7579];
+//    p1.area = @"New York";
+//    
+//    Place *p2 = [NSEntityDescription
+//                 insertNewObjectForEntityForName:@"Place"
+//                 inManagedObjectContext:context];
+//    
+//    p2.name = @"United Nations";
+//    p2.lon = [NSNumber numberWithDouble:-73.967729];
+//    p2.lat = [NSNumber numberWithDouble:40.748961];
+//    p2.area = @"New York";
+//    
+//    Place *p3 = [NSEntityDescription
+//                 insertNewObjectForEntityForName:@"Place"
+//                 inManagedObjectContext:context];
+//    
+//    p3.name = @"Newark Liberty International Airport";
+//    p3.lon = [NSNumber numberWithDouble:-74.1745];
+//    p3.lat = [NSNumber numberWithDouble:40.6895];
+//    p3.area = @"New Jersey";
+//    
+//    
+//    NSError *error;
+//    if (![context save:&error]) {
+//        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
+//    }
     
     return YES;
 }

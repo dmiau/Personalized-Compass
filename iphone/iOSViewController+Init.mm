@@ -161,7 +161,8 @@
 {
     [super viewDidLoad];
     
-    [self loadLocationData];
+    //DM disable CoreData stuff
+//    [self loadLocationData];
     // Do any additional setup after loading the view.
     
     //-------------------

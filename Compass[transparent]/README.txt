@@ -4252,7 +4252,11 @@ http://stackoverflow.com/questions/6224830/c-trying-to-swap-values-in-a-vector
 - plan to clean up the code and continue my app development
 - I want to prepare the app for itune connect
 
-
+-------------------------------------------------------------------
+3.30.3016
+-------------------------------------------------------------------
+- prepare the app for demo!
+- propagate the change starting from Dec. 1st.
 
 
 

@@ -1815,13 +1815,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B0FFDDF1BF2A95D00ADD137 /* CoreGraphics.framework in Frameworks */,
-				2B0FFDDD1BF2A95100ADD137 /* SystemConfiguration.framework in Frameworks */,
 				2B0FFDDB1BF2A94600ADD137 /* Security.framework in Frameworks */,
 				2B0FFDD91BF2A93B00ADD137 /* QuartzCore.framework in Frameworks */,
 				2B0FFDD71BF2A93100ADD137 /* OpenGLES.framework in Frameworks */,
 				2B0FFDD51BF2A92700ADD137 /* ImageIO.framework in Frameworks */,
 				2B0FFDD31BF2A91B00ADD137 /* GLKit.framework in Frameworks */,
 				2B0FFDD11BF2A91000ADD137 /* CoreText.framework in Frameworks */,
+				2B0FFDDD1BF2A95100ADD137 /* SystemConfiguration.framework in Frameworks */,
 				2B0FFDCF1BF2A90400ADD137 /* CoreLocation.framework in Frameworks */,
 				2B0FFDCD1BF2A8F500ADD137 /* CoreData.framework in Frameworks */,
 				2B0FFDCB1BF2A8E400ADD137 /* CoreBluetooth.framework in Frameworks */,

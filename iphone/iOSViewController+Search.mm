@@ -192,19 +192,19 @@
     // Add the new data to data_array
     self.model->data_array.push_back(myData);
     
-    // Insert data into core data
-    AppDelegate *app = (AppDelegate *)[[AppDelegate alloc] init];
-    
-    Place *p = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:app.managedObjectContext];
-    
-    p.lat = [NSNumber numberWithFloat:item.placemark.coordinate.latitude];
-    p.lon = [NSNumber numberWithFloat:item.placemark.coordinate.longitude];
-    p.name = item.name;
-    
-    NSError *error;
-    if (![app.managedObjectContext save:&error]) {
-        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
-    }
+//    // Insert data into core data
+//    AppDelegate *app = (AppDelegate *)[[AppDelegate alloc] init];
+//    
+//    Place *p = [NSEntityDescription insertNewObjectForEntityForName:@"Place" inManagedObjectContext:app.managedObjectContext];
+//    
+//    p.lat = [NSNumber numberWithFloat:item.placemark.coordinate.latitude];
+//    p.lon = [NSNumber numberWithFloat:item.placemark.coordinate.longitude];
+//    p.name = item.name;
+//    
+//    NSError *error;
+//    if (![app.managedObjectContext save:&error]) {
+//        NSLog(@"Sorry, an error occurred while saving: %@", [error localizedDescription]);
+//    }
     
     //-------------
     // Add the location to the model

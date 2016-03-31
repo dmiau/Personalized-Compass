@@ -484,7 +484,7 @@
     GMSCameraPosition *myNewCamera = [GMSCameraPosition cameraWithLatitude:myCamera.target.latitude
                                                                  longitude:myCamera.target.longitude
                                                                       zoom:myCamera.zoom bearing:heading
-                                                              viewingAngle:myCamera.viewingAngle];
+                                                              viewingAngle:self.mapView.camera.pitch];
     self.gmap.camera = myNewCamera;
     self.mapView.camera.heading = heading;
 }
@@ -585,6 +585,7 @@
     [self.mapView setRegion:region];
     
     self.mapView.camera.heading = self.gmap.camera.bearing;
+    self.mapView.camera.pitch = self.gmap.camera.viewingAngle;
     //    NSLog(@"%@", @"after change");
     //    NSLog(@"%f", self.mapView.region.span.latitudeDelta);
     //    NSLog(@"%f", self.mapView.region.span.longitudeDelta);
