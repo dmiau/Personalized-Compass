@@ -31,6 +31,63 @@
     }
 }
 
+-(void) resetGmapMarkers {
+    [self.gmap clear];
+    self.gmapMarkers = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < self.model->data_array.size(); i++) {
+        data myData = self.model->data_array[i];
+        
+        if (self.testManager->testManagerMode == OFF){
+            GMSMarker *marker = [[GMSMarker alloc] init];
+            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(myData.latitude, myData.longitude);
+            NSLog(@"FUN lat %f lon %f", coordinate.latitude, coordinate.longitude);
+            marker.position = coordinate;
+            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
+            [dic setObject:@"landmark" forKey:@"point_type"];
+            
+            if (!self.model->data_array[i].isEnabled) {
+                [dic setValue:@"NO" forKey:@"isEnabled"];
+                marker.icon = [GMSMarker markerImageWithColor:[UIColor greenColor]];
+            } else if (self.model->data_array[i].annotation.point_type == dropped) {
+                marker.icon = [GMSMarker markerImageWithColor:[UIColor purpleColor]];
+            } else {
+                [dic setValue:@"YES" forKey:@"isEnabled"];
+            }
+            
+            
+            marker.userData = dic;
+            marker.title = [NSString stringWithCString:myData.name.c_str()
+                                              encoding:[NSString defaultCStringEncoding]];
+            marker.map = self.gmap;
+            [self.gmapMarkers addObject:marker];
+        }else if (self.testManager->testManagerMode == DEVICESTUDY ||
+                  self.testManager->testManagerMode == OSXSTUDY)
+        {
+            if (myData.isEnabled && !myData.isAnswer){
+                GMSMarker *marker = [[GMSMarker alloc] init];
+                CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(myData.latitude, myData.longitude);
+                marker.position = coordinate;
+                NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
+                [dic setObject:@"landmark" forKey:@"point_type"];
+                
+                if (!self.model->data_array[i].isEnabled) {
+                    [dic setValue:@"NO" forKey:@"isEnabled"];
+                    marker.icon = [GMSMarker markerImageWithColor:[UIColor greenColor]];
+                } else {
+                    [dic setValue:@"YES" forKey:@"isEnabled"];
+                }
+                
+                marker.userData = dic;
+                marker.title = [NSString stringWithCString:myData.name.c_str()
+                                                  encoding:[NSString defaultCStringEncoding]];
+                marker.map = self.gmap;
+                [self.gmapMarkers addObject:marker];
+            }
+        }
+    }
+}
+
 - (void) renderAllDataAnnotations{
     [self.mapView removeAnnotations:self.mapView.annotations];  // remove any annotations that exist
     
@@ -313,6 +370,11 @@
         for (CustomPointAnnotation* annotation in annotation_array){
             [[self.mapView viewForAnnotation:annotation] setHidden:NO];
         }
+        
+        for (int i = 0; i < [self.gmapMarkers count]; i++) {
+            ((GMSMarker *) self.gmapMarkers[i]).map = self.gmap;
+        }
+        
     }else if ([mode isEqualToString:@"Enabled"]){
         for (CustomPointAnnotation* annotation in annotation_array){
             
@@ -326,6 +388,18 @@
                 }
             }
         }
+        
+        for (int i = 0; i < [self.gmapMarkers count]; i++) {
+            GMSMarker *marker =  ((GMSMarker *) self.gmapMarkers[i]);
+            if ([[marker.userData valueForKey:@"isEnabled"] isEqualToString:@"YES"]) {
+                marker.map = self.gmap;
+            } else {
+                marker.map = nil;
+            }
+        }
+        
+        
+        
     }else if ([mode isEqualToString:@"Dropped"]){
         for (CustomPointAnnotation* annotation in annotation_array){
             if (annotation.point_type == dropped){
@@ -334,9 +408,25 @@
                 [[self.mapView viewForAnnotation:annotation] setHidden:YES];
             }
         }
+        
+        
+     
+        for (int i = 0; i < [self.gmapMarkers count]; i++) {
+            GMSMarker *marker =  ((GMSMarker *) self.gmapMarkers[i]);
+            if ([[marker.userData valueForKey:@"point_type"] isEqualToString:@"dropped"]) {
+                marker.map = self.gmap;
+            } else {
+                marker.map = nil;
+            }
+        }
+        
     }else if ([mode isEqualToString:@"None"]){
         for (CustomPointAnnotation* annotation in annotation_array){
             [[self.mapView viewForAnnotation:annotation] setHidden:YES];
+        }
+        
+        for (int i = 0; i < [self.gmapMarkers count]; i++) {
+            ((GMSMarker *) self.gmapMarkers[i]).map = nil;
         }
     }else if ([mode isEqualToString:@"Study"]){
         for (CustomPointAnnotation* annotation in annotation_array){

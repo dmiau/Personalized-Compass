@@ -86,6 +86,11 @@
         //        [self updateDataAnnotations];
     }
     
+    
+    if (self.needUpdateGmapMarkers) {
+        [self resetGmapMarkers];
+    }
+    
     // This may be an iPad only thing
     // (dismissing the modal dialog)
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -60,6 +60,7 @@
         // Map related initialization
         self.needUpdateDisplayRegion = false;
         self.needUpdateAnnotations = false;
+        self.needUpdateGmapMarkers = false;
         self.isBlankMapEnabled = false;
         
         // Initialize location service

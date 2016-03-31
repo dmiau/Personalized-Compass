@@ -61,7 +61,7 @@
                                              abs((double) cached_longitude - self.gmap.camera.target.latitude) > epsilonG ||
                                              abs((double) cached_bearing - self.gmap.camera.bearing) > epsilonG ||
                                              abs((double) cached_viewingAngle - self.gmap.camera.viewingAngle)) > epsilonG) {
-        [self updateAMapBasedOnGMap];
+//        [self updateAMapBasedOnGMap];
     }
     //    NSLog(@"*****tableCellCache size %lu", (unsigned long)[tableCellCache count]);
 }
@@ -419,6 +419,7 @@
     if ([sender.currentTitle isEqualToString:@"G"]) {
         if (!self.gmap) {
             self.gmap = [self createGmap];
+            [self resetGmapMarkers];
             self.gmap.frame = self.mapView.frame;
             [self.view insertSubview:self.gmap atIndex:1];
             [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];

@@ -317,12 +317,45 @@
         
         [self.mapView addAnnotation:pa];
     } else if ([self.UIConfigurations[@"UIAcceptsPinCreation"] boolValue] && !self.gmap.hidden) {
+        //----------------
+        // Add the authored pin to the data_array
+        //----------------
+        
+        
         CGPoint touchInGmap = [self.mapView convertPoint:touchPoint toView:self.gmap];
         CLLocationCoordinate2D touchCoordinate = [self.gmap.projection coordinateForPoint:touchInGmap];
         GMSMarker *pin = [[GMSMarker alloc] init];
         pin.position = touchCoordinate;
         pin.title = @"Dropped Pin";
         pin.map = self.gmap;
+        pin.icon = [GMSMarker markerImageWithColor:[UIColor purpleColor]];
+        
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
+        [dic setObject:@"dropped" forKey:@"point_type"];
+        pin.userData = dic;
+        
+        [self.gmapMarkers addObject:pin];
+        
+        data myData;
+        myData.name = "Authored Pin";
+        myData.annotation.point_type = landmark;
+        
+        myData.annotation.subtitle =
+        [NSString stringWithFormat:@"%lu",
+        self.model->data_array.size()];
+        
+        myData.latitude =  touchCoordinate.latitude;
+        myData.longitude =  touchCoordinate.longitude;
+        
+        myData.annotation.data_id = self.model->data_array.size();
+        
+        myData.my_texture_info = self.model->generateTextureInfo
+                ([NSString stringWithUTF8String:myData.name.c_str()]);
+        // Add the new data to data_array
+        self.model->data_array.push_back(myData);
+        
+        self.model->updateMdl();
+        [self.glkView setNeedsDisplay];
         
         //fetch the address based on lat and lon
         CLLocation *location = [[CLLocation alloc] initWithLatitude:touchCoordinate.latitude longitude:touchCoordinate.longitude];
@@ -346,6 +379,14 @@
     CustomPointAnnotation *annotation = [[CustomPointAnnotation alloc] init];
     annotation.coordinate = marker.position;
     annotation.title = @"Dropped Pin";
+    
+    NSString *point_type = [marker.userData objectForKey:@"point_type"];
+    if ([point_type isEqualToString:@"dropped"]) {
+        annotation.point_type = dropped;
+    } else if ([point_type isEqualToString:@"landmark"]) {
+        annotation.point_type = landmark;
+    }
+    
     view.annotation = annotation;
     [self performSegueWithIdentifier:@"DetailVC" sender:view];
 }
