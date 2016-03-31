@@ -21,19 +21,19 @@
     CLLocationCoordinate2D myCoord = [self.mapView convertPoint:pos toCoordinateFromView:self.mapView];
     MKMapPoint mappoint = MKMapPointForCoordinate(myCoord);
     
-    NSLog(@"****Touch detected");
-    NSLog(@"MapViewPoint: %@", NSStringFromCGPoint(pos));
-    NSLog(@"CGViewPoint: %@", NSStringFromCGPoint([touch locationInView:self.glkView]));
-    NSLog(@"Map latitude: %f, longitude: %f", myCoord.latitude, myCoord.longitude);
-    NSLog(@"Mappoint X: %f, Y: %f", mappoint.x, mappoint.y);
-    
-    
-    NSLog(@"True");
-    NSLog(@"Center:");
-    NSLog(@"latitude: %f, longitude: %f", self.mapView.centerCoordinate.latitude,
-          self.mapView.centerCoordinate.longitude);
-    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", self.mapView.region.span.latitudeDelta,
-          self.mapView.region.span.longitudeDelta);
+//    NSLog(@"****Touch detected");
+//    NSLog(@"MapViewPoint: %@", NSStringFromCGPoint(pos));
+//    NSLog(@"CGViewPoint: %@", NSStringFromCGPoint([touch locationInView:self.glkView]));
+//    NSLog(@"Map latitude: %f, longitude: %f", myCoord.latitude, myCoord.longitude);
+//    NSLog(@"Mappoint X: %f, Y: %f", mappoint.x, mappoint.y);
+//    
+//    
+//    NSLog(@"True");
+//    NSLog(@"Center:");
+//    NSLog(@"latitude: %f, longitude: %f", self.mapView.centerCoordinate.latitude,
+//          self.mapView.centerCoordinate.longitude);
+//    NSLog(@"latitudeSpan: %f, longitudeSpan: %f", self.mapView.region.span.latitudeDelta,
+//          self.mapView.region.span.longitudeDelta);
     
     // pass touch event to super
     [super touchesBegan:touches withEvent:event];
@@ -64,7 +64,7 @@
         && [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue])
     {
         CGPoint touch_pt = [touch locationInView:self.mapView];
-        NSLog(@"MapUV U: %f, V: %f", touch_pt.x, touch_pt.y);
+//        NSLog(@"MapUV U: %f, V: %f", touch_pt.x, touch_pt.y);
         for (int i = 0; i < self.model->indices_for_rendering.size(); ++i){
             int j = self.model->indices_for_rendering[i];
             // convert from compass coordinate to map uv coordinate

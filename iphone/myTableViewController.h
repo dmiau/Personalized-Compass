@@ -19,10 +19,13 @@
 
 
 @interface myTableViewController : UIViewController
-<UITableViewDelegate, UIAlertViewDelegate>{
+<UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>{
     int selected_id;
     bool data_dirty_flag;
     NSArray *kml_files;
+    
+    //this flag decides whether the kml file section should be expanded or collapsed
+    bool expandAreaSection;
 }
 
 

@@ -4258,6 +4258,19 @@ http://stackoverflow.com/questions/6224830/c-trying-to-swap-values-in-a-vector
 - prepare the app for demo!
 - propagate the change starting from Dec. 1st.
 
+- start to look into the orientation issues.
+calculateCameraHeading
+2016-03-31 11:28:49.155 pcompass[3206:2040367] diff x: -106.125, y: -91.3415
+2016-03-31 11:28:49.155 pcompass[3206:2040367] computeted degree: 310.718
+2016-03-31 11:28:49.172 pcompass[3206:2040367] camera heading: 310.555
+2016-03-31 11:28:49.172 pcompass[3206:2040367] diff x: 100.895, y: 87.3536
+2016-03-31 11:28:49.172 pcompass[3206:2040367] computeted degree: 130.886
+2016-03-31 11:28:49.222 pcompass[3206:2040367] camera heading: 310.555
+
+12:05PM. The orientation issue is tough!
+
+
+
 
 
 

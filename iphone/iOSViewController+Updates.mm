@@ -92,6 +92,40 @@
                       longitude: compassCtrCoord.longitude
                         heading: [self calculateCameraHeading]
                            tilt: -self.mapView.camera.pitch];
+        NSLog(@"camera heading: %g", self.mapView.camera.heading);
+        
+//        //---------------------------
+//        // debug the camera heading issue
+//        float true_north_wrt_up = 0;
+//        double width = self.mapView.frame.size.width;
+//        double height = self.mapView.frame.size.height;
+//        
+//        CLLocationCoordinate2D map_s_pt = [self.mapView centerCoordinate];
+//        CLLocationCoordinate2D map_n_pt = [self.mapView convertPoint:CGPointMake(width/2, height/2-30) toCoordinateFromView:self.mapView];
+//        
+//        
+//        MKMapPoint ref_mappoint = MKMapPointForCoordinate(map_s_pt);
+//        
+//        MKMapPoint measured_mappoint = MKMapPointForCoordinate(map_n_pt);
+//        
+//        double radiansBearing = atan2(measured_mappoint.x - ref_mappoint.x,
+//                                      -(measured_mappoint.y - ref_mappoint.y));
+//        
+//        double degree = RadiansToDegrees(radiansBearing);
+//        
+//        // This guarantees that the orientaiton is always positive
+//        if (degree < 0) degree += 360;
+//        
+//        
+//        // print out debug info
+////        NSLog(@"south mapPoint x: %g, y: %g", ref_mappoint.x, ref_mappoint.y);
+////        NSLog(@"north mapPoint x: %g, y: %g", measured_mappoint.x, measured_mappoint.y);
+//        NSLog(@"diff x: %g, y: %g", measured_mappoint.x - ref_mappoint.x,
+//              measured_mappoint.y - ref_mappoint.y);
+//        NSLog(@"computeted degree: %g", degree);
+//        
+//        //---------------------------
+        
         
         
         // [todo] This code should be put into the gesture recognizer
@@ -181,18 +215,17 @@
     // calculateCameraHeading calculates the heading of camera relative to
     // the magnetic north
     
-    float true_north_wrt_up = 0;
+    // heading calculation is tricky; it does not work well in satelliteflyover
+    // the camera heading is counterclockwise, 0 is the top
     
-    //---------------------------
-    // fix angle calculation
-    //---------------------------
+    float true_north_wrt_up = 0;
     double width = self.mapView.frame.size.width;
     double height = self.mapView.frame.size.height;
     
-    CLLocationCoordinate2D map_s_pt = [self.mapView centerCoordinate];
-    CLLocationCoordinate2D center_pt = [self.mapView convertPoint:CGPointMake(width/2, height/2) toCoordinateFromView:self.mapView];
-    
-    CLLocationCoordinate2D map_n_pt = [self.mapView convertPoint:CGPointMake(width/2, height/2-30) toCoordinateFromView:self.mapView];
+//    CLLocationCoordinate2D map_s_pt = [self.mapView centerCoordinate];
+    CLLocationCoordinate2D map_s_pt = [self.mapView
+                                       convertPoint:CGPointMake(width/2, height-20) toCoordinateFromView:self.mapView];
+    CLLocationCoordinate2D map_n_pt = [self.mapView convertPoint:CGPointMake(width/2, 20) toCoordinateFromView:self.mapView];
     
     true_north_wrt_up = computeOrientationFromA2B(map_s_pt, map_n_pt);
     

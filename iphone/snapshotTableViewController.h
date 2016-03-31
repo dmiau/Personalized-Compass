@@ -15,6 +15,9 @@
     
     NSArray* snapshot_file_array;
     bool dirty_flag;
+    
+    //this flag decides whether the kml file section should be expanded or collapsed
+    bool expandCollectionSection;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;

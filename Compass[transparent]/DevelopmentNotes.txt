@@ -11,6 +11,11 @@ AppDelegate has a property called rootViewController, and DesktopViewController 
 AppDelegate *temp = [[NSApplication sharedApplication] delegate];
 temp.rootViewController = self; 
 
+=====================
+Map Orientation
+=====================
+
+
 
 =====================
 Build macros
