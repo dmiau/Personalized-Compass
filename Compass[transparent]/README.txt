@@ -4274,9 +4274,9 @@ calculateCameraHeading
 1:13PM. It is good that I put some time into polish the demo software.
 2:46PM. Made a bit progress about the demo.
 
+compassRender::drawCompassNorth
 
-
-
+7:03PM. Labels are better now
 
 
 

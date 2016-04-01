@@ -347,6 +347,7 @@
 		9A03767C198DA31900258E95 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A03755B198DA31800258E95 /* b2Rope.cpp */; };
 		9A0B06C31CAD9F3E00B38809 /* CoreDataViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B06C21CAD9F3E00B38809 /* CoreDataViewController.mm */; };
 		9A0B06C41CAD9F3E00B38809 /* CoreDataViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B06C21CAD9F3E00B38809 /* CoreDataViewController.mm */; };
+		9A1537741CADEC9A009DAAE5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BC725041BF2D8E200219807 /* Model.xcdatamodeld */; };
 		9A1632A91AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
 		9A1632AA1AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
 		9A1632AB1AB6049000F07E45 /* redDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1632A81AB6049000F07E45 /* redDot.png */; };
@@ -3668,6 +3669,7 @@
 				9AFD8F5F197C57B60099BD88 /* breadcrumbTableViewController.mm in Sources */,
 				9A0375D4198DA31900258E95 /* b2Timer.cpp in Sources */,
 				9A03757A198DA31800258E95 /* b2CollideEdge.cpp in Sources */,
+				9A1537741CADEC9A009DAAE5 /* Model.xcdatamodeld in Sources */,
 				9A0375C8198DA31900258E95 /* b2Settings.cpp in Sources */,
 				9A0375B0198DA31800258E95 /* b2PolygonShape.cpp in Sources */,
 				9A03761C198DA31900258E95 /* b2EdgeAndCircleContact.cpp in Sources */,
@@ -4545,7 +4547,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "pcompass-ipad";
 				PROVISIONING_PROFILE = "";
@@ -4582,7 +4584,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "pcompass-ipad";
 				PROVISIONING_PROFILE = "";

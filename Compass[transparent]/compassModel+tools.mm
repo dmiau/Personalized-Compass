@@ -12,12 +12,24 @@ CGSize makeGLFrameSize(NSAttributedString *attr_str){
                                [NSCharacterSet whitespaceCharacterSet]];
     
     if (whiteSpaceRange.location != NSNotFound){
-        t_size.width = t_size.width /2;
-        t_size.height = t_size.height * 2;
+        // assume the label has at most two lines, figure out which line longer
+        NSMutableAttributedString *firstCopy = attr_str.mutableCopy;
+        [[firstCopy mutableString] setString: [attr_str.string substringToIndex:whiteSpaceRange.location]];
+        
+        NSMutableAttributedString *secondCopy = attr_str.mutableCopy;
+        [[secondCopy mutableString] setString: [attr_str.string substringFromIndex:whiteSpaceRange.location]];
+        float boxWidth = max(firstCopy.size.width, secondCopy.size.width);
+        
+        t_size.width = boxWidth;
+        t_size.height = firstCopy.size.height + secondCopy.size.height;
+        
+#ifdef __IPAD__
+        // don't know why...
+        t_size.width = t_size.width + 2;
+        t_size.height = t_size.height + 2;
+#endif
+        
     }
-    t_size.width = 2*round(t_size.width/2) + 8;
-    t_size.height = 2*round(t_size.height/2) + 4;
-    
     return t_size;
 }
 
