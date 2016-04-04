@@ -45,27 +45,27 @@
             
     }
     
-#ifdef __IPAD__
-    // cache glkView size
-    static CGRect cacheGlkSize = self.glkView.frame;
-    
-    if ([self.model->configurations[@"wedge_status"] isEqualToString: @"on"]){
-        self.glkView.frame = self.mapView.frame;
-    }else{
-        self.glkView.frame = cacheGlkSize;
-    }
-    
-    double width = self.glkView.frame.size.width;
-    double height = self.glkView.frame.size.height;
-    
-    // Update the viewport
-    
-    // This line is important.
-    // In order to maintain 1-1 OpenGL and screen pixel mapping,
-    // the following line is necessary!
-    self.renderer->initRenderView(width, height);
-    self.renderer->updateViewport(0, 0, width, height);
-#endif
+//#ifdef __IPAD__
+//    // cache glkView size
+//    static CGRect cacheGlkSize = self.glkView.frame;
+//    
+//    if ([self.model->configurations[@"wedge_status"] isEqualToString: @"on"]){
+//        self.glkView.frame = self.mapView.frame;
+//    }else{
+//        self.glkView.frame = cacheGlkSize;
+//    }
+//    
+//    double width = self.glkView.frame.size.width;
+//    double height = self.glkView.frame.size.height;
+//    
+//    // Update the viewport
+//    
+//    // This line is important.
+//    // In order to maintain 1-1 OpenGL and screen pixel mapping,
+//    // the following line is necessary!
+//    self.renderer->initRenderView(width, height);
+//    self.renderer->updateViewport(0, 0, width, height);
+//#endif
     
     [self.glkView setNeedsDisplay];
 }
@@ -124,11 +124,11 @@
 //------------------
 - (void)toggleOverviewMap: (bool) state{
     if (state){
-#ifdef __IPAD__
-        self.glkView.frame = CGRectMake(0, 0,
-        self.glkView.frame.size.width,
-        self.glkView.frame.size.height);
-#endif
+//#ifdef __IPAD__
+//        self.glkView.frame = CGRectMake(0, 0,
+//        self.glkView.frame.size.width,
+//        self.glkView.frame.size.height);
+//#endif
         [[self overviewMapView] setHidden:NO];
         
         self.overviewMapView.layer.borderColor = [UIColor blackColor].CGColor;

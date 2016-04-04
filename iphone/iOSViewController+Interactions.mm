@@ -209,31 +209,31 @@
         //-------------------------
         
         
-#ifndef __IPAD__
+//#ifndef __IPAD__
         // update compass location
         CGPoint compassXY;
         compassXY.x = touchPoint.x - self.glkView.frame.size.width/2;
         compassXY.y = self.glkView.frame.size.height/2 - touchPoint.y;
         
         self.renderer->compass_centroid = compassXY;
-#endif
+//#endif
         
-#ifdef __IPAD__
-        CGPoint new_centroid;
-        new_centroid.x = glkTouchPoint.x - self.glkView.frame.size.width/2;
-        new_centroid.y = self.glkView.frame.size.height/2 - glkTouchPoint.y;
-        
-        CGPoint compassXY = self.renderer->compass_centroid;
-        
-        
-        CGRect orig_frame = self.glkView.frame;
-        self.glkView.frame = CGRectMake
-        (orig_frame.origin.x + new_centroid.x - compassXY.x,
-         orig_frame.origin.y + compassXY.y - new_centroid.y,
-         orig_frame.size.width, orig_frame.size.height);
-        
-        NSLog(@"glkframe: %@", NSStringFromCGRect(self.glkView.frame));
-#endif
+//#ifdef __IPAD__
+//        CGPoint new_centroid;
+//        new_centroid.x = glkTouchPoint.x - self.glkView.frame.size.width/2;
+//        new_centroid.y = self.glkView.frame.size.height/2 - glkTouchPoint.y;
+//        
+//        CGPoint compassXY = self.renderer->compass_centroid;
+//        
+//        
+//        CGRect orig_frame = self.glkView.frame;
+//        self.glkView.frame = CGRectMake
+//        (orig_frame.origin.x + new_centroid.x - compassXY.x,
+//         orig_frame.origin.y + compassXY.y - new_centroid.y,
+//         orig_frame.size.width, orig_frame.size.height);
+//        
+//        NSLog(@"glkframe: %@", NSStringFromCGRect(self.glkView.frame));
+//#endif
         
         if (gestureRecognizer.state == UIGestureRecognizerStateEnded){
             [self compassSelectedMode:NO];

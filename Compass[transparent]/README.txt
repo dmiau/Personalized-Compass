@@ -4279,8 +4279,36 @@ compassRender::drawCompassNorth
 7:03PM. Labels are better now
 
 
+-------------------------------------------------------------------
+4.1.3016
+-------------------------------------------------------------------
+4:33PM. Fixed the iPad screen issue, fixed the broken polygon.
+
+self.UIConfigurations[@"UICompassCenterLocked"] =
+        [NSNumber numberWithBool:true];
+
+                       // rotate the screen
+//                       objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationLandscapeLeft );
+                       
+NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+[[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+
+-fixed watch orientation issues
+
+7:56PM. I should look into +DemoToolbar and setupEnvForTest, 
+compass is moved to the center in setupPhoneViewMode
 
 
+-------------------------------------------------------------------
+4.4.3016
+-------------------------------------------------------------------
+3:12PM. Start to code some features required by the demo.
+
+log the following
+- log the map mode: normal or satellite
+- log the pitch angle
+- log the position and the size of p-compass
+- real-ratio or multi-scale representation
 
 
 

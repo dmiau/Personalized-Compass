@@ -119,7 +119,7 @@
   },
   {
   "property": "iPad_compass_centroid",
-  "value": [0, 0]
+  "value": [200, 325]
   },
   {
   "comment": "watch related stuff",
@@ -156,7 +156,7 @@
   },
   {
   "property": "prefilter_param",
-  "value": "NONE",
+  "value": "CLOSEST",
   "comment": "CLUSTER, CLOSEST, NONE"
   },
   {

@@ -291,9 +291,9 @@
     _messages = [[NSMutableArray alloc] init];
     
     //---------------
-    // Make center lock mode the default compass mode
+    // DO NOT lock the compass center by default
     //---------------
-    [self lockCompassRefToScreenCenter:YES];
+    [self lockCompassRefToScreenCenter:NO];
 }
 
 //-----------------

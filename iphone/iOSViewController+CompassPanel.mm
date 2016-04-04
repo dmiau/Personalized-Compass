@@ -32,7 +32,9 @@
                        [NSNumber numberWithBool:NO];
                        
                        // rotate the screen
-                       objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationPortrait);
+                       NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+                       [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+                       
                        
                        self.UIConfigurations[@"UIRotationLock"] =
                        [NSNumber numberWithBool:YES];
@@ -102,7 +104,8 @@
                        self.UIConfigurations[@"UIRotationLock"] =
                        [NSNumber numberWithBool:NO];
                        // rotate the screen
-                       objc_msgSend([UIDevice currentDevice], @selector(setOrientation:),    UIInterfaceOrientationLandscapeLeft );
+                       NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+                       [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
                        
                        //[[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft];
                        
@@ -353,7 +356,7 @@
     //---------------
     // iPhone case
     //---------------
-#ifndef __IPAD__
+//#ifndef __IPAD__
     self.renderer->isCompassAtCenter = false;
     if ([label isEqualToString:@"Default"]){
         self.renderer->compass_centroid = defaultCentroidParams;
@@ -370,30 +373,30 @@
         self.renderer->compass_centroid.x = -70;
         self.renderer->compass_centroid.y = -150;
     }
-#endif
+//#endif
     
-#ifdef __IPAD__
-    //---------------
-    // iPad case
-    //---------------
-    default_rect = CGRectMake(425, -43,
-                              default_rect.size.width, default_rect.size.height);
-    if ([label isEqualToString:@"Default"]){
-        self.renderer->compass_centroid = defaultCentroidParams;
-        self.glkView.frame = default_rect;
-    }else if ([label isEqualToString:@"UR"]){
-        self.glkView.frame = default_rect;
-    }else if ([label isEqualToString:@"Center"]){
-        self.glkView.frame = CGRectMake(176, 314,
-                                        default_rect.size.width,
-                                        default_rect.size.height);
-    }else if ([label isEqualToString:@"BL"]){
-        self.glkView.frame = CGRectMake(13, 644,
-                                        default_rect.size.width,
-                                        default_rect.size.height);
-    }
-    
-#endif
+//#ifdef __IPAD__
+//    //---------------
+//    // iPad case
+//    //---------------
+//    default_rect = CGRectMake(425, -43,
+//                              default_rect.size.width, default_rect.size.height);
+//    if ([label isEqualToString:@"Default"]){
+//        self.renderer->compass_centroid = defaultCentroidParams;
+//        self.glkView.frame = default_rect;
+//    }else if ([label isEqualToString:@"UR"]){
+//        self.glkView.frame = default_rect;
+//    }else if ([label isEqualToString:@"Center"]){
+//        self.glkView.frame = CGRectMake(176, 314,
+//                                        default_rect.size.width,
+//                                        default_rect.size.height);
+//    }else if ([label isEqualToString:@"BL"]){
+//        self.glkView.frame = CGRectMake(13, 644,
+//                                        default_rect.size.width,
+//                                        default_rect.size.height);
+//    }
+//    
+//#endif
     bool origLockStatus = [self.UIConfigurations[@"UICompassCenterLocked"]
                            boolValue];
     

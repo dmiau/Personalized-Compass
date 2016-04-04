@@ -105,9 +105,10 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
 #ifdef __IPHONE__
         glPushMatrix();
         if (data_.distance <= mode_max_dist_array[0]){
-            glTranslatef(0, 0, -1);
+//            glTranslatef(0, 0, -1);
+            glTranslatef(0, 0, 1);
         }else{
-
+            glTranslatef(0, 0, 2);
         }
         drawRectangle(1, data_.orientation,
                       distance);

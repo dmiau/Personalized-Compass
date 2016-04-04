@@ -16,6 +16,10 @@
                     <view key="view" contentMode="scaleToFill" id="DHU-ru-f0D">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="570" affinity="minX"/>
+                            <userLayoutGuide location="234" affinity="minY"/>
+                        </userGuides>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iOu-2k-m7m">
                                 <rect key="frame" x="0.0" y="70" width="768" height="954"/>
@@ -23,8 +27,8 @@
                             <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-4X-IXW" userLabel="Overview Map">
                                 <rect key="frame" x="20" y="91" width="286" height="186"/>
                             </mapView>
-                            <glkView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" ambiguous="YES" misplaced="YES" drawableDepthFormat="16" drawableMultisample="4X" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-oC-5JL" customClass="iOSGLKView">
-                                <rect key="frame" x="372" y="65" width="396" height="418"/>
+                            <glkView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" misplaced="YES" drawableDepthFormat="16" drawableMultisample="4X" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-oC-5JL" customClass="iOSGLKView">
+                                <rect key="frame" x="0.0" y="65" width="768" height="915"/>
                             </glkView>
                             <searchBar contentMode="redraw" misplaced="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-7A-1wb">
                                 <rect key="frame" x="11" y="21" width="630" height="44"/>
@@ -55,19 +59,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Lei-oC-5JL" firstAttribute="trailing" secondItem="iOu-2k-m7m" secondAttribute="trailing" id="18i-pB-4RF"/>
                             <constraint firstItem="i6q-wo-nON" firstAttribute="leading" secondItem="DHU-ru-f0D" secondAttribute="leading" id="2mh-Gd-FAw"/>
                             <constraint firstItem="xcv-n5-7ZP" firstAttribute="leading" secondItem="CI6-7A-1wb" secondAttribute="trailing" constant="15" id="3l8-Lk-fSf"/>
+                            <constraint firstItem="iOu-2k-m7m" firstAttribute="height" secondItem="Lei-oC-5JL" secondAttribute="height" id="8up-7U-Orh"/>
                             <constraint firstAttribute="trailing" secondItem="xcv-n5-7ZP" secondAttribute="trailing" constant="15" id="Dot-xg-Ddd"/>
+                            <constraint firstItem="iOu-2k-m7m" firstAttribute="width" secondItem="Lei-oC-5JL" secondAttribute="width" id="N2G-W7-n39"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xcv-n5-7ZP" secondAttribute="trailing" constant="15" id="Qy1-eZ-3OP"/>
                             <constraint firstItem="CI6-7A-1wb" firstAttribute="top" secondItem="DHU-ru-f0D" secondAttribute="top" constant="21" id="RyO-zs-PLL"/>
                             <constraint firstItem="T9Y-bY-J45" firstAttribute="top" secondItem="i6q-wo-nON" secondAttribute="bottom" id="S60-Ba-07r"/>
                             <constraint firstItem="iOu-2k-m7m" firstAttribute="leading" secondItem="DHU-ru-f0D" secondAttribute="leading" id="Wcz-JN-dpZ"/>
                             <constraint firstItem="T9Y-bY-J45" firstAttribute="top" secondItem="iOu-2k-m7m" secondAttribute="bottom" id="axV-I6-Cfs"/>
                             <constraint firstItem="CI6-7A-1wb" firstAttribute="leading" secondItem="DHU-ru-f0D" secondAttribute="leading" constant="11" id="blj-h8-rbD"/>
+                            <constraint firstItem="Lei-oC-5JL" firstAttribute="leading" secondItem="iOu-2k-m7m" secondAttribute="leading" id="dNH-Lh-ceC"/>
+                            <constraint firstItem="Lei-oC-5JL" firstAttribute="bottom" secondItem="iOu-2k-m7m" secondAttribute="bottom" id="es7-r7-gFV"/>
                             <constraint firstAttribute="trailing" secondItem="i6q-wo-nON" secondAttribute="trailing" id="j8Y-0g-3Qw"/>
-                            <constraint firstAttribute="trailing" secondItem="Lei-oC-5JL" secondAttribute="trailing" id="k0I-XR-Icw"/>
-                            <constraint firstItem="Lei-oC-5JL" firstAttribute="top" secondItem="CI6-7A-1wb" secondAttribute="bottom" id="mOb-Fb-dTe"/>
                             <constraint firstItem="iOu-2k-m7m" firstAttribute="top" secondItem="CI6-7A-1wb" secondAttribute="bottom" id="pVx-z9-uDv"/>
+                            <constraint firstItem="Lei-oC-5JL" firstAttribute="top" secondItem="iOu-2k-m7m" secondAttribute="top" id="sjF-Xa-0Oz"/>
                             <constraint firstItem="xcv-n5-7ZP" firstAttribute="top" secondItem="DHU-ru-f0D" secondAttribute="top" constant="28" id="x6F-yC-zdP"/>
                             <constraint firstAttribute="trailing" secondItem="iOu-2k-m7m" secondAttribute="trailing" id="yix-fH-ZnX"/>
                         </constraints>

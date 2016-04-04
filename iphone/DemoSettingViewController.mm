@@ -252,7 +252,11 @@
         cell.param_ptr = param_ptr;
         cell.mySwitch.on = param_ptr->isEnabled;
     }else{
-        // Configure Cell
+        //-----------------
+        // Configure Snapshot Cell
+        //-----------------
+        [cell.mySwitch setHidden:YES];
+        [cell.mySwitch setEnabled:NO];
         cell.textLabel.text = snapshot_file_array[i];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", i];
     }
