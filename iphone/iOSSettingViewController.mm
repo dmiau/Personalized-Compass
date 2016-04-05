@@ -236,7 +236,12 @@
     
     // reload
     readConfigurations(self.model);
+    
     self.renderer->loadParametersFromModelConfiguration();
+    
+    self.renderer->initRenderView(self.rootViewController.glkView.frame.size.width,
+                                  self.rootViewController.glkView.frame.size.height);
+    
     [self.rootViewController.glkView setNeedsDisplay];
 }
 

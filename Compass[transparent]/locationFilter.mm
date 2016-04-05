@@ -163,7 +163,10 @@ vector<int> compassMdl::filter_manual(int k){
     vector<int> id_list;
     id_list.clear();
     for (int i = 0; i < data_array.size(); ++i) {
-        if (data_array[i].isEnabled){
+        
+        // don't show the needle when the location becomes visible
+        if (data_array[i].isEnabled && !data_array[i].isVisible)
+        {
             id_list.push_back(i);
         }
     }

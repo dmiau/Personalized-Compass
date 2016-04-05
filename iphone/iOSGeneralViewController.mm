@@ -52,7 +52,30 @@
     }else if (self.rootViewController.mapView.mapType == MKMapTypeSatelliteFlyover){
         self.mapSegmentControl.selectedSegmentIndex = 2;
     }
+    
+    //-------------------
+    // Change navigation bar color
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    
+    NSDictionary *navbarTitleTextAttributes =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     [UIColor blackColor],UITextAttributeTextColor,
+     [UIColor whiteColor], UITextAttributeTextShadowColor,nil];
+    
+    
+    [myNavigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
+    myNavigationController.navigationBar.tintColor = [UIColor blackColor];
+    
+    myNavigationController.navigationBar.barTintColor =
+    [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+    myNavigationController.navigationBar.topItem.title = @"General";
 }
+
 
 /*
 #pragma mark - Navigation

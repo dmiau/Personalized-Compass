@@ -8,6 +8,8 @@
 
 #import "CoreDataViewController.h"
 #import "AppDelegate.h"
+#include "compassRender.h"
+#import "iOSViewController.h"
 
 
 @implementation CoreDataViewController
@@ -63,5 +65,36 @@
     }
 }
 
-
+- (IBAction)refreshConfiguraitons:(id)sender {
+    if (self.model->filesys_type == DROPBOX){
+        
+    }else{
+        [self.model->docFilesystem
+         copyBundleConfigurations];
+    }
+    
+    // reload
+    readConfigurations(self.model);
+    
+    //-------------------
+    // Set the rootViewController
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    iOSViewController* rootViewController =
+    [myNavigationController.viewControllers objectAtIndex:0];
+    
+    
+    compassRender* renderer = compassRender::shareCompassRender();
+    
+    renderer->loadParametersFromModelConfiguration();
+    
+    renderer->initRenderView(rootViewController.glkView.frame.size.width,
+                                  rootViewController.glkView.frame.size.height);
+    
+    [rootViewController.glkView setNeedsDisplay];
+}
 @end

@@ -61,8 +61,13 @@
         }
     }
     
-    
-    
+    if ([self.model->configurations[@"personalized_compass_status"] isEqualToString: @"on"])
+    {
+        mySnapshot.visualizationType = VIZPCOMPASS;
+    }else if ([self.model->configurations[@"wedge_status"] isEqualToString: @"on"]){
+        mySnapshot.visualizationType = VIZWEDGE;
+    }
+        
     mySnapshot.name = @"mySnapshot";
     self.model->snapshot_array.push_back(mySnapshot);
     

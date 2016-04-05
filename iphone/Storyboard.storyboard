@@ -277,7 +277,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xps-vu-bXI">
-                                <rect key="frame" x="131" y="369" width="157" height="30"/>
+                                <rect key="frame" x="131" y="371" width="157" height="30"/>
                                 <state key="normal" title="Configuraitons Refresh">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -292,7 +292,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wif-ok-Aq5">
-                                <rect key="frame" x="131" y="407" width="157" height="29"/>
+                                <rect key="frame" x="131" y="428" width="157" height="29"/>
                                 <segments>
                                     <segment title="Real-Ratio"/>
                                     <segment title="Bimodal"/>
@@ -302,19 +302,19 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dist. Style" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqd-MD-FBr">
-                                <rect key="frame" x="16" y="410" width="78" height="21"/>
+                                <rect key="frame" x="16" y="431" width="78" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dev Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnw-u2-FPp">
-                                <rect key="frame" x="16" y="461" width="79" height="21"/>
+                                <rect key="frame" x="16" y="474" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dOZ-EL-2RG">
-                                <rect key="frame" x="131" y="458" width="123" height="29"/>
+                                <rect key="frame" x="131" y="471" width="123" height="29"/>
                                 <segments>
                                     <segment title="Off"/>
                                     <segment title="On"/>
@@ -326,7 +326,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Expert" id="nfG-7J-1IE"/>
+                    <tabBarItem key="tabBarItem" title="Expert" image="expert.png" id="nfG-7J-1IE"/>
                     <navigationItem key="navigationItem" id="qjZ-da-ipz"/>
                     <connections>
                         <outlet property="dataSource" destination="B2u-Zp-sZD" id="zUP-3R-tOp"/>
@@ -1048,16 +1048,19 @@
                                     <action selector="resetData:" destination="imS-XC-ZOT" eventType="touchUpInside" id="Cmw-hK-8T0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLP-BP-QjU">
-                                <rect key="frame" x="59" y="226" width="215" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLP-BP-QjU">
+                                <rect key="frame" x="65" y="225" width="215" height="24"/>
                                 <state key="normal" title="Configuraitons Refresh">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="refreshConfiguraitons:" destination="imS-XC-ZOT" eventType="touchUpInside" id="22Y-Kf-1nn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Configuration" image="setup.png" id="D34-lY-6De"/>
+                    <tabBarItem key="tabBarItem" title="Data Source" image="setup.png" id="D34-lY-6De"/>
                     <connections>
                         <outlet property="dataSource" destination="yWd-nX-vqB" id="eda-wx-IOq"/>
                     </connections>
@@ -1144,7 +1147,7 @@
                             <constraint firstItem="C8O-wS-Ajd" firstAttribute="leading" secondItem="DSe-kK-9ck" secondAttribute="leadingMargin" constant="-8" id="tz7-Qq-e07"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Demo" image="debug.png" id="I5S-WT-tTy"/>
+                    <tabBarItem key="tabBarItem" title="Demo" image="demo.png" id="I5S-WT-tTy"/>
                     <navigationItem key="navigationItem" id="pW3-p6-nVv">
                         <barButtonItem key="backBarButtonItem" title="General" id="wUy-YI-8NH"/>
                     </navigationItem>
@@ -1247,7 +1250,7 @@
                             <constraint firstItem="aJG-vO-7wB" firstAttribute="top" secondItem="DMc-2h-XYQ" secondAttribute="bottom" constant="13" id="xqd-Ze-ueh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Study" id="SXQ-9W-98f"/>
+                    <tabBarItem key="tabBarItem" title="Study" image="study.png" id="SXQ-9W-98f"/>
                     <connections>
                         <outlet property="myTableView" destination="zvj-5t-Cip" id="ugX-Ka-gDO"/>
                         <outlet property="studyModeSwitch" destination="b0t-3h-xik" id="iXu-G4-zxu"/>
@@ -1333,15 +1336,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="debug.png" width="30" height="30"/>
+        <image name="demo.png" width="30" height="30"/>
+        <image name="expert.png" width="30" height="30"/>
         <image name="general.png" width="30" height="30"/>
         <image name="location.png" width="60" height="60"/>
         <image name="setup.png" width="40" height="30"/>
         <image name="snapshotDefault.png" width="30" height="30"/>
+        <image name="study.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="9at-fG-ath"/>
+        <segue reference="WS4-yg-Oj7"/>
         <segue reference="K1H-er-9a7"/>
-        <segue reference="NSE-Hl-1Qk"/>
-        <segue reference="VT9-KB-V4S"/>
     </inferredMetricsTieBreakers>
 </document>

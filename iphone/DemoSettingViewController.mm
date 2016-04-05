@@ -275,6 +275,9 @@
     if (sender.on){
         self.rootViewController.UIConfigurations[@"UIToolbarMode"]
         = @"Demo";
+        
+        // In the demo mode, only shows the enabled pin
+        [self.rootViewController changeAnnotationDisplayMode:@"Enabled"];
     }
     self.rootViewController.UIConfigurations[@"UIToolbarNeedsUpdate"]
     = [NSNumber numberWithBool:true];

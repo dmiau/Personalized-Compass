@@ -14,6 +14,6 @@
 
 @property compassMdl* model;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dataSource;
-
+- (IBAction)refreshConfiguraitons:(id)sender;
 
 @end

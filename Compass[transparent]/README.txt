@@ -4334,22 +4334,31 @@ typedef enum{
 I should fix the following issues:
 
 * ToDo
-- oval p-compass on ipad
-- configurations.json needs to be in source control
 - look and feel issues
-- demo panel transparent heading
 
 * Done
 - annotations not showing
 self.rootViewController.needUpdateAnnotations = true;
+[self resetAnnotations];
 - demo panel constraints 
+- manual mode should take visibility into account
+self.model->configurations[@"filter_type"] = @"MANUAL";
+- demo panel transparent heading
+- show enabled annotations only
+ [self changeAnnotationDisplayMode:label];
+-add icons
+
+-implemented a forced refresh 
+self.renderer->initRenderView(frame.size.width,
+                              frame.size.height);
+-load snapshot does not display compass?
 
 * Doing
-- manual mode should take visibility into account
+- Google Maps satellite
+- oval p-compass on ipad
+- configurations.json needs to be in source control
 
-
-
-
+switchMap, createMap
 
 
 

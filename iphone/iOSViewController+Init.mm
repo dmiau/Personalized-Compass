@@ -188,17 +188,7 @@
     [self.mapView addSubview:self.devMessageLabel];
     [self.devMessageLabel setHidden:YES];
     
-    //-------------------
-    // Initialize OpenGL ES
-    //-------------------
-    
-    // Create an OpenGL ES context and assign it to the view loaded from storyboard
-    [self.glkView initWithFrame:self.glkView.frame
-                        context:
-     [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1]];
-    
-    
-    
+
     //-------------------
     // Initialize Map View
     //-------------------
@@ -222,7 +212,14 @@
     
     [self.mapView addGestureRecognizer:pgr];
     
+    //-------------------
+    // Initialize OpenGL ES
+    //-------------------
     
+    // Create an OpenGL ES context and assign it to the view loaded from storyboard
+    [self.glkView initWithFrame:self.glkView.frame
+                        context:
+     [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1]];
     
     //-------------------
     // Add View, Model, Watch and Debug Panels

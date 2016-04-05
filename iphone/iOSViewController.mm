@@ -102,7 +102,7 @@
             // Call displaySnapshot directly when testManager is OFF
             //--------------
             [self displaySnapshot:self.snapshot_id_toshow
-                withStudySettings:self.testManager->testManagerMode];
+                withStudySettings:OFF];
 
             [self updateGMapBasedOnAMap];
         }else{
@@ -151,7 +151,7 @@
         }
         self.landmark_id_toshow = -1;
     }
-    
+        
     [self.glkView setNeedsDisplay];
 }
 

@@ -720,6 +720,15 @@
 		9A4AA6651A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA6611A80297E0009F448 /* TestManager-SnapShotGeneration.mm */; };
 		9A4AA6661A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA6611A80297E0009F448 /* TestManager-SnapShotGeneration.mm */; };
 		9A4AA6671A80297E0009F448 /* TestManager-SnapShotGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AA6611A80297E0009F448 /* TestManager-SnapShotGeneration.mm */; };
+		9A4C4C751CB41B4C00BE8479 /* expert.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C4C741CB41B4C00BE8479 /* expert.png */; };
+		9A4C4C761CB41B4C00BE8479 /* expert.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C4C741CB41B4C00BE8479 /* expert.png */; };
+		9A4C4C771CB41B4C00BE8479 /* expert.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C4C741CB41B4C00BE8479 /* expert.png */; };
+		9A4C4C791CB41BF100BE8479 /* demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C4C781CB41BF100BE8479 /* demo.png */; };
+		9A4C4C7A1CB41BF100BE8479 /* demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C4C781CB41BF100BE8479 /* demo.png */; };
+		9A4C4C7B1CB41BF100BE8479 /* demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C4C781CB41BF100BE8479 /* demo.png */; };
+		9A4C4C7D1CB41BF800BE8479 /* study.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C4C7C1CB41BF800BE8479 /* study.png */; };
+		9A4C4C7E1CB41BF800BE8479 /* study.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C4C7C1CB41BF800BE8479 /* study.png */; };
+		9A4C4C7F1CB41BF800BE8479 /* study.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C4C7C1CB41BF800BE8479 /* study.png */; };
 		9A4D2B2C1A882E0000BB81DB /* DesktopViewController+Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D2B2B1A882E0000BB81DB /* DesktopViewController+Tools.mm */; };
 		9A4D2B2D1A882E0000BB81DB /* DesktopViewController+Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D2B2B1A882E0000BB81DB /* DesktopViewController+Tools.mm */; };
 		9A4D2B2E1A882E0000BB81DB /* DesktopViewController+Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D2B2B1A882E0000BB81DB /* DesktopViewController+Tools.mm */; };
@@ -1590,6 +1599,9 @@
 		9A4AA65B1A7FEF010009F448 /* SnapShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapShotViewController.h; sourceTree = "<group>"; };
 		9A4AA65C1A7FEF010009F448 /* SnapShotViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SnapShotViewController.mm; sourceTree = "<group>"; };
 		9A4AA6611A80297E0009F448 /* TestManager-SnapShotGeneration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "TestManager-SnapShotGeneration.mm"; sourceTree = "<group>"; };
+		9A4C4C741CB41B4C00BE8479 /* expert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = expert.png; path = icons/expert.png; sourceTree = "<group>"; };
+		9A4C4C781CB41BF100BE8479 /* demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = demo.png; path = icons/demo.png; sourceTree = "<group>"; };
+		9A4C4C7C1CB41BF800BE8479 /* study.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = study.png; path = icons/study.png; sourceTree = "<group>"; };
 		9A4D2B2B1A882E0000BB81DB /* DesktopViewController+Tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Tools.mm"; sourceTree = "<group>"; };
 		9A4F0F45193E2A8800CF32DE /* pcompass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pcompass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F0F46193E2A8900CF32DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -2633,6 +2645,9 @@
 		9A998D66194B716800778DFC /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				9A4C4C741CB41B4C00BE8479 /* expert.png */,
+				9A4C4C7C1CB41BF800BE8479 /* study.png */,
+				9A4C4C781CB41BF100BE8479 /* demo.png */,
 				9A94820C1991D46A0036249C /* setup.png */,
 				9A480896198BF1F70001E188 /* debug.png */,
 				9A480897198BF1F70001E188 /* general.png */,
@@ -3153,6 +3168,7 @@
 				9A037567198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9AD52F6C1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
+				9A4C4C761CB41B4C00BE8479 /* expert.png in Resources */,
 				9A3DA0CA1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A037561198DA31800258E95 /* Box2DConfig.cmake in Resources */,
 				2B8469291BF3E8B2000703DB /* GoogleMaps.bundle in Resources */,
@@ -3160,9 +3176,11 @@
 				9A48089C198BF1F70001E188 /* debug.png in Resources */,
 				9AF3788B1A9FED7600FEB3F3 /* walking.tif in Resources */,
 				9A998D7D194BCB0900778DFC /* setup.jpg in Resources */,
+				9A4C4C7A1CB41BF100BE8479 /* demo.png in Resources */,
 				9A8CE9F21A97871F0070D9D4 /* iosSnapshots.snapshot in Resources */,
 				9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */,
 				9ADDD77E1CB3159700BBBB41 /* demoBookmarks.kml in Resources */,
+				9A4C4C7E1CB41BF800BE8479 /* study.png in Resources */,
 				9A4F0FB1193E745900CF32DE /* montreal.kml in Resources */,
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
 				9AF273101982865C00C0195B /* snapshotDefault.png in Resources */,
@@ -3205,6 +3223,7 @@
 				9AD52F6D1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9A3DA09C1964E9B1009E0073 /* add.png in Resources */,
 				9A0060C61AA65CCA00E60F10 /* watchScale.tif in Resources */,
+				9A4C4C771CB41B4C00BE8479 /* expert.png in Resources */,
 				9AB2A71D196372AA0001E96F /* selected.png in Resources */,
 				9A8CE9FF1A97871F0070D9D4 /* study.snapshot in Resources */,
 				9AECA774196AEAB7008ADAEC /* UKLondon.kml in Resources */,
@@ -3212,9 +3231,11 @@
 				9A2E42EA196C9D2C00CF8862 /* heading.png in Resources */,
 				9AF3788C1A9FED7600FEB3F3 /* walking.tif in Resources */,
 				9A8DF92D1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
+				9A4C4C7B1CB41BF100BE8479 /* demo.png in Resources */,
 				9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A82B6471941518900534A5F /* newyork.kml in Resources */,
 				9ADDD77F1CB3159700BBBB41 /* demoBookmarks.kml in Resources */,
+				9A4C4C7F1CB41BF800BE8479 /* study.png in Resources */,
 				9A4808A3198BF1F70001E188 /* general.png in Resources */,
 				9A8CE9E71A97871F0070D9D4 /* default.snapshot in Resources */,
 				9A82B6481941518900534A5F /* montreal.kml in Resources */,
@@ -3349,6 +3370,7 @@
 				9AF29F2918F4C90000A28AC3 /* moto360_bikemap.png in Resources */,
 				9AEA57E918D9EBB20028B80C /* Images.xcassets in Resources */,
 				9A4808B3198C2FA30001E188 /* london711.kml in Resources */,
+				9A4C4C7D1CB41BF800BE8479 /* study.png in Resources */,
 				9A4808B7198C2FA30001E188 /* newyork723.kml in Resources */,
 				9A469E1419A5183400EB88C0 /* OSXCalloutView.xib in Resources */,
 				9AF7EB2E190175F900983C2F /* configurations.json in Resources */,
@@ -3356,6 +3378,7 @@
 				9AF089FD1921390700E118D5 /* New York City [many].kml in Resources */,
 				9A2E42E5196C9D2C00CF8862 /* heading.png in Resources */,
 				9A3DA09D1964E9B1009E0073 /* remove.png in Resources */,
+				9A4C4C791CB41BF100BE8479 /* demo.png in Resources */,
 				9A25D9B61AADF7810050C4CD /* locate.jpg in Resources */,
 				9ACCED0018EF5425006E9CA4 /* london.kml in Resources */,
 				9A4808C7198C2FA30001E188 /* tokyo.kml in Resources */,
@@ -3377,6 +3400,7 @@
 				9A4808BB198C2FA30001E188 /* snapshot.kml in Resources */,
 				9A4808C3198C2FA30001E188 /* StAndrews723.kml in Resources */,
 				9A998D7C194BCB0900778DFC /* setup.jpg in Resources */,
+				9A4C4C751CB41B4C00BE8479 /* expert.png in Resources */,
 				9AFC0BA31AAA505F0085543C /* testSpec.plist in Resources */,
 				9AF29F2A18F4C90000A28AC3 /* moto360_wrist.jpg in Resources */,
 				9A4808CF198C2FA30001E188 /* wedge723.kml in Resources */,

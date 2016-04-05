@@ -297,7 +297,7 @@
             <point key="canvasLocation" x="512" y="745.5"/>
         </view>
         <view contentMode="scaleToFill" restorationIdentifier="DebugPanel" id="DNm-dP-7Ec" userLabel="DebugPanel">
-            <rect key="frame" x="0.0" y="1" width="320" height="184"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHJ-W2-aJX">

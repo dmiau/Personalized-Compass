@@ -43,6 +43,7 @@
     {
         self.model->location_filename = mySnapshot.kmlFilename;
         readLocationKml(self.model, self.model->location_filename);
+        [self resetAnnotations];
     }
     
     // indicates which annotation should be added
