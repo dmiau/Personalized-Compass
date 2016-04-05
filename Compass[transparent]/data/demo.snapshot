@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+<Document>
+<Placemark>
+<name>Yellowstone National Park</name>
+<Point>
+<coordinates>-110.560882568,44.6204910278,0.0</coordinates>
+<spans>0.0143162524328,0.0163582637906,0.0</spans>
+</Point>
+<OSXPoint>
+<osxcoordinates>0,0,0.0</osxcoordinates>
+<osxspans>0,0,0.0</osxspans>
+</OSXPoint>
+<orientation>-0</orientation>
+<kmlFilename>demoBookmarks.kml</kmlFilename>
+<address></address>
+<selected_ids>0, 1, 2</selected_ids>
+<is_answer_list>0, 0, 0</is_answer_list>
+<ios_display_wh>0,0,0.0</ios_display_wh>
+<eios_display_wh>0,0,0.0</eios_display_wh>
+<osx_display_wh>0,0,0.0</osx_display_wh>
+<notes></notes>
+<date>4/4/16, 12:42:22 PM Eastern Daylight Time</date>
+<deviceType>48</deviceType>
+<visualizationType>0</visualizationType>
+</Placemark>
+
+<Placemark>
+<name>Yellow [state capitals]</name>
+<Point>
+<coordinates>-110.560882568,44.6204910278,0.0</coordinates>
+<spans>0.0143162524328,0.0163582637906,0.0</spans>
+</Point>
+<OSXPoint>
+<osxcoordinates>0,0,0.0</osxcoordinates>
+<osxspans>0,0,0.0</osxspans>
+</OSXPoint>
+<orientation>-0</orientation>
+<kmlFilename>demoBookmarks.kml</kmlFilename>
+<address></address>
+<selected_ids>4, 5, 6</selected_ids>
+<is_answer_list>0, 0, 0</is_answer_list>
+<ios_display_wh>0,0,0.0</ios_display_wh>
+<eios_display_wh>0,0,0.0</eios_display_wh>
+<osx_display_wh>0,0,0.0</osx_display_wh>
+<notes></notes>
+<date>4/4/16, 1:06:49 PM Eastern Daylight Time</date>
+<deviceType>48</deviceType>
+<visualizationType>0</visualizationType>
+</Placemark>
+
+<Placemark>
+<name>yellow [airports]</name>
+<Point>
+<coordinates>-110.560882568,44.6204910278,0.0</coordinates>
+<spans>0.0143162524328,0.0163582637906,0.0</spans>
+</Point>
+<OSXPoint>
+<osxcoordinates>0,0,0.0</osxcoordinates>
+<osxspans>0,0,0.0</osxspans>
+</OSXPoint>
+<orientation>-0</orientation>
+<kmlFilename>demoBookmarks.kml</kmlFilename>
+<address></address>
+<selected_ids>8, 7</selected_ids>
+<is_answer_list>0, 0</is_answer_list>
+<ios_display_wh>0,0,0.0</ios_display_wh>
+<eios_display_wh>0,0,0.0</eios_display_wh>
+<osx_display_wh>0,0,0.0</osx_display_wh>
+<notes></notes>
+<date>4/4/16, 1:11:12 PM Eastern Daylight Time</date>
+<deviceType>48</deviceType>
+<visualizationType>0</visualizationType>
+</Placemark>
+
+<Placemark>
+<name>nyc</name>
+<Point>
+<coordinates>-73.9992752075,40.7201919556,0.0</coordinates>
+<spans>0.00322948209941,0.003929276485,0.0</spans>
+</Point>
+<OSXPoint>
+<osxcoordinates>0,0,0.0</osxcoordinates>
+<osxspans>0,0,0.0</osxspans>
+</OSXPoint>
+<orientation>-0</orientation>
+<kmlFilename>demoBookmarks.kml</kmlFilename>
+<address></address>
+<selected_ids>9, 10</selected_ids>
+<is_answer_list>0, 0</is_answer_list>
+<ios_display_wh>0,0,0.0</ios_display_wh>
+<eios_display_wh>0,0,0.0</eios_display_wh>
+<osx_display_wh>0,0,0.0</osx_display_wh>
+<notes></notes>
+<date>4/4/16, 1:20:01 PM Eastern Daylight Time</date>
+<deviceType>48</deviceType>
+<visualizationType>0</visualizationType>
+</Placemark>
+
+<Placemark>
+<name>London </name>
+<Point>
+<coordinates>-0.124280890945,51.5005956724,0.0</coordinates>
+<spans>0.00476293120479,0.00475974132961,0.0</spans>
+</Point>
+<OSXPoint>
+<osxcoordinates>0,0,0.0</osxcoordinates>
+<osxspans>0,0,0.0</osxspans>
+</OSXPoint>
+<orientation>-1.604080202e-09</orientation>
+<kmlFilename>demoBookmarks.kml</kmlFilename>
+<address></address>
+<selected_ids>12, 13, 11</selected_ids>
+<is_answer_list>0, 0, 0</is_answer_list>
+<ios_display_wh>0,0,0.0</ios_display_wh>
+<eios_display_wh>0,0,0.0</eios_display_wh>
+<osx_display_wh>0,0,0.0</osx_display_wh>
+<notes></notes>
+<date>4/4/16, 2:58:14 PM Eastern Daylight Time</date>
+<deviceType>48</deviceType>
+<visualizationType>0</visualizationType>
+</Placemark>
+
+</Document>
+</kml>

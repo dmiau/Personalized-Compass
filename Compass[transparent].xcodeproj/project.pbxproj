@@ -1128,6 +1128,14 @@
 		9ADA91B61AB87FAC009C7552 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A91940F1AB870F800B3F2B5 /* AVFoundation.framework */; };
 		9ADA91B71AB87FB0009C7552 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9194111AB8718200B3F2B5 /* AVKit.framework */; };
 		9ADA91BE1AB88411009C7552 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADA91BD1AB88411009C7552 /* CoreMedia.framework */; };
+		9ADDD77D1CB3159700BBBB41 /* demoBookmarks.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ADDD77C1CB3159700BBBB41 /* demoBookmarks.kml */; };
+		9ADDD77E1CB3159700BBBB41 /* demoBookmarks.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ADDD77C1CB3159700BBBB41 /* demoBookmarks.kml */; };
+		9ADDD77F1CB3159700BBBB41 /* demoBookmarks.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9ADDD77C1CB3159700BBBB41 /* demoBookmarks.kml */; };
+		9ADDD7811CB315A000BBBB41 /* demo.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 9ADDD7801CB315A000BBBB41 /* demo.snapshot */; };
+		9ADDD7821CB315A000BBBB41 /* demo.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 9ADDD7801CB315A000BBBB41 /* demo.snapshot */; };
+		9ADDD7831CB315A000BBBB41 /* demo.snapshot in Resources */ = {isa = PBXBuildFile; fileRef = 9ADDD7801CB315A000BBBB41 /* demo.snapshot */; };
+		9ADDD7861CB32BCB00BBBB41 /* iOSGeneralViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ADDD7851CB32BCB00BBBB41 /* iOSGeneralViewController.mm */; };
+		9ADDD7871CB32BCB00BBBB41 /* iOSGeneralViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ADDD7851CB32BCB00BBBB41 /* iOSGeneralViewController.mm */; };
 		9AE020B2198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE020B3198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */; };
 		9AE093D118ECA56400DFC16F /* DesktopViewController+MapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AE093D018ECA56400DFC16F /* DesktopViewController+MapView.mm */; };
@@ -1733,6 +1741,10 @@
 		9AD5AB0F199D202700B351FA /* iPadNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadNavigationViewController.h; sourceTree = "<group>"; };
 		9AD5AB10199D202700B351FA /* iPadNavigationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iPadNavigationViewController.mm; sourceTree = "<group>"; };
 		9ADA91BD1AB88411009C7552 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		9ADDD77C1CB3159700BBBB41 /* demoBookmarks.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = demoBookmarks.kml; sourceTree = "<group>"; };
+		9ADDD7801CB315A000BBBB41 /* demo.snapshot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = demo.snapshot; sourceTree = "<group>"; };
+		9ADDD7841CB32BCB00BBBB41 /* iOSGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSGeneralViewController.h; sourceTree = "<group>"; };
+		9ADDD7851CB32BCB00BBBB41 /* iOSGeneralViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSGeneralViewController.mm; sourceTree = "<group>"; };
 		9AE020B0198152DC00381C5C /* BreadcrumbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreadcrumbDetailViewController.h; sourceTree = "<group>"; };
 		9AE020B1198152DC00381C5C /* BreadcrumbDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BreadcrumbDetailViewController.mm; sourceTree = "<group>"; };
 		9AE093CF18ECA56400DFC16F /* DesktopViewController+MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+MapView.h"; sourceTree = "<group>"; };
@@ -2407,6 +2419,8 @@
 				9A95CCB2194B4146008E520F /* iOSSettingViewController.mm */,
 				9A7C547B1CACB98A008D682C /* settingTBVC.m */,
 				9A7C547E1CACB9C5008D682C /* settingTBVC.h */,
+				9ADDD7841CB32BCB00BBBB41 /* iOSGeneralViewController.h */,
+				9ADDD7851CB32BCB00BBBB41 /* iOSGeneralViewController.mm */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2702,6 +2716,8 @@
 		9ADA91C01AB8896B009C7552 /* kml */ = {
 			isa = PBXGroup;
 			children = (
+				9ADDD7801CB315A000BBBB41 /* demo.snapshot */,
+				9ADDD77C1CB3159700BBBB41 /* demoBookmarks.kml */,
 				9A4808AB198C2FA30001E188 /* london711.kml */,
 				9A4808AC198C2FA30001E188 /* newyork723.kml */,
 				9A4808AD198C2FA30001E188 /* snapshot.kml */,
@@ -3115,6 +3131,7 @@
 				9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */,
 				9A9482111991D46A0036249C /* setup.png in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
+				9ADDD7821CB315A000BBBB41 /* demo.snapshot in Resources */,
 				9A1632AD1AB6049000F07E45 /* redDot.png in Resources */,
 				9A4F0FAE193E745900CF32DE /* New York City [many].kml in Resources */,
 				9A239EE1196EFF410064BDC9 /* new.kml in Resources */,
@@ -3145,6 +3162,7 @@
 				9A998D7D194BCB0900778DFC /* setup.jpg in Resources */,
 				9A8CE9F21A97871F0070D9D4 /* iosSnapshots.snapshot in Resources */,
 				9A4F0FB0193E745900CF32DE /* newyork.kml in Resources */,
+				9ADDD77E1CB3159700BBBB41 /* demoBookmarks.kml in Resources */,
 				9A4F0FB1193E745900CF32DE /* montreal.kml in Resources */,
 				9A4F0F51193E2A8900CF32DE /* InfoPlist.strings in Resources */,
 				9AF273101982865C00C0195B /* snapshotDefault.png in Resources */,
@@ -3165,6 +3183,7 @@
 				9AECA775196B1545008ADAEC /* ExtraPanels.xib in Resources */,
 				9AFC0BA81AAA505F0085543C /* testSpec.plist in Resources */,
 				9A998D65194B716200778DFC /* line__0000s_0084_menu.png in Resources */,
+				9ADDD7831CB315A000BBBB41 /* demo.snapshot in Resources */,
 				9A037568198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9A239EE2196EFF410064BDC9 /* new.kml in Resources */,
 				9A9F79E81947BD12001C7896 /* SundayTest.kml in Resources */,
@@ -3195,6 +3214,7 @@
 				9A8DF92D1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9A3DA0CB1966EAD9009E0073 /* myPinAnnotationViewIOS.xib in Resources */,
 				9A82B6471941518900534A5F /* newyork.kml in Resources */,
+				9ADDD77F1CB3159700BBBB41 /* demoBookmarks.kml in Resources */,
 				9A4808A3198BF1F70001E188 /* general.png in Resources */,
 				9A8CE9E71A97871F0070D9D4 /* default.snapshot in Resources */,
 				9A82B6481941518900534A5F /* montreal.kml in Resources */,
@@ -3303,6 +3323,7 @@
 				9A1632B01AB619D200F07E45 /* blueDot.png in Resources */,
 				9A8CE9E21A97871F0070D9D4 /* default.snapshot in Resources */,
 				9A856F841AB8AEE100486AE9 /* wedge-phone-distance.mp4 in Resources */,
+				9ADDD7811CB315A000BBBB41 /* demo.snapshot in Resources */,
 				9A8CE9E81A97871F0070D9D4 /* empty.snapshot in Resources */,
 				9A856F881AB8AEE100486AE9 /* wedge-phone-locate.mp4 in Resources */,
 				9A4808CB198C2FA30001E188 /* training.kml in Resources */,
@@ -3365,6 +3386,7 @@
 				9AEA581D18D9EC680028B80C /* README.txt in Resources */,
 				9A48089E198BF1F70001E188 /* general.png in Resources */,
 				9AEECFF61910599B0031BAAE /* StyleWindow.xib in Resources */,
+				9ADDD77D1CB3159700BBBB41 /* demoBookmarks.kml in Resources */,
 				9AB90B8D194DED0B0030BF5B /* Taiwan.kml in Resources */,
 				9A6F53F21910069F00F35FED /* DebugInfoWindow.xib in Resources */,
 			);
@@ -3587,6 +3609,7 @@
 				9A4F0F85193E331E00CF32DE /* locationFilter.mm in Sources */,
 				9A03760F198DA31900258E95 /* b2Contact.cpp in Sources */,
 				9AE020B2198152DC00381C5C /* BreadcrumbDetailViewController.mm in Sources */,
+				9ADDD7861CB32BCB00BBBB41 /* iOSGeneralViewController.mm in Sources */,
 				9A8CE9CD1A952D6F0070D9D4 /* compassRender+CompassComponents.mm in Sources */,
 				9A4F0F86193E331E00CF32DE /* readConfiguration.mm in Sources */,
 				9A03757F198DA31800258E95 /* b2CollidePolygon.cpp in Sources */,
@@ -3723,6 +3746,7 @@
 				9A9F53681A79962900E3744B /* CHCSVParser.m in Sources */,
 				9A0375BC198DA31800258E95 /* b2Draw.cpp in Sources */,
 				9AE2FC7919AE43810015E2B6 /* SRWebSocket.m in Sources */,
+				9ADDD7871CB32BCB00BBBB41 /* iOSGeneralViewController.mm in Sources */,
 				9A0375C2198DA31900258E95 /* b2Math.cpp in Sources */,
 				9A0375F2198DA31900258E95 /* b2World.cpp in Sources */,
 				9A03765E198DA31900258E95 /* b2PulleyJoint.cpp in Sources */,

@@ -119,7 +119,10 @@ typedef struct{
 
 
 - (void) setupPhoneViewMode;
-- (void) setupWatchViewMode;
+
+// use flag to specify whether the device should be rotated or not
+- (void) setupWatchViewModeWithRotation: (bool) rotationFlag;
+
 - (void)pressOKToSwitchToWatchMode;
 - (void)pressOKToSwitchToPhoneMode;
 

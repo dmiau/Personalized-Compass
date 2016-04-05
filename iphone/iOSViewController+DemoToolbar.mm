@@ -21,12 +21,21 @@
     
     // Add the counter
     NSString* counter_str = [NSString stringWithFormat:
-                             @"*/%lu", self.model->snapshot_array.size()];
+                             @"1/%lu", self.model->snapshot_array.size()];
     self.counter_button = [[UIBarButtonItem alloc]
                       initWithTitle:counter_str
                       style:UIBarButtonItemStyleBordered                                             target:self
                       action:nil];
     [toolbar_items addObject:self.counter_button];
+    
+    
+    // load the first snapshot
+    [self displaySnapshot:0 withStudySettings:OFF];
+    // reset the visualization
+    [self loopVisualizations:[self resetVisualizationButton]];
+    // reset the device
+    [self loopDevices:[self resetDeviceButton]];
+    [self sendBoundaryLatLon];
     
     
     //--------------
@@ -50,6 +59,16 @@
     
     // Set the visualization to the first
     [self loopVisualizations:anItem];
+
+    //--------------
+    // Add device buttons
+    //--------------
+    anItem = [self resetDeviceButton];
+    [toolbar_items addObject:anItem];
+    
+    // Set the first device
+    [self loopDevices:anItem];
+    
     
     //--------------
     // Add a flexible separator
@@ -59,14 +78,14 @@
                                  target:nil action:nil];
     [toolbar_items addObject:flexItem];
     
-    //--------------
-    // Add the mask buttons
-    //--------------
-    anItem = [[UIBarButtonItem alloc]
-              initWithTitle:@"[Mask]"
-              style:UIBarButtonItemStyleBordered                                             target:self
-              action:@selector(runDemoAction:)];
-    [toolbar_items addObject:anItem];
+//    //--------------
+//    // Add the mask buttons
+//    //--------------
+//    anItem = [[UIBarButtonItem alloc]
+//              initWithTitle:@"[Mask]"
+//              style:UIBarButtonItemStyleBordered                                             target:self
+//              action:@selector(runDemoAction:)];
+//    [toolbar_items addObject:anItem];
     
     //--------------
     // Add the bookmark button
@@ -147,6 +166,47 @@
                         self.demoManager->enabled_visualization_vector[idx].name];
 }
 
+// reset the device button
+- (UIBarButtonItem*) resetDeviceButton{
+    self.demoManager->device_counter = 0;
+    NSString *deviceTitle = [NSString stringWithFormat:@"[%@]",
+                          self.demoManager->
+                          enabled_device_vector[0].name];
+    static UIBarButtonItem* anItem = [[UIBarButtonItem alloc]
+                                      initWithTitle:deviceTitle
+                                      style:UIBarButtonItemStyleBordered                                             target:self
+                                      action:@selector(loopDevices:)];
+    anItem.title = deviceTitle;
+    return anItem;
+}
+
+// loop through the devices
+- (void)loopDevices:(UIBarButtonItem*) bar_button{
+    int idx = self.demoManager->device_counter;
+    
+    DeviceType current_type = (DeviceType)
+    self.demoManager->enabled_device_vector[idx].type;
+    
+    switch (current_type) {
+        case PHONE:
+            [self setupPhoneViewMode];
+            break;
+        case WATCH:
+            [self setupWatchViewModeWithRotation:NO];
+            break;
+        default:
+            break;
+    }
+    
+    // Calculat the next type
+    idx = idx + 1;
+    idx = idx % self.demoManager->enabled_device_vector.size();
+    self.demoManager->device_counter = idx;
+    // Update the title
+    bar_button.title = [NSString stringWithFormat:@"[%@]",
+                        self.demoManager->enabled_device_vector[idx].name];
+}
+
 #pragma mark ------Demo actions------
 //-------------------
 // Main method to control the demo
@@ -167,20 +227,8 @@
         snapshot_id = snapshot_id-1;
         if (snapshot_id < 0)
         {
-            if (self.demoManager->device_counter != 0){
-                // Set up the environment
-                snapshot_id = self.model->snapshot_array.size() -1;
-                [self setupEnvForTest:self.
-                 demoManager->enabled_device_vector
-                 [--self.demoManager->device_counter].type];
-            }else{
                 snapshot_id = 0;
-            }
         }
-        [self displaySnapshot:snapshot_id withStudySettings:OFF];
-
-        // Set the visualization to the first
-        [self loopVisualizations:[self resetVisualizationButton]];
         
     }else if ([label isEqualToString:@"[Next]"]){
 
@@ -188,29 +236,26 @@
         // Set up the environment
         if (snapshot_id == (int)self.model->snapshot_array.size())
         {
-            if (self.demoManager->device_counter !=
-                self.demoManager->enabled_device_vector.size()-1)
-            {
-                snapshot_id =0;
-                [self setupEnvForTest:self.demoManager->
-                 enabled_device_vector[++self.demoManager->device_counter].type];
-            }else{
                 --snapshot_id;
-            }
-        }
-        
-        [self displaySnapshot:snapshot_id withStudySettings:OFF];
-
-        // Set the visualization to the first
-        [self loopVisualizations:[self resetVisualizationButton]];
-    }else if ([label isEqualToString:@"[Mask]"]){
-        
-        if (self.isBlankMapEnabled){
-            [self toggleBlankMapMode:NO];
-        }else{
-            [self toggleBlankMapMode:YES];
         }
     }
+
+    [self displaySnapshot:snapshot_id withStudySettings:OFF];
+    // reset the visualization
+    [self loopVisualizations:[self resetVisualizationButton]];
+    // reset the device
+    [self loopDevices:[self resetDeviceButton]];
+    
+    
+//    else if ([label isEqualToString:@"[Mask]"]){
+//        
+//        if (self.isBlankMapEnabled){
+//            [self toggleBlankMapMode:NO];
+//        }else{
+//            [self toggleBlankMapMode:YES];
+//        }
+//    }
+    
     self.counter_button.title = [NSString stringWithFormat:
                             @"%d/%lu", snapshot_id+1,
                             self.model->snapshot_array.size()];    
@@ -222,7 +267,7 @@
     if (type == PHONE){
         [self setupPhoneViewMode];
     }else{
-        [self setupWatchViewMode];
+        [self setupWatchViewModeWithRotation:NO];
     }
 }
 

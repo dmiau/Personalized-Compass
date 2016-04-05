@@ -49,7 +49,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="XbF-sp-FDu" kind="modal" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="pu3-4Z-xsR"/>
+                                    <action selector="pushSettingView:" destination="RyZ-6E-Ee0" eventType="touchUpInside" id="j0N-4M-OoJ"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6q-wo-nON">
@@ -231,6 +231,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="sct-Ue-0cP"/>
                     <navigationItem key="navigationItem" title="Settings" id="xby-Lr-kUt">
                         <barButtonItem key="rightBarButtonItem" title="Debug" id="grZ-QL-vfx">
                             <connections>
@@ -250,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPD-Yn-J6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-385" y="-1137"/>
+            <point key="canvasLocation" x="-331" y="-1741"/>
         </scene>
         <!--Debug Settings-->
         <scene sceneID="mqC-Bk-cQN">
@@ -319,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfh-l2-pW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="258" y="-1137"/>
+            <point key="canvasLocation" x="356" y="-1741"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="ixK-QE-CGE">
@@ -751,8 +752,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="06K-e6-nHH" kind="relationship" relationship="viewControllers" id="9p9-iU-aHD"/>
-                        <segue destination="goE-Iq-g3a" kind="relationship" relationship="viewControllers" id="cee-LQ-QJz"/>
                         <segue destination="dek-2T-bsJ" kind="relationship" relationship="viewControllers" id="bie-8h-uee"/>
+                        <segue destination="goE-Iq-g3a" kind="relationship" relationship="viewControllers" id="cee-LQ-QJz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PG8-fR-IXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -912,6 +913,23 @@
             </objects>
             <point key="canvasLocation" x="974" y="1088"/>
         </scene>
+        <!--SettingTBVC-->
+        <scene sceneID="1Z8-fH-Rkf">
+            <objects>
+                <tabBarController storyboardIdentifier="settingVC" id="BPJ-hx-roL" customClass="settingTBVC" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="FIi-Ka-f6C">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bsL-PH-kKP" kind="relationship" relationship="viewControllers" id="rdi-l4-9Pk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oLq-pl-xBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2014" y="-2563"/>
+        </scene>
         <!--iPad Navigation View Controller-->
         <scene sceneID="ePz-T7-l5t">
             <objects>
@@ -936,8 +954,8 @@
         <image name="snapshotDefault.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9p9-iU-aHD"/>
         <segue reference="8zP-rM-KBw"/>
         <segue reference="BgQ-4a-n31"/>
+        <segue reference="9p9-iU-aHD"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 #import "iOSViewController.h"
 #import "iOSSettingViewController.h"
+#import "AppDelegate.h"
 
 @implementation iOSViewController (Toolbar)
 
@@ -273,9 +274,11 @@
 }
 
 - (IBAction)pushSettingView:(id)sender {
+    
+    
+#ifndef __IPAD__
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
     UIViewController *destinationController = (UIViewController *)[sb instantiateViewControllerWithIdentifier:@"settingVC"];
-    
     CATransition* transition = [CATransition animation];
     transition.duration = .25;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -286,6 +289,50 @@
                                                 forKey:kCATransition];
     
     [self.navigationController pushViewController:destinationController animated:NO];
+#endif
+    
+#ifdef __IPAD__
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    UIViewController *destinationController = (UIViewController *)[sb instantiateViewControllerWithIdentifier:@"settingVC"];
+    
+    // need to programmatically add a navigation bar and a dimiss button
+    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:
+                               CGRectMake(0, 0,
+                                          destinationController.view.bounds.size.width, 50)];
+
+    //do something like background color, title, etc you self
+    [destinationController.view addSubview:navbar];
+    UINavigationItem *navItem = [[UINavigationItem alloc]initWithTitle:@"Settings"];
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"dismiss"
+                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(dismissModal:)];
+    
+    [navItem setLeftBarButtonItem:barButton];
+    [navbar setItems:@[navItem]];
+    
+    destinationController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    destinationController.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    [self presentModalViewController:destinationController animated:YES];
+#endif
+}
+
+- (void)dismissModal:(id)sender {
+    //-------------------
+    // Set the rootViewController
+    //-------------------
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    
+    UINavigationController *myNavigationController =
+    app.window.rootViewController;
+    
+    iOSViewController *rootViewController =
+    [myNavigationController.viewControllers objectAtIndex:0];
+    
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        // call your completion method:
+        [rootViewController viewWillAppear:YES];
+    }];
 }
 
 @end

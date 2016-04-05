@@ -4304,12 +4304,48 @@ compass is moved to the center in setupPhoneViewMode
 -------------------------------------------------------------------
 3:12PM. Start to code some features required by the demo.
 
+
+*ToDo
 log the following
-- log the map mode: normal or satellite
-- log the pitch angle
 - log the position and the size of p-compass
 - real-ratio or multi-scale representation
 
+*Done
+- add a switch to flip between watch and phone
+
+in compassModel.h
+
+// Device type enum
+typedef enum{
+    PHONE,
+    WATCH,
+    SQUAREWATCH,
+    DESKTOP
+}DeviceType;        
+4:09PM. The logic in DemoToolbar can be greatly simplified.
+
+*Doing
+
+
+-------------------------------------------------------------------
+4.5.3016
+-------------------------------------------------------------------
+10:13AM. 
+I should fix the following issues:
+
+* ToDo
+- oval p-compass on ipad
+- configurations.json needs to be in source control
+- look and feel issues
+- demo panel transparent heading
+
+* Done
+- annotations not showing
+self.rootViewController.needUpdateAnnotations = true;
+- demo panel constraints 
+
+* Doing
+- manual mode should take visibility into account
 
 
 

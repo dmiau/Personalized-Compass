@@ -55,9 +55,9 @@
                        self.renderer->compassRefDot.deviceType = PHONE;
                        // Change compass ctr
                        [self lockCompassRefToScreenCenter:NO];
-                       [self changeCompassLocationTo: @"Center"];
-                       self.model->configurations[@"wedge_style"] = @"modified-orthographic";    
-                       [self lockCompassRefToScreenCenter:YES];
+//                       [self changeCompassLocationTo: @"Center"];
+                       self.model->configurations[@"wedge_style"] = @"modified-orthographic";
+//                       [self lockCompassRefToScreenCenter:YES];
                        // Reset the compss scale back to the default scale
                        self.renderer->adjustAbsoluteCompassScale(1);
                        
@@ -92,7 +92,7 @@
 //-----------------
 // Set up the watch mode
 //-----------------
-- (void)setupWatchViewMode{
+- (void)setupWatchViewModeWithRotation: (bool) rotationFlag{
 
     dispatch_queue_t mainQueue = dispatch_get_main_queue();
     dispatch_async(mainQueue,
@@ -103,11 +103,13 @@
                        
                        self.UIConfigurations[@"UIRotationLock"] =
                        [NSNumber numberWithBool:NO];
-                       // rotate the screen
-                       NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
-                       [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
                        
-                       //[[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft];
+                       
+                       if (rotationFlag){
+                           // rotate the screen
+                           NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+                           [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+                       }
                        
                        self.UIConfigurations[@"UIRotationLock"] =
                        [NSNumber numberWithBool:YES];
@@ -235,7 +237,7 @@
             //-----------
             // Watch Mode
             //-----------
-            [self setupWatchViewMode];
+            [self setupWatchViewModeWithRotation:YES];
             break;
         case 2:
             //-----------
@@ -568,7 +570,7 @@
     [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                            handler:^(UIAlertAction * action)
      {[alert dismissViewControllerAnimated:YES completion:nil];
-         [self setupWatchViewMode];
+         [self setupWatchViewModeWithRotation:YES];
      }];
     
     [alert addAction:defaultAction];

@@ -214,7 +214,7 @@
         // Phone (iOS)
         //--------------------        
         [self setupVisualization:mySnapshot.visualizationType];
-        [self lockCompassRefToScreenCenter:YES];
+//        [self lockCompassRefToScreenCenter:YES];
         self.renderer->isInteractiveLineVisible=false;
         [self enableMapInteraction:NO];
 

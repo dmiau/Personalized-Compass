@@ -76,16 +76,6 @@
         = [NSNumber numberWithBool:false];
     }
     
-    //---------------
-    // Unwind actions
-    //---------------
-    if (self.needUpdateAnnotations){
-        self.needUpdateAnnotations = false;
-        
-        [self resetAnnotations];
-        //        [self updateDataAnnotations];
-    }
-    
     
     if (self.needUpdateGmapMarkers) {
         [self resetGmapMarkers];
@@ -113,7 +103,7 @@
             //--------------
             [self displaySnapshot:self.snapshot_id_toshow
                 withStudySettings:self.testManager->testManagerMode];
-            //           [self.updateMapTimer invalidate];
+
             [self updateGMapBasedOnAMap];
         }else{
             //--------------
@@ -123,7 +113,7 @@
             //--------------
             self.testManager->showTestNumber(self.snapshot_id_toshow);
         }
-        
+        self.needUpdateAnnotations = true;
         self.snapshot_id_toshow = -1;
     }
     
@@ -134,6 +124,17 @@
         
         [self.mapView setCenterCoordinate:myBreadcrumb.coord2D animated:YES];
         self.breadcrumb_id_toshow = -1;
+    }
+    
+    
+    //---------------
+    // Unwind actions
+    //---------------
+    if (self.needUpdateAnnotations){
+        self.needUpdateAnnotations = false;
+        
+        [self resetAnnotations];
+        //        [self updateDataAnnotations];
     }
     
     //---------------

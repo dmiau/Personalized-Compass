@@ -171,7 +171,7 @@
   },
   {
   "property": "style_type",
-  "value": "BIMODAL",
+  "value": "REAL_RATIO",
   "comment": "Available types: BIMODAL, REAL_RATIO, THRESHOLD_STICK, WEDGE"
   },
   {

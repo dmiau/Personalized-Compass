@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+<Document>
+<Placemark>
+<name>Seattle, WA</name>
+<Point>
+<coordinates>-122.330276489,47.6032295227,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>San Francisco, CA</name>
+<Point>
+<coordinates>-122.420166016,37.7800788879,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Chicago, IL</name>
+<Point>
+<coordinates>-87.6324005127,41.883228302,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Yellowstone National Park</name>
+<Point>
+<coordinates>-110.560806274,44.6201210022,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Helena, MT</name>
+<Point>
+<coordinates>-112.020454407,46.5910682678,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Salt Lake City, UT</name>
+<Point>
+<coordinates>-111.888145447,40.7584762573,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Cheyenne, WY</name>
+<Point>
+<coordinates>-104.81880188,41.1402397156,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Bozeman Yellowstone International Airport</name>
+<Point>
+<coordinates>-111.160041809,45.7777061462,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Jackson Hole Airport</name>
+<Point>
+<coordinates>-110.736297607,43.6035499573,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>World Trade Center</name>
+<Point>
+<coordinates>-74.0131988525,40.7129592896,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Columbia University</name>
+<Point>
+<coordinates>-73.9617614746,40.808380127,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Tower of London</name>
+<Point>
+<coordinates>-0.076010003686,51.5080795288,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Buckingham Palace</name>
+<Point>
+<coordinates>-0.141888856888,51.5013313293,0.0</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>King's Cross St. Pancras Station</name>
+<Point>
+<coordinates>-0.12449260056,51.5307693481,0.0</coordinates>
+</Point>
+</Placemark>
+
+</Document>
+</kml>
