@@ -29,10 +29,7 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
     // ---------------
     // Draw the center circle
     // ---------------
-    drawCompassCentralCircle();
-
-
-    
+    drawCompassCentralCircle();    
     
     // ---------------
     // draw the triangle
@@ -102,18 +99,31 @@ void compassRender::renderStyleBimodal(vector<int> &indices_for_rendering){
             }
         }
 
-#ifdef __IPHONE__
+
         glPushMatrix();
         if (data_.distance <= mode_max_dist_array[0]){
 //            glTranslatef(0, 0, -1);
             glTranslatef(0, 0, 1);
+            
+#ifdef __IPAD__
+            drawTriangle(3, data_.orientation, distance);
+#elif __IPHONE__
+            drawRectangle(1.5, data_.orientation,
+                          distance);
+#endif
         }else{
             glTranslatef(0, 0, 2);
+#ifdef __IPAD__
+            drawTriangle(1.5, data_.orientation, distance);
+#elif __IPHONE__
+//            drawRectangle
+            drawTriangle(1, data_.orientation,
+                          distance);
+#endif
         }
-        drawRectangle(1, data_.orientation,
-                      distance);
+        
         glPopMatrix();
-#else
+#ifndef __IPHONE__
         // Need to draw on different depth to avoid broken polygon
         glTranslatef(0, 0, 0.0001);
         // ---------------

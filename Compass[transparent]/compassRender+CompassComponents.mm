@@ -114,7 +114,7 @@ void compassRender::drawCompassCentralCircle(){
     // draw the center circle
     glPushMatrix();
     // Translate to the front to avoid broken polygon
-    glTranslatef(0, 0, 1);
+    glTranslatef(0, 0, 2.5);
     drawCircle(0, 0, central_disk_radius, 50, true);
     glPopMatrix();
 }
@@ -167,7 +167,13 @@ void compassRender::drawCompassNorth(){
     // draw the north indicator
     // ---------------
    
-    glColor4f(0.5,0.5, 0.5, 1);
+    // Change color depending on the map mode
+    if (mapView.mapType == MKMapTypeSatelliteFlyover){
+        glColor4f(1,1, 1, 1);
+    }else{
+        glColor4f(0.5,0.5, 0.5, 1);
+    }
+    
     // Note the radius is fixed to 1
     drawTriangle(1, 0, compass_disk_radius *
                  [model->configurations[@"north_indicator_to_compass_disk_ratio"] floatValue]);

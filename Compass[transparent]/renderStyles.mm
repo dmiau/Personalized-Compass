@@ -107,7 +107,6 @@ void compassRender::renderStyleRealRatio(vector<int> &indices_for_rendering){
             
             double distance = data_.distance / max_dist * compass_disk_radius;
             glTranslatef(0, 0, 0.001);
-//            drawTriangle(central_disk_radius, data_.orientation, distance);
             drawRectangle(1, data_.orientation,distance);
         }
     }

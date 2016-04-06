@@ -61,7 +61,8 @@
     //------------------
     if ([self.model->configurations[@"personalized_compass_status"]
          isEqualToString: @"on"]
-        && [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue])
+        && [self.UIConfigurations[@"UICompassInteractionEnabled"] boolValue]
+        && ![self.UIConfigurations[@"UIToolbarMode"] isEqualToString:@"Demo"])
     {
         CGPoint touch_pt = [touch locationInView:self.mapView];
 //        NSLog(@"MapUV U: %f, V: %f", touch_pt.x, touch_pt.y);
@@ -449,9 +450,17 @@
         NSLog(@"starting scale: %f, scale %f", starting_scale, scale);
         
         
+        // adjust the font size too
+        static float original_font_size =
+        [self.model->configurations[@"font_size"] floatValue];
+        
         if ((scale >= min_limit) && (scale <= max_limit)){
             // Set a limit to the scale
             self.renderer->adjustAbsoluteCompassScale(scale);
+            
+            self.model->configurations[@"font_size"]
+            = [NSNumber numberWithFloat: scale * original_font_size];
+            self.model->initTextureArray();
         }
         
         //        if (![self.UIConfigurations[@"UICompassCenterLocked"] boolValue]){

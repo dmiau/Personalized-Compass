@@ -4334,7 +4334,9 @@ typedef enum{
 I should fix the following issues:
 
 * ToDo
-- look and feel issues
+- Google Maps satellite
+switchMap, createMap
+- oval p-compass on ipad
 
 * Done
 - annotations not showing
@@ -4352,13 +4354,30 @@ self.model->configurations[@"filter_type"] = @"MANUAL";
 self.renderer->initRenderView(frame.size.width,
                               frame.size.height);
 -load snapshot does not display compass?
+- fix the color of the north needle? note compassRender has mapView in it!
+drawCompassNorth
+- need to turn POI off
+- font is resized as the user resizes the compass
+
+no label shortcut in demo
+self.rootViewController.UIConfigurations[@"UIToolbarMode"]
+        = @"Demo";
 
 * Doing
-- Google Maps satellite
-- oval p-compass on ipad
+- look and feel issues, esp in the satellite view case, font could be larger
 - configurations.json needs to be in source control
 
-switchMap, createMap
+iOS_central_disk_radius
+
+compassRender+Bimodal
+central_disk_radius in compassRender
+
+I should have a central refreshConfigurations
+
+I will try to fix makeGLFrameSize once again
+http://stackoverflow.com/questions/7537118/split-nsstring-by-number-of-whitespaces
+
+
 
 
 

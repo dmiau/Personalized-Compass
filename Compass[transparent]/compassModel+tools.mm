@@ -12,6 +12,21 @@ CGSize makeGLFrameSize(NSAttributedString *attr_str){
                                [NSCharacterSet whitespaceCharacterSet]];
     
     if (whiteSpaceRange.location != NSNotFound){
+        
+        
+        // for labels with white spaces, we need to decide whether to break the label
+        // into multiple lines or not
+        
+        // http://stackoverflow.com/questions/7537118/split-nsstring-by-number-of-whitespaces
+        NSMutableArray *array = (NSMutableArray *)[attr_str.string componentsSeparatedByString:@" "];
+        [array removeObject:@" "]; // This removes all objects like @""
+        
+        // this is a hack
+        if ([array count] == 4){
+            whiteSpaceRange.location = [(NSString*)array[0] length]
+            + [(NSString*)(array[1]) length] + 1;
+        }
+        
         // assume the label has at most two lines, figure out which line longer
         NSMutableAttributedString *firstCopy = attr_str.mutableCopy;
         [[firstCopy mutableString] setString: [attr_str.string substringToIndex:whiteSpaceRange.location]];
@@ -25,8 +40,8 @@ CGSize makeGLFrameSize(NSAttributedString *attr_str){
         
 #ifdef __IPAD__
         // don't know why...
-        t_size.width = t_size.width + 2;
-        t_size.height = t_size.height + 2;
+        t_size.width = t_size.width +2;
+        t_size.height = t_size.height +2;
 #endif
         
     }

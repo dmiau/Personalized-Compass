@@ -41,9 +41,14 @@
   },
   {
   "property": "wedge_correction_x",
-  "value": 1,
+  "value": 0.76,
   "comment": "float"
   },
+  {
+  "property": "iOS_wedge_correction_x",
+  "value": 0.45,
+  "comment": "float"
+  },  
   {
   "property": "wedge_style",
   "value": "modified-orthographic",
@@ -66,17 +71,27 @@
   },
   {
   "property": "circle_color",
-  "value": [40, 202, 252],
+  "value": [58, 134, 226],
   "comment": "old: [70, 161, 251]"
   },
   {
+  "property": "iOS_circle_color",
+  "value": [40, 202, 252],
+  "comment": "old: [70, 161, 251]"
+  },  
+  {
   "property": "disk_color",
-  "value": [100, 100, 100, 150],
+  "value": [80, 80, 80, 100],
   "comment": "the color of the compass disk"
   },
   {
+  "property": "iOS_disk_color",
+  "value": [100, 100, 100, 150],
+  "comment": "the color of the compass disk"
+  },  
+  {
   "property": "landmark_color",
-  "value": [214, 55, 116, 255],
+  "value": [255, 0, 0, 255],
   "comment": "the color of each landmark"
   },  
   {
@@ -86,7 +101,7 @@
   },    
   {
   "property": "compass_disk_radius",
-  "value": 47,
+  "value": 31,
   "comment": "Specify the radius of the compass disk (in pixels)."
   },
   {
@@ -98,15 +113,30 @@
   "property": "iOS_compass_disk_radius",
   "value": 40,
   "comment": "Specify the radius of the compass disk (in pixels)."
-  },    
+  },
+  {
+  "property": "iPad_compass_disk_radius",
+  "value": 60,
+  "comment": "Specify the radius of the compass disk (in pixels)."
+  },      
   {
   "property": "central_disk_radius",
-  "value": 3,
+  "value": 2,
   "comment": "(in pixels)"
   },  
   {
+  "property": "iOS_central_disk_radius",
+  "value": 2.5,
+  "comment": "(in pixels)"
+  },
+  {
+  "property": "iPad_central_disk_radius",
+  "value": 4,
+  "comment": "(in pixels)"
+  },      
+  {
   "property": "north_indicator_to_compass_disk_ratio",
-  "value": 1.42,
+  "value": 1.5,
   "comment": "Specify a number between 0 and 1. This is the ratio of outer_radius/half_canvas_size."
   },
   {
@@ -115,7 +145,7 @@
   },
   {
   "property": "iOS_compass_centroid",
-  "value": [90, 180]
+  "value": [80, 170]
   },
   {
   "property": "iPad_compass_centroid",
@@ -186,7 +216,7 @@
   },
   {
   "property": "em_ios_display_wh",
-  "value": [192, 302],
+  "value": [251, 391],
   "comment": "(width, height))"
   },
   {
@@ -196,7 +226,7 @@
   },  
   {
   "property": "em_ios_watch_radius",
-  "value": 50,
+  "value": 100,
   "comment": "watch radius"
   },
   {

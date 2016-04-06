@@ -145,15 +145,16 @@ void compassRender::drawTriangle(int central_disk_radius, float rotation, float 
 //-------------
 // coreRectangel
 //-------------
-void compassRender::drawRectangle(int central_disk_radius, float rotation, float height)
+void compassRender::drawRectangle(int half_thinkness, float rotation, float height)
 {
     glPushMatrix();
     glRotatef(rotation, 0, 0, -1);
     //    cout << "rotation: " << rotation << endl;
-    Vertex3D    vertex1 = Vertex3DMake(central_disk_radius, 0, 0);
-    Vertex3D    vertex2 = Vertex3DMake(central_disk_radius, height, 0);
-    Vertex3D    vertex3 = Vertex3DMake(-central_disk_radius, height, 0);
-    Vertex3D    vertex4 = Vertex3DMake(-central_disk_radius, 0, 0);
+    
+    Vertex3D    vertex1 = Vertex3DMake(half_thinkness, 0, 0);
+    Vertex3D    vertex2 = Vertex3DMake(half_thinkness, height, 0);
+    Vertex3D    vertex3 = Vertex3DMake(-half_thinkness, height, 0);
+    Vertex3D    vertex4 = Vertex3DMake(-half_thinkness, 0, 0);
     
     Triangle3D  triangle = Triangle3DMake(vertex1, vertex2, vertex3);
     glVertexPointer(3, GL_FLOAT, 0, &triangle);
