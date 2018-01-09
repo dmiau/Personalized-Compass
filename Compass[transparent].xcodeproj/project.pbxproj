@@ -985,6 +985,7 @@
 		9A998D7C194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
 		9A998D7D194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
 		9A998D7E194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
+		9A9C390D1FC77B0A00A3ECC8 /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C390C1FC77B0900A3ECC8 /* testSpec.plist */; };
 		9A9DD7391A86C145005376AB /* EmulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* EmulatediOS.mm */; };
 		9A9DD73A1A86C145005376AB /* EmulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* EmulatediOS.mm */; };
 		9A9DD73B1A86C145005376AB /* EmulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* EmulatediOS.mm */; };
@@ -1297,7 +1298,6 @@
 		9AFC0BA41AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
 		9AFC0BA51AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
 		9AFC0BA61AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
-		9AFC0BA71AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
 		9AFC0BA81AAA505F0085543C /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFC0BA21AAA505F0085543C /* testSpec.plist */; };
 		9AFD8F4C197B2E460099BD88 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F4B197B2E460099BD88 /* snapshotTableViewController.mm */; };
 		9AFD8F4D197B2E460099BD88 /* snapshotTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD8F4B197B2E460099BD88 /* snapshotTableViewController.mm */; };
@@ -1692,6 +1692,7 @@
 		9A998D74194BB99D00778DFC /* iOSViewController+GetLocation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "iOSViewController+GetLocation.mm"; sourceTree = "<group>"; };
 		9A998D77194BC60C00778DFC /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = icons/location.png; sourceTree = "<group>"; };
 		9A998D7B194BCB0900778DFC /* setup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = setup.jpg; path = icons/setup.jpg; sourceTree = "<group>"; };
+		9A9C390C1FC77B0900A3ECC8 /* testSpec.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = testSpec.plist; path = ../../../Apps/pcompass_x/testSpec.plist; sourceTree = "<group>"; };
 		9A9DD7371A86C145005376AB /* EmulatediOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EmulatediOS.mm; sourceTree = "<group>"; };
 		9A9DD7381A86C145005376AB /* EmulatediOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulatediOS.h; sourceTree = "<group>"; };
 		9A9F53611A79962900E3744B /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
@@ -2770,6 +2771,7 @@
 		9AEA57C418D9EBB20028B80C = {
 			isa = PBXGroup;
 			children = (
+				9A9C390C1FC77B0900A3ECC8 /* testSpec.plist */,
 				9A03736F198DA1CF00258E95 /* Box2D */,
 				9A95CCB0194AC5A2008E520F /* iphone copy.entitlements */,
 				9AA789041909BB1200A26C66 /* WebBrowser */,
@@ -3057,7 +3059,7 @@
 				ORGANIZATIONNAME = dmiau;
 				TargetAttributes = {
 					9A4F0F44193E2A8800CF32DE = {
-						DevelopmentTeam = T8L89L97Z5;
+						DevelopmentTeam = ZW2ULQ7FDF;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -3090,7 +3092,7 @@
 						};
 					};
 					9AEA57CC18D9EBB20028B80C = {
-						DevelopmentTeam = T8L89L97Z5;
+						DevelopmentTeam = ZW2ULQ7FDF;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -3144,6 +3146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */,
+				9A9C390D1FC77B0A00A3ECC8 /* testSpec.plist in Resources */,
 				9A9482111991D46A0036249C /* setup.png in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
 				9ADDD7821CB315A000BBBB41 /* demo.snapshot in Resources */,
@@ -3164,7 +3167,6 @@
 				9A8DF92C1A4DBF57002DFCB8 /* DevelopmentNotes.txt in Resources */,
 				9AECA773196AEAB7008ADAEC /* UKLondon.kml in Resources */,
 				9A0060C51AA65CCA00E60F10 /* watchScale.tif in Resources */,
-				9AFC0BA71AAA505F0085543C /* testSpec.plist in Resources */,
 				9A037567198DA31800258E95 /* CMakeLists.txt in Resources */,
 				9AD52F6C1AB3C63B00430FE7 /* UserDefaults.plist in Resources */,
 				9AF273161982865C00C0195B /* snapshotSelected.png in Resources */,
@@ -4499,6 +4501,7 @@
 				CODE_SIGN_ENTITLEMENTS = iphone/iphone.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZW2ULQ7FDF;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4519,7 +4522,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hong.pcompass;
 				PRODUCT_NAME = pcompass;
@@ -4538,6 +4541,7 @@
 				CODE_SIGN_ENTITLEMENTS = iphone/iphone.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZW2ULQ7FDF;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4554,7 +4558,7 @@
 					"$(SRCROOT)/$(PROJECT_NAME)",
 				);
 				INFOPLIST_FILE = "iphone/iphone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hong.pcompass;
 				PRODUCT_NAME = pcompass;
@@ -4776,6 +4780,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZW2ULQ7FDF;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -4794,6 +4799,7 @@
 				);
 				OTHER_CPLUSPLUSFLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dmiau.pcompass.demo;
 				PRODUCT_NAME = CompassMap;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -4808,6 +4814,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZW2ULQ7FDF;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Compass[transparent]/Compass[transparent]-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -4822,6 +4829,7 @@
 				);
 				OTHER_CPLUSPLUSFLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dmiau.pcompass.demo;
 				PRODUCT_NAME = CompassMap;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
