@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<!------------------
+LOCATE
+------------------>	
+	<key>locate_practices</key>
+	<array>
+		<integer>260</integer>
+		<integer>400</integer>
+		<integer>520</integer>
+	</array>
+	<key>locate_trials</key>
+	<array>
+		<integer>310</integer>
+		<integer>496</integer>
+		<integer>681</integer>
+		<integer>866</integer>
+		<integer>1051</integer>
+		<integer>1237</integer>
+	</array>
+<!------------------
+Distance
+------------------>		
+	<key>distance_practices</key>
+	<array>
+		<integer>320</integer>
+		<integer>420</integer>
+		<integer>600</integer>		
+	</array>		
+	<key>distance_trials</key>
+	<array>
+		<integer>480</integer>
+		<integer>800</integer>
+		<integer>1120</integer>
+		<integer>1440</integer>
+		<integer>1760</integer>
+		<integer>2080</integer>
+	</array>
+<!------------------
+Orient
+------------------>			
+	<key>orient_practices_xy</key>
+	<array>
+		<string>85, -396</string>
+		<string>-307, 427</string>
+		<string>-1162, -707</string>
+		<string>981, -163</string>				
+	</array>		
+	<key>orient_trials_xy</key>
+	<array>
+		<!------------------
+		edge, close
+		------------------>					
+		<string>480, 150</string>
+		<string>-100, 570</string>
+		<string>-360, -200</string>
+		<string>80, -450</string>
+
+		<!------------------
+		edge, far
+		------------------>					
+		<string>1440, 150</string>
+		<string>-100, 1530</string>
+		<string>-1440, -200</string>		
+		<string>80, -1050</string>	
+
+		<!------------------
+		corner, close
+		------------------>					
+		<string>261, 554</string>
+		<string>-464, 351</string>
+		<string>-474, -313</string>
+		<string>223, -564</string>
+
+		<!------------------
+		corner, far
+		------------------>					
+		<string>540, 1388</string>
+		<string>-1298, 630</string>
+		<string>-1337, -485</string>
+		<string>395, -1427</string>
+	</array>
+<!------------------
+lplus
+------------------>			
+	<key>lplus_practices_theta</key>
+	<array>
+		<integer>120</integer>
+		<integer>180</integer>		
+		<integer>210</integer>
+	</array>
+	<key>lplus_practices_ratio</key>
+	<array>
+		<real>1.5</real>
+	</array>
+	<key>lplus_practices_base_length</key>
+	<array>
+		<integer>400</integer>	
+	</array>
+	<key>lplus_trials_theta</key>
+	<array>
+		<integer>150</integer>
+		<integer>180</integer>
+		<integer>240</integer>
+	</array>
+	<key>lplus_trials_ratio</key>
+	<array>
+		<real>1.5</real>
+		<real>1.7</real>					
+		<integer>2</integer>
+		<real>2.3</real>		
+	</array>
+	<key>lplus_trials_base_length</key>
+	<array>
+		<integer>500</integer>
+	</array>
+<!------------------
+triangulate
+------------------>				
+	<key>triangulate_practices_theta</key>
+	<array>
+		<integer>120</integer>
+		<integer>180</integer>		
+		<integer>210</integer>
+	</array>
+	<key>triangulate_practices_ratio</key>
+	<array>
+		<real>1.5</real>
+	</array>
+	<key>triangulate_practices_base_length</key>
+	<array>
+		<integer>400</integer>
+	</array>
+	<key>triangulate_trials_theta</key>
+	<array>
+		<integer>150</integer>
+		<integer>180</integer>
+		<integer>240</integer>
+	</array>
+	<key>triangulate_trials_ratio</key>
+	<array>
+		<real>1.5</real>
+		<real>1.7</real>					
+		<integer>2</integer>
+		<real>2.3</real>		
+	</array>
+	<key>triangulate_trials_base_length</key>
+	<array>
+		<integer>500</integer>
+	</array>	
+</dict>
+</plist>

@@ -985,7 +985,6 @@
 		9A998D7C194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
 		9A998D7D194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
 		9A998D7E194BCB0900778DFC /* setup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A998D7B194BCB0900778DFC /* setup.jpg */; };
-		9A9C390D1FC77B0A00A3ECC8 /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C390C1FC77B0900A3ECC8 /* testSpec.plist */; };
 		9A9DD7391A86C145005376AB /* EmulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* EmulatediOS.mm */; };
 		9A9DD73A1A86C145005376AB /* EmulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* EmulatediOS.mm */; };
 		9A9DD73B1A86C145005376AB /* EmulatediOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A9DD7371A86C145005376AB /* EmulatediOS.mm */; };
@@ -1270,6 +1269,7 @@
 		9AF523BB18DC8E95005823A2 /* newyork.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B718DC8E95005823A2 /* newyork.kml */; };
 		9AF523BC18DC8E95005823A2 /* montreal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 9AF523B818DC8E95005823A2 /* montreal.kml */; };
 		9AF5D20518EF2E8B00AC671E /* DesktopViewController+Compass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5D20418EF2E8B00AC671E /* DesktopViewController+Compass.mm */; };
+		9AF733F9200532B80054FCA7 /* testSpec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AF733F8200532B70054FCA7 /* testSpec.plist */; };
 		9AF7EB2E190175F900983C2F /* configurations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7EB2D190175F900983C2F /* configurations.json */; };
 		9AFB149C18EE639A00063632 /* DesktopViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA583418DA35E50028B80C /* DesktopViewController.mm */; };
 		9AFB149E18EE639A00063632 /* DesktopViewController+Table.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF5D8718EB572100F03872 /* DesktopViewController+Table.mm */; };
@@ -1829,6 +1829,7 @@
 		9AF523B818DC8E95005823A2 /* montreal.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = montreal.kml; sourceTree = "<group>"; };
 		9AF5D20318EF2E8B00AC671E /* DesktopViewController+Compass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesktopViewController+Compass.h"; sourceTree = "<group>"; };
 		9AF5D20418EF2E8B00AC671E /* DesktopViewController+Compass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "DesktopViewController+Compass.mm"; sourceTree = "<group>"; };
+		9AF733F8200532B70054FCA7 /* testSpec.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = testSpec.plist; sourceTree = "<group>"; };
 		9AF7EB2D190175F900983C2F /* configurations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configurations.json; sourceTree = "<group>"; };
 		9AFB14BC18EE639A00063632 /* tabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AFB14BD18EE639A00063632 /* tabView.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = tabView.plist; path = "/Users/daniel_miau/Dropbox/Projects/Compass[transparent]/tabView.plist"; sourceTree = "<absolute>"; };
@@ -2772,6 +2773,7 @@
 			isa = PBXGroup;
 			children = (
 				9A9C390C1FC77B0900A3ECC8 /* testSpec.plist */,
+				9AF733F8200532B70054FCA7 /* testSpec.plist */,
 				9A03736F198DA1CF00258E95 /* Box2D */,
 				9A95CCB0194AC5A2008E520F /* iphone copy.entitlements */,
 				9AA789041909BB1200A26C66 /* WebBrowser */,
@@ -3146,7 +3148,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5681B11944A6350021DA97 /* SundayTest.kml in Resources */,
-				9A9C390D1FC77B0A00A3ECC8 /* testSpec.plist in Resources */,
 				9A9482111991D46A0036249C /* setup.png in Resources */,
 				9A4F0FB2193E746200CF32DE /* configurations.json in Resources */,
 				9ADDD7821CB315A000BBBB41 /* demo.snapshot in Resources */,
@@ -3156,6 +3157,7 @@
 				9AB2A71C196372AA0001E96F /* selected.png in Resources */,
 				9A998D68194B721F00778DFC /* line__0000s_0005_compass.png in Resources */,
 				9A998D79194BC60C00778DFC /* location.png in Resources */,
+				9AF733F9200532B80054FCA7 /* testSpec.plist in Resources */,
 				9A4F0FAF193E745900CF32DE /* london.kml in Resources */,
 				9AB90B91194DED0B0030BF5B /* Taiwan.kml in Resources */,
 				9A8CE9EC1A97871F0070D9D4 /* empty.snapshot in Resources */,
